@@ -1,0 +1,189 @@
+{
+  "review_id": "review_wur_aquaponics_basics_20260404T210107Z",
+  "reviewed_from_file": "wur_aquaponics_basics_section_001_20260404T210107Z.json",
+  "source_metadata": {
+    "source_id": "wur_aquaponics_basics",
+    "section_id": "section_001",
+    "source_type": "peer_reviewed_article",
+    "input_filename": "wur_basics_excerpt.txt",
+    "extracted_at_utc": "20260404T210107Z"
+  },
+  "source_registry_status": {
+    "source_id": "wur_aquaponics_basics",
+    "found_in_registry": true,
+    "source_gate": "trusted",
+    "reason": "trusted_source",
+    "evidence_level": "E4",
+    "trust_tier": "tier_1",
+    "trust_status": "trusted"
+  },
+  "summary": {
+    "approved_claim_count": 5,
+    "provisional_claim_count": 0,
+    "rejected_claim_count": 0,
+    "entity_count": 10,
+    "parameter_count": 1,
+    "process_count": 2,
+    "risk_count": 3,
+    "unresolved_item_count": 1
+  },
+  "approved_claims": [
+    {
+      "claim_id": "C1",
+      "statement": "System design should encourage fish keeping and plant culturing technologies that do not inherently uptake or destructively utilise water or nutrient resources added.",
+      "domain": "system_design",
+      "claim_type": "dependency",
+      "confidence": "high"
+    },
+    {
+      "claim_id": "C2",
+      "statement": "Earthen ponds are discouraged.",
+      "domain": "system_design",
+      "claim_type": "risk",
+      "confidence": "high"
+    },
+    {
+      "claim_id": "C3",
+      "statement": "Earthen ponds can use and make unavailable water and nutrient resources to associated fish and plants.",
+      "domain": "water_chemistry",
+      "claim_type": "process",
+      "confidence": "high"
+    },
+    {
+      "claim_id": "C4",
+      "statement": "The use of earthen ponds lowers the water and nutrient use efficiency of the system.",
+      "domain": "operations",
+      "claim_type": "dependency",
+      "confidence": "high"
+    },
+    {
+      "claim_id": "C5",
+      "statement": "Hydroponic plant culturing methods should not use media that uptakes excessive amounts of nutrients or water and renders them unavailable to the plants.",
+      "domain": "system_design",
+      "claim_type": "dependency",
+      "confidence": "high"
+    }
+  ],
+  "provisional_claims": [],
+  "rejected_claims": [],
+  "contradictions": [],
+  "missing_context": [],
+  "entities": [
+    {
+      "entity_id": "E1",
+      "name": "fish keeping technologies",
+      "entity_type": "process"
+    },
+    {
+      "entity_id": "E2",
+      "name": "plant culturing technologies",
+      "entity_type": "process"
+    },
+    {
+      "entity_id": "E3",
+      "name": "earthen ponds",
+      "entity_type": "infrastructure"
+    },
+    {
+      "entity_id": "E4",
+      "name": "hydroponic plant culturing methods",
+      "entity_type": "process"
+    },
+    {
+      "entity_id": "E5",
+      "name": "media",
+      "entity_type": "infrastructure"
+    },
+    {
+      "entity_id": "E6",
+      "name": "water resources",
+      "entity_type": "environmental_factor"
+    },
+    {
+      "entity_id": "E7",
+      "name": "nutrient resources",
+      "entity_type": "chemical"
+    },
+    {
+      "entity_id": "E8",
+      "name": "fish",
+      "entity_type": "organism"
+    },
+    {
+      "entity_id": "E9",
+      "name": "plants",
+      "entity_type": "organism"
+    },
+    {
+      "entity_id": "E10",
+      "name": "system design",
+      "entity_type": "process"
+    }
+  ],
+  "parameters": [
+    {
+      "parameter_id": "P1",
+      "name": "water and nutrient use efficiency",
+      "description": "Efficiency of system use of water and nutrient resources.",
+      "unit": null
+    }
+  ],
+  "processes": [
+    {
+      "process_id": "PR1",
+      "name": "resource uptake by earthen ponds",
+      "inputs": [
+        "water resources",
+        "nutrient resources"
+      ],
+      "outputs": [
+        "unavailable water resources",
+        "unavailable nutrient resources"
+      ],
+      "drivers": [
+        "earthen ponds"
+      ]
+    },
+    {
+      "process_id": "PR2",
+      "name": "resource uptake by hydroponic media",
+      "inputs": [
+        "water resources",
+        "nutrient resources"
+      ],
+      "outputs": [
+        "unavailable water resources",
+        "unavailable nutrient resources"
+      ],
+      "drivers": [
+        "media"
+      ]
+    }
+  ],
+  "risks": [
+    {
+      "risk_id": "R1",
+      "name": "reduced water and nutrient use efficiency",
+      "description": "Use of earthen ponds can lower the water and nutrient use efficiency of the system.",
+      "severity": "medium"
+    },
+    {
+      "risk_id": "R2",
+      "name": "resource unavailability to fish and plants",
+      "description": "Earthen ponds can make water and nutrient resources unavailable to associated fish and plants.",
+      "severity": "medium"
+    },
+    {
+      "risk_id": "R3",
+      "name": "excessive media uptake of resources",
+      "description": "Hydroponic media may uptake excessive amounts of nutrients or water and render them unavailable to plants.",
+      "severity": "medium"
+    }
+  ],
+  "unresolved_items": [
+    {
+      "item_id": "U1",
+      "issue": "Source text contains a malformed phrase: 'fishkeepingcomponentsbasedonusing'."
+    }
+  ]
+}

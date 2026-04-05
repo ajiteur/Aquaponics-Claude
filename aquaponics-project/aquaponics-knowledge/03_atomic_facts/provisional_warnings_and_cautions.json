@@ -1,0 +1,24 @@
+{
+  "facts": [
+    {
+      "fact_id": "PROV_WARN_0001",
+      "statement": "The moderate pH range of 6.8 to 7.2 may be too restrictive for all situations and systems.",
+      "domain": "system_design",
+      "type": "risk",
+      "confidence": "medium",
+      "status": "provisional",
+      "source_metadata": {
+        "source_id": "osu_nitrification_media_bed_hla_6729",
+        "section_id": "section_001",
+        "source_type": "university_extension"
+      },
+      "review_metadata": {
+        "reviewed_from_file": "review_osu_nitrification_media_bed_hla_6729_20260404T215615Z.json",
+        "source_gate": "trusted",
+        "source_gate_reason": "trusted_source"
+      },
+      "merged_at_utc": "20260404T215615Z",
+      "provisional_reason": "medium_confidence_requires_confirmation"
+    }
+  ]
+}

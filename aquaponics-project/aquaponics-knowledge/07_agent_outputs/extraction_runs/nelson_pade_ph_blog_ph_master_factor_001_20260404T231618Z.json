@@ -1,0 +1,207 @@
+{
+  "run_id": "extract_nelson_pade_ph_blog_20260404T231618Z",
+  "model_policy": {
+    "stage": "extract",
+    "model": "gpt-5.4-mini",
+    "reasoning_effort": "low"
+  },
+  "run_config_file": "data\\run_configs\\nelson_pade_ph_01.yaml",
+  "run_config": {
+    "input_filename": "nelson_pade_ph_excerpt.txt",
+    "source_id": "nelson_pade_ph_blog",
+    "section_id": "ph_master_factor_001",
+    "source_type": "commercial_manual"
+  },
+  "source_metadata": {
+    "source_id": "nelson_pade_ph_blog",
+    "section_id": "ph_master_factor_001",
+    "source_type": "commercial_manual",
+    "input_filename": "nelson_pade_ph_excerpt.txt",
+    "extracted_at_utc": "20260404T231618Z"
+  },
+  "extraction": {
+    "entities": [
+      {
+        "entity_id": "e1",
+        "name": "fish",
+        "entity_type": "organism"
+      },
+      {
+        "entity_id": "e2",
+        "name": "beneficial bacteria",
+        "entity_type": "organism"
+      },
+      {
+        "entity_id": "e3",
+        "name": "plants",
+        "entity_type": "organism"
+      },
+      {
+        "entity_id": "e4",
+        "name": "aquaponics system",
+        "entity_type": "infrastructure"
+      },
+      {
+        "entity_id": "e5",
+        "name": "pH",
+        "entity_type": "chemical"
+      },
+      {
+        "entity_id": "e6",
+        "name": "iron",
+        "entity_type": "chemical"
+      },
+      {
+        "entity_id": "e7",
+        "name": "boron",
+        "entity_type": "chemical"
+      },
+      {
+        "entity_id": "e8",
+        "name": "manganese",
+        "entity_type": "chemical"
+      },
+      {
+        "entity_id": "e9",
+        "name": "nitrifying bacteria",
+        "entity_type": "organism"
+      },
+      {
+        "entity_id": "e10",
+        "name": "ammonia",
+        "entity_type": "chemical"
+      },
+      {
+        "entity_id": "e11",
+        "name": "nitrate",
+        "entity_type": "chemical"
+      },
+      {
+        "entity_id": "e12",
+        "name": "nitrification",
+        "entity_type": "process"
+      }
+    ],
+    "claims": [
+      {
+        "claim_id": "c1",
+        "statement": "A pH range of 6.5\u20137.0 is a compromise between the needs of fish, beneficial bacteria, and plants.",
+        "domain": "system_design",
+        "claim_type": "parameter",
+        "confidence": "high"
+      },
+      {
+        "claim_id": "c2",
+        "statement": "A pH range of 6.5\u20137.0 creates an environment that is hospitable for fish, beneficial bacteria, and plants.",
+        "domain": "system_design",
+        "claim_type": "definition",
+        "confidence": "high"
+      },
+      {
+        "claim_id": "c3",
+        "statement": "When system water becomes more basic and pH rises, plants' ability to uptake specific nutrients needed for healthy growth is limited.",
+        "domain": "biology",
+        "claim_type": "process",
+        "confidence": "high"
+      },
+      {
+        "claim_id": "c4",
+        "statement": "At pH 7.8, the availability of iron, boron, and manganese decreases.",
+        "domain": "water_chemistry",
+        "claim_type": "parameter",
+        "confidence": "high"
+      },
+      {
+        "claim_id": "c5",
+        "statement": "The availability of iron, boron, and manganese can decrease even when these elements are present in the water.",
+        "domain": "water_chemistry",
+        "claim_type": "dependency",
+        "confidence": "high"
+      },
+      {
+        "claim_id": "c6",
+        "statement": "When pH decreases and becomes more acidic, nitrifying bacteria performance is affected.",
+        "domain": "biology",
+        "claim_type": "process",
+        "confidence": "high"
+      },
+      {
+        "claim_id": "c7",
+        "statement": "At pH 6.2, nitrification begins to slow down.",
+        "domain": "water_chemistry",
+        "claim_type": "parameter",
+        "confidence": "high"
+      },
+      {
+        "claim_id": "c8",
+        "statement": "Slower nitrification leads to increased ammonia and decreased nitrate levels.",
+        "domain": "water_chemistry",
+        "claim_type": "dependency",
+        "confidence": "high"
+      }
+    ],
+    "parameters": [
+      {
+        "parameter_id": "p1",
+        "name": "recommended pH range",
+        "description": "Compromise pH range between the needs of fish, beneficial bacteria, and plants.",
+        "unit": null
+      },
+      {
+        "parameter_id": "p2",
+        "name": "pH threshold for reduced nutrient availability",
+        "description": "At this pH, availability of iron, boron, and manganese decreases.",
+        "unit": "pH"
+      },
+      {
+        "parameter_id": "p3",
+        "name": "pH threshold for slowed nitrification",
+        "description": "At this pH, nitrification begins to slow down.",
+        "unit": "pH"
+      }
+    ],
+    "processes": [
+      {
+        "process_id": "pr1",
+        "name": "nitrification",
+        "inputs": [
+          "ammonia"
+        ],
+        "outputs": [
+          "nitrate"
+        ],
+        "drivers": [
+          "nitrifying bacteria",
+          "pH"
+        ]
+      }
+    ],
+    "risks": [
+      {
+        "risk_id": "r1",
+        "name": "Reduced nutrient uptake at high pH",
+        "description": "When pH rises and water becomes more basic, plants may have limited ability to uptake specific nutrients needed for healthy growth.",
+        "severity": "medium"
+      },
+      {
+        "risk_id": "r2",
+        "name": "Reduced micronutrient availability at pH 7.8",
+        "description": "At pH 7.8, availability of iron, boron, and manganese decreases.",
+        "severity": "medium"
+      },
+      {
+        "risk_id": "r3",
+        "name": "Reduced nitrifying bacteria performance at low pH",
+        "description": "When pH becomes more acidic, nitrifying bacteria performance is affected.",
+        "severity": "medium"
+      },
+      {
+        "risk_id": "r4",
+        "name": "Accumulation of ammonia and reduced nitrate at low pH",
+        "description": "At pH 6.2, nitrification slows, leading to increased ammonia and decreased nitrate levels.",
+        "severity": "high"
+      }
+    ],
+    "unresolved_items": []
+  }
+}

@@ -1,0 +1,249 @@
+{
+  "review_id": "review_osu_nitrification_media_bed_hla_6729_20260404T212946Z",
+  "reviewed_from_file": "osu_nitrification_media_bed_hla_6729_section_001_20260404T212945Z.json",
+  "source_metadata": {
+    "source_id": "osu_nitrification_media_bed_hla_6729",
+    "section_id": "section_001",
+    "source_type": "university_extension",
+    "input_filename": "osu_nitrification_excerpt.txt",
+    "extracted_at_utc": "20260404T212945Z"
+  },
+  "source_registry_status": {
+    "source_id": "osu_nitrification_media_bed_hla_6729",
+    "found_in_registry": true,
+    "source_gate": "trusted",
+    "reason": "trusted_source",
+    "evidence_level": "E4",
+    "trust_tier": "tier_1",
+    "trust_status": "trusted"
+  },
+  "summary": {
+    "approved_claim_count": 5,
+    "provisional_claim_count": 5,
+    "rejected_claim_count": 0,
+    "entity_count": 11,
+    "parameter_count": 2,
+    "process_count": 2,
+    "risk_count": 2,
+    "unresolved_item_count": 2
+  },
+  "approved_claims": [
+    {
+      "claim_id": "c2",
+      "statement": "Plants absorb some nutrients better at slightly acidic pH ranges.",
+      "domain": "biology",
+      "claim_type": "dependency",
+      "confidence": "high"
+    },
+    {
+      "claim_id": "c3",
+      "statement": "Microbes nitrify better at slightly to moderately alkaline pH ranges.",
+      "domain": "biology",
+      "claim_type": "dependency",
+      "confidence": "high"
+    },
+    {
+      "claim_id": "c6",
+      "statement": "Nitrification affects pH in the system.",
+      "domain": "water_chemistry",
+      "claim_type": "process",
+      "confidence": "high"
+    },
+    {
+      "claim_id": "c7",
+      "statement": "When microbes convert ammonia to nitrate, hydrogen ions are released.",
+      "domain": "water_chemistry",
+      "claim_type": "process",
+      "confidence": "high"
+    },
+    {
+      "claim_id": "c8",
+      "statement": "Release of hydrogen ions lowers pH.",
+      "domain": "water_chemistry",
+      "claim_type": "dependency",
+      "confidence": "high"
+    }
+  ],
+  "provisional_claims": [
+    {
+      "reason": "guideline_or_recommendation_language",
+      "claim": {
+        "claim_id": "c1",
+        "statement": "In aquaponics, a pH range of 6.5 to 7.5 should be maintained.",
+        "domain": "water_chemistry",
+        "claim_type": "parameter",
+        "confidence": "high"
+      }
+    },
+    {
+      "reason": "guideline_or_recommendation_language",
+      "claim": {
+        "claim_id": "c4",
+        "statement": "A pH range of 6.8 to 7.2 is often recommended for aquaponics.",
+        "domain": "water_chemistry",
+        "claim_type": "parameter",
+        "confidence": "high"
+      }
+    },
+    {
+      "reason": "medium_confidence_requires_confirmation",
+      "claim": {
+        "claim_id": "c5",
+        "statement": "The pH range of 6.8 to 7.2 may be too restrictive for all situations and systems.",
+        "domain": "system_design",
+        "claim_type": "risk",
+        "confidence": "medium"
+      }
+    },
+    {
+      "reason": "medium_confidence_requires_confirmation",
+      "claim": {
+        "claim_id": "c9",
+        "statement": "In many systems, it is necessary to add a base.",
+        "domain": "operations",
+        "claim_type": "dependency",
+        "confidence": "medium"
+      }
+    },
+    {
+      "reason": "guideline_or_recommendation_language",
+      "claim": {
+        "claim_id": "c10",
+        "statement": "Potassium hydroxide and calcium hydroxide are examples of bases added in many systems.",
+        "domain": "operations",
+        "claim_type": "parameter",
+        "confidence": "high"
+      }
+    }
+  ],
+  "rejected_claims": [],
+  "contradictions": [],
+  "missing_context": [],
+  "entities": [
+    {
+      "entity_id": "e1",
+      "name": "aquaponics",
+      "entity_type": "process"
+    },
+    {
+      "entity_id": "e2",
+      "name": "plants",
+      "entity_type": "organism"
+    },
+    {
+      "entity_id": "e3",
+      "name": "microbes",
+      "entity_type": "organism"
+    },
+    {
+      "entity_id": "e4",
+      "name": "ammonia",
+      "entity_type": "chemical"
+    },
+    {
+      "entity_id": "e5",
+      "name": "nitrate",
+      "entity_type": "chemical"
+    },
+    {
+      "entity_id": "e6",
+      "name": "hydrogen ions",
+      "entity_type": "chemical"
+    },
+    {
+      "entity_id": "e7",
+      "name": "potassium hydroxide",
+      "entity_type": "chemical"
+    },
+    {
+      "entity_id": "e8",
+      "name": "calcium hydroxide",
+      "entity_type": "chemical"
+    },
+    {
+      "entity_id": "e9",
+      "name": "nitrification",
+      "entity_type": "process"
+    },
+    {
+      "entity_id": "e10",
+      "name": "pH",
+      "entity_type": "environmental_factor"
+    },
+    {
+      "entity_id": "e11",
+      "name": "base",
+      "entity_type": "chemical"
+    }
+  ],
+  "parameters": [
+    {
+      "parameter_id": "p1",
+      "name": "aquaponics pH range",
+      "description": "Recommended pH range to maintain in aquaponics.",
+      "unit": "pH"
+    },
+    {
+      "parameter_id": "p2",
+      "name": "often recommended pH range",
+      "description": "Moderate pH range often recommended for aquaponics.",
+      "unit": "pH"
+    }
+  ],
+  "processes": [
+    {
+      "process_id": "pr1",
+      "name": "nitrification",
+      "inputs": [
+        "ammonia"
+      ],
+      "outputs": [
+        "nitrate",
+        "hydrogen ions"
+      ],
+      "drivers": [
+        "microbes",
+        "pH"
+      ]
+    },
+    {
+      "process_id": "pr2",
+      "name": "pH adjustment by base addition",
+      "inputs": [
+        "base",
+        "potassium hydroxide",
+        "calcium hydroxide"
+      ],
+      "outputs": [
+        "increased pH"
+      ],
+      "drivers": [
+        "low pH caused by hydrogen ions"
+      ]
+    }
+  ],
+  "risks": [
+    {
+      "risk_id": "r1",
+      "name": "pH too restrictive for some systems",
+      "description": "A pH range of 6.8 to 7.2 may be too restrictive for all situations and systems.",
+      "severity": "medium"
+    },
+    {
+      "risk_id": "r2",
+      "name": "pH decline during nitrification",
+      "description": "Nitrification releases hydrogen ions and lowers pH, which may require base addition.",
+      "severity": "medium"
+    }
+  ],
+  "unresolved_items": [
+    {
+      "item_id": "u1",
+      "issue": "The text says the pH range 6.8 to 7.2 is often recommended but may be too restrictive; no specific system conditions are given."
+    },
+    {
+      "item_id": "u2",
+      "issue": "The phrase 'in many systems' is not quantified."
+    }
+  ]
+}

@@ -1,0 +1,184 @@
+{
+  "run_id": "extract_fao_small_scale_aquaponics_2014_20260404T194912Z",
+  "source_metadata": {
+    "source_id": "fao_small_scale_aquaponics_2014",
+    "section_id": "chapter_test_001",
+    "source_type": "official_technical_manual",
+    "input_filename": "nitrogen_cycle_test.txt",
+    "extracted_at_utc": "20260404T194912Z"
+  },
+  "extraction": {
+    "entities": [
+      {
+        "entity_id": "e1",
+        "name": "Aquaponics system",
+        "entity_type": "infrastructure"
+      },
+      {
+        "entity_id": "e2",
+        "name": "Nitrogen cycle",
+        "entity_type": "process"
+      },
+      {
+        "entity_id": "e3",
+        "name": "Fish",
+        "entity_type": "organism"
+      },
+      {
+        "entity_id": "e4",
+        "name": "Nitrifying bacteria",
+        "entity_type": "organism"
+      },
+      {
+        "entity_id": "e5",
+        "name": "Plants",
+        "entity_type": "organism"
+      },
+      {
+        "entity_id": "e6",
+        "name": "Ammonia",
+        "entity_type": "chemical"
+      },
+      {
+        "entity_id": "e7",
+        "name": "Nitrite",
+        "entity_type": "chemical"
+      },
+      {
+        "entity_id": "e8",
+        "name": "Nitrate",
+        "entity_type": "chemical"
+      },
+      {
+        "entity_id": "e9",
+        "name": "Dissolved oxygen",
+        "entity_type": "environmental_factor"
+      },
+      {
+        "entity_id": "e10",
+        "name": "Nitrification",
+        "entity_type": "process"
+      }
+    ],
+    "claims": [
+      {
+        "claim_id": "c1",
+        "statement": "Aquaponics systems rely on the nitrogen cycle to convert fish waste into plant nutrients.",
+        "domain": "system_design",
+        "claim_type": "dependency",
+        "confidence": "high"
+      },
+      {
+        "claim_id": "c2",
+        "statement": "Fish excrete ammonia into the water.",
+        "domain": "biology",
+        "claim_type": "process",
+        "confidence": "high"
+      },
+      {
+        "claim_id": "c3",
+        "statement": "Ammonia is toxic at high concentrations.",
+        "domain": "risk",
+        "claim_type": "risk",
+        "confidence": "high"
+      },
+      {
+        "claim_id": "c4",
+        "statement": "Nitrifying bacteria convert ammonia to nitrite and then nitrate.",
+        "domain": "biology",
+        "claim_type": "process",
+        "confidence": "high"
+      },
+      {
+        "claim_id": "c5",
+        "statement": "Plants absorb nitrate for growth, helping to clean the water.",
+        "domain": "biology",
+        "claim_type": "process",
+        "confidence": "high"
+      },
+      {
+        "claim_id": "c6",
+        "statement": "Low dissolved oxygen levels can reduce the efficiency of nitrification.",
+        "domain": "water_chemistry",
+        "claim_type": "dependency",
+        "confidence": "high"
+      }
+    ],
+    "parameters": [
+      {
+        "parameter_id": "p1",
+        "name": "Dissolved oxygen level",
+        "description": "Concentration of oxygen dissolved in water; low levels can reduce nitrification efficiency.",
+        "unit": null
+      },
+      {
+        "parameter_id": "p2",
+        "name": "Ammonia concentration",
+        "description": "Concentration of ammonia in system water; toxic at high levels.",
+        "unit": null
+      },
+      {
+        "parameter_id": "p3",
+        "name": "Nitrification efficiency",
+        "description": "Effectiveness of conversion of ammonia to nitrite and nitrate by nitrifying bacteria; reduced at low dissolved oxygen.",
+        "unit": null
+      }
+    ],
+    "processes": [
+      {
+        "process_id": "pr1",
+        "name": "Nitrogen cycle in aquaponics",
+        "inputs": [
+          "ammonia"
+        ],
+        "outputs": [
+          "nitrate"
+        ],
+        "drivers": [
+          "nitrifying bacteria",
+          "plants"
+        ]
+      },
+      {
+        "process_id": "pr2",
+        "name": "Nitrification",
+        "inputs": [
+          "ammonia"
+        ],
+        "outputs": [
+          "nitrite",
+          "nitrate"
+        ],
+        "drivers": [
+          "nitrifying bacteria",
+          "dissolved oxygen"
+        ]
+      },
+      {
+        "process_id": "pr3",
+        "name": "Plant nitrate uptake",
+        "inputs": [
+          "nitrate"
+        ],
+        "outputs": [
+          "plant growth",
+          "cleaner water"
+        ],
+        "drivers": [
+          "plants"
+        ]
+      }
+    ],
+    "risks": [],
+    "unresolved_items": [
+      {
+        "item_id": "u1",
+        "issue": "Thresholds for ammonia toxicity are not specified."
+      },
+      {
+        "item_id": "u2",
+        "issue": "Quantitative dissolved oxygen levels required for optimal nitrification are not provided."
+      }
+    ]
+  }
+}

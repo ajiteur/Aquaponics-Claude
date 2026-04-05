@@ -1,0 +1,18 @@
+rules:
+  - id: domain_not_allowlisted
+    action: reject
+
+  - id: missing_attribution_and_date
+    action: reject
+
+  - id: seo_or_affiliate_pattern
+    action: reject
+
+  - id: non_citable_random_host
+    action: reject
+
+  - id: paywalled_without_rights
+    action: metadata_only
+
+  - id: non_english_not_whitelisted
+    action: reject

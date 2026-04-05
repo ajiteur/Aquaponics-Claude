@@ -1,0 +1,61 @@
+{
+  "facts": [
+    {
+      "fact_id": "WARN_0001",
+      "statement": "Using earthen ponds can lower the water and nutrient use efficiency of the system.",
+      "domain": "operations",
+      "type": "risk",
+      "confidence": "high",
+      "status": "accepted",
+      "source_metadata": {
+        "source_id": "wur_aquaponics_basics",
+        "section_id": "section_001",
+        "source_type": "peer_reviewed_article"
+      },
+      "review_metadata": {
+        "reviewed_from_file": "review_wur_aquaponics_basics_20260404T214315Z.json",
+        "source_gate": "trusted",
+        "source_gate_reason": "trusted_source"
+      },
+      "merged_at_utc": "20260404T214315Z"
+    },
+    {
+      "fact_id": "WARN_0002",
+      "statement": "The proportion of non-toxic to toxic ammonia increases greatly as pH increases.",
+      "domain": "water_chemistry",
+      "type": "dependency",
+      "confidence": "high",
+      "status": "accepted",
+      "source_metadata": {
+        "source_id": "nmsu_cr680_water_quality_parameters",
+        "section_id": "ph_section_001",
+        "source_type": "university_extension"
+      },
+      "review_metadata": {
+        "reviewed_from_file": "review_nmsu_cr680_water_quality_parameters_20260404T222043Z.json",
+        "source_gate": "trusted",
+        "source_gate_reason": "trusted_source"
+      },
+      "merged_at_utc": "20260404T222043Z"
+    },
+    {
+      "fact_id": "WARN_0003",
+      "statement": "Warmer water has more toxic NH3 at a given pH than cooler water.",
+      "domain": "water_chemistry",
+      "type": "dependency",
+      "confidence": "high",
+      "status": "accepted",
+      "source_metadata": {
+        "source_id": "nmsu_cr680_water_quality_parameters",
+        "section_id": "ph_section_001",
+        "source_type": "university_extension"
+      },
+      "review_metadata": {
+        "reviewed_from_file": "review_nmsu_cr680_water_quality_parameters_20260404T222043Z.json",
+        "source_gate": "trusted",
+        "source_gate_reason": "trusted_source"
+      },
+      "merged_at_utc": "20260404T222043Z"
+    }
+  ]
+}

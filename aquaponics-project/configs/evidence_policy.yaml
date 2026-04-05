@@ -1,0 +1,32 @@
+levels:
+  E5:
+    label: official_technical_manual_or_standard
+    score: 5
+  E4:
+    label: university_extension_or_experiment_station
+    score: 4
+  E3:
+    label: peer_reviewed_research
+    score: 3
+  E2:
+    label: reputable_textbook_or_monograph
+    score: 2
+  E1:
+    label: industry_association
+    score: 1
+  E0:
+    label: commercial_blog_forum_or_untrusted
+    score: 0
+
+fact_confidence_rules:
+  high:
+    min_evidence: E4
+    requires_directness: true
+    requires_complete_context: true
+    requires_no_known_contradiction: true
+  medium:
+    min_evidence: E3
+    allows_paraphrase: true
+    requires_partial_context: true
+  low:
+    fallback: true

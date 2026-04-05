@@ -1,0 +1,35 @@
+lifecycle:
+  - candidate
+  - provisional
+  - accepted
+
+promotion_rules:
+  candidate:
+    min_source_allowlisted: true
+    required_metadata:
+      - url
+      - retrieval_date
+      - source_id
+
+  provisional:
+    min_evidence: E3
+    required_metadata:
+      - section_or_page_anchor
+      - excerpt_hash
+      - canonical_units
+
+  accepted:
+    min_evidence: E4
+    allow_e3_if_corroborated: true
+    required_metadata:
+      - stable_identifier
+      - exact_location_pointer
+      - normalized_context_tags
+      - unit_conversion_trace
+
+human_gate:
+  severity_gte: 2
+  required_for:
+    - toxicity_thresholds
+    - balancing_ratios
+    - hard_constraints

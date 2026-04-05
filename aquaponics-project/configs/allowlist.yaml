@@ -1,0 +1,21 @@
+tiers:
+  tier_1:
+    - openknowledge.fao.org
+    - www.fao.org
+    - edepot.wur.nl
+    - research.wur.nl
+    - extension.okstate.edu
+    - extension.msstate.edu
+    - pubs.nmsu.edu
+    - www.uvi.edu
+
+  tier_2:
+    - library.oapen.org
+    - link.springer.com
+    - www.sciencedirect.com
+    - onlinelibrary.wiley.com
+    - doi.org
+
+  tier_3:
+    - pentairaes.com
+    - aquaponics.com

@@ -1,0 +1,104 @@
+{
+  "facts": [
+    {
+      "fact_id": "PROV_PARAM_0001",
+      "statement": "In aquaponics, a pH range of 6.5 to 7.5 should be maintained.",
+      "domain": "water_chemistry",
+      "type": "parameter",
+      "confidence": "high",
+      "status": "provisional",
+      "source_metadata": {
+        "source_id": "osu_nitrification_media_bed_hla_6729",
+        "section_id": "section_001",
+        "source_type": "university_extension"
+      },
+      "review_metadata": {
+        "reviewed_from_file": "review_osu_nitrification_media_bed_hla_6729_20260404T215615Z.json",
+        "source_gate": "trusted",
+        "source_gate_reason": "trusted_source"
+      },
+      "merged_at_utc": "20260404T215615Z",
+      "provisional_reason": "guideline_or_recommendation_language"
+    },
+    {
+      "fact_id": "PROV_PARAM_0002",
+      "statement": "A moderate pH range of 6.8 to 7.2 is often recommended for aquaponics.",
+      "domain": "water_chemistry",
+      "type": "parameter",
+      "confidence": "high",
+      "status": "provisional",
+      "source_metadata": {
+        "source_id": "osu_nitrification_media_bed_hla_6729",
+        "section_id": "section_001",
+        "source_type": "university_extension"
+      },
+      "review_metadata": {
+        "reviewed_from_file": "review_osu_nitrification_media_bed_hla_6729_20260404T215615Z.json",
+        "source_gate": "trusted",
+        "source_gate_reason": "trusted_source"
+      },
+      "merged_at_utc": "20260404T215615Z",
+      "provisional_reason": "guideline_or_recommendation_language"
+    },
+    {
+      "fact_id": "PROV_PARAM_0003",
+      "statement": "TAN in aquaponics systems is recommended to be maintained at less than 1 ppm.",
+      "domain": "operations",
+      "type": "parameter",
+      "confidence": "high",
+      "status": "provisional",
+      "source_metadata": {
+        "source_id": "nmsu_cr680_water_quality_parameters",
+        "section_id": "ph_section_001",
+        "source_type": "university_extension"
+      },
+      "review_metadata": {
+        "reviewed_from_file": "review_nmsu_cr680_water_quality_parameters_20260404T222043Z.json",
+        "source_gate": "trusted",
+        "source_gate_reason": "trusted_source"
+      },
+      "merged_at_utc": "20260404T222043Z",
+      "provisional_reason": "guideline_or_recommendation_language"
+    },
+    {
+      "fact_id": "PROV_PARAM_0004",
+      "statement": "At pH 7.8, the availability of iron, boron, and manganese decreases even if they are present in the water.",
+      "domain": "water_chemistry",
+      "type": "parameter",
+      "confidence": "high",
+      "status": "provisional",
+      "source_metadata": {
+        "source_id": "nelson_pade_ph_blog",
+        "section_id": "ph_master_factor_001",
+        "source_type": "commercial_manual"
+      },
+      "review_metadata": {
+        "reviewed_from_file": "review_nelson_pade_ph_blog_20260404T232541Z.json",
+        "source_gate": "conditional",
+        "source_gate_reason": "source_conditional"
+      },
+      "merged_at_utc": "20260404T232541Z",
+      "provisional_reason": "source_conditional"
+    },
+    {
+      "fact_id": "PROV_PARAM_0005",
+      "statement": "At pH 6.2, nitrification begins to slow down.",
+      "domain": "water_chemistry",
+      "type": "parameter",
+      "confidence": "high",
+      "status": "provisional",
+      "source_metadata": {
+        "source_id": "nelson_pade_ph_blog",
+        "section_id": "ph_master_factor_001",
+        "source_type": "commercial_manual"
+      },
+      "review_metadata": {
+        "reviewed_from_file": "review_nelson_pade_ph_blog_20260404T232541Z.json",
+        "source_gate": "conditional",
+        "source_gate_reason": "source_conditional"
+      },
+      "merged_at_utc": "20260404T232541Z",
+      "provisional_reason": "source_conditional"
+    }
+  ]
+}

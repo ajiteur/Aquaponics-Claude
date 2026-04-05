@@ -1,0 +1,80 @@
+stages:
+  discovery:
+    goal: generate candidate sources from seed queries
+    use_llm: true
+    model: gpt-5.4-mini
+    reasoning_effort: low
+    notes:
+      - Use web search with seed queries
+      - Prefer site: and filetype:pdf filters
+      - Keep cost low
+
+  filter:
+    goal: apply allowlist and basic QA checks
+    use_llm: false
+    model: null
+    reasoning_effort: null
+    notes:
+      - Prefer deterministic code
+      - Optionally allow gpt-5.4-nano only for edge-case classification
+
+  acquire:
+    goal: download metadata and raw content, then hash and store
+    use_llm: false
+    model: null
+    reasoning_effort: null
+    notes:
+      - Use deterministic code only
+      - Respect publisher access rights
+      - Metadata-first on paywalled domains
+
+  extract:
+    goal: convert chunks into entities, facts, parameters, processes, and risks
+    use_llm: true
+    model: gpt-5.4-mini
+    reasoning_effort: low
+    notes:
+      - Raise to medium for dense PDFs
+      - Always use structured outputs / JSON schema
+      - Do not invent facts
+
+  review:
+    goal: deduplicate, score evidence, sanity-check, and detect contradictions
+    use_llm: true
+    model: gpt-5.4
+    reasoning_effort: medium
+    notes:
+      - Raise to high for difficult cases
+      - Combine with deterministic checks
+      - Source trust and context completeness matter here
+
+  merge:
+    goal: write reviewed items into repository files and update logs
+    use_llm: false
+    model: null
+    reasoning_effort: null
+    notes:
+      - Prefer deterministic code
+      - Optionally use gpt-5.4-mini for mapping edge cases only
+
+  conflict_resolution:
+    goal: resolve severity 2+ contradictions with structured arguments and citations
+    use_llm: true
+    model: gpt-5.4-pro
+    reasoning_effort: high
+    notes:
+      - Use for hard arbitration only
+      - Human gate recommended for severity 2 and always for severity 3
+
+api_bot:
+  model: gpt-5
+  reasoning_effort: medium
+
+research_bot:
+  model: gpt-5
+  reasoning_effort: medium
+
+scenario_bot:
+  model: gpt-5
+  reasoning_effort: medium
+

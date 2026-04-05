@@ -1,0 +1,332 @@
+sources:
+  - source_id: fao_small_scale_aquaponics_2014
+    title: "Small-scale aquaponic food production: Integrated fish and plant farming"
+    organisation: "Food and Agriculture Organization of the United Nations (FAO)"
+    authors:
+      - "Somerville, C."
+      - "Cohen, M."
+      - "Pantanella, E."
+      - "Stankus, A."
+      - "Lovatelli, A."
+    year: 2014
+    source_type: official_technical_manual
+    publisher_or_host: openknowledge.fao.org
+    url_canonical: "https://openknowledge.fao.org/items/e4d11efd-d97a-4959-8ae2-8b7d3fd32c5e"
+    urls:
+      - "https://openknowledge.fao.org/bitstreams/22c77ec5-16e4-4d4e-a71f-55ff85a2492c/download"
+    language: en
+    licence: null
+    jurisdiction: UN_Global
+    domains:
+      - openknowledge.fao.org
+      - www.fao.org
+    evidence_level: E5
+    trust_tier: tier_1
+    trust_status: trusted
+    retrieval:
+      first_seen_utc: null
+      last_checked_utc: null
+      content_type: application/pdf
+      sha256: null
+    scope_tags:
+      system_types:
+        - media_bed
+        - nft
+        - dwc
+      coupling_modes:
+        - coupled
+      species: []
+      topics:
+        - nitrogen_cycle
+        - water_quality
+        - system_balance
+        - design
+    quality_notes:
+      notes: "Primary anchor manual for Layer 1."
+      known_limitations:
+        - "Focused on small-scale systems."
+        - "Commercial economics are not its main strength."
+
+  - source_id: wur_aquaponics_basics
+    title: "Aquaponics: The Basics"
+    organisation: "Wageningen University & Research / Springer"
+    authors:
+      - "Lennard, W."
+      - "Goddek, S."
+    year: null
+    source_type: peer_reviewed_article
+    publisher_or_host: edepot.wur.nl
+    url_canonical: "https://edepot.wur.nl/630747"
+    urls:
+      - "https://edepot.wur.nl/630747"
+    language: en
+    licence: null
+    jurisdiction: null
+    domains:
+      - edepot.wur.nl
+      - research.wur.nl
+      - wur.nl
+    evidence_level: E4
+    trust_tier: tier_1
+    trust_status: trusted
+    retrieval:
+      first_seen_utc: null
+      last_checked_utc: null
+      content_type: application/pdf
+      sha256: null
+    scope_tags:
+      system_types: []
+      coupling_modes:
+        - coupled
+        - decoupled
+      species: []
+      topics:
+        - terminology
+        - system_configuration
+        - nutrient_sharing
+        - system_design
+    quality_notes:
+      notes: "High-quality framing source for ontology and configuration concepts."
+      known_limitations:
+        - "High-level overview rather than narrow operational manual."
+
+  - source_id: uvi_design_operation_system
+    title: "Design and Operation of the UVI Aquaponic System"
+    organisation: "University of the Virgin Islands"
+    authors:
+      - "Rakocy, J. E."
+      - "Masser, M. P."
+      - "Losordo, T. M."
+    year: null
+    source_type: experiment_station_report
+    publisher_or_host: uvi.edu
+    url_canonical: "https://www.uvi.edu/files/documents/Research_and_Public_Service/WRRI/UVIAquaponicSystem.pdf"
+    urls:
+      - "https://www.uvi.edu/files/documents/Research_and_Public_Service/WRRI/UVIAquaponicSystem.pdf"
+    language: en
+    licence: null
+    jurisdiction: US
+    domains:
+      - www.uvi.edu
+      - uvi.edu
+    evidence_level: E4
+    trust_tier: tier_1
+    trust_status: trusted
+    retrieval:
+      first_seen_utc: null
+      last_checked_utc: null
+      content_type: application/pdf
+      sha256: null
+    scope_tags:
+      system_types:
+        - raft
+        - dwc
+      coupling_modes:
+        - coupled
+      species: []
+      topics:
+        - system_topology
+        - design
+        - operation
+        - benchmarking
+    quality_notes:
+      notes: "Useful benchmark reference for design and operating assumptions."
+      known_limitations:
+        - "Represents a specific system design, not every aquaponic configuration."
+
+  - source_id: srac_454_aquaponics_integrating_fish_plant
+    title: "Aquaponics—Integrating Fish and Plant Culture"
+    organisation: "Southern Regional Aquaculture Center (SRAC)"
+    authors:
+      - "Rakocy, J. E."
+      - "Masser, M. P."
+      - "Losordo, T. M."
+    year: null
+    source_type: university_extension
+    publisher_or_host: extension-hosted SRAC PDF
+    url_canonical: "https://aquaculture.mgcafe.uky.edu/sites/aquaculture.ca.uky.edu/files/srac_454_recirculating_aquaculture_tank_production_systems_-_aquaponics_-_integrating_fish_and_plant_culture_0.pdf"
+    urls:
+      - "https://aquaculture.mgcafe.uky.edu/sites/aquaculture.ca.uky.edu/files/srac_454_recirculating_aquaculture_tank_production_systems_-_aquaponics_-_integrating_fish_and_plant_culture_0.pdf"
+      - "https://extension.okstate.edu/fact-sheets/print-publications/srac/recirculating-aquaculture-tank-production-systems-aquaponics-integrating-fish-and-plant-culture-srac-454.pdf"
+    language: en
+    licence: null
+    jurisdiction: US
+    domains:
+      - aquaculture.mgcafe.uky.edu
+      - extension.okstate.edu
+      - ncrac.org
+    evidence_level: E4
+    trust_tier: tier_1
+    trust_status: trusted
+    retrieval:
+      first_seen_utc: null
+      last_checked_utc: null
+      content_type: application/pdf
+      sha256: null
+    scope_tags:
+      system_types: []
+      coupling_modes:
+        - coupled
+      species: []
+      topics:
+        - balancing_heuristics
+        - operation
+        - design_rules
+        - feed_to_plant_area
+    quality_notes:
+      notes: "Applied extension-style synthesis bridging theory and operations."
+      known_limitations:
+        - "Rules of thumb should be context-tagged, not treated as universal laws."
+
+  - source_id: osu_nitrification_media_bed_hla_6729
+    title: "Nitrification and Maintenance in Media Bed Aquaponics"
+    organisation: "Oklahoma State University Extension"
+    authors: []
+    year: null
+    source_type: university_extension
+    publisher_or_host: extension.okstate.edu
+    url_canonical: "https://extension.okstate.edu/fact-sheets/nitrification-and-maintenance-in-media-bed-aquaponics"
+    urls:
+      - "https://extension.okstate.edu/fact-sheets/nitrification-and-maintenance-in-media-bed-aquaponics"
+      - "https://extension.okstate.edu/fact-sheets/print-publications/hla/nitrification-and-maintenance-in-media-bed-aquaponics-hla-6729.pdf"
+    language: en
+    licence: null
+    jurisdiction: US
+    domains:
+      - extension.okstate.edu
+    evidence_level: E4
+    trust_tier: tier_1
+    trust_status: trusted
+    retrieval:
+      first_seen_utc: null
+      last_checked_utc: null
+      content_type: text_html_or_pdf
+      sha256: null
+    scope_tags:
+      system_types:
+        - media_bed
+      coupling_modes:
+        - coupled
+      species: []
+      topics:
+        - nitrification
+        - cycling
+        - water_quality
+        - operations
+        - failure_modes
+    quality_notes:
+      notes: "High-signal operational source for cycling and monitoring."
+      known_limitations:
+        - "Media-bed-specific guidance should not be generalized blindly."
+
+  - source_id: msstate_catfish_water_quality
+    title: "Catfish Water Quality"
+    organisation: "Mississippi State University Extension"
+    authors: []
+    year: null
+    source_type: university_extension
+    publisher_or_host: extension.msstate.edu
+    url_canonical: "https://extension.msstate.edu/agriculture/catfish/catfish-water-quality"
+    urls:
+      - "https://extension.msstate.edu/agriculture/catfish/catfish-water-quality"
+    language: en
+    licence: null
+    jurisdiction: US
+    domains:
+      - extension.msstate.edu
+    evidence_level: E4
+    trust_tier: tier_1
+    trust_status: trusted
+    retrieval:
+      first_seen_utc: null
+      last_checked_utc: null
+      content_type: text_html
+      sha256: null
+    scope_tags:
+      system_types: []
+      coupling_modes: []
+      species:
+        - catfish
+      topics:
+        - dissolved_oxygen
+        - ammonia
+        - nitrite
+        - fish_health
+        - water_quality
+    quality_notes:
+      notes: "Strong aquaculture water-quality framing for fish-risk variables."
+      known_limitations:
+        - "Not aquaponics-specific; use with context tags."
+
+  - source_id: nmsu_cr680_water_quality_parameters
+    title: "Important Water Quality Parameters in Aquaponics Systems"
+    organisation: "New Mexico State University Extension"
+    authors: []
+    year: null
+    source_type: university_extension
+    publisher_or_host: pubs.nmsu.edu
+    url_canonical: "https://pubs.nmsu.edu/_circulars/CR680.pdf"
+    urls:
+      - "https://pubs.nmsu.edu/_circulars/CR680.pdf"
+    language: en
+    licence: null
+    jurisdiction: US
+    domains:
+      - pubs.nmsu.edu
+    evidence_level: E4
+    trust_tier: tier_1
+    trust_status: trusted
+    retrieval:
+      first_seen_utc: null
+      last_checked_utc: null
+      content_type: application/pdf
+      sha256: null
+    scope_tags:
+      system_types: []
+      coupling_modes: []
+      species: []
+      topics:
+        - water_quality
+        - biofilter
+        - monitoring
+        - nutrient_cycling
+    quality_notes:
+      notes: "Useful aquaponics-focused baseline source for water-quality ontology."
+      known_limitations:
+        - "Best used as practical guidance, not sole authority for hard thresholds."
+  - source_id: nelson_pade_ph_blog
+    title: "pH: The Master Factor in Aquaponics"
+    organisation: "Nelson and Pade / Aquaponics.com"
+    authors: []
+    year: null
+    source_type: commercial_manual
+    publisher_or_host: aquaponics.com
+    url_canonical: "https://aquaponics.com/nelson-and-pade-blog/ph-the-master-factor-in-aquaponics/"
+    urls:
+      - "https://aquaponics.com/nelson-and-pade-blog/ph-the-master-factor-in-aquaponics/"
+    language: en
+    licence: null
+    jurisdiction: null
+    domains:
+      - aquaponics.com
+    evidence_level: E0
+    trust_tier: tier_3
+    trust_status: conditional
+    retrieval:
+      first_seen_utc: null
+      last_checked_utc: null
+      content_type: text_html
+      sha256: null
+    scope_tags:
+      system_types: []
+      coupling_modes: []
+      species: []
+      topics:
+        - pH
+        - nitrification
+        - nutrient_availability
+        - operational_guidance
+    quality_notes:
+      notes: "Commercial source; secondary evidence only."
+      known_limitations:
+        - "Do not accept biological thresholds without Tier 1 or Tier 2 corroboration."

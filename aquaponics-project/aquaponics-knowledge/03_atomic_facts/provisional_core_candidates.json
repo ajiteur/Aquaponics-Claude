@@ -1,0 +1,104 @@
+{
+  "facts": [
+    {
+      "fact_id": "PROV_CORE_0001",
+      "statement": "A pH range of 6.5-7.0 is a compromise between the needs of fish, beneficial bacteria, and plants.",
+      "domain": "water_chemistry",
+      "type": "definition",
+      "confidence": "high",
+      "status": "provisional",
+      "source_metadata": {
+        "source_id": "nelson_pade_ph_blog",
+        "section_id": "ph_master_factor_001",
+        "source_type": "commercial_manual"
+      },
+      "review_metadata": {
+        "reviewed_from_file": "review_nelson_pade_ph_blog_20260404T232541Z.json",
+        "source_gate": "conditional",
+        "source_gate_reason": "source_conditional"
+      },
+      "merged_at_utc": "20260404T232541Z",
+      "provisional_reason": "source_conditional"
+    },
+    {
+      "fact_id": "PROV_CORE_0002",
+      "statement": "A pH range of 6.5-7.0 creates an environment that is hospitable for fish, beneficial bacteria, and plants.",
+      "domain": "system_design",
+      "type": "dependency",
+      "confidence": "high",
+      "status": "provisional",
+      "source_metadata": {
+        "source_id": "nelson_pade_ph_blog",
+        "section_id": "ph_master_factor_001",
+        "source_type": "commercial_manual"
+      },
+      "review_metadata": {
+        "reviewed_from_file": "review_nelson_pade_ph_blog_20260404T232541Z.json",
+        "source_gate": "conditional",
+        "source_gate_reason": "source_conditional"
+      },
+      "merged_at_utc": "20260404T232541Z",
+      "provisional_reason": "source_conditional"
+    },
+    {
+      "fact_id": "PROV_CORE_0003",
+      "statement": "When system water becomes more basic and pH rises, plants' ability to uptake specific nutrients needed for healthy growth is limited.",
+      "domain": "biology",
+      "type": "process",
+      "confidence": "high",
+      "status": "provisional",
+      "source_metadata": {
+        "source_id": "nelson_pade_ph_blog",
+        "section_id": "ph_master_factor_001",
+        "source_type": "commercial_manual"
+      },
+      "review_metadata": {
+        "reviewed_from_file": "review_nelson_pade_ph_blog_20260404T232541Z.json",
+        "source_gate": "conditional",
+        "source_gate_reason": "source_conditional"
+      },
+      "merged_at_utc": "20260404T232541Z",
+      "provisional_reason": "source_conditional"
+    },
+    {
+      "fact_id": "PROV_CORE_0004",
+      "statement": "When pH decreases and becomes more acidic, nitrifying bacteria performance is affected.",
+      "domain": "biology",
+      "type": "process",
+      "confidence": "high",
+      "status": "provisional",
+      "source_metadata": {
+        "source_id": "nelson_pade_ph_blog",
+        "section_id": "ph_master_factor_001",
+        "source_type": "commercial_manual"
+      },
+      "review_metadata": {
+        "reviewed_from_file": "review_nelson_pade_ph_blog_20260404T232541Z.json",
+        "source_gate": "conditional",
+        "source_gate_reason": "source_conditional"
+      },
+      "merged_at_utc": "20260404T232541Z",
+      "provisional_reason": "source_conditional"
+    },
+    {
+      "fact_id": "PROV_CORE_0005",
+      "statement": "When nitrification slows down, ammonia increases and nitrate decreases.",
+      "domain": "water_chemistry",
+      "type": "process",
+      "confidence": "high",
+      "status": "provisional",
+      "source_metadata": {
+        "source_id": "nelson_pade_ph_blog",
+        "section_id": "ph_master_factor_001",
+        "source_type": "commercial_manual"
+      },
+      "review_metadata": {
+        "reviewed_from_file": "review_nelson_pade_ph_blog_20260404T232541Z.json",
+        "source_gate": "conditional",
+        "source_gate_reason": "source_conditional"
+      },
+      "merged_at_utc": "20260404T232541Z",
+      "provisional_reason": "source_conditional"
+    }
+  ]
+}

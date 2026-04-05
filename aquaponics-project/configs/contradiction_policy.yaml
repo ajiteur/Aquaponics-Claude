@@ -1,0 +1,30 @@
+normalization:
+  required: true
+  canonical_units:
+    - mg/L
+    - C
+    - g/day/m2
+  canonical_variables:
+    - TAN
+    - NH3_N
+    - ammonia
+    - nitrite
+    - nitrate
+    - dissolved_oxygen
+    - pH
+
+conflict_types:
+  - numeric_range_conflict
+  - formula_conflict
+  - definition_conflict
+  - policy_conflict
+
+severity:
+  critical: 3
+  major: 2
+  minor: 1
+
+rules:
+  - if_severity_gte: 2
+    action: create_contradiction_ticket
+    auto_promote: false

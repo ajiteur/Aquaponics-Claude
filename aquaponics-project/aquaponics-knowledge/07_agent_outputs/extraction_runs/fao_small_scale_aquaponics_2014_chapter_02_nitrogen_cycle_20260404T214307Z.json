@@ -1,0 +1,207 @@
+{
+  "run_id": "extract_fao_small_scale_aquaponics_2014_20260404T214307Z",
+  "model_policy": {
+    "stage": "extract",
+    "model": "gpt-5.4-mini",
+    "reasoning_effort": "low"
+  },
+  "run_config_file": "data\\run_configs\\fao_ch02.yaml",
+  "run_config": {
+    "input_filename": "fao_nitrogen_cycle_excerpt.txt",
+    "source_id": "fao_small_scale_aquaponics_2014",
+    "section_id": "chapter_02_nitrogen_cycle",
+    "source_type": "official_technical_manual"
+  },
+  "source_metadata": {
+    "source_id": "fao_small_scale_aquaponics_2014",
+    "section_id": "chapter_02_nitrogen_cycle",
+    "source_type": "official_technical_manual",
+    "input_filename": "fao_nitrogen_cycle_excerpt.txt",
+    "extracted_at_utc": "20260404T214307Z"
+  },
+  "extraction": {
+    "entities": [
+      {
+        "entity_id": "e1",
+        "name": "aquaponics",
+        "entity_type": "process"
+      },
+      {
+        "entity_id": "e2",
+        "name": "aquaculture",
+        "entity_type": "process"
+      },
+      {
+        "entity_id": "e3",
+        "name": "hydroponics",
+        "entity_type": "process"
+      },
+      {
+        "entity_id": "e4",
+        "name": "fish waste",
+        "entity_type": "operational_factor"
+      },
+      {
+        "entity_id": "e5",
+        "name": "uneaten feed",
+        "entity_type": "operational_factor"
+      },
+      {
+        "entity_id": "e6",
+        "name": "nutrients",
+        "entity_type": "chemical"
+      },
+      {
+        "entity_id": "e7",
+        "name": "ammonia",
+        "entity_type": "chemical"
+      },
+      {
+        "entity_id": "e8",
+        "name": "nitrifying bacteria",
+        "entity_type": "organism"
+      },
+      {
+        "entity_id": "e9",
+        "name": "nitrite",
+        "entity_type": "chemical"
+      },
+      {
+        "entity_id": "e10",
+        "name": "nitrate",
+        "entity_type": "chemical"
+      },
+      {
+        "entity_id": "e11",
+        "name": "plants",
+        "entity_type": "organism"
+      },
+      {
+        "entity_id": "e12",
+        "name": "water",
+        "entity_type": "environmental_factor"
+      },
+      {
+        "entity_id": "e13",
+        "name": "fish tanks",
+        "entity_type": "infrastructure"
+      }
+    ],
+    "claims": [
+      {
+        "claim_id": "c1",
+        "statement": "Aquaponics integrates aquaculture and hydroponics in one production system.",
+        "domain": "system_design",
+        "claim_type": "definition",
+        "confidence": "high"
+      },
+      {
+        "claim_id": "c2",
+        "statement": "Fish waste and uneaten feed release nutrients into the water.",
+        "domain": "water_chemistry",
+        "claim_type": "process",
+        "confidence": "high"
+      },
+      {
+        "claim_id": "c3",
+        "statement": "Fish waste and uneaten feed release ammonia into the water.",
+        "domain": "water_chemistry",
+        "claim_type": "process",
+        "confidence": "high"
+      },
+      {
+        "claim_id": "c4",
+        "statement": "Nitrifying bacteria convert ammonia first into nitrite and then into nitrate.",
+        "domain": "biology",
+        "claim_type": "process",
+        "confidence": "high"
+      },
+      {
+        "claim_id": "c5",
+        "statement": "Plants absorb nitrate and other nutrients.",
+        "domain": "biology",
+        "claim_type": "process",
+        "confidence": "high"
+      },
+      {
+        "claim_id": "c6",
+        "statement": "Plant uptake helps clean the water before it is recirculated back to the fish tanks.",
+        "domain": "system_design",
+        "claim_type": "process",
+        "confidence": "high"
+      }
+    ],
+    "parameters": [],
+    "processes": [
+      {
+        "process_id": "p1",
+        "name": "aquaponics integration",
+        "inputs": [
+          "aquaculture",
+          "hydroponics"
+        ],
+        "outputs": [
+          "one production system"
+        ],
+        "drivers": []
+      },
+      {
+        "process_id": "p2",
+        "name": "nutrient release into water",
+        "inputs": [
+          "fish waste",
+          "uneaten feed"
+        ],
+        "outputs": [
+          "nutrients",
+          "ammonia"
+        ],
+        "drivers": []
+      },
+      {
+        "process_id": "p3",
+        "name": "nitrification",
+        "inputs": [
+          "ammonia"
+        ],
+        "outputs": [
+          "nitrite",
+          "nitrate"
+        ],
+        "drivers": [
+          "nitrifying bacteria"
+        ]
+      },
+      {
+        "process_id": "p4",
+        "name": "plant nutrient uptake",
+        "inputs": [
+          "nitrate",
+          "other nutrients"
+        ],
+        "outputs": [],
+        "drivers": [
+          "plants"
+        ]
+      },
+      {
+        "process_id": "p5",
+        "name": "water recirculation",
+        "inputs": [
+          "cleaned water"
+        ],
+        "outputs": [
+          "water returned to fish tanks"
+        ],
+        "drivers": []
+      }
+    ],
+    "risks": [],
+    "unresolved_items": [
+      {
+        "item_id": "u1",
+        "issue": "The text states that fish waste and uneaten feed release nutrients including ammonia, but does not specify which other nutrients are included."
+      }
+    ]
+  }
+}
