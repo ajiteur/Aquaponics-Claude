@@ -5,9 +5,9 @@ from datetime import datetime, UTC
 import yaml
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-FACTS_DIR = PROJECT_ROOT / "aquaponics-knowledge" / "03_atomic_facts"
+FACTS_DIR = PROJECT_ROOT / "data" / "knowledge" / "atomic_facts"
 CONFIG_DIR = PROJECT_ROOT / "configs"
-EVIDENCE_MAPS_DIR = PROJECT_ROOT / "aquaponics-knowledge" / "06_evidence_maps"
+EVIDENCE_MAPS_DIR = PROJECT_ROOT / "data" / "knowledge" / "evidence_maps"
 EVIDENCE_MAPS_DIR.mkdir(parents=True, exist_ok=True)
 
 PROMOTION_POLICY_PATH = CONFIG_DIR / "promotion_policy.yaml"

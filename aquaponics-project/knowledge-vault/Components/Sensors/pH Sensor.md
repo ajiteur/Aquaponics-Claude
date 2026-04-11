@@ -1,6 +1,6 @@
 # pH Sensor
 
-Generated at: `2026-04-06T23:47:20Z`
+Generated at: `2026-04-11T03:48:35Z`
 
 - Component ID: `ph_sensor`
 - Category: `sensor`
@@ -28,3 +28,11 @@ Generated at: `2026-04-06T23:47:20Z`
 
 - Placeholder instrument values.
 - Useful for automation and trend logging.
+
+## Related Notes
+
+- [[Home|Home]]
+- [[Components/Components|Components]]
+- [[Sources/Source Register|Source Register]]
+- [[Learnings/Simulation Learnings|Simulation Learnings]]
+- [[Atomic Truths/Parameter Atomic Truths|Parameter Atomic Truths]]

@@ -40,7 +40,7 @@ Obsolete scratch material, superseded duplicates, historical backups, and files 
 | Current Path | Classification | Proposed Destination |
 |---|---|---|
 | `aquaponics-knowledge/00_meta/` | move | `data/knowledge/meta/` |
-| `aquaponics-knowledge/01_sources/` | merge | `data/sources/register/` |
+| `aquaponics-knowledge/01_sources/` | merge | `data/sources/registry/` |
 | `aquaponics-knowledge/02_ontology/` | move | `data/knowledge/ontology/` |
 | `aquaponics-knowledge/03_atomic_facts/` | move | `data/knowledge/atomic_facts/` |
 | `aquaponics-knowledge/04_process_models/` | move | `data/knowledge/process_models/` |
@@ -99,7 +99,7 @@ Obsolete scratch material, superseded duplicates, historical backups, and files 
 | `data/research_reports/raw/*.pdf` | move | `data/sources/research_reports/raw/` | Primary PDFs. |
 | `data/research_reports/markdown/*.md` | move | `data/sources/research_reports/markdown/` | Human-readable source report derivatives. |
 | `data/research_reports/metadata/` | move | `data/sources/research_reports/metadata/` | Source metadata belongs with sources. |
-| `aquaponics-knowledge/01_sources/` | merge | `data/sources/register/` | Review for overlap with `data/research_reports` and `data/input`. |
+| `aquaponics-knowledge/01_sources/` | merge | `data/sources/registry/` | Review for overlap with `data/research_reports` and `data/input`. |
 | `data/output/*.json` | duplicate to review | see notes below | This directory appears to duplicate extraction artifacts in `aquaponics-knowledge/07_agent_outputs/extraction_runs/`. |
 
 ### 3. Knowledge Assets

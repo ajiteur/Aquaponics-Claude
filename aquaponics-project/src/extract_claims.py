@@ -16,7 +16,7 @@ ENV_PATH = PROJECT_ROOT / ".env"
 INPUT_DIR = PROJECT_ROOT / "data" / "input"
 RUN_CONFIGS_DIR = PROJECT_ROOT / "data" / "run_configs"
 OUTPUT_DIR = PROJECT_ROOT / "data" / "output"
-RUNS_DIR = PROJECT_ROOT / "aquaponics-knowledge" / "07_agent_outputs" / "extraction_runs"
+RUNS_DIR = PROJECT_ROOT / "data" / "logs" / "extraction_runs"
 CONFIG_DIR = PROJECT_ROOT / "configs"
 
 MODEL_POLICY_PATH = CONFIG_DIR / "model_policy.yaml"

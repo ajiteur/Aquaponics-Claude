@@ -4,8 +4,8 @@ from pathlib import Path
 from collections import defaultdict
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-FACTS_DIR = PROJECT_ROOT / "aquaponics-knowledge" / "03_atomic_facts"
-REPORT_PATH = PROJECT_ROOT / "aquaponics-knowledge" / "06_evidence_maps" / "promotion_candidates_report.json"
+FACTS_DIR = PROJECT_ROOT / "data" / "knowledge" / "atomic_facts"
+REPORT_PATH = PROJECT_ROOT / "data" / "knowledge" / "evidence_maps" / "promotion_candidates_report.json"
 
 PROVISIONAL_FILES = {
     "core": FACTS_DIR / "provisional_core_candidates.json",

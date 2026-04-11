@@ -1,6 +1,6 @@
 # Simulation Learnings
 
-Generated at: `2026-04-06T23:47:20Z`
+Generated at: `2026-04-11T03:48:35Z`
 
 Summary from the latest relevant simulation update logs, when present.
 
@@ -28,3 +28,10 @@ Summary from the latest relevant simulation update logs, when present.
 - Best composite score: `0.716`
 - Best NH3: `0.071`
 - Best settings: feed=`1.0`, plants=`90`, biofilter=`1.0`, water=`6000.0`, mode=`robust_compromise_mode`
+
+## Related Notes
+
+- [[Home|Home]]
+- [[Sources/Source Register|Source Register]]
+- [[Components/Components|Components]]
+- [[Atomic Truths/Atomic Truths|Atomic Truths]]

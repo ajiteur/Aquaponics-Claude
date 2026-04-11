@@ -1,6 +1,6 @@
 # Solids Filter
 
-Generated at: `2026-04-06T23:47:20Z`
+Generated at: `2026-04-11T03:48:35Z`
 
 - Component ID: `solids_filter`
 - Category: `water_loop`
@@ -28,3 +28,11 @@ Generated at: `2026-04-06T23:47:20Z`
 
 - Placeholder maintenance assumes routine cleaning.
 - Solids management can indirectly reduce oxygen demand and ammonia release.
+
+## Related Notes
+
+- [[Home|Home]]
+- [[Components/Components|Components]]
+- [[Sources/Source Register|Source Register]]
+- [[Learnings/Simulation Learnings|Simulation Learnings]]
+- [[Atomic Truths/Parameter Atomic Truths|Parameter Atomic Truths]]

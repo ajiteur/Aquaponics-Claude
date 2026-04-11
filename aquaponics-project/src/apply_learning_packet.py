@@ -4,11 +4,11 @@ from datetime import datetime, UTC
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
-LEARNING_PACKET_PATH = PROJECT_ROOT / "data" / "learning_packets" / "latest_learning_packet.json"
-EVIDENCE_MAP_PATH = PROJECT_ROOT / "aquaponics-knowledge" / "06_evidence_maps" / "simulation_validation_map.json"
-MODEL_TICKETS_PATH = PROJECT_ROOT / "data" / "model_tickets" / "latest_model_tickets.json"
+LEARNING_PACKET_PATH = PROJECT_ROOT / "data" / "knowledge" / "learning_packets" / "latest_learning_packet.json"
+EVIDENCE_MAP_PATH = PROJECT_ROOT / "data" / "knowledge" / "evidence_maps" / "simulation_validation_map.json"
+MODEL_TICKETS_PATH = PROJECT_ROOT / "data" / "knowledge" / "model_tickets" / "latest_model_tickets.json"
 SCENARIO_DEFAULTS_PATH = PROJECT_ROOT / "data" / "simulation" / "scenario_defaults.json"
-LOG_DIR = PROJECT_ROOT / "data" / "update_logs"
+LOG_DIR = PROJECT_ROOT / "data" / "logs" / "update_logs"
 
 LOG_DIR.mkdir(parents=True, exist_ok=True)
 EVIDENCE_MAP_PATH.parent.mkdir(parents=True, exist_ok=True)

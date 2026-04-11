@@ -1,8 +1,8 @@
 # Core Atomic Truths
 
-Generated at: `2026-04-06T23:47:20Z`
+Generated at: `2026-04-11T03:48:35Z`
 
-Source JSON: `C:\Users\ajith\Documents\Aquaponics\aquaponics-project\aquaponics-knowledge\03_atomic_facts\atomic_facts_core.json`
+Source JSON: `C:\Users\ajith\Documents\Aquaponics\aquaponics-project\data\knowledge\atomic_facts\atomic_facts_core.json`
 
 Fact count: **21**
 
@@ -341,3 +341,10 @@ Fact count: **21**
   - reviewed_from_file: `review_nmsu_cr680_water_quality_parameters_20260404T222043Z.json`
   - source_gate: `trusted`
   - source_gate_reason: `trusted_source`
+
+## Related Notes
+
+- [[Home|Home]]
+- [[Atomic Truths/Atomic Truths|Atomic Truths]]
+- [[Sources/Source Register|Source Register]]
+- [[Learnings/Simulation Learnings|Simulation Learnings]]

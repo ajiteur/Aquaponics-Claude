@@ -7,8 +7,8 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 SPECIES_DIR = PROJECT_ROOT / "data" / "simulation" / "species"
 EVIDENCE_DIR = PROJECT_ROOT / "data" / "simulation" / "species_evidence"
-PACKET_DIR = PROJECT_ROOT / "data" / "update_packets"
-LOG_DIR = PROJECT_ROOT / "data" / "update_logs"
+PACKET_DIR = PROJECT_ROOT / "data" / "knowledge" / "update_packets"
+LOG_DIR = PROJECT_ROOT / "data" / "logs" / "update_logs"
 
 PACKET_DIR.mkdir(parents=True, exist_ok=True)
 LOG_DIR.mkdir(parents=True, exist_ok=True)

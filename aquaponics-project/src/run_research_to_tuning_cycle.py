@@ -14,7 +14,7 @@ SIM_N_DAYS_SCRIPT = PROJECT_ROOT / "src" / "simulate_n_days.py"
 
 SCENARIO_PATH = PROJECT_ROOT / "data" / "simulation" / "scenarios" / "starter_tilapia_lettuce_system.json"
 MULTI_DAY_SUMMARY_PATH = PROJECT_ROOT / "data" / "simulation" / "multi_day_summary.json"
-UPDATE_LOGS_DIR = PROJECT_ROOT / "data" / "update_logs"
+UPDATE_LOGS_DIR = PROJECT_ROOT / "data" / "logs" / "update_logs"
 
 UPDATE_LOGS_DIR.mkdir(parents=True, exist_ok=True)
 

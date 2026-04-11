@@ -1,6 +1,6 @@
 # Dissolved Oxygen Sensor
 
-Generated at: `2026-04-06T23:47:20Z`
+Generated at: `2026-04-11T03:48:35Z`
 
 - Component ID: `do_sensor`
 - Category: `sensor`
@@ -27,3 +27,11 @@ Generated at: `2026-04-06T23:47:20Z`
 
 - Placeholder monitoring hardware values.
 - Can support alarms or closed-loop aeration control.
+
+## Related Notes
+
+- [[Home|Home]]
+- [[Components/Components|Components]]
+- [[Sources/Source Register|Source Register]]
+- [[Learnings/Simulation Learnings|Simulation Learnings]]
+- [[Atomic Truths/Parameter Atomic Truths|Parameter Atomic Truths]]

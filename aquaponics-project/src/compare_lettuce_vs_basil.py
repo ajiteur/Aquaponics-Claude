@@ -9,7 +9,7 @@ import sys
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 SUMMARY_PATH = PROJECT_ROOT / "data" / "simulation" / "multi_day_summary.json"
-REPORTS_DIR = PROJECT_ROOT / "data" / "update_logs"
+REPORTS_DIR = PROJECT_ROOT / "data" / "logs" / "update_logs"
 SIMULATE_N_DAYS_PATH = PROJECT_ROOT / "src" / "simulate_n_days.py"
 SCENARIOS = {
     "lettuce": PROJECT_ROOT / "data" / "simulation" / "scenarios" / "starter_tilapia_lettuce_system.json",

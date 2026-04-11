@@ -11,10 +11,14 @@
             "id": "f011995a85474f14",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Learnings/Simulation Learnings.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Simulation Learnings"
             }
           }
         ]
@@ -178,9 +182,15 @@
   },
   "active": "f011995a85474f14",
   "lastOpenFiles": [
-    "Components/Grow/DWC Raft Bed.md",
-    "Home.md",
+    "Atomic Truths/Warnings and Cautions Atomic Truths.md",
+    "Atomic Truths/Parameter Atomic Truths.md",
+    "Atomic Truths/Operational Guidance Atomic Truths.md",
+    "Atomic Truths/Core Atomic Truths.md",
     "Learnings/Simulation Learnings.md",
+    "Home.md",
+    "Components/Components.md",
+    "Atomic Truths/Atomic Truths.md",
+    "Components/Grow/DWC Raft Bed.md",
     "Learnings",
     "Sources/Source Register.md",
     "Sources",
@@ -202,9 +212,6 @@
     "Components/Water Loop/Fish Tank.md",
     "Components/Water Loop/Biofilter.md",
     "Components/Water Loop",
-    "Components/Components.md",
-    "Components/Component Library.md",
-    "Atomic Truths/Core Atomic Truths.md",
-    "Atomic Truths/Atomic Truths.md"
+    "Components/Component Library.md"
   ]
 }

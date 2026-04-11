@@ -4,9 +4,9 @@ from datetime import datetime, UTC
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
-FULL_BOT_REPORT_PATH = PROJECT_ROOT / "data" / "update_logs"
-TUNING_REPORT_DIR = PROJECT_ROOT / "data" / "update_logs"
-LEARNING_PACKET_DIR = PROJECT_ROOT / "data" / "learning_packets"
+FULL_BOT_REPORT_PATH = PROJECT_ROOT / "data" / "logs" / "update_logs"
+TUNING_REPORT_DIR = PROJECT_ROOT / "data" / "logs" / "update_logs"
+LEARNING_PACKET_DIR = PROJECT_ROOT / "data" / "knowledge" / "learning_packets"
 
 MULTI_DAY_SUMMARY_PATH = PROJECT_ROOT / "data" / "simulation" / "multi_day_summary.json"
 PARAM_LIBRARY_PATH = PROJECT_ROOT / "data" / "simulation" / "parameter_library.json"

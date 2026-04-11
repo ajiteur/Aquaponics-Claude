@@ -1,6 +1,6 @@
 # Components
 
-Generated at: `2026-04-06T23:47:20Z`
+Generated at: `2026-04-11T03:48:35Z`
 
 Library version: `0.1`
 Library status: `draft`
@@ -15,33 +15,40 @@ Library status: `draft`
 
 Count: **4**
 
-- [[Water Loop/Fish Tank|Fish Tank]]
-- [[Water Loop/Sump Tank|Sump Tank]]
-- [[Water Loop/Biofilter|Biofilter]]
-- [[Water Loop/Solids Filter|Solids Filter]]
+- [[Components/Water Loop/Fish Tank|Fish Tank]]
+- [[Components/Water Loop/Sump Tank|Sump Tank]]
+- [[Components/Water Loop/Biofilter|Biofilter]]
+- [[Components/Water Loop/Solids Filter|Solids Filter]]
 
 ## Grow
 
 Count: **3**
 
-- [[Grow/Media Bed|Media Bed]]
-- [[Grow/DWC Raft Bed|DWC Raft Bed]]
-- [[Grow/NFT Channel|NFT Channel]]
+- [[Components/Grow/Media Bed|Media Bed]]
+- [[Components/Grow/DWC Raft Bed|DWC Raft Bed]]
+- [[Components/Grow/NFT Channel|NFT Channel]]
 
 ## Equipment
 
 Count: **5**
 
-- [[Equipment/Water Pump|Water Pump]]
-- [[Equipment/Aerator|Aerator]]
-- [[Equipment/Water Heater|Water Heater]]
-- [[Equipment/Water Chiller|Water Chiller]]
-- [[Equipment/Grow Light|Grow Light]]
+- [[Components/Equipment/Water Pump|Water Pump]]
+- [[Components/Equipment/Aerator|Aerator]]
+- [[Components/Equipment/Water Heater|Water Heater]]
+- [[Components/Equipment/Water Chiller|Water Chiller]]
+- [[Components/Equipment/Grow Light|Grow Light]]
 
 ## Sensors
 
 Count: **3**
 
-- [[Sensors/pH Sensor|pH Sensor]]
-- [[Sensors/Dissolved Oxygen Sensor|Dissolved Oxygen Sensor]]
-- [[Sensors/Temperature Sensor|Temperature Sensor]]
+- [[Components/Sensors/pH Sensor|pH Sensor]]
+- [[Components/Sensors/Dissolved Oxygen Sensor|Dissolved Oxygen Sensor]]
+- [[Components/Sensors/Temperature Sensor|Temperature Sensor]]
+
+## Related Notes
+
+- [[Home|Home]]
+- [[Sources/Source Register|Source Register]]
+- [[Learnings/Simulation Learnings|Simulation Learnings]]
+- [[Atomic Truths/Atomic Truths|Atomic Truths]]

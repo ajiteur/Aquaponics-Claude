@@ -3,8 +3,8 @@ from pathlib import Path
 from datetime import datetime, UTC
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-REVIEW_DIR = PROJECT_ROOT / "aquaponics-knowledge" / "07_agent_outputs" / "review_runs"
-FACTS_DIR = PROJECT_ROOT / "aquaponics-knowledge" / "03_atomic_facts"
+REVIEW_DIR = PROJECT_ROOT / "data" / "logs" / "review_runs"
+FACTS_DIR = PROJECT_ROOT / "data" / "knowledge" / "atomic_facts"
 FACTS_DIR.mkdir(parents=True, exist_ok=True)
 
 # Accepted outputs

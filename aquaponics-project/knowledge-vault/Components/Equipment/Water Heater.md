@@ -1,6 +1,6 @@
 # Water Heater
 
-Generated at: `2026-04-06T23:47:20Z`
+Generated at: `2026-04-11T03:48:35Z`
 
 - Component ID: `heater`
 - Category: `equipment`
@@ -29,3 +29,11 @@ Generated at: `2026-04-06T23:47:20Z`
 
 - Power value aligned with current starter scenario equipment assumptions.
 - Placeholder capex and service interval.
+
+## Related Notes
+
+- [[Home|Home]]
+- [[Components/Components|Components]]
+- [[Sources/Source Register|Source Register]]
+- [[Learnings/Simulation Learnings|Simulation Learnings]]
+- [[Atomic Truths/Parameter Atomic Truths|Parameter Atomic Truths]]

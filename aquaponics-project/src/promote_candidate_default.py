@@ -7,7 +7,7 @@ import sys
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-UPDATE_LOGS_DIR = PROJECT_ROOT / "data" / "update_logs"
+UPDATE_LOGS_DIR = PROJECT_ROOT / "data" / "logs" / "update_logs"
 DEFAULTS_PATH = PROJECT_ROOT / "data" / "simulation" / "scenario_defaults.json"
 
 RESEARCH_REPORT_PREFIX = "research_to_tuning_cycle_report_"

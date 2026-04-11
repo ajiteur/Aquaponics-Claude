@@ -1,6 +1,6 @@
 # Temperature Sensor
 
-Generated at: `2026-04-06T23:47:20Z`
+Generated at: `2026-04-11T03:48:35Z`
 
 - Component ID: `temperature_sensor`
 - Category: `sensor`
@@ -28,3 +28,11 @@ Generated at: `2026-04-06T23:47:20Z`
 
 - Placeholder values for a basic temperature probe.
 - Supports heater and chiller control logic.
+
+## Related Notes
+
+- [[Home|Home]]
+- [[Components/Components|Components]]
+- [[Sources/Source Register|Source Register]]
+- [[Learnings/Simulation Learnings|Simulation Learnings]]
+- [[Atomic Truths/Parameter Atomic Truths|Parameter Atomic Truths]]

@@ -9,17 +9,17 @@ VAULT_ROOT = PROJECT_ROOT / "knowledge-vault"
 COMPONENT_LIBRARY_PATH = PROJECT_ROOT / "data" / "simulation" / "components" / "component_library.json"
 
 ATOMIC_FACT_CANDIDATE_PATHS = [
-    PROJECT_ROOT / "aquaponics-knowledge" / "03_atomic_facts" / "atomic_facts_core.json",
-    PROJECT_ROOT / "aquaponics-knowledge" / "03_atomic_facts" / "atomic_facts_parameters.json",
-    PROJECT_ROOT / "aquaponics-knowledge" / "03_atomic_facts" / "atomic_facts_warnings_and_cautions.json",
-    PROJECT_ROOT / "aquaponics-knowledge" / "03_atomic_facts" / "atomic_facts_operational_guidance.json",
+    PROJECT_ROOT / "data" / "knowledge" / "atomic_facts" / "atomic_facts_core.json",
+    PROJECT_ROOT / "data" / "knowledge" / "atomic_facts" / "parameter_ranges.json",
+    PROJECT_ROOT / "data" / "knowledge" / "atomic_facts" / "warnings_and_cautions.json",
+    PROJECT_ROOT / "data" / "knowledge" / "atomic_facts" / "operational_guidance.json",
     PROJECT_ROOT / "data" / "simulation" / "atomic_facts_core.json",
     PROJECT_ROOT / "data" / "simulation" / "atomic_facts_parameters.json",
     PROJECT_ROOT / "data" / "simulation" / "atomic_facts_warnings_and_cautions.json",
     PROJECT_ROOT / "data" / "simulation" / "atomic_facts_operational_guidance.json",
 ]
 
-UPDATE_LOGS_DIR = PROJECT_ROOT / "data" / "update_logs"
+UPDATE_LOGS_DIR = PROJECT_ROOT / "data" / "logs" / "update_logs"
 RESEARCH_REPORT_PREFIX = "research_to_tuning_cycle_report_"
 COMPARE_REPORT_PREFIX = "compare_lettuce_vs_basil_"
 VIABLE_REPORT_PREFIX = "viable_scenarios_report_"
@@ -57,6 +57,28 @@ def to_bullet_list(items: list[str], indent: int = 0) -> str:
     return "\n".join(f"{prefix}- {item}" for item in items) if items else f"{prefix}- None"
 
 
+def note_path_to_wiki_link(note_path: str, display_text: str | None = None) -> str:
+    if display_text:
+        return f"[[{note_path}|{display_text}]]"
+    return f"[[{note_path}]]"
+
+
+def render_link_list(links: list[tuple[str, str | None]]) -> str:
+    if not links:
+        return "- None"
+    return "\n".join(
+        f"- {note_path_to_wiki_link(path, display)}"
+        for path, display in links
+    )
+
+
+def append_related_notes(lines: list[str], links: list[tuple[str, str | None]]) -> None:
+    lines.append("## Related Notes")
+    lines.append("")
+    lines.append(render_link_list(links))
+    lines.append("")
+
+
 def sanitize_note_name(name: str) -> str:
     return name.replace("/", " ").replace("\\", " ").strip()
 
@@ -79,6 +101,8 @@ def find_latest_matching_file(prefix: str) -> Path | None:
 
 def render_component_note(component: dict) -> str:
     lines = []
+    note_name = slugify_note_name(component.get("name", component.get("component_id", "Unknown Component")))
+    category = component.get("category", "unknown")
     lines.append(f"# {component.get('name', component.get('component_id', 'Unknown Component'))}")
     lines.append("")
     lines.append(f"Generated at: `{GENERATED_AT}`")
@@ -104,6 +128,13 @@ def render_component_note(component: dict) -> str:
     lines.append("")
     lines.append(to_bullet_list(component.get("notes", [])))
     lines.append("")
+    append_related_notes(lines, [
+        ("Home", "Home"),
+        ("Components/Components", "Components"),
+        ("Sources/Source Register", "Source Register"),
+        ("Learnings/Simulation Learnings", "Simulation Learnings"),
+        ("Atomic Truths/Parameter Atomic Truths", "Parameter Atomic Truths"),
+    ])
     return "\n".join(lines).strip() + "\n"
 
 
@@ -140,11 +171,17 @@ def render_components_index_note(component_library: dict) -> str:
         if components:
             for component in components:
                 note_name = slugify_note_name(component.get("name", component.get("component_id", "Unknown Component")))
-                lines.append(f"- [[{folder_name}/{note_name}|{component.get('name', note_name)}]]")
+                lines.append(f"- {note_path_to_wiki_link(f'Components/{folder_name}/{note_name}', component.get('name', note_name))}")
         else:
             lines.append("- None")
         lines.append("")
 
+    append_related_notes(lines, [
+        ("Home", "Home"),
+        ("Sources/Source Register", "Source Register"),
+        ("Learnings/Simulation Learnings", "Simulation Learnings"),
+        ("Atomic Truths/Atomic Truths", "Atomic Truths"),
+    ])
     return "\n".join(lines).strip() + "\n"
 
 
@@ -159,9 +196,9 @@ def render_source_register_note() -> str:
     lines.append("")
     lines.append("## Planned Inputs")
     lines.append("")
-    lines.append("- `data/report_digests/*.json`")
+    lines.append("- `data/knowledge/report_digests/*.json`")
     lines.append("- `data/simulation/species_evidence/*.json`")
-    lines.append("- `data/update_logs/*.json`")
+    lines.append("- `data/logs/update_logs/*.json`")
     lines.append("")
     lines.append("## Suggested Fields")
     lines.append("")
@@ -172,6 +209,12 @@ def render_source_register_note() -> str:
     lines.append("- Last seen in report")
     lines.append("- Follow-up actions")
     lines.append("")
+    append_related_notes(lines, [
+        ("Home", "Home"),
+        ("Components/Components", "Components"),
+        ("Learnings/Simulation Learnings", "Simulation Learnings"),
+        ("Atomic Truths/Atomic Truths", "Atomic Truths"),
+    ])
     return "\n".join(lines).strip() + "\n"
 
 
@@ -250,6 +293,12 @@ def render_simulation_learnings_note() -> str:
         lines.append("- No relevant update-log reports were found.")
         lines.append("")
 
+    append_related_notes(lines, [
+        ("Home", "Home"),
+        ("Sources/Source Register", "Source Register"),
+        ("Components/Components", "Components"),
+        ("Atomic Truths/Atomic Truths", "Atomic Truths"),
+    ])
     return "\n".join(lines).strip() + "\n"
 
 
@@ -270,9 +319,15 @@ def render_atomic_facts_index_note(atomic_fact_files: list[Path]) -> str:
     for path in atomic_fact_files:
         title = title_from_atomic_fact_filename(path.name)
         note_name = sanitize_note_name(title)
-        lines.append(f"- [[{note_name}]]")
+        lines.append(f"- {note_path_to_wiki_link(f'Atomic Truths/{note_name}')}")
 
     lines.append("")
+    append_related_notes(lines, [
+        ("Home", "Home"),
+        ("Components/Components", "Components"),
+        ("Sources/Source Register", "Source Register"),
+        ("Learnings/Simulation Learnings", "Simulation Learnings"),
+    ])
     return "\n".join(lines)
 
 
@@ -280,15 +335,26 @@ def title_from_atomic_fact_filename(filename: str) -> str:
     stem = filename.replace(".json", "")
     mapping = {
         "atomic_facts_core": "Core Atomic Truths",
-        "atomic_facts_parameters": "Parameter Atomic Truths",
-        "atomic_facts_warnings_and_cautions": "Warnings and Cautions Atomic Truths",
-        "atomic_facts_operational_guidance": "Operational Guidance Atomic Truths",
+        "parameter_ranges": "Parameter Atomic Truths",
+        "warnings_and_cautions": "Warnings and Cautions Atomic Truths",
+        "operational_guidance": "Operational Guidance Atomic Truths",
     }
     return mapping.get(stem, stem.replace("_", " ").title())
 
 
 def render_atomic_facts_note(title: str, facts_doc: dict, source_path: Path) -> str:
     facts = facts_doc.get("facts", [])
+    related_links = [
+        ("Home", "Home"),
+        ("Atomic Truths/Atomic Truths", "Atomic Truths"),
+        ("Sources/Source Register", "Source Register"),
+        ("Learnings/Simulation Learnings", "Simulation Learnings"),
+    ]
+
+    if "Parameter" in title:
+        related_links.append(("Components/Components", "Components"))
+    elif "Operational Guidance" in title or "Warnings" in title:
+        related_links.append(("Components/Components", "Components"))
 
     lines = []
     lines.append(f"# {title}")
@@ -340,6 +406,7 @@ def render_atomic_facts_note(title: str, facts_doc: dict, source_path: Path) -> 
 
         lines.append("")
 
+    append_related_notes(lines, related_links)
     return "\n".join(lines).strip() + "\n"
 
 
@@ -390,10 +457,10 @@ def main():
         "",
         "## Sections",
         "",
-        "- [[Components/Components|Components]]",
-        "- [[Atomic Truths/Atomic Truths|Atomic Truths]]",
-        "- [[Sources/Source Register|Source Register]]",
-        "- [[Learnings/Simulation Learnings|Simulation Learnings]]",
+        f"- {note_path_to_wiki_link('Components/Components', 'Components')}",
+        f"- {note_path_to_wiki_link('Atomic Truths/Atomic Truths', 'Atomic Truths')}",
+        f"- {note_path_to_wiki_link('Sources/Source Register', 'Source Register')}",
+        f"- {note_path_to_wiki_link('Learnings/Simulation Learnings', 'Simulation Learnings')}",
         "",
         "## Notes",
         "",
@@ -402,6 +469,12 @@ def main():
         "- Treat these Markdown files as human-readable exports.",
         "",
     ]
+    append_related_notes(home_lines, [
+        ("Components/Components", "Components"),
+        ("Atomic Truths/Atomic Truths", "Atomic Truths"),
+        ("Sources/Source Register", "Source Register"),
+        ("Learnings/Simulation Learnings", "Simulation Learnings"),
+    ])
     write_text(VAULT_ROOT / "Home.md", "\n".join(home_lines))
 
     print(f"Exported Obsidian vault content to: {VAULT_ROOT}")

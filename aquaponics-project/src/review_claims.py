@@ -6,8 +6,8 @@ import yaml
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
-RUNS_DIR = PROJECT_ROOT / "aquaponics-knowledge" / "07_agent_outputs" / "extraction_runs"
-REVIEW_DIR = PROJECT_ROOT / "aquaponics-knowledge" / "07_agent_outputs" / "review_runs"
+RUNS_DIR = PROJECT_ROOT / "data" / "logs" / "extraction_runs"
+REVIEW_DIR = PROJECT_ROOT / "data" / "logs" / "review_runs"
 CONFIG_DIR = PROJECT_ROOT / "configs"
 
 REVIEW_DIR.mkdir(parents=True, exist_ok=True)

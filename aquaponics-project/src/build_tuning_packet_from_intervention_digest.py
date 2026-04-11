@@ -4,9 +4,9 @@ from datetime import datetime, UTC
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
-DIGEST_PATH = PROJECT_ROOT / "data" / "report_digests" / "latest_intervention_digest.json"
+DIGEST_PATH = PROJECT_ROOT / "data" / "knowledge" / "report_digests" / "latest_intervention_digest.json"
 DEFAULTS_PATH = PROJECT_ROOT / "data" / "simulation" / "scenario_defaults.json"
-OUTPUT_PATH = PROJECT_ROOT / "data" / "tuning_packets" / "latest_scenario_tuning_packet.json"
+OUTPUT_PATH = PROJECT_ROOT / "data" / "knowledge" / "tuning_packets" / "latest_scenario_tuning_packet.json"
 
 
 def load_json(path: Path, default=None):

@@ -1,6 +1,6 @@
 # Water Chiller
 
-Generated at: `2026-04-06T23:47:20Z`
+Generated at: `2026-04-11T03:48:35Z`
 
 - Component ID: `chiller`
 - Category: `equipment`
@@ -29,3 +29,11 @@ Generated at: `2026-04-06T23:47:20Z`
 
 - Placeholder values only.
 - Not assumed active in current starter scenarios.
+
+## Related Notes
+
+- [[Home|Home]]
+- [[Components/Components|Components]]
+- [[Sources/Source Register|Source Register]]
+- [[Learnings/Simulation Learnings|Simulation Learnings]]
+- [[Atomic Truths/Parameter Atomic Truths|Parameter Atomic Truths]]

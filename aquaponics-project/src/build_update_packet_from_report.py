@@ -4,8 +4,8 @@ from datetime import datetime, UTC
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
-DIGEST_DIR = PROJECT_ROOT / "data" / "report_digests"
-PACKET_DIR = PROJECT_ROOT / "data" / "update_packets"
+DIGEST_DIR = PROJECT_ROOT / "data" / "knowledge" / "report_digests"
+PACKET_DIR = PROJECT_ROOT / "data" / "knowledge" / "update_packets"
 
 DIGEST_DIR.mkdir(parents=True, exist_ok=True)
 PACKET_DIR.mkdir(parents=True, exist_ok=True)

@@ -1,15 +1,15 @@
 # Source Register
 
-Generated at: `2026-04-06T23:47:20Z`
+Generated at: `2026-04-11T03:48:35Z`
 
 Starter register for evidence, report digests, and source tracking.
 Fill this note later from report digests, species evidence JSON, and external source metadata.
 
 ## Planned Inputs
 
-- `data/report_digests/*.json`
+- `data/knowledge/report_digests/*.json`
 - `data/simulation/species_evidence/*.json`
-- `data/update_logs/*.json`
+- `data/logs/update_logs/*.json`
 
 ## Suggested Fields
 
@@ -19,3 +19,10 @@ Fill this note later from report digests, species evidence JSON, and external so
 - Reliability notes
 - Last seen in report
 - Follow-up actions
+
+## Related Notes
+
+- [[Home|Home]]
+- [[Components/Components|Components]]
+- [[Learnings/Simulation Learnings|Simulation Learnings]]
+- [[Atomic Truths/Atomic Truths|Atomic Truths]]

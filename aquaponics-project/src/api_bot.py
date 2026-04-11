@@ -14,7 +14,7 @@ MODEL_POLICY_PATH = PROJECT_ROOT / "configs" / "model_policy.yaml"
 
 SAFE_READ_ROOTS = [
     PROJECT_ROOT / "data",
-    PROJECT_ROOT / "aquaponics-knowledge",
+    PROJECT_ROOT / "data" / "knowledge",
 ]
 
 SCRIPT_MAP = {
@@ -136,7 +136,7 @@ TOOLS = [
             "properties": {
                 "path": {
                     "type": "string",
-                    "description": "Relative path to a JSON file under data/ or aquaponics-knowledge/.",
+                    "description": "Relative path to a JSON file under data/.",
                 }
             },
             "required": ["path"],
