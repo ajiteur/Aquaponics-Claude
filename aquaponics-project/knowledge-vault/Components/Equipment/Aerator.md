@@ -1,0 +1,30 @@
+# Aerator
+
+Generated at: `2026-04-06T23:47:20Z`
+
+- Component ID: `aerator`
+- Category: `equipment`
+- Role: Adds oxygen to fish and plant water zones.
+- Status: `draft`
+- CAPEX: `100.0`
+- Power (W): `60`
+- Maintenance interval (days): `21`
+- Upgrade tier: `starter`
+
+## Affects Variables
+
+- dissolved_oxygen_mg_L
+- system_stability_score
+- nitrification_efficiency
+
+## Failure Modes
+
+- blower_failure
+- diffuser_fouling
+- line_leak
+- insufficient_air_delivery
+
+## Notes
+
+- Power value aligned with current starter scenario equipment assumptions.
+- Critical for fish safety and nitrifier performance.

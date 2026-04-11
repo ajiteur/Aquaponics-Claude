@@ -1,0 +1,31 @@
+# DWC Raft Bed
+
+Generated at: `2026-04-06T23:47:20Z`
+
+- Component ID: `dwc_raft_bed`
+- Category: `grow`
+- Role: Deep water culture bed for raft-based plant production.
+- Status: `draft`
+- CAPEX: `450.0`
+- Power (W): `0`
+- Maintenance interval (days): `10`
+- Upgrade tier: `starter`
+
+## Affects Variables
+
+- plant_avg_biomass_g
+- nitrate_mg_L
+- water_temperature_c
+- dissolved_oxygen_mg_L
+
+## Failure Modes
+
+- low_root_zone_oxygen
+- algae_growth
+- raft_damage
+- stagnant_flow
+
+## Notes
+
+- Placeholder economics and maintenance assumptions.
+- Often benefits from strong aeration and even flow.
