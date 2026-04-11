@@ -13,8 +13,8 @@ from datetime import datetime, UTC
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 ENV_PATH = PROJECT_ROOT / ".env"
 
-INPUT_DIR = PROJECT_ROOT / "data" / "input"
-RUN_CONFIGS_DIR = PROJECT_ROOT / "data" / "run_configs"
+INPUT_DIR = PROJECT_ROOT / "data" / "sources" / "input"
+RUN_CONFIGS_DIR = PROJECT_ROOT / "data" / "sources" / "run_configs"
 OUTPUT_DIR = PROJECT_ROOT / "data" / "output"
 RUNS_DIR = PROJECT_ROOT / "data" / "logs" / "extraction_runs"
 CONFIG_DIR = PROJECT_ROOT / "configs"
@@ -63,7 +63,7 @@ if not MODEL_NAME:
 # Pick run config file
 # Usage:
 #   python src/extract_claims.py fao_ch02.yaml
-# If no argument is given, fallback to data/input/run_config.yaml
+# If no argument is given, fallback to data/sources/input/run_config.yaml
 # ----------------------------
 if len(sys.argv) > 1:
     run_config_name = sys.argv[1]

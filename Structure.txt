@@ -1,0 +1,86 @@
+aquaponics-project/
+│
+├─ src/
+│  ├─ ingestion/
+│  │  ├─ extract_claims.py
+│  │  ├─ review_claims.py
+│  │  ├─ merge_facts.py
+│  │  └─ promote_provisionals.py
+│  │
+│  ├─ research/
+│  │  ├─ build_working_research_markdowns.py
+│  │  ├─ register_research_report.py
+│  │  └─ apply_learning_packet.py
+│  │
+│  ├─ simulation/
+│  │  ├─ simulate_day.py
+│  │  ├─ simulate_n_days.py
+│  │  ├─ simulate_overlap_score.py
+│  │  ├─ run_tradeoff_matrix.py
+│  │  ├─ find_viable_scenarios.py
+│  │  └─ compare_lettuce_vs_basil.py
+│  │
+│  ├─ components/
+│  │  ├─ simulate_component_matrix.py
+│  │  └─ apply_component_variant_effects.py
+│  │
+│  ├─ exports/
+│  │  ├─ export_obsidian_vault.py
+│  │  └─ export_distilled_reports_to_obsidian.py
+│  │
+│  └─ utils/
+│     └─ common helpers
+│
+├─ data/
+│  ├─ sources/
+│  │  ├─ registry/
+│  │  │  └─ source_registry.json
+│  │  ├─ reports_raw/
+│  │  ├─ reports_working/
+│  │  ├─ reports_distilled/
+│  │  └─ metadata/
+│  │
+│  ├─ knowledge/
+│  │  ├─ atomic_facts/
+│  │  │  ├─ core/
+│  │  │  ├─ parameters/
+│  │  │  ├─ warnings/
+│  │  │  └─ guidance/
+│  │  ├─ parameters/
+│  │  ├─ species/
+│  │  │  ├─ fish/
+│  │  │  └─ plants/
+│  │  ├─ species_evidence/
+│  │  ├─ components/
+│  │  ├─ component_variants/
+│  │  ├─ models/
+│  │  ├─ evidence_maps/
+│  │  └─ model_tickets/
+│  │
+│  ├─ simulation/
+│  │  ├─ scenarios/
+│  │  ├─ defaults/
+│  │  ├─ results/
+│  │  ├─ day_logs/
+│  │  ├─ tuning_packets/
+│  │  ├─ learning_packets/
+│  │  └─ update_packets/
+│  │
+│  └─ logs/
+│     ├─ update_logs/
+│     ├─ comparison_reports/
+│     └─ experiment_reports/
+│
+├─ knowledge-vault/
+│  ├─ Home.md
+│  ├─ Components/
+│  ├─ Species/
+│  ├─ Parameters/
+│  ├─ Sources/
+│  ├─ Learnings/
+│  └─ Atomic Truths/
+│
+├─ configs/
+├─ tests/
+├─ archive/
+└─ README.md
