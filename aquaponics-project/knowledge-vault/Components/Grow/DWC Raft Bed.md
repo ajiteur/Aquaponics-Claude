@@ -1,6 +1,6 @@
 # DWC Raft Bed
 
-Generated at: `2026-04-14T03:03:47Z`
+Generated at: `2026-04-14T07:10:45Z`
 
 - Component ID: `dwc_raft_bed`
 - Category: `grow`

@@ -1,6 +1,6 @@
 # Sump Tank
 
-Generated at: `2026-04-14T03:03:47Z`
+Generated at: `2026-04-14T07:10:45Z`
 
 - Component ID: `sump_tank`
 - Category: `water_loop`

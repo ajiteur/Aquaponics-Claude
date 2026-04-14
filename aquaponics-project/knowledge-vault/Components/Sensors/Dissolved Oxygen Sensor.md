@@ -1,6 +1,6 @@
 # Dissolved Oxygen Sensor
 
-Generated at: `2026-04-14T03:03:47Z`
+Generated at: `2026-04-14T07:10:45Z`
 
 - Component ID: `do_sensor`
 - Category: `sensor`

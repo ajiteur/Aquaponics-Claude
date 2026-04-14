@@ -1,0 +1,721 @@
+--- /dev/null
++++ b/data/knowledge/components/component_library.json
+@@
++{
++  "version": "0.1",
++  "status": "draft",
++  "source_basis": {
++    "primary_sources": [
++      "data/sources/research_reports/distilled/Distilled_Research_Pack_Aquaponics_L1.md"
++    ],
++    "canonical_owner": "data/knowledge/components/component_library.json",
++    "derived_from_simulation_path": "data/simulation/components/component_library.json",
++    "ownership_note": "Canonical Layer 1 ownership is in data/knowledge. The simulation file remains a runtime derivative until consumers are migrated or a sync path is introduced. Double-maintenance risk remains until ownership is fully consolidated."
++  },
++  "notes": [
++    "Starter component library for aquaponics simulation assembly.",
++    "Placeholder values are used where evidence-backed specifications are not yet available.",
++    "All starter components are marked draft until component-specific evidence is collected.",
++    "Pump backup and power-redundancy facts are intentionally left for Batch 4 models rather than mixed into this mirrored component taxonomy."
++  ],
++  "water_loop_components": [
++    {
++      "component_id": "fish_tank",
++      "name": "Fish Tank",
++      "category": "water_loop",
++      "role": "Primary fish rearing volume and ammonia source zone.",
++      "status": "draft",
++      "capex": 500.0,
++      "power_w": 0,
++      "maintenance_interval_days": 30,
++      "affects_variables": [
++        "water_volume_l",
++        "tan_mg_L",
++        "unionized_nh3_mg_L",
++        "dissolved_oxygen_mg_L",
++        "fish_biomass_kg"
++      ],
++      "failure_modes": [
++        "leak_or_crack",
++        "overflow",
++        "poor_solids_accumulation",
++        "insufficient_aeration_distribution"
++      ],
++      "upgrade_tier": "starter",
++      "notes": [
++        "Placeholder tank cost and maintenance interval.",
++        "Acts as the main livestock process vessel."
++      ]
++    },
++    {
++      "component_id": "sump_tank",
++      "name": "Sump Tank",
++      "category": "water_loop",
++      "role": "Collects return water and stabilizes loop volume before recirculation.",
++      "status": "draft",
++      "capex": 250.0,
++      "power_w": 0,
++      "maintenance_interval_days": 21,
++      "affects_variables": [
++        "water_volume_l",
++        "recirculation_rate_lph",
++        "system_stability_score"
++      ],
++      "failure_modes": [
++        "low_water_level",
++        "overflow",
++        "float_switch_failure",
++        "debris_buildup"
++      ],
++      "upgrade_tier": "starter",
++      "notes": [
++        "Placeholder values for a basic sump vessel.",
++        "Often used as the pump draw point in coupled systems."
++      ]
++    },
++    {
++      "component_id": "biofilter",
++      "name": "Biofilter",
++      "category": "water_loop",
++      "role": "Supports nitrifying bacteria for TAN and nitrite conversion.",
++      "status": "draft",
++      "capex": 400.0,
++      "power_w": 0,
++      "maintenance_interval_days": 14,
++      "affects_variables": [
++        "tan_mg_L",
++        "nitrite_mg_L",
++        "nitrate_mg_L",
++        "nitrification_efficiency",
++        "system_stability_score"
++      ],
++      "failure_modes": [
++        "media_clogging",
++        "oxygen_limitation",
++        "biofilm_dieoff",
++        "channeling"
++      ],
++      "upgrade_tier": "starter",
++      "variant_ids": [
++        "biofilter_mbbr",
++        "biofilter_fluidized_sand",
++        "biofilter_bead_biofilter"
++      ],
++      "notes": [
++        "Placeholder biofilter economics and service interval.",
++        "Critical component for ammonia control.",
++        "Feed-based sizing anchors from the distilled pack: fluidized sand about 16 to 32 kg feed/m3 media/day, MBBR about 8 to 16 kg feed/m3 media/day, and bead systems about 16 to 32 kg feed/m3 media/day when washing is adequate.",
++        "Nitrification stoichiometry anchors from the distilled pack: oxygen demand about 4.57 g O2 per g TAN-N and alkalinity demand about 7.14 g CaCO3 per g TAN-N.",
++        "Startup and maturation are modeled as a lagged ramp rather than instant full capacity."
++      ]
++    },
++    {
++      "component_id": "solids_filter",
++      "name": "Solids Filter",
++      "category": "water_loop",
++      "role": "Removes suspended solids before downstream biological treatment.",
++      "status": "draft",
++      "capex": 300.0,
++      "power_w": 0,
++      "maintenance_interval_days": 7,
++      "affects_variables": [
++        "tan_mg_L",
++        "dissolved_oxygen_mg_L",
++        "system_stability_score"
++      ],
++      "failure_modes": [
++        "clogging",
++        "bypass_flow",
++        "reduced_capture_efficiency",
++        "sludge_overload"
++      ],
++      "upgrade_tier": "starter",
++      "variant_ids": [
++        "solids_filter_radial_flow_settler",
++        "solids_filter_swirl_separator",
++        "solids_filter_drum_microscreen"
++      ],
++      "notes": [
++        "Placeholder maintenance assumes routine cleaning.",
++        "Solids management can indirectly reduce oxygen demand and ammonia release.",
++        "Settling clarifier anchor from the distilled pack: design around 15 to 30 minutes HRT, with aquaponics operational corroboration around 19 to 20 minutes and weaker capture near about 9.5 minutes.",
++        "Radial-flow settlers outperform swirl separators on mean TSS removal under the distilled-pack comparison."
++      ]
++    }
++  ],
++  "grow_components": [
++    {
++      "component_id": "media_bed",
++      "name": "Media Bed",
++      "category": "grow",
++      "role": "Plant grow bed with media support and supplemental biofiltration surface area.",
++      "status": "draft",
++      "capex": 350.0,
++      "power_w": 0,
++      "maintenance_interval_days": 14,
++      "affects_variables": [
++        "plant_avg_biomass_g",
++        "nitrate_mg_L",
++        "biofilter_maturity",
++        "system_stability_score"
++      ],
++      "failure_modes": [
++        "media_clogging",
++        "poor_drainage",
++        "root_zone_anaerobic_conditions",
++        "uneven_flow_distribution"
++      ],
++      "upgrade_tier": "starter",
++      "notes": [
++        "Placeholder values for a small starter media bed.",
++        "Can contribute both plant support and biological treatment."
++      ]
++    },
++    {
++      "component_id": "dwc_raft_bed",
++      "name": "DWC Raft Bed",
++      "category": "grow",
++      "role": "Deep water culture bed for raft-based plant production.",
++      "status": "draft",
++      "capex": 450.0,
++      "power_w": 0,
++      "maintenance_interval_days": 10,
++      "affects_variables": [
++        "plant_avg_biomass_g",
++        "nitrate_mg_L",
++        "water_temperature_c",
++        "dissolved_oxygen_mg_L"
++      ],
++      "failure_modes": [
++        "low_root_zone_oxygen",
++        "algae_growth",
++        "raft_damage",
++        "stagnant_flow"
++      ],
++      "upgrade_tier": "starter",
++      "notes": [
++        "Placeholder economics and maintenance assumptions.",
++        "Often benefits from strong aeration and even flow."
++      ]
++    },
++    {
++      "component_id": "nft_channel",
++      "name": "NFT Channel",
++      "category": "grow",
++      "role": "Nutrient film technique channel for lightweight high-turnover crops.",
++      "status": "draft",
++      "capex": 275.0,
++      "power_w": 0,
++      "maintenance_interval_days": 10,
++      "affects_variables": [
++        "plant_avg_biomass_g",
++        "nitrate_mg_L",
++        "water_temperature_c",
++        "recirculation_rate_lph"
++      ],
++      "failure_modes": [
++        "channel_blockage",
++        "root_mat_obstruction",
++        "dryout_from_pump_interruption",
++        "uneven_slope"
++      ],
++      "upgrade_tier": "starter",
++      "notes": [
++        "Placeholder values for a small NFT section.",
++        "Sensitive to flow interruption compared with media-based beds."
++      ]
++    }
++  ],
++  "equipment_components": [
++    {
++      "component_id": "pump",
++      "name": "Water Pump",
++      "category": "equipment",
++      "role": "Moves water through the recirculating loop.",
++      "status": "draft",
++      "capex": 120.0,
++      "power_w": 80,
++      "maintenance_interval_days": 30,
++      "affects_variables": [
++        "recirculation_rate_lph",
++        "dissolved_oxygen_mg_L",
++        "system_stability_score"
++      ],
++      "failure_modes": [
++        "power_loss",
++        "impeller_clogging",
++        "seal_failure",
++        "flow_rate_drop"
++      ],
++      "upgrade_tier": "starter",
++      "notes": [
++        "Power value aligned with current starter scenario equipment assumptions.",
++        "Single-point failure for many coupled systems."
++      ]
++    },
++    {
++      "component_id": "aerator",
++      "name": "Aerator",
++      "category": "equipment",
++      "role": "Adds oxygen to fish and plant water zones.",
++      "status": "draft",
++      "capex": 100.0,
++      "power_w": 60,
++      "maintenance_interval_days": 21,
++      "affects_variables": [
++        "dissolved_oxygen_mg_L",
++        "system_stability_score",
++        "nitrification_efficiency"
++      ],
++      "failure_modes": [
++        "blower_failure",
++        "diffuser_fouling",
++        "line_leak",
++        "insufficient_air_delivery"
++      ],
++      "upgrade_tier": "starter",
++      "notes": [
++        "Power value aligned with current starter scenario equipment assumptions.",
++        "Critical for fish safety and nitrifier performance."
++      ]
++    },
++    {
++      "component_id": "heater",
++      "name": "Water Heater",
++      "category": "equipment",
++      "role": "Raises water temperature toward warmwater setpoints.",
++      "status": "draft",
++      "capex": 180.0,
++      "power_w": 500,
++      "maintenance_interval_days": 30,
++      "affects_variables": [
++        "water_temperature_c",
++        "daily_operating_cost",
++        "fish_growth_score",
++        "plant_growth_score"
++      ],
++      "failure_modes": [
++        "thermostat_failure",
++        "heating_element_burnout",
++        "overheating",
++        "electrical_fault"
++      ],
++      "upgrade_tier": "starter",
++      "notes": [
++        "Power value aligned with current starter scenario equipment assumptions.",
++        "Placeholder capex and service interval."
++      ]
++    },
++    {
++      "component_id": "chiller",
++      "name": "Water Chiller",
++      "category": "equipment",
++      "role": "Reduces water temperature when thermal load is too high.",
++      "status": "draft",
++      "capex": 900.0,
++      "power_w": 700,
++      "maintenance_interval_days": 30,
++      "affects_variables": [
++        "water_temperature_c",
++        "daily_operating_cost",
++        "dissolved_oxygen_mg_L",
++        "system_stability_score"
++      ],
++      "failure_modes": [
++        "compressor_failure",
++        "coolant_loss",
++        "sensor_drift",
++        "reduced_cooling_capacity"
++      ],
++      "upgrade_tier": "advanced",
++      "notes": [
++        "Placeholder values only.",
++        "Not assumed active in current starter scenarios."
++      ]
++    },
++    {
++      "component_id": "grow_light",
++      "name": "Grow Light",
++      "category": "equipment",
++      "role": "Provides supplemental plant lighting for indoor or low-light operation.",
++      "status": "draft",
++      "capex": 220.0,
++      "power_w": 150,
++      "maintenance_interval_days": 60,
++      "affects_variables": [
++        "plant_avg_biomass_g",
++        "daily_operating_cost",
++        "plant_growth_score"
++      ],
++      "failure_modes": [
++        "driver_failure",
++        "reduced_output",
++        "timer_failure",
++        "fixture_overheating"
++      ],
++      "upgrade_tier": "starter",
++      "notes": [
++        "Placeholder light power and economics.",
++        "Not active in the current starter scenario equipment profile."
++      ]
++    }
++  ],
++  "sensor_components": [
++    {
++      "component_id": "ph_sensor",
++      "name": "pH Sensor",
++      "category": "sensor",
++      "role": "Monitors system pH for control and alerting.",
++      "status": "draft",
++      "capex": 90.0,
++      "power_w": 2,
++      "maintenance_interval_days": 30,
++      "affects_variables": [
++        "pH",
++        "target_pH_mode",
++        "system_stability_score"
++      ],
++      "failure_modes": [
++        "calibration_drift",
++        "probe_fouling",
++        "signal_loss",
++        "slow_response"
++      ],
++      "upgrade_tier": "starter",
++      "notes": [
++        "Placeholder instrument values.",
++        "Useful for automation and trend logging."
++      ]
++    },
++    {
++      "component_id": "do_sensor",
++      "name": "Dissolved Oxygen Sensor",
++      "category": "sensor",
++      "role": "Monitors dissolved oxygen for fish safety and aeration control.",
++      "status": "draft",
++      "capex": 250.0,
++      "power_w": 3,
++      "maintenance_interval_days": 14,
++      "affects_variables": [
++        "dissolved_oxygen_mg_L",
++        "system_stability_score"
++      ],
++      "failure_modes": [
++        "membrane_fouling",
++        "calibration_drift",
++        "signal_dropout",
++        "temperature_compensation_error"
++      ],
++      "upgrade_tier": "advanced",
++      "notes": [
++        "Placeholder monitoring hardware values.",
++        "Can support alarms or closed-loop aeration control."
++      ]
++    },
++    {
++      "component_id": "temperature_sensor",
++      "name": "Temperature Sensor",
++      "category": "sensor",
++      "role": "Monitors water or air temperature for thermal control and risk detection.",
++      "status": "draft",
++      "capex": 35.0,
++      "power_w": 1,
++      "maintenance_interval_days": 30,
++      "affects_variables": [
++        "water_temperature_c",
++        "air_temperature_c",
++        "system_stability_score"
++      ],
++      "failure_modes": [
++        "sensor_drift",
++        "probe_disconnect",
++        "slow_response",
++        "incorrect_placement"
++      ],
++      "upgrade_tier": "starter",
++      "notes": [
++        "Placeholder values for a basic temperature probe.",
++        "Supports heater and chiller control logic."
++      ]
++    }
++  ]
++}
+--- a/data/knowledge/component_variants/component_variants.json
++++ b/data/knowledge/component_variants/component_variants.json
+@@
+-  "source_basis": [
+-    {
+-      "type": "distilled_research_pack",
+-      "path": "data/sources/research_reports/distilled/Distilled_Research_Pack_Aquaponics_L1.md"
+-    },
+-    {
+-      "type": "local_corroboration_report",
+-      "path": "data/sources/research_reports/distilled/Media bed vs DWC vs NFT.md"
+-    }
+-  ],
++  "source_basis": [
++    {
++      "type": "distilled_research_pack",
++      "path": "data/sources/research_reports/distilled/Distilled_Research_Pack_Aquaponics_L1.md"
++    },
++    {
++      "type": "local_corroboration_report",
++      "path": "data/sources/research_reports/distilled/Media bed vs DWC vs NFT.md"
++    }
++  ],
+@@
+     {
+       "variant_id": "architecture_media_bed",
+@@
+       "simulation_hooks": {
+         "pump_failure_fragility": "moderate_high_if_beds_drain",
+         "solids_carryover_penalty_mode": "integrated_capture_but_clogging_sensitive",
+         "root_zone_clogging_anaerobic_zone_mode": "enabled",
+         "architecture_nitrification_support": "moderate_to_high_if_not_overloaded",
+         "water_volume_buffering": "low",
+         "root_zone_oxygen_dependence": "moderate",
+         "climate_temperature_sensitivity": "moderate",
+         "biotic_intrusion_events": "not_primary_mode"
+       },
++      "linked_model_ids": [
++        "pump_failure_fragility_by_architecture",
++        "solids_carryover_penalties_by_architecture",
++        "architecture_driven_nitrification_support",
++        "water_volume_buffering_by_architecture",
++        "root_zone_oxygen_dependence_by_architecture",
++        "climate_temperature_sensitivity_by_architecture",
++        "biotic_intrusion_events_by_architecture"
++      ],
+       "evidence_notes": [
+@@
+     {
+       "variant_id": "architecture_dwc_raft",
+@@
+       "simulation_hooks": {
+         "pump_failure_fragility": "low_relative_to_media_and_nft",
+         "solids_carryover_penalty_mode": "root_coating_anaerobic_penalty_if_solids_not_removed",
+         "root_zone_clogging_anaerobic_zone_mode": "root_coating_mode",
+         "architecture_nitrification_support": "high_if_solids_removed",
+         "water_volume_buffering": "high",
+         "root_zone_oxygen_dependence": "high",
+         "climate_temperature_sensitivity": "low_relative_to_nft",
+         "biotic_intrusion_events": "enabled"
+       },
++      "linked_model_ids": [
++        "pump_failure_fragility_by_architecture",
++        "solids_carryover_penalties_by_architecture",
++        "architecture_driven_nitrification_support",
++        "water_volume_buffering_by_architecture",
++        "root_zone_oxygen_dependence_by_architecture",
++        "climate_temperature_sensitivity_by_architecture",
++        "biotic_intrusion_events_by_architecture"
++      ],
+       "evidence_notes": [
+@@
+     {
+       "variant_id": "architecture_nft",
+@@
+       "simulation_hooks": {
+         "pump_failure_fragility": "very_high",
+         "solids_carryover_penalty_mode": "channel_clogging_and_root_loss_penalty",
+         "root_zone_clogging_anaerobic_zone_mode": "root_mat_anaerobic_zone_mode",
+         "architecture_nitrification_support": "low_default_separate_biofilter_often_required",
+         "water_volume_buffering": "low",
+         "root_zone_oxygen_dependence": "diffusion_limited",
+         "climate_temperature_sensitivity": "high",
+         "biotic_intrusion_events": "not_primary_mode"
+       },
++      "linked_model_ids": [
++        "pump_failure_fragility_by_architecture",
++        "solids_carryover_penalties_by_architecture",
++        "architecture_driven_nitrification_support",
++        "water_volume_buffering_by_architecture",
++        "root_zone_oxygen_dependence_by_architecture",
++        "climate_temperature_sensitivity_by_architecture",
++        "biotic_intrusion_events_by_architecture"
++      ],
+       "evidence_notes": [
+@@
+     {
+       "variant_id": "media_bed.flood_and_drain_bell_siphon",
+@@
+-      "numeric_anchors": {},
++      "numeric_anchors": [],
+@@
+     {
+       "variant_id": "media_bed.continuous_flow",
+@@
+-      "numeric_anchors": {
+-        "water_level_below_media_top_inches": 1.0
+-      },
++      "numeric_anchors": [
++        {
++          "parameter": "waterline_below_media_top",
++          "value": 1.0,
++          "unit": "inches"
++        }
++      ],
+@@
+     {
+       "variant_id": "media_bed.worm_inoculated",
+@@
+-      "numeric_anchors": {},
++      "numeric_anchors": [],
+@@
+     {
+       "variant_id": "media_bed.reciprocating_gravel_ratio_SRA454",
+@@
+-      "numeric_anchors": {
+-        "fish_tank_volume_ratio_ft3": 1.0,
+-        "pea_gravel_volume_ratio_ft3": 2.0
+-      },
++      "numeric_anchors": [
++        {
++          "parameter": "fish_tank_volume_ratio",
++          "value": 1.0,
++          "unit": "ft3"
++        },
++        {
++          "parameter": "pea_gravel_volume_ratio",
++          "value": 2.0,
++          "unit": "ft3"
++        }
++      ],
+@@
+     {
+       "variant_id": "dwc_raft.small_scale_airstone_density",
+@@
+-      "numeric_anchors": {
+-        "airstones_per_sqft": 0.1
+-      },
++      "numeric_anchors": [
++        {
++          "parameter": "area_per_airstone",
++          "value": 10.0,
++          "unit": "ft2 per airstone"
++        }
++      ],
+@@
+     {
+       "variant_id": "dwc_raft.UVI_diffuser_spacing",
+@@
+-      "numeric_anchors": {
+-        "diffuser_spacing_ft": 4.0,
+-        "target_do_mg_l_min": 6.0,
+-        "target_do_mg_l_max": 7.0
+-      },
++      "numeric_anchors": [
++        {
++          "parameter": "diffuser_spacing",
++          "value": 4.0,
++          "unit": "ft"
++        },
++        {
++          "parameter": "target_root_zone_do",
++          "range": {
++            "min": 6.0,
++            "max": 7.0
++          },
++          "unit": "mg/L"
++        }
++      ],
+@@
+     {
+       "variant_id": "dwc_raft.aerated_channels_exchange_relaxed",
+@@
+-      "numeric_anchors": {},
++      "numeric_anchors": [],
+@@
+     {
+       "variant_id": "dwc_raft.unaerated_exchange_strict",
+@@
+-      "numeric_anchors": {},
++      "numeric_anchors": [],
+@@
+     {
+       "variant_id": "dwc_raft.biotic_intrusion_protected",
+@@
+-      "numeric_anchors": {},
++      "numeric_anchors": [],
+@@
+     {
+       "variant_id": "dwc_raft.biotic_intrusion_unprotected",
+@@
+-      "numeric_anchors": {},
++      "numeric_anchors": [],
+@@
+     {
+       "variant_id": "nft.standard_manifold_large_holes",
+@@
+-      "numeric_anchors": {
+-        "channel_slope_inch_per_10ft": 0.5,
+-        "channel_length_ft_max": 12.0,
+-        "water_layer_cm_min": 1.0,
+-        "water_layer_cm_max": 2.0
+-      },
++      "numeric_anchors": [
++        {
++          "parameter": "channel_slope_per_10ft",
++          "value": 0.5,
++          "unit": "inch"
++        },
++        {
++          "parameter": "channel_length",
++          "threshold": {
++            "operator": "<",
++            "value": 12.0
++          },
++          "unit": "ft"
++        },
++        {
++          "parameter": "water_layer_depth",
++          "range": {
++            "min": 1.0,
++            "max": 2.0
++          },
++          "unit": "cm"
++        }
++      ],
+@@
+     {
+       "variant_id": "nft.with_fine_solids_removal",
+@@
+-      "numeric_anchors": {},
++      "numeric_anchors": [],
+@@
+     {
+       "variant_id": "nft.vertical_stack",
+@@
+-      "numeric_anchors": {},
++      "numeric_anchors": [],
+@@
+     {
+       "variant_id": "nft.hot_climate_penalty",
+@@
+-      "status": "draft",
++      "status": "provisional",
+@@
+-      "numeric_anchors": {},
++      "numeric_anchors": [],
+@@
+     {
+       "variant_id": "nft.long_cycle_restricted",
+@@
+-      "status": "draft",
++      "status": "context_split",
+@@
+-      "numeric_anchors": {
+-        "crop_cycle_months_limit_min": 4.0,
+-        "crop_cycle_months_limit_max": 5.0
+-      },
++      "numeric_anchors": [
++        {
++          "parameter": "long_cycle_constraint",
++          "threshold_range": {
++            "min": 4.0,
++            "max": 5.0,
++            "applies_when": "above_range"
++          },
++          "unit": "months"
++        }
++      ],
