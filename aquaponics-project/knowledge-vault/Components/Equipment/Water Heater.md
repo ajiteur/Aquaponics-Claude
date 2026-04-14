@@ -1,6 +1,6 @@
 # Water Heater
 
-Generated at: `2026-04-11T06:11:45Z`
+Generated at: `2026-04-14T02:11:26Z`
 
 - Component ID: `heater`
 - Category: `equipment`
