@@ -1,6 +1,6 @@
 # Grow Light
 
-Generated at: `2026-04-14T14:24:38Z`
+Generated at: `2026-04-14T14:57:34Z`
 
 - Component ID: `grow_light`
 - Category: `equipment`

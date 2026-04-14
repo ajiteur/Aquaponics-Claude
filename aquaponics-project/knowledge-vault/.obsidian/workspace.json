@@ -11,10 +11,14 @@
             "id": "f011995a85474f14",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "Components/Components.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Components"
             }
           }
         ]
@@ -178,6 +182,7 @@
   },
   "active": "f011995a85474f14",
   "lastOpenFiles": [
+    "Home.md",
     "Components/Component Library.md",
     "Learnings/contradictions_log.md",
     "Components/Components.md",
@@ -187,7 +192,6 @@
     "Atomic Truths/Parameter Atomic Truths.md",
     "Atomic Truths/Operational Guidance Atomic Truths.md",
     "Atomic Truths/Core Atomic Truths.md",
-    "Home.md",
     "Atomic Truths/Atomic Truths.md",
     "Components/Grow/DWC Raft Bed.md",
     "Learnings",
