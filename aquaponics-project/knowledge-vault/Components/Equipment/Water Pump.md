@@ -1,6 +1,6 @@
 # Water Pump
 
-Generated at: `2026-04-14T14:57:34Z`
+Generated at: `2026-04-14T15:01:07Z`
 
 - Component ID: `pump`
 - Category: `equipment`
