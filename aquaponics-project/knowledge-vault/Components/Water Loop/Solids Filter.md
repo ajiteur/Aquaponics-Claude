@@ -1,6 +1,6 @@
 # Solids Filter
 
-Generated at: `2026-04-11T03:48:35Z`
+Generated at: `2026-04-11T06:11:45Z`
 
 - Component ID: `solids_filter`
 - Category: `water_loop`
@@ -28,6 +28,8 @@ Generated at: `2026-04-11T03:48:35Z`
 
 - Placeholder maintenance assumes routine cleaning.
 - Solids management can indirectly reduce oxygen demand and ammonia release.
+- Settling clarifier anchor from the distilled pack: design around 15 to 30 minutes HRT, with aquaponics operational corroboration around 19 to 20 minutes and weaker capture near about 9.5 minutes.
+- Radial-flow settlers outperform swirl separators on mean TSS removal under the distilled-pack comparison.
 
 ## Related Notes
 

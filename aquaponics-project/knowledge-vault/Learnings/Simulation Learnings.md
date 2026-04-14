@@ -1,6 +1,6 @@
 # Simulation Learnings
 
-Generated at: `2026-04-11T03:48:35Z`
+Generated at: `2026-04-11T06:11:45Z`
 
 Summary from the latest relevant simulation update logs, when present.
 
@@ -13,7 +13,7 @@ Summary from the latest relevant simulation update logs, when present.
 - Baseline stability: `0.67`
 - Tuned stability: `0.687`
 
-### Scenario Comparison: `compare_lettuce_vs_basil_20260406T015518Z.json`
+### Scenario Comparison: `compare_lettuce_vs_basil_20260411T034837Z.json`
 
 - Lettuce NH3 risk band: `normal`
 - Basil NH3 risk band: `normal`

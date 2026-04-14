@@ -1,6 +1,6 @@
 # Biofilter
 
-Generated at: `2026-04-11T03:48:35Z`
+Generated at: `2026-04-11T06:11:45Z`
 
 - Component ID: `biofilter`
 - Category: `water_loop`
@@ -30,6 +30,9 @@ Generated at: `2026-04-11T03:48:35Z`
 
 - Placeholder biofilter economics and service interval.
 - Critical component for ammonia control.
+- Feed-based sizing anchors from the distilled pack: fluidized sand about 16 to 32 kg feed/m3 media/day, MBBR about 8 to 16 kg feed/m3 media/day, and bead systems about 16 to 32 kg feed/m3 media/day when washing is adequate.
+- Nitrification stoichiometry anchors from the distilled pack: oxygen demand about 4.57 g O2 per g TAN-N and alkalinity demand about 7.14 g CaCO3 per g TAN-N.
+- Startup and maturation are modeled as a lagged ramp rather than instant full capacity.
 
 ## Related Notes
 

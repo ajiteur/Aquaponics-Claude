@@ -1,6 +1,6 @@
 # Source Register
 
-Generated at: `2026-04-11T03:48:35Z`
+Generated at: `2026-04-11T06:11:45Z`
 
 Starter register for evidence, report digests, and source tracking.
 Fill this note later from report digests, species evidence JSON, and external source metadata.
