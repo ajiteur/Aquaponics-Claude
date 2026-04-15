@@ -1,6 +1,6 @@
 # Aerator
 
-Generated at: `2026-04-14T15:01:07Z`
+Generated at: `2026-04-14T16:13:16Z`
 
 - Component ID: `aerator`
 - Category: `equipment`

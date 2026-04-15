@@ -1,0 +1,242 @@
+{
+  "version": "0.1",
+  "status": "draft",
+  "source_basis": {
+    "primary_sources": [
+      "data/sources/research_reports/distilled/Distilled_Research_Pack_Aquaponics_L1.md",
+      "data/sources/research_reports/distilled/Water Chemistry and pH Management_Aquaponics Layer 1 Parameter Corroboration Report.pdf"
+    ],
+    "canonical_owner": "data/knowledge/parameters/waterchemistry.json",
+    "derived_from_simulation_path": "data/simulation/parameters/waterchemistry.json",
+    "ownership_note": "Canonical Layer 1 ownership is in data/knowledge. The simulation file remains a runtime derivative until consumers are migrated or a sync path is introduced.",
+    "type": "distilled_research_pack_only",
+    "path": "data/sources/research_reports/distilled/Distilled_Research_Pack_Aquaponics_L1.md"
+  },
+  "records": [
+    {
+      "parameter_id": "pH_target_range_general",
+      "name": "General System pH Target Range",
+      "kind": "range",
+      "status": "draft",
+      "range": {
+        "min": 6.0,
+        "max": 7.0
+      },
+      "unit": "pH",
+      "context_tags": [
+        "aquaponics_specific",
+        "system_level",
+        "robust_compromise_mode"
+      ],
+      "notes": [
+        "Default system-level target range for coupled aquaponics."
+      ],
+      "values": {
+        "min": 6.0,
+        "max": 7.0,
+        "unit": "pH"
+      },
+      "simulation_use": {
+        "target_role": "default_system_target_band",
+        "severity_if_outside": "warning"
+      }
+    },
+    {
+      "parameter_id": "pH_compromise_optimal",
+      "name": "Compromise Optimal pH Range",
+      "kind": "range",
+      "status": "draft",
+      "range": {
+        "min": 6.8,
+        "max": 7.0
+      },
+      "unit": "pH",
+      "context_tags": [
+        "aquaponics_specific",
+        "system_level",
+        "compromise",
+        "nitrification_plant_balance"
+      ],
+      "notes": [
+        "Narrower compromise band balancing fish, plants, and nitrifiers."
+      ],
+      "values": {
+        "min": 6.8,
+        "max": 7.0,
+        "unit": "pH"
+      },
+      "simulation_use": {
+        "target_role": "all_components_optimal_compromise_band",
+        "severity_if_outside": "info"
+      }
+    },
+    {
+      "parameter_id": "pH_tolerable_envelope",
+      "name": "Tolerable pH Envelope",
+      "kind": "range",
+      "status": "draft",
+      "range": {
+        "min": 6.4,
+        "max": 7.4
+      },
+      "unit": "pH",
+      "context_tags": [
+        "aquaponics_specific",
+        "system_level",
+        "all_components"
+      ],
+      "notes": [
+        "Broad operating envelope for fish, plants, and nitrifiers together."
+      ],
+      "values": {
+        "min": 6.4,
+        "max": 7.4,
+        "unit": "pH"
+      },
+      "simulation_use": {
+        "target_role": "tolerable_operating_envelope",
+        "severity_if_outside": "warning"
+      }
+    },
+    {
+      "parameter_id": "nitrification_pH_inhibition_ladder",
+      "name": "Nitrification pH Inhibition Ladder",
+      "kind": "threshold_ladder",
+      "status": "draft",
+      "thresholds": [
+        {
+          "label": "inhibition_begins",
+          "unit": "pH",
+          "effect": "nitrification_inhibited",
+          "severity": "warning",
+          "operator": "<=",
+          "value": 6.0
+        },
+        {
+          "label": "dieoff_risk_begins",
+          "unit": "pH",
+          "effect": "nitrifier_dieoff_risk",
+          "severity": "critical",
+          "operator": "<",
+          "value": 5.5
+        }
+      ],
+      "context_tags": [
+        "aquaponics_specific",
+        "nitrifiers",
+        "warning_ladder"
+      ],
+      "notes": [
+        "Nitrification declines around pH 6.0 and die-off risk begins below about pH 5.5."
+      ],
+      "simulation_use": {
+        "target_role": "nitrification_rate_modifier_input",
+        "severity_if_triggered": "warning_to_critical"
+      }
+    },
+    {
+      "parameter_id": "TAN_target_guidance",
+      "name": "TAN Operational Guidance Target",
+      "kind": "threshold",
+      "status": "draft",
+      "threshold": {
+        "operator": "<",
+        "value": 1.0
+      },
+      "unit": "mg/L",
+      "context_tags": [
+        "aquaponics_specific",
+        "operational_guidance",
+        "TAN",
+        "pH_dependent_toxicity"
+      ],
+      "notes": [
+        "Operational guidance target rather than a hard toxicity rule.",
+        "Fish can tolerate higher TAN at lower pH because toxicity depends on unionised NH3."
+      ],
+      "operator": "<",
+      "value": 1.0,
+      "values": {
+        "max": 1.0,
+        "unit": "mg/L"
+      },
+      "simulation_use": {
+        "target_role": "operational_guidance_target",
+        "severity_if_outside": "warning"
+      }
+    },
+    {
+      "parameter_id": "NH3_unionised_thresholds_actions",
+      "name": "Unionised NH3 Thresholds and Actions",
+      "kind": "action_thresholds",
+      "status": "draft",
+      "thresholds": [
+        {
+          "label": "increase_monitoring",
+          "unit": "mg/L NH3",
+          "action": "increase_monitoring",
+          "severity": "warning",
+          "operator": ">=",
+          "value": 0.25
+        },
+        {
+          "label": "fish_mortality_risk",
+          "unit": "mg/L NH3",
+          "action": "treat_as_fish_mortality_risk",
+          "severity": "critical",
+          "operator": ">=",
+          "value": 0.5
+        }
+      ],
+      "context_tags": [
+        "aquaponics_specific",
+        "safety_thresholds",
+        "NH3",
+        "temperature_dependent"
+      ],
+      "notes": [
+        "Unionised NH3 should be treated as the toxicity driver rather than TAN alone."
+      ],
+      "simulation_use": {
+        "target_role": "toxicity_monitoring_and_alerts",
+        "severity_if_triggered": "warning_to_critical"
+      }
+    },
+    {
+      "parameter_id": "alkalinity_target_CaCO3",
+      "name": "Alkalinity Target as CaCO3",
+      "kind": "threshold",
+      "status": "draft",
+      "threshold": {
+        "operator": ">=",
+        "value": 100.0
+      },
+      "unit": "mg/L as CaCO3",
+      "context_tags": [
+        "aquaponics_specific",
+        "alkalinity_buffering",
+        "pH_stability"
+      ],
+      "notes": [
+        "Maintain about 100 mg/L as CaCO3 or above as a stabilising alkalinity target."
+      ],
+      "operator": ">=",
+      "value": 100.0,
+      "values": {
+        "min": 100.0,
+        "unit": "mg/L as CaCO3"
+      },
+      "simulation_use": {
+        "target_role": "buffering_and_pH_stability_target",
+        "severity_if_outside": "warning"
+      }
+    }
+  ],
+  "runtime_sync": {
+    "scope": "parameters",
+    "generated_at_utc": "__TIMESTAMP__",
+    "canonical_source": "data/knowledge/parameters/waterchemistry.json",
+    "runtime_target": "data/simulation/parameters/waterchemistry.json",
+    "ownership": "data/knowledge is canonical; data/simulation is a derived runtime mirror."
+  }
+}

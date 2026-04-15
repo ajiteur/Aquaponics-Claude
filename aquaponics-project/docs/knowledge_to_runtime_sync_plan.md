@@ -82,7 +82,9 @@ Dry run must:
 
 - read knowledge files
 - build derived runtime payloads
+- validate generated payload shape before diffing
 - compare them with existing simulation files
+- print a compact summary report
 - print unified diffs
 - print the files that would be created or updated
 - avoid writing any runtime files
@@ -92,6 +94,7 @@ Dry run must:
 Apply mode must:
 
 - show the proposed diff before writing
+- fail before writing if validation fails
 - create a timestamped backup of every existing file that will change
 - only then write the derived runtime file
 
@@ -122,6 +125,27 @@ Every derived runtime file gets a `runtime_sync` block containing:
 - generated timestamp
 
 This makes the data provenance explicit inside the derived artifact.
+
+### Validation
+
+The sync builder validates generated runtime payloads for each scope before emitting diffs or writing files:
+
+- `parameters`: validates `version`, `status`, `records`, per-record identifiers, and runtime metadata
+- `species`: validates `species_id`, `category`, `status`, `environment`, key lists, and runtime metadata
+- `species_evidence`: validates `species_id`, `status`, `target_fields`, `evidence_records`, and runtime metadata
+
+Validation errors must fail fast and include:
+
+- scope
+- source file
+- failing field path
+- reason
+
+The builder also validates:
+
+- `runtime_sync` path consistency
+- `source_basis` shape when canonical input provides it
+- compatibility alias consistency so aliases never contradict canonical values
 
 ### Parameter Compatibility
 
@@ -157,6 +181,15 @@ The sync builder preserves evidence records but also duplicates selected field n
 python src/build_runtime_from_knowledge.py --dry-run
 ```
 
+Dry-run output includes a compact summary with:
+
+- files scanned
+- files with proposed changes
+- files unchanged
+- scopes processed
+- validation passed count
+- validation failed count
+
 ### Apply
 
 ```powershell
@@ -182,5 +215,18 @@ python src/build_runtime_from_knowledge.py --apply --scope parameters --scope sp
 
 - Update runtime readers to prefer canonical knowledge schemas directly where feasible.
 - Remove temporary compatibility aliases once consumers are migrated.
-- Add schema validation for both canonical and derived payloads.
-- Add tests that snapshot the dry-run diff summary for representative files.
+- Extend validation toward formal schemas for both canonical and derived payloads.
+- Add more snapshot fixtures as additional knowledge domains are synced.
+
+## Test Coverage
+
+The sync flow has fixture-based and isolated unit-test coverage under `tests/` for representative files from each scope.
+
+Current tests cover:
+
+- target path resolution
+- representative snapshot outputs for parameters, species, and species evidence
+- runtime metadata injection
+- compatibility alias generation
+- preservation of runtime-only fields
+- validation failure on malformed generated payloads
