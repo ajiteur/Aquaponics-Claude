@@ -469,3 +469,7 @@ Count: **3**
 
 - Placeholder values for a basic temperature probe.
 - Supports heater and chiller control logic.
+
+## Related Notes
+
+- [[Components/Components|Components]]
