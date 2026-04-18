@@ -1,0 +1,141 @@
+{
+  "version": "0.1.0",
+  "status": "draft",
+  "source_basis": {
+    "primary_sources": [
+      "docs/business_layer_contract.md",
+      "provisional_reference: aquaponics_master_reference_summary.md (uploaded project reference; repo-relative path unconfirmed)",
+      "data/knowledge/species/plants/lettuce.json",
+      "data/knowledge/species/plants/basil.json",
+      "data/knowledge/species/fish/tilapia.json"
+    ],
+    "canonical_owner": "data/knowledge/business/yield_to_revenue_rules.json",
+    "ownership_note": "Canonical translation rules from biological outputs into billable business outputs."
+  },
+  "rules": [
+    {
+      "id": "rule_lettuce_saleable_heads_preferred",
+      "product_id": "lettuce",
+      "preferred_sale_unit": "head",
+      "required_upstream_fields": [
+        "saleable_harvest_count"
+      ],
+      "optional_upstream_fields": [
+        "saleable_harvest_mass_kg",
+        "cull_or_unsaleable_mass_kg",
+        "harvest_event_count",
+        "first_harvest_utc",
+        "last_harvest_utc"
+      ],
+      "revenue_translation_method": "direct_count_pricing",
+      "conversion_assumptions": [
+        {
+          "name": "average_saleable_head_mass",
+          "value": null,
+          "unit": "kg_per_head",
+          "assumption_status": "todo",
+          "assumption_note": "Only needed if runtime outputs lack saleable head count and later fallback conversion is allowed."
+        }
+      ],
+      "notes": "Do not price total biomass as saleable heads unless a reviewed conversion basis exists.",
+      "enabled_by_default": false,
+      "activation_status": "optional_future",
+      "activation_note": "Depends on saleable_harvest_count, which remains an optional future upstream field in this contract pass."
+    },
+    {
+      "id": "rule_basil_bulk_kg",
+      "product_id": "basil",
+      "preferred_sale_unit": "kg",
+      "required_upstream_fields": [
+        "saleable_harvest_mass_kg"
+      ],
+      "optional_upstream_fields": [
+        "cull_or_unsaleable_mass_kg",
+        "harvest_event_count",
+        "first_harvest_utc",
+        "last_harvest_utc"
+      ],
+      "revenue_translation_method": "direct_mass_pricing",
+      "conversion_assumptions": [],
+      "notes": "Simplest first-pass basil revenue path when product is sold by bulk harvested mass."
+    },
+    {
+      "id": "rule_basil_bunches_optional",
+      "product_id": "basil",
+      "preferred_sale_unit": "bunch",
+      "required_upstream_fields": [
+        "saleable_harvest_count"
+      ],
+      "optional_upstream_fields": [
+        "saleable_harvest_mass_kg"
+      ],
+      "revenue_translation_method": "direct_count_pricing_or_mass_conversion_if_reviewed",
+      "conversion_assumptions": [
+        {
+          "name": "average_saleable_bunch_mass",
+          "value": null,
+          "unit": "kg_per_bunch",
+          "assumption_status": "todo",
+          "assumption_note": "Needed only if bunch counts are unavailable and the project later chooses mass-to-bunch conversion."
+        }
+      ],
+      "notes": "Keep bunch pricing optional until runtime outputs or post-harvest rules support a stable bunch count basis.",
+      "enabled_by_default": false,
+      "activation_status": "optional_future",
+      "activation_note": "Depends on bunch-count-ready upstream output or a reviewed mass-to-bunch conversion basis."
+    },
+    {
+      "id": "rule_tilapia_saleable_kg",
+      "product_id": "tilapia",
+      "preferred_sale_unit": "kg",
+      "required_upstream_fields": [
+        "harvested_fish_biomass_kg"
+      ],
+      "optional_upstream_fields": [
+        "harvested_fish_count",
+        "mortality_biomass_kg",
+        "feed_input_kg",
+        "first_harvest_utc",
+        "last_harvest_utc"
+      ],
+      "revenue_translation_method": "direct_mass_pricing",
+      "conversion_assumptions": [
+        {
+          "name": "processed_yield_fraction",
+          "value": null,
+          "unit": "fraction_of_live_or_whole_weight",
+          "assumption_status": "todo",
+          "assumption_note": "Only needed if business pricing later uses processed yield rather than the harvested biomass basis."
+        }
+      ],
+      "notes": "Do not mix live-weight and processed-yield pricing in a single record."
+    },
+    {
+      "id": "rule_revenue_recognition_timing",
+      "product_id": "all_products",
+      "preferred_sale_unit": "n_a",
+      "required_upstream_fields": [
+        "first_harvest_utc",
+        "last_harvest_utc"
+      ],
+      "optional_upstream_fields": [
+        "delivery_event_count",
+        "channel_id"
+      ],
+      "revenue_translation_method": "recognize_revenue_by_harvest_or_delivery_window",
+      "conversion_assumptions": [
+        {
+          "name": "maximum_same_day_sale_window",
+          "value": null,
+          "unit": "day",
+          "assumption_status": "todo",
+          "assumption_note": "Needed later for channels where freshness window changes realized revenue or shrink."
+        }
+      ],
+      "notes": "This rule exists so later margin calculations do not ignore harvest timing.",
+      "enabled_by_default": false,
+      "activation_status": "optional_future",
+      "activation_note": "Keep deferred until the project chooses harvest-only versus delivery-window revenue recognition and confirms any channel-specific timing fields."
+    }
+  ]
+}

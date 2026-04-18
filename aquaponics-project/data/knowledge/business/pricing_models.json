@@ -1,0 +1,109 @@
+{
+  "version": "0.1.0",
+  "status": "draft",
+  "source_basis": {
+    "primary_sources": [
+      "docs/business_layer_contract.md",
+      "provisional_reference: aquaponics_master_reference_summary.md (uploaded project reference; repo-relative path unconfirmed)",
+      "data/knowledge/species/plants/lettuce.json",
+      "data/knowledge/species/plants/basil.json",
+      "data/knowledge/species/fish/tilapia.json"
+    ],
+    "canonical_owner": "data/knowledge/business/pricing_models.json",
+    "ownership_note": "Canonical price assumptions by product, channel, and sale unit. Do not infer or overwrite from runtime outputs."
+  },
+  "records": [
+    {
+      "id": "price_lettuce_wholesale_head",
+      "product_id": "lettuce",
+      "channel_id": "channel_wholesale",
+      "sale_unit": "head",
+      "price_basis": "first_quality_saleable_output",
+      "currency_code": null,
+      "currency_date_basis": null,
+      "price": {
+        "value": null,
+        "unit": "currency_per_head",
+        "assumption_status": "todo",
+        "assumption_note": "Need real channel-specific first-quality lettuce head price and currency basis."
+      },
+      "quality_class": "first_quality",
+      "notes": "Use only for saleable heads, not total harvested biomass."
+    },
+    {
+      "id": "price_lettuce_direct_head",
+      "product_id": "lettuce",
+      "channel_id": "channel_restaurant_direct",
+      "sale_unit": "head",
+      "price_basis": "first_quality_saleable_output",
+      "currency_code": null,
+      "currency_date_basis": null,
+      "price": {
+        "value": null,
+        "unit": "currency_per_head",
+        "assumption_status": "todo",
+        "assumption_note": "Need direct-channel lettuce head price and any pack-size or service assumptions."
+      },
+      "quality_class": "first_quality",
+      "notes": "Kept separate from wholesale because service and freshness burden may differ materially."
+    },
+    {
+      "id": "price_basil_bulk_kg",
+      "product_id": "basil",
+      "channel_id": "channel_wholesale",
+      "sale_unit": "kg",
+      "price_basis": "saleable_harvest_mass",
+      "currency_code": null,
+      "currency_date_basis": null,
+      "price": {
+        "value": null,
+        "unit": "currency_per_kg",
+        "assumption_status": "todo",
+        "assumption_note": "Need bulk basil channel price for saleable harvested mass."
+      },
+      "quality_class": "first_quality",
+      "notes": "Use when basil is sold by bulk harvested mass rather than bunch count."
+    },
+    {
+      "id": "price_basil_bunch_direct",
+      "product_id": "basil",
+      "channel_id": "channel_farmers_market",
+      "sale_unit": "bunch",
+      "price_basis": "first_quality_saleable_output",
+      "currency_code": null,
+      "currency_date_basis": null,
+      "price": {
+        "value": null,
+        "unit": "currency_per_bunch",
+        "assumption_status": "todo",
+        "assumption_note": "Need market-facing basil bunch price and an agreed bunch standard."
+      },
+      "quality_class": "first_quality",
+      "notes": "Requires a later bunch-size definition in yield-to-revenue rules if bunch counts are not directly available from runtime outputs.",
+      "enabled_by_default": false,
+      "activation_status": "optional_future",
+      "schema_choice_status": "todo",
+      "schema_choice_note": "Choose a canonical bunch-size standard before promoting bunch-based basil pricing.",
+      "activation_note": "Keep deferred until a canonical bunch-size standard and bunch-count-ready revenue path are both defined."
+    },
+    {
+      "id": "price_tilapia_whole_fish_kg",
+      "product_id": "tilapia",
+      "channel_id": "channel_wholesale",
+      "sale_unit": "kg",
+      "price_basis": "saleable_harvest_mass",
+      "currency_code": null,
+      "currency_date_basis": null,
+      "price": {
+        "value": null,
+        "unit": "currency_per_kg",
+        "assumption_status": "todo",
+        "assumption_note": "Need explicit basis: live weight, whole fish, or processed yield. Do not populate until basis is fixed."
+      },
+      "quality_class": "saleable",
+      "notes": "Fish pricing record should later split by product form if the project supports processing assumptions.",
+      "schema_choice_status": "todo",
+      "schema_choice_note": "Choose one canonical fish price basis before population: live_weight_kg, whole_fish_kg, or processed_yield_kg."
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "version": "0.1.0",
+  "status": "draft",
+  "source_basis": {
+    "primary_sources": [
+      "docs/business_layer_contract.md",
+      "provisional_reference: aquaponics_master_reference_summary.md (uploaded project reference; repo-relative path unconfirmed)",
+      "data/knowledge/species/plants/basil.json",
+      "data/knowledge/species/plants/lettuce.json",
+      "data/knowledge/models/greenhouse_climate_models.json",
+      "data/knowledge/models/pump_aeration_models.json"
+    ],
+    "canonical_owner": "data/knowledge/business/risk_penalty_models.json",
+    "ownership_note": "Canonical business penalties for risk events, quality losses, and fulfillment failures."
+  },
+  "rules": [
+    {
+      "id": "risk_rule_fish_mortality_loss",
+      "trigger_basis": "mortality_biomass_kg_or_count",
+      "required_upstream_fields": [
+        "mortality_count",
+        "mortality_biomass_kg"
+      ],
+      "penalty_application": "lost_saleable_output",
+      "penalty_rate": {
+        "value": null,
+        "unit": null,
+        "assumption_status": "todo",
+        "assumption_note": "Need a normalized mortality-penalty basis before populating a numeric penalty rate."
+      },
+      "notes": "Mortality should not stay a biology-only metric once business evaluation begins.",
+      "schema_choice_status": "todo",
+      "schema_choice_note": "Normalize whether mortality penalties are modeled primarily by biomass, by count, or by both before promotion."
+    },
+    {
+      "id": "risk_rule_basil_quality_downgrade_from_disease_or_late_cycle_decline",
+      "trigger_basis": "quality_risk_event_records_or_grade_mix",
+      "required_upstream_fields": [
+        "quality_risk_event_records"
+      ],
+      "penalty_application": "revenue_discount_or_unsaleable_fraction",
+      "penalty_rate": {
+        "value": null,
+        "unit": null,
+        "assumption_status": "todo",
+        "assumption_note": "Need a normalized quality-penalty basis before populating a numeric penalty rate."
+      },
+      "notes": "Exists because current knowledge already identifies repeated-harvest decline and disease risk as economically meaningful for basil.",
+      "schema_choice_status": "todo",
+      "schema_choice_note": "Normalize quality-penalty representation before promotion: revenue discount, unsaleable fraction, or explicit grade-mix translation."
+    },
+    {
+      "id": "risk_rule_lettuce_tipburn_or_bolting_penalty",
+      "trigger_basis": "quality_risk_event_records_or_grade_mix",
+      "required_upstream_fields": [
+        "quality_risk_event_records"
+      ],
+      "penalty_application": "downgrade_or_unsaleable_output",
+      "penalty_rate": {
+        "value": null,
+        "unit": null,
+        "assumption_status": "todo",
+        "assumption_note": "Need a normalized quality-penalty basis before populating a numeric penalty rate."
+      },
+      "notes": "Kept product-specific because lettuce quality failure may not behave like basil loss.",
+      "schema_choice_status": "todo",
+      "schema_choice_note": "Normalize quality-penalty representation before promotion: revenue discount, unsaleable fraction, or explicit grade-mix translation."
+    },
+    {
+      "id": "risk_rule_harvest_delay_or_missed_window",
+      "trigger_basis": "harvest_timing_vs_channel_window",
+      "required_upstream_fields": [
+        "first_harvest_utc",
+        "last_harvest_utc",
+        "channel_id"
+      ],
+      "penalty_application": "shrink_or_price_discount",
+      "penalty_rate": {
+        "value": null,
+        "unit": "fraction_of_revenue_per_day_delay",
+        "assumption_status": "todo",
+        "assumption_note": "Need later channel-specific freshness window assumptions."
+      },
+      "notes": "Included so the business layer can later connect harvest timing to realized revenue.",
+      "enabled_by_default": false,
+      "activation_status": "optional_future",
+      "activation_note": "Depends on channel_id and channel-specific freshness-window policy, which remain optional future business-path inputs in this pass."
+    },
+    {
+      "id": "risk_rule_downtime_recovery_cost",
+      "trigger_basis": "downtime_event_count_or_duration",
+      "required_upstream_fields": [
+        "downtime_event_count"
+      ],
+      "penalty_application": "extra_cost_and_or_lost_output",
+      "penalty_rate": {
+        "value": null,
+        "unit": null,
+        "assumption_status": "todo",
+        "assumption_note": "Need a normalized downtime-penalty basis before populating a numeric penalty rate."
+      },
+      "notes": "Supported conceptually by existing knowledge about power backup and flow-critical failure modes, but not yet parameterized.",
+      "schema_choice_status": "todo",
+      "schema_choice_note": "Normalize downtime penalties before promotion: explicit extra cost, lost output, or a split representation."
+    }
+  ],
+  "normalization_note": "Penalty trigger and penalty application vocabularies remain draft and must be normalized before promotion from draft."
+}

@@ -1,6 +1,10 @@
 .env
 __pycache__/
 *.pyc
-data/
+data/*
+!data/knowledge/
+data/knowledge/*
+!data/knowledge/business/
+!data/knowledge/business/**
 tmp*/
 tmp_*/

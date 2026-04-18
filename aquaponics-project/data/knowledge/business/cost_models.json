@@ -1,0 +1,187 @@
+{
+  "version": "0.1.0",
+  "status": "draft",
+  "source_basis": {
+    "primary_sources": [
+      "docs/business_layer_contract.md",
+      "provisional_reference: aquaponics_master_reference_summary.md (uploaded project reference; repo-relative path unconfirmed)",
+      "data/knowledge/models/nitrification_models.json",
+      "data/knowledge/models/pump_aeration_models.json",
+      "data/knowledge/models/plant_system_models.json"
+    ],
+    "canonical_owner": "data/knowledge/business/cost_models.json",
+    "ownership_note": "Canonical operating cost rates and direct cost assumptions. Runtime outputs should supply quantities; this file supplies cost rates."
+  },
+  "records": [
+    {
+      "id": "cost_feed_tilapia",
+      "cost_category": "feed",
+      "applies_to": "tilapia",
+      "driver_key": "feed_input_kg",
+      "allocation_scope": "direct_to_fish",
+      "currency_code": null,
+      "currency_date_basis": null,
+      "rate": {
+        "value": null,
+        "unit": "currency_per_kg",
+        "assumption_status": "todo",
+        "assumption_note": "Need real feed purchase cost, delivered basis, and feed type."
+      },
+      "notes": "Primary fish variable cost driver."
+    },
+    {
+      "id": "cost_fingerlings_tilapia",
+      "cost_category": "stocking_input",
+      "applies_to": "tilapia",
+      "driver_key": "fingerling_purchase_count",
+      "allocation_scope": "direct_to_fish_batch",
+      "currency_code": null,
+      "currency_date_basis": null,
+      "rate": {
+        "value": null,
+        "unit": "currency_per_fish",
+        "assumption_status": "todo",
+        "assumption_note": "Need fingerling purchase basis and whether freight/mortality-in-transit is included."
+      },
+      "notes": "Kept separate from feed because it behaves like a batch input rather than a daily operating cost."
+    },
+    {
+      "id": "cost_electricity",
+      "cost_category": "energy",
+      "applies_to": "system",
+      "driver_key": "energy_kwh",
+      "allocation_scope": "shared_system_cost",
+      "currency_code": null,
+      "currency_date_basis": null,
+      "rate": {
+        "value": null,
+        "unit": "currency_per_kWh",
+        "assumption_status": "todo",
+        "assumption_note": "Need site tariff, tax treatment, and whether demand charges are excluded or modeled elsewhere."
+      },
+      "notes": "Can later be expanded to time-of-use pricing if necessary."
+    },
+    {
+      "id": "cost_water",
+      "cost_category": "water",
+      "applies_to": "system",
+      "driver_key": "water_use_l",
+      "allocation_scope": "shared_system_cost",
+      "currency_code": null,
+      "currency_date_basis": null,
+      "rate": {
+        "value": null,
+        "unit": "currency_per_m3",
+        "assumption_status": "todo",
+        "assumption_note": "Need site water/sewer treatment basis and whether discharge costs apply. Upstream/runtime water use may still arrive as liters and should be normalized to m3 before applying this rate."
+      },
+      "notes": "Canonical business rate uses currency_per_m3. Current upstream/runtime water-use examples may still expose water_use_l and should be converted at the mapping boundary."
+    },
+    {
+      "id": "cost_plant_inputs_lettuce",
+      "cost_category": "planting_input",
+      "applies_to": "lettuce",
+      "driver_key": "planting_count",
+      "allocation_scope": "direct_to_crop_batch",
+      "currency_code": null,
+      "currency_date_basis": null,
+      "rate": {
+        "value": null,
+        "unit": "currency_per_plant",
+        "assumption_status": "todo",
+        "assumption_note": "Need explicit basis: seed, seedling, plug, or transplants."
+      },
+      "notes": "Use only after the project chooses the canonical planting input basis.",
+      "schema_choice_status": "todo",
+      "schema_choice_note": "Choose one canonical planting-input basis before population so cost basis is explicit in both unit and sourcing assumptions."
+    },
+    {
+      "id": "cost_plant_inputs_basil",
+      "cost_category": "planting_input",
+      "applies_to": "basil",
+      "driver_key": "planting_count",
+      "allocation_scope": "direct_to_crop_batch",
+      "currency_code": null,
+      "currency_date_basis": null,
+      "rate": {
+        "value": null,
+        "unit": "currency_per_plant",
+        "assumption_status": "todo",
+        "assumption_note": "Need explicit basis: seed, seedling, or propagated transplant."
+      },
+      "notes": "Kept parallel to lettuce for simpler first-pass cost modeling.",
+      "schema_choice_status": "todo",
+      "schema_choice_note": "Choose one canonical planting-input basis before population so cost basis is explicit in both unit and sourcing assumptions."
+    },
+    {
+      "id": "cost_supplements_and_buffering",
+      "cost_category": "supplements",
+      "applies_to": "system",
+      "driver_key": null,
+      "allocation_scope": "shared_system_cost",
+      "currency_code": null,
+      "currency_date_basis": null,
+      "rate": {
+        "value": null,
+        "unit": null,
+        "assumption_status": "todo",
+        "assumption_note": "Need a canonical supplement costing basis before populating a numeric rate."
+      },
+      "notes": "Included because existing knowledge already highlights buffering and supplementation as operationally important.",
+      "driver_key_options": [
+        "supplement_input_records",
+        "supplement_input_mass_kg",
+        "supplement_dose_count"
+      ],
+      "schema_choice_status": "todo",
+      "schema_choice_note": "Choose one canonical supplement driver basis before promotion and align the rate unit to that basis."
+    },
+    {
+      "id": "cost_packaging_lettuce",
+      "cost_category": "packaging",
+      "applies_to": "lettuce",
+      "driver_key": null,
+      "allocation_scope": "direct_to_crop_sale",
+      "currency_code": null,
+      "currency_date_basis": null,
+      "rate": {
+        "value": null,
+        "unit": null,
+        "assumption_status": "todo",
+        "assumption_note": "Need canonical packaging basis after sale unit is fixed by channel."
+      },
+      "notes": "Kept unit-flexible until the project decides whether lettuce is billed primarily by head or kg.",
+      "driver_key_options": [
+        "saleable_harvest_count",
+        "saleable_harvest_mass_kg"
+      ],
+      "schema_choice_status": "todo",
+      "schema_choice_note": "Choose one canonical packaging driver basis before promotion and align the rate unit to that basis."
+    },
+    {
+      "id": "cost_packaging_basil",
+      "cost_category": "packaging",
+      "applies_to": "basil",
+      "driver_key": null,
+      "allocation_scope": "direct_to_crop_sale",
+      "currency_code": null,
+      "currency_date_basis": null,
+      "rate": {
+        "value": null,
+        "unit": null,
+        "assumption_status": "todo",
+        "assumption_note": "Need canonical packaging basis after sale unit is fixed by channel."
+      },
+      "notes": "Separated from channel assumptions because physical packing cost is a direct operating input, but kept optional until basil sale-unit basis is fixed.",
+      "driver_key_options": [
+        "saleable_harvest_count",
+        "saleable_harvest_mass_kg"
+      ],
+      "schema_choice_status": "todo",
+      "schema_choice_note": "Choose one canonical packaging driver basis before promotion and align the rate unit to that basis.",
+      "enabled_by_default": false,
+      "activation_status": "optional_future",
+      "activation_note": "Keep deferred until basil packaging is tied to one canonical sale-unit basis."
+    }
+  ]
+}

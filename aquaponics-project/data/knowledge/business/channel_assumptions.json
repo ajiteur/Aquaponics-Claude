@@ -1,0 +1,121 @@
+{
+  "version": "0.1.0",
+  "status": "draft",
+  "source_basis": {
+    "primary_sources": [
+      "docs/business_layer_contract.md",
+      "provisional_reference: aquaponics_master_reference_summary.md (uploaded project reference; repo-relative path unconfirmed)"
+    ],
+    "canonical_owner": "data/knowledge/business/channel_assumptions.json",
+    "ownership_note": "Canonical sales-channel behavior assumptions used to interpret pricing, labor, cash timing, and freshness sensitivity."
+  },
+  "records": [
+    {
+      "id": "channel_wholesale",
+      "channel_type": "wholesale",
+      "sale_units_supported": [
+        "kg",
+        "head",
+        "fish_count"
+      ],
+      "freshness_sensitivity": "high",
+      "service_intensity": "low_to_medium",
+      "quality_tolerance": "low",
+      "delivery_pattern": "scheduled_bulk_delivery",
+      "payment_delay": {
+        "value": null,
+        "unit": "day",
+        "assumption_status": "todo",
+        "assumption_note": "Need actual payment terms for the chosen geography and customer type."
+      },
+      "shrink_or_rejection_rate": {
+        "value": null,
+        "unit": "fraction_of_delivered_output",
+        "assumption_status": "todo",
+        "assumption_note": "Need actual channel rejection/shrink basis."
+      },
+      "notes": "Usually the cleanest first-pass channel for bulk kg-based pricing, but likely with stricter quality consistency."
+    },
+    {
+      "id": "channel_restaurant_direct",
+      "channel_type": "restaurant_direct",
+      "sale_units_supported": [
+        "kg",
+        "head",
+        "bunch"
+      ],
+      "freshness_sensitivity": "very_high",
+      "service_intensity": "high",
+      "quality_tolerance": "low",
+      "delivery_pattern": "frequent_small_delivery",
+      "payment_delay": {
+        "value": null,
+        "unit": "day",
+        "assumption_status": "todo",
+        "assumption_note": "Need actual invoicing/collection timing."
+      },
+      "shrink_or_rejection_rate": {
+        "value": null,
+        "unit": "fraction_of_delivered_output",
+        "assumption_status": "todo",
+        "assumption_note": "Need actual quality rejection basis for direct buyers."
+      },
+      "notes": "Kept separate because price may improve while service labor and timing risk also increase."
+    },
+    {
+      "id": "channel_farmers_market",
+      "channel_type": "farmers_market",
+      "sale_units_supported": [
+        "head",
+        "bunch",
+        "small_pack"
+      ],
+      "freshness_sensitivity": "very_high",
+      "service_intensity": "high",
+      "quality_tolerance": "medium",
+      "delivery_pattern": "market_day_transport",
+      "payment_delay": {
+        "value": null,
+        "unit": "day",
+        "assumption_status": "todo",
+        "assumption_note": "Typically low delay, but still leave explicit until chosen market/payment stack is known."
+      },
+      "shrink_or_rejection_rate": {
+        "value": null,
+        "unit": "fraction_of_brought_output",
+        "assumption_status": "todo",
+        "assumption_note": "Need unsold-product/shrink basis rather than formal buyer rejection basis."
+      },
+      "notes": "Useful later for high-touch direct sales scenarios, but labor and unsold inventory risk may be material."
+    },
+    {
+      "id": "channel_csa_subscription",
+      "channel_type": "csa_subscription",
+      "sale_units_supported": [
+        "box_share",
+        "head",
+        "bunch"
+      ],
+      "freshness_sensitivity": "high",
+      "service_intensity": "high",
+      "quality_tolerance": "medium",
+      "delivery_pattern": "scheduled_box_fulfillment",
+      "payment_delay": {
+        "value": null,
+        "unit": "day",
+        "assumption_status": "todo",
+        "assumption_note": "Need actual prepayment vs periodic payment basis."
+      },
+      "shrink_or_rejection_rate": {
+        "value": null,
+        "unit": "fraction_of_committed_output",
+        "assumption_status": "todo",
+        "assumption_note": "Need actual refund/substitution/shrink policy basis."
+      },
+      "notes": "Can later support cash-timing advantages, but requires strong fulfillment consistency.",
+      "enabled_by_default": false,
+      "activation_status": "optional_future",
+      "activation_note": "Keep deferred until subscription-box assumptions, substitution policy, and fulfillment cadence are chosen canonically."
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "version": "0.1.0",
+  "status": "draft",
+  "source_basis": {
+    "primary_sources": [
+      "docs/business_layer_contract.md",
+      "provisional_reference: aquaponics_master_reference_summary.md (uploaded project reference; repo-relative path unconfirmed)",
+      "data/knowledge/components/component_library.json",
+      "data/knowledge/models/solids_models.json",
+      "data/knowledge/models/pump_aeration_models.json",
+      "data/knowledge/models/greenhouse_climate_models.json"
+    ],
+    "canonical_owner": "data/knowledge/business/capex_models.json",
+    "ownership_note": "Canonical CAPEX archetypes and useful-life placeholders for later payback analysis."
+  },
+  "records": [
+    {
+      "id": "capex_greenhouse_structure",
+      "asset_group": "greenhouse_structure",
+      "capacity_basis": "growing_area_m2",
+      "currency_code": null,
+      "currency_date_basis": null,
+      "installed_cost": {
+        "value": null,
+        "unit": "currency_per_m2",
+        "assumption_status": "todo",
+        "assumption_note": "Need greenhouse archetype, build standard, and geography before populating."
+      },
+      "useful_life": {
+        "value": null,
+        "unit": "year",
+        "assumption_status": "todo",
+        "assumption_note": "Need later asset-life assumption for depreciation/payback views."
+      },
+      "include_in_payback_default": true,
+      "notes": "Include only when the scenario is intended to represent installed infrastructure rather than a sunk-cost operating case."
+    },
+    {
+      "id": "capex_fish_tank_and_plumbing",
+      "asset_group": "fish_system",
+      "capacity_basis": "fish_water_volume_m3",
+      "currency_code": null,
+      "currency_date_basis": null,
+      "installed_cost": {
+        "value": null,
+        "unit": "currency_per_m3",
+        "assumption_status": "todo",
+        "assumption_note": "Need explicit fish-side design volume basis and installed scope."
+      },
+      "useful_life": {
+        "value": null,
+        "unit": "year",
+        "assumption_status": "todo",
+        "assumption_note": "Need useful-life assumption for tanks/plumbing."
+      },
+      "include_in_payback_default": true,
+      "notes": "Kept as a separate asset group because later scenarios may scale fish volume independently from plant area."
+    },
+    {
+      "id": "capex_solids_and_biofiltration",
+      "asset_group": "water_treatment",
+      "capacity_basis": null,
+      "currency_code": null,
+      "currency_date_basis": null,
+      "installed_cost": {
+        "value": null,
+        "unit": null,
+        "assumption_status": "todo",
+        "assumption_note": "Need chosen sizing basis before populating a numeric installed-cost rate."
+      },
+      "useful_life": {
+        "value": null,
+        "unit": "year",
+        "assumption_status": "todo",
+        "assumption_note": "Need useful-life assumption for filters/media infrastructure."
+      },
+      "include_in_payback_default": true,
+      "notes": "Business importance is high because treatment sizing is linked to both system viability and resilience.",
+      "capacity_basis_options": [
+        "design_feed_load_kg_per_day",
+        "design_flow_m3_per_hour",
+        "fish_water_volume_m3_equivalent"
+      ],
+      "schema_choice_status": "todo",
+      "schema_choice_note": "Choose one canonical treatment sizing basis before promotion and align installed_cost.unit to that basis."
+    },
+    {
+      "id": "capex_pumps_blowers_backup_power",
+      "asset_group": "hydraulics_and_resilience",
+      "capacity_basis": null,
+      "currency_code": null,
+      "currency_date_basis": null,
+      "installed_cost": {
+        "value": null,
+        "unit": null,
+        "assumption_status": "todo",
+        "assumption_note": "Need chosen cost basis and actual equipment scope before populating a numeric installed-cost rate."
+      },
+      "useful_life": {
+        "value": null,
+        "unit": "year",
+        "assumption_status": "todo",
+        "assumption_note": "Need separate useful-life treatment if pumps, blowers, and generator diverge materially."
+      },
+      "include_in_payback_default": true,
+      "notes": "Grouped for first pass because current component knowledge already highlights backup power as business-relevant resilience infrastructure.",
+      "capacity_basis_options": [
+        "system",
+        "design_flow_m3_per_hour"
+      ],
+      "schema_choice_status": "todo",
+      "schema_choice_note": "Choose whether this CAPEX group is costed per system or per design-flow basis before promotion."
+    },
+    {
+      "id": "capex_controls_and_sensors",
+      "asset_group": "controls_and_monitoring",
+      "capacity_basis": "system",
+      "currency_code": null,
+      "currency_date_basis": null,
+      "installed_cost": {
+        "value": null,
+        "unit": "currency_per_system",
+        "assumption_status": "todo",
+        "assumption_note": "Need actual controls scope: basic monitoring vs greenhouse automation."
+      },
+      "useful_life": {
+        "value": null,
+        "unit": "year",
+        "assumption_status": "todo",
+        "assumption_note": "Need later controls replacement-life assumption."
+      },
+      "include_in_payback_default": true,
+      "notes": "Relevant because monitoring and control complexity may differ by scenario."
+    },
+    {
+      "id": "capex_postharvest_and_cold_storage",
+      "asset_group": "postharvest",
+      "capacity_basis": null,
+      "currency_code": null,
+      "currency_date_basis": null,
+      "installed_cost": {
+        "value": null,
+        "unit": null,
+        "assumption_status": "todo",
+        "assumption_note": "Need later decision on whether wash/pack/cold storage is in-scope and, if so, which canonical cost basis applies."
+      },
+      "useful_life": {
+        "value": null,
+        "unit": "year",
+        "assumption_status": "todo",
+        "assumption_note": "Need useful-life assumption if this asset group is activated."
+      },
+      "include_in_payback_default": false,
+      "notes": "Marked optional because some early scenarios may evaluate production only, not full commercial handling.",
+      "capacity_basis_options": [
+        "system",
+        "throughput_kg_per_day"
+      ],
+      "schema_choice_status": "todo",
+      "schema_choice_note": "Choose whether postharvest infrastructure is modeled per system or per throughput basis before promotion.",
+      "activation_status": "optional_future",
+      "enabled_by_default": false,
+      "activation_note": "Keep deferred until the project decides whether postharvest infrastructure is in-scope and which canonical sizing basis applies."
+    }
+  ]
+}

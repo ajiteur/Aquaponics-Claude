@@ -1,0 +1,175 @@
+{
+  "version": "0.1.0",
+  "status": "draft",
+  "source_basis": {
+    "primary_sources": [
+      "docs/business_layer_contract.md",
+      "provisional_reference: aquaponics_master_reference_summary.md (uploaded project reference; repo-relative path unconfirmed)",
+      "data/knowledge/species/fish/tilapia.json",
+      "data/knowledge/species/plants/lettuce.json",
+      "data/knowledge/species/plants/basil.json",
+      "data/knowledge/models/pump_aeration_models.json",
+      "data/knowledge/models/nitrification_models.json"
+    ],
+    "canonical_owner": "data/knowledge/business/labor_models.json",
+    "ownership_note": "Canonical labor activity standards and labor-rate placeholders for business evaluation."
+  },
+  "records": [
+    {
+      "id": "labor_system_monitoring_and_checks",
+      "activity_group": "system_monitoring",
+      "applies_to": "system",
+      "driver_key": "operating_day_count",
+      "currency_code": null,
+      "currency_date_basis": null,
+      "labor_standard": {
+        "value": null,
+        "unit": "labor_hour_per_day",
+        "assumption_status": "todo",
+        "assumption_note": "Need actual monitoring/check routine and staffing standard."
+      },
+      "labor_rate": {
+        "value": null,
+        "unit": "currency_per_labor_hour",
+        "assumption_status": "todo",
+        "assumption_note": "Need burdened labor-rate basis for routine operations."
+      },
+      "notes": "Covers routine daily checks, observation, and logkeeping."
+    },
+    {
+      "id": "labor_fish_feeding_and_observation",
+      "activity_group": "fish_operations",
+      "applies_to": "tilapia",
+      "driver_key": null,
+      "currency_code": null,
+      "currency_date_basis": null,
+      "labor_standard": {
+        "value": null,
+        "unit": null,
+        "assumption_status": "todo",
+        "assumption_note": "Need chosen labor basis before populating a numeric labor standard."
+      },
+      "labor_rate": {
+        "value": null,
+        "unit": "currency_per_labor_hour",
+        "assumption_status": "todo",
+        "assumption_note": "Need burdened labor-rate basis for fish-side work."
+      },
+      "notes": "Kept separate because feeding/observation effort may scale differently from crop labor.",
+      "driver_key_options": [
+        "operating_day_count",
+        "feed_event_count"
+      ],
+      "schema_choice_status": "todo",
+      "schema_choice_note": "Choose whether this labor record scales by operating day or feed event before promotion."
+    },
+    {
+      "id": "labor_water_quality_adjustment_and_supplementation",
+      "activity_group": "water_quality_management",
+      "applies_to": "system",
+      "driver_key": "adjustment_event_count",
+      "currency_code": null,
+      "currency_date_basis": null,
+      "labor_standard": {
+        "value": null,
+        "unit": "labor_hour_per_event",
+        "assumption_status": "todo",
+        "assumption_note": "Need actual intervention-time basis for buffering/supplement routines."
+      },
+      "labor_rate": {
+        "value": null,
+        "unit": "currency_per_labor_hour",
+        "assumption_status": "todo",
+        "assumption_note": "Need burdened labor-rate basis for intervention work."
+      },
+      "notes": "Included because current knowledge explicitly highlights pH adjustment and supplementation as recurring operations."
+    },
+    {
+      "id": "labor_harvest_and_pack_lettuce",
+      "activity_group": "harvest_packout",
+      "applies_to": "lettuce",
+      "driver_key": null,
+      "currency_code": null,
+      "currency_date_basis": null,
+      "labor_standard": {
+        "value": null,
+        "unit": null,
+        "assumption_status": "todo",
+        "assumption_note": "Need canonical sale-unit basis before populating a numeric harvest/pack labor standard."
+      },
+      "labor_rate": {
+        "value": null,
+        "unit": "currency_per_labor_hour",
+        "assumption_status": "todo",
+        "assumption_note": "Need burdened labor-rate basis for crop harvest/packout work."
+      },
+      "notes": "A lettuce-specific activity because product form and harvest rhythm are likely different from basil.",
+      "driver_key_options": [
+        "saleable_harvest_count",
+        "saleable_harvest_mass_kg"
+      ],
+      "schema_choice_status": "todo",
+      "schema_choice_note": "Choose one canonical harvest/pack labor basis before promotion and align labor_standard.unit to that basis."
+    },
+    {
+      "id": "labor_harvest_and_pack_basil",
+      "activity_group": "harvest_packout",
+      "applies_to": "basil",
+      "driver_key": null,
+      "currency_code": null,
+      "currency_date_basis": null,
+      "labor_standard": {
+        "value": null,
+        "unit": null,
+        "assumption_status": "todo",
+        "assumption_note": "Need canonical sale-unit basis before populating a numeric harvest/pack labor standard."
+      },
+      "labor_rate": {
+        "value": null,
+        "unit": "currency_per_labor_hour",
+        "assumption_status": "todo",
+        "assumption_note": "Need burdened labor-rate basis for basil harvest/packout work."
+      },
+      "notes": "Separated because basil repeated harvest and bunching may materially change labor load.",
+      "driver_key_options": [
+        "saleable_harvest_count",
+        "saleable_harvest_mass_kg"
+      ],
+      "schema_choice_status": "todo",
+      "schema_choice_note": "Choose one canonical harvest/pack labor basis before promotion and align labor_standard.unit to that basis.",
+      "enabled_by_default": false,
+      "activation_status": "optional_future",
+      "activation_note": "Keep deferred until basil harvest/pack labor is tied to one canonical sale-unit basis."
+    },
+    {
+      "id": "labor_channel_fulfillment",
+      "activity_group": "fulfillment_delivery",
+      "applies_to": "channel_dependent",
+      "driver_key": null,
+      "currency_code": null,
+      "currency_date_basis": null,
+      "labor_standard": {
+        "value": null,
+        "unit": null,
+        "assumption_status": "todo",
+        "assumption_note": "Need a canonical fulfillment labor basis before populating a numeric labor standard."
+      },
+      "labor_rate": {
+        "value": null,
+        "unit": "currency_per_labor_hour",
+        "assumption_status": "todo",
+        "assumption_note": "Need burdened labor-rate basis for fulfillment and transport work."
+      },
+      "notes": "Important because channel choice can change labor intensity even when price looks attractive.",
+      "driver_key_options": [
+        "delivery_event_count",
+        "order_count"
+      ],
+      "schema_choice_status": "todo",
+      "schema_choice_note": "Choose whether fulfillment labor is modeled per delivery event or per order before promotion.",
+      "enabled_by_default": false,
+      "activation_status": "optional_future",
+      "activation_note": "Keep deferred until fulfillment labor is modeled on one canonical operational basis, per order or per delivery event."
+    }
+  ]
+}
