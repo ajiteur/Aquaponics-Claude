@@ -320,7 +320,7 @@ The following gaps are intentionally left open instead of being guessed:
 
 ## Deferred rule activation rule
 
-If a rule or record depends on an optional future upstream field or on an unresolved schema choice, it should stay explicitly deferred with a simple marker such as `enabled_by_default: false` or `activation_status: "optional_future"` until the dependency is made canonical.
+If a rule or record depends on an optional future upstream field or on an unresolved schema choice, it should stay explicitly deferred with `enabled_by_default: false` and `activation_status: "optional_future"` until the dependency is made canonical.
 
 ## Assumption handling rule
 

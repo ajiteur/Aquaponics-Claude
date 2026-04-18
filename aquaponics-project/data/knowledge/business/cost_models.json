@@ -4,7 +4,6 @@
   "source_basis": {
     "primary_sources": [
       "docs/business_layer_contract.md",
-      "provisional_reference: aquaponics_master_reference_summary.md (uploaded project reference; repo-relative path unconfirmed)",
       "data/knowledge/models/nitrification_models.json",
       "data/knowledge/models/pump_aeration_models.json",
       "data/knowledge/models/plant_system_models.json"

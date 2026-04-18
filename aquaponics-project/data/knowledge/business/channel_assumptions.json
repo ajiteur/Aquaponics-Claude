@@ -3,8 +3,7 @@
   "status": "draft",
   "source_basis": {
     "primary_sources": [
-      "docs/business_layer_contract.md",
-      "provisional_reference: aquaponics_master_reference_summary.md (uploaded project reference; repo-relative path unconfirmed)"
+      "docs/business_layer_contract.md"
     ],
     "canonical_owner": "data/knowledge/business/channel_assumptions.json",
     "ownership_note": "Canonical sales-channel behavior assumptions used to interpret pricing, labor, cash timing, and freshness sensitivity."

@@ -81,7 +81,7 @@ Replace placeholder business inputs with sourced, reviewable, canonical assumpti
 - keep contradictory business assumptions separated by context rather than flattened prematurely
 - document provenance before promoting from `draft` to `provisional` or `accepted`
 - keep the current `0.1.0` version format provisional until a repo-wide version convention is confirmed
-- when a rule depends on optional future upstream fields, mark it explicitly deferred with `enabled_by_default: false` or `activation_status: "optional_future"` rather than silently treating the dependency as required-now
+- when a rule depends on optional future upstream fields, mark it explicitly deferred with `enabled_by_default: false` and `activation_status: "optional_future"` rather than silently treating the dependency as required-now
 
 ## Phase 3 - Calculation layer design
 

@@ -4,7 +4,6 @@
   "source_basis": {
     "primary_sources": [
       "docs/business_layer_contract.md",
-      "provisional_reference: aquaponics_master_reference_summary.md (uploaded project reference; repo-relative path unconfirmed)",
       "data/knowledge/species/fish/tilapia.json",
       "data/knowledge/species/plants/lettuce.json",
       "data/knowledge/species/plants/basil.json",
