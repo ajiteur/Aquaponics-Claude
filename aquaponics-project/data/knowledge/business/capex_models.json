@@ -166,7 +166,7 @@
       "id": "capex_media_bed_bundle",
       "asset_group": "media_volume_and_support_structure",
       "architecture_variant_id": "architecture_media_bed",
-      "capacity_basis": null,
+      "capacity_basis": "media_volume_m3",
       "currency_code": null,
       "currency_date_basis": null,
       "installed_cost": {
@@ -189,7 +189,7 @@
         "planting_site_count"
       ],
       "schema_choice_status": "todo",
-      "schema_choice_note": "Choose whether media-bed CAPEX is sized primarily by grow area, media volume, or planting sites before promotion.",
+      "schema_choice_note": "Primary grow-unit basis is media_volume_m3. Keep growing_area_m2 as a secondary reporting basis and leave any additional grow-unit alternatives or support-system allocation choices explicit.",
       "separate_biofilter_required": {
         "value": null,
         "assumption_status": "todo",
@@ -205,7 +205,7 @@
       "id": "capex_dwc_raft_bundle",
       "asset_group": "dwc_trough_liner_and_raft_bundle",
       "architecture_variant_id": "architecture_dwc_raft",
-      "capacity_basis": null,
+      "capacity_basis": "raft_surface_area_m2",
       "currency_code": null,
       "currency_date_basis": null,
       "installed_cost": {
@@ -224,11 +224,11 @@
       "notes": "Use for troughs, liners, raft surfaces, and plant-side aeration distribution. Keep separate from generic greenhouse structure and fish-side infrastructure.",
       "capacity_basis_options": [
         "growing_area_m2",
-        "water_surface_area_m2",
-        "hydroponic_volume_m3"
+        "raft_surface_area_m2",
+        "hydro_volume_m3"
       ],
       "schema_choice_status": "todo",
-      "schema_choice_note": "Choose whether DWC or raft CAPEX is sized primarily by grow area, water surface area, or hydroponic volume before promotion.",
+      "schema_choice_note": "Primary grow-unit basis is raft_surface_area_m2. Keep hydro_volume_m3 available as the main support-system basis and leave additional operational secondary bases explicit.",
       "separate_biofilter_required": {
         "value": null,
         "assumption_status": "todo",
@@ -244,7 +244,7 @@
       "id": "capex_nft_bundle",
       "asset_group": "nft_channel_manifold_emitter_bundle",
       "architecture_variant_id": "architecture_nft",
-      "capacity_basis": null,
+      "capacity_basis": "channel_length_m",
       "currency_code": null,
       "currency_date_basis": null,
       "installed_cost": {
@@ -267,7 +267,7 @@
         "planting_site_count"
       ],
       "schema_choice_status": "todo",
-      "schema_choice_note": "Choose whether NFT CAPEX is sized primarily by grow area, channel length, or planting sites before promotion.",
+      "schema_choice_note": "Primary grow-unit basis is channel_length_m. Keep planting-site or grow-area views as secondary reporting bases and keep filtration and biofiltration support CAPEX separate.",
       "separate_biofilter_required": {
         "value": null,
         "assumption_status": "todo",

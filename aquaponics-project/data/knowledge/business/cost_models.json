@@ -288,14 +288,14 @@
         "assumption_status": "todo",
         "assumption_note": "Need a canonical unclogging and filter-service cost basis before populating a numeric rate."
       },
-      "notes": "Use for NFT unclogging discipline and filter-service burden where cleaner water and orifice reliability become business-relevant maintenance work.",
+      "notes": "Use as a first-pass hybrid bucket for NFT channel-side unclogging and related upstream filter-service burden, where cleaner-water dependence and orifice reliability make both intrinsic and amplified maintenance business-relevant.",
       "driver_key_options": [
         "inspection_week_count",
         "service_event_count",
         "channel_length_m"
       ],
       "schema_choice_status": "todo",
-      "schema_choice_note": "Choose whether NFT unclogging and filter service is modeled per inspection week, per service event, or per channel length before promotion."
+      "schema_choice_note": "Keep event-driven channel service and support-system filter service explicit. If later split, drive channel-side work by service event or channel_length_m and drive upstream filter service by design flow or feed load."
     },
     {
       "id": "cost_solids_removal_ops",

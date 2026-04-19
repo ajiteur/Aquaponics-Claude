@@ -295,7 +295,7 @@
         "assumption_status": "todo",
         "assumption_note": "Need burdened labor-rate basis for NFT inspection and intervention work."
       },
-      "notes": "Use for the higher unclogging and flow-check frequency expected in NFT, where channel blockage and interruption sensitivity are stronger."
+      "notes": "Use for unclogging and flow-check intervention burden that may be higher in NFT, where channel blockage and interruption sensitivity are stronger."
     }
   ]
 }
