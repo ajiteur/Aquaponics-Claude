@@ -244,6 +244,7 @@
 - Definition: Total Ammonia Nitrogen, the combined amount of NH3 and NH4+ in water.
 - Use in this project: Business contract expects `observed_tan_mg_l`; accepted atomic truths note that common ammonia test kits measure TAN.
 - Do not confuse with: `unionized ammonia / NH3`, which is the more toxic fraction.
+- Deeper explainer: [[Reference/Explainers/TAN|TAN explainer]].
 - See also: [[#Unionized Ammonia / NH3|NH3]], [[#NH4+|NH4+]], [[#pH|pH]], [[#Nitrification|Nitrification]].
 
 ### NH4+
@@ -260,6 +261,7 @@
 - Definition: The un-ionized toxic ammonia form present within TAN; toxicity rises with pH and temperature.
 - Use in this project: Business contract expects `observed_unionized_nh3_mg_l`; tilapia canon includes NH3 warning and critical values.
 - Do not confuse with: TAN as a whole or NH4+.
+- Deeper explainer: [[Reference/Explainers/Unionized Ammonia NH3|Unionized Ammonia / NH3 explainer]].
 - See also: [[#TAN|TAN]], [[#NH4+|NH4+]], [[#pH|pH]], [[#Tilapia|Tilapia]], [[#Nitrification|Nitrification]].
 
 ### Dissolved Oxygen / DO
@@ -284,6 +286,7 @@
 - Definition: Measure of acidity or alkalinity in water.
 - Use in this project: Cross-domain control variable for fish tolerance, plant nutrient availability, and ammonia toxicity.
 - Do not confuse with: Nutrient concentration, alkalinity, or EC.
+- Deeper explainer: [[Reference/Explainers/pH|pH explainer]].
 - See also: [[#TAN|TAN]], [[#Unionized Ammonia / NH3|NH3]], [[#NH4+|NH4+]], [[#Alkalinity|alkalinity]], [[#Nitrification|Nitrification]].
 
 ### Alkalinity
@@ -332,6 +335,7 @@
 - Definition: Microbial conversion of ammonia toward nitrate, with hydrogen ions released so pH tends to fall.
 - Use in this project: Core water-treatment concept for biofilters, media beds, fish-water chemistry, and oxygen demand.
 - Do not confuse with: Solids removal; related but different process.
+- Deeper explainer: [[Reference/Explainers/Nitrification|Nitrification explainer]].
 - See also: [[#TAN|TAN]], [[#NH4+|NH4+]], [[#Unionized Ammonia / NH3|NH3]], [[#Dissolved Oxygen / DO|DO]], [[#Biofilter|biofilter]], [[#pH|pH]].
 
 ## Architecture Terms
@@ -441,6 +445,15 @@
 - Use `schema-choice TODO` when basis is unresolved; do not hide uncertainty inside a vague mixed field name.
 - Use `DWC / raft` in prose unless the exact machine term is required, such as `architecture_dwc_raft` or `dwc_raft_bed`.
 - Preserve exact nitrate wording from the source field: `nitrate_mg_L`, `observed_nitrate_mg_l`, and `nitrateN` are not automatically interchangeable.
+
+## Current Working Decisions
+
+- These are current drafting and review directions, not permanent machine-schema claims.
+- `crop_system_type` and `architecture_variant_id`: not one-to-one. Use `crop_system_type` as the upstream/runtime-facing field, use `architecture_variant_id` as the business/review taxonomy layer, and allow a later mapping table to connect them.
+- `grow-unit basis` and `supporting-system basis`: keep them as formal glossary/review terms now, but do not promote them to machine-schema fields yet.
+- Nitrate naming: normalize later through a controlled pass, but do not flatten `nitrate-N` and `nitrate` casually before that pass; preserve exact source wording meanwhile.
+- `koi`: keep as glossary `todo` and do not include it in first-draft scope yet.
+- `accepted` vs `provisional`: `accepted` means the meaning is stable enough that unresolved details do not materially change interpretation; `provisional` means the direction is useful, but basis, normalization, context split, or activation still materially affects meaning.
 
 ## Open Terminology Questions
 

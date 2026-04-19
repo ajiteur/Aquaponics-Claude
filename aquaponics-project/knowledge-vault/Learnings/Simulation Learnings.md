@@ -7,7 +7,7 @@ Summary from the latest relevant simulation update logs, when present.
 ### Research to Tuning: `research_to_tuning_cycle_report_20260405T103459Z.json`
 
 - Recommendation: `candidate_new_best_default`
-- Reason: Tuned scenario meets [[Reference/Glossary and Naming Conventions#Unionized Ammonia / NH3|NH3]] viability target and matches or improves on best known viable NH3.
+- Reason: Tuned scenario meets [[Reference/Explainers/Unionized Ammonia NH3|NH3]] viability target and matches or improves on best known viable NH3.
 - Baseline NH3: `0.187`
 - Tuned NH3: `0.071`
 - Baseline stability: `0.67`

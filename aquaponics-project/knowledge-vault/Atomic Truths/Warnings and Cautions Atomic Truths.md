@@ -40,7 +40,7 @@ Fact count: **3**
 
 ## WARN_0003
 
-- Statement: Warmer water has more toxic NH3 at a given pH than cooler water.
+- Statement: Warmer water has more toxic [[Reference/Explainers/Unionized Ammonia NH3|NH3]] at a given pH than cooler water.
 - Domain: `water_chemistry`
 - Type: `dependency`
 - Confidence: `high`

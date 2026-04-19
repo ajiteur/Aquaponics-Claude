@@ -8,7 +8,7 @@ Fact count: **3**
 
 ## PARAM_0001
 
-- Statement: At [[Reference/Glossary and Naming Conventions#pH|pH]] 7.0 or below, most ammonia is in the non-toxic form NH4+.
+- Statement: At [[Reference/Explainers/pH|pH]] 7.0 or below, most ammonia is in the non-toxic form NH4+.
 - Domain: `water_chemistry`
 - Type: `parameter`
 - Confidence: `high`
