@@ -7,6 +7,7 @@
       "data/knowledge/species/fish/tilapia.json",
       "data/knowledge/species/plants/lettuce.json",
       "data/knowledge/species/plants/basil.json",
+      "data/knowledge/models/plant_system_models.json",
       "data/knowledge/models/pump_aeration_models.json",
       "data/knowledge/models/nitrification_models.json"
     ],
@@ -169,6 +170,132 @@
       "enabled_by_default": false,
       "activation_status": "optional_future",
       "activation_note": "Keep deferred until fulfillment labor is modeled on one canonical operational basis, per order or per delivery event."
+    },
+    {
+      "id": "labor_media_bed_harvest_and_changeover",
+      "activity_group": "harvest_and_changeover",
+      "applies_to": "architecture_media_bed",
+      "driver_key": "growing_area_m2",
+      "currency_code": null,
+      "currency_date_basis": null,
+      "labor_standard": {
+        "value": null,
+        "unit": "labor_hour_per_m2_per_crop_turn",
+        "assumption_status": "todo",
+        "assumption_note": "Need a reviewed labor benchmark for media-bed harvest and changeover work per area and crop turn."
+      },
+      "labor_rate": {
+        "value": null,
+        "unit": "currency_per_labor_hour",
+        "assumption_status": "todo",
+        "assumption_note": "Need burdened labor-rate basis for media-bed harvest and changeover work."
+      },
+      "notes": "Carry the extra root clean-out and media-handling burden that media beds can impose on short-cycle crop programs."
+    },
+    {
+      "id": "labor_dwc_raft_harvest_and_changeover",
+      "activity_group": "harvest_and_changeover",
+      "applies_to": "architecture_dwc_raft",
+      "driver_key": "growing_area_m2",
+      "currency_code": null,
+      "currency_date_basis": null,
+      "labor_standard": {
+        "value": null,
+        "unit": "labor_hour_per_m2_per_crop_turn",
+        "assumption_status": "todo",
+        "assumption_note": "Need a reviewed labor benchmark for DWC or raft harvest and changeover work per area and crop turn."
+      },
+      "labor_rate": {
+        "value": null,
+        "unit": "currency_per_labor_hour",
+        "assumption_status": "todo",
+        "assumption_note": "Need burdened labor-rate basis for DWC or raft harvest and changeover work."
+      },
+      "notes": "Kept separate because raft systems are expected to have lower harvest effort for quick leafy crops than media beds."
+    },
+    {
+      "id": "labor_nft_harvest_and_changeover",
+      "activity_group": "harvest_and_changeover",
+      "applies_to": "architecture_nft",
+      "driver_key": "growing_area_m2",
+      "currency_code": null,
+      "currency_date_basis": null,
+      "labor_standard": {
+        "value": null,
+        "unit": "labor_hour_per_m2_per_crop_turn",
+        "assumption_status": "todo",
+        "assumption_note": "Need a reviewed labor benchmark for NFT harvest and changeover work per area and crop turn."
+      },
+      "labor_rate": {
+        "value": null,
+        "unit": "currency_per_labor_hour",
+        "assumption_status": "todo",
+        "assumption_note": "Need burdened labor-rate basis for NFT harvest and changeover work."
+      },
+      "notes": "Kept separate so NFT sanitation and reset burden can be modeled without flattening it into generic crop labor."
+    },
+    {
+      "id": "labor_media_bed_inspection_and_intervention",
+      "activity_group": "inspection_and_intervention",
+      "applies_to": "architecture_media_bed",
+      "driver_key": "operating_week_count",
+      "currency_code": null,
+      "currency_date_basis": null,
+      "labor_standard": {
+        "value": null,
+        "unit": "labor_hour_per_week",
+        "assumption_status": "todo",
+        "assumption_note": "Need a reviewed weekly labor benchmark for media-bed inspection and intervention work."
+      },
+      "labor_rate": {
+        "value": null,
+        "unit": "currency_per_labor_hour",
+        "assumption_status": "todo",
+        "assumption_note": "Need burdened labor-rate basis for media-bed inspection and intervention work."
+      },
+      "notes": "Use for recurring media-bed observation, clogging checks, and intervention work that sits between crop turns."
+    },
+    {
+      "id": "labor_dwc_raft_inspection_and_intervention",
+      "activity_group": "inspection_and_intervention",
+      "applies_to": "architecture_dwc_raft",
+      "driver_key": "operating_week_count",
+      "currency_code": null,
+      "currency_date_basis": null,
+      "labor_standard": {
+        "value": null,
+        "unit": "labor_hour_per_week",
+        "assumption_status": "todo",
+        "assumption_note": "Need a reviewed weekly labor benchmark for DWC or raft inspection and intervention work."
+      },
+      "labor_rate": {
+        "value": null,
+        "unit": "currency_per_labor_hour",
+        "assumption_status": "todo",
+        "assumption_note": "Need burdened labor-rate basis for DWC or raft inspection and intervention work."
+      },
+      "notes": "Use for recurring checks on aeration, flow, and plant-side condition in raft systems without implying the same intervention frequency as NFT."
+    },
+    {
+      "id": "labor_nft_inspection_and_intervention",
+      "activity_group": "inspection_and_intervention",
+      "applies_to": "architecture_nft",
+      "driver_key": "operating_week_count",
+      "currency_code": null,
+      "currency_date_basis": null,
+      "labor_standard": {
+        "value": null,
+        "unit": "labor_hour_per_week",
+        "assumption_status": "todo",
+        "assumption_note": "Need a reviewed weekly labor benchmark for NFT inspection and intervention work."
+      },
+      "labor_rate": {
+        "value": null,
+        "unit": "currency_per_labor_hour",
+        "assumption_status": "todo",
+        "assumption_note": "Need burdened labor-rate basis for NFT inspection and intervention work."
+      },
+      "notes": "Use for the higher unclogging and flow-check frequency expected in NFT, where channel blockage and interruption sensitivity are stronger."
     }
   ]
 }

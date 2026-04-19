@@ -181,6 +181,167 @@
       "enabled_by_default": false,
       "activation_status": "optional_future",
       "activation_note": "Keep deferred until basil packaging is tied to one canonical sale-unit basis."
+    },
+    {
+      "id": "cost_media_bed_changeover_cleaning",
+      "cost_category": "media_bed_changeover_cleaning",
+      "applies_to": "architecture_media_bed",
+      "driver_key": null,
+      "allocation_scope": "direct_to_crop_batch",
+      "currency_code": null,
+      "currency_date_basis": null,
+      "rate": {
+        "value": null,
+        "unit": null,
+        "assumption_status": "todo",
+        "assumption_note": "Need a canonical changeover-cleaning cost basis before populating a numeric rate."
+      },
+      "notes": "Use for media-bed root clean-out and between-crop reset work, especially where short-cycle greens create frequent changeovers.",
+      "driver_key_options": [
+        "crop_turn_count",
+        "growing_area_m2",
+        "planting_site_count"
+      ],
+      "schema_choice_status": "todo",
+      "schema_choice_note": "Choose whether media-bed changeover cleaning is modeled per crop turn, per grow area, or per planting-site basis before promotion."
+    },
+    {
+      "id": "cost_gravel_or_media_washing",
+      "cost_category": "gravel_or_media_washing",
+      "applies_to": "architecture_media_bed",
+      "driver_key": null,
+      "allocation_scope": "shared_system_cost",
+      "currency_code": null,
+      "currency_date_basis": null,
+      "rate": {
+        "value": null,
+        "unit": null,
+        "assumption_status": "todo",
+        "assumption_note": "Need a canonical media-washing cost basis before populating a numeric rate."
+      },
+      "notes": "Use for periodic gravel or media washing when solids loading or clogging pushes media beds beyond routine changeover cleaning.",
+      "driver_key_options": [
+        "maintenance_event_count",
+        "media_volume_m3",
+        "growing_area_m2"
+      ],
+      "schema_choice_status": "todo",
+      "schema_choice_note": "Choose whether gravel or media washing is modeled per maintenance event, per media volume, or per grow area before promotion."
+    },
+    {
+      "id": "cost_raft_cleaning_and_foam_replacement",
+      "cost_category": "raft_cleaning_and_foam_replacement",
+      "applies_to": "architecture_dwc_raft",
+      "driver_key": null,
+      "allocation_scope": "shared_system_cost",
+      "currency_code": null,
+      "currency_date_basis": null,
+      "rate": {
+        "value": null,
+        "unit": null,
+        "assumption_status": "todo",
+        "assumption_note": "Need a canonical raft-cleaning and foam-replacement cost basis before populating a numeric rate."
+      },
+      "notes": "Use for raft-surface cleaning, raft wear, and related consumable replacement in DWC or raft crop programs.",
+      "driver_key_options": [
+        "crop_turn_count",
+        "growing_area_m2",
+        "raft_panel_count"
+      ],
+      "schema_choice_status": "todo",
+      "schema_choice_note": "Choose whether raft cleaning and foam replacement is modeled per crop turn, per grow area, or per raft panel before promotion."
+    },
+    {
+      "id": "cost_nft_channel_sanitation",
+      "cost_category": "nft_channel_sanitation",
+      "applies_to": "architecture_nft",
+      "driver_key": null,
+      "allocation_scope": "direct_to_crop_batch",
+      "currency_code": null,
+      "currency_date_basis": null,
+      "rate": {
+        "value": null,
+        "unit": null,
+        "assumption_status": "todo",
+        "assumption_note": "Need a canonical channel-sanitation cost basis before populating a numeric rate."
+      },
+      "notes": "Use for between-crop NFT channel sanitation so architecture-specific hygiene work is not hidden inside a generic maintenance bucket.",
+      "driver_key_options": [
+        "crop_turn_count",
+        "channel_length_m",
+        "planting_site_count"
+      ],
+      "schema_choice_status": "todo",
+      "schema_choice_note": "Choose whether NFT channel sanitation is modeled per crop turn, per channel length, or per planting-site basis before promotion."
+    },
+    {
+      "id": "cost_nft_unclogging_and_filter_service",
+      "cost_category": "nft_unclogging_and_filter_service",
+      "applies_to": "architecture_nft",
+      "driver_key": null,
+      "allocation_scope": "shared_system_cost",
+      "currency_code": null,
+      "currency_date_basis": null,
+      "rate": {
+        "value": null,
+        "unit": null,
+        "assumption_status": "todo",
+        "assumption_note": "Need a canonical unclogging and filter-service cost basis before populating a numeric rate."
+      },
+      "notes": "Use for NFT unclogging discipline and filter-service burden where cleaner water and orifice reliability become business-relevant maintenance work.",
+      "driver_key_options": [
+        "inspection_week_count",
+        "service_event_count",
+        "channel_length_m"
+      ],
+      "schema_choice_status": "todo",
+      "schema_choice_note": "Choose whether NFT unclogging and filter service is modeled per inspection week, per service event, or per channel length before promotion."
+    },
+    {
+      "id": "cost_solids_removal_ops",
+      "cost_category": "solids_removal_ops",
+      "applies_to": "system",
+      "driver_key": null,
+      "allocation_scope": "shared_system_cost",
+      "currency_code": null,
+      "currency_date_basis": null,
+      "rate": {
+        "value": null,
+        "unit": null,
+        "assumption_status": "todo",
+        "assumption_note": "Need a canonical solids-removal operating-cost basis before populating a numeric rate."
+      },
+      "notes": "Use for explicit solids-removal operating burden in architectures that depend on cleaner upstream water, especially DWC or raft and NFT configurations.",
+      "driver_key_options": [
+        "operating_day_count",
+        "feed_input_kg",
+        "design_flow_m3_per_hour"
+      ],
+      "schema_choice_status": "todo",
+      "schema_choice_note": "Choose whether solids-removal operations are modeled per operating day, per feed load, or per design-flow basis before promotion."
+    },
+    {
+      "id": "cost_backup_power_risk_mitigation",
+      "cost_category": "backup_power_risk_mitigation",
+      "applies_to": "system",
+      "driver_key": null,
+      "allocation_scope": "shared_system_cost",
+      "currency_code": null,
+      "currency_date_basis": null,
+      "rate": {
+        "value": null,
+        "unit": null,
+        "assumption_status": "todo",
+        "assumption_note": "Need a canonical backup-power operating-cost basis before populating a numeric rate."
+      },
+      "notes": "Use for generator fuel, routine testing, or standby service. The category is system-wide, but its business importance is highest where outage sensitivity is fastest, especially NFT.",
+      "driver_key_options": [
+        "operating_day_count",
+        "equipment_runtime_hours",
+        "backup_system_test_event_count"
+      ],
+      "schema_choice_status": "todo",
+      "schema_choice_note": "Choose whether backup-power mitigation is modeled per operating day, per equipment runtime hour, or per test event before promotion."
     }
   ]
 }

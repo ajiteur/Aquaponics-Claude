@@ -5,6 +5,7 @@
     "primary_sources": [
       "docs/business_layer_contract.md",
       "data/knowledge/components/component_library.json",
+      "data/knowledge/models/plant_system_models.json",
       "data/knowledge/models/solids_models.json",
       "data/knowledge/models/pump_aeration_models.json",
       "data/knowledge/models/greenhouse_climate_models.json"
@@ -160,6 +161,123 @@
       "activation_status": "optional_future",
       "enabled_by_default": false,
       "activation_note": "Keep deferred until the project decides whether postharvest infrastructure is in-scope and which canonical sizing basis applies."
+    },
+    {
+      "id": "capex_media_bed_bundle",
+      "asset_group": "media_volume_and_support_structure",
+      "architecture_variant_id": "architecture_media_bed",
+      "capacity_basis": null,
+      "currency_code": null,
+      "currency_date_basis": null,
+      "installed_cost": {
+        "value": null,
+        "unit": null,
+        "assumption_status": "todo",
+        "assumption_note": "Need a canonical architecture-specific cost basis before populating a numeric installed-cost rate."
+      },
+      "useful_life": {
+        "value": null,
+        "unit": "year",
+        "assumption_status": "todo",
+        "assumption_note": "Need useful-life treatment for media, containment, and support structure."
+      },
+      "include_in_payback_default": true,
+      "notes": "Use for media, bed containment, and support structure together so media-bed CAPEX is not flattened into a generic plant-area bucket.",
+      "capacity_basis_options": [
+        "growing_area_m2",
+        "media_volume_m3",
+        "planting_site_count"
+      ],
+      "schema_choice_status": "todo",
+      "schema_choice_note": "Choose whether media-bed CAPEX is sized primarily by grow area, media volume, or planting sites before promotion.",
+      "separate_biofilter_required": {
+        "value": null,
+        "assumption_status": "todo",
+        "assumption_note": "Need a canonical loading-regime rule; media beds may integrate biofiltration in lower-density designs."
+      },
+      "solids_filter_required": {
+        "value": null,
+        "assumption_status": "todo",
+        "assumption_note": "Need a canonical loading-regime rule; do not assume standalone solids removal for every media-bed configuration."
+      }
+    },
+    {
+      "id": "capex_dwc_raft_bundle",
+      "asset_group": "dwc_trough_liner_and_raft_bundle",
+      "architecture_variant_id": "architecture_dwc_raft",
+      "capacity_basis": null,
+      "currency_code": null,
+      "currency_date_basis": null,
+      "installed_cost": {
+        "value": null,
+        "unit": null,
+        "assumption_status": "todo",
+        "assumption_note": "Need a canonical architecture-specific cost basis before populating a numeric installed-cost rate."
+      },
+      "useful_life": {
+        "value": null,
+        "unit": "year",
+        "assumption_status": "todo",
+        "assumption_note": "Need useful-life treatment for troughs, liners, rafts, and plant-side aeration hardware."
+      },
+      "include_in_payback_default": true,
+      "notes": "Use for troughs, liners, raft surfaces, and plant-side aeration distribution. Keep separate from generic greenhouse structure and fish-side infrastructure.",
+      "capacity_basis_options": [
+        "growing_area_m2",
+        "water_surface_area_m2",
+        "hydroponic_volume_m3"
+      ],
+      "schema_choice_status": "todo",
+      "schema_choice_note": "Choose whether DWC or raft CAPEX is sized primarily by grow area, water surface area, or hydroponic volume before promotion.",
+      "separate_biofilter_required": {
+        "value": null,
+        "assumption_status": "todo",
+        "assumption_note": "Need an explicit commercial-configuration rule; raft beds can contribute biofiltration when solids are removed upstream, so a separate biofilter should not be forced universally."
+      },
+      "solids_filter_required": {
+        "value": null,
+        "assumption_status": "todo",
+        "assumption_note": "Need a canonical commercial-path rule; upstream solids removal is the main reviewed DWC or raft condition."
+      }
+    },
+    {
+      "id": "capex_nft_bundle",
+      "asset_group": "nft_channel_manifold_emitter_bundle",
+      "architecture_variant_id": "architecture_nft",
+      "capacity_basis": null,
+      "currency_code": null,
+      "currency_date_basis": null,
+      "installed_cost": {
+        "value": null,
+        "unit": null,
+        "assumption_status": "todo",
+        "assumption_note": "Need a canonical architecture-specific cost basis before populating a numeric installed-cost rate."
+      },
+      "useful_life": {
+        "value": null,
+        "unit": "year",
+        "assumption_status": "todo",
+        "assumption_note": "Need useful-life treatment for channels, manifolds, emitters, and related support hardware."
+      },
+      "include_in_payback_default": true,
+      "notes": "Use for channels, manifolds, emitters or discharge hardware, and supporting plant-side distribution equipment so NFT costs are not blended into generic grow-area infrastructure.",
+      "capacity_basis_options": [
+        "growing_area_m2",
+        "channel_length_m",
+        "planting_site_count"
+      ],
+      "schema_choice_status": "todo",
+      "schema_choice_note": "Choose whether NFT CAPEX is sized primarily by grow area, channel length, or planting sites before promotion.",
+      "separate_biofilter_required": {
+        "value": null,
+        "assumption_status": "todo",
+        "assumption_note": "Need a canonical default; NFT often relies on separate biofiltration, but the exact requirement should stay architecture-conditional."
+      },
+      "solids_filter_required": {
+        "value": null,
+        "assumption_status": "todo",
+        "assumption_note": "Need a canonical default; NFT cleaner-water dependence supports a likely solids-filtration requirement."
+      }
     }
   ]
 }

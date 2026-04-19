@@ -6,6 +6,7 @@
       "docs/business_layer_contract.md",
       "data/knowledge/species/plants/basil.json",
       "data/knowledge/species/plants/lettuce.json",
+      "data/knowledge/models/plant_system_models.json",
       "data/knowledge/models/greenhouse_climate_models.json",
       "data/knowledge/models/pump_aeration_models.json"
     ],
@@ -101,6 +102,60 @@
       "notes": "Supported conceptually by existing knowledge about power backup and flow-critical failure modes, but not yet parameterized.",
       "schema_choice_status": "todo",
       "schema_choice_note": "Normalize downtime penalties before promotion: explicit extra cost, lost output, or a split representation."
+    },
+    {
+      "id": "risk_rule_architecture_failure_sensitivity",
+      "trigger_basis": "architecture_specific_failure_mode_profile",
+      "required_upstream_fields": [
+        "crop_system_type"
+      ],
+      "optional_upstream_fields": [
+        "downtime_event_count",
+        "quality_risk_event_records",
+        "out_of_range_event_records"
+      ],
+      "penalty_application": null,
+      "penalty_rate": {
+        "value": null,
+        "unit": null,
+        "assumption_status": "todo",
+        "assumption_note": "No numeric penalty basis should be inferred from this taxonomy placeholder. Later normalization must decide whether any architecture-specific business penalty rate exists and on what basis."
+      },
+      "architecture_profiles": [
+        {
+          "architecture_variant_id": "architecture_media_bed",
+          "risk_modes": [
+            "flow_interruption",
+            "solids_overload",
+            "anaerobic_root_zone"
+          ],
+          "notes": "Taxonomy placeholder only. Media beds combine acute flow-interruption sensitivity in drained conditions with chronic clogging or anaerobic-root-zone risk."
+        },
+        {
+          "architecture_variant_id": "architecture_dwc_raft",
+          "risk_modes": [
+            "pump_outage",
+            "solids_overload",
+            "root_predation_or_root_pest_exposure"
+          ],
+          "notes": "Taxonomy placeholder only. DWC or raft retains architecture-specific outage, solids-control, and root-damage risk context without fixing penalty shape or timing assumptions."
+        },
+        {
+          "architecture_variant_id": "architecture_nft",
+          "risk_modes": [
+            "pump_outage",
+            "flow_interruption",
+            "emitter_orifice_clogging"
+          ],
+          "notes": "Taxonomy placeholder only. NFT keeps the clearest flow-interruption and clogging risk context, but later work must decide whether any onset-speed or severity language belongs in canon."
+        }
+      ],
+      "notes": "Deferred placeholder for architecture-specific risk taxonomy only. Keep failure-mode context visible while penalty vocabularies and translation rules remain draft.",
+      "schema_choice_status": "todo",
+      "schema_choice_note": "Normalize whether this taxonomy later translates into lost output, recovery labor, shrink, service failure, or another business-penalty structure before promotion.",
+      "enabled_by_default": false,
+      "activation_status": "optional_future",
+      "activation_note": "Keep deferred until architecture-specific failure-event vocabularies and any later business-penalty translation basis are canonical enough to decide whether this taxonomy should become an active rule."
     }
   ],
   "normalization_note": "Penalty trigger and penalty application vocabularies remain draft and must be normalized before promotion from draft."

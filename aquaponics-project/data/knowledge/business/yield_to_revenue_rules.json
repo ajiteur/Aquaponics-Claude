@@ -6,7 +6,8 @@
       "docs/business_layer_contract.md",
       "data/knowledge/species/plants/lettuce.json",
       "data/knowledge/species/plants/basil.json",
-      "data/knowledge/species/fish/tilapia.json"
+      "data/knowledge/species/fish/tilapia.json",
+      "data/knowledge/models/plant_system_models.json"
     ],
     "canonical_owner": "data/knowledge/business/yield_to_revenue_rules.json",
     "ownership_note": "Canonical translation rules from biological outputs into billable business outputs."
@@ -135,6 +136,41 @@
       "enabled_by_default": false,
       "activation_status": "optional_future",
       "activation_note": "Keep deferred until the project chooses harvest-only versus delivery-window revenue recognition and confirms any channel-specific timing fields."
+    },
+    {
+      "id": "rule_architecture_output_form_context",
+      "product_id": "plant_products",
+      "preferred_sale_unit": "n_a",
+      "required_upstream_fields": [
+        "crop_id",
+        "crop_system_type"
+      ],
+      "optional_upstream_fields": [
+        "saleable_harvest_mass_kg",
+        "saleable_harvest_count",
+        "channel_id",
+        "harvest_event_count"
+      ],
+      "revenue_translation_method": "deferred_architecture_output_form_review",
+      "conversion_assumptions": [],
+      "architecture_profiles": [
+        {
+          "architecture_variant_id": "architecture_media_bed",
+          "notes": "Advisory context only. Review whether media-bed scenarios are better interpreted as mixed-crop or fruiting output forms before pricing, and do not assume a canonical live-root head path."
+        },
+        {
+          "architecture_variant_id": "architecture_dwc_raft",
+          "notes": "Advisory context only. Review whether DWC or raft scenarios justify cleaner leafy or herb output-form handling before pricing, without treating that fit as a canonical selector rule."
+        },
+        {
+          "architecture_variant_id": "architecture_nft",
+          "notes": "Advisory context only. Review whether NFT scenarios support standardized leafy or herb handling for the chosen crop, without promoting that fit to a universal output-form rule."
+        }
+      ],
+      "notes": "Deferred placeholder for architecture-conditioned output-form review only. Keep architecture context visible without canonizing output-form selection or channel-fit logic.",
+      "enabled_by_default": false,
+      "activation_status": "optional_future",
+      "activation_note": "Keep deferred until the project decides whether architecture-conditioned output-form guidance should remain advisory or become a canonical business rule, and only after any channel-fit or count-ready sale-unit dependencies are made canonical."
     }
   ]
 }
