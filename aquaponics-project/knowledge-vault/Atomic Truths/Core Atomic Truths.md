@@ -8,7 +8,7 @@ Fact count: **21**
 
 ## CORE_0001
 
-- Statement: Plants absorb some nutrients better at slightly acidic pH ranges.
+- Statement: Plants absorb some nutrients better at slightly acidic [[Reference/Explainers/pH|pH]] ranges.
 - Domain: `biology`
 - Type: `dependency`
 - Confidence: `high`
@@ -40,7 +40,7 @@ Fact count: **21**
 
 ## CORE_0003
 
-- Statement: Nitrification affects pH in the system.
+- Statement: [[Reference/Explainers/Nitrification|Nitrification]] affects pH in the system.
 - Domain: `water_chemistry`
 - Type: `process`
 - Confidence: `high`
@@ -296,7 +296,7 @@ Fact count: **21**
 
 ## CORE_0019
 
-- Statement: The sum of NH3 and NH4+ is called Total Ammonia Nitrogen (TAN).
+- Statement: The sum of NH3 and NH4+ is called Total Ammonia Nitrogen ([[Reference/Explainers/TAN|TAN]]).
 - Domain: `water_chemistry`
 - Type: `definition`
 - Confidence: `high`

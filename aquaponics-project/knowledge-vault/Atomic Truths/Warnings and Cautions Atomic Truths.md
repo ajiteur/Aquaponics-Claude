@@ -24,7 +24,7 @@ Fact count: **3**
 
 ## WARN_0002
 
-- Statement: The proportion of non-toxic to toxic ammonia increases greatly as pH increases.
+- Statement: The proportion of non-toxic to toxic ammonia increases greatly as [[Reference/Explainers/pH|pH]] increases.
 - Domain: `water_chemistry`
 - Type: `dependency`
 - Confidence: `high`
