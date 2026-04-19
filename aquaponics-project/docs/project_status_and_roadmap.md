@@ -19,6 +19,8 @@ Current focus areas:
 - define the first coherent vertical slice
 - avoid reopening settled plumbing or boundary work unless a real failure appears
 
+Reference: use `docs/decision_rule_research_simulation_business_audit.md` to decide whether a question belongs in research, simulation, business calculation, or repo audit work.
+
 ## 3. What we have built so far
 
 ### Knowledge and evidence foundation
@@ -241,6 +243,7 @@ gantt
 - Use automation experimentally first, then operationally.
 - Prefer review-first workflows before apply/commit workflows.
 - Treat `data/knowledge/**` as canonical and `data/simulation/**` as derived unless explicitly instructed otherwise.
+- Use `docs/decision_rule_research_simulation_business_audit.md` when deciding whether work belongs in research, simulation, business calculation, or repo audit.
 
 ## 14. Definition of success for the next phase
 

@@ -12,6 +12,14 @@ This file defines safe operating rules for Codex and future agents working insid
 - Do not modify `src/build_runtime_from_knowledge.py` unless explicitly instructed.
 - Do not commit unless explicitly instructed.
 
+## 1A. Decision-rule reference
+
+- Use `docs/decision_rule_research_simulation_business_audit.md` when deciding whether a task should be handled as:
+  - deep research / evidence review
+  - simulation
+  - business calculation
+  - repo audit / compatibility check
+
 ## 2. Global safety rules
 
 - Prefer minimal diffs over broad rewrites.
