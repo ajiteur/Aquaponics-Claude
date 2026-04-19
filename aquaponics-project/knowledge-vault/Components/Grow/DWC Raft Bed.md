@@ -4,7 +4,7 @@ Generated at: `2026-04-14T16:13:16Z`
 
 - Component ID: `dwc_raft_bed`
 - Category: `grow`
-- Role: Deep water culture bed for raft-based plant production.
+- Role: [[Reference/Glossary and Naming Conventions#DWC / Raft|Deep water culture]] bed for raft-based plant production.
 - Status: `draft`
 - CAPEX: `450.0`
 - Power (W): `0`

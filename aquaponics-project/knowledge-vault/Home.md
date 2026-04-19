@@ -12,8 +12,8 @@ Generated at: `2026-04-14T16:13:16Z`
 ## Notes
 
 - This vault is generated from local JSON source files.
-- Treat the JSON files as source of truth.
-- Treat these Markdown files as human-readable exports.
+- Treat the JSON files as [[Reference/Glossary and Naming Conventions#Canonical|canonical]] source of truth.
+- Treat these Markdown files as human-readable [[Reference/Glossary and Naming Conventions#Derived|derived]] exports.
 
 ## Related Notes
 

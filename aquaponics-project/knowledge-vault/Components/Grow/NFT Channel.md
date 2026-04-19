@@ -4,7 +4,7 @@ Generated at: `2026-04-14T16:13:16Z`
 
 - Component ID: `nft_channel`
 - Category: `grow`
-- Role: Nutrient film technique channel for lightweight high-turnover crops.
+- Role: [[Reference/Glossary and Naming Conventions#NFT|Nutrient film technique]] channel for lightweight high-turnover crops.
 - Status: `draft`
 - CAPEX: `275.0`
 - Power (W): `0`

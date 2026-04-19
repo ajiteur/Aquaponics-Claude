@@ -1,6 +1,6 @@
 # Contradictions Log
 
-Derived from: `data/sources/research_reports/distilled/Distilled_Research_Pack_Aquaponics_L1.md`
+[[Reference/Glossary and Naming Conventions#Derived|Derived]] from: `data/sources/research_reports/distilled/Distilled_Research_Pack_Aquaponics_L1.md`
 
 ## Related Notes
 
@@ -23,7 +23,7 @@ Derived from: `data/sources/research_reports/distilled/Distilled_Research_Pack_A
 ### [[Learnings/contradictions_log#UQ-003|UQ-003]]
 - Issue: TAN-from-feed alternative rule (`2.2 lb NH3-N per 100 lb feed`) not reconciled with the protein-based equation.
 - Why unresolved: Reports flag it as provisional pending reconciliation of assumptions such as protein percent, assimilation, and solids removal.
-- Evidence still needed: Decide one canonical TAN production model, with the protein-based model preferred and the other retained only as a cross-check.
+- Evidence still needed: Decide one [[Reference/Glossary and Naming Conventions#Canonical|canonical]] [[Reference/Glossary and Naming Conventions#TAN|TAN]] production model, with the protein-based model preferred and the other retained only as a cross-check.
 
 ### [[Learnings/contradictions_log#UQ-004|UQ-004]]
 - Issue: Lettuce preferred pH `6.0-7.0` in some small-system tables vs tight CEA optimum near `5.8`.
