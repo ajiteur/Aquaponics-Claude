@@ -264,7 +264,7 @@ Fact count: **21**
 
 ## CORE_0017
 
-- Statement: The ratio of NH3 to NH4+ in water depends on pH.
+- Statement: The ratio of [[Reference/Explainers/Unionized Ammonia NH3|NH3]] to NH4+ in water depends on pH.
 - Domain: `water_chemistry`
 - Type: `dependency`
 - Confidence: `high`

@@ -79,7 +79,7 @@ Count: **4**
 
 - Component ID: `biofilter`
 - Category: `water_loop`
-- Role: Supports nitrifying bacteria for TAN and nitrite conversion.
+- Role: Supports nitrifying bacteria for [[Reference/Explainers/TAN|TAN]] and nitrite conversion.
 - Status: `draft`
 - CAPEX: `400.0`
 - Power (W): `0`

@@ -21,7 +21,7 @@
 - Evidence still needed: Identify which value maps to which UVI system configuration and whether it is nameplate or measured draw.
 
 ### [[Learnings/contradictions_log#UQ-003|UQ-003]]
-- Issue: TAN-from-feed alternative rule (`2.2 lb NH3-N per 100 lb feed`) not reconciled with the protein-based equation.
+- Issue: [[Reference/Explainers/TAN|TAN]]-from-feed alternative rule (`2.2 lb NH3-N per 100 lb feed`) not reconciled with the protein-based equation.
 - Why unresolved: Reports flag it as provisional pending reconciliation of assumptions such as protein percent, assimilation, and solids removal.
 - Evidence still needed: Decide one [[Reference/Glossary and Naming Conventions#Canonical|canonical]] [[Reference/Glossary and Naming Conventions#TAN|TAN]] production model, with the protein-based model preferred and the other retained only as a cross-check.
 

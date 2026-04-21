@@ -24,7 +24,7 @@ Fact count: **3**
 
 ## PARAM_0002
 
-- Statement: At 82°F, the percentage of ammonia in the toxic NH3 form is 2% at pH 7.5.
+- Statement: At 82°F, the percentage of ammonia in the toxic [[Reference/Explainers/Unionized Ammonia NH3|NH3]] form is 2% at pH 7.5.
 - Domain: `water_chemistry`
 - Type: `parameter`
 - Confidence: `high`
