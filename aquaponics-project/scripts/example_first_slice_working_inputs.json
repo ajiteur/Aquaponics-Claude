@@ -1,0 +1,164 @@
+{
+  "metadata": {
+    "slice_id": "basil_bulk_kg_wholesale",
+    "benchmark_geography": "netherlands",
+    "benchmark_status": "first_working_research_benchmark_only",
+    "note": "Example-only working inputs from the Netherlands research benchmark. Non-canonical.",
+    "working_assumption_note": "variable_cost_per_saleable_kg and fixed_batch_cost are constructed review-only working assumptions for the first example run. They are not mechanically derived from benchmark labour or electricity rates."
+  },
+  "cases": {
+    "conservative": {
+      "price_per_saleable_kg": 7.0,
+      "variable_cost_per_saleable_kg": 6.8,
+      "variable_cost_per_harvested_kg": null,
+      "direct_labor_cost_per_harvested_kg": null,
+      "electricity_cost_per_harvested_kg": null,
+      "packaging_handling_cost_per_harvested_kg": 0.0,
+      "other_variable_cost_per_harvested_kg": null,
+      "saleability_rate": 0.85,
+      "fixed_batch_cost": 500.0,
+      "saleable_harvest_mass_kg": null,
+      "provisional_inputs": [
+        "price_per_saleable_kg",
+        "variable_cost_per_saleable_kg",
+        "fixed_batch_cost",
+        "saleability_rate",
+        "packaging_handling_cost_per_harvested_kg",
+        "reference_labor_rate_per_hour",
+        "reference_electricity_rate_per_kwh"
+      ],
+      "provenance": {
+        "currency_code": "EUR",
+        "market_level": "operator haircut on Dutch importing wholesaler examples",
+        "price_date_basis": "2024 CBI report citing March 2020 wholesaler examples",
+        "price_tax_treatment": "not normalized in current research pack",
+        "assumption_status": "provisional_example_only_working_assumption",
+        "reference_labor_rate_per_hour": 19.0,
+        "labor_date_basis": "Dutch greenhouse CAO from 1 July 2025 with 2026 employer burden structure",
+        "reference_electricity_rate_per_kwh": 0.26,
+        "electricity_date_basis": "CBS delivered non-household electricity benchmark 2024 H1 to 2025 H2",
+        "electricity_tax_treatment": "delivered total cost including VAT and tax per current research pack",
+        "packaging_basis": "bulk non-retail default excluded for first-slice working use",
+        "packaging_status": [
+          "provisional",
+          "working_assumption"
+        ],
+        "saleability_basis": "operator assumption informed by basil postharvest handling science",
+        "variable_cost_per_saleable_kg_status": [
+          "provisional",
+          "example_only",
+          "working_assumption"
+        ],
+        "variable_cost_per_saleable_kg_note": "Constructed review-only saleable-kg cost assumption for the conservative case. Not mechanically derived from benchmark labour or electricity rates.",
+        "fixed_batch_cost_status": [
+          "provisional",
+          "example_only",
+          "working_assumption"
+        ],
+        "fixed_batch_cost_note": "Constructed review-only batch fixed-cost assumption held constant across cases to make break-even output comparable."
+      }
+    },
+    "base": {
+      "price_per_saleable_kg": 8.0,
+      "variable_cost_per_saleable_kg": 5.8,
+      "variable_cost_per_harvested_kg": null,
+      "direct_labor_cost_per_harvested_kg": null,
+      "electricity_cost_per_harvested_kg": null,
+      "packaging_handling_cost_per_harvested_kg": 0.0,
+      "other_variable_cost_per_harvested_kg": null,
+      "saleability_rate": 0.9,
+      "fixed_batch_cost": 500.0,
+      "saleable_harvest_mass_kg": null,
+      "provisional_inputs": [
+        "price_per_saleable_kg",
+        "variable_cost_per_saleable_kg",
+        "fixed_batch_cost",
+        "saleability_rate",
+        "packaging_handling_cost_per_harvested_kg",
+        "reference_labor_rate_per_hour",
+        "reference_electricity_rate_per_kwh"
+      ],
+      "provenance": {
+        "currency_code": "EUR",
+        "market_level": "Dutch importing wholesaler level",
+        "price_date_basis": "2024 CBI report citing March 2020 wholesaler examples",
+        "price_tax_treatment": "not normalized in current research pack",
+        "assumption_status": "provisional_example_only_working_assumption",
+        "reference_labor_rate_per_hour": 17.5,
+        "labor_date_basis": "Dutch greenhouse CAO from 1 July 2025 with 2026 employer burden structure",
+        "reference_electricity_rate_per_kwh": 0.25,
+        "electricity_date_basis": "CBS delivered non-household electricity benchmark 2024 H1 to 2025 H2",
+        "electricity_tax_treatment": "delivered total cost including VAT and tax per current research pack",
+        "packaging_basis": "bulk non-retail default excluded for first-slice working use",
+        "packaging_status": [
+          "provisional",
+          "working_assumption"
+        ],
+        "saleability_basis": "operator assumption informed by basil postharvest handling science",
+        "variable_cost_per_saleable_kg_status": [
+          "provisional",
+          "example_only",
+          "working_assumption"
+        ],
+        "variable_cost_per_saleable_kg_note": "Constructed review-only saleable-kg cost assumption for the base case. Not mechanically derived from benchmark labour or electricity rates.",
+        "fixed_batch_cost_status": [
+          "provisional",
+          "example_only",
+          "working_assumption"
+        ],
+        "fixed_batch_cost_note": "Constructed review-only batch fixed-cost assumption held constant across cases to make break-even output comparable."
+      }
+    },
+    "optimistic": {
+      "price_per_saleable_kg": 9.0,
+      "variable_cost_per_saleable_kg": 5.0,
+      "variable_cost_per_harvested_kg": null,
+      "direct_labor_cost_per_harvested_kg": null,
+      "electricity_cost_per_harvested_kg": null,
+      "packaging_handling_cost_per_harvested_kg": 0.0,
+      "other_variable_cost_per_harvested_kg": null,
+      "saleability_rate": 0.95,
+      "fixed_batch_cost": 500.0,
+      "saleable_harvest_mass_kg": null,
+      "provisional_inputs": [
+        "price_per_saleable_kg",
+        "variable_cost_per_saleable_kg",
+        "fixed_batch_cost",
+        "saleability_rate",
+        "packaging_handling_cost_per_harvested_kg",
+        "reference_labor_rate_per_hour",
+        "reference_electricity_rate_per_kwh"
+      ],
+      "provenance": {
+        "currency_code": "EUR",
+        "market_level": "Dutch importing wholesaler level",
+        "price_date_basis": "2024 CBI report citing March 2020 wholesaler examples",
+        "price_tax_treatment": "not normalized in current research pack",
+        "assumption_status": "provisional_example_only_working_assumption",
+        "reference_labor_rate_per_hour": 16.0,
+        "labor_date_basis": "Dutch greenhouse CAO from 1 July 2025 with 2026 employer burden structure",
+        "reference_electricity_rate_per_kwh": 0.24,
+        "electricity_date_basis": "CBS delivered non-household electricity benchmark 2024 H1 to 2025 H2",
+        "electricity_tax_treatment": "delivered total cost including VAT and tax per current research pack",
+        "packaging_basis": "bulk non-retail default excluded for first-slice working use",
+        "packaging_status": [
+          "provisional",
+          "working_assumption"
+        ],
+        "saleability_basis": "operator assumption informed by basil postharvest handling science",
+        "variable_cost_per_saleable_kg_status": [
+          "provisional",
+          "example_only",
+          "working_assumption"
+        ],
+        "variable_cost_per_saleable_kg_note": "Constructed review-only saleable-kg cost assumption for the optimistic case. Not mechanically derived from benchmark labour or electricity rates.",
+        "fixed_batch_cost_status": [
+          "provisional",
+          "example_only",
+          "working_assumption"
+        ],
+        "fixed_batch_cost_note": "Constructed review-only batch fixed-cost assumption held constant across cases to make break-even output comparable."
+      }
+    }
+  }
+}
