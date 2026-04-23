@@ -56,6 +56,10 @@ def build_run_id(input_path: Path) -> str:
 
 def build_payload(input_path: Path, source: dict[str, Any], overrides: dict[str, Any]) -> dict[str, Any]:
     scenario_id = source.get("scenario_id")
+    crop_system_type = source.get("crop_system_type")
+    crop_system_type_status = (
+        "direct rename/flattening" if crop_system_type is not None else "missing"
+    )
     plant_crop = source.get("plant_crop") if isinstance(source.get("plant_crop"), dict) else {}
     water_state = source.get("water_state") if isinstance(source.get("water_state"), dict) else {}
     derived = source.get("derived") if isinstance(source.get("derived"), dict) else {}
@@ -89,7 +93,7 @@ def build_payload(input_path: Path, source: dict[str, Any], overrides: dict[str,
                 "downtime_event_count": "deferred",
                 "disease_or_pathogen_event_records": "deferred",
                 "planting_count": "proxy_only_do_not_promote",
-                "crop_system_type": "missing",
+                "crop_system_type": crop_system_type_status,
                 "growing_area_m2": "missing",
                 "period_start_utc": "deferred",
                 "period_end_utc": "deferred",
@@ -102,7 +106,7 @@ def build_payload(input_path: Path, source: dict[str, Any], overrides: dict[str,
         "period_start_utc": None,
         "period_end_utc": None,
         "crop_id": plant_crop.get("species_id"),
-        "crop_system_type": None,
+        "crop_system_type": crop_system_type,
         "growing_area_m2": None,
         "planting_count": None,
         "live_plant_count_end": plant_crop.get("plant_count"),
