@@ -67,6 +67,7 @@ Why this is the smallest viable source:
 | `observed_nitrate_mg_l` | `scenario_snapshot.water_state.nitrate_mg_L` | Normalize case only. |
 | `energy_kwh` | `scenario_snapshot.derived.daily_energy_kwh` | Direct flattening from the chosen rollup snapshot. |
 | `operating_day_count` | `scenario_snapshot.time.day` | Convenience adapter output, not a contract field. |
+| `crop_system_type` | `scenario_snapshot.crop_system_type` | Direct carry-through context field only. |
 
 ## Fields That Require Slice-Config Inputs
 
@@ -82,7 +83,6 @@ Why this is the smallest viable source:
 | Adapter output | Status | Notes |
 |---|---|---|
 | `saleable_harvest_mass_kg` | `missing` | Main blocker for `basil bulk kg wholesale`. |
-| `crop_system_type` | `missing` | Not required for the narrow direct-mass proof, but absent. |
 | `growing_area_m2` | `missing` | Useful later for area-normalized reporting, labor, and CAPEX views. |
 | `water_use_l` | `missing` | Only `operations_policy.water_top_up_l_per_day` exists, which is `proxy_only_do_not_promote`. |
 | `supplement_input_records` | `missing` | Only boolean dosing-policy flags exist. |

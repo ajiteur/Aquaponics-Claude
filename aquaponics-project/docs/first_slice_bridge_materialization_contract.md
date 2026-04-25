@@ -125,7 +125,6 @@ After that, the existing native runtime regeneration path can be run separately 
 
 ## What Remains Deferred
 
-- adapter consumption of `crop_system_type`
 - NFT comparison configuration
 - broader scenario/config schema
 - harvest-output bridging such as `saleable_harvest_mass_kg`
@@ -133,10 +132,6 @@ After that, the existing native runtime regeneration path can be run separately 
 
 ## Recommended Next Action
 
-- in the next bounded implementation pass, add:
-  - `configs/first_slice_bridge_baselines.yaml`
-- use the exact first mapping:
-  - `starter_tilapia_basil_system -> crop_system_type = architecture_dwc_raft`
-- implement a narrow pre-regeneration helper that materializes only that field into:
-  - `data/simulation/scenarios/starter_tilapia_basil_system.json`
-- then run the existing native basil regeneration path separately
+- Keep `configs/first_slice_bridge_baselines.yaml` as the durable tracked bridge source.
+- Keep the narrow pre-regeneration helper as the only materialization step for this bridge.
+- Treat `saleable_harvest_mass_kg` as the next distinct bridge rather than extending this contract.

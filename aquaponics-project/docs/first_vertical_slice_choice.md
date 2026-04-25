@@ -79,7 +79,8 @@ Status: `draft`
 - `out_of_range_event_records`
 - `downtime_event_count`
 - `disease_or_pathogen_event_records`
-- area- and architecture-aware extensions such as `growing_area_m2` and `crop_system_type`
+- area-aware extensions such as `growing_area_m2`
+- architecture-conditioned pricing or output-form extensions beyond the current context field `crop_system_type`
 
 ## Definition of Done for First-Slice Proof
 

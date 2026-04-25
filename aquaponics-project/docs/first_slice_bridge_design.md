@@ -40,8 +40,8 @@ Minimum meaning:
 ## Why `crop_system_type` Is the First Bridge Field
 
 - It is already the most natural minimum bridge in current repo docs:
-  - `docs/runtime_to_business_field_audit.md` marks `crop_system_type` as missing but useful for later architecture-aware business rules.
-  - `docs/first_slice_adapter_spec.md` lists it as missing but not required for the narrow direct-mass proof.
+  - `docs/runtime_to_business_field_audit.md` treats `crop_system_type` as a useful context field for later architecture-aware business rules while keeping the current basil kg path narrow.
+  - `docs/first_slice_adapter_spec.md` now treats it as a direct carry-through context field rather than a pricing driver.
   - `docs/first_slice_architecture_runtime_plan.md` already identifies it as the smallest architecture-aware bridge if only one identifier is introduced first.
 - It is lighter than adding multiple simultaneous identifiers such as:
   - `architecture_variant_id`
@@ -176,8 +176,6 @@ What this pass recommends:
 
 ## Recommended Next Action
 
-- Use `crop_system_type` as the first and only bridge field added next.
-- For the first baseline scenario, use:
-  - `crop_system_type = architecture_dwc_raft`
-- Make that field appear in scenario framing first, then propagate it unchanged into runtime-facing output.
-- Keep `saleable_harvest_mass_kg` as the next major bridge after that.
+- Keep the implemented `crop_system_type` bridge stable and unchanged.
+- Treat `saleable_harvest_mass_kg` as the next major bridge for the first slice.
+- Keep broader architecture-conditioned business behavior deferred.
