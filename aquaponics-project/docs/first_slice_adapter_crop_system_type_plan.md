@@ -4,7 +4,7 @@ Status: `draft`
 
 ## Purpose
 
-- Define the smallest safe adapter change needed now that the first `crop_system_type` bridge is proven end to end.
+- Record the smallest safe adapter change that was needed once the first `crop_system_type` bridge was proven end to end.
 - Keep the change limited to context carry-through for the current first slice.
 - Avoid widening the adapter into architecture rules, harvest logic, or broader schema work.
 
@@ -18,25 +18,23 @@ The current bridge path has already shown that:
   - `crop_system_type = architecture_dwc_raft`
   unchanged through the regenerated basil `scenario_snapshot` chain
 
-That means the missing piece is no longer runtime propagation.
-The missing piece is adapter consumption.
+That missing piece has now been closed on the active first-slice path.
 
 ## Current Adapter Behavior for `crop_system_type`
 
 Current thin-adapter behavior in `scripts/build_first_slice_adapter_payload.py` is:
 
 - the payload schema already includes a top-level `crop_system_type` output field
-- `metadata.field_statuses.crop_system_type` is still hardcoded as `missing`
-- the emitted payload currently sets:
-  - `crop_system_type = null`
-- the script does not currently read the top-level runtime `crop_system_type` field from the incoming `scenario_snapshot`
+- `metadata.field_statuses.crop_system_type` reports direct carry-through when the source field is present
+- the emitted payload carries the runtime value unchanged when present
+- the script reads the top-level runtime `crop_system_type` field from the incoming `scenario_snapshot`
 
 Current implication:
 
 - the bridge is present upstream in the runtime-facing basil scenario chain
-- the adapter path still drops it
+- the adapter path no longer drops it
 
-## Why Adapter Consumption Is the Right Next Step
+## Why Adapter Consumption Was the Right Next Step
 
 - The bridge is already proven end to end from tracked config through regenerated basil runtime output.
 - The adapter already has a natural output slot for `crop_system_type`, so this is a narrow carry-through change rather than a new schema addition.
@@ -45,7 +43,7 @@ Current implication:
 
 ## Smallest Safe Adapter Change
 
-The smallest safe change is:
+The smallest safe change was:
 
 1. read top-level `crop_system_type` from the runtime `scenario_snapshot` input
 2. copy that exact value into the adapter payload top-level `crop_system_type`
@@ -112,8 +110,6 @@ This remains a context-carry-through change only.
 
 ## Recommended Next Action
 
-- In the next bounded apply pass, update `scripts/build_first_slice_adapter_payload.py` only.
-- Read `source.get("crop_system_type")` from the runtime `scenario_snapshot`.
-- Emit that value unchanged in the payload top-level `crop_system_type`.
-- Adjust `metadata.field_statuses.crop_system_type` so it reflects direct carry-through when present and missing only when absent.
+- Keep the implemented `crop_system_type` carry-through unchanged.
+- Keep using `crop_system_type` as a context field only.
 - Leave all pricing, labor, cost, and harvest-mass behavior untouched.

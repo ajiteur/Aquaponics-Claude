@@ -95,7 +95,7 @@ What is still uncertain:
 
 - basil-specific yield superiority over NFT is not strongly established in canonical repo files
 - architecture-specific spoilage or shrink percentages for basil wholesale are not available
-- current runtime outputs still do not emit `crop_system_type` or `saleable_harvest_mass_kg`, so the current runtime-to-business bridge cannot yet prove a raft-specific realized output path
+- the current runtime path now carries `crop_system_type` as context, but it still does not emit `saleable_harvest_mass_kg`, so the current runtime-to-business bridge cannot yet prove a raft-specific realized output path
 
 Current signal for the first slice:
 
@@ -204,14 +204,14 @@ Important limit:
 - `well_supported`: NFT carries the highest acute flow-interruption fragility and cleaner-water dependence.
 - `well_supported`: media beds carry the heaviest changeover and cleaning burden for short-cycle or standardized crop programs.
 - `directionally_supported`: for the current `basil bulk kg wholesale` slice, DWC or raft is better positioned than NFT or media bed.
-- `well_supported`: current runtime outputs still do not provide `crop_system_type` or `saleable_harvest_mass_kg`, so the method comparison is still partly an evidence-layer judgment rather than a realized business-output test.
+- `well_supported`: the current runtime path now provides `crop_system_type` as context, but still does not provide `saleable_harvest_mass_kg`, so the method comparison is still partly an evidence-layer judgment rather than a realized business-output test.
 
 ## What Remains Too Uncertain
 
 - `too_uncertain`: a definitive basil-specific fresh-mass or saleable-mass advantage between DWC or raft and NFT
 - `too_uncertain`: architecture-specific basil shrink, quality-loss, or saleability percentages
 - `too_uncertain`: architecture-specific labor-hour and maintenance-rate benchmarks credible enough for canon promotion
-- `too_uncertain`: whether the current basil runtime scenario should later be interpreted as one of these architecture variants, because `crop_system_type` is still absent from runtime-facing outputs
+- `too_uncertain`: whether the current basil runtime scenario should later support architecture-conditioned business interpretation beyond the current baseline context, because `crop_system_type` is still only a context field and not a pricing or revenue driver
 
 ## Targeted Deep-Research Questions Only If Needed
 
@@ -225,5 +225,5 @@ Important limit:
 - Keep the current first-slice economics view locked as the comparison frame.
 - Use `architecture_dwc_raft` as the current best-supported comparison baseline for the first slice.
 - Do not promote that preference into canon yet.
-- Do not widen the first slice into architecture-conditioned revenue rules yet, because `crop_system_type` and `saleable_harvest_mass_kg` are still missing upstream.
+- Do not widen the first slice into architecture-conditioned revenue rules yet, because `crop_system_type` remains context only and `saleable_harvest_mass_kg` is still missing upstream.
 - If the project needs a narrower method decision before canon promotion, run one targeted DWC-versus-NFT basil research pass focused only on repeated-harvest saleable kg, labor burden, and saleability or shrink implications.

@@ -49,6 +49,7 @@ Status: `draft`
 - Count: `16`
 - Stable top-level shape:
   - `scenario_id`
+  - `crop_system_type` on the current basil scenario path
   - `time`
   - `system`
   - `water_state`
@@ -142,7 +143,7 @@ Status: `draft`
 | `scenario_snapshot.plant_crop.growth_stage` | `common_stable` | Useful context, not directly a business field. |
 | `day_log.plant_crop_after.*` | `common_stable` | End-of-day equivalents of the scenario snapshot crop state. |
 | `scenario_snapshot.derived.daily_plant_biomass_gain_g_per_plant` | `common_but_inconsistent` | Missing in the two base scenario files, present from day 1 onward. |
-| `crop_system_type` | `missing_for_first_slice` | No runtime field found. |
+| `crop_system_type` | `common_but_inconsistent` | Present on the current basil scenario path as a context field, but not yet guaranteed across every runtime family. |
 | `growing_area_m2` | `missing_for_first_slice` | No runtime field found. |
 | `saleable_harvest_mass_kg` | `missing_for_first_slice` | Main first-slice blocker. No harvest rollup exists. |
 | `harvest_event_count` / `first_harvest_utc` / `last_harvest_utc` | `missing_for_first_slice` | Only `operations_policy.harvest_policy = manual` exists, which is policy only. |

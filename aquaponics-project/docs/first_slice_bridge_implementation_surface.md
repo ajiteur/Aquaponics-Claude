@@ -17,9 +17,9 @@ Status: `draft`
 - This note covers only the minimum surface needed to introduce the bridge and let it pass through into the runtime-facing `scenario_snapshot` family.
 - This note does not reopen the current working economics view.
 
-## Current Bridge Design Being Implemented
+## Bridge Design That Was Implemented
 
-The current design is:
+The implemented design was:
 
 - add one bridge field first:
   - `crop_system_type`
@@ -39,7 +39,7 @@ This follows:
 
 ## Exact File-Level Touch Candidates
 
-Only one file has a concrete reason to change in the smallest apply pass:
+Only one file had a concrete reason to change in the smallest apply pass:
 
 | File | Why it is in scope | Required in the smallest apply pass |
 |---|---|---|
@@ -78,7 +78,7 @@ Why this is the relevant propagation point:
 - it mutates known sub-objects in place
 - it saves the full updated scenario object to the next scenario snapshot file
 
-Current minimal conclusion:
+Historical minimum conclusion:
 
 - no code change is required in [src/simulate_day.py](/C:/Users/ajith/Documents/Aquaponics/Aquaponics-project/src/simulate_day.py) for the first bridge pass if `crop_system_type` is added as a top-level field in the baseline scenario file
 - the field should pass through unchanged into the derived basil `scenario_snapshot` files because the updated scenario is written back as the full scenario object
@@ -94,13 +94,13 @@ Why the target stays that narrow:
 
 ## Adapter-Consumption Point, If Needed
 
-Current conclusion:
+Historical minimum conclusion:
 
-- adapter touch is not required for the minimum bridge insertion pass
+- adapter touch was not required for the minimum bridge insertion pass
 
 Reason:
 
-- [docs/runtime_to_business_field_audit.md](/C:/Users/ajith/Documents/Aquaponics/Aquaponics-project/docs/runtime_to_business_field_audit.md) and [docs/first_slice_adapter_spec.md](/C:/Users/ajith/Documents/Aquaponics/Aquaponics-project/docs/first_slice_adapter_spec.md) both treat `crop_system_type` as useful but not required for the current narrow basil kg proof
+- [docs/runtime_to_business_field_audit.md](/C:/Users/ajith/Documents/Aquaponics/Aquaponics-project/docs/runtime_to_business_field_audit.md) and [docs/first_slice_adapter_spec.md](/C:/Users/ajith/Documents/Aquaponics/Aquaponics-project/docs/first_slice_adapter_spec.md) treated `crop_system_type` as useful but not required for the initial narrow basil kg proof
 - the minimum immediate goal is to introduce the bridge and preserve it in runtime-facing scenario snapshots
 
 Low-risk later consumption point:
@@ -109,7 +109,7 @@ Low-risk later consumption point:
 
 Why this is only later and optional:
 
-- the script already has a `crop_system_type` output slot and currently emits `null`
+- the script already had a `crop_system_type` output slot before later direct carry-through was added
 - that makes it a natural later read-through point once the runtime-facing field exists
 - it does not need to change in the first apply pass
 
@@ -120,7 +120,7 @@ Why this is only later and optional:
 - [src/simulate_n_days.py](/C:/Users/ajith/Documents/Aquaponics/Aquaponics-project/src/simulate_n_days.py)
   - summary outputs do not need `crop_system_type` for the minimum bridge
 - [scripts/build_first_slice_adapter_payload.py](/C:/Users/ajith/Documents/Aquaponics/Aquaponics-project/scripts/build_first_slice_adapter_payload.py)
-  - later optional consumption point only
+  - no longer part of the historical minimum insertion surface
 - existing day logs
   - they do not need to be retrofitted in the first bridge pass
 - broader architecture identifiers such as `architecture_variant_id`
@@ -128,7 +128,7 @@ Why this is only later and optional:
 - harvest-output fields such as `saleable_harvest_mass_kg`
   - remain the next bridge, not part of this minimum bridge insertion
 
-## Smallest Safe Implementation Order
+## Historical Minimum Implementation Order
 
 1. Add `"crop_system_type": "architecture_dwc_raft"` to [data/simulation/scenarios/starter_tilapia_basil_system.json](/C:/Users/ajith/Documents/Aquaponics/Aquaponics-project/data/simulation/scenarios/starter_tilapia_basil_system.json).
 2. Regenerate the basil `scenario_snapshot` chain from that baseline scenario rather than manually backfilling derived runtime files.
@@ -150,8 +150,6 @@ If any of those occur, the later pass is no longer a minimal bridge apply pass a
 
 ## Recommended Next Action
 
-- In the later apply pass, touch only [data/simulation/scenarios/starter_tilapia_basil_system.json](/C:/Users/ajith/Documents/Aquaponics/Aquaponics-project/data/simulation/scenarios/starter_tilapia_basil_system.json) first.
-- Add the exact baseline bridge field:
-  - `crop_system_type = architecture_dwc_raft`
-- Regenerate basil scenario snapshots and confirm unchanged passthrough before considering any adapter touch.
+- Treat this note as the historical minimum apply surface for the completed `crop_system_type` bridge.
+- No further `crop_system_type` insertion work is needed on the active first-slice path.
 - Keep `saleable_harvest_mass_kg` as the next major bridge after this one.

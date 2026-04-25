@@ -40,7 +40,7 @@ Status: `draft`
   - basil has repeated-cut stress and disease-risk notes
   - the current repo basil profile supports treating stable root-zone conditions and repeated-cut resilience as biologically meaningful
 - `docs/runtime_to_business_field_audit.md`
-  - architecture-aware interpretation is still blocked by missing `crop_system_type`
+  - `crop_system_type` is now present as a context field on the current basil path
   - the main business blocker remains missing `saleable_harvest_mass_kg`
 
 ## Minimum Runtime Fields or Outputs Needed Next
@@ -51,7 +51,7 @@ The smallest useful next additions are below. These are planning targets, not im
 
 | Item | Why it matters next | Planning note |
 |---|---|---|
-| `crop_system_type` | Minimal architecture-aware bridge into the current business-facing field set. | If only one architecture identifier is introduced first, use `crop_system_type` and set it explicitly to `architecture_dwc_raft` for the baseline scenario. |
+| `crop_system_type` | Minimal architecture-aware bridge into the current business-facing field set. | The active first-slice path now carries `crop_system_type = architecture_dwc_raft` as a context field on the baseline scenario family. |
 | One explicit basil DWC or raft scenario frame | Prevents architecture reasoning from staying purely abstract. | The chosen basil scenario should make the DWC or raft baseline explicit at scenario level, not only in later interpretation notes. |
 | `saleable_harvest_mass_kg` or harvest output sufficient to roll it up | A real first-slice test still cannot happen without saleable harvested mass. | Direct output is simplest; explicit harvest-event output is acceptable if it cleanly supports adapter-side rollup. |
 | Repeated-harvest framing | Basil method comparison is partly about repeated-cut suitability. | At minimum, emit enough harvest-cycle information to distinguish one-time standing biomass from repeated-cut output. |
@@ -77,7 +77,7 @@ The smallest useful next additions are below. These are planning targets, not im
 
 ## Which Gaps Block a Real Architecture-Aware First-Slice Test Today
 
-- No runtime-facing `crop_system_type` exists today.
+- `crop_system_type` is now present on the current basil runtime path, but architecture-conditioned business behavior remains deferred.
 - No runtime-facing `saleable_harvest_mass_kg` exists today.
 - Current runtime outputs are state snapshots and day-log assessments, not harvest rollups.
 - Repeated-cut basil is biologically important, but current runtime outputs do not yet make harvest cycles explicit enough for an architecture-aware first-slice test.
@@ -90,7 +90,7 @@ The minimal first DWC or raft basil scenario does not need full architecture-awa
 
 1. One explicit basil scenario artifact whose plant side is clearly tagged as `architecture_dwc_raft`.
 2. `crop_id = plant_basil`.
-3. `crop_system_type = architecture_dwc_raft` as the minimum next bridge field if only one identifier is introduced first.
+3. `crop_system_type = architecture_dwc_raft` carried explicitly as the current first bridge context field.
 4. The existing chemistry, plant-state, and energy fields already used by the thin adapter path.
 5. One explicit harvest-ready output path:
    - direct `saleable_harvest_mass_kg`, or
@@ -144,9 +144,9 @@ Without those controls, a later DWC-vs-NFT comparison would still be informative
 The smallest viable bridge is:
 
 1. Keep using the basil `scenario_snapshot` family as the primary adapter source.
-2. Introduce only one architecture-aware bridge field first:
+2. Keep only one architecture-aware bridge field active:
    - `crop_system_type`
-3. Set that field explicitly to `architecture_dwc_raft` on the chosen basil baseline scenario.
+3. Keep that field set explicitly to `architecture_dwc_raft` on the chosen basil baseline scenario.
 4. Keep `product_id = basil`, `channel_id = channel_wholesale`, and the current working economics view unchanged.
 5. Keep `saleable_harvest_mass_kg` as:
    - a reviewed manual bridge input, or
@@ -158,9 +158,8 @@ This gives the repo one real architecture-aware hook without forcing full archit
 
 ## Recommended Next Action
 
-- Plan one explicit basil baseline scenario whose plant side is tagged as `architecture_dwc_raft`.
-- Prioritize the smallest architecture-aware runtime bridge:
-  - `crop_system_type = architecture_dwc_raft`
+- Keep the explicit basil baseline scenario whose plant side is tagged as `architecture_dwc_raft`.
+- Keep `crop_system_type = architecture_dwc_raft` stable as the current context bridge.
 - Prioritize one harvest-ready output path next:
   - direct `saleable_harvest_mass_kg`, or
   - harvest-event output that can roll up to it cleanly
