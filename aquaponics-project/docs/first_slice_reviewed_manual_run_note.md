@@ -35,6 +35,12 @@ Reason:
 - no explicitly approved non-null example value was found in the current repo
 - this file is therefore prepared as a non-final reviewed-manual run scaffold, not as a completed reviewed run
 
+Current status:
+
+- approval is withheld for now
+- `saleable_harvest_mass_kg` remains `null`
+- the first reviewed-manual run is deferred until a future approved non-null value exists
+
 ## What `saleable_harvest_mass_kg` Means Here
 
 - `saleable_harvest_mass_kg` is reviewed manual bridge input
