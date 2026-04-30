@@ -8,6 +8,12 @@ Status: `draft`
 - Translate the current deep research report into a reviewable repo contract without promoting anything into canon yet.
 - Keep `saleable_harvest_mass_kg` unresolved unless observed runtime output or explicit human approval exists.
 
+## Ingestion Status
+
+- The source research report is accepted as evidence for drafting this non-canonical spec, with caveats.
+- Acceptance here means "usable for spec drafting"; it does not promote the report, this spec, or any threshold into `data/knowledge/**` canon.
+- Numeric harvest-size heuristics, aroma assessment, buyer tolerance assumptions, and saleable-mass interpretation all remain subject to later review before any possible canon promotion.
+
 ## Scope
 
 - Slice remains fixed as `basil bulk kg wholesale`.
@@ -34,6 +40,15 @@ Strongest source families preserved from that report:
 - 2023 `Frontiers` basil postharvest review
 - FDA fresh culinary herb food-safety/handling guidance
 - UVI aquaponic basil repeated-cut findings
+
+## Why This Spec Is Not Yet Canon
+
+- This document is a docs-only disposition of one deep research report, not a canonical knowledge-file edit.
+- The source set supports qualitative harvest-readiness and saleability screens more strongly than universal numeric thresholds.
+- Harvest height, leaf count, stem length, and buyer-tolerance thresholds remain context-dependent and are not promoted here.
+- Aroma remains important to basil saleability, but only as a manual-review criterion.
+- `saleable_harvest_mass_kg` remains unresolved because the report supports separating gross, observed saleable, observed rejected, and modeled saleable mass rather than aliasing them.
+- Any later canon promotion would require an explicit scoped pass against `data/knowledge/**`.
 
 ## What The Research Supports Strongly
 
@@ -71,29 +86,31 @@ The report supports these points strongly enough to guide a first repo-side spec
 
 ## Evidence Disposition Table
 
+Source traceability uses durable source-family labels from the research report path above, not copied citation tokens. A `canonical candidate` disposition means possible later promotion target after explicit review; it is not canon in this spec.
+
 | criterion | evidence basis | evidence strength | observation mode | proposed repo use | recommended disposition | notes / limits |
 |---|---|---|---|---|---|---|
-| non-flowering harvest stage | Basilico Genovese PDO; Rutgers fresh-market basil guidance | `strong` | `manual_review` | harvest-readiness criterion | `canonical candidate` | Strong concept support; do not convert into one numeric threshold. |
-| young vegetative material | Basilico Genovese PDO; UC Davis herb guidance; EU general produce baseline | `medium_to_strong` | `manual_review` | harvest-readiness criterion | `canonical candidate` | Keep as concept only; avoid one universal height or leaf-count rule. |
-| numeric size proxy such as height or leaf count | Texas A&M; Utah/Arizona extension heuristics as summarized in the report | `weak_to_medium` | `manual_review` | grower context note only | `operator assumption` | Useful operationally, but too context-dependent for canon or hard runtime logic. |
-| regrowth reserve after cutting | Rutgers; UVI repeated-cut findings | `medium` | `manual_review` | repeated-cut harvest protocol | `provisional spec candidate` | Relevant for repeated-cut context, not a universal wholesale buyer-grade rule. |
-| general marketability baseline: sound, clean, pest-free, transportable | EU general marketing standard; explanatory guidance | `strong` | `manual_review` | wholesale acceptance baseline | `canonical candidate` | Strongest formal minimum-quality baseline in the source set. |
-| freshness and turgidity | EU baseline; UC Davis quality descriptors | `strong` | `manual_review` | wholesale acceptance baseline | `canonical candidate` | Allows judgment; do not reduce to one automated proxy. |
-| characteristic aroma acceptability | UC Davis; Basilico Genovese PDO | `medium` | `manual_review_only` | wholesale acceptance criterion | `provisional spec candidate` | Important, but not currently suitable for deterministic runtime logic. |
-| visible defect screen: yellowing, wilting, decay, insect damage, serious mechanical injury | UC Davis; Rutgers | `strong` | `manual_review` | exclusion or rejection reasons | `canonical candidate` | Strong basis for qualitative rejection categories, not buyer-specific tolerance percentages. |
+| non-flowering harvest stage | Basilico Genovese PDO proxy; Rutgers fresh-market basil guidance; report harvest-readiness synthesis | `strong` | `manual_review` | harvest-readiness criterion | `canonical candidate` possible later promotion only; not canon | Strong concept support; do not convert into one numeric threshold. |
+| young vegetative material | Basilico Genovese PDO proxy; UC Davis basil/herb postharvest guidance; EU general marketing standard | `medium_to_strong` | `manual_review` | harvest-readiness criterion | `canonical candidate` possible later promotion only; not canon | Keep as concept only; avoid one universal height, leaf-count, or stem-length rule. |
+| numeric size proxy such as height, leaf count, or stem length | Texas A&M and Utah/Arizona extension heuristics as summarized in the report | `weak_to_medium` | `manual_review` | grower context note only | `operator assumption` | Useful operationally, but too context-dependent for canon or hard runtime logic. |
+| regrowth reserve after cutting | Rutgers fresh-market basil guidance; UVI aquaponic basil repeated-cut findings | `medium` | `manual_review` | repeated-cut harvest protocol | `provisional spec candidate` | Relevant for repeated-cut context, not a universal wholesale buyer-grade rule. |
+| general marketability baseline: sound, clean, pest-free, transportable | EU general marketing standard; EU explanatory guidance summarized in the report | `strong` | `manual_review` | wholesale acceptance baseline | `canonical candidate` possible later promotion only; not canon | Strongest formal minimum-quality baseline in the source set. |
+| freshness and turgidity | EU general marketing standard; UC Davis basil/herb postharvest guidance | `strong` | `manual_review` | wholesale acceptance baseline | `canonical candidate` possible later promotion only; not canon | Allows judgment; do not reduce to one automated proxy. |
+| characteristic aroma acceptability | UC Davis basil/herb postharvest guidance; Basilico Genovese PDO proxy | `medium` | `manual_review_only` | wholesale acceptance criterion | `provisional spec candidate` | Important, but manual-review only and not currently suitable for deterministic runtime logic. |
+| visible defect screen: yellowing, wilting, decay, insect damage, serious mechanical injury | UC Davis basil/herb postharvest guidance; Rutgers fresh-market basil guidance | `strong` | `manual_review` | exclusion or rejection reasons | `canonical candidate` possible later promotion only; not canon | Strong basis for qualitative rejection categories, not buyer-specific tolerance percentages. |
 | slight post-dispatch loss of freshness/turgidity may still be acceptable | EU general marketing standard | `strong` | `manual_review` | acceptance nuance | `provisional spec candidate` | Supports avoiding zero-tolerance logic for minor transit softness. |
-| chilling injury as rejection basis | UC Davis; `Frontiers` review | `strong` | `manual_review` | exclusion or rejection reasons | `canonical candidate` | Strong concept support; do not canonize one numeric injury score threshold yet. |
-| storage and handling band for basil | UC Davis; `Frontiers`; Rutgers | `strong` | `assumption_only` | postharvest handling reference | `operator assumption` | Useful for handling and model context, not a wholesale grade by itself. |
-| food-safety contamination exclusion | FDA fresh culinary herb guidance | `strong` | `manual_review` | exclusion reason | `canonical candidate` | Cannot be inferred from crop appearance alone. |
-| product-form distinction between bulk wholesale and RTU/RTE/live-root/potted basil | FDA fresh culinary herb guidance; `Frontiers`; PDO product-form context | `strong` | `config_or_manual_review` | scope guard | `canonical candidate` | Prevents mixing product forms in later runtime or adapter logic. |
-| aquaponic repeated-cut failure risk affecting marketable share | UVI aquaponic basil findings | `medium` | `modeled_or_manual_review` | future runtime/output design | `provisional spec candidate` | Strongly supports separating cut biomass from accepted saleable mass. |
-| explicit separation of gross, observed saleable, observed rejected, and modeled saleable mass | research synthesis across EU, UC Davis, FDA, UVI, and the report's repo-design conclusion | `strong` | `schema_or_output_contract` | future runtime/output naming | `provisional spec candidate` | Repo-design conclusion; do not silently alias these fields. |
+| chilling injury as rejection basis | UC Davis basil/herb postharvest guidance; Frontiers basil postharvest review | `strong` | `manual_review` | exclusion or rejection reasons | `canonical candidate` possible later promotion only; not canon | Strong concept support; do not canonize one numeric injury score threshold yet. |
+| storage and handling band for basil | UC Davis basil/herb postharvest guidance; Frontiers basil postharvest review; Rutgers fresh-market basil guidance | `strong` | `assumption_only` | postharvest handling reference | `operator assumption` | Useful for handling and model context, not a wholesale grade by itself. |
+| food-safety contamination exclusion | FDA fresh culinary herb guidance | `strong` | `manual_review` | exclusion reason | `canonical candidate` possible later promotion only; not canon | Cannot be inferred from crop appearance alone. |
+| product-form distinction between bulk wholesale and RTU/RTE/live-root/potted basil | FDA fresh culinary herb guidance; Frontiers basil postharvest review; Basilico Genovese PDO proxy product-form context | `strong` | `config_or_manual_review` | scope guard | `canonical candidate` possible later promotion only; not canon | Prevents mixing product forms in later runtime or adapter logic. |
+| aquaponic repeated-cut failure risk affecting marketable share | UVI aquaponic basil repeated-cut findings | `medium` | `modeled_or_manual_review` | future runtime/output design | `provisional spec candidate` | Strongly supports separating cut biomass from accepted saleable mass. |
+| explicit separation of gross, observed saleable, observed rejected, and modeled saleable mass | EU general marketing standard; UC Davis basil/herb postharvest guidance; FDA fresh culinary herb guidance; UVI aquaponic basil repeated-cut findings; report repo-design conclusion | `strong` | `schema_or_output_contract` | future runtime/output naming | `provisional spec candidate` | Repo-design conclusion; do not silently alias these fields. |
 
 ## Recommended Classifications
 
 ### `canonical candidate`
 
-These are the strongest later canon candidates, but are **not promoted now**:
+These are possible later canon-promotion targets, but are **not canon and not promoted now**:
 
 - non-flowering harvest stage
 - young vegetative harvest-readiness concept
@@ -135,13 +152,14 @@ These are the strongest later canon candidates, but are **not promoted now**:
 
 - one hard numeric harvest-height threshold as repo canon
 - one hard leaf-count threshold as repo canon
+- one hard stem-length threshold as repo canon
 - deterministic runtime saleability logic based on aroma
 - direct inference of saleable mass from:
   - standing biomass
   - daily biomass gain
   - plant count
 - visual-only auto-acceptance logic that ignores aroma, handling history, or contamination status
-- buyer-grade tolerance percentages not actually supported by the reviewed report
+- buyer-grade tolerance thresholds or percentages not actually supported by the reviewed report
 
 ## First-Pass Repo Spec
 
