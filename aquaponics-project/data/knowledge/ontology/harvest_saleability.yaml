@@ -1,9 +1,10 @@
 version: "0.1.0"
-status: "scaffold_draft"
+status: "draft_with_accepted_qualitative_entries"
 canonical_owner: "data/knowledge/ontology/harvest_saleability.yaml"
-ownership_note: "Future semantic home for harvest-readiness and saleability review vocabulary. This scaffold defines ownership and scope only."
+ownership_note: "Canonical semantic home for harvest-readiness and saleability review vocabulary. This file defines ownership, scope, and accepted qualitative review entries."
 source_basis:
   planning_docs:
+    - "docs/first_slice_basil_harvest_saleability_minimal_vocabulary_design_plan.md"
     - "docs/first_slice_basil_harvest_saleability_vocabulary_ownership_apply_plan.md"
     - "docs/first_slice_basil_harvest_saleability_canonical_location_decision.md"
     - "docs/first_slice_basil_harvest_saleability_canon_apply_surface.md"
@@ -34,4 +35,199 @@ invariants:
   aroma_review_mode: "manual_review_only"
   product_form_scope_boundary: "separate_from_crop_system_type"
   modeled_saleable_mass_boundary: "separate_from_observed_saleable_mass"
-accepted_vocabulary_entries_defined: false
+accepted_vocabulary_entries_defined: true
+vocabulary_groups:
+  harvest_readiness_basis:
+    label: "harvest-readiness basis"
+    purpose: "Qualitative review basis for deciding whether fresh basil is ready to cut for the fixed basil bulk kg wholesale slice."
+    entries:
+      non_flowering_harvest_stage:
+        label: "non-flowering harvest stage"
+        definition: "Fresh basil is treated as harvest-ready when manual review confirms a vegetative stage without flowering."
+        status: "accepted_qualitative"
+        review_mode: "manual_review"
+        source_basis:
+          - "Basilico Genovese PDO proxy"
+          - "Rutgers fresh-market basil guidance"
+          - "UC Davis basil/herb postharvest guidance"
+        scope_note: "Does not define a numeric harvest-height, leaf-count, stem-length, or node-count trigger."
+      young_vegetative_leafy_material:
+        label: "young vegetative leafy material"
+        definition: "Fresh basil is treated as harvest-ready when manual review confirms tender leafy vegetative material suitable for culinary fresh-herb use."
+        status: "accepted_qualitative"
+        review_mode: "manual_review"
+        source_basis:
+          - "Basilico Genovese PDO proxy"
+          - "Rutgers fresh-market basil guidance"
+          - "UC Davis basil/herb postharvest guidance"
+        scope_note: "Does not define a numeric size, maturity, or stem-firmness threshold."
+      fresh_culinary_cut_basil_context:
+        label: "fresh culinary cut-basil context"
+        definition: "Harvest-readiness is interpreted for fresh culinary cut basil rather than potted, live-root, processed, or retail-packed herb forms."
+        status: "accepted_qualitative"
+        review_mode: "manual_review"
+        source_basis:
+          - "Basilico Genovese PDO proxy"
+          - "Rutgers fresh-market basil guidance"
+          - "UC Davis basil/herb postharvest guidance"
+        scope_note: "Keeps harvest-readiness tied to the basil bulk kg wholesale slice."
+  saleability_basis:
+    label: "saleability basis"
+    purpose: "Qualitative manual-review basis for deciding whether fresh basil is saleable in the fixed basil bulk kg wholesale slice."
+    entries:
+      general_marketability_minimums:
+        label: "general marketability minimums"
+        definition: "Fresh basil saleability depends on meeting general fresh-produce marketability expectations for intact, sound, clean, and usable product."
+        status: "accepted_qualitative"
+        review_mode: "manual_review"
+        source_basis:
+          - "EU general marketing standard baseline"
+          - "UC Davis basil/herb postharvest guidance"
+          - "Rutgers fresh-market basil guidance"
+        scope_note: "Does not define buyer tolerance percentages or defect thresholds."
+      freshness_and_turgidity:
+        label: "freshness and turgidity"
+        definition: "Fresh basil saleability depends on manual review for fresh appearance and adequate turgidity."
+        status: "accepted_qualitative"
+        review_mode: "manual_review"
+        source_basis:
+          - "EU general marketing standard baseline"
+          - "UC Davis basil/herb postharvest guidance"
+          - "Rutgers fresh-market basil guidance"
+        scope_note: "Does not define storage bands, shrink rates, or saleability-rate thresholds."
+      cultivar_appropriate_appearance_and_color:
+        label: "cultivar-appropriate appearance and color"
+        definition: "Fresh basil saleability depends on manual review for appearance and color appropriate to the basil type being sold."
+        status: "accepted_qualitative"
+        review_mode: "manual_review"
+        source_basis:
+          - "EU general marketing standard baseline"
+          - "UC Davis basil/herb postharvest guidance"
+          - "Rutgers fresh-market basil guidance"
+        scope_note: "Does not create automated visual acceptance logic."
+  product_form_scope:
+    label: "product-form scope"
+    purpose: "Qualitative product-form boundaries for the fixed basil bulk kg wholesale slice."
+    entries:
+      bulk_wholesale_cut_basil_target_scope:
+        label: "bulk wholesale cut basil target scope"
+        definition: "The target scope is fresh cut basil sold in bulk by mass into a wholesale context."
+        status: "accepted_qualitative"
+        review_mode: "product_form_boundary"
+        source_basis:
+          - "FDA fresh culinary herb food-safety/handling guidance"
+          - "2023 Frontiers basil postharvest review"
+          - "Basilico Genovese PDO proxy"
+        scope_note: "Product-form scope is separate from crop-system architecture context."
+      rtu_rte_retail_packed_herbs_adjacent_out_of_scope:
+        label: "RTU/RTE retail-packed herbs as adjacent out-of-scope forms"
+        definition: "Ready-to-use, ready-to-eat, or retail-packed herb products are adjacent product forms outside the fixed bulk wholesale cut-basil scope."
+        status: "accepted_qualitative"
+        review_mode: "product_form_boundary"
+        source_basis:
+          - "FDA fresh culinary herb food-safety/handling guidance"
+          - "2023 Frontiers basil postharvest review"
+        scope_note: "Does not define retail packaging, consumer-use, or processing requirements."
+      live_root_and_potted_basil_adjacent_out_of_scope:
+        label: "live-root and potted basil as adjacent out-of-scope forms"
+        definition: "Live-root and potted basil are adjacent product forms outside the fixed bulk wholesale cut-basil scope."
+        status: "accepted_qualitative"
+        review_mode: "product_form_boundary"
+        source_basis:
+          - "FDA fresh culinary herb food-safety/handling guidance"
+          - "2023 Frontiers basil postharvest review"
+        scope_note: "Does not use crop_system_type as a product-form selector."
+      bunch_specific_basil_adjacent_distinct_form:
+        label: "bunch-specific basil as adjacent distinct form"
+        definition: "Bunch-specific basil is a distinct adjacent form and should not be assumed equivalent to bulk wholesale cut basil."
+        status: "accepted_qualitative"
+        review_mode: "product_form_boundary"
+        source_basis:
+          - "Rutgers fresh-market basil guidance"
+          - "UC Davis basil/herb postharvest guidance"
+        scope_note: "Does not define bunch size, packaging, price, or channel rules."
+  quality_exclusion_reasons:
+    label: "quality exclusion reasons"
+    purpose: "Qualitative manual-review reasons for excluding fresh basil from the fixed basil bulk kg wholesale sale form."
+    entries:
+      visible_decay_or_rot:
+        label: "visible decay or rot"
+        definition: "Visible decay or rot is a qualitative exclusion reason for fresh basil saleability."
+        status: "accepted_qualitative"
+        review_mode: "manual_review"
+        source_basis:
+          - "EU general marketing standard baseline"
+          - "UC Davis basil/herb postharvest guidance"
+          - "FDA fresh culinary herb food-safety/handling guidance"
+      serious_wilting_or_loss_of_turgidity:
+        label: "serious wilting or loss of turgidity"
+        definition: "Serious wilting or loss of turgidity is a qualitative exclusion reason for fresh basil saleability."
+        status: "accepted_qualitative"
+        review_mode: "manual_review"
+        source_basis:
+          - "EU general marketing standard baseline"
+          - "UC Davis basil/herb postharvest guidance"
+          - "Rutgers fresh-market basil guidance"
+      serious_yellowing_browning_or_blackening:
+        label: "serious yellowing, browning, or blackening"
+        definition: "Serious yellowing, browning, or blackening is a qualitative exclusion reason for fresh basil saleability."
+        status: "accepted_qualitative"
+        review_mode: "manual_review"
+        source_basis:
+          - "EU general marketing standard baseline"
+          - "UC Davis basil/herb postharvest guidance"
+          - "2023 Frontiers basil postharvest review"
+        scope_note: "Does not define a buyer tolerance threshold."
+      serious_pest_presence_or_pest_damage:
+        label: "serious pest presence or pest damage"
+        definition: "Serious pest presence or pest damage is a qualitative exclusion reason for fresh basil saleability."
+        status: "accepted_qualitative"
+        review_mode: "manual_review"
+        source_basis:
+          - "EU general marketing standard baseline"
+          - "Rutgers fresh-market basil guidance"
+          - "FDA fresh culinary herb food-safety/handling guidance"
+      serious_mechanical_damage:
+        label: "serious mechanical damage"
+        definition: "Serious mechanical damage is a qualitative exclusion reason for fresh basil saleability."
+        status: "accepted_qualitative"
+        review_mode: "manual_review"
+        source_basis:
+          - "EU general marketing standard baseline"
+          - "UC Davis basil/herb postharvest guidance"
+          - "Rutgers fresh-market basil guidance"
+      foreign_matter:
+        label: "foreign matter"
+        definition: "Foreign matter is a qualitative exclusion reason for fresh basil saleability and handling review."
+        status: "accepted_qualitative"
+        review_mode: "manual_review"
+        source_basis:
+          - "EU general marketing standard baseline"
+          - "FDA fresh culinary herb food-safety/handling guidance"
+      off_odour_or_off_taste:
+        label: "off-odour or off-taste"
+        definition: "Off-odour or off-taste is a qualitative manual-review exclusion reason for fresh basil saleability."
+        status: "accepted_qualitative"
+        review_mode: "manual_review"
+        source_basis:
+          - "EU general marketing standard baseline"
+          - "UC Davis basil/herb postharvest guidance"
+        scope_note: "This is not a positive aroma-acceptability entry and does not define an aroma score."
+      chilling_injury:
+        label: "chilling injury"
+        definition: "Chilling injury is a qualitative exclusion reason for fresh basil saleability."
+        status: "accepted_qualitative"
+        review_mode: "manual_review"
+        source_basis:
+          - "UC Davis basil/herb postharvest guidance"
+          - "2023 Frontiers basil postharvest review"
+        scope_note: "Does not define an injury-score threshold."
+      food_safety_contamination:
+        label: "food-safety contamination"
+        definition: "Food-safety contamination is a qualitative compliance exclusion reason for fresh basil saleability."
+        status: "accepted_qualitative"
+        review_mode: "manual_review"
+        source_basis:
+          - "FDA fresh culinary herb food-safety/handling guidance"
+          - "EU general marketing standard baseline"
+        scope_note: "Not inferable from modeled biomass or visual quality alone."
