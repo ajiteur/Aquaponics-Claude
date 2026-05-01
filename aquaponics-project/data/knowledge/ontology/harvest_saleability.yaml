@@ -1,0 +1,37 @@
+version: "0.1.0"
+status: "scaffold_draft"
+canonical_owner: "data/knowledge/ontology/harvest_saleability.yaml"
+ownership_note: "Future semantic home for harvest-readiness and saleability review vocabulary. This scaffold defines ownership and scope only."
+source_basis:
+  planning_docs:
+    - "docs/first_slice_basil_harvest_saleability_vocabulary_ownership_apply_plan.md"
+    - "docs/first_slice_basil_harvest_saleability_canonical_location_decision.md"
+    - "docs/first_slice_basil_harvest_saleability_canon_apply_surface.md"
+future_semantic_home_for:
+  - "harvest-readiness basis"
+  - "saleability basis"
+  - "product-form scope"
+  - "quality exclusion reasons"
+scope_boundaries:
+  owns:
+    - "canonical review-vocabulary ownership boundaries"
+    - "future qualitative harvest-readiness review concepts"
+    - "future qualitative saleability review concepts"
+    - "future product-form scope review concepts"
+    - "future quality-exclusion review concepts"
+  does_not_own:
+    - "runtime fields"
+    - "prices"
+    - "costs"
+    - "labor assumptions"
+    - "penalty rates"
+    - "inferred saleable mass"
+    - "crop-system architecture behavior"
+    - "buyer tolerance thresholds"
+invariants:
+  saleable_harvest_mass_kg: "unresolved"
+  crop_system_type: "context_only"
+  aroma_review_mode: "manual_review_only"
+  product_form_scope_boundary: "separate_from_crop_system_type"
+  modeled_saleable_mass_boundary: "separate_from_observed_saleable_mass"
+accepted_vocabulary_entries_defined: false
