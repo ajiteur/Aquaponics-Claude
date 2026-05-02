@@ -1,0 +1,18 @@
+{
+  "scenario_id": "demo_mode_a_tilapia_basil_dwc",
+  "input_mode": "mode_a_direct_feed",
+  "feed_kg_day": 1.0,
+  "protein_fraction": 0.32,
+  "feed_class": "grow_out",
+  "protein_basis": "scenario_default_candidate_from_tilapia_feed_research",
+  "architecture_context": "tilapia_basil_dwc_raft",
+  "water_volume_context_available": false,
+  "time_basis_context_available": false,
+  "exchange_or_retention_context_available": false,
+  "ph_context_available": false,
+  "temperature_context_available": false,
+  "feed_price_context_available": false,
+  "tank_volume_context_available": false,
+  "stocking_density_context_available": false,
+  "biofilter_capacity_context_available": false
+}
