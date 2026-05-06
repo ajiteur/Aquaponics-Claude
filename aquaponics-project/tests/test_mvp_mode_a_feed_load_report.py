@@ -239,6 +239,7 @@ class ModeAFeedLoadReportTests(unittest.TestCase):
         self.assertNotIn("water_quality_context", report)
         self.assertIn(TAN_CONCENTRATION_UNAVAILABLE, report["status_labels"])
         self.assertIn(NH3_RISK_UNAVAILABLE, report["status_labels"])
+        self.assertNotIn("aeration_solids_context", report)
 
     def test_report_includes_water_quality_context_with_complete_p1_inputs(self) -> None:
         report = build_mode_a_feed_load_report(
@@ -338,6 +339,7 @@ class ModeAFeedLoadReportTests(unittest.TestCase):
         self.assertIn(TANK_SUITABILITY_UNAVAILABLE, labels)
         self.assertIn(BIOFILTER_REMOVAL_UNAVAILABLE, labels)
         self.assertIn(BASIL_SALEABLE_OUTPUT_UNRESOLVED, labels)
+        self.assertNotIn("aeration_solids_context", report)
 
     def test_rejects_partial_p1_inputs(self) -> None:
         with self.assertRaisesRegex(
@@ -391,6 +393,170 @@ class ModeAFeedLoadReportTests(unittest.TestCase):
                 freshwater_assumption=False,
             )
 
+    def test_report_does_not_include_aeration_solids_context_without_p1_5_inputs(self) -> None:
+        report = build_mode_a_feed_load_report(
+            scenario_id="demo_mode_a",
+            input_mode=INPUT_MODE,
+            feed_kg_day=1.0,
+            protein_fraction=0.32,
+        )
+
+        self.assertNotIn("aeration_solids_context", report)
+
+    def test_report_includes_aeration_solids_context_when_requested(self) -> None:
+        report = build_mode_a_feed_load_report(
+            scenario_id="demo_mode_a_p1_5",
+            input_mode=INPUT_MODE,
+            feed_kg_day=1.0,
+            protein_fraction=0.32,
+            include_aeration_solids_context=True,
+        )
+
+        self.assertIn("aeration_solids_context", report)
+        self.assertEqual(
+            set(report["aeration_solids_context"]),
+            {
+                "oxygen_context",
+                "aeration_context",
+                "dwc_root_zone_context",
+                "solids_context",
+                "status_labels",
+                "boundary_notes",
+            },
+        )
+
+    def test_report_includes_aeration_solids_context_when_p1_5_input_supplied(self) -> None:
+        report = build_mode_a_feed_load_report(
+            scenario_id="demo_mode_a_p1_5",
+            input_mode=INPUT_MODE,
+            feed_kg_day=1.0,
+            protein_fraction=0.32,
+            measured_do_mg_l=5.0,
+        )
+
+        self.assertIn("aeration_solids_context", report)
+        self.assertEqual(
+            report["aeration_solids_context"]["aeration_context"][
+                "measured_do_mg_l"
+            ],
+            5.0,
+        )
+
+    def test_aeration_solids_context_uses_existing_load_and_feed_inputs(self) -> None:
+        report = build_mode_a_feed_load_report(
+            scenario_id="demo_mode_a_p1_5",
+            input_mode=INPUT_MODE,
+            feed_kg_day=1.0,
+            protein_fraction=0.32,
+            include_aeration_solids_context=True,
+            dry_solids_coefficient=0.25,
+        )
+
+        context = report["aeration_solids_context"]
+        self.assertEqual(
+            context["oxygen_context"]["nitrification_oxygen_demand_g_day"],
+            report["loads"]["oxygen_demand_g_day"],
+        )
+        self.assertEqual(context["solids_context"]["feed_kg_day"], report["inputs"]["feed_kg_day"])
+        self.assertAlmostEqual(
+            context["solids_context"]["estimated_dry_solids_potential_kg_day"],
+            0.25,
+        )
+
+    def test_aeration_solids_echoes_measured_do_without_safe_unsafe_label(self) -> None:
+        report = build_mode_a_feed_load_report(
+            scenario_id="demo_mode_a_p1_5",
+            input_mode=INPUT_MODE,
+            feed_kg_day=1.0,
+            protein_fraction=0.32,
+            measured_do_mg_l=5.0,
+        )
+
+        context = report["aeration_solids_context"]
+        self.assertEqual(context["aeration_context"]["measured_do_mg_l"], 5.0)
+        self.assertFalse(_contains_key(context, "safe"))
+        self.assertFalse(_contains_key(context, "unsafe"))
+
+    def test_p1_5_labels_stay_inside_aeration_solids_context(self) -> None:
+        report = build_mode_a_feed_load_report(
+            scenario_id="demo_mode_a_p1_5",
+            input_mode=INPUT_MODE,
+            feed_kg_day=1.0,
+            protein_fraction=0.32,
+            include_aeration_solids_context=True,
+        )
+
+        section_labels = set(report["aeration_solids_context"]["status_labels"])
+        self.assertIn("total_oxygen_demand_unavailable", section_labels)
+        self.assertIn(
+            "aeration_capacity_unavailable_without_equipment_and_transfer_basis",
+            section_labels,
+        )
+        self.assertNotIn(
+            "total_oxygen_demand_unavailable",
+            report["status_labels"],
+        )
+        self.assertNotIn(
+            "aeration_capacity_unavailable_without_equipment_and_transfer_basis",
+            report["status_labels"],
+        )
+
+    def test_rejects_invalid_p1_5_inputs(self) -> None:
+        with self.assertRaisesRegex(
+            ModeAFeedLoadReportValidationError,
+            "measured_do_mg_l must be non-negative",
+        ):
+            build_mode_a_feed_load_report(
+                scenario_id="demo_mode_a_p1_5",
+                input_mode=INPUT_MODE,
+                feed_kg_day=1.0,
+                protein_fraction=0.32,
+                measured_do_mg_l=-0.1,
+            )
+
+        with self.assertRaisesRegex(
+            ModeAFeedLoadReportValidationError,
+            "include_aeration_solids_context must be a boolean",
+        ):
+            build_mode_a_feed_load_report(
+                scenario_id="demo_mode_a_p1_5",
+                input_mode=INPUT_MODE,
+                feed_kg_day=1.0,
+                protein_fraction=0.32,
+                include_aeration_solids_context="yes",  # type: ignore[arg-type]
+            )
+
+    def test_p1_and_p1_5_contexts_can_coexist(self) -> None:
+        report = build_mode_a_feed_load_report(
+            scenario_id="demo_mode_a_p1_5",
+            input_mode=INPUT_MODE,
+            feed_kg_day=1.0,
+            protein_fraction=0.32,
+            effective_water_volume_l=7800,
+            accumulation_period_day=1,
+            concentration_scope="fish_tank",
+            ph=7.0,
+            water_temp_c=28.0,
+            freshwater_assumption=True,
+            include_aeration_solids_context=True,
+            measured_do_mg_l=5.0,
+            dry_solids_coefficient=0.25,
+            dry_solids_basis="demo_scenario_input_not_canon",
+        )
+
+        self.assertIn("water_quality_context", report)
+        self.assertIn("aeration_solids_context", report)
+        self.assertEqual(
+            report["optional_context"]["dry_solids_basis"],
+            "demo_scenario_input_not_canon",
+        )
+        self.assertAlmostEqual(
+            report["aeration_solids_context"]["solids_context"][
+                "estimated_dry_solids_potential_kg_day"
+            ],
+            0.25,
+        )
+
     def test_disallowed_calculated_fields_are_not_output_keys(self) -> None:
         report = build_mode_a_feed_load_report(
             scenario_id="demo_mode_a",
@@ -407,10 +573,46 @@ class ModeAFeedLoadReportTests(unittest.TestCase):
             "tank_suitability",
             "biofilter_removal",
             "aeration_capacity",
+            "oxygen_transfer_capacity",
+            "total_oxygen_demand",
+            "fish_respiration_oxygen_demand",
+            "wet_sludge",
+            "tss",
             "system_safe",
             "fish_safe",
             "safe",
             "unsafe",
+            "aeration_capacity_sufficient",
+        }:
+            self.assertFalse(_contains_key(report, disallowed_key), disallowed_key)
+
+    def test_p1_5_disallowed_calculated_fields_are_not_output_keys(self) -> None:
+        report = build_mode_a_feed_load_report(
+            scenario_id="demo_mode_a_p1_5",
+            input_mode=INPUT_MODE,
+            feed_kg_day=1.0,
+            protein_fraction=0.32,
+            include_aeration_solids_context=True,
+            measured_do_mg_l=5.0,
+            dry_solids_coefficient=0.25,
+        )
+
+        for disallowed_key in {
+            "saleable_harvest_mass_kg",
+            "feed_cost",
+            "tank_suitability",
+            "biofilter_removal",
+            "aeration_capacity",
+            "oxygen_transfer_capacity",
+            "total_oxygen_demand",
+            "fish_respiration_oxygen_demand",
+            "wet_sludge",
+            "tss",
+            "system_safe",
+            "fish_safe",
+            "safe",
+            "unsafe",
+            "aeration_capacity_sufficient",
         }:
             self.assertFalse(_contains_key(report, disallowed_key), disallowed_key)
 

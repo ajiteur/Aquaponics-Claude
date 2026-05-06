@@ -48,6 +48,17 @@ OPTIONAL_CONTEXT_FIELDS = (
     "ph",
     "water_temp_c",
     "freshwater_assumption",
+    "include_aeration_solids_context",
+    "measured_do_mg_l",
+    "dry_solids_coefficient",
+    "aeration_capacity_context_available",
+    "oxygen_transfer_basis_available",
+    "fish_respiration_context_available",
+    "dwc_root_zone_aeration_context_available",
+    "solids_removal_capacity_context_available",
+    "clarifier_retention_context_available",
+    "backup_aeration_power_continuity_available",
+    "dry_solids_basis",
 )
 
 SUPPORTED_INPUT_FIELDS = REQUIRED_INPUT_FIELDS + OPTIONAL_CONTEXT_FIELDS
@@ -134,6 +145,10 @@ def _normalize_report_for_json(report: dict[str, Any]) -> dict[str, Any]:
     normalized_report = _normalize_float_noise(report)
     if "water_quality_context" in report:
         normalized_report["water_quality_context"] = report["water_quality_context"]
+    if "aeration_solids_context" in report:
+        normalized_report["aeration_solids_context"] = _normalize_float_noise(
+            report["aeration_solids_context"]
+        )
     return normalized_report
 
 

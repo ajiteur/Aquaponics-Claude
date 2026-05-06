@@ -8,6 +8,10 @@ from src.feed_waste_tan_loads import (
     FeedWasteTanLoadValidationError,
     calculate_feed_waste_tan_loads,
 )
+from src.mvp_aeration_solids_context import (
+    AerationSolidsContextValidationError,
+    build_aeration_solids_context,
+)
 from src.mvp_tan_nh3_risk import (
     NO_REMOVAL_ASSUMPTION,
     TanNh3RiskValidationError,
@@ -39,6 +43,19 @@ P1_WATER_QUALITY_INPUT_FIELDS = (
     "ph",
     "water_temp_c",
     "freshwater_assumption",
+)
+P1_5_AERATION_SOLIDS_INPUT_FIELDS = (
+    "include_aeration_solids_context",
+    "measured_do_mg_l",
+    "dry_solids_coefficient",
+    "aeration_capacity_context_available",
+    "oxygen_transfer_basis_available",
+    "fish_respiration_context_available",
+    "dwc_root_zone_aeration_context_available",
+    "solids_removal_capacity_context_available",
+    "clarifier_retention_context_available",
+    "backup_aeration_power_continuity_available",
+    "dry_solids_basis",
 )
 
 
@@ -72,6 +89,17 @@ def build_mode_a_feed_load_report(
     ph: float | None = None,
     water_temp_c: float | None = None,
     freshwater_assumption: bool | None = None,
+    include_aeration_solids_context: bool | None = None,
+    measured_do_mg_l: float | None = None,
+    dry_solids_coefficient: float | None = None,
+    aeration_capacity_context_available: bool | None = None,
+    oxygen_transfer_basis_available: bool | None = None,
+    fish_respiration_context_available: bool | None = None,
+    dwc_root_zone_aeration_context_available: bool | None = None,
+    solids_removal_capacity_context_available: bool | None = None,
+    clarifier_retention_context_available: bool | None = None,
+    backup_aeration_power_continuity_available: bool | None = None,
+    dry_solids_basis: Any | None = None,
 ) -> dict[str, Any]:
     """Build a Mode A report from explicit direct-feed inputs."""
 
@@ -102,6 +130,23 @@ def build_mode_a_feed_load_report(
         "tank_volume_context_available": tank_volume_context_available,
         "stocking_density_context_available": stocking_density_context_available,
         "biofilter_capacity_context_available": biofilter_capacity_context_available,
+        "include_aeration_solids_context": include_aeration_solids_context,
+        "measured_do_mg_l": measured_do_mg_l,
+        "dry_solids_coefficient": dry_solids_coefficient,
+        "aeration_capacity_context_available": aeration_capacity_context_available,
+        "oxygen_transfer_basis_available": oxygen_transfer_basis_available,
+        "fish_respiration_context_available": fish_respiration_context_available,
+        "dwc_root_zone_aeration_context_available": (
+            dwc_root_zone_aeration_context_available
+        ),
+        "solids_removal_capacity_context_available": (
+            solids_removal_capacity_context_available
+        ),
+        "clarifier_retention_context_available": clarifier_retention_context_available,
+        "backup_aeration_power_continuity_available": (
+            backup_aeration_power_continuity_available
+        ),
+        "dry_solids_basis": dry_solids_basis,
     }
 
     water_quality_context = _build_water_quality_context(
@@ -114,6 +159,27 @@ def build_mode_a_feed_load_report(
         freshwater_assumption=freshwater_assumption,
     )
     has_water_quality_context = water_quality_context is not None
+    aeration_solids_context = _build_aeration_solids_context(
+        nitrification_oxygen_demand_g_day=load_result["oxygen_demand_g_day"],
+        feed_kg_day=load_result["feed_kg_day"],
+        include_aeration_solids_context=include_aeration_solids_context,
+        measured_do_mg_l=measured_do_mg_l,
+        dry_solids_coefficient=dry_solids_coefficient,
+        aeration_capacity_context_available=aeration_capacity_context_available,
+        oxygen_transfer_basis_available=oxygen_transfer_basis_available,
+        fish_respiration_context_available=fish_respiration_context_available,
+        dwc_root_zone_aeration_context_available=(
+            dwc_root_zone_aeration_context_available
+        ),
+        solids_removal_capacity_context_available=(
+            solids_removal_capacity_context_available
+        ),
+        clarifier_retention_context_available=clarifier_retention_context_available,
+        backup_aeration_power_continuity_available=(
+            backup_aeration_power_continuity_available
+        ),
+        dry_solids_basis=dry_solids_basis,
+    )
 
     report = {
         "scenario_id": validated_scenario_id,
@@ -154,6 +220,8 @@ def build_mode_a_feed_load_report(
     }
     if water_quality_context is not None:
         report["water_quality_context"] = water_quality_context
+    if aeration_solids_context is not None:
+        report["aeration_solids_context"] = aeration_solids_context
     return report
 
 
@@ -348,6 +416,91 @@ def _build_water_quality_context(
             "water_temp_c": "degrees C",
         },
     }
+
+
+def _build_aeration_solids_context(
+    *,
+    nitrification_oxygen_demand_g_day: float,
+    feed_kg_day: float,
+    include_aeration_solids_context: bool | None,
+    measured_do_mg_l: float | None,
+    dry_solids_coefficient: float | None,
+    aeration_capacity_context_available: bool | None,
+    oxygen_transfer_basis_available: bool | None,
+    fish_respiration_context_available: bool | None,
+    dwc_root_zone_aeration_context_available: bool | None,
+    solids_removal_capacity_context_available: bool | None,
+    clarifier_retention_context_available: bool | None,
+    backup_aeration_power_continuity_available: bool | None,
+    dry_solids_basis: Any | None,
+) -> dict[str, Any] | None:
+    if include_aeration_solids_context is not None and not isinstance(
+        include_aeration_solids_context, bool
+    ):
+        raise ModeAFeedLoadReportValidationError(
+            "include_aeration_solids_context must be a boolean"
+        )
+
+    p1_5_inputs = {
+        "measured_do_mg_l": measured_do_mg_l,
+        "dry_solids_coefficient": dry_solids_coefficient,
+        "aeration_capacity_context_available": aeration_capacity_context_available,
+        "oxygen_transfer_basis_available": oxygen_transfer_basis_available,
+        "fish_respiration_context_available": fish_respiration_context_available,
+        "dwc_root_zone_aeration_context_available": (
+            dwc_root_zone_aeration_context_available
+        ),
+        "solids_removal_capacity_context_available": (
+            solids_removal_capacity_context_available
+        ),
+        "clarifier_retention_context_available": clarifier_retention_context_available,
+        "backup_aeration_power_continuity_available": (
+            backup_aeration_power_continuity_available
+        ),
+        "dry_solids_basis": dry_solids_basis,
+    }
+    should_build_context = include_aeration_solids_context is True or any(
+        value is not None for value in p1_5_inputs.values()
+    )
+    if not should_build_context:
+        return None
+
+    try:
+        return build_aeration_solids_context(
+            nitrification_oxygen_demand_g_day=nitrification_oxygen_demand_g_day,
+            measured_do_mg_l=measured_do_mg_l,
+            feed_kg_day=feed_kg_day,
+            dry_solids_coefficient=dry_solids_coefficient,
+            aeration_capacity_context_available=_p1_5_flag_or_false(
+                aeration_capacity_context_available
+            ),
+            oxygen_transfer_basis_available=_p1_5_flag_or_false(
+                oxygen_transfer_basis_available
+            ),
+            fish_respiration_context_available=_p1_5_flag_or_false(
+                fish_respiration_context_available
+            ),
+            dwc_root_zone_aeration_context_available=_p1_5_flag_or_false(
+                dwc_root_zone_aeration_context_available
+            ),
+            solids_removal_capacity_context_available=_p1_5_flag_or_false(
+                solids_removal_capacity_context_available
+            ),
+            clarifier_retention_context_available=_p1_5_flag_or_false(
+                clarifier_retention_context_available
+            ),
+            backup_aeration_power_continuity_available=_p1_5_flag_or_false(
+                backup_aeration_power_continuity_available
+            ),
+        )
+    except AerationSolidsContextValidationError as exc:
+        raise ModeAFeedLoadReportValidationError(str(exc)) from exc
+
+
+def _p1_5_flag_or_false(value: bool | None) -> bool:
+    if value is None:
+        return False
+    return value
 
 
 def _build_boundary_notes(*, has_water_quality_context: bool) -> list[str]:

@@ -14,6 +14,9 @@ EXAMPLE_INPUT_PATH = (
 P1_EXAMPLE_INPUT_PATH = (
     PROJECT_ROOT / "scripts" / "example_mvp_mode_a_p1_water_quality_inputs.json"
 )
+P1_5_EXAMPLE_INPUT_PATH = (
+    PROJECT_ROOT / "scripts" / "example_mvp_mode_a_p1_5_aeration_solids_inputs.json"
+)
 
 
 class BuildMvpModeAFeedLoadReportScriptTests(unittest.TestCase):
@@ -39,6 +42,7 @@ class BuildMvpModeAFeedLoadReportScriptTests(unittest.TestCase):
         self.assertEqual(report["scenario_id"], "demo_mode_a_tilapia_basil_dwc")
         self.assertEqual(report["input_mode"], "mode_a_direct_feed")
         self.assertNotIn("water_quality_context", report)
+        self.assertNotIn("aeration_solids_context", report)
 
     def test_output_includes_expected_load_values(self) -> None:
         report = run_example_report()
@@ -49,6 +53,12 @@ class BuildMvpModeAFeedLoadReportScriptTests(unittest.TestCase):
         self.assertAlmostEqual(
             report["loads"]["alkalinity_demand_g_caco3_day"], 210.2016
         )
+
+    def test_p1_example_still_has_water_quality_without_aeration_solids(self) -> None:
+        report = run_p1_example_report()
+
+        self.assertIn("water_quality_context", report)
+        self.assertNotIn("aeration_solids_context", report)
 
     def test_script_reads_p1_example_and_prints_water_quality_context(self) -> None:
         result = run_script("--input", str(P1_EXAMPLE_INPUT_PATH))
@@ -108,6 +118,43 @@ class BuildMvpModeAFeedLoadReportScriptTests(unittest.TestCase):
             "basil_saleable_output_unresolved_without_observed_or_reviewed_value",
             labels,
         )
+
+    def test_script_reads_p1_5_example_and_prints_p1_and_p1_5_sections(self) -> None:
+        result = run_script("--input", str(P1_5_EXAMPLE_INPUT_PATH))
+
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(result.stderr, "")
+        report = json.loads(result.stdout)
+        self.assertEqual(report["scenario_id"], "demo_mode_a_tilapia_basil_dwc_p1_5")
+        self.assertIn("water_quality_context", report)
+        self.assertIn("aeration_solids_context", report)
+
+        self.assertAlmostEqual(report["loads"]["tan_n_load_kg_day"], 0.02944)
+        self.assertAlmostEqual(report["loads"]["tan_n_load_g_day"], 29.44)
+        self.assertAlmostEqual(report["loads"]["oxygen_demand_g_day"], 134.5408)
+        self.assertAlmostEqual(
+            report["loads"]["alkalinity_demand_g_caco3_day"], 210.2016
+        )
+
+        aeration_solids = report["aeration_solids_context"]
+        self.assertEqual(
+            aeration_solids["oxygen_context"]["nitrification_oxygen_demand_g_day"],
+            134.5408,
+        )
+        self.assertEqual(
+            aeration_solids["aeration_context"]["measured_do_mg_l"], 5.0
+        )
+        self.assertAlmostEqual(
+            aeration_solids["solids_context"][
+                "estimated_dry_solids_potential_kg_day"
+            ],
+            0.25,
+        )
+        self.assertIn(
+            "total_oxygen_demand_unavailable",
+            aeration_solids["status_labels"],
+        )
+        self.assertNotIn("total_oxygen_demand_unavailable", report["status_labels"])
 
     def test_output_includes_missing_context_status_labels(self) -> None:
         report = run_example_report()
@@ -182,28 +229,41 @@ class BuildMvpModeAFeedLoadReportScriptTests(unittest.TestCase):
             "tank_suitability",
             "biofilter_removal",
             "aeration_capacity",
+            "oxygen_transfer_capacity",
+            "total_oxygen_demand",
+            "fish_respiration_oxygen_demand",
+            "wet_sludge",
+            "tss",
             "system_safe",
             "fish_safe",
             "safe",
             "unsafe",
+            "aeration_capacity_sufficient",
         }:
             self.assertFalse(_contains_key(report, disallowed_key), disallowed_key)
 
-    def test_p1_output_does_not_include_disallowed_calculated_field_keys(self) -> None:
-        report = run_p1_example_report()
+    def test_p1_and_p1_5_outputs_do_not_include_disallowed_calculated_field_keys(self) -> None:
+        reports = [run_p1_example_report(), run_p1_5_example_report()]
 
-        for disallowed_key in {
-            "saleable_harvest_mass_kg",
-            "feed_cost",
-            "tank_suitability",
-            "biofilter_removal",
-            "aeration_capacity",
-            "system_safe",
-            "fish_safe",
-            "safe",
-            "unsafe",
-        }:
-            self.assertFalse(_contains_key(report, disallowed_key), disallowed_key)
+        for report in reports:
+            for disallowed_key in {
+                "saleable_harvest_mass_kg",
+                "feed_cost",
+                "tank_suitability",
+                "biofilter_removal",
+                "aeration_capacity",
+                "oxygen_transfer_capacity",
+                "total_oxygen_demand",
+                "fish_respiration_oxygen_demand",
+                "wet_sludge",
+                "tss",
+                "system_safe",
+                "fish_safe",
+                "safe",
+                "unsafe",
+                "aeration_capacity_sufficient",
+            }:
+                self.assertFalse(_contains_key(report, disallowed_key), disallowed_key)
 
 
 def run_script(*args: str) -> subprocess.CompletedProcess[str]:
@@ -224,6 +284,13 @@ def run_example_report() -> dict:
 
 def run_p1_example_report() -> dict:
     result = run_script("--input", str(P1_EXAMPLE_INPUT_PATH))
+    if result.returncode != 0:
+        raise AssertionError(result.stderr)
+    return json.loads(result.stdout)
+
+
+def run_p1_5_example_report() -> dict:
+    result = run_script("--input", str(P1_5_EXAMPLE_INPUT_PATH))
     if result.returncode != 0:
         raise AssertionError(result.stderr)
     return json.loads(result.stdout)
