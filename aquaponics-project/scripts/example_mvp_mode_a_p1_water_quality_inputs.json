@@ -1,0 +1,15 @@
+{
+  "scenario_id": "demo_mode_a_tilapia_basil_dwc_p1",
+  "input_mode": "mode_a_direct_feed",
+  "feed_kg_day": 1.0,
+  "protein_fraction": 0.32,
+  "feed_class": "grow_out",
+  "protein_basis": "scenario_default_candidate_from_tilapia_feed_research",
+  "architecture_context": "tilapia_basil_dwc_raft",
+  "effective_water_volume_l": 7800,
+  "accumulation_period_day": 1,
+  "concentration_scope": "fish_tank",
+  "ph": 7.0,
+  "water_temp_c": 28.0,
+  "freshwater_assumption": true
+}

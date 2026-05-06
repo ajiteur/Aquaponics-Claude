@@ -42,6 +42,12 @@ OPTIONAL_CONTEXT_FIELDS = (
     "tank_volume_context_available",
     "stocking_density_context_available",
     "biofilter_capacity_context_available",
+    "effective_water_volume_l",
+    "accumulation_period_day",
+    "concentration_scope",
+    "ph",
+    "water_temp_c",
+    "freshwater_assumption",
 )
 
 SUPPORTED_INPUT_FIELDS = REQUIRED_INPUT_FIELDS + OPTIONAL_CONTEXT_FIELDS
@@ -119,9 +125,16 @@ def main(argv: list[str] | None = None) -> int:
         print(f"error: {exc}", file=sys.stderr)
         return 2
 
-    json.dump(_normalize_float_noise(report), sys.stdout, indent=2)
+    json.dump(_normalize_report_for_json(report), sys.stdout, indent=2)
     sys.stdout.write("\n")
     return 0
+
+
+def _normalize_report_for_json(report: dict[str, Any]) -> dict[str, Any]:
+    normalized_report = _normalize_float_noise(report)
+    if "water_quality_context" in report:
+        normalized_report["water_quality_context"] = report["water_quality_context"]
+    return normalized_report
 
 
 def _normalize_float_noise(value: Any) -> Any:

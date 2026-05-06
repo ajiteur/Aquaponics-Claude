@@ -228,6 +228,169 @@ class ModeAFeedLoadReportTests(unittest.TestCase):
         self.assertNotIn("saleable_harvest_mass_kg", report)
         self.assertIn(BASIL_SALEABLE_OUTPUT_UNRESOLVED, report["status_labels"])
 
+    def test_load_only_report_does_not_include_water_quality_context(self) -> None:
+        report = build_mode_a_feed_load_report(
+            scenario_id="demo_mode_a",
+            input_mode=INPUT_MODE,
+            feed_kg_day=1.0,
+            protein_fraction=0.32,
+        )
+
+        self.assertNotIn("water_quality_context", report)
+        self.assertIn(TAN_CONCENTRATION_UNAVAILABLE, report["status_labels"])
+        self.assertIn(NH3_RISK_UNAVAILABLE, report["status_labels"])
+
+    def test_report_includes_water_quality_context_with_complete_p1_inputs(self) -> None:
+        report = build_mode_a_feed_load_report(
+            scenario_id="demo_mode_a_p1",
+            input_mode=INPUT_MODE,
+            feed_kg_day=1.0,
+            protein_fraction=0.32,
+            effective_water_volume_l=7800,
+            accumulation_period_day=1,
+            concentration_scope="fish_tank",
+            ph=7.0,
+            water_temp_c=28.0,
+            freshwater_assumption=True,
+        )
+
+        water_quality = report["water_quality_context"]
+        self.assertEqual(water_quality["concentration_scope"], "fish_tank")
+        self.assertEqual(
+            water_quality["concentration_assumption"], "upper_bound_no_removal"
+        )
+        self.assertEqual(water_quality["effective_water_volume_l"], 7800.0)
+        self.assertEqual(water_quality["accumulation_period_day"], 1.0)
+        self.assertEqual(water_quality["ph"], 7.0)
+        self.assertEqual(water_quality["water_temp_c"], 28.0)
+        self.assertIs(water_quality["freshwater_assumption"], True)
+        self.assertEqual(
+            water_quality["unit_basis"]["estimated_tan_n_mg_l"], "mg TAN-N/L"
+        )
+
+    def test_report_uses_existing_tan_n_load_output_for_p1_concentration(self) -> None:
+        report = build_mode_a_feed_load_report(
+            scenario_id="demo_mode_a_p1",
+            input_mode=INPUT_MODE,
+            feed_kg_day=1.0,
+            protein_fraction=0.32,
+            effective_water_volume_l=7800,
+            accumulation_period_day=1,
+            concentration_scope="fish_tank",
+            ph=7.0,
+            water_temp_c=28.0,
+            freshwater_assumption=True,
+        )
+
+        expected_concentration = report["loads"]["tan_n_load_g_day"] * 1000.0 / 7800.0
+        self.assertAlmostEqual(
+            report["water_quality_context"]["estimated_tan_n_mg_l"],
+            expected_concentration,
+        )
+
+    def test_report_returns_expected_example_p1_values(self) -> None:
+        report = build_mode_a_feed_load_report(
+            scenario_id="demo_mode_a_p1",
+            input_mode=INPUT_MODE,
+            feed_kg_day=1.0,
+            protein_fraction=0.32,
+            effective_water_volume_l=7800,
+            accumulation_period_day=1,
+            concentration_scope="fish_tank",
+            ph=7.0,
+            water_temp_c=28.0,
+            freshwater_assumption=True,
+        )
+
+        water_quality = report["water_quality_context"]
+        self.assertAlmostEqual(
+            water_quality["estimated_tan_n_mg_l"], 3.7743589743589743
+        )
+        self.assertAlmostEqual(
+            water_quality["estimated_unionized_nh3_fraction"],
+            0.006971085009084945,
+        )
+        self.assertAlmostEqual(
+            water_quality["estimated_nh3_n_mg_l"], 0.026311377265059072
+        )
+        self.assertAlmostEqual(
+            water_quality["estimated_nh3_mg_l"], 0.031949529536143155
+        )
+
+    def test_p1_context_suppresses_only_water_quality_missing_labels(self) -> None:
+        report = build_mode_a_feed_load_report(
+            scenario_id="demo_mode_a_p1",
+            input_mode=INPUT_MODE,
+            feed_kg_day=1.0,
+            protein_fraction=0.32,
+            effective_water_volume_l=7800,
+            accumulation_period_day=1,
+            concentration_scope="fish_tank",
+            ph=7.0,
+            water_temp_c=28.0,
+            freshwater_assumption=True,
+        )
+
+        labels = set(report["status_labels"])
+        self.assertNotIn(TAN_CONCENTRATION_UNAVAILABLE, labels)
+        self.assertNotIn(NH3_RISK_UNAVAILABLE, labels)
+        self.assertIn(FEED_COST_UNAVAILABLE, labels)
+        self.assertIn(TANK_SUITABILITY_UNAVAILABLE, labels)
+        self.assertIn(BIOFILTER_REMOVAL_UNAVAILABLE, labels)
+        self.assertIn(BASIL_SALEABLE_OUTPUT_UNRESOLVED, labels)
+
+    def test_rejects_partial_p1_inputs(self) -> None:
+        with self.assertRaisesRegex(
+            ModeAFeedLoadReportValidationError,
+            (
+                "partial P1 water-quality input group; missing field\\(s\\): "
+                "accumulation_period_day, concentration_scope, ph, water_temp_c, "
+                "freshwater_assumption"
+            ),
+        ):
+            build_mode_a_feed_load_report(
+                scenario_id="demo_mode_a_p1",
+                input_mode=INPUT_MODE,
+                feed_kg_day=1.0,
+                protein_fraction=0.32,
+                effective_water_volume_l=7800,
+            )
+
+    def test_rejects_invalid_p1_inputs(self) -> None:
+        with self.assertRaisesRegex(
+            ModeAFeedLoadReportValidationError,
+            "concentration_scope must be 'fish_tank'",
+        ):
+            build_mode_a_feed_load_report(
+                scenario_id="demo_mode_a_p1",
+                input_mode=INPUT_MODE,
+                feed_kg_day=1.0,
+                protein_fraction=0.32,
+                effective_water_volume_l=7800,
+                accumulation_period_day=1,
+                concentration_scope="system_average",
+                ph=7.0,
+                water_temp_c=28.0,
+                freshwater_assumption=True,
+            )
+
+        with self.assertRaisesRegex(
+            ModeAFeedLoadReportValidationError,
+            "freshwater_assumption must be true for this first helper",
+        ):
+            build_mode_a_feed_load_report(
+                scenario_id="demo_mode_a_p1",
+                input_mode=INPUT_MODE,
+                feed_kg_day=1.0,
+                protein_fraction=0.32,
+                effective_water_volume_l=7800,
+                accumulation_period_day=1,
+                concentration_scope="fish_tank",
+                ph=7.0,
+                water_temp_c=28.0,
+                freshwater_assumption=False,
+            )
+
     def test_disallowed_calculated_fields_are_not_output_keys(self) -> None:
         report = build_mode_a_feed_load_report(
             scenario_id="demo_mode_a",
@@ -242,6 +405,12 @@ class ModeAFeedLoadReportTests(unittest.TestCase):
             "unionized_nh3_mg_l",
             "feed_cost",
             "tank_suitability",
+            "biofilter_removal",
+            "aeration_capacity",
+            "system_safe",
+            "fish_safe",
+            "safe",
+            "unsafe",
         }:
             self.assertFalse(_contains_key(report, disallowed_key), disallowed_key)
 
