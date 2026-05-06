@@ -11,6 +11,12 @@ from src.mvp_mode_a_feed_load_report import (
     ModeAFeedLoadReportValidationError,
     build_mode_a_feed_load_report,
 )
+from src.mvp_operating_cost_pressure import (
+    FEED_PRICE_MISSING,
+    MIXED_CURRENCY_SUBTOTAL_UNAVAILABLE,
+    POWER_COST_USES_NAMEPLATE_KW,
+    SELECTED_COST_PRESSURE_ONLY,
+)
 
 
 class ModeAFeedLoadReportTests(unittest.TestCase):
@@ -557,6 +563,225 @@ class ModeAFeedLoadReportTests(unittest.TestCase):
             0.25,
         )
 
+    def test_report_does_not_include_operating_cost_pressure_without_p2a_inputs(self) -> None:
+        report = build_mode_a_feed_load_report(
+            scenario_id="demo_mode_a",
+            input_mode=INPUT_MODE,
+            feed_kg_day=1.0,
+            protein_fraction=0.32,
+        )
+
+        self.assertNotIn("operating_cost_pressure", report)
+
+    def test_report_includes_operating_cost_pressure_when_requested(self) -> None:
+        report = build_mode_a_feed_load_report(
+            scenario_id="demo_mode_a_p2a",
+            input_mode=INPUT_MODE,
+            feed_kg_day=1.0,
+            protein_fraction=0.32,
+            include_operating_cost_pressure=True,
+        )
+
+        self.assertIn("operating_cost_pressure", report)
+        cost_context = report["operating_cost_pressure"]
+        self.assertEqual(
+            set(cost_context),
+            {
+                "cost_inputs",
+                "cost_outputs",
+                "cost_basis",
+                "cost_status_labels",
+                "cost_boundary_notes",
+            },
+        )
+        self.assertEqual(cost_context["cost_outputs"]["supplied_categories"], [])
+        self.assertIsNone(
+            cost_context["cost_outputs"][
+                "selected_operating_cost_pressure_subtotal"
+            ]
+        )
+        self.assertIn(FEED_PRICE_MISSING, cost_context["cost_status_labels"])
+        self.assertIn(
+            "electricity_tariff_missing", cost_context["cost_status_labels"]
+        )
+        self.assertIn(
+            "equipment_power_or_runtime_missing",
+            cost_context["cost_status_labels"],
+        )
+
+    def test_report_includes_operating_cost_pressure_with_feed_cost_inputs(self) -> None:
+        report = _p2a_base_report(**_feed_cost_inputs())
+
+        cost_context = report["operating_cost_pressure"]
+        self.assertEqual(
+            cost_context["cost_inputs"]["feed"]["feed_kg_day"],
+            report["inputs"]["feed_kg_day"],
+        )
+        self.assertAlmostEqual(
+            cost_context["cost_outputs"]["category_costs"]["feed"][
+                "scenario_feed_cost_per_day"
+            ],
+            45.0,
+        )
+        self.assertEqual(
+            cost_context["cost_outputs"]["selected_operating_cost_pressure_subtotal"],
+            45.0,
+        )
+        self.assertNotIn(FEED_COST_UNAVAILABLE, report["status_labels"])
+
+    def test_report_includes_operating_cost_pressure_with_power_cost_inputs(self) -> None:
+        report = _p2a_base_report(**_power_cost_inputs())
+
+        power_outputs = report["operating_cost_pressure"]["cost_outputs"][
+            "category_costs"
+        ]["power"]
+        self.assertAlmostEqual(power_outputs["equipment"][0]["device_kwh_day"], 4.8)
+        self.assertAlmostEqual(power_outputs["equipment"][1]["device_kwh_day"], 2.4)
+        self.assertAlmostEqual(power_outputs["scenario_power_kwh_day"], 7.2)
+        self.assertAlmostEqual(power_outputs["scenario_power_cost_per_day"], 54.0)
+        self.assertEqual(
+            report["operating_cost_pressure"]["cost_outputs"][
+                "selected_operating_cost_pressure_subtotal"
+            ],
+            54.0,
+        )
+        self.assertIn(FEED_COST_UNAVAILABLE, report["status_labels"])
+
+    def test_report_returns_expected_combined_p2a_values(self) -> None:
+        report = _p2a_base_report(**_feed_cost_inputs(), **_power_cost_inputs())
+
+        cost_context = report["operating_cost_pressure"]
+        category_costs = cost_context["cost_outputs"]["category_costs"]
+        self.assertAlmostEqual(
+            category_costs["feed"]["scenario_feed_cost_per_day"], 45.0
+        )
+        self.assertAlmostEqual(
+            category_costs["power"]["equipment"][0]["device_kwh_day"], 4.8
+        )
+        self.assertAlmostEqual(
+            category_costs["power"]["equipment"][1]["device_kwh_day"], 2.4
+        )
+        self.assertAlmostEqual(
+            category_costs["power"]["scenario_power_kwh_day"], 7.2
+        )
+        self.assertAlmostEqual(
+            category_costs["power"]["scenario_power_cost_per_day"], 54.0
+        )
+        self.assertAlmostEqual(
+            cost_context["cost_outputs"][
+                "selected_operating_cost_pressure_subtotal"
+            ],
+            99.0,
+        )
+        self.assertIn(
+            POWER_COST_USES_NAMEPLATE_KW,
+            cost_context["cost_status_labels"],
+        )
+
+    def test_report_rejects_partial_feed_cost_input_group(self) -> None:
+        with self.assertRaisesRegex(
+            ModeAFeedLoadReportValidationError,
+            (
+                "partial P2a feed-cost input group; missing field\\(s\\): "
+                "feed_price_currency, feed_price_date, feed_price_geography, "
+                "feed_price_source_type"
+            ),
+        ):
+            _p2a_base_report(feed_price_per_kg=45.0)
+
+    def test_report_rejects_partial_power_cost_input_group(self) -> None:
+        with self.assertRaisesRegex(
+            ModeAFeedLoadReportValidationError,
+            (
+                "partial P2a power-cost input group; missing field\\(s\\): "
+                "electricity_price_currency, electricity_tariff_date, "
+                "electricity_price_geography, electricity_tariff_class, "
+                "electricity_tariff_source_type"
+            ),
+        ):
+            _p2a_base_report(
+                equipment_power_records=_power_cost_inputs()[
+                    "equipment_power_records"
+                ],
+                electricity_price_per_kwh=7.5,
+            )
+
+    def test_report_handles_mixed_p2a_currencies_without_subtotal(self) -> None:
+        feed_inputs = _feed_cost_inputs()
+        power_inputs = _power_cost_inputs()
+        power_inputs["electricity_price_currency"] = "USD"
+
+        report = _p2a_base_report(**feed_inputs, **power_inputs)
+        cost_context = report["operating_cost_pressure"]
+
+        self.assertIsNone(
+            cost_context["cost_outputs"][
+                "selected_operating_cost_pressure_subtotal"
+            ]
+        )
+        self.assertIn(
+            MIXED_CURRENCY_SUBTOTAL_UNAVAILABLE,
+            cost_context["cost_status_labels"],
+        )
+
+    def test_p2a_labels_stay_inside_operating_cost_pressure(self) -> None:
+        report = _p2a_base_report(**_feed_cost_inputs(), **_power_cost_inputs())
+
+        cost_labels = report["operating_cost_pressure"]["cost_status_labels"]
+        self.assertIn(SELECTED_COST_PRESSURE_ONLY, cost_labels)
+        self.assertIn(POWER_COST_USES_NAMEPLATE_KW, cost_labels)
+        self.assertNotIn(SELECTED_COST_PRESSURE_ONLY, report["status_labels"])
+        self.assertNotIn(POWER_COST_USES_NAMEPLATE_KW, report["status_labels"])
+
+    def test_p2a_can_coexist_with_p1_and_p1_5_contexts(self) -> None:
+        report = build_mode_a_feed_load_report(
+            scenario_id="demo_mode_a_p2a",
+            input_mode=INPUT_MODE,
+            feed_kg_day=1.0,
+            protein_fraction=0.32,
+            effective_water_volume_l=7800,
+            accumulation_period_day=1,
+            concentration_scope="fish_tank",
+            ph=7.0,
+            water_temp_c=28.0,
+            freshwater_assumption=True,
+            include_aeration_solids_context=True,
+            measured_do_mg_l=5.0,
+            dry_solids_coefficient=0.25,
+            **_feed_cost_inputs(),
+            **_power_cost_inputs(),
+        )
+
+        self.assertIn("water_quality_context", report)
+        self.assertIn("aeration_solids_context", report)
+        self.assertIn("operating_cost_pressure", report)
+        self.assertAlmostEqual(
+            report["operating_cost_pressure"]["cost_outputs"][
+                "selected_operating_cost_pressure_subtotal"
+            ],
+            99.0,
+        )
+
+    def test_p2a_disallowed_calculated_fields_are_not_output_keys(self) -> None:
+        report = _p2a_base_report(**_feed_cost_inputs(), **_power_cost_inputs())
+
+        for disallowed_key in {
+            "saleable_harvest_mass_kg",
+            "total_operating_cost",
+            "profitability",
+            "revenue",
+            "gross_margin",
+            "contribution_margin",
+            "roi",
+            "payback",
+            "break_even",
+            "economic_viability",
+            "fish_revenue",
+            "basil_revenue",
+            "crop_revenue",
+        }:
+            self.assertFalse(_contains_key(report, disallowed_key), disallowed_key)
+
     def test_disallowed_calculated_fields_are_not_output_keys(self) -> None:
         report = build_mode_a_feed_load_report(
             scenario_id="demo_mode_a",
@@ -615,6 +840,55 @@ class ModeAFeedLoadReportTests(unittest.TestCase):
             "aeration_capacity_sufficient",
         }:
             self.assertFalse(_contains_key(report, disallowed_key), disallowed_key)
+
+
+def _p2a_base_report(**kwargs: object) -> dict:
+    return build_mode_a_feed_load_report(
+        scenario_id="demo_mode_a_p2a",
+        input_mode=INPUT_MODE,
+        feed_kg_day=1.0,
+        protein_fraction=0.32,
+        **kwargs,
+    )
+
+
+def _feed_cost_inputs() -> dict:
+    return {
+        "feed_price_per_kg": 45.0,
+        "feed_price_currency": "INR",
+        "feed_price_date": "2026-05-06",
+        "feed_price_geography": "India scenario",
+        "feed_price_source_type": "demo_scenario_input",
+    }
+
+
+def _power_cost_inputs() -> dict:
+    return {
+        "equipment_power_records": [
+            {
+                "device_id": "demo_pump",
+                "device_role": "water_circulation",
+                "device_kw": 0.2,
+                "runtime_h_day": 24,
+                "load_fraction": 1.0,
+                "power_basis": "nameplate_kw",
+            },
+            {
+                "device_id": "demo_blower",
+                "device_role": "aeration",
+                "device_kw": 0.1,
+                "runtime_h_day": 24,
+                "load_fraction": 1.0,
+                "power_basis": "nameplate_kw",
+            },
+        ],
+        "electricity_price_per_kwh": 7.5,
+        "electricity_price_currency": "INR",
+        "electricity_tariff_date": "2026-05-06",
+        "electricity_price_geography": "India scenario",
+        "electricity_tariff_class": "demo_scenario_input",
+        "electricity_tariff_source_type": "demo_scenario_input",
+    }
 
 
 def _contains_key(value: object, target_key: str) -> bool:

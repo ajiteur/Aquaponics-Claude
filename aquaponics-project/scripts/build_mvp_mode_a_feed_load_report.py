@@ -59,6 +59,23 @@ OPTIONAL_CONTEXT_FIELDS = (
     "clarifier_retention_context_available",
     "backup_aeration_power_continuity_available",
     "dry_solids_basis",
+    "include_operating_cost_pressure",
+    "feed_price_per_kg",
+    "feed_price_currency",
+    "feed_price_date",
+    "feed_price_geography",
+    "feed_price_source_type",
+    "protein_percentage",
+    "package_size_kg",
+    "feed_price_source_reference",
+    "equipment_power_records",
+    "electricity_price_per_kwh",
+    "electricity_price_currency",
+    "electricity_tariff_date",
+    "electricity_price_geography",
+    "electricity_tariff_class",
+    "electricity_tariff_source_type",
+    "electricity_tariff_source_reference",
 )
 
 SUPPORTED_INPUT_FIELDS = REQUIRED_INPUT_FIELDS + OPTIONAL_CONTEXT_FIELDS
@@ -148,6 +165,10 @@ def _normalize_report_for_json(report: dict[str, Any]) -> dict[str, Any]:
     if "aeration_solids_context" in report:
         normalized_report["aeration_solids_context"] = _normalize_float_noise(
             report["aeration_solids_context"]
+        )
+    if "operating_cost_pressure" in report:
+        normalized_report["operating_cost_pressure"] = _normalize_float_noise(
+            report["operating_cost_pressure"]
         )
     return normalized_report
 

@@ -12,6 +12,13 @@ from src.mvp_aeration_solids_context import (
     AerationSolidsContextValidationError,
     build_aeration_solids_context,
 )
+from src.mvp_operating_cost_pressure import (
+    ELECTRICITY_TARIFF_MISSING,
+    EQUIPMENT_POWER_OR_RUNTIME_MISSING,
+    FEED_PRICE_MISSING,
+    OperatingCostPressureValidationError,
+    build_operating_cost_pressure,
+)
 from src.mvp_tan_nh3_risk import (
     NO_REMOVAL_ASSUMPTION,
     TanNh3RiskValidationError,
@@ -57,6 +64,22 @@ P1_5_AERATION_SOLIDS_INPUT_FIELDS = (
     "backup_aeration_power_continuity_available",
     "dry_solids_basis",
 )
+P2A_FEED_COST_REQUIRED_FIELDS = (
+    "feed_price_per_kg",
+    "feed_price_currency",
+    "feed_price_date",
+    "feed_price_geography",
+    "feed_price_source_type",
+)
+P2A_POWER_COST_REQUIRED_FIELDS = (
+    "equipment_power_records",
+    "electricity_price_per_kwh",
+    "electricity_price_currency",
+    "electricity_tariff_date",
+    "electricity_price_geography",
+    "electricity_tariff_class",
+    "electricity_tariff_source_type",
+)
 
 
 class ModeAFeedLoadReportValidationError(ValueError):
@@ -100,6 +123,23 @@ def build_mode_a_feed_load_report(
     clarifier_retention_context_available: bool | None = None,
     backup_aeration_power_continuity_available: bool | None = None,
     dry_solids_basis: Any | None = None,
+    include_operating_cost_pressure: bool | None = None,
+    feed_price_per_kg: float | None = None,
+    feed_price_currency: str | None = None,
+    feed_price_date: str | None = None,
+    feed_price_geography: str | None = None,
+    feed_price_source_type: str | None = None,
+    protein_percentage: float | None = None,
+    package_size_kg: float | None = None,
+    feed_price_source_reference: Any | None = None,
+    equipment_power_records: list[dict[str, Any]] | None = None,
+    electricity_price_per_kwh: float | None = None,
+    electricity_price_currency: str | None = None,
+    electricity_tariff_date: str | None = None,
+    electricity_price_geography: str | None = None,
+    electricity_tariff_class: str | None = None,
+    electricity_tariff_source_type: str | None = None,
+    electricity_tariff_source_reference: Any | None = None,
 ) -> dict[str, Any]:
     """Build a Mode A report from explicit direct-feed inputs."""
 
@@ -147,6 +187,25 @@ def build_mode_a_feed_load_report(
             backup_aeration_power_continuity_available
         ),
         "dry_solids_basis": dry_solids_basis,
+        "include_operating_cost_pressure": include_operating_cost_pressure,
+        "feed_price_per_kg": feed_price_per_kg,
+        "feed_price_currency": feed_price_currency,
+        "feed_price_date": feed_price_date,
+        "feed_price_geography": feed_price_geography,
+        "feed_price_source_type": feed_price_source_type,
+        "protein_percentage": protein_percentage,
+        "package_size_kg": package_size_kg,
+        "feed_price_source_reference": feed_price_source_reference,
+        "equipment_power_records": equipment_power_records,
+        "electricity_price_per_kwh": electricity_price_per_kwh,
+        "electricity_price_currency": electricity_price_currency,
+        "electricity_tariff_date": electricity_tariff_date,
+        "electricity_price_geography": electricity_price_geography,
+        "electricity_tariff_class": electricity_tariff_class,
+        "electricity_tariff_source_type": electricity_tariff_source_type,
+        "electricity_tariff_source_reference": (
+            electricity_tariff_source_reference
+        ),
     }
 
     water_quality_context = _build_water_quality_context(
@@ -180,6 +239,29 @@ def build_mode_a_feed_load_report(
         ),
         dry_solids_basis=dry_solids_basis,
     )
+    operating_cost_pressure = _build_operating_cost_pressure(
+        feed_kg_day=load_result["feed_kg_day"],
+        feed_class=feed_class,
+        include_operating_cost_pressure=include_operating_cost_pressure,
+        feed_price_per_kg=feed_price_per_kg,
+        feed_price_currency=feed_price_currency,
+        feed_price_date=feed_price_date,
+        feed_price_geography=feed_price_geography,
+        feed_price_source_type=feed_price_source_type,
+        protein_percentage=protein_percentage,
+        package_size_kg=package_size_kg,
+        feed_price_source_reference=feed_price_source_reference,
+        equipment_power_records=equipment_power_records,
+        electricity_price_per_kwh=electricity_price_per_kwh,
+        electricity_price_currency=electricity_price_currency,
+        electricity_tariff_date=electricity_tariff_date,
+        electricity_price_geography=electricity_price_geography,
+        electricity_tariff_class=electricity_tariff_class,
+        electricity_tariff_source_type=electricity_tariff_source_type,
+        electricity_tariff_source_reference=electricity_tariff_source_reference,
+    )
+    has_feed_cost_pressure = _has_cost_category(operating_cost_pressure, "feed")
+    has_operating_cost_pressure = operating_cost_pressure is not None
 
     report = {
         "scenario_id": validated_scenario_id,
@@ -198,10 +280,14 @@ def build_mode_a_feed_load_report(
             ),
         },
         "calculation_basis": _build_calculation_basis(
-            load_result, has_water_quality_context=has_water_quality_context
+            load_result,
+            has_water_quality_context=has_water_quality_context,
+            has_feed_cost_pressure=has_feed_cost_pressure,
+            has_operating_cost_pressure=has_operating_cost_pressure,
         ),
         "status_labels": _build_status_labels(
             has_water_quality_context=has_water_quality_context,
+            has_feed_cost_pressure=has_feed_cost_pressure,
             water_volume_context_available=water_volume_context_available,
             time_basis_context_available=time_basis_context_available,
             exchange_or_retention_context_available=(
@@ -215,13 +301,16 @@ def build_mode_a_feed_load_report(
             biofilter_capacity_context_available=biofilter_capacity_context_available,
         ),
         "boundary_notes": _build_boundary_notes(
-            has_water_quality_context=has_water_quality_context
+            has_water_quality_context=has_water_quality_context,
+            has_operating_cost_pressure=has_operating_cost_pressure,
         ),
     }
     if water_quality_context is not None:
         report["water_quality_context"] = water_quality_context
     if aeration_solids_context is not None:
         report["aeration_solids_context"] = aeration_solids_context
+    if operating_cost_pressure is not None:
+        report["operating_cost_pressure"] = operating_cost_pressure
     return report
 
 
@@ -246,13 +335,16 @@ def _validate_input_mode(input_mode: str | None) -> str:
 
 
 def _build_calculation_basis(
-    load_result: dict[str, Any], *, has_water_quality_context: bool
+    load_result: dict[str, Any],
+    *,
+    has_water_quality_context: bool,
+    has_feed_cost_pressure: bool,
+    has_operating_cost_pressure: bool,
 ) -> dict[str, Any]:
     helper_basis = load_result["calculation_basis"]
     excluded_calculations = [
         "unionized_nh3_toxicity",
         "threshold_comparison",
-        "feed_cost",
         "tank_suitability",
         "biomass_derived_feeding",
         "biofilter_removal",
@@ -262,6 +354,24 @@ def _build_calculation_basis(
     ]
     if not has_water_quality_context:
         excluded_calculations.insert(0, "tan_concentration")
+    if not has_feed_cost_pressure:
+        excluded_calculations.insert(0, "feed_cost")
+
+    calculation_limits = [
+        "No tank-suitability calculation.",
+        "No crop saleability calculation.",
+    ]
+    if has_operating_cost_pressure:
+        calculation_limits.insert(
+            0,
+            (
+                "Optional P2a operating-cost pressure is selected "
+                "scenario cost context only, not total operating cost."
+            ),
+        )
+        calculation_limits.insert(1, "No profitability calculation.")
+    else:
+        calculation_limits.insert(0, "No feed-cost calculation.")
 
     return {
         "input_mode": INPUT_MODE,
@@ -282,17 +392,14 @@ def _build_calculation_basis(
             helper_basis["alkalinity_demand_g_caco3_per_g_tan_n"]
         ),
         "excluded_calculations": excluded_calculations,
-        "calculation_limits": [
-            "No feed-cost calculation.",
-            "No tank-suitability calculation.",
-            "No crop saleability calculation.",
-        ],
+        "calculation_limits": calculation_limits,
     }
 
 
 def _build_status_labels(
     *,
     has_water_quality_context: bool,
+    has_feed_cost_pressure: bool,
     water_volume_context_available: Any,
     time_basis_context_available: Any,
     exchange_or_retention_context_available: Any,
@@ -318,7 +425,10 @@ def _build_status_labels(
     ):
         labels.append(NH3_RISK_UNAVAILABLE)
 
-    if not _is_explicitly_true(feed_price_context_available):
+    if (
+        not has_feed_cost_pressure
+        and not _is_explicitly_true(feed_price_context_available)
+    ):
         labels.append(FEED_COST_UNAVAILABLE)
 
     if not (
@@ -503,7 +613,169 @@ def _p1_5_flag_or_false(value: bool | None) -> bool:
     return value
 
 
-def _build_boundary_notes(*, has_water_quality_context: bool) -> list[str]:
+def _build_operating_cost_pressure(
+    *,
+    feed_kg_day: float,
+    feed_class: Any | None,
+    include_operating_cost_pressure: bool | None,
+    feed_price_per_kg: float | None,
+    feed_price_currency: str | None,
+    feed_price_date: str | None,
+    feed_price_geography: str | None,
+    feed_price_source_type: str | None,
+    protein_percentage: float | None,
+    package_size_kg: float | None,
+    feed_price_source_reference: Any | None,
+    equipment_power_records: list[dict[str, Any]] | None,
+    electricity_price_per_kwh: float | None,
+    electricity_price_currency: str | None,
+    electricity_tariff_date: str | None,
+    electricity_price_geography: str | None,
+    electricity_tariff_class: str | None,
+    electricity_tariff_source_type: str | None,
+    electricity_tariff_source_reference: Any | None,
+) -> dict[str, Any] | None:
+    if include_operating_cost_pressure is not None and not isinstance(
+        include_operating_cost_pressure, bool
+    ):
+        raise ModeAFeedLoadReportValidationError(
+            "include_operating_cost_pressure must be a boolean"
+        )
+
+    feed_inputs = {
+        "feed_price_per_kg": feed_price_per_kg,
+        "feed_price_currency": feed_price_currency,
+        "feed_price_date": feed_price_date,
+        "feed_price_geography": feed_price_geography,
+        "feed_price_source_type": feed_price_source_type,
+        "protein_percentage": protein_percentage,
+        "package_size_kg": package_size_kg,
+        "feed_price_source_reference": feed_price_source_reference,
+    }
+    power_inputs = {
+        "equipment_power_records": equipment_power_records,
+        "electricity_price_per_kwh": electricity_price_per_kwh,
+        "electricity_price_currency": electricity_price_currency,
+        "electricity_tariff_date": electricity_tariff_date,
+        "electricity_price_geography": electricity_price_geography,
+        "electricity_tariff_class": electricity_tariff_class,
+        "electricity_tariff_source_type": electricity_tariff_source_type,
+        "electricity_tariff_source_reference": electricity_tariff_source_reference,
+    }
+    feed_supplied = _supplied_fields(feed_inputs)
+    power_supplied = _supplied_fields(power_inputs)
+
+    should_build_context = (
+        include_operating_cost_pressure is True
+        or bool(feed_supplied)
+        or bool(power_supplied)
+    )
+    if not should_build_context:
+        return None
+
+    feed_complete = _validate_p2a_group(
+        "feed-cost",
+        feed_supplied,
+        P2A_FEED_COST_REQUIRED_FIELDS,
+        feed_inputs,
+    )
+    power_complete = _validate_p2a_group(
+        "power-cost",
+        power_supplied,
+        P2A_POWER_COST_REQUIRED_FIELDS,
+        power_inputs,
+    )
+
+    kwargs: dict[str, Any] = {}
+    if feed_complete:
+        kwargs.update(
+            {
+                "feed_kg_day": feed_kg_day,
+                "feed_price_per_kg": feed_price_per_kg,
+                "feed_price_currency": feed_price_currency,
+                "feed_price_date": feed_price_date,
+                "feed_price_geography": feed_price_geography,
+                "feed_price_source_type": feed_price_source_type,
+                "feed_class": feed_class,
+                "protein_percentage": protein_percentage,
+                "package_size_kg": package_size_kg,
+                "feed_price_source_reference": feed_price_source_reference,
+            }
+        )
+    if power_complete:
+        kwargs.update(
+            {
+                "equipment_records": equipment_power_records,
+                "electricity_price_per_kwh": electricity_price_per_kwh,
+                "electricity_price_currency": electricity_price_currency,
+                "electricity_tariff_date": electricity_tariff_date,
+                "electricity_price_geography": electricity_price_geography,
+                "electricity_tariff_class": electricity_tariff_class,
+                "electricity_tariff_source_type": electricity_tariff_source_type,
+                "electricity_tariff_source_reference": (
+                    electricity_tariff_source_reference
+                ),
+            }
+        )
+
+    try:
+        context = build_operating_cost_pressure(**kwargs)
+    except OperatingCostPressureValidationError as exc:
+        raise ModeAFeedLoadReportValidationError(str(exc)) from exc
+
+    if (
+        include_operating_cost_pressure is True
+        and not feed_complete
+        and not power_complete
+    ):
+        _append_missing_cost_label(context, FEED_PRICE_MISSING)
+        _append_missing_cost_label(context, ELECTRICITY_TARIFF_MISSING)
+        _append_missing_cost_label(context, EQUIPMENT_POWER_OR_RUNTIME_MISSING)
+
+    return context
+
+
+def _supplied_fields(values: dict[str, Any]) -> list[str]:
+    return [field for field, value in values.items() if value is not None]
+
+
+def _validate_p2a_group(
+    group_name: str,
+    supplied_fields: list[str],
+    required_fields: tuple[str, ...],
+    values: dict[str, Any],
+) -> bool:
+    if not supplied_fields:
+        return False
+
+    missing_fields = [
+        field for field in required_fields if values.get(field) is None
+    ]
+    if missing_fields:
+        raise ModeAFeedLoadReportValidationError(
+            f"partial P2a {group_name} input group; missing field(s): "
+            + ", ".join(missing_fields)
+        )
+    return True
+
+
+def _append_missing_cost_label(context: dict[str, Any], label: str) -> None:
+    labels = context["cost_status_labels"]
+    if label not in labels:
+        labels.append(label)
+
+
+def _has_cost_category(
+    operating_cost_pressure: dict[str, Any] | None, category: str
+) -> bool:
+    if operating_cost_pressure is None:
+        return False
+    return category in operating_cost_pressure["cost_outputs"]["category_costs"]
+
+
+def _build_boundary_notes(
+    *, has_water_quality_context: bool, has_operating_cost_pressure: bool
+) -> list[str]:
     if has_water_quality_context:
         water_quality_note = (
             "Water-quality context estimates TAN-N concentration and NH3 "
@@ -512,10 +784,18 @@ def _build_boundary_notes(*, has_water_quality_context: bool) -> list[str]:
     else:
         water_quality_note = "Report labels do not calculate TAN concentration."
 
+    if has_operating_cost_pressure:
+        feed_cost_note = (
+            "Optional P2a operating-cost pressure is selected scenario cost "
+            "context only, not profitability or total operating cost."
+        )
+    else:
+        feed_cost_note = "Report labels do not calculate feed cost."
+
     return [
         water_quality_note,
         "Report labels do not calculate unionized NH3 toxicity.",
-        "Report labels do not calculate feed cost.",
+        feed_cost_note,
         "Report labels do not calculate tank suitability.",
         "Report labels do not calculate biofilter removal.",
         "Report labels do not calculate aeration capacity.",

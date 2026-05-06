@@ -17,6 +17,9 @@ P1_EXAMPLE_INPUT_PATH = (
 P1_5_EXAMPLE_INPUT_PATH = (
     PROJECT_ROOT / "scripts" / "example_mvp_mode_a_p1_5_aeration_solids_inputs.json"
 )
+P2A_EXAMPLE_INPUT_PATH = (
+    PROJECT_ROOT / "scripts" / "example_mvp_mode_a_p2a_operating_cost_inputs.json"
+)
 
 
 class BuildMvpModeAFeedLoadReportScriptTests(unittest.TestCase):
@@ -43,6 +46,7 @@ class BuildMvpModeAFeedLoadReportScriptTests(unittest.TestCase):
         self.assertEqual(report["input_mode"], "mode_a_direct_feed")
         self.assertNotIn("water_quality_context", report)
         self.assertNotIn("aeration_solids_context", report)
+        self.assertNotIn("operating_cost_pressure", report)
 
     def test_output_includes_expected_load_values(self) -> None:
         report = run_example_report()
@@ -59,6 +63,7 @@ class BuildMvpModeAFeedLoadReportScriptTests(unittest.TestCase):
 
         self.assertIn("water_quality_context", report)
         self.assertNotIn("aeration_solids_context", report)
+        self.assertNotIn("operating_cost_pressure", report)
 
     def test_script_reads_p1_example_and_prints_water_quality_context(self) -> None:
         result = run_script("--input", str(P1_EXAMPLE_INPUT_PATH))
@@ -128,6 +133,7 @@ class BuildMvpModeAFeedLoadReportScriptTests(unittest.TestCase):
         self.assertEqual(report["scenario_id"], "demo_mode_a_tilapia_basil_dwc_p1_5")
         self.assertIn("water_quality_context", report)
         self.assertIn("aeration_solids_context", report)
+        self.assertNotIn("operating_cost_pressure", report)
 
         self.assertAlmostEqual(report["loads"]["tan_n_load_kg_day"], 0.02944)
         self.assertAlmostEqual(report["loads"]["tan_n_load_g_day"], 29.44)
@@ -155,6 +161,56 @@ class BuildMvpModeAFeedLoadReportScriptTests(unittest.TestCase):
             aeration_solids["status_labels"],
         )
         self.assertNotIn("total_oxygen_demand_unavailable", report["status_labels"])
+
+    def test_script_reads_p2a_example_and_prints_all_mvp_sections(self) -> None:
+        result = run_script("--input", str(P2A_EXAMPLE_INPUT_PATH))
+
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(result.stderr, "")
+        report = json.loads(result.stdout)
+        self.assertEqual(report["scenario_id"], "demo_mode_a_tilapia_basil_dwc_p2a")
+        self.assertIn("water_quality_context", report)
+        self.assertIn("aeration_solids_context", report)
+        self.assertIn("operating_cost_pressure", report)
+
+        self.assertAlmostEqual(report["loads"]["tan_n_load_kg_day"], 0.02944)
+        self.assertAlmostEqual(report["loads"]["tan_n_load_g_day"], 29.44)
+        self.assertAlmostEqual(report["loads"]["oxygen_demand_g_day"], 134.5408)
+        self.assertAlmostEqual(
+            report["loads"]["alkalinity_demand_g_caco3_day"], 210.2016
+        )
+
+        cost_context = report["operating_cost_pressure"]
+        category_costs = cost_context["cost_outputs"]["category_costs"]
+        self.assertAlmostEqual(
+            category_costs["feed"]["scenario_feed_cost_per_day"], 45.0
+        )
+        self.assertAlmostEqual(
+            category_costs["power"]["equipment"][0]["device_kwh_day"], 4.8
+        )
+        self.assertAlmostEqual(
+            category_costs["power"]["equipment"][1]["device_kwh_day"], 2.4
+        )
+        self.assertAlmostEqual(
+            category_costs["power"]["scenario_power_kwh_day"], 7.2
+        )
+        self.assertAlmostEqual(
+            category_costs["power"]["scenario_power_cost_per_day"], 54.0
+        )
+        self.assertAlmostEqual(
+            cost_context["cost_outputs"][
+                "selected_operating_cost_pressure_subtotal"
+            ],
+            99.0,
+        )
+        self.assertIn(
+            "power_cost_uses_nameplate_kw_not_measured_kw",
+            cost_context["cost_status_labels"],
+        )
+        self.assertIn(
+            "selected_cost_pressure_only_not_total_operating_cost",
+            cost_context["cost_status_labels"],
+        )
 
     def test_output_includes_missing_context_status_labels(self) -> None:
         report = run_example_report()
@@ -265,6 +321,26 @@ class BuildMvpModeAFeedLoadReportScriptTests(unittest.TestCase):
             }:
                 self.assertFalse(_contains_key(report, disallowed_key), disallowed_key)
 
+    def test_p2a_output_does_not_include_disallowed_economic_field_keys(self) -> None:
+        report = run_p2a_example_report()
+
+        for disallowed_key in {
+            "saleable_harvest_mass_kg",
+            "total_operating_cost",
+            "profitability",
+            "revenue",
+            "gross_margin",
+            "contribution_margin",
+            "roi",
+            "payback",
+            "break_even",
+            "economic_viability",
+            "fish_revenue",
+            "basil_revenue",
+            "crop_revenue",
+        }:
+            self.assertFalse(_contains_key(report, disallowed_key), disallowed_key)
+
 
 def run_script(*args: str) -> subprocess.CompletedProcess[str]:
     return subprocess.run(
@@ -291,6 +367,13 @@ def run_p1_example_report() -> dict:
 
 def run_p1_5_example_report() -> dict:
     result = run_script("--input", str(P1_5_EXAMPLE_INPUT_PATH))
+    if result.returncode != 0:
+        raise AssertionError(result.stderr)
+    return json.loads(result.stdout)
+
+
+def run_p2a_example_report() -> dict:
+    result = run_script("--input", str(P2A_EXAMPLE_INPUT_PATH))
     if result.returncode != 0:
         raise AssertionError(result.stderr)
     return json.loads(result.stdout)
