@@ -1,0 +1,1839 @@
+{
+  "scenario_identity": {
+    "scenario_id": "uvi_like_tilapia_basil_dwc_raft_benchmark_v0",
+    "scenario_name": "UVI-like tilapia basil DWC raft benchmark v0",
+    "scenario_version": "v0",
+    "architecture": "tilapia_basil_dwc_raft",
+    "fish_species": "tilapia",
+    "plant_species": "basil",
+    "created_for": "pre_customer_mode_a_p1_p1_5_p2a_seed_demo_fixture",
+    "customer_validated": false,
+    "commercial_proof": false,
+    "canon_status": "not_canon"
+  },
+  "strategic_context": {
+    "purpose": "Structured benchmark fixture for pre-customer MVP demo credibility only.",
+    "mvp_spine": "Mode A + P1 + P1.5 + P2a",
+    "pathway_step": "benchmark scenario dataset",
+    "scope": "bounded tilapia plus basil DWC/raft aquaponics scenario",
+    "status": [
+      "scenario_input",
+      "benchmark_assumption",
+      "not_customer_validated",
+      "not_canon",
+      "not_commercial_proof",
+      "not_real_world_operating_proof"
+    ],
+    "boundary": "This JSON is a benchmark fixture/design dataset, not runtime output, canonical knowledge, or simulation output."
+  },
+  "readiness_levels": {
+    "L0_blocked_or_unavailable": {
+      "definition": "Missing, unresolved, or blocked by guardrail.",
+      "allowed_use": "Keep null or explicitly blocked and explain the blocker."
+    },
+    "L1_scenario_input": {
+      "definition": "Manually supplied scenario value with no external-source claim.",
+      "allowed_use": "Demo fixture and what-if context only."
+    },
+    "L2_benchmark_assumption_with_source": {
+      "definition": "Public, institutional, or supplier-backed benchmark value with metadata.",
+      "allowed_use": "Benchmark scenario and seed-demo context only."
+    },
+    "L3_measured_internal_or_pilot_data": {
+      "definition": "Internal measurement or pilot data, not customer/operator validated.",
+      "allowed_use": "Internal evidence after provenance review."
+    },
+    "L4_observed_customer_or_operator_data": {
+      "definition": "Observed data from a customer or operator setting.",
+      "allowed_use": "Future real-world evaluation input after provenance review."
+    },
+    "L5_reviewed_or_validated_commercial_data": {
+      "definition": "Reviewed commercial data suitable for scoped decision support.",
+      "allowed_use": "Future commercial evaluation only within the reviewed evidence scope."
+    }
+  },
+  "uncertainty_labels": {
+    "benchmark_assumption": "Sourced or source-planned benchmark value; not observed customer/operator data.",
+    "scenario_input": "Explicit fixture value supplied for this scenario.",
+    "not_customer_validated": "No customer/operator validation is claimed.",
+    "not_canon": "Not canonical biology, business, model, ontology, runtime, or simulation truth.",
+    "not_commercial_proof": "Does not prove commercial operability or investment readiness.",
+    "not_real_world_operating_proof": "Does not prove real-world operation.",
+    "not_total_operating_cost": "Selected cost-pressure fields do not cover total cost scope.",
+    "not_profitability": "No profit, margin, return, viability, or break-even claim is made."
+  },
+  "source_basis": {
+    "uvi_like_dwc_raft_architecture_anchors": {
+      "source_family": "UVI-like DWC/raft architecture anchors",
+      "status": "source_gap",
+      "readiness_level": "L0_blocked_or_unavailable",
+      "repo_reference": null,
+      "metadata_required": [
+        "source title",
+        "source path or URL",
+        "date or access date",
+        "geography",
+        "architecture applicability notes"
+      ],
+      "notes": "Needed before claiming a specific UVI-like benchmark value."
+    },
+    "srac_fao_extension_ras_guidance": {
+      "source_family": "SRAC/FAO/extension/RAS guidance",
+      "status": "source_gap",
+      "readiness_level": "L0_blocked_or_unavailable",
+      "repo_reference": null,
+      "metadata_required": [
+        "source title",
+        "source path or URL",
+        "date or access date",
+        "geography",
+        "system type",
+        "applicability limits"
+      ],
+      "notes": "Use only as benchmark support, not customer validation."
+    },
+    "tilapia_feed_regime_and_stocking_research": {
+      "source_family": "tilapia feed-regime and stocking research",
+      "status": "repo_research_pack_present",
+      "readiness_level": "L2_benchmark_assumption_with_source",
+      "repo_reference": "data/sources/research_reports/markdown/Tilapia feed-regime and stocking-input research pack for a first fish-feed-to-water-quality MVP.md",
+      "metadata_required": [
+        "source family",
+        "date or access date",
+        "species scope",
+        "confidence",
+        "notes"
+      ],
+      "notes": "Use for source planning; fixture feed values remain explicit scenario inputs."
+    },
+    "tank_volume_exchange_tan_to_nh3_research": {
+      "source_family": "tank volume, exchange, and TAN-to-NH3 research",
+      "status": "repo_research_pack_present",
+      "readiness_level": "L2_benchmark_assumption_with_source",
+      "repo_reference": "data/sources/research_reports/markdown/Tank Volume, Exchange and TAN-to-NH3 Risk Research Pack.md",
+      "metadata_required": [
+        "source family",
+        "date or access date",
+        "water-volume scope",
+        "confidence",
+        "notes"
+      ],
+      "notes": "Use for context and source planning; this fixture does not claim safety."
+    },
+    "aeration_and_solids_load_research": {
+      "source_family": "aeration and solids-load research",
+      "status": "repo_research_pack_present",
+      "readiness_level": "L2_benchmark_assumption_with_source",
+      "repo_reference": "data/sources/research_reports/markdown/Aeration Capacity and Solids Load Translation Research Pack for the Aquaponics MVP.md",
+      "metadata_required": [
+        "source family",
+        "date or access date",
+        "equipment basis",
+        "confidence",
+        "notes"
+      ],
+      "notes": "Use for context and source planning; this fixture does not claim capacity adequacy."
+    },
+    "operating_economics_input_research": {
+      "source_family": "operating economics input research",
+      "status": "repo_research_pack_present",
+      "readiness_level": "L2_benchmark_assumption_with_source",
+      "repo_reference": "data/sources/research_reports/markdown/Operating Economics Input Research Pack for the Aquaponics MVP.md",
+      "metadata_required": [
+        "source family",
+        "date or access date",
+        "geography",
+        "currency",
+        "confidence",
+        "notes"
+      ],
+      "notes": "Use for later cost-source review; this fixture includes selected cost-pressure only."
+    },
+    "supplier_feed_price_metadata": {
+      "source_family": "supplier feed-price metadata",
+      "status": "source_gap",
+      "readiness_level": "L0_blocked_or_unavailable",
+      "repo_reference": null,
+      "metadata_required": [
+        "supplier",
+        "price",
+        "currency",
+        "unit",
+        "date",
+        "geography",
+        "feed class",
+        "notes"
+      ],
+      "notes": "The fixture price is a demo scenario input until supplier evidence is reviewed."
+    },
+    "electricity_tariff_metadata": {
+      "source_family": "electricity tariff metadata",
+      "status": "source_gap",
+      "readiness_level": "L0_blocked_or_unavailable",
+      "repo_reference": null,
+      "metadata_required": [
+        "tariff provider",
+        "tariff class",
+        "price",
+        "currency",
+        "unit",
+        "date",
+        "geography",
+        "notes"
+      ],
+      "notes": "The fixture tariff is a demo scenario input until tariff evidence is reviewed."
+    }
+  },
+  "scenario_inputs": {
+    "fish_feed": {
+      "input_mode": {
+        "value": "mode_a_direct_feed",
+        "unit": "label",
+        "classification": [
+          "scenario_input",
+          "required"
+        ],
+        "readiness_level": "L1_scenario_input",
+        "source_basis": "scripts/example_mvp_mode_a_p2a_operating_cost_inputs.json",
+        "metadata": {
+          "date": "2026-05-06",
+          "geography": null,
+          "currency": null,
+          "status_labels": [
+            "scenario_input",
+            "not_canon"
+          ],
+          "confidence": "fixture"
+        },
+        "validation_rule": "must equal mode_a_direct_feed for the current spine",
+        "notes": "Current demo path only."
+      },
+      "fish_species": {
+        "value": "tilapia",
+        "unit": "species_label",
+        "classification": [
+          "scenario_input",
+          "benchmark_assumption",
+          "required"
+        ],
+        "readiness_level": "L1_scenario_input",
+        "source_basis": "scenario_identity",
+        "metadata": {
+          "date": "2026-05-07",
+          "geography": null,
+          "currency": null,
+          "status_labels": [
+            "not_customer_validated",
+            "not_canon"
+          ],
+          "confidence": "fixture"
+        },
+        "validation_rule": "non-empty label matching the scenario identity",
+        "notes": "Species context does not prove yield or safety."
+      },
+      "feed_kg_day": {
+        "value": 1.0,
+        "unit": "kg/day",
+        "classification": [
+          "scenario_input",
+          "required"
+        ],
+        "readiness_level": "L1_scenario_input",
+        "source_basis": "scripts/example_mvp_mode_a_p2a_operating_cost_inputs.json",
+        "metadata": {
+          "date": "2026-05-06",
+          "geography": null,
+          "currency": null,
+          "status_labels": [
+            "scenario_input",
+            "not_canon",
+            "not_customer_validated"
+          ],
+          "confidence": "fixture"
+        },
+        "validation_rule": "number >= 0",
+        "notes": "Current demo fixture value only; not a feed recommendation."
+      },
+      "protein_fraction": {
+        "value": 0.32,
+        "unit": "fraction",
+        "classification": [
+          "scenario_input",
+          "required"
+        ],
+        "readiness_level": "L1_scenario_input",
+        "source_basis": "scripts/example_mvp_mode_a_p2a_operating_cost_inputs.json",
+        "metadata": {
+          "date": "2026-05-06",
+          "geography": null,
+          "currency": null,
+          "status_labels": [
+            "scenario_input",
+            "not_canon",
+            "not_customer_validated"
+          ],
+          "confidence": "fixture"
+        },
+        "validation_rule": "0 <= number <= 1",
+        "notes": "Current demo fixture value only; not a canonical protein value."
+      },
+      "feed_class": {
+        "value": "grow_out",
+        "unit": "label",
+        "classification": [
+          "scenario_input",
+          "optional"
+        ],
+        "readiness_level": "L1_scenario_input",
+        "source_basis": "scripts/example_mvp_mode_a_p2a_operating_cost_inputs.json",
+        "metadata": {
+          "date": "2026-05-06",
+          "geography": null,
+          "currency": null,
+          "status_labels": [
+            "scenario_input",
+            "not_canon"
+          ],
+          "confidence": "fixture"
+        },
+        "validation_rule": "non-empty if supplied",
+        "notes": "Context only."
+      },
+      "fish_count": {
+        "value": null,
+        "unit": "fish",
+        "classification": [
+          "source_gap",
+          "optional"
+        ],
+        "readiness_level": "L0_blocked_or_unavailable",
+        "source_basis": "source_gap",
+        "metadata": {
+          "date": null,
+          "geography": null,
+          "currency": null,
+          "status_labels": [
+            "source_gap",
+            "not_customer_validated"
+          ],
+          "confidence": "not_available"
+        },
+        "validation_rule": "non-negative integer if supplied in a later approved pass",
+        "notes": "Not required for the current Mode A direct-feed path."
+      },
+      "fish_biomass_kg": {
+        "value": null,
+        "unit": "kg",
+        "classification": [
+          "source_gap",
+          "optional"
+        ],
+        "readiness_level": "L0_blocked_or_unavailable",
+        "source_basis": "source_gap",
+        "metadata": {
+          "date": null,
+          "geography": null,
+          "currency": null,
+          "status_labels": [
+            "source_gap",
+            "not_customer_validated"
+          ],
+          "confidence": "not_available"
+        },
+        "validation_rule": "number >= 0 if supplied in a later approved pass",
+        "notes": "Not used to infer plant output."
+      }
+    },
+    "water_quality": {
+      "effective_water_volume_l": {
+        "value": 7800,
+        "unit": "L",
+        "classification": [
+          "scenario_input",
+          "required"
+        ],
+        "readiness_level": "L1_scenario_input",
+        "source_basis": "scripts/example_mvp_mode_a_p2a_operating_cost_inputs.json",
+        "metadata": {
+          "date": "2026-05-06",
+          "geography": null,
+          "currency": null,
+          "status_labels": [
+            "scenario_input",
+            "not_canon"
+          ],
+          "confidence": "fixture"
+        },
+        "validation_rule": "number > 0",
+        "notes": "Effective concentration volume for the current fish-tank context."
+      },
+      "accumulation_period_day": {
+        "value": 1,
+        "unit": "day",
+        "classification": [
+          "scenario_input",
+          "required"
+        ],
+        "readiness_level": "L1_scenario_input",
+        "source_basis": "scripts/example_mvp_mode_a_p2a_operating_cost_inputs.json",
+        "metadata": {
+          "date": "2026-05-06",
+          "geography": null,
+          "currency": null,
+          "status_labels": [
+            "scenario_input",
+            "not_canon"
+          ],
+          "confidence": "fixture"
+        },
+        "validation_rule": "number > 0",
+        "notes": "Time basis only."
+      },
+      "concentration_scope": {
+        "value": "fish_tank",
+        "unit": "label",
+        "classification": [
+          "scenario_input",
+          "required"
+        ],
+        "readiness_level": "L1_scenario_input",
+        "source_basis": "scripts/example_mvp_mode_a_p2a_operating_cost_inputs.json",
+        "metadata": {
+          "date": "2026-05-06",
+          "geography": null,
+          "currency": null,
+          "status_labels": [
+            "scenario_input",
+            "not_canon"
+          ],
+          "confidence": "fixture"
+        },
+        "validation_rule": "must equal fish_tank for the current demo path",
+        "notes": "Prevents whole-system concentration ambiguity."
+      },
+      "ph": {
+        "value": 7.0,
+        "unit": "pH",
+        "classification": [
+          "scenario_input",
+          "required"
+        ],
+        "readiness_level": "L1_scenario_input",
+        "source_basis": "scripts/example_mvp_mode_a_p2a_operating_cost_inputs.json",
+        "metadata": {
+          "date": "2026-05-06",
+          "geography": null,
+          "currency": null,
+          "status_labels": [
+            "scenario_input",
+            "not_canon"
+          ],
+          "confidence": "fixture"
+        },
+        "validation_rule": "0 <= number <= 14",
+        "notes": "Chemistry context only."
+      },
+      "water_temp_c": {
+        "value": 28.0,
+        "unit": "deg C",
+        "classification": [
+          "scenario_input",
+          "required"
+        ],
+        "readiness_level": "L1_scenario_input",
+        "source_basis": "scripts/example_mvp_mode_a_p2a_operating_cost_inputs.json",
+        "metadata": {
+          "date": "2026-05-06",
+          "geography": null,
+          "currency": null,
+          "status_labels": [
+            "scenario_input",
+            "not_canon"
+          ],
+          "confidence": "fixture"
+        },
+        "validation_rule": "finite number",
+        "notes": "Chemistry context only."
+      },
+      "freshwater_assumption": {
+        "value": true,
+        "unit": "boolean",
+        "classification": [
+          "scenario_input",
+          "required"
+        ],
+        "readiness_level": "L1_scenario_input",
+        "source_basis": "scripts/example_mvp_mode_a_p2a_operating_cost_inputs.json",
+        "metadata": {
+          "date": "2026-05-06",
+          "geography": null,
+          "currency": null,
+          "status_labels": [
+            "scenario_input",
+            "not_canon"
+          ],
+          "confidence": "fixture"
+        },
+        "validation_rule": "boolean",
+        "notes": "Explicit salinity boundary for the current chemistry context."
+      },
+      "water_exchange_or_replacement_context": {
+        "value": null,
+        "unit": "L/day",
+        "classification": [
+          "source_gap",
+          "optional"
+        ],
+        "readiness_level": "L0_blocked_or_unavailable",
+        "source_basis": "source_gap",
+        "metadata": {
+          "date": null,
+          "geography": null,
+          "currency": null,
+          "status_labels": [
+            "source_gap"
+          ],
+          "confidence": "not_available"
+        },
+        "validation_rule": "number >= 0 if supplied later",
+        "notes": "Not needed for current no-removal context."
+      }
+    },
+    "engineering_equipment": {
+      "equipment_power_records": [
+        {
+          "device_id": {
+            "value": "demo_pump",
+            "unit": "label",
+            "classification": [
+              "scenario_input",
+              "required"
+            ],
+            "readiness_level": "L1_scenario_input",
+            "source_basis": "scripts/example_mvp_mode_a_p2a_operating_cost_inputs.json",
+            "metadata": {
+              "date": "2026-05-06",
+              "geography": null,
+              "currency": null,
+              "status_labels": [
+                "scenario_input",
+                "not_canon"
+              ],
+              "confidence": "fixture"
+            },
+            "validation_rule": "unique within equipment records",
+            "notes": "Identifier only."
+          },
+          "device_role": {
+            "value": "water_circulation",
+            "unit": "label",
+            "classification": [
+              "scenario_input",
+              "required"
+            ],
+            "readiness_level": "L1_scenario_input",
+            "source_basis": "scripts/example_mvp_mode_a_p2a_operating_cost_inputs.json",
+            "metadata": {
+              "date": "2026-05-06",
+              "geography": null,
+              "currency": null,
+              "status_labels": [
+                "scenario_input",
+                "not_canon"
+              ],
+              "confidence": "fixture"
+            },
+            "validation_rule": "non-empty role label",
+            "notes": "Role is not performance proof."
+          },
+          "device_kw": {
+            "value": 0.2,
+            "unit": "kW",
+            "classification": [
+              "scenario_input",
+              "required"
+            ],
+            "readiness_level": "L1_scenario_input",
+            "source_basis": "scripts/example_mvp_mode_a_p2a_operating_cost_inputs.json",
+            "metadata": {
+              "date": "2026-05-06",
+              "geography": null,
+              "currency": null,
+              "status_labels": [
+                "scenario_input",
+                "not_canon"
+              ],
+              "confidence": "fixture"
+            },
+            "validation_rule": "number >= 0",
+            "notes": "Nameplate-style fixture value."
+          },
+          "runtime_h_day": {
+            "value": 24,
+            "unit": "h/day",
+            "classification": [
+              "scenario_input",
+              "required"
+            ],
+            "readiness_level": "L1_scenario_input",
+            "source_basis": "scripts/example_mvp_mode_a_p2a_operating_cost_inputs.json",
+            "metadata": {
+              "date": "2026-05-06",
+              "geography": null,
+              "currency": null,
+              "status_labels": [
+                "scenario_input",
+                "not_canon"
+              ],
+              "confidence": "fixture"
+            },
+            "validation_rule": "0 <= number <= 24",
+            "notes": "Runtime fixture value."
+          },
+          "load_fraction": {
+            "value": 1.0,
+            "unit": "fraction",
+            "classification": [
+              "scenario_input",
+              "required"
+            ],
+            "readiness_level": "L1_scenario_input",
+            "source_basis": "scripts/example_mvp_mode_a_p2a_operating_cost_inputs.json",
+            "metadata": {
+              "date": "2026-05-06",
+              "geography": null,
+              "currency": null,
+              "status_labels": [
+                "scenario_input",
+                "not_canon"
+              ],
+              "confidence": "fixture"
+            },
+            "validation_rule": "0 <= number <= 1",
+            "notes": "Fixture load fraction, not measured duty cycle."
+          },
+          "power_basis": {
+            "value": "nameplate_kw",
+            "unit": "label",
+            "classification": [
+              "scenario_input",
+              "required"
+            ],
+            "readiness_level": "L1_scenario_input",
+            "source_basis": "scripts/example_mvp_mode_a_p2a_operating_cost_inputs.json",
+            "metadata": {
+              "date": "2026-05-06",
+              "geography": null,
+              "currency": null,
+              "status_labels": [
+                "scenario_input",
+                "not_canon"
+              ],
+              "confidence": "fixture"
+            },
+            "validation_rule": "must state measured, nameplate, duty-cycle, estimated, or benchmark basis",
+            "notes": "Prevents hidden metered-power claims."
+          }
+        },
+        {
+          "device_id": {
+            "value": "demo_blower",
+            "unit": "label",
+            "classification": [
+              "scenario_input",
+              "required"
+            ],
+            "readiness_level": "L1_scenario_input",
+            "source_basis": "scripts/example_mvp_mode_a_p2a_operating_cost_inputs.json",
+            "metadata": {
+              "date": "2026-05-06",
+              "geography": null,
+              "currency": null,
+              "status_labels": [
+                "scenario_input",
+                "not_canon"
+              ],
+              "confidence": "fixture"
+            },
+            "validation_rule": "unique within equipment records",
+            "notes": "Identifier only."
+          },
+          "device_role": {
+            "value": "aeration",
+            "unit": "label",
+            "classification": [
+              "scenario_input",
+              "required"
+            ],
+            "readiness_level": "L1_scenario_input",
+            "source_basis": "scripts/example_mvp_mode_a_p2a_operating_cost_inputs.json",
+            "metadata": {
+              "date": "2026-05-06",
+              "geography": null,
+              "currency": null,
+              "status_labels": [
+                "scenario_input",
+                "not_canon"
+              ],
+              "confidence": "fixture"
+            },
+            "validation_rule": "non-empty role label",
+            "notes": "Aeration role does not prove capacity."
+          },
+          "device_kw": {
+            "value": 0.1,
+            "unit": "kW",
+            "classification": [
+              "scenario_input",
+              "required"
+            ],
+            "readiness_level": "L1_scenario_input",
+            "source_basis": "scripts/example_mvp_mode_a_p2a_operating_cost_inputs.json",
+            "metadata": {
+              "date": "2026-05-06",
+              "geography": null,
+              "currency": null,
+              "status_labels": [
+                "scenario_input",
+                "not_canon"
+              ],
+              "confidence": "fixture"
+            },
+            "validation_rule": "number >= 0",
+            "notes": "Nameplate-style fixture value."
+          },
+          "runtime_h_day": {
+            "value": 24,
+            "unit": "h/day",
+            "classification": [
+              "scenario_input",
+              "required"
+            ],
+            "readiness_level": "L1_scenario_input",
+            "source_basis": "scripts/example_mvp_mode_a_p2a_operating_cost_inputs.json",
+            "metadata": {
+              "date": "2026-05-06",
+              "geography": null,
+              "currency": null,
+              "status_labels": [
+                "scenario_input",
+                "not_canon"
+              ],
+              "confidence": "fixture"
+            },
+            "validation_rule": "0 <= number <= 24",
+            "notes": "Runtime fixture value."
+          },
+          "load_fraction": {
+            "value": 1.0,
+            "unit": "fraction",
+            "classification": [
+              "scenario_input",
+              "required"
+            ],
+            "readiness_level": "L1_scenario_input",
+            "source_basis": "scripts/example_mvp_mode_a_p2a_operating_cost_inputs.json",
+            "metadata": {
+              "date": "2026-05-06",
+              "geography": null,
+              "currency": null,
+              "status_labels": [
+                "scenario_input",
+                "not_canon"
+              ],
+              "confidence": "fixture"
+            },
+            "validation_rule": "0 <= number <= 1",
+            "notes": "Fixture load fraction, not measured duty cycle."
+          },
+          "power_basis": {
+            "value": "nameplate_kw",
+            "unit": "label",
+            "classification": [
+              "scenario_input",
+              "required"
+            ],
+            "readiness_level": "L1_scenario_input",
+            "source_basis": "scripts/example_mvp_mode_a_p2a_operating_cost_inputs.json",
+            "metadata": {
+              "date": "2026-05-06",
+              "geography": null,
+              "currency": null,
+              "status_labels": [
+                "scenario_input",
+                "not_canon"
+              ],
+              "confidence": "fixture"
+            },
+            "validation_rule": "must state measured, nameplate, duty-cycle, estimated, or benchmark basis",
+            "notes": "Prevents hidden metered-power claims."
+          }
+        }
+      ],
+      "backup_power_status": {
+        "value": null,
+        "unit": "label",
+        "classification": [
+          "source_gap",
+          "optional"
+        ],
+        "readiness_level": "L0_blocked_or_unavailable",
+        "source_basis": "source_gap",
+        "metadata": {
+          "date": null,
+          "geography": null,
+          "currency": null,
+          "status_labels": [
+            "source_gap"
+          ],
+          "confidence": "not_available"
+        },
+        "validation_rule": "must not imply reliability or safety if supplied later",
+        "notes": "Not part of current cost-pressure subtotal."
+      }
+    },
+    "aeration_solids": {
+      "include_aeration_solids_context": {
+        "value": true,
+        "unit": "boolean",
+        "classification": [
+          "scenario_input",
+          "required"
+        ],
+        "readiness_level": "L1_scenario_input",
+        "source_basis": "scripts/example_mvp_mode_a_p2a_operating_cost_inputs.json",
+        "metadata": {
+          "date": "2026-05-06",
+          "geography": null,
+          "currency": null,
+          "status_labels": [
+            "scenario_input",
+            "not_canon"
+          ],
+          "confidence": "fixture"
+        },
+        "validation_rule": "boolean",
+        "notes": "Enables P1.5 context only."
+      },
+      "measured_do_mg_l": {
+        "value": 5.0,
+        "unit": "mg/L",
+        "classification": [
+          "scenario_input",
+          "required"
+        ],
+        "readiness_level": "L1_scenario_input",
+        "source_basis": "scripts/example_mvp_mode_a_p2a_operating_cost_inputs.json",
+        "metadata": {
+          "date": "2026-05-06",
+          "geography": null,
+          "currency": null,
+          "status_labels": [
+            "scenario_input",
+            "not_canon",
+            "not_customer_validated"
+          ],
+          "confidence": "fixture"
+        },
+        "validation_rule": "number >= 0",
+        "notes": "DO context only, not an adequacy or safety result."
+      },
+      "dry_solids_coefficient": {
+        "value": 0.25,
+        "unit": "fraction",
+        "classification": [
+          "scenario_input",
+          "required"
+        ],
+        "readiness_level": "L1_scenario_input",
+        "source_basis": "scripts/example_mvp_mode_a_p2a_operating_cost_inputs.json",
+        "metadata": {
+          "date": "2026-05-06",
+          "geography": null,
+          "currency": null,
+          "status_labels": [
+            "scenario_input",
+            "not_canon"
+          ],
+          "confidence": "fixture"
+        },
+        "validation_rule": "0 <= number <= 1",
+        "notes": "Fixture coefficient, not canonical solids behavior."
+      },
+      "dry_solids_basis": {
+        "value": "demo_scenario_input_not_canon",
+        "unit": "label",
+        "classification": [
+          "scenario_input",
+          "required"
+        ],
+        "readiness_level": "L1_scenario_input",
+        "source_basis": "scripts/example_mvp_mode_a_p2a_operating_cost_inputs.json",
+        "metadata": {
+          "date": "2026-05-06",
+          "geography": null,
+          "currency": null,
+          "status_labels": [
+            "scenario_input",
+            "not_canon"
+          ],
+          "confidence": "fixture"
+        },
+        "validation_rule": "must state non-canon status",
+        "notes": "Keeps solids context as scenario-labeled."
+      },
+      "solids_filter_context": {
+        "value": null,
+        "unit": "label",
+        "classification": [
+          "source_gap",
+          "optional"
+        ],
+        "readiness_level": "L0_blocked_or_unavailable",
+        "source_basis": "source_gap",
+        "metadata": {
+          "date": null,
+          "geography": null,
+          "currency": null,
+          "status_labels": [
+            "source_gap"
+          ],
+          "confidence": "not_available"
+        },
+        "validation_rule": "must include source and performance basis if supplied later",
+        "notes": "Current dry-solids potential is not removal performance."
+      }
+    },
+    "operating_cost": {
+      "include_operating_cost_pressure": {
+        "value": true,
+        "unit": "boolean",
+        "classification": [
+          "scenario_input",
+          "required"
+        ],
+        "readiness_level": "L1_scenario_input",
+        "source_basis": "scripts/example_mvp_mode_a_p2a_operating_cost_inputs.json",
+        "metadata": {
+          "date": "2026-05-06",
+          "geography": "India scenario",
+          "currency": "INR",
+          "status_labels": [
+            "scenario_input",
+            "not_total_operating_cost",
+            "not_profitability"
+          ],
+          "confidence": "fixture"
+        },
+        "validation_rule": "boolean",
+        "notes": "Enables selected cost-pressure context only."
+      },
+      "feed_price_per_kg": {
+        "value": 45.0,
+        "unit": "INR/kg",
+        "classification": [
+          "scenario_input",
+          "required"
+        ],
+        "readiness_level": "L1_scenario_input",
+        "source_basis": "scripts/example_mvp_mode_a_p2a_operating_cost_inputs.json",
+        "metadata": {
+          "date": "2026-05-06",
+          "geography": "India scenario",
+          "currency": "INR",
+          "status_labels": [
+            "scenario_input",
+            "not_canon",
+            "not_total_operating_cost"
+          ],
+          "confidence": "fixture"
+        },
+        "validation_rule": "number >= 0 with currency",
+        "notes": "Demo scenario price only; supplier metadata remains a source gap."
+      },
+      "feed_price_currency": {
+        "value": "INR",
+        "unit": "currency_code",
+        "classification": [
+          "scenario_input",
+          "required"
+        ],
+        "readiness_level": "L1_scenario_input",
+        "source_basis": "scripts/example_mvp_mode_a_p2a_operating_cost_inputs.json",
+        "metadata": {
+          "date": "2026-05-06",
+          "geography": "India scenario",
+          "currency": "INR",
+          "status_labels": [
+            "scenario_input"
+          ],
+          "confidence": "fixture"
+        },
+        "validation_rule": "non-empty currency code",
+        "notes": "Currency for selected feed-cost pressure only."
+      },
+      "electricity_price_per_kwh": {
+        "value": 7.5,
+        "unit": "INR/kWh",
+        "classification": [
+          "scenario_input",
+          "required"
+        ],
+        "readiness_level": "L1_scenario_input",
+        "source_basis": "scripts/example_mvp_mode_a_p2a_operating_cost_inputs.json",
+        "metadata": {
+          "date": "2026-05-06",
+          "geography": "India scenario",
+          "currency": "INR",
+          "status_labels": [
+            "scenario_input",
+            "not_canon",
+            "not_total_operating_cost"
+          ],
+          "confidence": "fixture"
+        },
+        "validation_rule": "number >= 0 with currency",
+        "notes": "Demo scenario tariff only; tariff metadata remains a source gap."
+      },
+      "electricity_price_currency": {
+        "value": "INR",
+        "unit": "currency_code",
+        "classification": [
+          "scenario_input",
+          "required"
+        ],
+        "readiness_level": "L1_scenario_input",
+        "source_basis": "scripts/example_mvp_mode_a_p2a_operating_cost_inputs.json",
+        "metadata": {
+          "date": "2026-05-06",
+          "geography": "India scenario",
+          "currency": "INR",
+          "status_labels": [
+            "scenario_input"
+          ],
+          "confidence": "fixture"
+        },
+        "validation_rule": "non-empty currency code",
+        "notes": "Currency for selected power-cost pressure only."
+      }
+    },
+    "labor_maintenance_placeholders": {
+      "clarifier_purge_frequency": {
+        "value": null,
+        "unit": "events/day",
+        "classification": [
+          "source_gap",
+          "optional"
+        ],
+        "readiness_level": "L0_blocked_or_unavailable",
+        "source_basis": "source_gap",
+        "metadata": {
+          "date": null,
+          "geography": null,
+          "currency": null,
+          "status_labels": [
+            "source_gap"
+          ],
+          "confidence": "not_available"
+        },
+        "validation_rule": "non-negative frequency if supplied later",
+        "notes": "Labor and maintenance are placeholders only."
+      },
+      "filter_cleaning_frequency": {
+        "value": null,
+        "unit": "events/day",
+        "classification": [
+          "source_gap",
+          "optional"
+        ],
+        "readiness_level": "L0_blocked_or_unavailable",
+        "source_basis": "source_gap",
+        "metadata": {
+          "date": null,
+          "geography": null,
+          "currency": null,
+          "status_labels": [
+            "source_gap"
+          ],
+          "confidence": "not_available"
+        },
+        "validation_rule": "non-negative frequency if supplied later",
+        "notes": "Not costed in this fixture."
+      },
+      "task_hours_per_event": {
+        "value": null,
+        "unit": "hours/event",
+        "classification": [
+          "source_gap",
+          "optional"
+        ],
+        "readiness_level": "L0_blocked_or_unavailable",
+        "source_basis": "source_gap",
+        "metadata": {
+          "date": null,
+          "geography": null,
+          "currency": null,
+          "status_labels": [
+            "source_gap"
+          ],
+          "confidence": "not_available"
+        },
+        "validation_rule": "number >= 0 if supplied later",
+        "notes": "No labor-cost calculation is included."
+      }
+    },
+    "fish_output_placeholders": {
+      "harvest_date": {
+        "value": null,
+        "unit": "date",
+        "classification": [
+          "source_gap",
+          "optional"
+        ],
+        "readiness_level": "L0_blocked_or_unavailable",
+        "source_basis": "source_gap",
+        "metadata": {
+          "date": null,
+          "geography": null,
+          "currency": null,
+          "status_labels": [
+            "source_gap"
+          ],
+          "confidence": "not_available"
+        },
+        "validation_rule": "valid date if supplied later",
+        "notes": "No observed fish output is included."
+      },
+      "harvested_fish_count": {
+        "value": null,
+        "unit": "fish",
+        "classification": [
+          "source_gap",
+          "optional"
+        ],
+        "readiness_level": "L0_blocked_or_unavailable",
+        "source_basis": "source_gap",
+        "metadata": {
+          "date": null,
+          "geography": null,
+          "currency": null,
+          "status_labels": [
+            "source_gap"
+          ],
+          "confidence": "not_available"
+        },
+        "validation_rule": "non-negative integer if supplied later",
+        "notes": "Placeholder only."
+      },
+      "harvested_fish_mass_kg": {
+        "value": null,
+        "unit": "kg",
+        "classification": [
+          "source_gap",
+          "optional"
+        ],
+        "readiness_level": "L0_blocked_or_unavailable",
+        "source_basis": "source_gap",
+        "metadata": {
+          "date": null,
+          "geography": null,
+          "currency": null,
+          "status_labels": [
+            "source_gap"
+          ],
+          "confidence": "not_available"
+        },
+        "validation_rule": "number >= 0 if supplied later",
+        "notes": "No fish quantity claim is made."
+      }
+    },
+    "basil_output_placeholders": {
+      "planted_area_or_site_count": {
+        "value": null,
+        "unit": "m2_or_sites",
+        "classification": [
+          "source_gap",
+          "optional"
+        ],
+        "readiness_level": "L0_blocked_or_unavailable",
+        "source_basis": "source_gap",
+        "metadata": {
+          "date": null,
+          "geography": null,
+          "currency": null,
+          "status_labels": [
+            "source_gap"
+          ],
+          "confidence": "not_available"
+        },
+        "validation_rule": "non-negative value with explicit unit if supplied later",
+        "notes": "Benchmark scale context remains unresolved."
+      },
+      "gross_harvested_basil_mass_kg": {
+        "value": null,
+        "unit": "kg",
+        "classification": [
+          "source_gap",
+          "optional"
+        ],
+        "readiness_level": "L0_blocked_or_unavailable",
+        "source_basis": "source_gap",
+        "metadata": {
+          "date": null,
+          "geography": null,
+          "currency": null,
+          "status_labels": [
+            "source_gap"
+          ],
+          "confidence": "not_available"
+        },
+        "validation_rule": "number >= 0 if supplied later",
+        "notes": "Gross mass cannot stand in for reviewed saleability."
+      },
+      "basil_saleability_review_status": {
+        "value": "blocked_until_observed",
+        "unit": "label",
+        "classification": [
+          "blocked_until_observed",
+          "required"
+        ],
+        "readiness_level": "L0_blocked_or_unavailable",
+        "source_basis": "observed_or_explicitly_reviewed_input_required",
+        "metadata": {
+          "date": null,
+          "geography": null,
+          "currency": null,
+          "status_labels": [
+            "blocked_until_observed"
+          ],
+          "confidence": "not_available"
+        },
+        "validation_rule": "must remain blocked until observed or reviewed input exists",
+        "notes": "No basil saleability quantity is populated in this fixture."
+      }
+    },
+    "revenue_placeholders": {
+      "revenue_input_status": {
+        "value": "not_calculated",
+        "unit": "label",
+        "classification": [
+          "blocked_until_observed",
+          "required"
+        ],
+        "readiness_level": "L0_blocked_or_unavailable",
+        "source_basis": "complete_explicit_quantity_price_currency_date_geography_buyer_channel_required",
+        "metadata": {
+          "date": null,
+          "geography": null,
+          "currency": null,
+          "status_labels": [
+            "not_profitability",
+            "not_commercial_proof"
+          ],
+          "confidence": "not_available"
+        },
+        "validation_rule": "must not become an output without complete explicit input status",
+        "notes": "Future contract placeholder only."
+      },
+      "sale_unit_placeholder": {
+        "value": null,
+        "unit": "label",
+        "classification": [
+          "source_gap",
+          "optional"
+        ],
+        "readiness_level": "L0_blocked_or_unavailable",
+        "source_basis": "source_gap",
+        "metadata": {
+          "date": null,
+          "geography": null,
+          "currency": null,
+          "status_labels": [
+            "source_gap"
+          ],
+          "confidence": "not_available"
+        },
+        "validation_rule": "must match quantity and price if supplied later",
+        "notes": "No buyer/channel price basis is selected."
+      },
+      "buyer_channel_placeholder": {
+        "value": null,
+        "unit": "label",
+        "classification": [
+          "expert_question_candidate",
+          "optional"
+        ],
+        "readiness_level": "L0_blocked_or_unavailable",
+        "source_basis": "expert_question_candidate",
+        "metadata": {
+          "date": null,
+          "geography": null,
+          "currency": null,
+          "status_labels": [
+            "expert_question_candidate"
+          ],
+          "confidence": "not_available"
+        },
+        "validation_rule": "non-empty reviewed channel required before future pricing use",
+        "notes": "Customer/operator access is not assumed."
+      }
+    }
+  },
+  "expected_current_engine_outputs": {
+    "tan_n_load_kg_day": {
+      "value": 0.02944,
+      "unit": "kg/day",
+      "classification": [
+        "derived",
+        "regression_anchor"
+      ],
+      "readiness_level": "L1_scenario_input",
+      "source_basis": "current_demo_path_expected_value_from_explicit_fixture_inputs",
+      "metadata": {
+        "status_labels": [
+          "not_canon",
+          "not_customer_validated"
+        ],
+        "confidence": "integrity_snapshot_anchor"
+      },
+      "validation_rule": "must match current expected demo value until an approved fixture update changes it",
+      "notes": "Fixture regression anchor only."
+    },
+    "tan_n_load_g_day": {
+      "value": 29.44,
+      "unit": "g/day",
+      "classification": [
+        "derived",
+        "regression_anchor"
+      ],
+      "readiness_level": "L1_scenario_input",
+      "source_basis": "current_demo_path_expected_value_from_explicit_fixture_inputs",
+      "metadata": {
+        "status_labels": [
+          "not_canon",
+          "not_customer_validated"
+        ],
+        "confidence": "integrity_snapshot_anchor"
+      },
+      "validation_rule": "must match current expected demo value until an approved fixture update changes it",
+      "notes": "Fixture regression anchor only."
+    },
+    "oxygen_demand_g_day": {
+      "value": 134.5408,
+      "unit": "g/day",
+      "classification": [
+        "derived",
+        "regression_anchor"
+      ],
+      "readiness_level": "L1_scenario_input",
+      "source_basis": "current_demo_path_expected_value_from_explicit_fixture_inputs",
+      "metadata": {
+        "status_labels": [
+          "not_canon",
+          "not_customer_validated"
+        ],
+        "confidence": "integrity_snapshot_anchor"
+      },
+      "validation_rule": "must match current expected demo value until an approved fixture update changes it",
+      "notes": "Nitrification sub-load anchor only."
+    },
+    "alkalinity_demand_g_caco3_day": {
+      "value": 210.2016,
+      "unit": "g CaCO3/day",
+      "classification": [
+        "derived",
+        "regression_anchor"
+      ],
+      "readiness_level": "L1_scenario_input",
+      "source_basis": "current_demo_path_expected_value_from_explicit_fixture_inputs",
+      "metadata": {
+        "status_labels": [
+          "not_canon",
+          "not_customer_validated"
+        ],
+        "confidence": "integrity_snapshot_anchor"
+      },
+      "validation_rule": "must match current expected demo value until an approved fixture update changes it",
+      "notes": "Demand context anchor only."
+    },
+    "estimated_tan_n_mg_l": {
+      "value": 3.7743589743589743,
+      "unit": "mg/L",
+      "classification": [
+        "derived",
+        "regression_anchor"
+      ],
+      "readiness_level": "L1_scenario_input",
+      "source_basis": "current_demo_path_expected_value_from_explicit_fixture_inputs",
+      "metadata": {
+        "status_labels": [
+          "not_canon",
+          "not_customer_validated"
+        ],
+        "confidence": "integrity_snapshot_anchor"
+      },
+      "validation_rule": "must match current expected demo value until an approved fixture update changes it",
+      "notes": "Fish-tank concentration context only."
+    },
+    "estimated_unionized_nh3_fraction": {
+      "value": 0.006971085009084945,
+      "unit": "fraction",
+      "classification": [
+        "derived",
+        "regression_anchor"
+      ],
+      "readiness_level": "L1_scenario_input",
+      "source_basis": "current_demo_path_expected_value_from_explicit_fixture_inputs",
+      "metadata": {
+        "status_labels": [
+          "not_canon",
+          "not_customer_validated"
+        ],
+        "confidence": "integrity_snapshot_anchor"
+      },
+      "validation_rule": "must match current expected demo value until an approved fixture update changes it",
+      "notes": "Chemistry context only."
+    },
+    "estimated_nh3_n_mg_l": {
+      "value": 0.026311377265059072,
+      "unit": "mg/L",
+      "classification": [
+        "derived",
+        "regression_anchor"
+      ],
+      "readiness_level": "L1_scenario_input",
+      "source_basis": "current_demo_path_expected_value_from_explicit_fixture_inputs",
+      "metadata": {
+        "status_labels": [
+          "not_canon",
+          "not_customer_validated"
+        ],
+        "confidence": "integrity_snapshot_anchor"
+      },
+      "validation_rule": "must match current expected demo value until an approved fixture update changes it",
+      "notes": "Chemistry context only."
+    },
+    "estimated_nh3_mg_l": {
+      "value": 0.031949529536143155,
+      "unit": "mg/L",
+      "classification": [
+        "derived",
+        "regression_anchor"
+      ],
+      "readiness_level": "L1_scenario_input",
+      "source_basis": "current_demo_path_expected_value_from_explicit_fixture_inputs",
+      "metadata": {
+        "status_labels": [
+          "not_canon",
+          "not_customer_validated"
+        ],
+        "confidence": "integrity_snapshot_anchor"
+      },
+      "validation_rule": "must match current expected demo value until an approved fixture update changes it",
+      "notes": "Chemistry context only."
+    },
+    "measured_do_mg_l": {
+      "value": 5.0,
+      "unit": "mg/L",
+      "classification": [
+        "scenario_input",
+        "regression_anchor"
+      ],
+      "readiness_level": "L1_scenario_input",
+      "source_basis": "current_demo_fixture_supplied_context",
+      "metadata": {
+        "status_labels": [
+          "not_canon",
+          "not_customer_validated"
+        ],
+        "confidence": "fixture"
+      },
+      "validation_rule": "must equal supplied fixture input unless an approved fixture update changes it",
+      "notes": "Context carry-through only."
+    },
+    "estimated_dry_solids_potential_kg_day": {
+      "value": 0.25,
+      "unit": "kg/day",
+      "classification": [
+        "derived",
+        "regression_anchor"
+      ],
+      "readiness_level": "L1_scenario_input",
+      "source_basis": "current_demo_path_expected_value_from_explicit_fixture_inputs",
+      "metadata": {
+        "status_labels": [
+          "not_canon",
+          "not_customer_validated"
+        ],
+        "confidence": "integrity_snapshot_anchor"
+      },
+      "validation_rule": "must match current expected demo value until an approved fixture update changes it",
+      "notes": "Potential only; not removal performance."
+    },
+    "scenario_feed_cost_per_day": {
+      "value": 45.0,
+      "unit": "INR/day",
+      "classification": [
+        "derived",
+        "regression_anchor"
+      ],
+      "readiness_level": "L1_scenario_input",
+      "source_basis": "current_demo_path_expected_value_from_explicit_fixture_inputs",
+      "metadata": {
+        "currency": "INR",
+        "status_labels": [
+          "scenario_input",
+          "not_canon",
+          "not_total_operating_cost",
+          "not_profitability"
+        ],
+        "confidence": "integrity_snapshot_anchor"
+      },
+      "validation_rule": "must match current expected demo value until an approved fixture update changes it",
+      "notes": "Selected cost-pressure anchor only."
+    },
+    "scenario_power_kwh_day": {
+      "value": 7.2,
+      "unit": "kWh/day",
+      "classification": [
+        "derived",
+        "regression_anchor"
+      ],
+      "readiness_level": "L1_scenario_input",
+      "source_basis": "current_demo_path_expected_value_from_explicit_fixture_inputs",
+      "metadata": {
+        "status_labels": [
+          "scenario_input",
+          "not_canon",
+          "not_total_operating_cost"
+        ],
+        "confidence": "integrity_snapshot_anchor"
+      },
+      "validation_rule": "must match current expected demo value until an approved fixture update changes it",
+      "notes": "Power-use fixture anchor only."
+    },
+    "scenario_power_cost_per_day": {
+      "value": 54.0,
+      "unit": "INR/day",
+      "classification": [
+        "derived",
+        "regression_anchor"
+      ],
+      "readiness_level": "L1_scenario_input",
+      "source_basis": "current_demo_path_expected_value_from_explicit_fixture_inputs",
+      "metadata": {
+        "currency": "INR",
+        "status_labels": [
+          "scenario_input",
+          "not_canon",
+          "not_total_operating_cost",
+          "not_profitability"
+        ],
+        "confidence": "integrity_snapshot_anchor"
+      },
+      "validation_rule": "must match current expected demo value until an approved fixture update changes it",
+      "notes": "Selected cost-pressure anchor only."
+    },
+    "selected_operating_cost_pressure_subtotal": {
+      "value": 99.0,
+      "unit": "INR/day",
+      "classification": [
+        "derived",
+        "regression_anchor"
+      ],
+      "readiness_level": "L1_scenario_input",
+      "source_basis": "current_demo_path_expected_value_from_explicit_fixture_inputs",
+      "metadata": {
+        "currency": "INR",
+        "status_labels": [
+          "scenario_input",
+          "not_canon",
+          "not_total_operating_cost",
+          "not_profitability"
+        ],
+        "confidence": "integrity_snapshot_anchor"
+      },
+      "validation_rule": "must match current expected demo value until an approved fixture update changes it",
+      "notes": "Selected feed plus electricity pressure only."
+    }
+  },
+  "blocked_or_null_fields": {
+    "saleable_harvest_mass_kg": {
+      "value": null,
+      "status": "blocked_until_observed",
+      "classification": [
+        "blocked_until_observed",
+        "required_later"
+      ],
+      "readiness_level": "L0_blocked_or_unavailable",
+      "source_basis": "observed_runtime_output_or_explicit_reviewed_manual_input_required",
+      "allowed_to_calculate": false,
+      "allowed_claim": false,
+      "notes": "Null means unresolved, not zero."
+    },
+    "total_operating_cost": {
+      "value": null,
+      "status": "blocked",
+      "classification": [
+        "blocked_until_observed"
+      ],
+      "readiness_level": "L0_blocked_or_unavailable",
+      "source_basis": "complete_cost_scope_required",
+      "allowed_to_calculate": false,
+      "allowed_claim": false,
+      "notes": "Selected cost-pressure is not complete cost scope."
+    },
+    "fish_revenue": {
+      "value": null,
+      "status": "blocked",
+      "classification": [
+        "blocked_until_observed"
+      ],
+      "readiness_level": "L0_blocked_or_unavailable",
+      "source_basis": "explicit_quantity_price_currency_date_geography_buyer_channel_required",
+      "allowed_to_calculate": false,
+      "allowed_claim": false,
+      "notes": "No fish sale record or scenario sale set is supplied."
+    },
+    "basil_revenue": {
+      "value": null,
+      "status": "blocked",
+      "classification": [
+        "blocked_until_observed"
+      ],
+      "readiness_level": "L0_blocked_or_unavailable",
+      "source_basis": "explicit_saleable_quantity_price_currency_date_geography_buyer_channel_required",
+      "allowed_to_calculate": false,
+      "allowed_claim": false,
+      "notes": "No reviewed saleable quantity or sale set is supplied."
+    },
+    "crop_revenue": {
+      "value": null,
+      "status": "blocked",
+      "classification": [
+        "blocked_until_observed"
+      ],
+      "readiness_level": "L0_blocked_or_unavailable",
+      "source_basis": "explicit_crop_sale_set_required",
+      "allowed_to_calculate": false,
+      "allowed_claim": false,
+      "notes": "No crop sale set is supplied."
+    },
+    "profitability": {
+      "value": null,
+      "status": "blocked",
+      "classification": [
+        "blocked_until_observed"
+      ],
+      "readiness_level": "L0_blocked_or_unavailable",
+      "source_basis": "complete_revenue_and_cost_scope_required",
+      "allowed_to_calculate": false,
+      "allowed_claim": false,
+      "notes": "No economic result is supplied."
+    },
+    "gross_margin": {
+      "value": null,
+      "status": "blocked",
+      "classification": [
+        "blocked_until_observed"
+      ],
+      "readiness_level": "L0_blocked_or_unavailable",
+      "source_basis": "complete_revenue_and_cost_scope_required",
+      "allowed_to_calculate": false,
+      "allowed_claim": false,
+      "notes": "No margin result is supplied."
+    },
+    "roi": {
+      "value": null,
+      "status": "blocked",
+      "classification": [
+        "blocked_until_observed"
+      ],
+      "readiness_level": "L0_blocked_or_unavailable",
+      "source_basis": "complete_investment_and_return_scope_required",
+      "allowed_to_calculate": false,
+      "allowed_claim": false,
+      "notes": "No return metric is supplied."
+    },
+    "payback": {
+      "value": null,
+      "status": "blocked",
+      "classification": [
+        "blocked_until_observed"
+      ],
+      "readiness_level": "L0_blocked_or_unavailable",
+      "source_basis": "complete_investment_and_cashflow_scope_required",
+      "allowed_to_calculate": false,
+      "allowed_claim": false,
+      "notes": "No payback metric is supplied."
+    },
+    "break_even": {
+      "value": null,
+      "status": "blocked",
+      "classification": [
+        "blocked_until_observed"
+      ],
+      "readiness_level": "L0_blocked_or_unavailable",
+      "source_basis": "complete_cost_revenue_volume_scope_required",
+      "allowed_to_calculate": false,
+      "allowed_claim": false,
+      "notes": "No break-even metric is supplied."
+    },
+    "economic_viability": {
+      "value": null,
+      "status": "blocked",
+      "classification": [
+        "blocked_until_observed"
+      ],
+      "readiness_level": "L0_blocked_or_unavailable",
+      "source_basis": "reviewed_commercial_evidence_required",
+      "allowed_to_calculate": false,
+      "allowed_claim": false,
+      "notes": "No viability claim is supplied."
+    },
+    "commercial_operability": {
+      "value": null,
+      "status": "blocked",
+      "classification": [
+        "blocked_until_observed"
+      ],
+      "readiness_level": "L0_blocked_or_unavailable",
+      "source_basis": "customer_operator_or_reviewed_commercial_evidence_required",
+      "allowed_to_calculate": false,
+      "allowed_claim": false,
+      "notes": "Benchmark scenarios cannot prove operation."
+    },
+    "fish_safety": {
+      "value": null,
+      "status": "blocked",
+      "classification": [
+        "blocked_until_observed"
+      ],
+      "readiness_level": "L0_blocked_or_unavailable",
+      "source_basis": "safety_design_and_review_required",
+      "allowed_to_calculate": false,
+      "allowed_claim": false,
+      "notes": "Chemistry context is not a safety verdict."
+    },
+    "system_safety": {
+      "value": null,
+      "status": "blocked",
+      "classification": [
+        "blocked_until_observed"
+      ],
+      "readiness_level": "L0_blocked_or_unavailable",
+      "source_basis": "safety_design_and_review_required",
+      "allowed_to_calculate": false,
+      "allowed_claim": false,
+      "notes": "Benchmark context is not system assurance."
+    },
+    "aeration_adequacy": {
+      "value": null,
+      "status": "blocked",
+      "classification": [
+        "blocked_until_observed"
+      ],
+      "readiness_level": "L0_blocked_or_unavailable",
+      "source_basis": "oxygen_transfer_capacity_and_review_required",
+      "allowed_to_calculate": false,
+      "allowed_claim": false,
+      "notes": "Device kW and DO context are not capacity proof."
+    },
+    "solids_removal_capacity": {
+      "value": null,
+      "status": "blocked",
+      "classification": [
+        "blocked_until_observed"
+      ],
+      "readiness_level": "L0_blocked_or_unavailable",
+      "source_basis": "filter_or_clarifier_design_performance_evidence_required",
+      "allowed_to_calculate": false,
+      "allowed_claim": false,
+      "notes": "Dry-solids potential is not removal capacity."
+    }
+  },
+  "claims_allowed": [
+    "benchmark-backed demonstration of modeling structure",
+    "source-labeled scenario input example",
+    "reproducible pre-customer demo fixture",
+    "illustration of required data contract fields",
+    "selected cost-pressure example from supplied inputs"
+  ],
+  "claims_forbidden": [
+    "customer validation",
+    "commercial proof",
+    "real-world operating proof",
+    "system safety",
+    "fish safety",
+    "aeration adequacy",
+    "total operating cost",
+    "revenue",
+    "profitability",
+    "economic viability",
+    "known basil saleable harvest mass",
+    "commercial operability",
+    "canon/default assumptions"
+  ],
+  "source_gaps": [
+    {
+      "gap_id": "uvi_like_exact_mapping",
+      "status": "source_gap",
+      "notes": "A specific public benchmark source still needs review before replacing fixture assumptions with source-backed values."
+    },
+    {
+      "gap_id": "supplier_feed_price_metadata",
+      "status": "source_gap",
+      "notes": "The feed price is a scenario fixture until supplier evidence is attached."
+    },
+    {
+      "gap_id": "electricity_tariff_metadata",
+      "status": "source_gap",
+      "notes": "The tariff is a scenario fixture until tariff evidence is attached."
+    },
+    {
+      "gap_id": "labor_and_maintenance_basis",
+      "status": "source_gap",
+      "notes": "No labor task or maintenance cadence is sourced in this fixture."
+    },
+    {
+      "gap_id": "basil_harvest_and_saleability_basis",
+      "status": "blocked_until_observed",
+      "notes": "Observed or explicitly reviewed crop output evidence is needed before any saleability quantity can be populated."
+    }
+  ],
+  "expert_customer_question_candidates": [
+    "Which public UVI, SRAC, FAO, or extension benchmark is closest to this bounded tilapia plus basil DWC/raft fixture?",
+    "Which source should be accepted for local feed price metadata?",
+    "Which source should be accepted for local electricity tariff metadata?",
+    "Should equipment power use nameplate, metered, duty-cycle adjusted, or supplier-estimated basis in the first seed-demo report?",
+    "What observed basil handling or buyer review record is sufficient before a saleability quantity can become non-null?",
+    "Which labor and maintenance activities must be tracked before any complete cost scope is designed?"
+  ],
+  "future_use": {
+    "intended_next_use": "seed-demo report input after source review",
+    "allowed_use": [
+      "fixture regression anchor",
+      "pre-customer demo credibility",
+      "data contract illustration",
+      "source gap map"
+    ],
+    "not_allowed_use": [
+      "canonical default source",
+      "customer validation evidence",
+      "commercial proof",
+      "real-world operating proof",
+      "safety proof",
+      "profit proof"
+    ],
+    "implementation_note": "Future tooling may read this as a benchmark fixture, but calculations must stay in approved runtime code and outputs must keep their status labels."
+  },
+  "validation_notes": {
+    "json_role": "benchmark fixture/design dataset",
+    "not_runtime_output": true,
+    "not_canonical_knowledge": true,
+    "not_simulation_artifact": true,
+    "expected_values_role": "regression anchors for this fixture only",
+    "blocked_context_rule": "Blocked outputs are isolated in the blocked_or_null_fields section and must not be promoted into calculated outputs or allowed claims.",
+    "protected_path_rule": "This pass may create only this benchmark JSON file and its parent folder."
+  }
+}
