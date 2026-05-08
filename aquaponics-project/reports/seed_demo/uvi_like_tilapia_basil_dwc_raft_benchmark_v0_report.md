@@ -318,7 +318,7 @@ The contract requires explicit quantity, price, currency, date, geography,
 buyer/channel, labor, cost, and status inputs before later economic evaluation
 can be designed.
 
-## 12. What this proves
+## 12. What this report can show
 
 This report can credibly show:
 
@@ -445,14 +445,15 @@ Expert/customer question candidates:
 ## 17. Recommended next milestone
 
 Recommended next milestone:
-prepare an expert-question package for
-`uvi_like_tilapia_basil_dwc_raft_benchmark_v0` before dashboard/report UI work.
+use the review package index and expert-question package for expert/advisor
+review prep. Defer any further prototype, fixture, report, or dashboard changes
+to separately scoped passes.
 
-The next useful artifact should focus on module scope, raft area implied by
+That review prep should focus on module scope, raft area implied by
 1.0 kg/day feed, fish-tank versus total-system display, pump/blower scaling,
 backup power/aeration status, and basil saleability evidence standard. Any
-dashboard/report UI should remain review-first until those guardrails are
-visible.
+later dashboard/report UI change should remain review-first until those
+guardrails are visible.
 
 ## 18. Appendix: validation and reproducibility notes
 
