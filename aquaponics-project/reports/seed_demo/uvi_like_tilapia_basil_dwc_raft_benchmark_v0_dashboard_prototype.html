@@ -1,0 +1,843 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aquaponics MVP Seed-Demo Dashboard Prototype</title>
+  <style>
+    :root {
+      --bg: #071421;
+      --panel: #0d1f33;
+      --panel-2: #102942;
+      --panel-3: #0b1b2d;
+      --border: #23425f;
+      --text: #f3f8fc;
+      --muted: #9fb5c9;
+      --cyan: #5de1ff;
+      --cyan-soft: rgba(93, 225, 255, 0.14);
+      --green: #6ee7a5;
+      --green-soft: rgba(110, 231, 165, 0.16);
+      --amber: #f7c96b;
+      --amber-soft: rgba(247, 201, 107, 0.16);
+      --red: #ff7b8a;
+      --red-soft: rgba(255, 123, 138, 0.16);
+      --blue-soft: rgba(125, 183, 255, 0.12);
+      --shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background:
+        linear-gradient(140deg, rgba(26, 94, 135, 0.24), transparent 38%),
+        linear-gradient(220deg, rgba(18, 84, 74, 0.18), transparent 42%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.45;
+    }
+
+    a {
+      color: var(--cyan);
+    }
+
+    .page {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 28px;
+    }
+
+    header {
+      display: grid;
+      gap: 20px;
+      padding: 30px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(17, 48, 78, 0.96), rgba(8, 26, 44, 0.96));
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      color: var(--green);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      line-height: 1.16;
+    }
+
+    h1 {
+      max-width: 980px;
+      font-size: clamp(2rem, 5vw, 4.4rem);
+      letter-spacing: 0;
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      color: var(--cyan);
+    }
+
+    h3 {
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    .subtitle {
+      max-width: 980px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .chip-row,
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chip,
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 5px 10px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--text);
+      background: var(--blue-soft);
+      font-size: 0.78rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .chip.good,
+    .badge.good {
+      border-color: rgba(110, 231, 165, 0.6);
+      color: var(--green);
+      background: var(--green-soft);
+    }
+
+    .chip.warn,
+    .badge.warn {
+      border-color: rgba(247, 201, 107, 0.65);
+      color: var(--amber);
+      background: var(--amber-soft);
+    }
+
+    .chip.blocked,
+    .badge.blocked {
+      border-color: rgba(255, 123, 138, 0.65);
+      color: var(--red);
+      background: var(--red-soft);
+    }
+
+    .chip.info,
+    .badge.info {
+      border-color: rgba(93, 225, 255, 0.55);
+      color: var(--cyan);
+      background: var(--cyan-soft);
+    }
+
+    main {
+      display: grid;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    section,
+    .card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: rgba(13, 31, 51, 0.94);
+      box-shadow: 0 10px 34px rgba(0, 0, 0, 0.18);
+    }
+
+    section {
+      padding: 22px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .section-head p,
+    .card p {
+      margin: 6px 0 0;
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid.three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .grid.four {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .card {
+      padding: 16px;
+    }
+
+    .kpi {
+      min-height: 158px;
+      display: grid;
+      gap: 10px;
+      align-content: start;
+    }
+
+    .kpi .label {
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .kpi .value {
+      color: var(--text);
+      font-size: clamp(1.45rem, 3vw, 2.4rem);
+      font-weight: 800;
+      letter-spacing: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .kpi .unit {
+      color: var(--cyan);
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    .callout {
+      border-left: 4px solid var(--cyan);
+      background: rgba(93, 225, 255, 0.08);
+      padding: 14px 16px;
+      border-radius: 6px;
+      color: var(--text);
+    }
+
+    .callout.warn {
+      border-color: var(--amber);
+      background: var(--amber-soft);
+    }
+
+    .callout.blocked {
+      border-color: var(--red);
+      background: var(--red-soft);
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(120px, 1fr));
+      gap: 10px;
+      align-items: stretch;
+    }
+
+    .flow-step {
+      position: relative;
+      min-height: 124px;
+      padding: 14px;
+      border: 1px solid rgba(93, 225, 255, 0.4);
+      border-radius: 8px;
+      background: rgba(93, 225, 255, 0.08);
+    }
+
+    .flow-step:not(:last-child)::after {
+      content: ">";
+      position: absolute;
+      top: 50%;
+      right: -9px;
+      transform: translateY(-50%);
+      color: var(--cyan);
+      font-weight: 900;
+      z-index: 2;
+    }
+
+    .flow-step strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .flow-step span {
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 8px;
+      background: var(--panel-3);
+    }
+
+    th,
+    td {
+      padding: 12px;
+      border-bottom: 1px solid rgba(35, 66, 95, 0.76);
+      text-align: left;
+      vertical-align: top;
+      font-size: 0.9rem;
+    }
+
+    th {
+      color: var(--cyan);
+      background: rgba(93, 225, 255, 0.08);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid rgba(35, 66, 95, 0.5);
+      border-radius: 8px;
+    }
+
+    .guardrail-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .guardrail {
+      min-height: 94px;
+      padding: 13px;
+      border: 1px solid rgba(255, 123, 138, 0.6);
+      border-radius: 8px;
+      background: var(--red-soft);
+    }
+
+    .guardrail strong {
+      display: block;
+      color: var(--red);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      font-size: 0.77rem;
+    }
+
+    .guardrail span {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .list-cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .mini-card {
+      padding: 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: rgba(16, 41, 66, 0.72);
+    }
+
+    .mini-card strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .mini-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .priority {
+      display: inline-block;
+      margin-bottom: 8px;
+      color: var(--amber);
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    footer {
+      margin-top: 18px;
+      padding: 18px 22px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: rgba(7, 20, 33, 0.92);
+      color: var(--muted);
+    }
+
+    @media (max-width: 1180px) {
+      .grid.four,
+      .guardrail-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .flow,
+      .list-cards,
+      .grid.three {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .flow-step:not(:last-child)::after {
+        display: none;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .page {
+        padding: 14px;
+      }
+
+      header,
+      section {
+        padding: 18px;
+      }
+
+      .grid.two,
+      .grid.three,
+      .grid.four,
+      .flow,
+      .list-cards,
+      .guardrail-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .chip,
+      .badge {
+        white-space: normal;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="eyebrow">Static seed-demo review artifact</div>
+      <h1>Aquaponics MVP Seed-Demo Dashboard Prototype</h1>
+      <p class="subtitle">Tilapia + Basil DWC/Raft &mdash; public-evidence-inspired, scaled, scenario-augmented benchmark.</p>
+      <div class="chip-row" aria-label="Scenario guardrail status">
+        <span class="chip good">pre-customer benchmark demo</span>
+        <span class="chip blocked">not customer validated</span>
+        <span class="chip blocked">not commercial proof</span>
+        <span class="chip blocked">not real-world operating proof</span>
+        <span class="chip blocked">not canon</span>
+      </div>
+    </header>
+
+    <main>
+      <section aria-labelledby="scenario-title">
+        <div class="section-head">
+          <div>
+            <h2 id="scenario-title">Scenario Identity</h2>
+            <p>Current benchmark fixture identity and evidence ceiling.</p>
+          </div>
+          <span class="badge warn">direct UVI reproduction: no</span>
+        </div>
+        <div class="grid four">
+          <article class="card">
+            <h3>Scenario ID</h3>
+            <p><strong>uvi_like_tilapia_basil_dwc_raft_benchmark_v0</strong></p>
+          </article>
+          <article class="card">
+            <h3>Architecture</h3>
+            <p><strong>DWC/raft</strong> benchmark context for a tilapia + basil pathway.</p>
+          </article>
+          <article class="card">
+            <h3>Fish / Plant</h3>
+            <p><strong>tilapia</strong> / <strong>basil</strong></p>
+          </article>
+          <article class="card">
+            <h3>Framing</h3>
+            <p>Public-evidence-inspired, scaled, scenario-augmented.</p>
+          </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="flow-title">
+        <div class="section-head">
+          <div>
+            <h2 id="flow-title">Four-Level MVP Output Flow</h2>
+            <p>Approved current spine only. Values are copied from the fixture/report path; no new calculations are performed here.</p>
+          </div>
+          <span class="badge good">Mode A + P1 + P1.5 + P2a</span>
+        </div>
+        <div class="grid four">
+          <article class="card">
+            <h3>Mode A feed/load</h3>
+            <p>Direct feed and protein inputs to load context.</p>
+            <div class="badge-row">
+              <span class="badge info">modelled output not observed</span>
+              <span class="badge good">L1 scenario input</span>
+            </div>
+          </article>
+          <article class="card">
+            <h3>P1 TAN-N/NH3 context</h3>
+            <p>Fish-tank concentration and chemistry context.</p>
+            <div class="badge-row">
+              <span class="badge info">fish-tank scope</span>
+              <span class="badge warn">not observed UVI measurement</span>
+            </div>
+          </article>
+          <article class="card">
+            <h3>P1.5 aeration/solids context</h3>
+            <p>Supplied DO context and dry-solids potential.</p>
+            <div class="badge-row">
+              <span class="badge warn">not aeration adequacy</span>
+              <span class="badge warn">not removal capacity</span>
+            </div>
+          </article>
+          <article class="card">
+            <h3>P2a selected cost pressure</h3>
+            <p>Selected feed plus electricity cost-pressure overlay.</p>
+            <div class="badge-row">
+              <span class="badge warn">non-benchmark business overlay</span>
+              <span class="badge blocked">not total operating cost</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="values-title">
+        <div class="section-head">
+          <div>
+            <h2 id="values-title">Current Fixture Value Cards</h2>
+            <p>Exact current demo values with evidence/readiness labels beside the displayed values.</p>
+          </div>
+          <span class="badge info">fixture/report values only</span>
+        </div>
+        <div class="grid four">
+          <article class="card kpi">
+            <div class="label">TAN-N load</div>
+            <div><span class="value">29.44</span> <span class="unit">g/day</span></div>
+            <div class="badge-row"><span class="badge info">modelled output not observed</span><span class="badge good">L1</span></div>
+          </article>
+          <article class="card kpi">
+            <div class="label">Nitrification oxygen demand</div>
+            <div><span class="value">134.5408</span> <span class="unit">g/day</span></div>
+            <div class="badge-row"><span class="badge info">modelled sub-load</span><span class="badge blocked">not capacity</span></div>
+          </article>
+          <article class="card kpi">
+            <div class="label">Alkalinity demand</div>
+            <div><span class="value">210.2016</span> <span class="unit">g CaCO3/day</span></div>
+            <div class="badge-row"><span class="badge info">modelled context</span><span class="badge warn">not dosing advice</span></div>
+          </article>
+          <article class="card kpi">
+            <div class="label">Estimated fish-tank TAN-N</div>
+            <div><span class="value">3.7743589743589743</span> <span class="unit">mg/L</span></div>
+            <div class="badge-row"><span class="badge info">fish-tank scope</span><span class="badge blocked">not fish-safety proof</span></div>
+          </article>
+          <article class="card kpi">
+            <div class="label">Estimated unionized NH3 fraction</div>
+            <div><span class="value">0.006971085009084945</span></div>
+            <div class="badge-row"><span class="badge info">modelled chemistry context</span><span class="badge warn">not observed</span></div>
+          </article>
+          <article class="card kpi">
+            <div class="label">Estimated NH3-N</div>
+            <div><span class="value">0.026311377265059072</span> <span class="unit">mg/L</span></div>
+            <div class="badge-row"><span class="badge info">modelled chemistry context</span><span class="badge blocked">not fish-safety proof</span></div>
+          </article>
+          <article class="card kpi">
+            <div class="label">Estimated NH3</div>
+            <div><span class="value">0.031949529536143155</span> <span class="unit">mg/L</span></div>
+            <div class="badge-row"><span class="badge info">modelled chemistry context</span><span class="badge blocked">not system-safety proof</span></div>
+          </article>
+          <article class="card kpi">
+            <div class="label">Measured DO context</div>
+            <div><span class="value">5.0</span> <span class="unit">mg/L</span></div>
+            <div class="badge-row"><span class="badge warn">context only</span><span class="badge blocked">not aeration adequacy</span></div>
+          </article>
+          <article class="card kpi">
+            <div class="label">Dry-solids potential</div>
+            <div><span class="value">0.25</span> <span class="unit">kg/day</span></div>
+            <div class="badge-row"><span class="badge info">modelled potential</span><span class="badge blocked">not removal capacity</span></div>
+          </article>
+          <article class="card kpi">
+            <div class="label">Scenario feed cost</div>
+            <div><span class="value">45.0</span> <span class="unit">INR/day</span></div>
+            <div class="badge-row"><span class="badge warn">scenario input</span><span class="badge warn">business overlay</span></div>
+          </article>
+          <article class="card kpi">
+            <div class="label">Scenario power cost</div>
+            <div><span class="value">54.0</span> <span class="unit">INR/day</span></div>
+            <div class="badge-row"><span class="badge warn">scenario input</span><span class="badge warn">nameplate-style context</span></div>
+          </article>
+          <article class="card kpi">
+            <div class="label">Selected cost-pressure subtotal</div>
+            <div><span class="value">99.0</span> <span class="unit">INR/day</span></div>
+            <div class="badge-row"><span class="badge warn">selected pressure only</span><span class="badge blocked">not total operating cost</span></div>
+          </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="system-title">
+        <div class="section-head">
+          <div>
+            <h2 id="system-title">System-Flow Visual</h2>
+            <p>Simple review schematic. The caveats are part of the visual, not footnotes.</p>
+          </div>
+          <span class="badge info">HTML/CSS only</span>
+        </div>
+        <div class="flow" aria-label="System flow from feed input to report layer">
+          <div class="flow-step"><strong>Fish feed input</strong><span>Mode A direct input. No biomass-derived feeding.</span></div>
+          <div class="flow-step"><strong>Tilapia tank</strong><span>Fish-tank TAN/NH3 context. No fish-safety claim.</span></div>
+          <div class="flow-step"><strong>Solids filtration</strong><span>Solids context. Dry-solids potential is not removal capacity.</span></div>
+          <div class="flow-step"><strong>Biofilter/aeration</strong><span>Nitrification oxygen demand and supplied DO context.</span></div>
+          <div class="flow-step"><strong>DWC/raft basil bed</strong><span>Basil context. No known saleable harvest mass.</span></div>
+          <div class="flow-step"><strong>Data/report layer</strong><span>Evidence, readiness, assumptions, blocked claims.</span></div>
+        </div>
+      </section>
+
+      <section aria-labelledby="legend-title">
+        <div class="section-head">
+          <div>
+            <h2 id="legend-title">Evidence / Readiness Legend</h2>
+            <p>Current evidence ceiling is mostly L1/L2. L3 through L5 are future states, not current fixture evidence.</p>
+          </div>
+          <span class="badge good">current ceiling: mostly L1/L2</span>
+        </div>
+        <div class="grid two">
+          <div class="card">
+            <h3>Evidence classes</h3>
+            <div class="chip-row">
+              <span class="chip info">benchmark-backed core</span>
+              <span class="chip info">benchmark-informed scenario input</span>
+              <span class="chip warn">scaled engineering assumption</span>
+              <span class="chip warn">non-benchmark business overlay</span>
+              <span class="chip info">modelled output not observed</span>
+              <span class="chip blocked">blocked until observed/reviewed</span>
+              <span class="chip warn">expert-question candidate</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Readiness levels</h3>
+            <div class="chip-row">
+              <span class="chip blocked">L0 blocked/unavailable</span>
+              <span class="chip good">L1 scenario input</span>
+              <span class="chip info">L2 benchmark assumption with source</span>
+              <span class="chip warn">L3 measured internal/pilot data - future</span>
+              <span class="chip warn">L4 observed customer/operator data - future</span>
+              <span class="chip warn">L5 reviewed/validated commercial data - future</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="assumptions-title">
+        <div class="section-head">
+          <div>
+            <h2 id="assumptions-title">Assumption Register Preview</h2>
+            <p>Representative display rows. Blocked rows remain visible.</p>
+          </div>
+          <span class="badge warn">no hidden assumptions</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Field</th>
+                <th>Value/status</th>
+                <th>Evidence class</th>
+                <th>Readiness</th>
+                <th>Treatment</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>feed_kg_day</td>
+                <td>1.0 kg/day</td>
+                <td>scaled engineering assumption; expert-question candidate</td>
+                <td>L1 scenario input</td>
+                <td>scaled scenario input</td>
+                <td>Module boundary and raft area remain unresolved.</td>
+              </tr>
+              <tr>
+                <td>protein_fraction</td>
+                <td>0.32</td>
+                <td>benchmark-backed core</td>
+                <td>L1/L2 context</td>
+                <td>technical anchor</td>
+                <td>Fixture-specific; not a canonical feed default.</td>
+              </tr>
+              <tr>
+                <td>effective_water_volume_l</td>
+                <td>7800 L</td>
+                <td>benchmark-backed core with fish-tank scope</td>
+                <td>L1/L2 context</td>
+                <td>fish-tank concentration scope</td>
+                <td>Not total system volume or whole-system average context.</td>
+              </tr>
+              <tr>
+                <td>measured_do_mg_l</td>
+                <td>5.0 mg/L</td>
+                <td>benchmark-informed scenario input</td>
+                <td>L1 scenario input</td>
+                <td>supplied DO context</td>
+                <td>Context only; not aeration adequacy.</td>
+              </tr>
+              <tr>
+                <td>feed_price_per_kg</td>
+                <td>45.0 INR/kg</td>
+                <td>non-benchmark business overlay</td>
+                <td>L1 scenario input</td>
+                <td>selected cost-pressure input</td>
+                <td>Scenario price only; not public UVI benchmark fact.</td>
+              </tr>
+              <tr>
+                <td>electricity_price_per_kwh</td>
+                <td>7.5 INR/kWh</td>
+                <td>non-benchmark business overlay</td>
+                <td>L1 scenario input</td>
+                <td>selected cost-pressure input</td>
+                <td>Scenario tariff only; not total operating cost.</td>
+              </tr>
+              <tr>
+                <td>saleable_harvest_mass_kg</td>
+                <td>null / blocked</td>
+                <td>blocked until observed/reviewed</td>
+                <td>L0 blocked/unavailable</td>
+                <td>blocked, not zero</td>
+                <td>No saleable basil harvest mass is inferred from the fixture.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <div class="grid three">
+        <section aria-labelledby="scope-title">
+          <div class="section-head">
+            <div>
+              <h2 id="scope-title">Scope Warnings</h2>
+              <p>Required display caveats beside feed, water-quality, and plant-side context.</p>
+            </div>
+          </div>
+          <div class="callout warn">7,800 L is fish-tank scoped.</div>
+          <div class="callout warn">Not total system volume.</div>
+          <div class="callout warn">Not whole-system average concentration context.</div>
+          <div class="callout warn">Module boundary unresolved.</div>
+          <div class="callout warn">Raft area implied by 1 kg/day feed unresolved.</div>
+        </section>
+
+        <section aria-labelledby="modelled-title">
+          <div class="section-head">
+            <div>
+              <h2 id="modelled-title">Modelled Versus Observed</h2>
+              <p>Current values are context labels, not field measurements or assurance claims.</p>
+            </div>
+          </div>
+          <div class="callout">TAN/NH3 values are modelled current-engine context.</div>
+          <div class="callout">Not observed UVI measurements.</div>
+          <div class="callout blocked">Not fish-safety proof.</div>
+          <div class="callout blocked">Measured DO is context only, not aeration adequacy.</div>
+          <div class="callout blocked">Dry-solids potential is not wet sludge, TSS, or removal capacity.</div>
+        </section>
+
+        <section aria-labelledby="business-title">
+          <div class="section-head">
+            <div>
+              <h2 id="business-title">Business Overlay</h2>
+              <p>Selected feed and electricity pressure only.</p>
+            </div>
+          </div>
+          <div class="callout warn">INR feed price is scenario input.</div>
+          <div class="callout warn">INR electricity price is scenario input.</div>
+          <div class="callout warn">Pump/blower values are scaled assumptions and nameplate-style demo context.</div>
+          <div class="callout blocked">Selected cost-pressure subtotal is not total operating cost.</div>
+          <div class="callout blocked">No revenue or profitability shown.</div>
+        </section>
+      </div>
+
+      <section aria-labelledby="blocked-title">
+        <div class="section-head">
+          <div>
+            <h2 id="blocked-title">Blocked Claims / Guardrail Panel</h2>
+            <p>These are visible guardrail cards, not footnote-only caveats.</p>
+          </div>
+          <span class="badge blocked">blocked claims remain blocked</span>
+        </div>
+        <div class="guardrail-grid">
+          <div class="guardrail"><strong>Locked</strong><span>no fish safety claim</span></div>
+          <div class="guardrail"><strong>Locked</strong><span>no system safety claim</span></div>
+          <div class="guardrail"><strong>Locked</strong><span>no aeration adequacy claim</span></div>
+          <div class="guardrail"><strong>Locked</strong><span>no solids-removal capacity claim</span></div>
+          <div class="guardrail"><strong>Locked</strong><span>no total operating cost claim</span></div>
+          <div class="guardrail"><strong>Locked</strong><span>no revenue claim</span></div>
+          <div class="guardrail"><strong>Locked</strong><span>no profitability claim</span></div>
+          <div class="guardrail"><strong>Locked</strong><span>no commercial operability claim</span></div>
+          <div class="guardrail"><strong>Locked</strong><span>no customer validation claim</span></div>
+          <div class="guardrail"><strong>Locked</strong><span>no known basil saleable harvest mass</span></div>
+        </div>
+      </section>
+
+      <section aria-labelledby="questions-title">
+        <div class="section-head">
+          <div>
+            <h2 id="questions-title">Expert-Question Panel</h2>
+            <p>Open review questions before stronger dashboard or report language.</p>
+          </div>
+          <span class="badge warn">expert-question candidate</span>
+        </div>
+        <div class="list-cards">
+          <article class="mini-card"><span class="priority">Open</span><strong>Module scope</strong><p>What exact module boundary does this fixture represent?</p></article>
+          <article class="mini-card"><span class="priority">Open</span><strong>Raft area implied by 1 kg/day feed</strong><p>What raft growing area, if any, should be paired with the feed scalar?</p></article>
+          <article class="mini-card"><span class="priority">Open</span><strong>Fish-tank versus total-system display</strong><p>Should future reports show only fish-tank context or a separate total-system context?</p></article>
+          <article class="mini-card"><span class="priority">Open</span><strong>Pump/blower scaling</strong><p>How should nameplate values be scaled or labelled?</p></article>
+          <article class="mini-card"><span class="priority">Open</span><strong>Backup aeration/power status</strong><p>What records are needed before reliability-adjacent wording is allowed?</p></article>
+          <article class="mini-card"><span class="priority">Open</span><strong>Basil saleability evidence standard</strong><p>What observed or reviewed handling/buyer evidence is enough before non-null saleable mass?</p></article>
+        </div>
+      </section>
+
+      <section aria-labelledby="next-data-title">
+        <div class="section-head">
+          <div>
+            <h2 id="next-data-title">Next Data Needed</h2>
+            <p>Visible gates before stronger evaluation. These are not inferred from the benchmark fixture.</p>
+          </div>
+          <span class="badge warn">priority data gates</span>
+        </div>
+        <div class="list-cards">
+          <article class="mini-card"><span class="priority">Needed</span><strong>Real fish output</strong><p>Explicit harvest, mortality, quantity, and status records.</p></article>
+          <article class="mini-card"><span class="priority">Blocked</span><strong>Observed/reviewed basil saleable output</strong><p>Required before saleable_harvest_mass_kg can become non-null.</p></article>
+          <article class="mini-card"><span class="priority">Needed</span><strong>Labor/maintenance records</strong><p>Task, cadence, duration, and source basis records.</p></article>
+          <article class="mini-card"><span class="priority">Needed</span><strong>Feed/electricity records</strong><p>Dated supplier and tariff metadata.</p></article>
+          <article class="mini-card"><span class="priority">Needed</span><strong>Equipment metering</strong><p>Metered or reviewed acceptable power basis.</p></article>
+          <article class="mini-card"><span class="priority">Needed later</span><strong>Buyer/channel pricing</strong><p>Quantity, price, currency, date, geography, channel, and status records.</p></article>
+          <article class="mini-card"><span class="priority">Later</span><strong>Customer/operator validation</strong><p>Future feedback after access exists; not supplied by the benchmark fixture.</p></article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <strong>Audit note:</strong> static prototype; no new calculations; fixture/report values only; guardrails visible by design. This file is a presentation/layout review artifact, not a product dashboard, not commercial dashboard readiness, not customer validation, not commercial proof, and not real-world operating proof.
+    </footer>
+  </div>
+</body>
+</html>
