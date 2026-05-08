@@ -166,6 +166,19 @@
       padding: 22px;
     }
 
+    .top-guardrail-strip {
+      border-color: rgba(255, 123, 138, 0.72);
+      background: linear-gradient(135deg, rgba(255, 123, 138, 0.14), rgba(13, 31, 51, 0.94));
+    }
+
+    .top-guardrail-strip .section-head {
+      margin-bottom: 10px;
+    }
+
+    .top-guardrail-strip h2 {
+      color: var(--red);
+    }
+
     .section-head {
       display: flex;
       align-items: flex-start;
@@ -452,6 +465,29 @@
     </header>
 
     <main>
+      <section class="top-guardrail-strip" aria-labelledby="top-guardrail-title">
+        <div class="section-head">
+          <div>
+            <h2 id="top-guardrail-title">Compact Guardrail Strip</h2>
+            <p>Visible before values: this static prototype does not prove these claims.</p>
+          </div>
+          <span class="badge blocked">claims blocked</span>
+        </div>
+        <div class="chip-row" aria-label="Claims not proven by this prototype">
+          <span class="chip blocked">customer validation</span>
+          <span class="chip blocked">commercial proof</span>
+          <span class="chip blocked">real-world operating proof</span>
+          <span class="chip blocked">fish safety</span>
+          <span class="chip blocked">system safety</span>
+          <span class="chip blocked">aeration adequacy</span>
+          <span class="chip blocked">solids-removal capacity</span>
+          <span class="chip blocked">total operating cost</span>
+          <span class="chip blocked">revenue</span>
+          <span class="chip blocked">profitability</span>
+          <span class="chip blocked">known basil saleable harvest mass</span>
+        </div>
+      </section>
+
       <section aria-labelledby="scenario-title">
         <div class="section-head">
           <div>
@@ -536,62 +572,62 @@
           <article class="card kpi">
             <div class="label">TAN-N load</div>
             <div><span class="value">29.44</span> <span class="unit">g/day</span></div>
-            <div class="badge-row"><span class="badge info">modelled output not observed</span><span class="badge good">L1</span></div>
+            <div class="badge-row"><span class="badge good">L1 scenario input</span><span class="badge info">modelled output not observed</span></div>
           </article>
           <article class="card kpi">
             <div class="label">Nitrification oxygen demand</div>
             <div><span class="value">134.5408</span> <span class="unit">g/day</span></div>
-            <div class="badge-row"><span class="badge info">modelled sub-load</span><span class="badge blocked">not capacity</span></div>
+            <div class="badge-row"><span class="badge good">L1 scenario input</span><span class="badge info">modelled sub-load</span><span class="badge blocked">not capacity</span></div>
           </article>
           <article class="card kpi">
             <div class="label">Alkalinity demand</div>
             <div><span class="value">210.2016</span> <span class="unit">g CaCO3/day</span></div>
-            <div class="badge-row"><span class="badge info">modelled context</span><span class="badge warn">not dosing advice</span></div>
+            <div class="badge-row"><span class="badge good">L1 scenario input</span><span class="badge info">modelled context</span><span class="badge warn">not dosing advice</span></div>
           </article>
           <article class="card kpi">
             <div class="label">Estimated fish-tank TAN-N</div>
             <div><span class="value">3.7743589743589743</span> <span class="unit">mg/L</span></div>
-            <div class="badge-row"><span class="badge info">fish-tank scope</span><span class="badge blocked">not fish-safety proof</span></div>
+            <div class="badge-row"><span class="badge good">L1 scenario input</span><span class="badge info">fish-tank scope</span><span class="badge blocked">not fish-safety proof</span></div>
           </article>
           <article class="card kpi">
             <div class="label">Estimated unionized NH3 fraction</div>
             <div><span class="value">0.006971085009084945</span></div>
-            <div class="badge-row"><span class="badge info">modelled chemistry context</span><span class="badge warn">not observed</span></div>
+            <div class="badge-row"><span class="badge good">L1 scenario input</span><span class="badge info">modelled chemistry context</span><span class="badge warn">not observed</span></div>
           </article>
           <article class="card kpi">
             <div class="label">Estimated NH3-N</div>
             <div><span class="value">0.026311377265059072</span> <span class="unit">mg/L</span></div>
-            <div class="badge-row"><span class="badge info">modelled chemistry context</span><span class="badge blocked">not fish-safety proof</span></div>
+            <div class="badge-row"><span class="badge good">L1 scenario input</span><span class="badge info">modelled chemistry context</span><span class="badge blocked">not fish-safety proof</span></div>
           </article>
           <article class="card kpi">
             <div class="label">Estimated NH3</div>
             <div><span class="value">0.031949529536143155</span> <span class="unit">mg/L</span></div>
-            <div class="badge-row"><span class="badge info">modelled chemistry context</span><span class="badge blocked">not system-safety proof</span></div>
+            <div class="badge-row"><span class="badge good">L1 scenario input</span><span class="badge info">modelled chemistry context</span><span class="badge blocked">not system-safety proof</span></div>
           </article>
           <article class="card kpi">
             <div class="label">Measured DO context</div>
             <div><span class="value">5.0</span> <span class="unit">mg/L</span></div>
-            <div class="badge-row"><span class="badge warn">context only</span><span class="badge blocked">not aeration adequacy</span></div>
+            <div class="badge-row"><span class="badge good">L1 scenario input</span><span class="badge warn">context only</span><span class="badge blocked">not aeration adequacy</span></div>
           </article>
           <article class="card kpi">
             <div class="label">Dry-solids potential</div>
             <div><span class="value">0.25</span> <span class="unit">kg/day</span></div>
-            <div class="badge-row"><span class="badge info">modelled potential</span><span class="badge blocked">not removal capacity</span></div>
+            <div class="badge-row"><span class="badge good">L1 scenario input</span><span class="badge info">modelled potential</span><span class="badge blocked">not removal capacity</span></div>
           </article>
           <article class="card kpi">
             <div class="label">Scenario feed cost</div>
             <div><span class="value">45.0</span> <span class="unit">INR/day</span></div>
-            <div class="badge-row"><span class="badge warn">scenario input</span><span class="badge warn">business overlay</span></div>
+            <div class="badge-row"><span class="badge good">L1 scenario input</span><span class="badge warn">business overlay</span></div>
           </article>
           <article class="card kpi">
             <div class="label">Scenario power cost</div>
             <div><span class="value">54.0</span> <span class="unit">INR/day</span></div>
-            <div class="badge-row"><span class="badge warn">scenario input</span><span class="badge warn">nameplate-style context</span></div>
+            <div class="badge-row"><span class="badge good">L1 scenario input</span><span class="badge warn">nameplate-style context</span></div>
           </article>
           <article class="card kpi">
             <div class="label">Selected cost-pressure subtotal</div>
             <div><span class="value">99.0</span> <span class="unit">INR/day</span></div>
-            <div class="badge-row"><span class="badge warn">selected pressure only</span><span class="badge blocked">not total operating cost</span></div>
+            <div class="badge-row"><span class="badge good">L1 scenario input</span><span class="badge warn">selected pressure only</span><span class="badge blocked">not total operating cost</span></div>
           </article>
         </div>
       </section>
