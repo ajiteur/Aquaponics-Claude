@@ -15,16 +15,19 @@ MVP spine:
 Mode A + P1 + P1.5 + P2a
 
 Integrity snapshot:
-`python scripts/check_mvp_integrity.py --quick` passed at commit `9bee0fd`
-during this report-generation pass.
+`python scripts/check_mvp_integrity.py --quick` passed before this
+language-update pass at commit `09b3bc7`.
 
 First-page status:
 
 - this is a pre-customer benchmark demo report
+- the benchmark fixture is public-evidence-inspired, scaled, and
+  scenario-augmented
 - the benchmark fixture is mostly `L1_scenario_input` plus source-planned
   `L2_benchmark_assumption_with_source`
 - the fixture is not L4 observed customer/operator data
 - the fixture is not L5 reviewed or validated commercial data
+- the fixture is not a direct reproduction of the full UVI commercial system
 - the fixture is not customer validated
 - the fixture is not canon
 - the fixture is not commercial proof
@@ -33,9 +36,9 @@ First-page status:
 Purpose:
 This report shows how the current MVP can turn explicit feed, water-quality,
 aeration/solids, and selected cost-pressure inputs into a reproducible
-pre-customer benchmark fixture. It also shows what remains missing or blocked
-before one bounded tilapia + basil DWC/raft unit can be evaluated with real or
-explicitly reviewed unit-economics data.
+pre-customer, public-evidence-inspired benchmark fixture. It also shows what
+remains missing or blocked before one bounded tilapia + basil DWC/raft unit can
+be evaluated with real or explicitly reviewed unit-economics data.
 
 ## 2. Executive summary
 
@@ -48,8 +51,16 @@ The current Aquaponics MVP has a four-level technical spine:
 
 The benchmark fixture provides source-labeled scenario inputs and current
 expected outputs for the demo path. It is useful because it is explicit,
-reproducible, and guarded. It is not useful as proof of field performance or
-commercial operation.
+reproducible, and guarded. It is public-evidence-inspired, scaled, and
+scenario-augmented; it is not a direct reproduction of UVI operations, proof of
+field performance, customer validation, or commercial operation.
+
+The strongest benchmark-backed anchors are the UVI DWC/raft architecture, the
+fish-tank-scoped 7,800 L volume, 32% protein tilapia feed, pH around 7 as an
+aquaponic compromise, continuous recirculation/aeration context, and the
+dry-solids prior around 25% of feed on dry basis. Other values remain scenario
+inputs, scaled engineering assumptions, business overlays, modelled outputs, or
+blocked fields.
 
 The main result is a disciplined reportable structure: the current MVP can show
 load, chemistry context, aeration/solids context, and selected operating-cost
@@ -74,6 +85,7 @@ This report is:
 
 - a human-readable seed-demo report
 - a pre-customer benchmark fixture summary
+- a public-evidence-inspired, scaled, scenario-augmented benchmark walkthrough
 - a source-labeled scenario input and output walkthrough
 - an assumption and readiness register
 - a guardrail document for what remains blocked
@@ -83,6 +95,7 @@ This report is not:
 - customer validation
 - commercial proof
 - real-world operating proof
+- a direct reproduction of the full UVI commercial system
 - canon
 - safety proof
 - a full cost report
@@ -97,16 +110,16 @@ This report is not:
 | Solids filtration | Frames future solids handling and maintenance questions. | Dry-solids potential is not solids-removal capacity. |
 | Biofilter/aeration | Provides context for nitrification oxygen demand and supplied DO context. | Device role, kW, and DO context do not establish aeration adequacy. |
 | DWC/raft basil bed | Frames the plant-output side of the bounded unit. | Basil saleable output remains blocked until observed or explicitly reviewed. |
-| Data/report layer | Separates scenario inputs, benchmark assumptions, derived outputs, source gaps, and blocked fields. | The fixture is not canon and not validation evidence. |
+| Data/report layer | Separates benchmark-backed core fields, scenario inputs, scaled engineering assumptions, business overlays, modelled outputs, source gaps, and blocked fields. | The fixture is not canon and not validation evidence. |
 
 ## 6. Current MVP technical spine
 
 | level | role | current input basis | current output basis | boundary |
 | --- | --- | --- | --- | --- |
 | Mode A load-only | Converts direct feed and protein inputs into load context. | `feed_kg_day`, `protein_fraction` | TAN-N load, nitrification oxygen demand, alkalinity demand | Does not infer feed from biomass. |
-| P1 TAN-N/NH3 context | Adds fish-tank concentration and chemistry context. | water volume, accumulation period, scope, pH, temperature, freshwater assumption | TAN-N concentration, unionized NH3 fraction, NH3-N, NH3 | Context only; no safety verdict. |
+| P1 TAN-N/NH3 context | Adds fish-tank concentration and chemistry context. | water volume, accumulation period, scope, pH, temperature, freshwater assumption | TAN-N concentration, unionized NH3 fraction, NH3-N, NH3 | Modelled fish-tank context only; no observed UVI measurement or safety verdict. |
 | P1.5 aeration/solids context | Adds supplied DO context and provisional dry-solids potential. | measured DO context, dry-solids coefficient | DO context, nitrification oxygen demand as sub-load, dry-solids potential | No adequacy or capacity claim. |
-| P2a selected feed + electricity cost pressure | Adds explicit selected cost-pressure inputs. | feed price, electricity tariff, pump/blower power records | feed cost, power kWh/day, power cost, selected subtotal | Selected pressure only; not full cost scope. |
+| P2a selected feed + electricity cost pressure | Adds explicit selected cost-pressure inputs. | feed price, electricity tariff, pump/blower power records | feed cost, power kWh/day, power cost, selected subtotal | Scenario business overlay only; not public benchmark cost or full cost scope. |
 
 ## 7. Benchmark scenario summary
 
@@ -118,9 +131,18 @@ This report is not:
 | Fish species | tilapia |
 | Plant species | basil |
 | Created for | pre-customer Mode A + P1 + P1.5 + P2a seed-demo fixture |
+| Fixture framing | public-evidence-inspired, scaled, scenario-augmented |
+| Direct UVI reproduction | false |
+| Module boundary | unresolved expert-question candidate |
+| Raft area implied by 1 kg/day feed | unresolved expert-question candidate |
 | Customer validated | false |
 | Commercial proof | false |
 | Canon status | `not_canon` |
+
+The fixture is UVI/SRAC-inspired and scenario-augmented. It should not be read
+as a direct full-UVI commercial module. The 1.0 kg/day feed scalar is a scaled
+scenario input, and the module boundary and raft-area interpretation remain
+expert-question candidates.
 
 Source basis in the fixture:
 
@@ -144,6 +166,16 @@ Readiness and uncertainty labels:
 - `not_total_operating_cost`
 - `not_profitability`
 
+Evidence classes used by the fixture metadata:
+
+- `benchmark_backed_core`
+- `benchmark_informed_scenario_input`
+- `scaled_engineering_assumption`
+- `non_benchmark_business_overlay`
+- `modelled_output_not_observed`
+- `blocked_until_observed_or_reviewed`
+- `expert_question_candidate`
+
 ## 8. Assumption register
 
 ### Scenario inputs
@@ -151,30 +183,30 @@ Readiness and uncertainty labels:
 | field | value or status | classification | readiness level | source basis | report treatment | notes |
 | --- | --- | --- | --- | --- | --- | --- |
 | `input_mode` | `mode_a_direct_feed` | scenario input, required | L1 | benchmark fixture | input | Current demo path only. |
-| `feed_kg_day` | 1.0 kg/day | scenario input, required | L1 | benchmark fixture | input | Not a feed recommendation. |
-| `protein_fraction` | 0.32 | scenario input, required | L1 | benchmark fixture | input | Not a canonical protein value. |
+| `feed_kg_day` | 1.0 kg/day | scaled engineering assumption; expert-question candidate | L1 | benchmark fixture metadata | scaled scenario input | Not a full UVI commercial raft-module feed benchmark; module boundary and raft area are unresolved. |
+| `protein_fraction` | 0.32 | benchmark-backed core | L1/L2 context | benchmark fixture metadata | technical anchor | UVI/SRAC-backed for this fixture, not a canonical feed default. |
 | `feed_class` | `grow_out` | scenario input, optional | L1 | benchmark fixture | context | Context only. |
-| `effective_water_volume_l` | 7800 L | scenario input, required | L1 | benchmark fixture | input | Fish-tank concentration context. |
-| `accumulation_period_day` | 1 day | scenario input, required | L1 | benchmark fixture | input | Time basis only. |
-| `concentration_scope` | `fish_tank` | scenario input, required | L1 | benchmark fixture | input | Prevents whole-system ambiguity. |
-| `ph` | 7.0 | scenario input, required | L1 | benchmark fixture | input | Chemistry context only. |
-| `water_temp_c` | 28.0 deg C | scenario input, required | L1 | benchmark fixture | input | Chemistry context only. |
-| `freshwater_assumption` | true | scenario input, required | L1 | benchmark fixture | input | Explicit salinity boundary. |
-| `measured_do_mg_l` | 5.0 mg/L | scenario input, required | L1 | benchmark fixture | context | DO context only. |
-| `dry_solids_coefficient` | 0.25 | scenario input, required | L1 | benchmark fixture | input | Fixture coefficient, not canon. |
-| `feed_price_per_kg` | 45.0 INR/kg | scenario input, required | L1 | benchmark fixture | selected cost-pressure input | Supplier metadata remains a source gap. |
-| `electricity_price_per_kwh` | 7.5 INR/kWh | scenario input, required | L1 | benchmark fixture | selected cost-pressure input | Tariff metadata remains a source gap. |
-| `demo_pump` | 0.2 kW, 24 h/day, load fraction 1.0 | scenario input, required | L1 | benchmark fixture | power record | `nameplate_kw` basis. |
-| `demo_blower` | 0.1 kW, 24 h/day, load fraction 1.0 | scenario input, required | L1 | benchmark fixture | power record | `nameplate_kw` basis. |
+| `effective_water_volume_l` | 7800 L | benchmark-backed core with fish-tank scope | L1/L2 context | benchmark fixture metadata | fish-tank scope | Not total-system volume and not whole-system average concentration context. |
+| `accumulation_period_day` | 1 day | benchmark-informed scenario input | L1 | benchmark fixture metadata | modelling timestep | Not observed UVI residence time. |
+| `concentration_scope` | `fish_tank` | benchmark-informed scenario input | L1 | benchmark fixture metadata | scope convention | Prevents whole-system concentration ambiguity. |
+| `ph` | 7.0 | benchmark-backed core | L1/L2 context | benchmark fixture metadata | chemistry context | Aquaponic compromise context only; not safety proof. |
+| `water_temp_c` | 28.0 deg C | benchmark-informed scenario input | L1 | benchmark fixture metadata | chemistry context | Not observed UVI measurement. |
+| `freshwater_assumption` | true | benchmark-backed core | L1/L2 context | benchmark fixture metadata | salinity boundary | Freshwater aquaponics context only. |
+| `measured_do_mg_l` | 5.0 mg/L | benchmark-informed scenario input | L1 | benchmark fixture metadata | supplied DO context | Not fish safety, system safety, or aeration adequacy. |
+| `dry_solids_coefficient` | 0.25 | benchmark-backed core | L1/L2 context | benchmark fixture metadata | dry-solids prior | Generated dry-solids prior, not removal capacity. |
+| `feed_price_per_kg` | 45.0 INR/kg | non-benchmark business overlay | L1 | benchmark fixture metadata | selected cost-pressure input | Scenario price only; not a public UVI benchmark fact. |
+| `electricity_price_per_kwh` | 7.5 INR/kWh | non-benchmark business overlay | L1 | benchmark fixture metadata | selected cost-pressure input | Scenario tariff only; not a public UVI benchmark fact. |
+| `demo_pump` | 0.2 kW, 24 h/day, load fraction 1.0 | scaled engineering assumption; expert-question candidate | L1 | benchmark fixture metadata | nameplate power record | Scaled assumption, not direct UVI equipment benchmark or metered power. |
+| `demo_blower` | 0.1 kW, 24 h/day, load fraction 1.0 | scaled engineering assumption; expert-question candidate | L1 | benchmark fixture metadata | nameplate power record | Scaled assumption, not direct UVI equipment benchmark or aeration adequacy. |
 
 ### Benchmark assumptions
 
 | field | value or status | classification | readiness level | source basis | report treatment | notes |
 | --- | --- | --- | --- | --- | --- | --- |
-| Scenario architecture | `tilapia_basil_dwc_raft` | scenario input, benchmark assumption | L1 | scenario identity | framing | UVI-like in role, not exact UVI replication proof. |
-| Fish species | tilapia | scenario input, benchmark assumption | L1 | scenario identity | framing | Species context only. |
-| Plant species | basil | scenario input, benchmark assumption | L1 | scenario identity | framing | Output remains unresolved. |
-| Research pack references | present for feed, TAN/NH3, aeration/solids, operating economics | benchmark assumption with source planning | L2 | fixture source basis | source context | Used for source planning, not validation. |
+| Scenario architecture | `tilapia_basil_dwc_raft` | benchmark-backed core | L1/L2 context | scenario identity and fixture metadata | framing | UVI/SRAC-inspired raft architecture, not direct full-UVI reproduction. |
+| Fish species | tilapia | benchmark-backed core | L1/L2 context | scenario identity and fixture metadata | framing | Species context only; no yield, stocking, or safety implication. |
+| Plant species | basil | benchmark-backed core | L1/L2 context | scenario identity and fixture metadata | framing | Basil production context may be benchmarkable; saleable output remains blocked. |
+| Research pack references | present for feed, TAN/NH3, aeration/solids, operating economics | benchmark assumption with source planning | L2 | fixture source basis | source context | Used for source planning and evidence-class metadata, not validation. |
 
 ### Source gaps
 
@@ -191,7 +223,7 @@ Readiness and uncertainty labels:
 
 | field | value or status | classification | readiness level | source basis | report treatment | notes |
 | --- | --- | --- | --- | --- | --- | --- |
-| `saleable_harvest_mass_kg` | null | blocked until observed | L0 | observed runtime output or explicit reviewed manual input required | blocked | Null means unresolved, not zero. |
+| `saleable_harvest_mass_kg` | null | blocked until observed or reviewed | L0 | observed runtime output or explicit reviewed manual input required | blocked | Basil production context may be benchmarkable, but saleable harvest mass remains unresolved, not zero. |
 | `fish_revenue` | null | blocked until observed | L0 | explicit sale set required | blocked | No sale set is supplied. |
 | `basil_revenue` | null | blocked until observed | L0 | explicit saleable quantity and sale set required | blocked | Saleable quantity is absent. |
 | `total_operating_cost` | null | blocked until observed | L0 | complete cost scope required | blocked | Selected pressure is not complete cost scope. |
@@ -206,19 +238,19 @@ Readiness and uncertainty labels:
 
 | field | value or status | classification | readiness level | source basis | report treatment | notes |
 | --- | --- | --- | --- | --- | --- | --- |
-| `tan_n_load_kg_day` | 0.02944 kg/day | derived, regression anchor | L1 | benchmark fixture expected output | output | Fixture anchor only. |
-| `tan_n_load_g_day` | 29.44 g/day | derived, regression anchor | L1 | benchmark fixture expected output | output | Fixture anchor only. |
-| `oxygen_demand_g_day` | 134.5408 g/day | derived, regression anchor | L1 | benchmark fixture expected output | output | Nitrification sub-load only. |
-| `alkalinity_demand_g_caco3_day` | 210.2016 g CaCO3/day | derived, regression anchor | L1 | benchmark fixture expected output | output | Demand context only. |
-| `estimated_tan_n_mg_l` | 3.7743589743589743 mg/L | derived, regression anchor | L1 | benchmark fixture expected output | output | Fish-tank context only. |
-| `estimated_unionized_nh3_fraction` | 0.006971085009084945 | derived, regression anchor | L1 | benchmark fixture expected output | output | Chemistry context only. |
-| `estimated_nh3_n_mg_l` | 0.026311377265059072 mg/L | derived, regression anchor | L1 | benchmark fixture expected output | output | Chemistry context only. |
-| `estimated_nh3_mg_l` | 0.031949529536143155 mg/L | derived, regression anchor | L1 | benchmark fixture expected output | output | Chemistry context only. |
-| `estimated_dry_solids_potential_kg_day` | 0.25 kg/day | derived, regression anchor | L1 | benchmark fixture expected output | output | Potential only. |
-| `scenario_feed_cost_per_day` | 45.0 INR/day | derived, regression anchor | L1 | benchmark fixture expected output | output | Selected cost-pressure only. |
-| `scenario_power_kwh_day` | 7.2 kWh/day | derived, regression anchor | L1 | benchmark fixture expected output | output | Power context only. |
-| `scenario_power_cost_per_day` | 54.0 INR/day | derived, regression anchor | L1 | benchmark fixture expected output | output | Selected cost-pressure only. |
-| `selected_operating_cost_pressure_subtotal` | 99.0 INR/day | derived, regression anchor | L1 | benchmark fixture expected output | output | Not full cost scope. |
+| `tan_n_load_kg_day` | 0.02944 kg/day | modelled output not observed | L1 | benchmark fixture expected output | output | Fixture output from supplied inputs, not observed UVI load. |
+| `tan_n_load_g_day` | 29.44 g/day | modelled output not observed | L1 | benchmark fixture expected output | output | Fixture output from supplied inputs, not observed UVI load. |
+| `oxygen_demand_g_day` | 134.5408 g/day | modelled output not observed | L1 | benchmark fixture expected output | output | Nitrification sub-load only, not aeration capacity. |
+| `alkalinity_demand_g_caco3_day` | 210.2016 g CaCO3/day | modelled output not observed | L1 | benchmark fixture expected output | output | Demand context only, not a dosing recommendation. |
+| `estimated_tan_n_mg_l` | 3.7743589743589743 mg/L | modelled output not observed | L1 | benchmark fixture expected output | output | Modelled fish-tank context, not observed UVI measurement or safety proof. |
+| `estimated_unionized_nh3_fraction` | 0.006971085009084945 | modelled output not observed | L1 | benchmark fixture expected output | output | Modelled chemistry context, not observed UVI chemistry. |
+| `estimated_nh3_n_mg_l` | 0.026311377265059072 mg/L | modelled output not observed | L1 | benchmark fixture expected output | output | Modelled chemistry context, not fish-safety proof. |
+| `estimated_nh3_mg_l` | 0.031949529536143155 mg/L | modelled output not observed | L1 | benchmark fixture expected output | output | Modelled chemistry context, not system-safety proof. |
+| `estimated_dry_solids_potential_kg_day` | 0.25 kg/day | modelled output not observed | L1 | benchmark fixture expected output | output | Generated dry-solids potential, not removal capacity. |
+| `scenario_feed_cost_per_day` | 45.0 INR/day | non-benchmark business overlay; modelled output not observed | L1 | benchmark fixture expected output | output | Scenario cost-pressure only, not public benchmark cost. |
+| `scenario_power_kwh_day` | 7.2 kWh/day | scaled engineering assumption; modelled output not observed | L1 | benchmark fixture expected output | output | Nameplate power context, not metered power. |
+| `scenario_power_cost_per_day` | 54.0 INR/day | non-benchmark business overlay; modelled output not observed | L1 | benchmark fixture expected output | output | Scenario cost-pressure only, not public benchmark cost. |
+| `selected_operating_cost_pressure_subtotal` | 99.0 INR/day | non-benchmark business overlay; modelled output not observed | L1 | benchmark fixture expected output | output | Selected subtotal only, not total operating cost. |
 
 ## 9. Source/data readiness panel
 
@@ -231,30 +263,33 @@ Readiness and uncertainty labels:
 | `L4_observed_customer_or_operator_data` | Observed data from a customer or operator setting. | Not present in the current fixture. |
 | `L5_reviewed_or_validated_commercial_data` | Reviewed commercial data suitable for scoped decision support. | Not present in the current fixture. |
 
-The current fixture is mostly L1 with source-planned L2 context. It does not
-contain L4 or L5 evidence.
+The current fixture is mostly L1 with source-reviewed/source-planned L2
+context. It does not contain L4 or L5 evidence, and none of its current outputs
+are observed UVI measurements.
 
 ## 10. Four-level output table with current fixture values
 
 | level | output | value | unit | report label |
 | --- | --- | --- | --- | --- |
-| Mode A | `tan_n_load_kg_day` | 0.02944 | kg/day | derived fixture anchor |
-| Mode A | `tan_n_load_g_day` | 29.44 | g/day | derived fixture anchor |
-| Mode A | `oxygen_demand_g_day` | 134.5408 | g/day | nitrification sub-load only |
-| Mode A | `alkalinity_demand_g_caco3_day` | 210.2016 | g CaCO3/day | demand context only |
-| P1 | `estimated_tan_n_mg_l` | 3.7743589743589743 | mg/L | fish-tank context only |
-| P1 | `estimated_unionized_nh3_fraction` | 0.006971085009084945 | fraction | chemistry context only |
-| P1 | `estimated_nh3_n_mg_l` | 0.026311377265059072 | mg/L | chemistry context only |
-| P1 | `estimated_nh3_mg_l` | 0.031949529536143155 | mg/L | chemistry context only |
-| P1.5 | `measured_do_mg_l` | 5.0 | mg/L | supplied context only |
-| P1.5 | `estimated_dry_solids_potential_kg_day` | 0.25 | kg/day | provisional potential only |
-| P2a | `scenario_feed_cost_per_day` | 45.0 | INR/day | selected operating-cost pressure only |
-| P2a | `scenario_power_kwh_day` | 7.2 | kWh/day | selected power context |
-| P2a | `scenario_power_cost_per_day` | 54.0 | INR/day | selected operating-cost pressure only |
-| P2a | `selected_operating_cost_pressure_subtotal` | 99.0 | INR/day | selected operating-cost pressure only |
+| Mode A | `tan_n_load_kg_day` | 0.02944 | kg/day | modelled fixture output, not observed UVI load |
+| Mode A | `tan_n_load_g_day` | 29.44 | g/day | modelled fixture output, not observed UVI load |
+| Mode A | `oxygen_demand_g_day` | 134.5408 | g/day | modelled nitrification sub-load only |
+| Mode A | `alkalinity_demand_g_caco3_day` | 210.2016 | g CaCO3/day | modelled demand context only |
+| P1 | `estimated_tan_n_mg_l` | 3.7743589743589743 | mg/L | modelled fish-tank context only |
+| P1 | `estimated_unionized_nh3_fraction` | 0.006971085009084945 | fraction | modelled chemistry context only |
+| P1 | `estimated_nh3_n_mg_l` | 0.026311377265059072 | mg/L | modelled chemistry context only |
+| P1 | `estimated_nh3_mg_l` | 0.031949529536143155 | mg/L | modelled chemistry context only |
+| P1.5 | `measured_do_mg_l` | 5.0 | mg/L | supplied fixture context only |
+| P1.5 | `estimated_dry_solids_potential_kg_day` | 0.25 | kg/day | modelled generation potential only |
+| P2a | `scenario_feed_cost_per_day` | 45.0 | INR/day | scenario business overlay; selected cost-pressure only |
+| P2a | `scenario_power_kwh_day` | 7.2 | kWh/day | modelled nameplate power context |
+| P2a | `scenario_power_cost_per_day` | 54.0 | INR/day | scenario business overlay; selected cost-pressure only |
+| P2a | `selected_operating_cost_pressure_subtotal` | 99.0 | INR/day | scenario business overlay; not total operating cost |
 
 These values are copied from the benchmark fixture expected outputs. This
-report does not calculate new values.
+report does not calculate new values. The TAN/NH3 values are modelled
+current-engine chemistry context, not observed measurements and not
+fish-safety proof.
 
 ## 11. Unit-economics data contract summary
 
@@ -266,10 +301,15 @@ The future unit-economics data contract separates:
 - scenario inputs: explicit fixture values such as feed, protein fraction,
   water volume, pH, temperature, DO context, feed price, tariff, and device
   power records
-- benchmark assumptions: public, institutional, or supplier-backed values after
-  source review
+- benchmark-backed core and benchmark-informed scenario inputs: public or
+  institutional anchors and explicit scenario values after source review
+- scaled engineering assumptions: current feed scalar and pump/blower power
+  values that need module-scope and scaling caveats
+- non-benchmark business overlays: INR feed price, INR electricity price, and
+  selected cost-pressure outputs
 - derived fields: the current load, chemistry context, dry-solids potential,
-  and selected operating-cost pressure outputs
+  and selected operating-cost pressure outputs, all modelled rather than
+  observed
 - blocked-until-observed fields: saleable basil mass, complete sale sets,
   complete cost scope, economic outputs, operational claims, and safety or
   adequacy claims
@@ -287,6 +327,10 @@ This report can credibly show:
 - the current demo path has reproducible fixture inputs and expected outputs
 - the benchmark fixture keeps scenario inputs, benchmark assumptions, source
   gaps, derived outputs, and blocked fields separate
+- the benchmark fixture now distinguishes benchmark-backed core fields,
+  benchmark-informed scenario inputs, scaled engineering assumptions,
+  non-benchmark business overlays, modelled outputs, blocked fields, and
+  expert-question candidates
 - selected feed and electricity pressure can be reported from supplied inputs
   while preserving the selected-scope label
 - the next data needed for later unit-economics evaluation is concrete
@@ -309,6 +353,7 @@ This report does not prove:
 - commercial operability
 - known basil saleable harvest mass
 - canon/default assumptions
+- direct full-UVI commercial-system reproduction
 
 ## 14. Blocked claims and guardrails
 
@@ -335,10 +380,20 @@ Guardrail interpretation:
 
 - null means unresolved, not zero
 - selected operating-cost pressure is not full cost scope
-- chemistry context is not a safety verdict
+- TAN/NH3 chemistry context is modelled current-engine output, not observed UVI
+  measurement or fish-safety proof
 - measured DO context is not aeration adequacy
 - dry-solids potential is not solids-removal capacity
 - benchmark assumptions are not canon
+- public-evidence-inspired does not mean direct full-UVI reproduction
+- 7,800 L is fish-tank scoped, not total-system volume or whole-system average
+  concentration context
+- INR feed and electricity values are scenario business overlays, not public
+  UVI benchmark facts
+- 0.2 kW pump and 0.1 kW blower are scaled nameplate assumptions, not direct
+  UVI equipment benchmarks
+- dashboard/report UI must not imply a direct UVI module unless module scope,
+  raft area, and power scaling are resolved
 - benchmark fixture outputs are not customer validation, commercial proof, or
   real-world operating proof
 
@@ -357,21 +412,31 @@ Guardrail interpretation:
 
 Current source gaps:
 
-- exact UVI-like source mapping for this bounded tilapia + basil DWC/raft
-  fixture
+- module scope for this bounded tilapia + basil DWC/raft fixture
+- raft area implied by the 1.0 kg/day feed scenario
+- fish-tank versus total-system concentration display choice
+- pump/blower scaling from public UVI equipment context
+- backup power/aeration status
 - supplier feed-price metadata
 - electricity tariff metadata
 - labor and maintenance basis
-- basil harvest and saleability basis
+- basil saleability evidence standard
 
 Expert/customer question candidates:
 
-- Which public UVI, SRAC, FAO, or extension benchmark is closest to this
-  bounded tilapia + basil DWC/raft fixture?
+- What exact module boundary does this fixture represent: full UVI system, one
+  fish tank plus proportional raft area, smaller demo module, or another
+  scoped unit?
+- What raft growing area is implied by `feed_kg_day = 1.0` under UVI-like
+  feed-to-area logic?
+- Should future reports show only fish-tank concentration context, or also a
+  separately labelled total-system dilution context?
+- How should pump and blower nameplate power be scaled from public UVI
+  equipment to this fixture?
+- What backup power or backup aeration status must be collected before
+  reliability-adjacent wording is allowed?
 - Which source should be accepted for local feed price metadata?
 - Which source should be accepted for local electricity tariff metadata?
-- Should equipment power use nameplate, metered, duty-cycle adjusted, or
-  supplier-estimated basis in the first seed-demo report?
 - What observed basil handling or buyer review record is sufficient before a
   saleability quantity can become non-null?
 - Which labor and maintenance activities must be tracked before any complete
@@ -380,13 +445,14 @@ Expert/customer question candidates:
 ## 17. Recommended next milestone
 
 Recommended next milestone:
-review and fill the source plan for
-`uvi_like_tilapia_basil_dwc_raft_benchmark_v0` without changing canon or adding
-new calculations.
+prepare an expert-question package for
+`uvi_like_tilapia_basil_dwc_raft_benchmark_v0` before dashboard/report UI work.
 
-The next useful artifact is a review-first source completion pass that
-identifies which fixture inputs can be upgraded from scenario input to
-source-backed benchmark assumption and which fields must remain blocked.
+The next useful artifact should focus on module scope, raft area implied by
+1.0 kg/day feed, fish-tank versus total-system display, pump/blower scaling,
+backup power/aeration status, and basil saleability evidence standard. Any
+dashboard/report UI should remain review-first until those guardrails are
+visible.
 
 ## 18. Appendix: validation and reproducibility notes
 
@@ -395,10 +461,24 @@ Commands used before creating this report:
 - `python scripts/check_mvp_integrity.py --quick`
 - `python -m json.tool data/benchmarks/uvi_like_tilapia_basil_dwc_raft_benchmark_v0.json`
 
-Integrity snapshot result:
+Commands reused during this language-update pass:
+
+- `python scripts/check_mvp_integrity.py --quick`
+- `python -m json.tool data/benchmarks/uvi_like_tilapia_basil_dwc_raft_benchmark_v0.json`
+
+Original report-generation integrity snapshot result:
 
 - mode: quick
 - commit: `9bee0fd`
+- demos: PASS
+- expected values: PASS
+- forbidden keys: NONE FOUND
+- protected paths: CLEAN
+
+Language-update integrity snapshot result:
+
+- mode: quick
+- commit before this update: `09b3bc7`
 - demos: PASS
 - expected values: PASS
 - forbidden keys: NONE FOUND
@@ -414,6 +494,8 @@ Report generation notes:
 
 - all output values in this report were copied from the benchmark fixture
 - no new calculations were performed
+- this language update did not change benchmark numeric values or expected
+  current-engine output values
 - no benchmark JSON, docs, source files, scripts, tests, configs, protected
   data, runtime files, simulation outputs, slides, dashboards, or pitch decks
   were created or modified
