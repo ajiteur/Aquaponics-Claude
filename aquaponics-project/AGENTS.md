@@ -19,6 +19,65 @@ This file defines safe operating rules for Codex and future agents working insid
   - simulation
   - business calculation
   - repo audit / compatibility check
+- Use `docs/mvp_operating_manual_decision_playbook.md`,
+  `docs/mvp_goal_drift_checklist.md`,
+  `docs/mvp_current_truths_terminology_and_loophole_audit.md`, and
+  `docs/mvp_prompt_library.md` for current MVP guardrails and prompt shaping.
+
+## 1B. Current MVP house rules
+
+Current MVP baseline:
+
+- Mode A direct feed input.
+- P1 TAN-N/NH3 context.
+- P1.5 aeration/solids context.
+- P2a selected feed + electricity operating-cost pressure.
+
+Benchmark and seed-demo framing:
+
+- Treat benchmark/seed-demo artifacts as public-evidence-inspired, scaled,
+  scenario-augmented, and pre-customer unless a later approved source says
+  otherwise.
+- Do not treat benchmark scenarios as direct full-UVI reproduction, canon,
+  customer validation, commercial proof, or real-world operating proof.
+- If benchmark/seed-demo package artifacts are present, use them as current
+  context only; do not make AGENTS.md depend on phase-specific report,
+  prototype, fixture, or commit paths.
+
+Non-negotiable blocked claims:
+
+- Do not claim fish safety, system safety, aeration adequacy, oxygen-transfer
+  capacity, total oxygen demand, solids-removal capacity, total operating cost,
+  revenue, profitability, margin, ROI, payback, break-even, economic viability,
+  commercial operability, customer validation, real-world operating proof, or
+  known basil saleable harvest mass.
+
+`saleable_harvest_mass_kg` rule:
+
+- Do not infer, estimate, backfill, or populate `saleable_harvest_mass_kg`
+  unless observed runtime output or explicitly reviewed manual input is
+  approved for that scope.
+- Do not infer it from standing biomass, daily gain, plant count,
+  harvest-readiness labels, saleability labels, feed, water quality, solids,
+  cost pressure, or benchmark basil context.
+
+P2a cost-pressure boundary:
+
+- P2a is selected feed + electricity operating-cost pressure only.
+- It is not total operating cost, revenue, profitability, margin, economic
+  viability, commercial operability, or commercial proof.
+
+Terminology boundaries:
+
+- TAN-N load is not concentration.
+- TAN-N/NH3 chemistry context is not fish safety.
+- Measured DO context is not aeration adequacy.
+- Nitrification oxygen demand is not total oxygen demand or oxygen-transfer
+  capacity.
+- Dry-solids potential is not wet sludge, TSS, or solids-removal capacity.
+- Fish-tank concentration scope is not whole-system average concentration.
+- `crop_system_type` is context only; it must not activate saleability, pricing,
+  buyer acceptance, product-form, or revenue logic by itself.
 
 ## 2. Global safety rules
 
@@ -197,6 +256,25 @@ Before commit:
 - If a required tool is unavailable in the environment, report that clearly instead of faking verification.
 - For snapshot-based tests, update fixtures only when the approved canonical or generated output has intentionally changed.
 
+## 8B. MVP verification pattern
+
+For MVP tasks, prefer this three-step verification pattern unless the user gives
+a narrower or broader validation set:
+
+1. Integrity snapshot: usually `python scripts/check_mvp_integrity.py --quick`;
+   use `--full` before major roadmap, external-facing, or implementation
+   decisions.
+2. Artifact-specific validation: run the focused test, JSON check, section
+   audit, value audit, language audit, or static-prototype audit that matches
+   the changed artifact.
+3. Scope hygiene: show the relevant diff, protected-path diff or name-only
+   check, `git status --short`, and `git diff --cached --name-only` before any
+   commit.
+
+A passing integrity snapshot means the configured checks passed. It does not
+prove safety, validation, revenue, profitability, commercial operability,
+real-world operation, or basil saleable harvest output.
+
 ## 9. Output style for agents
 
 Unless told otherwise:
@@ -205,3 +283,13 @@ Unless told otherwise:
 - show exact diff
 - show any verification run
 - stop with `no commit`
+
+## 10. Prompt compression rule
+
+- Future prompts may rely on this AGENTS.md for stable repo guardrails, MVP
+  blocked claims, benchmark framing, and standard verification posture.
+- Prompts should still specify task-specific goal, allowed files, references,
+  validation, stop rules, output format, and commit policy.
+- Do not put one-off task instructions, phase percentages, commit hashes, exact
+  demo values, exact benchmark values, seed-demo artifact paths, or transient
+  milestone details into AGENTS.md.
