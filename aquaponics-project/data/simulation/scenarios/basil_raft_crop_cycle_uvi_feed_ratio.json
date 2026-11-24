@@ -96,5 +96,5 @@
     "Uses current experimental defaults and basil starter profile anchors.",
     "Used by simulate_day.py."
   ],
-  "description": "Sensitivity case: as basil_raft_crop_cycle, but fish biomass scaled so daily feed matches the UVI batch feeding ratio (81.4 g/day/m2 x 11.25 m2 = 0.916 kg/day at 1 percent body weight). Not a design."
+  "description": "Sensitivity case: as basil_raft_crop_cycle, but fish biomass scaled so daily feed matches the lower UVI feeding ratio (81.4 g/day/m2; the two trials reported 81.4 and 99.6 x 11.25 m2 = 0.916 kg/day at 1 percent body weight). Not a design."
 }
