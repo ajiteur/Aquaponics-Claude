@@ -247,6 +247,29 @@ Use for `knowledge-vault/**/*.md` only.
 - If the exact wikilink already exists, report `no change needed`.
 - Do not add duplicate `Related Notes` sections.
 
+## 6A. Knowledge capture (end of every work session)
+
+The user reads the project in Obsidian, so every work session ends with a learning
+capture. Keep the four kinds of knowledge separate:
+
+1. **Truths** (evidence-backed): add facts to `data/knowledge/atomic_facts/` with
+   `status: "provisional"` and `provisional_reason: "candidate_pending_user_review"`,
+   then run `python src/export_truths_to_vault.py`. Only the user promotes a fact to
+   `accepted`. Never hand-edit notes under `knowledge-vault/Truths/`.
+2. **Simulation findings**: add a dated entry to
+   `knowledge-vault/Learnings/Simulation Findings Log.md`, labelled as scenario
+   estimates. Never record simulation output as a truth.
+3. **Decisions**: add a dated entry to `knowledge-vault/Project/Decisions Log.md`
+   with the decision, the reason, and who decided.
+4. **Inbox**: sort items in `knowledge-vault/Inbox/` into the three above, answer
+   questions, and remove sorted items.
+
+Also update `knowledge-vault/Project/Status and Roadmap.md` when status changes.
+Hand-written vault notes: `Home.md`, `Project/**`, `Inbox/**`, `Learnings/Simulation
+Findings Log.md`. Generated vault notes: `Truths/**`, `Atomic Truths/**`,
+`Components/**`, `Sources/Source Register.md`, `Learnings/Simulation Learnings.md`.
+Knowledge-capture commits stay separate from code and canon commits.
+
 ## 7. Automation ladder
 
 Use this progression:
