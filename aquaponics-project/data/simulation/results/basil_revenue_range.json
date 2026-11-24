@@ -1,0 +1,142 @@
+{
+  "estimate_status": "scenario_estimate",
+  "label": "Scenario estimate, not validated. Gross revenue only: no costs, margin or profit.",
+  "slice_id": "basil_bulk_kg_wholesale",
+  "generated_by": "scripts/build_basil_revenue_range.py",
+  "generated_at_utc": "2026-11-24T23:54:54Z",
+  "inputs_file": "scripts/example_first_slice_working_inputs.json",
+  "crops_per_year": 13,
+  "crops_per_year_basis": "UVI staggered basil trial reported 13 crops per year (Rakocy et al. 2004)",
+  "currency_code": "EUR",
+  "case_inputs": {
+    "conservative": {
+      "price_per_saleable_kg": 7.0,
+      "saleability_rate": 0.85,
+      "currency_code": "EUR",
+      "price_basis": {
+        "market_level": "operator haircut on Dutch importing wholesaler examples",
+        "price_date_basis": "2024 CBI report citing March 2020 wholesaler examples",
+        "price_tax_treatment": "not normalized in current research pack"
+      },
+      "saleability_basis": "operator assumption informed by basil postharvest handling science",
+      "input_status": "provisional working assumption from the inputs file"
+    },
+    "base": {
+      "price_per_saleable_kg": 8.0,
+      "saleability_rate": 0.9,
+      "currency_code": "EUR",
+      "price_basis": {
+        "market_level": "Dutch importing wholesaler level",
+        "price_date_basis": "2024 CBI report citing March 2020 wholesaler examples",
+        "price_tax_treatment": "not normalized in current research pack"
+      },
+      "saleability_basis": "operator assumption informed by basil postharvest handling science",
+      "input_status": "provisional working assumption from the inputs file"
+    },
+    "optimistic": {
+      "price_per_saleable_kg": 9.0,
+      "saleability_rate": 0.95,
+      "currency_code": "EUR",
+      "price_basis": {
+        "market_level": "Dutch importing wholesaler level",
+        "price_date_basis": "2024 CBI report citing March 2020 wholesaler examples",
+        "price_tax_treatment": "not normalized in current research pack"
+      },
+      "saleability_basis": "operator assumption informed by basil postharvest handling science",
+      "input_status": "provisional working assumption from the inputs file"
+    }
+  },
+  "scenarios": [
+    {
+      "harvest_basis": {
+        "result_file": "data/simulation/results/basil_raft_crop_cycle_28d.json",
+        "scenario_id": "basil_raft_crop_cycle",
+        "harvest_event_count": 1,
+        "grow_area_m2": 11.25,
+        "harvested_kg_per_m2_per_harvest": 1.208,
+        "harvested_kg_per_harvest": 13.595,
+        "output_basis": "runtime_native_calibrated_simulation",
+        "water_state_context": {
+          "max_tan_mg_L": 1.804,
+          "max_unionized_nh3_mg_L": 0.134,
+          "min_nitrate_mg_L": 14.77,
+          "note": "Context only. Not a fish-safety or system-safety assessment."
+        }
+      },
+      "cases": {
+        "conservative": {
+          "saleable_kg_per_m2_per_harvest": 1.027,
+          "gross_revenue_per_m2_per_harvest": 7.19,
+          "gross_revenue_per_m2_per_year": 93.44,
+          "gross_revenue_per_harvest_for_scenario_area": 80.86,
+          "gross_revenue_per_year_for_scenario_area": 1051.19
+        },
+        "base": {
+          "saleable_kg_per_m2_per_harvest": 1.087,
+          "gross_revenue_per_m2_per_harvest": 8.7,
+          "gross_revenue_per_m2_per_year": 113.07,
+          "gross_revenue_per_harvest_for_scenario_area": 97.85,
+          "gross_revenue_per_year_for_scenario_area": 1272.02
+        },
+        "optimistic": {
+          "saleable_kg_per_m2_per_harvest": 1.148,
+          "gross_revenue_per_m2_per_harvest": 10.33,
+          "gross_revenue_per_m2_per_year": 134.27,
+          "gross_revenue_per_harvest_for_scenario_area": 116.19,
+          "gross_revenue_per_year_for_scenario_area": 1510.53
+        }
+      }
+    },
+    {
+      "harvest_basis": {
+        "result_file": "data/simulation/results/basil_raft_crop_cycle_uvi_feed_ratio_28d.json",
+        "scenario_id": "basil_raft_crop_cycle_uvi_feed_ratio",
+        "harvest_event_count": 1,
+        "grow_area_m2": 11.25,
+        "harvested_kg_per_m2_per_harvest": 2.0,
+        "harvested_kg_per_harvest": 22.501,
+        "output_basis": "runtime_native_calibrated_simulation",
+        "water_state_context": {
+          "max_tan_mg_L": 14.256,
+          "max_unionized_nh3_mg_L": 1.182,
+          "min_nitrate_mg_L": 43.872,
+          "note": "Context only. Not a fish-safety or system-safety assessment."
+        }
+      },
+      "cases": {
+        "conservative": {
+          "saleable_kg_per_m2_per_harvest": 1.7,
+          "gross_revenue_per_m2_per_harvest": 11.9,
+          "gross_revenue_per_m2_per_year": 154.7,
+          "gross_revenue_per_harvest_for_scenario_area": 133.88,
+          "gross_revenue_per_year_for_scenario_area": 1740.38
+        },
+        "base": {
+          "saleable_kg_per_m2_per_harvest": 1.8,
+          "gross_revenue_per_m2_per_harvest": 14.4,
+          "gross_revenue_per_m2_per_year": 187.2,
+          "gross_revenue_per_harvest_for_scenario_area": 162.0,
+          "gross_revenue_per_year_for_scenario_area": 2106.0
+        },
+        "optimistic": {
+          "saleable_kg_per_m2_per_harvest": 1.9,
+          "gross_revenue_per_m2_per_harvest": 17.1,
+          "gross_revenue_per_m2_per_year": 222.3,
+          "gross_revenue_per_harvest_for_scenario_area": 192.37,
+          "gross_revenue_per_year_for_scenario_area": 2500.87
+        }
+      }
+    }
+  ],
+  "range_gross_revenue_per_m2_per_year": {
+    "low": 93.44,
+    "high": 222.3
+  },
+  "limits": [
+    "Harvested mass is runtime-native simulation output calibrated to the UVI yield anchor, not observed harvest data.",
+    "Saleable mass = harvested mass x saleability_rate, where saleability_rate is a provisional working assumption.",
+    "Prices are provisional Dutch wholesale examples; tax treatment is not normalized.",
+    "Costs are out of scope here, so this says nothing about margin, profitability or viability.",
+    "Each scenario carries its water-state range as context. High TAN or NH3 in a scenario means its harvest may not be reachable in practice; that is not assessed here."
+  ]
+}
