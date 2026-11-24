@@ -48,6 +48,19 @@ class BasilRevenueRangeTests(unittest.TestCase):
         for key in ("profit", "margin_per", "break_even", "cost_per"):
             self.assertNotIn(f'"{key}', text)
 
+    def test_inputs_without_approval_are_marked_pending(self):
+        out = rev.build([self.result], self.inputs, 13)
+        self.assertEqual(out["input_approval_status"], "pending_user_approval")
+        self.assertEqual(out["case_inputs"]["base"]["approval_status"], "pending_user_approval")
+
+    def test_recorded_approval_is_carried_through(self):
+        approval = {"approved_by": "Ajit", "approved_date_local": "2026-11-25", "scope": "basil revenue range"}
+        inputs = write(self.tmp, "i3.json", {"metadata": {"approval": approval}, "cases": {
+            n: {"price_per_saleable_kg": 8.0, "saleability_rate": 0.9} for n in ("conservative", "base", "optimistic")}})
+        out = rev.build([self.result], inputs, 13)
+        self.assertEqual(out["input_approval_status"], "approved")
+        self.assertEqual(out["case_inputs"]["base"]["approval"], approval)
+
     def test_missing_price_is_reported_not_filled(self):
         inputs = write(self.tmp, "i2.json", {"cases": {"base": {"price_per_saleable_kg": None, "saleability_rate": 0.9}}})
         out = rev.build([self.result], inputs, 13)
