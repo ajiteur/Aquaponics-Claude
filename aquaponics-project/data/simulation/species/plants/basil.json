@@ -164,7 +164,7 @@
           "Rakocy, Bailey, Shultz, Thoman, ISTA6, Update on tilapia and vegetable production in the UVI aquaponic system"
         ],
         "status": "accepted",
-        "added_utc": "2026-11-25",
+        "added_date_local": "2026-11-25",
         "anchor_reference_conditions": {
           "pH": 7.4,
           "water_temperature_c": 26.5,
@@ -174,9 +174,11 @@
         },
         "approval": {
           "approved_by": "Ajit",
-          "approved_utc": "2026-11-25",
-          "scope": "UVI basil crop-cycle values from Rakocy et al. 2004 and ISTA6"
-        }
+          "approved_date_local": "2026-11-25",
+          "scope": "UVI basil crop-cycle values from Rakocy et al. 2004 and ISTA6",
+          "approved_utc": "2026-11-25"
+        },
+        "added_utc": "2026-11-25"
       },
       "operating_pH_range": {
         "min": 6.9,
@@ -254,7 +256,7 @@
   ],
   "runtime_sync": {
     "scope": "species",
-    "generated_at_utc": "2026-11-24T23:50:52Z",
+    "generated_at_utc": "2026-11-24T23:56:31Z",
     "canonical_source": "data/knowledge/species/plants/basil.json",
     "runtime_target": "data/simulation/species/plants/basil.json",
     "ownership": "data/knowledge is canonical; data/simulation is a derived runtime mirror."

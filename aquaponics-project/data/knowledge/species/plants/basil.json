@@ -156,7 +156,7 @@
           "Rakocy, Bailey, Shultz, Thoman, ISTA6, Update on tilapia and vegetable production in the UVI aquaponic system"
         ],
         "status": "accepted",
-        "added_utc": "2026-11-25",
+        "added_date_local": "2026-11-25",
         "anchor_reference_conditions": {
           "pH": 7.4,
           "water_temperature_c": 26.5,
@@ -166,7 +166,7 @@
         },
         "approval": {
           "approved_by": "Ajit",
-          "approved_utc": "2026-11-25",
+          "approved_date_local": "2026-11-25",
           "scope": "UVI basil crop-cycle values from Rakocy et al. 2004 and ISTA6"
         }
       }
