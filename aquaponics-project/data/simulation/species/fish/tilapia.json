@@ -40,6 +40,11 @@
   "chemistry_response": {
     "unionized_nh3_warning_mg_L": 0.08,
     "unionized_nh3_critical_mg_L": 0.2,
+    "unionized_nh3_critical_context": {
+      "exposure_condition": "prolonged_exposure",
+      "interpretation": "first_mortalities_may_begin",
+      "source_id": "srac_283_life_history_biology"
+    },
     "nh3_upper_ceiling_guidance_mg_L": 1.0
   },
   "simulation_weights": {
@@ -91,6 +96,10 @@
       "max": 31.0,
       "unit": "C"
     },
+    "temp_optimal_growth_general_c_context": {
+      "broader_preferred_field": "environment.preferred_temp_c",
+      "broader_preferred_source_id": "worldfish_water_quality_management_2022"
+    },
     "temp_habitat_preferred_c": {
       "min": 31.0,
       "max": 36.0,
@@ -132,7 +141,7 @@
   ],
   "runtime_sync": {
     "scope": "species",
-    "generated_at_utc": "2026-04-14T15:57:13Z",
+    "generated_at_utc": "2026-11-24T23:41:34Z",
     "canonical_source": "data/knowledge/species/fish/tilapia.json",
     "runtime_target": "data/simulation/species/fish/tilapia.json",
     "ownership": "data/knowledge is canonical; data/simulation is a derived runtime mirror."

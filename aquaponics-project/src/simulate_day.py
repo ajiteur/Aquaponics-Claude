@@ -75,6 +75,129 @@ def clamp(value: float, min_value: float = 0.0, max_value: float = 1.0) -> float
     return max(min_value, min(max_value, value))
 
 
+def crop_cycle_calibration(plant_profile: dict) -> dict | None:
+    """Return the yield calibration from the species profile, or None if incomplete.
+
+    The calibrated rate spreads the yield anchor (kg/m2 per harvest) evenly over the
+    growing period at the anchor planting density. It describes ideal conditions at
+    the anchor site; daily plant and nitrate scores scale it down.
+    """
+    context = plant_profile.get("validation_benchmarks", {}).get("aquaponics_context", {})
+    cycle = context.get("crop_cycle_context") or {}
+    anchor_kg_m2 = context.get("yield_anchor_kg_m2_batch")
+    density = cycle.get("planting_density_plants_m2")
+    period_days = cycle.get("growing_period_days")
+    if not anchor_kg_m2 or not density or not period_days:
+        return None
+    target_g_per_plant = anchor_kg_m2 * 1000.0 / density
+    return {
+        "yield_anchor_kg_m2_per_harvest": anchor_kg_m2,
+        "planting_density_plants_m2": density,
+        "growing_period_days": int(period_days),
+        "target_cut_mass_g_per_plant": target_g_per_plant,
+        "ideal_rate_g_per_plant_day": target_g_per_plant / period_days,
+        "basis": "calibrated_to_canonical_yield_anchor",
+    }
+
+
+def plant_score_relative_to_anchor(
+    plant_profile: dict,
+    plant_score: float,
+    fish_name: str,
+    plant_name: str,
+    water: dict,
+    mode: str,
+) -> float:
+    """Express today's plant score as a fraction of the score at the yield-anchor site.
+
+    The yield anchor was achieved under specific conditions, so those conditions count
+    as 100 percent. Scores above the anchor are clamped to 1.0: the model does not
+    predict yields above the anchor. Falls back to the raw score when no reference
+    conditions are recorded.
+    """
+    context = plant_profile.get("validation_benchmarks", {}).get("aquaponics_context", {})
+    ref = (context.get("crop_cycle_context") or {}).get("anchor_reference_conditions")
+    if not ref:
+        return plant_score
+    reference = run_overlap_score(
+        fish_name=fish_name,
+        plant_name=plant_name,
+        pH=ref["pH"],
+        water_temp_c=ref["water_temperature_c"],
+        air_temp_c=ref["air_temperature_c"],
+        do_mg_l=water["dissolved_oxygen_mg_L"],
+        nh3_mg_l=water["unionized_nh3_mg_L"],
+        mode=mode,
+    )
+    reference_score = reference["plant_assessment"]["overall_plant_score"]
+    if not reference_score:
+        return plant_score
+    return clamp(plant_score / reference_score)
+
+
+def update_harvestable_mass(
+    scenario: dict,
+    plant_crop: dict,
+    plant_profile: dict,
+    plant_score: float,
+    nitrate_availability_score: float,
+) -> dict | None:
+    """Grow harvestable cut mass for one day and emit a harvest event at cycle end.
+
+    Returns the harvest event for this day, or None. Does nothing when the species
+    profile has no complete crop-cycle calibration.
+    """
+    calibration = crop_cycle_calibration(plant_profile)
+    if calibration is None:
+        return None
+
+    policy = plant_crop.setdefault("harvest_policy", {})
+    period_days = int(policy.get("growing_period_days") or calibration["growing_period_days"])
+    daily_gain = calibration["ideal_rate_g_per_plant_day"] * plant_score * nitrate_availability_score
+    plant_crop["harvestable_cut_mass_g_per_plant"] = round(
+        plant_crop.get("harvestable_cut_mass_g_per_plant", 0.0) + daily_gain, 3
+    )
+    plant_crop["harvest_calibration"] = calibration
+
+    if plant_crop["days_since_transplant"] < period_days:
+        return None
+
+    plant_count = plant_crop["plant_count"]
+    harvested_mass_kg = plant_count * plant_crop["harvestable_cut_mass_g_per_plant"] / 1000.0
+    grow_area_m2 = plant_count / calibration["planting_density_plants_m2"]
+    cull_fraction = policy.get("cull_fraction")
+    if isinstance(cull_fraction, (int, float)) and 0.0 <= cull_fraction < 1.0:
+        saleable_harvest_mass_kg = round(harvested_mass_kg * (1.0 - cull_fraction), 3)
+        saleable_basis = "runtime_harvested_mass_minus_explicit_scenario_cull_fraction"
+    else:
+        saleable_harvest_mass_kg = None
+        saleable_basis = "null_no_explicit_cull_fraction_in_scenario"
+
+    events = scenario.setdefault("harvest_events", [])
+    event = {
+        "day": scenario["time"]["day"] + 1,
+        "crop_cycle_number": len(events) + 1,
+        "species_id": plant_crop["species_id"],
+        "plant_count": plant_count,
+        "grow_area_m2_at_anchor_density": round(grow_area_m2, 3),
+        "days_in_cycle": plant_crop["days_since_transplant"],
+        "harvested_mass_kg": round(harvested_mass_kg, 3),
+        "harvested_mass_kg_per_m2": round(harvested_mass_kg / grow_area_m2, 3),
+        "cull_fraction": cull_fraction,
+        "saleable_harvest_mass_kg": saleable_harvest_mass_kg,
+        "saleable_basis": saleable_basis,
+        "output_basis": "runtime_native_calibrated_simulation",
+        "estimate_status": "scenario_estimate",
+        "note": "Scenario estimate, not validated. Calibrated to the UVI raft yield anchor; not observed harvest data.",
+    }
+    events.append(event)
+
+    # Replant: the next cycle starts from transplant with no harvestable mass.
+    plant_crop["harvestable_cut_mass_g_per_plant"] = 0.0
+    plant_crop["days_since_transplant"] = 0
+    return event
+
+
 def main():
     scenario_path = Path(sys.argv[1]) if len(sys.argv) > 1 else DEFAULT_SCENARIO
 
@@ -139,20 +262,33 @@ def main():
     fish_batch["age_days"] += 1
 
     # Plant growth
-    nitrate_anchor = (
-        plant_profile.get("nutrient_response", {}).get("aquaponics_nitrate_minimal_spec_mg_L")
-    )
+    # Lettuce records this anchor as aquaponics_nitrate_minimal_spec_mg_L; basil records
+    # it as aquaponics_nitrateN_anchor_mg_L. Before this fallback basil was never
+    # nitrate-limited because the lookup always returned None.
+    nutrient_response = plant_profile.get("nutrient_response", {})
+    nitrate_anchor = nutrient_response.get("aquaponics_nitrate_minimal_spec_mg_L")
+    if nitrate_anchor is None:
+        nitrate_anchor = nutrient_response.get("aquaponics_nitrateN_anchor_mg_L")
     nitrate_state = water["nitrate_mg_L"]
     if nitrate_anchor is None or nitrate_anchor <= 0:
         nitrate_availability_score = 1.0
     else:
         nitrate_availability_score = clamp(nitrate_state / nitrate_anchor)
 
+    # Standing biomass growth is still a placeholder rate (not calibrated).
     base_plant_growth_g_per_day = 4.0
     plant_growth_g = base_plant_growth_g_per_day * plant_score * nitrate_availability_score
 
     plant_crop["average_biomass_g"] = round(plant_crop["average_biomass_g"] + plant_growth_g, 2)
     plant_crop["days_since_transplant"] += 1
+
+    # Harvestable cut mass, calibrated to the species yield anchor when available.
+    relative_plant_score = plant_score_relative_to_anchor(
+        plant_profile, plant_score, fish_name, plant_name, water, system["mode"]
+    )
+    harvest_event = update_harvestable_mass(
+        scenario, plant_crop, plant_profile, relative_plant_score, nitrate_availability_score
+    )
 
     # Nitrogen updates
     tan_generation_mg_per_g_feed = nitrogen_model.get("tan_generation_mg_per_g_feed", 30.0)
@@ -230,6 +366,9 @@ def main():
         "system_stability_score": system_score,
         "daily_fish_biomass_gain_kg": round(fish_biomass_gain_kg, 3),
         "daily_plant_biomass_gain_g_per_plant": round(plant_growth_g, 3),
+        "plant_score_relative_to_anchor": round(relative_plant_score, 3),
+        "harvestable_cut_mass_g_per_plant": plant_crop.get("harvestable_cut_mass_g_per_plant"),
+        "harvest_event_today": harvest_event,
         "daily_operating_cost": total_daily_operating_cost
     }
 

@@ -55,6 +55,20 @@
       "unit": "mS/cm"
     },
     "aquaponics_nitrateN_anchor_mg_L": 42.0,
+    "aquaponics_nitrateN_anchor_context": {
+      "source_id": "basil_corroboration_report_2026",
+      "batch_mean": 42.2,
+      "batch_range": {
+        "min": 26.7,
+        "max": 54.7
+      },
+      "staggered_mean": 42.9,
+      "staggered_range": {
+        "min": 30.9,
+        "max": 51.8
+      },
+      "unit": "mg/L nitrate-N"
+    },
     "pH_operating_aquaponics": {
       "controlled_min": 7.0,
       "controlled_max": 7.5,
@@ -128,6 +142,37 @@
       "yield_anchor_kg_m2_batch": 2.0,
       "yield_anchor_kg_m2_staggered": 1.8,
       "notes": "Use as aquaponics operating benchmark, not as plant-only optimum.",
+      "crop_cycle_context": {
+        "planting_density_plants_m2": 8.0,
+        "growing_period_days": 28,
+        "yield_anchor_basis": "harvested cut mass per harvest (kg/m2), basil cut at about 15 cm height and allowed to regrow; fresh weight implied but not stated",
+        "annual_yield_kg_m2": {
+          "batch": 25.0,
+          "staggered": 23.4,
+          "field": 7.8
+        },
+        "harvest_survival_context": "Batch final survival about 84.7 percent after four harvests; staggered survival fell to about 64 percent at some harvests due to Pythium. Culled or unmarketable mass is not quantified.",
+        "context": {
+          "system": "UVI commercial-scale coupled DWC raft, 214 m2 grow area",
+          "location": "St. Croix, US Virgin Islands, 18 N, outdoor, tropical",
+          "water_temperature_c_context": "about 24 C winter/spring to 29 C summer",
+          "cultivar": "Genovese"
+        },
+        "density_note": "Authors observed that a higher density could be used in raft culture; not tested.",
+        "source_basis": [
+          "Rakocy, Shultz, Bailey, Thoman 2004, Acta Horticulturae 648:63-69, Aquaponic production of tilapia and basil: comparing a batch and staggered cropping system",
+          "Rakocy, Bailey, Shultz, Thoman, ISTA6, Update on tilapia and vegetable production in the UVI aquaponic system"
+        ],
+        "status": "candidate_pending_user_review",
+        "added_utc": "2026-11-25",
+        "anchor_reference_conditions": {
+          "pH": 7.4,
+          "water_temperature_c": 26.5,
+          "air_temperature_c": 26.5,
+          "basis": "pH is the batch-trial mean (Rakocy et al. 2004, Table 2). Temperatures are the midpoint of the reported 24 to 29 C water range; air temperature is not reported and is set equal to water temperature as a stated assumption.",
+          "use": "Simulation calibration only: the plant score at these conditions is treated as 100 percent of the yield anchor."
+        }
+      },
       "operating_pH_range": {
         "min": 6.9,
         "max": 7.6,
@@ -204,7 +249,7 @@
   ],
   "runtime_sync": {
     "scope": "species",
-    "generated_at_utc": "2026-04-14T15:57:13Z",
+    "generated_at_utc": "2026-11-24T23:43:04Z",
     "canonical_source": "data/knowledge/species/plants/basil.json",
     "runtime_target": "data/simulation/species/plants/basil.json",
     "ownership": "data/knowledge is canonical; data/simulation is a derived runtime mirror."
