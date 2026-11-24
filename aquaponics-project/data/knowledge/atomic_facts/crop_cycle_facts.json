@@ -1,5 +1,5 @@
 {
-  "description": "Candidate atomic facts on basil crop cycles from the UVI papers. Provisional until the user approves.",
+  "description": "Atomic facts on basil crop cycles from the UVI papers. Accepted by Ajit on 2026-11-25.",
   "facts": [
     {
       "fact_id": "CROP_0001",
@@ -7,8 +7,7 @@
       "domain": "system_design",
       "type": "parameter",
       "confidence": "high",
-      "status": "provisional",
-      "provisional_reason": "candidate_pending_user_review",
+      "status": "accepted",
       "context": {
         "species": "basil (Genovese)",
         "system": "UVI coupled DWC raft, 214 m2",
@@ -22,7 +21,12 @@
       "review_metadata": {
         "reviewed_from_file": "web_read_2026-11-25_archive.uvi.edu Tilapia_and_Basil.pdf and ISTA6 676.pdf",
         "source_gate": "trusted",
-        "source_gate_reason": "primary_research_source_already_cited_in_basil_corroboration_report"
+        "source_gate_reason": "primary_research_source_already_cited_in_basil_corroboration_report",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_utc": "2026-11-25",
+          "scope": "UVI basil crop-cycle values from Rakocy et al. 2004 and ISTA6"
+        }
       },
       "added_utc": "2026-11-25"
     },
@@ -32,8 +36,7 @@
       "domain": "biology",
       "type": "parameter",
       "confidence": "high",
-      "status": "provisional",
-      "provisional_reason": "candidate_pending_user_review",
+      "status": "accepted",
       "context": {
         "species": "basil (Genovese)",
         "system": "UVI coupled DWC raft, 214 m2",
@@ -47,7 +50,12 @@
       "review_metadata": {
         "reviewed_from_file": "web_read_2026-11-25_archive.uvi.edu Tilapia_and_Basil.pdf and ISTA6 676.pdf",
         "source_gate": "trusted",
-        "source_gate_reason": "primary_research_source_already_cited_in_basil_corroboration_report"
+        "source_gate_reason": "primary_research_source_already_cited_in_basil_corroboration_report",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_utc": "2026-11-25",
+          "scope": "UVI basil crop-cycle values from Rakocy et al. 2004 and ISTA6"
+        }
       },
       "added_utc": "2026-11-25"
     },
@@ -57,8 +65,7 @@
       "domain": "biology",
       "type": "parameter",
       "confidence": "high",
-      "status": "provisional",
-      "provisional_reason": "candidate_pending_user_review",
+      "status": "accepted",
       "context": {
         "species": "basil (Genovese)",
         "system": "UVI coupled DWC raft, 214 m2",
@@ -72,7 +79,12 @@
       "review_metadata": {
         "reviewed_from_file": "web_read_2026-11-25_archive.uvi.edu Tilapia_and_Basil.pdf and ISTA6 676.pdf",
         "source_gate": "trusted",
-        "source_gate_reason": "primary_research_source_already_cited_in_basil_corroboration_report"
+        "source_gate_reason": "primary_research_source_already_cited_in_basil_corroboration_report",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_utc": "2026-11-25",
+          "scope": "UVI basil crop-cycle values from Rakocy et al. 2004 and ISTA6"
+        }
       },
       "added_utc": "2026-11-25",
       "note": "Yield is harvested cut mass; fresh weight is implied but not stated. Culled mass is not quantified."
@@ -83,8 +95,7 @@
       "domain": "biology",
       "type": "parameter",
       "confidence": "high",
-      "status": "provisional",
-      "provisional_reason": "candidate_pending_user_review",
+      "status": "accepted",
       "context": {
         "species": "basil (Genovese)",
         "system": "UVI coupled DWC raft, 214 m2",
@@ -98,7 +109,12 @@
       "review_metadata": {
         "reviewed_from_file": "web_read_2026-11-25_archive.uvi.edu Tilapia_and_Basil.pdf and ISTA6 676.pdf",
         "source_gate": "trusted",
-        "source_gate_reason": "primary_research_source_already_cited_in_basil_corroboration_report"
+        "source_gate_reason": "primary_research_source_already_cited_in_basil_corroboration_report",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_utc": "2026-11-25",
+          "scope": "UVI basil crop-cycle values from Rakocy et al. 2004 and ISTA6"
+        }
       },
       "added_utc": "2026-11-25"
     },
@@ -108,8 +124,7 @@
       "domain": "system_design",
       "type": "guidance",
       "confidence": "medium",
-      "status": "provisional",
-      "provisional_reason": "candidate_pending_user_review",
+      "status": "accepted",
       "context": {
         "species": "basil (Genovese)",
         "system": "UVI coupled DWC raft, 214 m2",
@@ -123,7 +138,12 @@
       "review_metadata": {
         "reviewed_from_file": "web_read_2026-11-25_archive.uvi.edu Tilapia_and_Basil.pdf and ISTA6 676.pdf",
         "source_gate": "trusted",
-        "source_gate_reason": "primary_research_source_already_cited_in_basil_corroboration_report"
+        "source_gate_reason": "primary_research_source_already_cited_in_basil_corroboration_report",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_utc": "2026-11-25",
+          "scope": "UVI basil crop-cycle values from Rakocy et al. 2004 and ISTA6"
+        }
       },
       "added_utc": "2026-11-25"
     },
@@ -133,8 +153,7 @@
       "domain": "operations",
       "type": "warning",
       "confidence": "high",
-      "status": "provisional",
-      "provisional_reason": "candidate_pending_user_review",
+      "status": "accepted",
       "context": {
         "species": "basil (Genovese)",
         "system": "UVI coupled DWC raft, 214 m2",
@@ -148,7 +167,12 @@
       "review_metadata": {
         "reviewed_from_file": "web_read_2026-11-25_archive.uvi.edu Tilapia_and_Basil.pdf and ISTA6 676.pdf",
         "source_gate": "trusted",
-        "source_gate_reason": "primary_research_source_already_cited_in_basil_corroboration_report"
+        "source_gate_reason": "primary_research_source_already_cited_in_basil_corroboration_report",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_utc": "2026-11-25",
+          "scope": "UVI basil crop-cycle values from Rakocy et al. 2004 and ISTA6"
+        }
       },
       "added_utc": "2026-11-25"
     },
@@ -158,8 +182,7 @@
       "domain": "operations",
       "type": "parameter",
       "confidence": "high",
-      "status": "provisional",
-      "provisional_reason": "candidate_pending_user_review",
+      "status": "accepted",
       "context": {
         "species": "basil (Genovese)",
         "system": "UVI coupled DWC raft, 214 m2",
@@ -173,7 +196,12 @@
       "review_metadata": {
         "reviewed_from_file": "web_read_2026-11-25_archive.uvi.edu Tilapia_and_Basil.pdf and ISTA6 676.pdf",
         "source_gate": "trusted",
-        "source_gate_reason": "primary_research_source_already_cited_in_basil_corroboration_report"
+        "source_gate_reason": "primary_research_source_already_cited_in_basil_corroboration_report",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_utc": "2026-11-25",
+          "scope": "UVI basil crop-cycle values from Rakocy et al. 2004 and ISTA6"
+        }
       },
       "added_utc": "2026-11-25",
       "note": "Which value belongs to which trial is not recorded here; check the source before using either as a trial-specific value."
