@@ -26,8 +26,9 @@ class ExportTruthsTests(unittest.TestCase):
         self.assertIn(exporter.TRUTHS_ROOT / "Truths.md", outputs)
 
     def test_candidate_truth_is_marked(self):
-        outputs = exporter.build_outputs()
-        candidate = next(t for p, t in outputs.items() if p.name.startswith("CROP_0001"))
+        fact = {"fact_id": "T_1", "statement": "x", "domain": "biology", "status": "provisional",
+                "provisional_reason": "candidate_pending_user_review"}
+        candidate = exporter.render_truth(fact, exporter.FACTS_DIR / "example.json")
         self.assertIn('status: "provisional"', candidate)
         self.assertIn("**Candidate truth.**", candidate)
 
