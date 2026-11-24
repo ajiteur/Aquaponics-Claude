@@ -2,6 +2,19 @@
 
 What the simulation shows, newest first. These are **scenario estimates, not validated**: they describe the model, not the real world, and they are never truths.
 
+## 2026-11-25: Basil gross revenue range
+
+Run: `scripts/build_basil_revenue_range.py` on the two 28-day basil results (PR #3). Gross revenue only, with no costs, margin or profit. 13 crops per year (UVI staggered trial). Prices are €7, €8 and €9/kg (provisional Dutch wholesale examples). Saleability is 85%, 90% and 95% (provisional assumptions).
+
+| Scenario | Harvest kg/m² | € per m² per year (cons. / base / opt.) |
+|---|---:|---|
+| Starter fixture (nitrate-limited) | 1.21 | 93 / 113 / 134 |
+| UVI feed ratio (TAN up to about 14 mg/L, NH3 about 1.2 mg/L) | 2.00 | 155 / 187 / 222 |
+
+- **Range: about €93 to €222 per m² per year gross.** Treat the top end as a plant-side ceiling until the nitrification model can carry that feed load.
+- The 11.25 m² starter system grosses about €1,050 to €1,500 a year at its current yield.
+- Biggest unknowns: today's real prices, saleability, and every cost line. The Farm inputs work covers these.
+
 ## 2026-11-25: Basil grown to a full 28-day harvest
 
 Run: `src/simulate_crop_cycle.py` on the `basil_raft_crop_cycle` scenarios (PR #1). Basil cut-mass growth is calibrated to the UVI anchor: 8 plants/m², 28 days, 2.0 kg/m² per harvest.
