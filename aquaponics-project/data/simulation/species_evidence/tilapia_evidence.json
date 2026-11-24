@@ -1,0 +1,233 @@
+{
+  "species_id": "fish_tilapia",
+  "status": "draft",
+  "source_basis": {
+    "primary_sources": [
+      "data/sources/research_reports/raw/Tilapia Species Profile Corroboration Report for Aquaponics Layer 1.pdf",
+      "data/sources/research_reports/distilled/Distilled_Research_Pack_Aquaponics_L1.md"
+    ],
+    "canonical_owner": "data/knowledge/species_evidence/fish/tilapia.evidence.json",
+    "derived_from_simulation_path": "data/simulation/species_evidence/tilapia_evidence.json",
+    "ownership_note": "Canonical Layer 1 ownership is in data/knowledge. The simulation evidence file remains a runtime derivative until consumers are migrated or a sync path is introduced."
+  },
+  "target_fields": [
+    "preferred_pH",
+    "tolerated_pH",
+    "preferred_temp_c",
+    "tolerated_temp_c",
+    "minimum_dissolved_oxygen_mg_L",
+    "unionized_nh3_warning_mg_L",
+    "unionized_nh3_critical_mg_L",
+    "nh3_upper_ceiling_guidance_mg_L"
+  ],
+  "evidence_records": [
+    {
+      "field": "preferred_pH",
+      "value": {
+        "min": 6.5,
+        "max": 8.5,
+        "unit": "pH"
+      },
+      "source_id": "worldfish_water_quality_management_2022",
+      "trust_tier": "tier_2",
+      "normalized_field_name": "tilapia.preferred_pH_range",
+      "context_tags": [
+        "fish_only",
+        "warmwater",
+        "preferred_range"
+      ],
+      "status": "promote",
+      "notes": "Ideal pH for growth and survival."
+    },
+    {
+      "field": "tolerated_pH",
+      "value": {
+        "min": 5.0,
+        "max": 10.0,
+        "unit": "pH"
+      },
+      "source_id": "srac_283_life_history_biology",
+      "trust_tier": "tier_1",
+      "normalized_field_name": "tilapia.tolerated_pH_range_and_best_performance",
+      "context_tags": [
+        "fish_only",
+        "warmwater",
+        "tolerated_range"
+      ],
+      "status": "promote",
+      "notes": "Survivable range; do best around 6 to 9."
+    },
+    {
+      "field": "preferred_temp_c",
+      "value": {
+        "min": 27.0,
+        "max": 30.0,
+        "unit": "C"
+      },
+      "source_id": "worldfish_water_quality_management_2022",
+      "trust_tier": "tier_2",
+      "normalized_field_name": "tilapia.preferred_temperature_range_c",
+      "context_tags": [
+        "fish_only",
+        "warmwater",
+        "preferred_range"
+      ],
+      "status": "promote"
+    },
+    {
+      "field": "preferred_temp_c",
+      "value": {
+        "min": 27.0,
+        "max": 29.0,
+        "unit": "C"
+      },
+      "source_id": "srac_282_tank_culture",
+      "trust_tier": "tier_1",
+      "normalized_field_name": "tilapia.preferred_temperature_range_c",
+      "context_tags": [
+        "fish_only",
+        "tank_culture",
+        "growth_optimised"
+      ],
+      "status": "promote_with_context",
+      "notes": "Tank growth optimum, narrower than the broader preferred band."
+    },
+    {
+      "field": "tolerated_temp_c",
+      "value": {
+        "min": 25.0,
+        "max": 32.0,
+        "unit": "C"
+      },
+      "source_id": "srac_282_tank_culture",
+      "trust_tier": "tier_1",
+      "normalized_field_name": "tilapia.tolerated_temperature_range_c",
+      "context_tags": [
+        "fish_only",
+        "tank_culture",
+        "tolerated_range"
+      ],
+      "status": "promote"
+    },
+    {
+      "field": "minimum_dissolved_oxygen_mg_L",
+      "value": 5.0,
+      "unit": "mg/L",
+      "source_id": "srac_282_tank_culture",
+      "trust_tier": "tier_1",
+      "normalized_field_name": "tilapia.DO_operational_targets_and_stress_ladder",
+      "context_tags": [
+        "warmwater",
+        "operational_target",
+        "dissolved_oxygen"
+      ],
+      "status": "promote"
+    },
+    {
+      "field": "unionized_nh3_warning_mg_L",
+      "value": 0.08,
+      "unit": "mg/L NH3",
+      "source_id": "srac_283_life_history_biology",
+      "trust_tier": "tier_1",
+      "normalized_field_name": "tilapia.NH3_UIA_sensitivity_ladder",
+      "context_tags": [
+        "warmwater",
+        "NH3",
+        "warning_threshold"
+      ],
+      "status": "promote"
+    },
+    {
+      "field": "unionized_nh3_critical_mg_L",
+      "value": 0.2,
+      "unit": "mg/L NH3",
+      "source_id": "srac_283_life_history_biology",
+      "trust_tier": "tier_1",
+      "normalized_field_name": "tilapia.NH3_UIA_sensitivity_ladder",
+      "context_tags": [
+        "warmwater",
+        "NH3",
+        "critical_threshold",
+        "context_split"
+      ],
+      "status": "provisional",
+      "notes": "First mortalities may begin under prolonged exposure; context dependent."
+    },
+    {
+      "field": "nh3_upper_ceiling_guidance_mg_L",
+      "value": 1.0,
+      "unit": "mg/L NH3",
+      "source_id": "srac_282_tank_culture",
+      "trust_tier": "tier_1",
+      "normalized_field_name": "tilapia.NH3_UIA_sensitivity_ladder",
+      "context_tags": [
+        "warmwater",
+        "NH3",
+        "upper_guidance"
+      ],
+      "status": "promote"
+    },
+    {
+      "field": "temp_habitat_preferred_c",
+      "value": {
+        "min": 31.0,
+        "max": 36.0,
+        "unit": "C"
+      },
+      "source_id": "fao_nile_tilapia_species_info",
+      "trust_tier": "tier_1",
+      "normalized_field_name": "tilapia.extended_temperature_context",
+      "context_tags": [
+        "fish_only",
+        "extended_context",
+        "provisional"
+      ],
+      "status": "provisional",
+      "notes": "Extended habitat-preference context kept out of the core starter profile."
+    },
+    {
+      "field": "lethal_temp_low_c",
+      "value": {
+        "min": 10.0,
+        "max": 12.0,
+        "unit": "C"
+      },
+      "source_id": "fao_nile_tilapia_species_info",
+      "trust_tier": "tier_1",
+      "normalized_field_name": "tilapia.extended_temperature_context",
+      "context_tags": [
+        "fish_only",
+        "cold_stress",
+        "provisional"
+      ],
+      "status": "provisional",
+      "notes": "Cold-lethal context suitable for later stress-event modelling."
+    },
+    {
+      "field": "feeding_stops_below_temp_c",
+      "value": 17.2,
+      "unit": "C",
+      "source_id": "fao_nile_tilapia_species_info",
+      "trust_tier": "tier_1",
+      "normalized_field_name": "tilapia.extended_temperature_context",
+      "context_tags": [
+        "fish_only",
+        "feeding_behavior",
+        "provisional"
+      ],
+      "status": "provisional",
+      "notes": "Retained as provisional evidence rather than a generic payload blob."
+    }
+  ],
+  "provisional_evidence_notes": [
+    "Extended temperature and feeding-response anchors are kept provisional because they are useful for later stress-event mechanics but not required for the current starter profile."
+  ],
+  "generated_at_utc": "2026-04-05T01:23:55Z",
+  "runtime_sync": {
+    "scope": "species_evidence",
+    "generated_at_utc": "2026-04-14T16:13:16Z",
+    "canonical_source": "data/knowledge/species_evidence/fish/tilapia.evidence.json",
+    "runtime_target": "data/simulation/species_evidence/tilapia_evidence.json",
+    "ownership": "data/knowledge is canonical; data/simulation is a derived runtime mirror."
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "version": "0.1",
+  "status": "draft",
+  "source_basis": {
+    "type": "distilled_research_pack_unresolved_items",
+    "path": "data/sources/research_reports/distilled/Distilled_Research_Pack_Aquaponics_L1.md"
+  },
+  "open_questions": [
+    {
+      "ticket_id": "UQ-001",
+      "topic": "source_provenance_review",
+      "issue": "FAO small-scale aquaponic food production manual provenance and completeness review remains open",
+      "why_unresolved": "FAO-derived atomic facts now exist locally, but the remaining issue is verifying provenance coverage and completeness against the intended primary-text sections.",
+      "evidence_still_needed": "Review mapped FAO-derived atomic facts against the manual sections needed for pH, filtration, pumps/aeration, and monitoring targets.",
+      "source_section": "Unresolved item 1",
+      "priority": "high",
+      "status": "review_needed"
+    },
+    {
+      "ticket_id": "UQ-002",
+      "topic": "pump_power_anchor_conflict",
+      "issue": "Pump power draw anchor contradiction: 0.37 kW vs 0.74 kW at similar reported flow",
+      "why_unresolved": "Same UVI hosted-copy document reports different motor ratings across system versions or trials.",
+      "evidence_still_needed": "Identify which value corresponds to which UVI system configuration and whether it is nameplate or measured draw.",
+      "source_section": "Unresolved item 2",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "ticket_id": "UQ-003",
+      "topic": "tan_generation_model_conflict",
+      "issue": "TAN-from-feed alternative rule 2.2 lb NH3-N per 100 lb feed not reconciled with the protein-based equation",
+      "why_unresolved": "Reports flag it as provisional pending reconciliation of assumptions such as protein percent, assimilation, and solids removal.",
+      "evidence_still_needed": "Decide a single canonical TAN production model, with the protein-based model preferred and the alternative retained only as a cross-check.",
+      "source_section": "Unresolved item 3",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "ticket_id": "UQ-004",
+      "topic": "lettuce_ph_context_split",
+      "issue": "Lettuce preferred pH 6.0-7.0 in some small-system tables vs tight CEA optimum near 5.8",
+      "why_unresolved": "Lettuce report flags the 6-7 table values as context-dependent and potentially not trial-derived.",
+      "evidence_still_needed": "Decide whether to add a small-system or low-precision mode, or keep one global lettuce pH optimum.",
+      "source_section": "Unresolved item 4",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "ticket_id": "UQ-005",
+      "topic": "basil_low_ph_context_split",
+      "issue": "Basil tolerates pH as low as 4.0 in a short trial vs toxicity guidance below 5.8 in soilless substrate",
+      "why_unresolved": "Basil report flags likely differences by system type, nutrient recipe, and duration.",
+      "evidence_still_needed": "Decide whether to encode pH below 5.8 as disorder risk and reserve pH 4.0 for special-case experiments only.",
+      "source_section": "Unresolved item 5",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "ticket_id": "UQ-006",
+      "topic": "aeration_energy_model_gap",
+      "issue": "Missing direct energy-per-oxygenation anchors such as kg O2/kWh or blower curves in uploaded reports",
+      "why_unresolved": "Pump and aeration report provides only limited kW anchors from UVI; not enough for general energy modelling.",
+      "evidence_still_needed": "Tier 1-2 RAS or aquaponics engineering manuals, or peer-reviewed aeration efficiency studies, to parameterize energy models.",
+      "source_section": "Unresolved item 6",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "ticket_id": "UQ-007",
+      "topic": "dwc_depth_context_split",
+      "issue": "DWC depth anchors vary across contexts: 10-12 inches, 15-30 cm, and UVI 12-inch raft water depth",
+      "why_unresolved": "The corroboration reports support multiple depth anchors from different contexts rather than one universal DWC depth default.",
+      "evidence_still_needed": "Keep depth anchors split by small-scale, hydroponic baseline, and UVI-style commercial contexts unless a stronger unifying rule emerges.",
+      "source_section": "Reconciliation follow-up 1",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "ticket_id": "UQ-008",
+      "topic": "nft_biofilter_requirement_context_split",
+      "issue": "NFT biofilter requirement remains context-split between conditional wording and effectively required separate biofilter practice",
+      "why_unresolved": "Reports support low built-in nitrification in NFT and frequent separate-biofilter use, but not a single unconditional rule for every context.",
+      "evidence_still_needed": "Retain context-split handling unless a stronger architecture-specific sizing rule justifies a universal NFT biofilter requirement.",
+      "source_section": "Reconciliation follow-up 2",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "ticket_id": "UQ-009",
+      "topic": "solids_removal_strategy_context_split",
+      "issue": "Solids management remains split between high-efficiency removal and lower-removal mineralisation strategies",
+      "why_unresolved": "Both strategies are supported, but under different loading and management contexts rather than as one universal default.",
+      "evidence_still_needed": "Preserve strategy split and tie default selection to system loading, maintenance burden, and architecture context.",
+      "source_section": "Reconciliation follow-up 3",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "ticket_id": "UQ-010",
+      "topic": "lettuce_downy_mildew_wetness_window_split",
+      "issue": "Lettuce downy mildew uses both a 5-7 hour epidemiology window and an about-3-hour fast-infection context",
+      "why_unresolved": "The greenhouse corroboration report explicitly supports both windows in different disease-context framings.",
+      "evidence_still_needed": "Keep the fast-infection rule and the longer epidemiology window separate in models and controls rather than flattening them into one threshold.",
+      "source_section": "Reconciliation follow-up 4",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "ticket_id": "UQ-011",
+      "topic": "species_profile_compatibility_contract_cleanup",
+      "issue": "Species-profile compatibility cleanup is needed to separate runtime-only alias handling from canonical knowledge-field requirements.",
+      "why_unresolved": "Current runtime sync preserves legacy alias behavior, while canonical knowledge files should remain authoritative on canonical names without manual alias duplication.",
+      "evidence_still_needed": "Confirm which alias pairs stay runtime-only compatibility output and which names, if any, have a canonical requirement in data/knowledge/species/**.",
+      "source_section": "Compatibility follow-up 1",
+      "priority": "medium",
+      "status": "open"
+    }
+  ]
+}

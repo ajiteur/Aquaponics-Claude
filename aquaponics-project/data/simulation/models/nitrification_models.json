@@ -1,0 +1,141 @@
+{
+  "version": "0.1",
+  "status": "draft",
+  "source_basis": {
+    "type": "distilled_research_pack_only",
+    "path": "data/sources/research_reports/distilled/Distilled_Research_Pack_Aquaponics_L1.md"
+  },
+  "records": [
+    {
+      "model_id": "feed_to_tan_load",
+      "name": "Feed to TAN Production",
+      "kind": "formula",
+      "status": "draft",
+      "equation_text": "PTAN_kg_day = feed_kg_day * protein_fraction * 0.092",
+      "inputs": [
+        "feed_kg_day",
+        "protein_fraction"
+      ],
+      "outputs": [
+        "ptan_kg_day"
+      ],
+      "context_tags": [
+        "RAS_baseline",
+        "mass_balance",
+        "nitrification_stoichiometry"
+      ],
+      "simulation_use": {
+        "target_role": "daily_tan_generation_anchor",
+        "implementation_note": "Convert PTAN mass to concentration with system water volume and removal terms."
+      },
+      "notes": [
+        "Primary distilled-pack TAN generation anchor.",
+        "Alternative TAN-from-feed rules should remain cross-checks only."
+      ]
+    },
+    {
+      "model_id": "nitrification_stoichiometric_demands",
+      "name": "Nitrification Oxygen and Alkalinity Demand",
+      "kind": "coefficients",
+      "status": "draft",
+      "values": {
+        "oxygen_demand_g_o2_per_g_tan_n": 4.57,
+        "alkalinity_demand_g_caco3_per_g_tan_n": 7.14
+      },
+      "context_tags": [
+        "RAS_baseline",
+        "mass_balance",
+        "nitrification_stoichiometry"
+      ],
+      "simulation_use": {
+        "target_role": "oxygen_and_buffering_demand_from_tan_load"
+      },
+      "notes": [
+        "Use these as stoichiometric demand anchors driven by TAN-N oxidation."
+      ]
+    },
+    {
+      "model_id": "biofilter_feed_loading_capacities",
+      "name": "Biofilter Feed Loading Capacity Anchors",
+      "kind": "variant_capacity_table",
+      "status": "draft",
+      "variants": [
+        {
+          "variant_id": "biofilter_fluidized_sand",
+          "feed_loading_kg_feed_per_m3_media_day": {
+            "min": 16.0,
+            "max": 32.0
+          }
+        },
+        {
+          "variant_id": "biofilter_mbbr",
+          "feed_loading_kg_feed_per_m3_media_day": {
+            "min": 8.0,
+            "max": 16.0
+          }
+        },
+        {
+          "variant_id": "biofilter_bead_biofilter",
+          "feed_loading_kg_feed_per_m3_media_day": {
+            "min": 16.0,
+            "max": 32.0
+          },
+          "conditions": [
+            "frequent_washing_required"
+          ]
+        }
+      ],
+      "context_tags": [
+        "RAS_baseline",
+        "sizing_anchor",
+        "biofilter_variants"
+      ],
+      "simulation_use": {
+        "target_role": "variant_capacity_ceiling"
+      },
+      "notes": [
+        "Use feed-loading ranges as sizing anchors rather than exact guarantees."
+      ]
+    },
+    {
+      "model_id": "biofilter_startup_maturation_dynamics",
+      "name": "Biofilter Startup and Maturation Dynamics",
+      "kind": "startup_protocol",
+      "status": "draft",
+      "values": {
+        "fishless_cycling_tan_mg_l": {
+          "min": 3.0,
+          "max": 5.0
+        },
+        "alkalinity_target_mg_l_as_caco3": {
+          "min": 150.0,
+          "preferred_min": 200.0,
+          "preferred_max": 250.0
+        },
+        "preferred_pH": {
+          "min": 6.8,
+          "max": 7.2
+        },
+        "warm_temperature_speedup_c": 28.0
+      },
+      "phase_hooks": [
+        "ammonia_peak_before_nitrite_peak",
+        "nitrite_peak_after_lag",
+        "maturation_capacity_ramps_over_time"
+      ],
+      "context_tags": [
+        "RAS_baseline",
+        "startup",
+        "maturation_lag",
+        "temperature_sensitive"
+      ],
+      "simulation_use": {
+        "target_role": "biofilter_maturity_ramp",
+        "implementation_note": "Treat startup as a lagged increase in nitrification capacity influenced by pH, DO, alkalinity, and temperature."
+      },
+      "notes": [
+        "Do not model startup as instant full nitrification capacity."
+      ]
+    }
+  ]
+}

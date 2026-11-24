@@ -1,0 +1,39 @@
+{
+  "claims": [
+    {
+      "claim_id": "C1",
+      "statement": "Aquaponics combines fish culture with hydroponic plant production in a recirculating system.",
+      "domain": "aquaponics",
+      "claim_type": "definition",
+      "confidence": "high"
+    },
+    {
+      "claim_id": "C2",
+      "statement": "Fish waste and uneaten feed release ammonia into the water.",
+      "domain": "aquaponics",
+      "claim_type": "process",
+      "confidence": "high"
+    },
+    {
+      "claim_id": "C3",
+      "statement": "Nitrifying bacteria convert ammonia to nitrite and then nitrate.",
+      "domain": "aquaponics",
+      "claim_type": "process",
+      "confidence": "high"
+    },
+    {
+      "claim_id": "C4",
+      "statement": "Plants absorb nitrate as a nutrient source.",
+      "domain": "aquaponics",
+      "claim_type": "process",
+      "confidence": "high"
+    },
+    {
+      "claim_id": "C5",
+      "statement": "Low dissolved oxygen can reduce nitrification efficiency.",
+      "domain": "aquaponics",
+      "claim_type": "dependency",
+      "confidence": "high"
+    }
+  ]
+}

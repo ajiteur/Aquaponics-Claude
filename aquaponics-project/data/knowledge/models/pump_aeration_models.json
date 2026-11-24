@@ -1,0 +1,223 @@
+{
+  "version": "0.1",
+  "status": "draft",
+  "source_basis": {
+    "primary_sources": [
+      "data/sources/research_reports/distilled/Distilled_Research_Pack_Aquaponics_L1.md",
+      "data/sources/research_reports/distilled/Pumps and Aeration.md",
+      "data/sources/research_reports/markdown/Pumps and Aeration.md",
+      "data/sources/research_reports/raw/Pumps and aeration_Corroboration report for Aquaponics Layer 1.pdf"
+    ],
+    "canonical_owner": "data/knowledge/models/pump_aeration_models.json",
+    "ownership_note": "Canonical Layer 1 ownership is in data/knowledge. This is a primary knowledge file rather than a simulation mirror."
+  },
+  "records": [
+    {
+      "model_id": "pump_turnover_targets",
+      "name": "Pump Turnover Targets",
+      "kind": "target_table",
+      "status": "draft",
+      "targets": [
+        {
+          "parameter": "rearing_tank_design_target",
+          "value": 1.0,
+          "unit": "hours"
+        },
+        {
+          "parameter": "clarifier_design_target",
+          "value": 20.0,
+          "unit": "minutes"
+        }
+      ],
+      "context_tags": [
+        "aquaponics_specific",
+        "warmwater",
+        "commercial_archetype"
+      ]
+    },
+    {
+      "model_id": "pump_turnover_observed_examples",
+      "name": "Pump Turnover Observed Examples",
+      "kind": "observed_examples",
+      "status": "context_split",
+      "examples": [
+        {
+          "parameter": "rearing_tank_turnover_observed",
+          "range": {
+            "min": 0.8,
+            "max": 1.37
+          },
+          "unit": "hours"
+        },
+        {
+          "parameter": "rearing_tank_full_exchange_example",
+          "value": 1.33,
+          "unit": "hours"
+        }
+      ],
+      "context_tags": [
+        "aquaponics_specific",
+        "warmwater",
+        "commercial_archetype",
+        "context_split"
+      ],
+      "notes": [
+        "Observed values are kept separate from the nominal one-hour design target."
+      ]
+    },
+    {
+      "model_id": "pump_flow_anchors",
+      "name": "Pump Flow Anchors",
+      "kind": "anchor_table",
+      "status": "draft",
+      "anchors": [
+        {
+          "parameter": "flow_per_tank",
+          "value": 100.0,
+          "unit": "L/min"
+        },
+        {
+          "parameter": "flow_total_four_tanks",
+          "value": 100.0,
+          "unit": "gpm"
+        }
+      ],
+      "context_tags": [
+        "aquaponics_specific",
+        "warmwater",
+        "commercial_archetype"
+      ]
+    },
+    {
+      "model_id": "do_operational_thresholds",
+      "name": "Dissolved Oxygen Operational Thresholds",
+      "kind": "threshold_table",
+      "status": "draft",
+      "thresholds": [
+        {
+          "parameter": "fish_growth_target",
+          "threshold": {
+            "operator": ">=",
+            "value": 5.0
+          },
+          "unit": "mg/L"
+        },
+        {
+          "parameter": "biofilter_target",
+          "threshold": {
+            "operator": ">",
+            "value": 5.0
+          },
+          "unit": "mg/L"
+        },
+        {
+          "parameter": "low_action_threshold",
+          "threshold": {
+            "operator": "<",
+            "value": 5.0
+          },
+          "unit": "mg/L"
+        },
+        {
+          "parameter": "nitrifier_inefficiency_threshold",
+          "threshold": {
+            "operator": "<",
+            "value": 2.0
+          },
+          "unit": "mg/L"
+        }
+      ],
+      "context_tags": [
+        "aquaponics_specific",
+        "warmwater",
+        "dissolved_oxygen"
+      ]
+    },
+    {
+      "model_id": "co2_and_low_do_indicator_logic",
+      "name": "CO2 and Low-DO Indicator Logic",
+      "kind": "action_rule_table",
+      "status": "draft",
+      "rules": [
+        {
+          "parameter": "co2_high_action_threshold",
+          "threshold": {
+            "operator": ">",
+            "value": 20.0
+          },
+          "unit": "mg/L",
+          "action": [
+            "increase_aeration",
+            "increase_gas_stripping"
+          ]
+        },
+        {
+          "rule_id": "fish_low_do_behaviour_indicator",
+          "indicators": [
+            "surface_gulping",
+            "reduced_feeding",
+            "crowding_near_inflows_or_aeration"
+          ],
+          "interpretation": "treat_as_low_do_warning_even_before_hard_failure_thresholds"
+        }
+      ],
+      "context_tags": [
+        "aquaponics_specific",
+        "warmwater",
+        "gas_balance",
+        "behavioural_warning"
+      ]
+    },
+    {
+      "model_id": "backup_and_maintenance_patterns",
+      "name": "Backup and Maintenance Patterns",
+      "kind": "control_rule_table",
+      "status": "draft",
+      "rules": [
+        {
+          "rule_id": "power_backup_practice",
+          "pattern": [
+            "monthly_backup_service",
+            "weekly_generator_or_backup_exercise",
+            "phone_alarm_or_remote_alerting",
+            "mobile_or_secondary_backup_available"
+          ]
+        }
+      ],
+      "context_tags": [
+        "aquaponics_specific",
+        "risk_management",
+        "backup_power"
+      ]
+    },
+    {
+      "model_id": "pump_power_anchors",
+      "name": "Pump Power Anchors",
+      "kind": "anchor_table",
+      "status": "context_split",
+      "anchors": [
+        {
+          "parameter": "pump_power_example",
+          "value": 0.37,
+          "unit": "kW",
+          "status": "provisional"
+        },
+        {
+          "parameter": "pump_power_example_alt",
+          "value": 0.74,
+          "unit": "kW",
+          "status": "provisional"
+        }
+      ],
+      "context_tags": [
+        "aquaponics_specific",
+        "warmwater",
+        "commercial_archetype",
+        "context_split"
+      ],
+      "notes": [
+        "Power anchors remain provisional and version-split rather than being collapsed into one default."
+      ]
+    }
+  ]
+}

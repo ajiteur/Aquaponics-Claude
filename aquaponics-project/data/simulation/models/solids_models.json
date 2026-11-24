@@ -1,0 +1,94 @@
+{
+  "version": "0.1",
+  "status": "draft",
+  "source_basis": {
+    "type": "distilled_research_pack_only",
+    "path": "data/sources/research_reports/distilled/Distilled_Research_Pack_Aquaponics_L1.md"
+  },
+  "records": [
+    {
+      "model_id": "clarifier_hrt_design_targets",
+      "name": "Clarifier Hydraulic Retention Time Targets",
+      "kind": "design_band",
+      "status": "draft",
+      "values": {
+        "target_min_min": 15.0,
+        "target_max_min": 30.0,
+        "aquaponics_operational_anchor_min": 19.0,
+        "aquaponics_operational_anchor_max": 20.0,
+        "underperforming_reference_min": 9.5,
+        "unit": "minutes"
+      },
+      "context_tags": [
+        "RAS_baseline",
+        "aquaponics-specific",
+        "warmwater",
+        "small_to_commercial"
+      ],
+      "simulation_use": {
+        "target_role": "clarifier_capture_efficiency_modifier"
+      },
+      "notes": [
+        "Capture should improve inside the target band and weaken below the low-end anchor."
+      ]
+    },
+    {
+      "model_id": "settler_performance_tss_capture",
+      "name": "Settler TSS Capture Performance Anchors",
+      "kind": "variant_performance_table",
+      "status": "draft",
+      "values": {
+        "surface_loading_rate_m3_s_per_m2": 0.0031,
+        "variants": [
+          {
+            "variant_id": "solids_filter_radial_flow_settler",
+            "tss_removal_fraction": 0.779
+          },
+          {
+            "variant_id": "solids_filter_swirl_separator",
+            "tss_removal_fraction": 0.371
+          }
+        ]
+      },
+      "context_tags": [
+        "RAS_baseline",
+        "coolwater_study",
+        "performance_anchor",
+        "solids_capture"
+      ],
+      "simulation_use": {
+        "target_role": "variant_specific_tss_capture_anchor"
+      },
+      "notes": [
+        "Radial-flow should outperform swirl at the tested loading anchor."
+      ]
+    },
+    {
+      "model_id": "solids_carryover_penalties",
+      "name": "Solids Carryover Penalty Hooks",
+      "kind": "penalty_rules",
+      "status": "draft",
+      "rules": [
+        {
+          "trigger": "clarifier_hrt_below_target_or_low_capture_variant",
+          "effects": [
+            "increase_downstream_clogging_risk",
+            "increase_biofilter_loading",
+            "increase_disease_risk"
+          ]
+        }
+      ],
+      "context_tags": [
+        "aquaponics-specific",
+        "downstream_risk",
+        "solids_capture"
+      ],
+      "simulation_use": {
+        "target_role": "secondary_risk_modifier"
+      },
+      "notes": [
+        "Distilled pack recommends modeling solids removal ahead of biofilter and hydroponics, with carryover penalties when capture is weak."
+      ]
+    }
+  ]
+}

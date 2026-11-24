@@ -1,0 +1,607 @@
+{
+  "generated_from": "research_interventions_bot",
+  "issue": "Find trusted interventions for reducing high TAN and unionized NH3 in a coupled tilapia-lettuce aquaponics system over a 7-day horizon.",
+  "model": "gpt-5",
+  "reasoning_effort": "medium",
+  "context": {
+    "final_day": {
+      "day": 7,
+      "scenario_file": "C:\\Users\\ajith\\Documents\\Aquaponics\\aquaponics-project\\data\\update_logs\\baseline_scenario_backup_20260405T103459Z_day_1_day_2_day_3_day_4_day_5_day_6_day_7.json",
+      "pH": 6.9,
+      "tan_mg_L": 2.247,
+      "unionized_nh3_mg_L": 0.187,
+      "nitrate_mg_L": 49.697,
+      "fish_biomass_kg": 8.595,
+      "avg_fish_weight_g": 85.95,
+      "plant_avg_biomass_g": 35.4,
+      "daily_operating_cost": 1.33,
+      "system_stability_score": 0.67
+    },
+    "learning_packet_summary": {
+      "simulation_observations": 3,
+      "model_update_proposals": 3,
+      "parameter_library_proposals": 3
+    }
+  },
+  "digest": {
+    "problem_focus": "Reduce dangerously high TAN and unionized NH3 in a coupled tilapia\u2013lettuce aquaponics system over the next 7 days, while keeping pH stable near the aquaponics compromise and supporting nitrification.",
+    "executive_summary": "Your current unionized NH3 (0.187 mg/L) exceeds commonly cited damage thresholds for fish; UF/IFAS notes that UIA above 0.05 mg/L can injure fish tissues and risk mortality as levels increase. Immediate steps are warranted over the next 24\u201372 hours. Core emergency actions supported by university extensions include: stop/reduce feed, partial water exchange with matched source water, boost aeration to keep DO \u22655\u20136 mg/L, remove accumulated solids, and (carefully) nudge pH slightly lower to reduce the NH3 fraction while maintaining alkalinity for nitrification. Medium-term stability comes from right-sizing/maintaining biofiltration, keeping alkalinity ~100\u2013180 mg/L as CaCO3, adhering to UVI feeding-rate ratios, and ensuring adequate hydraulic turnover. Citations: UF/IFAS FA031 emphasizes feeding cuts and 25\u201350% water changes for tanks, the pH/temperature control of UIA, and damage thresholds; UF/IFAS FA002 highlights DO targets; UF/IFAS FA099 and OK State Extension specify biofilter conditions and alkalinity; UVI guidelines reinforce pH ~7.0, solids removal, aeration, and base additions (Ca(OH)2/KOH). In acute spikes, side-stream zeolite can temporarily remove ammonium in freshwater RAS, but it competes with plants for N and requires regeneration. Citations: FA031; FA002; FA099; OK State HLA\u20116729; UVI principles; SRAC 454; Springer RAS chapter on ion exchange. (Sources: ([edis.ifas.ufl.edu](https://edis.ifas.ufl.edu/publication/FA031?utm_source=openai)))",
+    "interventions": [
+      {
+        "intervention_name": "Immediate feed cessation or sharp reduction (24\u201372 h)",
+        "problem_target": [
+          "high_tan",
+          "high_nh3",
+          "nitrification_instability"
+        ],
+        "mechanism": "Cuts endogenous ammonia excretion from protein catabolism and prevents uneaten feed decomposition, allowing nitrification to catch up.",
+        "expected_effects": [
+          "TAN decline within 24\u201348 h",
+          "Reduced unionized NH3 risk",
+          "Lower oxygen demand from heterotrophs"
+        ],
+        "when_to_use": "Emergency action whenever TAN >0 and UIA >0.05 mg/L; apply now (UIA 0.187 mg/L).",
+        "tradeoffs_or_costs": [
+          "Short-term growth reduction",
+          "Lower nutrient input to plants during pause"
+        ],
+        "source_type": "university extension fact sheet",
+        "trust_tier": "tier_1",
+        "source_name": "UF/IFAS FA031 Ammonia in Aquatic Systems",
+        "source_quote_or_close_paraphrase": "\u201cThe first thing to do when ammonia is present\u2026 is to reduce or stop feeding\u2026 Overfeeding is a major cause\u2026 A 25% to 50% water change will help [in tanks].\u201d Also, UIA rises with pH/temperature and UIA >0.05 mg/L can damage fish tissues. ([edis.ifas.ufl.edu](https://edis.ifas.ufl.edu/publication/FA031?utm_source=openai))",
+        "recommendation_status": "provisional_operational_guidance"
+      },
+      {
+        "intervention_name": "Partial water exchange with low\u2011ammonia, temperature/pH\u2011matched source water",
+        "problem_target": [
+          "high_tan",
+          "high_nh3"
+        ],
+        "mechanism": "Dilutes TAN and UIA immediately; lowers toxicity while biofilters recover.",
+        "expected_effects": [
+          "Instant reduction in TAN/UIA proportional to exchange volume",
+          "Buys time for nitrification to stabilize"
+        ],
+        "when_to_use": "Emergency action when UIA is acutely high or fish exhibit stress; feasible in tank/coupled systems.",
+        "tradeoffs_or_costs": [
+          "Water and heating/cooling cost",
+          "Risk of shock if source water is not matched",
+          "Not a root-cause fix"
+        ],
+        "source_type": "university extension fact sheet",
+        "trust_tier": "tier_1",
+        "source_name": "UF/IFAS FA031 Ammonia in Aquatic Systems; OK State HLA\u20116729",
+        "source_quote_or_close_paraphrase": "UF/IFAS: \u201cA 25% to 50% water change will help remove some ammonia [in tanks]\u2026.\u201d OK State: If ammonia is high, treatments include \u201creduction in feeding, removal of solids buildup, or performing a water exchange.\u201d ([edis.ifas.ufl.edu](https://edis.ifas.ufl.edu/publication/FA031?utm_source=openai))",
+        "recommendation_status": "provisional_operational_guidance"
+      },
+      {
+        "intervention_name": "Boost aeration/oxygenation to keep DO \u22655\u20136 mg/L system\u2011wide",
+        "problem_target": [
+          "high_tan",
+          "high_nh3",
+          "nitrification_instability"
+        ],
+        "mechanism": "Supports nitrifiers (oxygen\u2011requiring) and reduces fish stress, improving ammonia oxidation to nitrite/nitrate.",
+        "expected_effects": [
+          "Improved nitrification rate",
+          "Lower TAN over 1\u20133 days",
+          "Reduced fish stress signs"
+        ],
+        "when_to_use": "Immediate and ongoing; verify morning DO and biofilter DO.",
+        "tradeoffs_or_costs": [
+          "Higher energy use",
+          "Aeration hardware cost/maintenance"
+        ],
+        "source_type": "university extension fact sheet and institutional guidance",
+        "trust_tier": "tier_1",
+        "source_name": "UF/IFAS FA002 Dissolved Oxygen; UF/IFAS FA031; UVI Aquaponics Principles",
+        "source_quote_or_close_paraphrase": "UF/IFAS: Emergency aeration should be supplied whenever DO falls below ~4 mg/L; low DO limits nitrifiers. UVI recommends maintaining \u22655 mg/L DO for fish and root zones. ([edis.ifas.ufl.edu](https://edis.ifas.ufl.edu/publication/FA002?utm_source=openai))",
+        "recommendation_status": "provisional_operational_guidance"
+      },
+      {
+        "intervention_name": "Aggressive solids removal and filter backwashing",
+        "problem_target": [
+          "high_tan",
+          "nitrification_instability"
+        ],
+        "mechanism": "Prevents mineralization of trapped organics into ammonia and avoids anaerobic zones that can destabilize N cycling.",
+        "expected_effects": [
+          "Lower background TAN production",
+          "More stable DO and biofilter performance"
+        ],
+        "when_to_use": "Immediate (daily for several days), then on a fixed schedule.",
+        "tradeoffs_or_costs": [
+          "Labor/time; potential nutrient loss with sludge removal"
+        ],
+        "source_type": "institutional guideline and university extension",
+        "trust_tier": "tier_1",
+        "source_name": "UVI Aquaponics Principles; OK State HLA\u20116729",
+        "source_quote_or_close_paraphrase": "UVI: Remove solids before hydroponics; decomposing solids \u201cconsume oxygen and produce ammonia.\u201d OK State: \u201cSolid waste removal takes place through backwashing\u2026 If solids accumulate\u2026 ammonia concentrations [increase].\u201d ([uvi.edu](https://www.uvi.edu/research/agricultural-experiment-station/aquaculture-home/aquaponic-systems/index.html?utm_source=openai))",
+        "recommendation_status": "provisional_operational_guidance"
+      },
+      {
+        "intervention_name": "Temporary, careful pH nudging slightly downward (e.g., 6.9 \u2192 6.5\u20136.7) while maintaining alkalinity",
+        "problem_target": [
+          "high_nh3",
+          "nitrification_instability"
+        ],
+        "mechanism": "Lowers the fraction of TAN present as toxic NH3; alkalinity must remain \u2265100 mg/L to sustain nitrification.",
+        "expected_effects": [
+          "Immediate reduction in unionized NH3 without changing TAN",
+          "Maintained nitrification if alkalinity buffered"
+        ],
+        "when_to_use": "Emergency moderation of UIA when pH is on the high side of the aquaponics range; then return to ~6.8\u20137.0.",
+        "tradeoffs_or_costs": [
+          "Over\u2011acidification can slow nitrification; acids consume alkalinity; may affect plant nutrient solubility"
+        ],
+        "source_type": "university extension fact sheets and institutional guideline",
+        "trust_tier": "tier_1",
+        "source_name": "UF/IFAS FA031; UF/IFAS SS538 (Water Quality Notes: pH); UF/IFAS FA099; UVI Aquaponics Principles",
+        "source_quote_or_close_paraphrase": "UF/IFAS: The UIA fraction increases with higher pH and temperature; damage occurs above ~0.05 mg/L UIA. FA099: Nitrifiers function best near pH ~7.2\u20138.2 and need alkalinity ~100\u2013180 mg/L. UVI: pH ~7.0 is recommended as a compromise in aquaponics. ([edis.ifas.ufl.edu](https://edis.ifas.ufl.edu/publication/FA031?utm_source=openai))",
+        "recommendation_status": "provisional_operational_guidance"
+      },
+      {
+        "intervention_name": "Slight water temperature reduction (e.g., 1\u20133 \u00b0C within species tolerance)",
+        "problem_target": [
+          "high_nh3"
+        ],
+        "mechanism": "Reduces the NH3 fraction of TAN; cooler water shifts equilibrium toward NH4+.",
+        "expected_effects": [
+          "Lower UIA at the same TAN and pH",
+          "Potential short\u2011term relief from toxicity"
+        ],
+        "when_to_use": "Emergency moderation of UIA during acute spikes; avoid dropping below optimal ranges for tilapia/bacteria.",
+        "tradeoffs_or_costs": [
+          "Cooling energy cost; excessively low temperatures can slow nitrification and plant growth"
+        ],
+        "source_type": "university extension fact sheets",
+        "trust_tier": "tier_1",
+        "source_name": "UF/IFAS FA031; UF/IFAS FA119 (transport ammonia discussion)",
+        "source_quote_or_close_paraphrase": "UF/IFAS notes the UIA portion rises with temperature; conversely, lower temperature reduces UIA at the same TAN and pH. FA119 illustrates pH/temperature shifts in the NH3/NH4+ balance. ([edis.ifas.ufl.edu](https://edis.ifas.ufl.edu/publication/FA031?utm_source=openai))",
+        "recommendation_status": "experimental_scenario_tuning"
+      },
+      {
+        "intervention_name": "Side\u2011stream zeolite (ion\u2011exchange) to temporarily strip ammonium in freshwater",
+        "problem_target": [
+          "high_tan",
+          "high_nh3"
+        ],
+        "mechanism": "Clinoptilolite and similar media exchange NH4+ from water, lowering TAN and thereby UIA; media must be regenerated.",
+        "expected_effects": [
+          "Rapid TAN reduction in a bypass loop",
+          "Short\u2011term risk mitigation while biofilter/management corrections take effect"
+        ],
+        "when_to_use": "Emergency/short\u2011term in freshwater systems when UIA is acutely high; remove after stabilization to preserve plant N supply.",
+        "tradeoffs_or_costs": [
+          "Removes plant-available N; regeneration with brine; media and plumbing costs"
+        ],
+        "source_type": "peer\u2011reviewed book chapter and journal article",
+        "trust_tier": "tier_2",
+        "source_name": "Recirculating Aquaculture Technologies (Springer); Applied Water Science (Springer)",
+        "source_quote_or_close_paraphrase": "Springer RAS chapter: Ion exchange with zeolites can remove ammonia in freshwater, but media saturates and requires regeneration. Recent open\u2011access research reports effective TAN reductions using conditioned natural adsorbents (e.g., zeolite). ([link.springer.com](https://link.springer.com/chapter/10.1007/978-3-030-15943-6_3?utm_source=openai))",
+        "recommendation_status": "experimental_scenario_tuning"
+      },
+      {
+        "intervention_name": "Increase/seed biofiltration and maintain alkalinity \u2265100 mg/L with adequate DO",
+        "problem_target": [
+          "high_tan",
+          "nitrification_instability"
+        ],
+        "mechanism": "More biofilm surface area and proper conditions (alkalinity, DO, temperature, pH) raise ammonia oxidation capacity.",
+        "expected_effects": [
+          "Faster TAN conversion to nitrite/nitrate over days\u2013weeks",
+          "Greater stability against future load spikes"
+        ],
+        "when_to_use": "Medium\u2011term fix when TAN persists or biofilter is young/overloaded; seed from established systems or reputable products.",
+        "tradeoffs_or_costs": [
+          "Media and pump energy costs; maturation time for nitrifiers"
+        ],
+        "source_type": "university extension fact sheets",
+        "trust_tier": "tier_1",
+        "source_name": "SRAC 4502 (How to Start a Biofilter); UF/IFAS FA099; OK State Aquaponics Biofiltration",
+        "source_quote_or_close_paraphrase": "SRAC 4502 explains starting/seeding biofilters and the role of high specific surface area. FA099: nitrifiers work best near pH 7.2\u20138.2 and require alkalinity ~100\u2013180 mg/L. OK State: biofilters perform optimally with pH 7\u20139, saturated DO, and total alkalinity \u2265100 mg/L. ([srac.tamu.edu](https://srac.tamu.edu/fact-sheets/serve/241?utm_source=openai))",
+        "recommendation_status": "provisional_operational_guidance"
+      },
+      {
+        "intervention_name": "Adhere to UVI feeding\u2011rate ratio and ensure adequate hydraulic exchange",
+        "problem_target": [
+          "high_tan",
+          "nitrification_instability"
+        ],
+        "mechanism": "Balances feed\u2011N input with plant and biofilter treatment capacity; adequate turnover prevents local hotspots.",
+        "expected_effects": [
+          "Lower chronic TAN accumulation",
+          "More stable pH via steady nitrification and buffering"
+        ],
+        "when_to_use": "Medium\u2011term tuning; re\u2011evaluate after the acute episode to prevent recurrence.",
+        "tradeoffs_or_costs": [
+          "May require staged cohorts and scheduling discipline",
+          "Potentially slower fish growth if feed is capped by plant area"
+        ],
+        "source_type": "institutional guideline (UVI) and university extension (SRAC aquaponics)",
+        "trust_tier": "tier_1",
+        "source_name": "UVI Aquaponics Principles; SRAC 454 Aquaponics\u2014Integrating Fish and Plant Culture",
+        "source_quote_or_close_paraphrase": "UVI: Optimum raft feeding\u2011rate ratio ~60\u2013100 g feed m\u00b2\u207b\u00b9 day\u207b\u00b9; maintain rearing\u2011tank exchange \u22481 h; pH ~7.0 compromise. SRAC 454 details aquaponics integration and nitrogen transformations. ([uvi.edu](https://www.uvi.edu/research/agricultural-experiment-station/aquaculture-home/aquaponic-systems/index.html?utm_source=openai))",
+        "recommendation_status": "provisional_operational_guidance"
+      }
+    ],
+    "recommended_tuning_ideas": [
+      {
+        "setting": "Feeding rate",
+        "suggested_change": "Pause feeding for 48 hours; then resume at ~60\u201370% of prior ration for 2\u20133 days, gradually normalizing as UIA <0.05 mg/L and TAN <1 mg/L.",
+        "reason": "Reduces immediate ammonia loading so nitrification can catch up; UF/IFAS recommends reducing/stopping feed when ammonia is present. ([edis.ifas.ufl.edu](https://edis.ifas.ufl.edu/publication/FA031?utm_source=openai))"
+      },
+      {
+        "setting": "Water exchange",
+        "suggested_change": "One-time 30\u201340% exchange with dechlorinated, temperature- and pH\u2011matched water today; re-check TAN/UIA 6\u201312 h later.",
+        "reason": "Directly dilutes TAN/UIA during acute spike; UF/IFAS notes 25\u201350% water changes help in tanks. ([edis.ifas.ufl.edu](https://edis.ifas.ufl.edu/publication/FA031?utm_source=openai))"
+      },
+      {
+        "setting": "Aeration/DO",
+        "suggested_change": "Add/boost air stones or blower to maintain DO \u22656 mg/L in fish tank and biofilter, especially pre\u2011dawn.",
+        "reason": "Nitrifiers and fish require high DO; emergency aeration advised below ~4\u20135 mg/L. ([edis.ifas.ufl.edu](https://edis.ifas.ufl.edu/publication/FA002?utm_source=openai))"
+      },
+      {
+        "setting": "pH control and alkalinity",
+        "suggested_change": "Lower pH gently from 6.9 to ~6.5\u20136.7 over 6\u201312 h (e.g., careful acid dosing or CO2); keep total alkalinity \u2265100 mg/L; after UIA subsides, rebuffer to ~6.8\u20137.0 with alternating KOH/Ca(OH)2.",
+        "reason": "Lower pH reduces the NH3 fraction, but nitrification needs buffering; UVI recommends pH ~7.0 and base additions; UF/IFAS details pH/temperature effects and alkalinity needs. ([uvi.edu](https://www.uvi.edu/research/agricultural-experiment-station/aquaculture-home/aquaponic-systems/index.html?utm_source=openai))"
+      },
+      {
+        "setting": "Temperature",
+        "suggested_change": "If current water \u226527\u201328 \u00b0C, reduce by ~2\u20133 \u00b0C within tilapia tolerance and monitor UIA.",
+        "reason": "Lower temperature shifts TAN toward NH4+, reducing UIA at a given TAN/pH; UF/IFAS shows UIA increases with temperature. ([edis.ifas.ufl.edu](https://edis.ifas.ufl.edu/publication/FA119?utm_source=openai))"
+      },
+      {
+        "setting": "Solids management",
+        "suggested_change": "Backwash/flush clarifiers and mechanical filters daily for the next 3\u20135 days; remove settled sludge; inspect for dead fish/plant debris.",
+        "reason": "Decomposing solids consume oxygen and generate ammonia; backwashing prevents ammonia shock. ([uvi.edu](https://www.uvi.edu/research/agricultural-experiment-station/aquaculture-home/aquaponic-systems/index.html?utm_source=openai))"
+      },
+      {
+        "setting": "Biofilter capacity",
+        "suggested_change": "Add high\u2011surface\u2011area media (e.g., +10\u201320% volume) or seed from a stable system; verify alkalinity (\u2265100 mg/L), pH (~6.8\u20137.2), and DO (saturated) through the biofilter.",
+        "reason": "Expands ammonia oxidation capacity and stabilizes nitrification under recommended conditions. ([srac.tamu.edu](https://srac.tamu.edu/fact-sheets/serve/241?utm_source=openai))"
+      },
+      {
+        "setting": "Short\u2011term TAN scrub (optional)",
+        "suggested_change": "Install a side\u2011stream zeolite canister/reactor for 24\u201372 h, then remove or regenerate; monitor plant N needs.",
+        "reason": "Ion exchange can quickly lower TAN in freshwater but competes with plants for N and requires regeneration. ([link.springer.com](https://link.springer.com/chapter/10.1007/978-3-030-15943-6_3?utm_source=openai))"
+      },
+      {
+        "setting": "Feeding rate ratio (design balance)",
+        "suggested_change": "Re\u2011check weekly feed input versus plant area against UVI\u2019s raft guideline (~60\u2013100 g feed m\u00b2\u207b\u00b9 day\u207b\u00b9) and adjust cohorts to steady the load.",
+        "reason": "Keeps waste production aligned with plant/biofilter capacity to prevent TAN rebounds. ([uvi.edu](https://www.uvi.edu/research/agricultural-experiment-station/aquaculture-home/aquaponic-systems/index.html?utm_source=openai))"
+      }
+    ],
+    "notes_for_atomic_facts": [
+      "UF/IFAS indicates that any detectable ammonia signals imbalance; UIA above ~0.05 mg/L can damage fish tissues, with higher levels increasing risk. ([edis.ifas.ufl.edu](https://edis.ifas.ufl.edu/publication/FA031?utm_source=openai))",
+      "UIA fraction rises with increasing pH and temperature; lowering either reduces NH3 toxicity at a given TAN. ([edis.ifas.ufl.edu](https://edis.ifas.ufl.edu/publication/FA031?utm_source=openai))",
+      "Nitrifiers perform best near pH ~7.2\u20138.2 and require alkalinity roughly 100\u2013180 mg/L; low alkalinity impairs nitrification. ([edis.ifas.ufl.edu](https://edis.ifas.ufl.edu/publication/FA099?utm_source=openai))",
+      "UVI recommends pH ~7.0 in aquaponics as a compromise and routine base additions (Ca(OH)2 and KOH); solids removal prevents oxygen demand and ammonia production. ([uvi.edu](https://www.uvi.edu/research/agricultural-experiment-station/aquaculture-home/aquaponic-systems/index.html?utm_source=openai))",
+      "Biofilters in aquaponics/RAS perform optimally with saturated DO, pH 7\u20139, and total alkalinity \u2265100 mg/L. ([extension.okstate.edu](https://extension.okstate.edu/fact-sheets/recirculating-aquaculture-tank-production-systems-aquaponics-integrating-fish-and-plant-culture.html?utm_source=openai))",
+      "Emergency measures commonly endorsed by extensions for high TAN/NH3 are: reduce/stop feeding, partial water exchange (25\u201350% in tanks), boost aeration, and remove solids. ([edis.ifas.ufl.edu](https://edis.ifas.ufl.edu/publication/FA031?utm_source=openai))",
+      "Zeolite (ion exchange) can temporarily remove ammonium in freshwater RAS but needs regeneration and reduces plant-available N. ([link.springer.com](https://link.springer.com/chapter/10.1007/978-3-030-15943-6_3?utm_source=openai))"
+    ]
+  },
+  "sources": [
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://www.uvi.edu/research/agricultural-experiment-station/aquaculture-home/aquaponic-systems/index.html"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://www.uvi.edu/academics/school-of-agriculture/programs/aquaponics/index.html"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://www.uvi.edu/research/agricultural-experiment-station/aquaculture-home/aquaponic-systems/application.html"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://agris.fao.org/search/en/providers/122413/records/68b6b35c68d9e68067002dda"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://agris.fao.org/search/en/providers/122535/records/65defc0d4c5aef494fdeeafd"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://agris.fao.org/search/en/providers/122535/records/65deb62563b8185d9ca92ca1"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://edis.ifas.ufl.edu/publication/FA119"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://agris.fao.org/search/en/records/65df9f1b4c5aef494fe3a7ec"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://edis.ifas.ufl.edu/publication/FA031"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://edis.ifas.ufl.edu/publication/FA264"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://edis.ifas.ufl.edu/publication/FA099"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://srac.tamu.edu/fact-sheets/serve/241"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://srac.tamu.edu/fact-sheets/serve/169"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://srac.tamu.edu/fact-sheets/serve/102"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://srac.tamu.edu/fact-sheets/serve/57"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://srac.tamu.edu/categories/view/24"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://srac.tamu.edu/categories/view/25"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://srac.tamu.edu/fact-sheets"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://edis.ifas.ufl.edu/publication/HS1202"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://edis.ifas.ufl.edu/publication/SS500"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://edis.ifas.ufl.edu/publication/HS1490"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://srac.tamu.edu/fact-sheets/serve/111"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://edis.ifas.ufl.edu/publication/FA101"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://edis.ifas.ufl.edu/publication/FA028"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://edis.ifas.ufl.edu/publication/SS538"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://edis.ifas.ufl.edu/publication/FA031/pdf"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://edis.ifas.ufl.edu/publication/FA002"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://extension.okstate.edu/fact-sheets/recirculating-aquaculture-tank-production-systems-aquaponics-integrating-fish-and-plant-culture.html"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://extension.okstate.edu/fact-sheets/water-gardens-a-low-management-approach.html"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://extension.okstate.edu/fact-sheets/nitrification-and-maintenance-in-media-bed-aquaponics.html"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://extension.okstate.edu/fact-sheets/fish-kills.html"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://extension.okstate.edu/fact-sheets/water-gardens"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://extension.okstate.edu/fact-sheets/aquaculture-realities-and-potentials-when-getting-started"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://extension.okstate.edu/fact-sheets/ammoniation-of-low-quality-roughages"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://www.mdpi.com/2073-4395/8/3/27"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/9828260/"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39026304/"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38692129/"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://www.mdpi.com/2073-4441/15/24/4310"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://www.mdpi.com/2071-1050/9/4/592"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20116455/"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://www.mdpi.com/2073-4441/12/5/1259"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://srac.tamu.edu/fact-sheets/serve/302"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://srac.tamu.edu/fact-sheets/serve/264"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://srac.tamu.edu/fact-sheets/serve/119"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://srac.tamu.edu/fact-sheets/serve/16"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://srac.tamu.edu/fact-sheets/serve/115"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://srac.tamu.edu/fact-sheets/serve/205"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://link.springer.com/article/10.1007/s13201-025-02686-w"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://link.springer.com/article/10.1007/s00284-021-02358-3"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://link.springer.com/article/10.1007/s43832-025-00226-w"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://link.springer.com/chapter/10.1007/978-3-030-15943-6_3"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://srac.tamu.edu/fact-sheets/serve/105"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://srac.tamu.edu/fact-sheets/serve/284"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://srac.tamu.edu/fact-sheets/serve/289"
+    },
+    {
+      "type": "url",
+      "title": null,
+      "url": "https://srac.tamu.edu/categories/view/37"
+    },
+    {
+      "type": "url_citation",
+      "title": "FA16/FA031: Ammonia in Aquatic Systems",
+      "url": "https://edis.ifas.ufl.edu/publication/FA031?utm_source=openai"
+    },
+    {
+      "type": "url_citation",
+      "title": "FA27/FA002: Dissolved Oxygen for Fish Production",
+      "url": "https://edis.ifas.ufl.edu/publication/FA002?utm_source=openai"
+    },
+    {
+      "type": "url_citation",
+      "title": "Aquaponic Systems",
+      "url": "https://www.uvi.edu/research/agricultural-experiment-station/aquaculture-home/aquaponic-systems/index.html?utm_source=openai"
+    },
+    {
+      "type": "url_citation",
+      "title": "Recirculating Aquaculture Technologies | Springer Nature Link",
+      "url": "https://link.springer.com/chapter/10.1007/978-3-030-15943-6_3?utm_source=openai"
+    },
+    {
+      "type": "url_citation",
+      "title": "SRAC Publication No. 4502",
+      "url": "https://srac.tamu.edu/fact-sheets/serve/241?utm_source=openai"
+    },
+    {
+      "type": "url_citation",
+      "title": "FA-119/FA119: On-Farm Transport of Ornamental Fish",
+      "url": "https://edis.ifas.ufl.edu/publication/FA119?utm_source=openai"
+    },
+    {
+      "type": "url_citation",
+      "title": "Cir 120/FA099: Fish Health Management Considerations in Recirculating Aquaculture Systems\u2014Part 1: Introduction and General Principles",
+      "url": "https://edis.ifas.ufl.edu/publication/FA099?utm_source=openai"
+    },
+    {
+      "type": "url_citation",
+      "title": "Recirculating Aquaculture Tank Production Systems: Aquaponics\u2014Integrating Fish and Plant Culture | Oklahoma State University",
+      "url": "https://extension.okstate.edu/fact-sheets/recirculating-aquaculture-tank-production-systems-aquaponics-integrating-fish-and-plant-culture.html?utm_source=openai"
+    }
+  ]
+}

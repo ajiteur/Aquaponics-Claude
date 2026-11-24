@@ -1,0 +1,161 @@
+{
+  "species_id": "plant_basil",
+  "generated_at_utc": "2026-04-05T18:20:50Z",
+  "target_fields": [
+    "preferred_pH",
+    "tolerated_pH",
+    "preferred_temp_c",
+    "tolerated_temp_c",
+    "nitrate_demand_level",
+    "growth_notes",
+    "stress_notes",
+    "high_pH_nutrient_lockout_notes",
+    "low_pH_sensitivity_notes"
+  ],
+  "evidence_records": [
+    {
+      "field": "preferred_pH",
+      "value": {
+        "min": 5.8,
+        "max": 6.2,
+        "unit": "pH"
+      },
+      "source_id": "basil_corroboration_report_2026",
+      "trust_tier": "tier_1_2_synthesis",
+      "status": "promote",
+      "notes": "Hydroponic or soilless plant-optimized preferred pH band."
+    },
+    {
+      "field": "tolerated_pH",
+      "value": {
+        "min": 5.5,
+        "max": 6.5,
+        "unit": "pH"
+      },
+      "source_id": "basil_corroboration_report_2026",
+      "trust_tier": "tier_1_2_synthesis",
+      "status": "promote",
+      "notes": "Standard hydroponic operational tolerance band."
+    },
+    {
+      "field": "aquaponics_operating_pH_context",
+      "value": {
+        "min": 6.9,
+        "max": 7.6,
+        "unit": "pH"
+      },
+      "source_id": "basil_corroboration_report_2026",
+      "trust_tier": "tier_1_2_synthesis",
+      "status": "promote_with_context",
+      "notes": "Aquaponics system-optimized pH range under nitrification constraints."
+    },
+    {
+      "field": "preferred_temp_c",
+      "value": {
+        "min": 26.0,
+        "max": 28.0,
+        "unit": "C"
+      },
+      "source_id": "basil_corroboration_report_2026",
+      "trust_tier": "tier_1_2_synthesis",
+      "status": "promote",
+      "notes": "Preferred air temperature range for basil growth."
+    },
+    {
+      "field": "preferred_rootzone_temp_c",
+      "value": {
+        "value": 27.5,
+        "unit": "C"
+      },
+      "source_id": "basil_corroboration_report_2026",
+      "trust_tier": "tier_1_2_synthesis",
+      "status": "promote",
+      "notes": "Preferred nutrient solution or root-zone temperature."
+    },
+    {
+      "field": "cold_stress_threshold_c",
+      "value": 10.0,
+      "source_id": "basil_corroboration_report_2026",
+      "trust_tier": "tier_1_2_synthesis",
+      "status": "promote",
+      "notes": "Chilling injury risk begins below about 10 C."
+    },
+    {
+      "field": "severe_cold_injury_c",
+      "value": 5.0,
+      "source_id": "basil_corroboration_report_2026",
+      "trust_tier": "tier_1_2_synthesis",
+      "status": "promote",
+      "notes": "Severe chilling injury threshold."
+    },
+    {
+      "field": "nitrate_anchor",
+      "value": 42.0,
+      "unit": "mg/L nitrate-N",
+      "source_id": "basil_corroboration_report_2026",
+      "trust_tier": "tier_1_2_synthesis",
+      "status": "promote_with_context",
+      "notes": "Aquaponics nitrate-N operating anchor from UVI basil production."
+    },
+    {
+      "field": "hydroponic_n_target",
+      "value": {
+        "min": 100.0,
+        "max": 150.0,
+        "unit": "ppm N"
+      },
+      "source_id": "basil_corroboration_report_2026",
+      "trust_tier": "tier_1_2_synthesis",
+      "status": "promote",
+      "notes": "Hydroponic nitrogen target band."
+    },
+    {
+      "field": "preferred_ec_mS_cm",
+      "value": {
+        "min": 0.5,
+        "max": 1.5,
+        "unit": "mS/cm"
+      },
+      "source_id": "basil_corroboration_report_2026",
+      "trust_tier": "tier_1_2_synthesis",
+      "status": "promote",
+      "notes": "Preferred hydroponic EC band."
+    },
+    {
+      "field": "ec_tolerance_upper_mS_cm",
+      "value": 5.5,
+      "source_id": "basil_corroboration_report_2026",
+      "trust_tier": "tier_1_2_synthesis",
+      "status": "promote_with_context",
+      "notes": "High EC tolerance note from an 8-week study; use as robustness note, not preferred target."
+    },
+    {
+      "field": "stress_note",
+      "value": "Below about pH 5.8, basil risk increases for Fe and Mn toxicity symptoms.",
+      "source_id": "basil_corroboration_report_2026",
+      "trust_tier": "tier_1_2_synthesis",
+      "status": "promote",
+      "notes": "Low-pH toxicity rule."
+    },
+    {
+      "field": "stress_note",
+      "value": "Above about pH 6.5, basil risk increases for Fe deficiency and interveinal chlorosis.",
+      "source_id": "basil_corroboration_report_2026",
+      "trust_tier": "tier_1_2_synthesis",
+      "status": "promote",
+      "notes": "High-pH deficiency rule."
+    },
+    {
+      "field": "growth_note",
+      "value": {
+        "aquaponics_yield_batch_kg_m2": 2.0,
+        "aquaponics_yield_staggered_kg_m2": 1.8,
+        "field_comparison_kg_m2": 0.6
+      },
+      "source_id": "basil_corroboration_report_2026",
+      "trust_tier": "tier_1_2_synthesis",
+      "status": "promote",
+      "notes": "Aquaponics yield anchors for basil."
+    }
+  ]
+}

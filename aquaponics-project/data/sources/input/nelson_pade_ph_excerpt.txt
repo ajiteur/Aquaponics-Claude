@@ -1,0 +1,5 @@
+A pH range of 6.5–7.0 is the compromise between the needs of the fish, beneficial bacteria and plants, creating an environment that is hospitable for each of the three essential living components of an aquaponics system.
+
+If system water becomes more basic and pH levels rise, the plants’ ability to uptake specific nutrients needed for healthy growth is limited. For example, at a pH of 7.8, the availability of elements such as iron, boron and manganese decreases, even if they are present in the water.
+
+If pH decreases and becomes more acidic, nitrifying bacteria performance is affected. At a pH of 6.2, nitrification begins to slow down, leading to increased ammonia and decreased nitrate levels.

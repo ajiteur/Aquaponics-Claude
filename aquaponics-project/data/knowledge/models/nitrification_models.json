@@ -1,0 +1,186 @@
+{
+  "version": "0.1",
+  "status": "draft",
+  "source_basis": {
+    "primary_sources": [
+      "data/sources/research_reports/distilled/Distilled_Research_Pack_Aquaponics_L1.md",
+      "data/sources/research_reports/raw/Biofilters and solids filters_Corroboration report for aquaponics Layer 1.pdf"
+    ],
+    "canonical_owner": "data/knowledge/models/nitrification_models.json",
+    "derived_from_simulation_path": "data/simulation/models/nitrification_models.json",
+    "ownership_note": "Canonical Layer 1 ownership is in data/knowledge. The simulation file remains a runtime derivative until consumers are migrated or a sync path is introduced. Double-maintenance risk remains until ownership is fully consolidated."
+  },
+  "records": [
+    {
+      "model_id": "feed_to_tan_load",
+      "name": "Feed to TAN Production",
+      "kind": "formula",
+      "status": "draft",
+      "equation_text": "PTAN_kg_day = feed_kg_day * protein_fraction * 0.092",
+      "inputs": [
+        "feed_kg_day",
+        "protein_fraction"
+      ],
+      "outputs": [
+        "ptan_kg_day"
+      ],
+      "context_tags": [
+        "RAS_baseline",
+        "mass_balance",
+        "nitrification_stoichiometry"
+      ],
+      "simulation_use": {
+        "target_role": "daily_tan_generation_anchor",
+        "implementation_note": "Convert PTAN mass to concentration with system water volume and removal terms."
+      },
+      "notes": [
+        "Primary distilled-pack TAN generation anchor.",
+        "Alternative TAN-from-feed rules should remain cross-checks only and should not be collapsed into accepted defaults here."
+      ]
+    },
+    {
+      "model_id": "nitrification_stoichiometric_demands",
+      "name": "Nitrification Oxygen and Alkalinity Demand",
+      "kind": "coefficient_table",
+      "status": "draft",
+      "coefficients": [
+        {
+          "parameter": "oxygen_demand_per_tan_n",
+          "value": 4.57,
+          "unit": "g O2 / g TAN-N"
+        },
+        {
+          "parameter": "alkalinity_demand_per_tan_n",
+          "value": 7.14,
+          "unit": "g CaCO3 / g TAN-N"
+        }
+      ],
+      "context_tags": [
+        "RAS_baseline",
+        "mass_balance",
+        "nitrification_stoichiometry"
+      ],
+      "simulation_use": {
+        "target_role": "oxygen_and_buffering_demand_from_tan_load"
+      },
+      "notes": [
+        "Use these as stoichiometric demand anchors driven by TAN-N oxidation."
+      ]
+    },
+    {
+      "model_id": "biofilter_feed_loading_capacities",
+      "name": "Biofilter Feed Loading Capacity Anchors",
+      "kind": "variant_capacity_table",
+      "status": "draft",
+      "variants": [
+        {
+          "variant_id": "biofilter_fluidized_sand",
+          "feed_loading": {
+            "range": {
+              "min": 16.0,
+              "max": 32.0
+            },
+            "unit": "kg feed / m3 media / day"
+          }
+        },
+        {
+          "variant_id": "biofilter_mbbr",
+          "feed_loading": {
+            "range": {
+              "min": 8.0,
+              "max": 16.0
+            },
+            "unit": "kg feed / m3 media / day"
+          }
+        },
+        {
+          "variant_id": "biofilter_bead_biofilter",
+          "feed_loading": {
+            "range": {
+              "min": 16.0,
+              "max": 32.0
+            },
+            "unit": "kg feed / m3 media / day"
+          },
+          "conditions": [
+            "frequent_washing_required"
+          ]
+        }
+      ],
+      "context_tags": [
+        "RAS_baseline",
+        "sizing_anchor",
+        "biofilter_variants"
+      ],
+      "simulation_use": {
+        "target_role": "variant_capacity_ceiling"
+      },
+      "notes": [
+        "Use feed-loading ranges as sizing anchors rather than exact guarantees."
+      ]
+    },
+    {
+      "model_id": "biofilter_startup_maturation_dynamics",
+      "name": "Biofilter Startup and Maturation Dynamics",
+      "kind": "startup_protocol",
+      "status": "draft",
+      "startup_anchors": [
+        {
+          "parameter": "fishless_cycling_tan",
+          "range": {
+            "min": 3.0,
+            "max": 5.0
+          },
+          "unit": "mg/L"
+        },
+        {
+          "parameter": "alkalinity_target",
+          "range": {
+            "min": 150.0,
+            "max": 250.0
+          },
+          "unit": "mg/L as CaCO3"
+        },
+        {
+          "parameter": "alkalinity_preferred",
+          "range": {
+            "min": 200.0,
+            "max": 250.0
+          },
+          "unit": "mg/L as CaCO3"
+        },
+        {
+          "parameter": "preferred_pH",
+          "range": {
+            "min": 6.8,
+            "max": 7.2
+          },
+          "unit": "pH"
+        },
+        {
+          "parameter": "warm_temperature_speedup",
+          "value": 28.0,
+          "unit": "C"
+        }
+      ],
+      "phase_hooks": [
+        "ammonia_peak_before_nitrite_peak",
+        "nitrite_peak_after_lag",
+        "maturation_capacity_ramps_over_time"
+      ],
+      "context_tags": [
+        "RAS_baseline",
+        "startup",
+        "maturation_lag",
+        "temperature_sensitive"
+      ],
+      "simulation_use": {
+        "target_role": "biofilter_maturity_ramp",
+        "implementation_note": "Treat startup as a lagged increase in nitrification capacity influenced by pH, DO, alkalinity, and temperature."
+      },
+      "notes": [
+        "Do not model startup as instant full nitrification capacity."
+      ]
+    }
+  ]
+}

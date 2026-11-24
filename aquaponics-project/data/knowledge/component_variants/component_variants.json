@@ -1,0 +1,750 @@
+{
+  "version": "0.1",
+  "status": "draft",
+  "source_basis": [
+    {
+      "type": "distilled_research_pack",
+      "path": "data/sources/research_reports/distilled/Distilled_Research_Pack_Aquaponics_L1.md"
+    },
+    {
+      "type": "local_corroboration_report",
+      "path": "data/sources/research_reports/distilled/Media bed vs DWC vs NFT.md"
+    }
+  ],
+  "variants": [
+    {
+      "variant_id": "architecture_media_bed",
+      "parent_component_id": "plant_system",
+      "name": "Media Bed Architecture",
+      "status": "draft",
+      "variant_type": "architecture",
+      "context_tags": [
+        "aquaponics_specific",
+        "small_scale"
+      ],
+      "role": "Plant-root support architecture with integrated solids capture and some biological treatment.",
+      "key_characteristics": [
+        "media supports roots",
+        "can act as combined solids and biofilter surface",
+        "best fit for small-scale systems"
+      ],
+      "simulation_hooks": {
+        "pump_failure_fragility": "moderate_high_if_beds_drain",
+        "solids_carryover_penalty_mode": "integrated_capture_but_clogging_sensitive",
+        "root_zone_clogging_anaerobic_zone_mode": "enabled",
+        "architecture_nitrification_support": "moderate_to_high_if_not_overloaded",
+        "water_volume_buffering": "low",
+        "root_zone_oxygen_dependence": "moderate",
+        "climate_temperature_sensitivity": "moderate",
+        "biotic_intrusion_events": "not_primary_mode"
+      },
+      "linked_model_ids": [
+        "pump_failure_fragility_by_architecture",
+        "solids_carryover_penalties_by_architecture",
+        "architecture_driven_nitrification_support",
+        "water_volume_buffering_by_architecture",
+        "root_zone_oxygen_dependence_by_architecture",
+        "climate_temperature_sensitivity_by_architecture",
+        "biotic_intrusion_events_by_architecture"
+      ],
+      "evidence_notes": [
+        "Media beds are repeatedly described as small-scale friendly and able to provide plant support plus some filtration.",
+        "Primary downside is solids accumulation leading to clogging and anaerobic zones."
+      ]
+    },
+    {
+      "variant_id": "architecture_dwc_raft",
+      "parent_component_id": "plant_system",
+      "name": "DWC or Raft Architecture",
+      "status": "draft",
+      "variant_type": "architecture",
+      "context_tags": [
+        "aquaponics_specific",
+        "UVI_style",
+        "warm_climate"
+      ],
+      "role": "High-water-volume raft architecture for leafy greens with strong buffering and resilience to short pump disruptions.",
+      "key_characteristics": [
+        "high water-volume buffer",
+        "good fit for leafy greens",
+        "can provide substantial nitrification support if solids are removed upstream"
+      ],
+      "simulation_hooks": {
+        "pump_failure_fragility": "low_relative_to_media_and_nft",
+        "solids_carryover_penalty_mode": "root_coating_anaerobic_penalty_if_solids_not_removed",
+        "root_zone_clogging_anaerobic_zone_mode": "root_coating_mode",
+        "architecture_nitrification_support": "high_if_solids_removed",
+        "water_volume_buffering": "high",
+        "root_zone_oxygen_dependence": "high",
+        "climate_temperature_sensitivity": "low_relative_to_nft",
+        "biotic_intrusion_events": "enabled"
+      },
+      "linked_model_ids": [
+        "pump_failure_fragility_by_architecture",
+        "solids_carryover_penalties_by_architecture",
+        "architecture_driven_nitrification_support",
+        "water_volume_buffering_by_architecture",
+        "root_zone_oxygen_dependence_by_architecture",
+        "climate_temperature_sensitivity_by_architecture",
+        "biotic_intrusion_events_by_architecture"
+      ],
+      "evidence_notes": [
+        "Raft systems are positioned as the commercial workhorse for leafy greens.",
+        "Plants remain in water during short pump disruptions, but root-zone oxygenation and biotic intrusion remain critical."
+      ]
+    },
+    {
+      "variant_id": "architecture_nft",
+      "parent_component_id": "plant_system",
+      "name": "NFT Architecture",
+      "status": "draft",
+      "variant_type": "architecture",
+      "context_tags": [
+        "aquaponics_specific",
+        "hydroponic_baseline"
+      ],
+      "role": "Thin-film channel architecture that is water-efficient and space-efficient but hydraulically fragile.",
+      "key_characteristics": [
+        "thin film of water in channels",
+        "strong dependence on pump continuity",
+        "high sensitivity to solids and temperature swings"
+      ],
+      "simulation_hooks": {
+        "pump_failure_fragility": "very_high",
+        "solids_carryover_penalty_mode": "channel_clogging_and_root_loss_penalty",
+        "root_zone_clogging_anaerobic_zone_mode": "root_mat_anaerobic_zone_mode",
+        "architecture_nitrification_support": "low_default_separate_biofilter_often_required",
+        "water_volume_buffering": "low",
+        "root_zone_oxygen_dependence": "diffusion_limited",
+        "climate_temperature_sensitivity": "high",
+        "biotic_intrusion_events": "not_primary_mode"
+      },
+      "linked_model_ids": [
+        "pump_failure_fragility_by_architecture",
+        "solids_carryover_penalties_by_architecture",
+        "architecture_driven_nitrification_support",
+        "water_volume_buffering_by_architecture",
+        "root_zone_oxygen_dependence_by_architecture",
+        "climate_temperature_sensitivity_by_architecture",
+        "biotic_intrusion_events_by_architecture"
+      ],
+      "evidence_notes": [
+        "NFT is vulnerable to pump or power interruption and solids accumulation.",
+        "Lower water volume and lower colonization area imply weaker built-in nitrification support than raft."
+      ]
+    },
+    {
+      "variant_id": "solids_strategy_high_efficiency_removal",
+      "parent_component_id": "solids_strategy",
+      "name": "High Efficiency Solids Removal",
+      "status": "draft",
+      "variant_type": "strategy",
+      "context_tags": [
+        "aquaponics_specific",
+        "UVI_style",
+        "warm_climate"
+      ],
+      "role": "Remove solids aggressively ahead of biofilter and plant zones under higher organic loading.",
+      "key_characteristics": [
+        "favors cleaner downstream water",
+        "reduces clogging and root-coating risks",
+        "reduces mineralization contribution from retained solids"
+      ],
+      "simulation_hooks": {
+        "solids_carryover_penalty_mode": "minimized",
+        "architecture_nitrification_support": "more_stable_due_to_cleaner_surfaces",
+        "water_volume_buffering": "no_direct_change",
+        "root_zone_clogging_anaerobic_zone_mode": "slower_accumulation"
+      },
+      "evidence_notes": [
+        "Distilled and media-bed reports recommend efficient solids removal under high organic loading.",
+        "Use as a strategy axis rather than a universal default."
+      ]
+    },
+    {
+      "variant_id": "solids_strategy_low_removal_mineralisation",
+      "parent_component_id": "solids_strategy",
+      "name": "Low Removal or Mineralisation Strategy",
+      "status": "draft",
+      "variant_type": "strategy",
+      "context_tags": [
+        "aquaponics_specific",
+        "small_scale"
+      ],
+      "role": "Retain more solids for mineralization at the cost of higher clogging and anaerobic management burden.",
+      "key_characteristics": [
+        "higher retained solids",
+        "more mineralization contribution",
+        "higher clogging and root-zone risk"
+      ],
+      "simulation_hooks": {
+        "solids_carryover_penalty_mode": "elevated",
+        "architecture_nitrification_support": "context_dependent_surface_fouling_risk",
+        "water_volume_buffering": "no_direct_change",
+        "root_zone_clogging_anaerobic_zone_mode": "faster_accumulation"
+      },
+      "evidence_notes": [
+        "Some solids can be beneficial through mineralization, but risk increases with organic loading.",
+        "Best treated as a deliberate management mode."
+      ]
+    },
+    {
+      "variant_id": "feeding_ratio_architecture_adjusted",
+      "parent_component_id": "feeding_ratio_strategy",
+      "name": "Architecture Adjusted Feeding Ratio",
+      "status": "draft",
+      "variant_type": "strategy",
+      "context_tags": [
+        "aquaponics_specific",
+        "UVI_style"
+      ],
+      "role": "Adjust loading or feeding ratio by plant architecture to avoid concentration extremes.",
+      "key_characteristics": [
+        "raft as baseline",
+        "media and NFT can require lower feeding-rate ratios",
+        "linked to system water-volume buffering"
+      ],
+      "simulation_hooks": {
+        "architecture_nitrification_support": "linked_to_loading_pressure",
+        "water_volume_buffering": "linked_to_nutrient_concentration_swings",
+        "solids_carryover_penalty_mode": "indirectly_reduced_when_loading_scaled_down"
+      },
+      "evidence_notes": [
+        "SRAC-style architecture-specific feeding-ratio adjustment is a key balancing rule.",
+        "Media and NFT are described as requiring much lower ratios than raft under equivalent fish loading."
+      ]
+    },
+    {
+      "variant_id": "media_bed.flood_and_drain_bell_siphon",
+      "parent_component_id": "architecture_media_bed",
+      "name": "Media Bed Flood and Drain Bell Siphon",
+      "status": "draft",
+      "variant_type": "child_architecture",
+      "context_tags": [
+        "aquaponics_specific",
+        "small_scale"
+      ],
+      "role": "Media-bed hydraulic mode using flood-and-drain cycling for root wetting and dewatering.",
+      "key_characteristics": [
+        "ebb_flow_oxygenation",
+        "periodic_solids_capture",
+        "clogging_risk_if_not_maintained"
+      ],
+      "numeric_anchors": [],
+      "simulation_hooks": {
+        "pump_failure_fragility": "high_if_cycle_interrupted_and_bed_drains",
+        "solids_carryover_penalty_mode": "moderate_with_internal_capture",
+        "root_zone_clogging_anaerobic_zone_mode": "enabled",
+        "architecture_nitrification_support": "enhanced_by_dewatering_exposure",
+        "water_volume_buffering": "low",
+        "root_zone_oxygen_dependence": "ebb_flow_assisted",
+        "climate_temperature_sensitivity": "moderate",
+        "biotic_intrusion_events": "not_primary_mode"
+      },
+      "evidence_notes": [
+        "Report explicitly recommends flood-and-drain as a media-bed variant.",
+        "Ebb-flow dewatering is treated as an oxygen-delivery advantage in media systems."
+      ]
+    },
+    {
+      "variant_id": "media_bed.continuous_flow",
+      "parent_component_id": "architecture_media_bed",
+      "name": "Media Bed Continuous Flow",
+      "status": "draft",
+      "variant_type": "child_architecture",
+      "context_tags": [
+        "aquaponics_specific",
+        "small_scale"
+      ],
+      "role": "Media-bed hydraulic mode with continuous flow-through water movement.",
+      "key_characteristics": [
+        "simpler_hydraulics",
+        "still_requires_periodic_cleaning",
+        "different_clogging_dynamics_than_flood_and_drain"
+      ],
+      "numeric_anchors": [
+        {
+          "parameter": "waterline_below_media_top",
+          "value": 1.0,
+          "unit": "inches"
+        }
+      ],
+      "simulation_hooks": {
+        "pump_failure_fragility": "high_if_flow_stops",
+        "solids_carryover_penalty_mode": "moderate_with_internal_capture",
+        "root_zone_clogging_anaerobic_zone_mode": "enabled",
+        "architecture_nitrification_support": "moderate_to_high_if_not_overloaded",
+        "water_volume_buffering": "low",
+        "root_zone_oxygen_dependence": "moderate",
+        "climate_temperature_sensitivity": "moderate",
+        "biotic_intrusion_events": "not_primary_mode"
+      },
+      "evidence_notes": [
+        "SRAC-5007 describes continuous flow-through as a standard media-bed mode.",
+        "Water level should stay about 1 inch below media top to limit algae and pests."
+      ]
+    },
+    {
+      "variant_id": "media_bed.worm_inoculated",
+      "parent_component_id": "architecture_media_bed",
+      "name": "Media Bed Worm Inoculated",
+      "status": "draft",
+      "variant_type": "child_architecture",
+      "context_tags": [
+        "aquaponics_specific",
+        "small_scale"
+      ],
+      "role": "Media bed operated with worms to digest trapped solids and slow clogging.",
+      "key_characteristics": [
+        "worm_enabled_solids_digestion",
+        "reduced_clogging_rate",
+        "maintenance_assist_not_full_substitute"
+      ],
+      "numeric_anchors": [],
+      "simulation_hooks": {
+        "pump_failure_fragility": "unchanged_from_parent",
+        "solids_carryover_penalty_mode": "slightly_reduced_due_to_solids_processing",
+        "root_zone_clogging_anaerobic_zone_mode": "slower_accumulation",
+        "architecture_nitrification_support": "more_stable_if_worm_bed_active",
+        "water_volume_buffering": "low",
+        "root_zone_oxygen_dependence": "moderate",
+        "climate_temperature_sensitivity": "moderate",
+        "biotic_intrusion_events": "not_primary_mode"
+      },
+      "evidence_notes": [
+        "Report explicitly recommends worm-inoculated media beds as a distinct variant.",
+        "Worms are described as helping digest trapped solids."
+      ]
+    },
+    {
+      "variant_id": "media_bed.reciprocating_gravel_ratio_SRA454",
+      "parent_component_id": "architecture_media_bed",
+      "name": "Media Bed Reciprocating Gravel Ratio SRAC-454",
+      "status": "draft",
+      "variant_type": "child_architecture",
+      "context_tags": [
+        "aquaponics_specific",
+        "small_scale"
+      ],
+      "role": "Reciprocating gravel design with explicit fish-tank to gravel ratio and no solids removal mode.",
+      "key_characteristics": [
+        "reciprocating_gravel_design",
+        "no_upstream_solids_removal",
+        "cultivation_and_red_worm_support"
+      ],
+      "numeric_anchors": [
+        {
+          "parameter": "fish_tank_volume_ratio",
+          "value": 1.0,
+          "unit": "ft3"
+        },
+        {
+          "parameter": "pea_gravel_volume_ratio",
+          "value": 2.0,
+          "unit": "ft3"
+        }
+      ],
+      "simulation_hooks": {
+        "pump_failure_fragility": "high_if_reciprocation_stops",
+        "solids_carryover_penalty_mode": "retained_for_mineralisation",
+        "root_zone_clogging_anaerobic_zone_mode": "high_if_not_cultivated",
+        "architecture_nitrification_support": "high_if_ratio_maintained_and_media_managed",
+        "water_volume_buffering": "low",
+        "root_zone_oxygen_dependence": "ebb_flow_assisted",
+        "climate_temperature_sensitivity": "moderate",
+        "biotic_intrusion_events": "not_primary_mode"
+      },
+      "evidence_notes": [
+        "Report gives a recommended reciprocating gravel ratio of 1 ft3 fish tank to 2 ft3 pea gravel.",
+        "This context is specifically tied to no solids removal, cultivation, and red worms."
+      ]
+    },
+    {
+      "variant_id": "dwc_raft.small_scale_airstone_density",
+      "parent_component_id": "architecture_dwc_raft",
+      "name": "DWC Raft Small Scale Airstone Density",
+      "status": "draft",
+      "variant_type": "child_architecture",
+      "context_tags": [
+        "aquaponics_specific",
+        "small_scale"
+      ],
+      "role": "Small-scale DWC aeration pattern using airstone density guidance.",
+      "key_characteristics": [
+        "small_scale_dwc_aeration",
+        "leafy_green_context"
+      ],
+      "numeric_anchors": [
+        {
+          "parameter": "area_per_airstone",
+          "value": 10.0,
+          "unit": "ft2 per airstone"
+        }
+      ],
+      "simulation_hooks": {
+        "pump_failure_fragility": "low_relative_short_term_but_aeration_matters",
+        "solids_carryover_penalty_mode": "root_coating_penalty_if_solids_enter",
+        "root_zone_clogging_anaerobic_zone_mode": "root_coating_mode",
+        "architecture_nitrification_support": "high_if_solids_removed",
+        "water_volume_buffering": "high",
+        "root_zone_oxygen_dependence": "high",
+        "climate_temperature_sensitivity": "low_relative_to_nft",
+        "biotic_intrusion_events": "enabled"
+      },
+      "evidence_notes": [
+        "Report gives about 1 air stone per 10 square feet for small-scale DWC or float beds."
+      ]
+    },
+    {
+      "variant_id": "dwc_raft.UVI_diffuser_spacing",
+      "parent_component_id": "architecture_dwc_raft",
+      "name": "DWC Raft UVI Diffuser Spacing",
+      "status": "draft",
+      "variant_type": "child_architecture",
+      "context_tags": [
+        "aquaponics_specific",
+        "UVI_style",
+        "warm_climate"
+      ],
+      "role": "Commercial-style DWC raft aeration using diffuser spacing from the UVI context.",
+      "key_characteristics": [
+        "commercial_raft_aeration",
+        "high_root_zone_oxygen_support"
+      ],
+      "numeric_anchors": [
+        {
+          "parameter": "diffuser_spacing",
+          "value": 4.0,
+          "unit": "ft"
+        },
+        {
+          "parameter": "target_root_zone_do",
+          "range": {
+            "min": 6.0,
+            "max": 7.0
+          },
+          "unit": "mg/L"
+        }
+      ],
+      "simulation_hooks": {
+        "pump_failure_fragility": "low_relative_short_term_but_aeration_matters",
+        "solids_carryover_penalty_mode": "root_coating_penalty_if_solids_enter",
+        "root_zone_clogging_anaerobic_zone_mode": "root_coating_mode",
+        "architecture_nitrification_support": "high_if_solids_removed",
+        "water_volume_buffering": "high",
+        "root_zone_oxygen_dependence": "high",
+        "climate_temperature_sensitivity": "low_relative_to_nft",
+        "biotic_intrusion_events": "enabled"
+      },
+      "evidence_notes": [
+        "Report gives UVI-style diffuser spacing of about one every 4 feet and DWC DO around 6 to 7 mg/L."
+      ]
+    },
+    {
+      "variant_id": "dwc_raft.aerated_channels_exchange_relaxed",
+      "parent_component_id": "architecture_dwc_raft",
+      "name": "DWC Raft Aerated Channels Exchange Relaxed",
+      "status": "draft",
+      "variant_type": "child_architecture",
+      "context_tags": [
+        "aquaponics_specific",
+        "UVI_style"
+      ],
+      "role": "Deep-flow channels where aeration relaxes exchange-rate constraints.",
+      "key_characteristics": [
+        "aeration_substitutes_for_faster_exchange",
+        "oxygen_hydraulics_coupling"
+      ],
+      "numeric_anchors": [],
+      "simulation_hooks": {
+        "pump_failure_fragility": "low_relative_short_term",
+        "solids_carryover_penalty_mode": "root_coating_penalty_if_solids_enter",
+        "root_zone_clogging_anaerobic_zone_mode": "root_coating_mode",
+        "architecture_nitrification_support": "high_if_solids_removed",
+        "water_volume_buffering": "high",
+        "root_zone_oxygen_dependence": "high_but_supported_by_aeration",
+        "climate_temperature_sensitivity": "low_relative_to_nft",
+        "biotic_intrusion_events": "enabled"
+      },
+      "evidence_notes": [
+        "UVI guidance states deep-flow exchange rate is less important when channels are aerated."
+      ]
+    },
+    {
+      "variant_id": "dwc_raft.unaerated_exchange_strict",
+      "parent_component_id": "architecture_dwc_raft",
+      "name": "DWC Raft Unaerated Exchange Strict",
+      "status": "draft",
+      "variant_type": "child_architecture",
+      "context_tags": [
+        "aquaponics_specific",
+        "UVI_style"
+      ],
+      "role": "Deep-flow channels without aeration, requiring stricter exchange to avoid root hypoxia.",
+      "key_characteristics": [
+        "hydraulic_requirement_stricter_without_aeration",
+        "higher_root_hypoxia_risk"
+      ],
+      "numeric_anchors": [],
+      "simulation_hooks": {
+        "pump_failure_fragility": "moderate_due_to_exchange_dependence",
+        "solids_carryover_penalty_mode": "root_coating_penalty_if_solids_enter",
+        "root_zone_clogging_anaerobic_zone_mode": "root_coating_mode",
+        "architecture_nitrification_support": "high_if_solids_removed",
+        "water_volume_buffering": "high",
+        "root_zone_oxygen_dependence": "very_high",
+        "climate_temperature_sensitivity": "low_relative_to_nft",
+        "biotic_intrusion_events": "enabled"
+      },
+      "evidence_notes": [
+        "UVI guidance states unaerated deep-flow channels require faster exchange."
+      ]
+    },
+    {
+      "variant_id": "dwc_raft.biotic_intrusion_protected",
+      "parent_component_id": "architecture_dwc_raft",
+      "name": "DWC Raft Biotic Intrusion Protected",
+      "status": "draft",
+      "variant_type": "child_architecture",
+      "context_tags": [
+        "aquaponics_specific",
+        "UVI_style"
+      ],
+      "role": "Raft system with biotic-intrusion mitigation enabled.",
+      "key_characteristics": [
+        "fine_mesh_screen",
+        "agitation_enabled",
+        "optional_biocontrol_fish"
+      ],
+      "numeric_anchors": [],
+      "simulation_hooks": {
+        "pump_failure_fragility": "low_relative_short_term",
+        "solids_carryover_penalty_mode": "root_coating_penalty_if_solids_enter",
+        "root_zone_clogging_anaerobic_zone_mode": "root_coating_mode",
+        "architecture_nitrification_support": "high_if_solids_removed",
+        "water_volume_buffering": "high",
+        "root_zone_oxygen_dependence": "high",
+        "climate_temperature_sensitivity": "low_relative_to_nft",
+        "biotic_intrusion_events": "mitigated"
+      },
+      "evidence_notes": [
+        "Report lists fine mesh screen, increased agitation, and predator fish as raft biotic-intrusion mitigations."
+      ]
+    },
+    {
+      "variant_id": "dwc_raft.biotic_intrusion_unprotected",
+      "parent_component_id": "architecture_dwc_raft",
+      "name": "DWC Raft Biotic Intrusion Unprotected",
+      "status": "draft",
+      "variant_type": "child_architecture",
+      "context_tags": [
+        "aquaponics_specific",
+        "UVI_style"
+      ],
+      "role": "Raft system without explicit protections against fry or invertebrate root damage.",
+      "key_characteristics": [
+        "root_exposure_to_aquaculture_biota",
+        "higher_root_damage_risk"
+      ],
+      "numeric_anchors": [],
+      "simulation_hooks": {
+        "pump_failure_fragility": "low_relative_short_term",
+        "solids_carryover_penalty_mode": "root_coating_penalty_if_solids_enter",
+        "root_zone_clogging_anaerobic_zone_mode": "root_coating_mode",
+        "architecture_nitrification_support": "high_if_solids_removed",
+        "water_volume_buffering": "high",
+        "root_zone_oxygen_dependence": "high",
+        "climate_temperature_sensitivity": "low_relative_to_nft",
+        "biotic_intrusion_events": "elevated"
+      },
+      "evidence_notes": [
+        "Report documents root damage from tilapia fry, ostracods, tadpoles, and snails in unprotected raft systems."
+      ]
+    },
+    {
+      "variant_id": "nft.standard_manifold_large_holes",
+      "parent_component_id": "architecture_nft",
+      "name": "NFT Standard Manifold Large Holes",
+      "status": "draft",
+      "variant_type": "child_architecture",
+      "context_tags": [
+        "aquaponics_specific",
+        "small_scale"
+      ],
+      "role": "NFT distribution layout using larger holes and avoiding microtubes to reduce clogging frequency.",
+      "key_characteristics": [
+        "avoid_microtubes",
+        "reduced_clogging_frequency",
+        "maintenance_friendly_distribution"
+      ],
+      "numeric_anchors": [
+        {
+          "parameter": "channel_slope_per_10ft",
+          "value": 0.5,
+          "unit": "inch"
+        },
+        {
+          "parameter": "channel_length",
+          "threshold": {
+            "operator": "<",
+            "value": 12.0
+          },
+          "unit": "ft"
+        },
+        {
+          "parameter": "water_layer_depth",
+          "range": {
+            "min": 1.0,
+            "max": 2.0
+          },
+          "unit": "cm"
+        }
+      ],
+      "simulation_hooks": {
+        "pump_failure_fragility": "very_high",
+        "solids_carryover_penalty_mode": "high_but_reduced_vs_microtube_layouts",
+        "root_zone_clogging_anaerobic_zone_mode": "root_mat_anaerobic_zone_mode",
+        "architecture_nitrification_support": "low_default_separate_biofilter_often_required",
+        "water_volume_buffering": "low",
+        "root_zone_oxygen_dependence": "diffusion_limited",
+        "climate_temperature_sensitivity": "high",
+        "biotic_intrusion_events": "not_primary_mode"
+      },
+      "evidence_notes": [
+        "Report recommends avoiding microtubes and keeping holes larger to reduce clogging.",
+        "It also provides NFT slope, channel length, and water-layer anchors."
+      ]
+    },
+    {
+      "variant_id": "nft.with_fine_solids_removal",
+      "parent_component_id": "architecture_nft",
+      "name": "NFT With Fine Solids Removal",
+      "status": "draft",
+      "variant_type": "child_architecture",
+      "context_tags": [
+        "aquaponics_specific"
+      ],
+      "role": "NFT configuration paired with stronger upstream solids removal to protect roots and channels.",
+      "key_characteristics": [
+        "upstream_solids_protection",
+        "reduced_root_kill_risk",
+        "better_channel_reliability"
+      ],
+      "numeric_anchors": [],
+      "simulation_hooks": {
+        "pump_failure_fragility": "very_high",
+        "solids_carryover_penalty_mode": "reduced_relative_to_unprotected_nft",
+        "root_zone_clogging_anaerobic_zone_mode": "reduced_relative_to_unprotected_nft",
+        "architecture_nitrification_support": "low_default_separate_biofilter_often_required",
+        "water_volume_buffering": "low",
+        "root_zone_oxygen_dependence": "diffusion_limited",
+        "climate_temperature_sensitivity": "high",
+        "biotic_intrusion_events": "not_primary_mode"
+      },
+      "evidence_notes": [
+        "Report explicitly recommends solids removal for aquaponic NFT to prevent root death and channel fouling."
+      ]
+    },
+    {
+      "variant_id": "nft.vertical_stack",
+      "parent_component_id": "architecture_nft",
+      "name": "NFT Vertical Stack",
+      "status": "draft",
+      "variant_type": "child_architecture",
+      "context_tags": [
+        "hydroponic_baseline"
+      ],
+      "role": "Vertical or stacked NFT layout emphasizing space efficiency with added access and maintenance cost.",
+      "key_characteristics": [
+        "space_efficient",
+        "stackable_layout",
+        "maintenance_access_penalty"
+      ],
+      "numeric_anchors": [],
+      "simulation_hooks": {
+        "pump_failure_fragility": "very_high",
+        "solids_carryover_penalty_mode": "high",
+        "root_zone_clogging_anaerobic_zone_mode": "root_mat_anaerobic_zone_mode",
+        "architecture_nitrification_support": "low_default_separate_biofilter_often_required",
+        "water_volume_buffering": "low",
+        "root_zone_oxygen_dependence": "diffusion_limited",
+        "climate_temperature_sensitivity": "high",
+        "biotic_intrusion_events": "not_primary_mode"
+      },
+      "evidence_notes": [
+        "Report identifies NFT as mountable or stackable and notes this as a space-efficiency advantage."
+      ]
+    },
+    {
+      "variant_id": "nft.hot_climate_penalty",
+      "parent_component_id": "architecture_nft",
+      "name": "NFT Hot Climate Penalty",
+      "status": "provisional",
+      "variant_type": "child_architecture",
+      "context_tags": [
+        "hydroponic_baseline",
+        "warm_climate"
+      ],
+      "role": "NFT context split for hotter or high-irradiance climates where solution temperature fluctuations raise stress and disease risk.",
+      "key_characteristics": [
+        "temperature_fluctuation_sensitivity",
+        "high_irradiance_penalty",
+        "reduced_suitability_in_hot_climates"
+      ],
+      "numeric_anchors": [],
+      "simulation_hooks": {
+        "pump_failure_fragility": "very_high",
+        "solids_carryover_penalty_mode": "high",
+        "root_zone_clogging_anaerobic_zone_mode": "root_mat_anaerobic_zone_mode",
+        "architecture_nitrification_support": "low_default_separate_biofilter_often_required",
+        "water_volume_buffering": "low",
+        "root_zone_oxygen_dependence": "diffusion_limited",
+        "climate_temperature_sensitivity": "very_high",
+        "biotic_intrusion_events": "not_primary_mode"
+      },
+      "evidence_notes": [
+        "Peer-reviewed synthesis in the report says NFT is not suitable in hot or high-irradiance environments without mitigation."
+      ]
+    },
+    {
+      "variant_id": "nft.long_cycle_restricted",
+      "parent_component_id": "architecture_nft",
+      "name": "NFT Long Cycle Restricted",
+      "status": "context_split",
+      "variant_type": "child_architecture",
+      "context_tags": [
+        "hydroponic_baseline"
+      ],
+      "role": "NFT context split for long-cycle crops constrained by root ageing and loss of function.",
+      "key_characteristics": [
+        "long_cycle_constraint",
+        "root_system_ageing",
+        "reduced_fit_for_fruiting_crops"
+      ],
+      "numeric_anchors": [
+        {
+          "parameter": "long_cycle_constraint",
+          "threshold_range": {
+            "min": 4.0,
+            "max": 5.0,
+            "applies_when": "above_range"
+          },
+          "unit": "months"
+        }
+      ],
+      "simulation_hooks": {
+        "pump_failure_fragility": "very_high",
+        "solids_carryover_penalty_mode": "high",
+        "root_zone_clogging_anaerobic_zone_mode": "root_mat_anaerobic_zone_mode",
+        "architecture_nitrification_support": "low_default_separate_biofilter_often_required",
+        "water_volume_buffering": "low",
+        "root_zone_oxygen_dependence": "diffusion_limited",
+        "climate_temperature_sensitivity": "high",
+        "biotic_intrusion_events": "not_primary_mode"
+      },
+      "evidence_notes": [
+        "Peer-reviewed synthesis in the report constrains NFT long-cycle crops to roughly over 4 to 5 months."
+      ]
+    }
+  ]
+}

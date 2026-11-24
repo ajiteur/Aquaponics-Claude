@@ -1,0 +1,179 @@
+{
+  "species_id": "plant_lettuce",
+  "scientific_name": "Lactuca sativa",
+  "common_name": "Lettuce",
+  "category": "plant",
+  "status": "starter_profile",
+  "generated_at_utc": "2026-04-05T02:19:44Z",
+  "source_basis": {
+    "primary_sources": [
+      "data/sources/research_reports/raw/Lettuce_Corroboration report for aquaponics Layer 1 species profile.pdf",
+      "data/sources/research_reports/distilled/Distilled_Research_Pack_Aquaponics_L1.md",
+      "data/sources/research_reports/markdown/Greenhouse climate control and disease-trigger variables.md"
+    ],
+    "canonical_owner": "data/knowledge/species/plants/lettuce.json",
+    "derived_from_simulation_path": "data/simulation/species/plants/lettuce.json",
+    "ownership_note": "Canonical Layer 1 ownership is in data/knowledge. The simulation file remains a runtime derivative until consumers are migrated or a sync path is introduced."
+  },
+  "environment": {
+    "preferred_pH": {
+      "min": 5.6,
+      "max": 6.0,
+      "unit": "pH"
+    },
+    "tolerated_pH": {
+      "min": 5.5,
+      "max": 7.0,
+      "unit": "pH"
+    },
+    "preferred_temp_c": {
+      "min": 18.0,
+      "max": 24.0,
+      "unit": "C"
+    },
+    "tolerated_temp_c": {
+      "min": 10.0,
+      "max": 24.0,
+      "unit": "C"
+    }
+  },
+  "nutrient_response": {
+    "nitrate_demand_level": "moderate_high",
+    "hydroponic_n_target_ppm": 150.0,
+    "preferred_ec_mS_cm": 1.5,
+    "aquaponics_nitrate_minimal_spec_mg_L": 47.0,
+    "n_response_biomass_gain_up_to_mg_L_N": 150.0,
+    "foliar_n_plateau_near_mg_L_N": 111.4,
+    "high_pH_nutrient_lockout_notes": [
+      "Treat pH above about 7 as a nutrient availability risk, especially for micronutrients.",
+      "Elevated pH reduces solubility of iron, manganese, and zinc, which can limit uptake and quality."
+    ],
+    "low_pH_sensitivity_notes": [
+      "In calibrated hydroponic lettuce systems, drifting outside the acceptable pH band increases deficiency risk.",
+      "Treat pH below the preferred band as a quality and nutrient-balance risk rather than an immediate lethal threshold."
+    ]
+  },
+  "simulation_weights": {
+    "pH_weight": 1.0,
+    "temperature_weight": 1.0,
+    "nitrate_weight": 1.0
+  },
+  "growth_notes": [
+    "Stage timing baseline: germination about 3 days, seedling phase about 10 days, then post-transplant growth to harvest about 30 to 40 days.",
+    "With proper management, yields of about 2 to 6 kg per square meter per crop cycle are reported.",
+    "Alternative production anchor: about 150 g marketable head at about 35 days after seeding under controlled CEA lighting conditions.",
+    "Hydroponic greenhouse baseline: germination about 3 days, seedling phase about 10 days, then post-transplant growth to harvest about 30 to 40 days."
+  ],
+  "stress_notes": [
+    "Prolonged heat and high temperature fluctuations increase bolting risk, bitterness, and unmarketable crop output.",
+    "Tipburn is a calcium-related physiological disorder often driven by humid microclimates and low transpiration rather than low calcium supply alone.",
+    "Cooler low-light operation can still produce lettuce, but it slows time to harvest.",
+    "Treat calcium around 40 to 50 ppm as a starting management knob when tipburn risk is elevated by poor transpiration."
+  ],
+  "validation_benchmarks": {
+    "hydroponic_baseline": {
+      "target_pH_range": {
+        "min": 5.6,
+        "max": 6.0,
+        "unit": "pH"
+      },
+      "target_pH_optimum": 5.8,
+      "day_temperature_c_max": 24.0,
+      "night_temperature_c_target": 18.5,
+      "notes": "Use as plant-optimized hydroponic lettuce baseline."
+    },
+    "aquaponics_context": {
+      "minimal_nitrate_mg_L": 47.0,
+      "notes": "University of Hawaii aquaponics anchor for lettuce growth."
+    }
+  },
+  "future_fields": {
+    "preferred_air_temp_c": {
+      "day_max": 24.0,
+      "night_min": 18.0,
+      "night_max": 19.0,
+      "unit": "C"
+    },
+    "tolerated_air_temp_c": {
+      "day_min": 15.0,
+      "night_min": 10.0,
+      "quality_tradeoff": "slower_time_to_harvest",
+      "unit": "C"
+    },
+    "preferred_solution_temp_c": {
+      "min": null,
+      "max": 25.0,
+      "unit": "C"
+    },
+    "tolerated_solution_temp_c": {
+      "min": 18.0,
+      "max": 27.0,
+      "unit": "C"
+    },
+    "propagation_pH": {
+      "min": 5.6,
+      "max": 6.0,
+      "unit": "pH"
+    },
+    "propagation_ec_mS_cm": 1.0,
+    "preferred_pH_optimum": 5.8,
+    "preferred_ec_mS_cm": 1.5,
+    "tipburn_calcium_starting_point_ppm": {
+      "min": 40.0,
+      "max": 50.0,
+      "unit": "ppm Ca"
+    },
+    "yield_kg_m2_crop_cycle": {
+      "min": 2.0,
+      "max": 6.0,
+      "unit": "kg/m2/cycle"
+    },
+    "head_weight_g_anchor": 150.0,
+    "harvest_day_anchor": 35
+  },
+  "evidence": [
+    {
+      "source_id": "cornell_cea_hydroponic_lettuce_handbook",
+      "type": "university_manual_pdf",
+      "notes": "Strong hydroponic pH optimum and CEA setpoints."
+    },
+    {
+      "source_id": "uk_ccd_cp63_hydroponic_lettuce",
+      "type": "university_extension_pdf",
+      "notes": "Lettuce-specific pH, temperature, fertigation, timeline, and yield anchors."
+    },
+    {
+      "source_id": "uh_ctahr_small_scale_lettuce_aquaponics",
+      "type": "university_extension_pdf",
+      "notes": "Aquaponics-specific nitrate anchor."
+    },
+    {
+      "source_id": "egro_dialing_in_lettuce_fertility",
+      "type": "technical_guide_pdf",
+      "notes": "Nitrogen response curve and diminishing returns anchor."
+    },
+    {
+      "source_id": "egro_tipburn_e406",
+      "type": "technical_alert_pdf",
+      "notes": "Tipburn mechanism and mitigation knobs."
+    },
+    {
+      "source_id": "jia_2025_water_lettuce_ph",
+      "type": "peer_reviewed_article",
+      "notes": "High-pH lockout mechanism and broader tolerance context."
+    },
+    {
+      "source_id": "lettuce_corroboration_report_digest",
+      "type": "manual_digest_from_tier_1_2_report",
+      "notes": "Structured digest of lettuce corroboration report."
+    }
+  ],
+  "updated_at_utc": "2026-04-05T07:34:22Z",
+  "runtime_sync": {
+    "scope": "species",
+    "generated_at_utc": "2026-04-14T15:57:13Z",
+    "canonical_source": "data/knowledge/species/plants/lettuce.json",
+    "runtime_target": "data/simulation/species/plants/lettuce.json",
+    "ownership": "data/knowledge is canonical; data/simulation is a derived runtime mirror."
+  }
+}

@@ -1,0 +1,93 @@
+[
+  {
+    "day": 1,
+    "scenario_file": "C:\\Users\\ajith\\Documents\\Aquaponics\\aquaponics-project\\data\\simulation\\scenarios\\starter_tilapia_lettuce_system_day_1.json",
+    "pH": 6.9,
+    "tan_mg_L": 0.64,
+    "unionized_nh3_mg_L": 0.053,
+    "nitrate_mg_L": 57.885,
+    "fish_biomass_kg": 8.043,
+    "avg_fish_weight_g": 80.43,
+    "plant_avg_biomass_g": 22.2,
+    "daily_operating_cost": 1.19,
+    "system_stability_score": 0.687
+  },
+  {
+    "day": 2,
+    "scenario_file": "C:\\Users\\ajith\\Documents\\Aquaponics\\aquaponics-project\\data\\simulation\\scenarios\\starter_tilapia_lettuce_system_day_1_day_2.json",
+    "pH": 6.9,
+    "tan_mg_L": 0.68,
+    "unionized_nh3_mg_L": 0.056,
+    "nitrate_mg_L": 55.772,
+    "fish_biomass_kg": 8.086,
+    "avg_fish_weight_g": 80.86,
+    "plant_avg_biomass_g": 24.4,
+    "daily_operating_cost": 1.19,
+    "system_stability_score": 0.687
+  },
+  {
+    "day": 3,
+    "scenario_file": "C:\\Users\\ajith\\Documents\\Aquaponics\\aquaponics-project\\data\\simulation\\scenarios\\starter_tilapia_lettuce_system_day_1_day_2_day_3.json",
+    "pH": 6.9,
+    "tan_mg_L": 0.72,
+    "unionized_nh3_mg_L": 0.059,
+    "nitrate_mg_L": 53.661,
+    "fish_biomass_kg": 8.129,
+    "avg_fish_weight_g": 81.29,
+    "plant_avg_biomass_g": 26.6,
+    "daily_operating_cost": 1.19,
+    "system_stability_score": 0.687
+  },
+  {
+    "day": 4,
+    "scenario_file": "C:\\Users\\ajith\\Documents\\Aquaponics\\aquaponics-project\\data\\simulation\\scenarios\\starter_tilapia_lettuce_system_day_1_day_2_day_3_day_4.json",
+    "pH": 6.9,
+    "tan_mg_L": 0.761,
+    "unionized_nh3_mg_L": 0.062,
+    "nitrate_mg_L": 51.552,
+    "fish_biomass_kg": 8.172,
+    "avg_fish_weight_g": 81.72,
+    "plant_avg_biomass_g": 28.8,
+    "daily_operating_cost": 1.19,
+    "system_stability_score": 0.687
+  },
+  {
+    "day": 5,
+    "scenario_file": "C:\\Users\\ajith\\Documents\\Aquaponics\\aquaponics-project\\data\\simulation\\scenarios\\starter_tilapia_lettuce_system_day_1_day_2_day_3_day_4_day_5.json",
+    "pH": 6.9,
+    "tan_mg_L": 0.802,
+    "unionized_nh3_mg_L": 0.065,
+    "nitrate_mg_L": 49.445,
+    "fish_biomass_kg": 8.216,
+    "avg_fish_weight_g": 82.16,
+    "plant_avg_biomass_g": 31.0,
+    "daily_operating_cost": 1.19,
+    "system_stability_score": 0.687
+  },
+  {
+    "day": 6,
+    "scenario_file": "C:\\Users\\ajith\\Documents\\Aquaponics\\aquaponics-project\\data\\simulation\\scenarios\\starter_tilapia_lettuce_system_day_1_day_2_day_3_day_4_day_5_day_6.json",
+    "pH": 6.9,
+    "tan_mg_L": 0.843,
+    "unionized_nh3_mg_L": 0.068,
+    "nitrate_mg_L": 47.34,
+    "fish_biomass_kg": 8.26,
+    "avg_fish_weight_g": 82.6,
+    "plant_avg_biomass_g": 33.2,
+    "daily_operating_cost": 1.2,
+    "system_stability_score": 0.687
+  },
+  {
+    "day": 7,
+    "scenario_file": "C:\\Users\\ajith\\Documents\\Aquaponics\\aquaponics-project\\data\\simulation\\scenarios\\starter_tilapia_lettuce_system_day_1_day_2_day_3_day_4_day_5_day_6_day_7.json",
+    "pH": 6.9,
+    "tan_mg_L": 0.884,
+    "unionized_nh3_mg_L": 0.071,
+    "nitrate_mg_L": 45.237,
+    "fish_biomass_kg": 8.304,
+    "avg_fish_weight_g": 83.04,
+    "plant_avg_biomass_g": 35.4,
+    "daily_operating_cost": 1.2,
+    "system_stability_score": 0.687
+  }
+]

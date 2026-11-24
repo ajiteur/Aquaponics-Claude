@@ -1,0 +1,486 @@
+{
+  "version": "0.1",
+  "status": "draft",
+  "source_basis": [
+    {
+      "type": "distilled_research_pack",
+      "path": "data/sources/research_reports/distilled/Distilled_Research_Pack_Aquaponics_L1.md"
+    },
+    {
+      "type": "local_corroboration_report",
+      "path": "data/sources/research_reports/distilled/Media bed vs DWC vs NFT.md"
+    }
+  ],
+  "records": [
+    {
+      "model_id": "plant_architecture_variants",
+      "name": "Plant Architecture Variant Registry",
+      "kind": "variant_registry",
+      "status": "draft",
+      "variants": [
+        {
+          "variant_id": "architecture_media_bed",
+          "context_tags": [
+            "aquaponics_specific",
+            "small_scale"
+          ],
+          "summary": "Media bed architecture with integrated solids and nitrification support but clogging risk."
+        },
+        {
+          "variant_id": "architecture_dwc_raft",
+          "context_tags": [
+            "aquaponics_specific",
+            "UVI_style",
+            "warm_climate"
+          ],
+          "summary": "Raft architecture with high water buffering, strong leafy-green fit, and root oxygen dependence."
+        },
+        {
+          "variant_id": "architecture_nft",
+          "context_tags": [
+            "aquaponics_specific",
+            "hydroponic_baseline"
+          ],
+          "summary": "NFT architecture with low water buffering and high pump and climate fragility."
+        }
+      ]
+    },
+    {
+      "model_id": "pump_failure_fragility_by_architecture",
+      "name": "Pump Failure Fragility by Architecture",
+      "kind": "architecture_rule_table",
+      "status": "draft",
+      "rules": [
+        {
+          "architecture_variant_id": "architecture_media_bed",
+          "fragility_level": "high_if_drained",
+          "effects": [
+            "rapid_wilting_risk",
+            "reduced_root_zone_water_supply"
+          ]
+        },
+        {
+          "architecture_variant_id": "architecture_dwc_raft",
+          "fragility_level": "lower_short_term_due_to_water_buffer",
+          "effects": [
+            "slower_plant_water_stress",
+            "ongoing_root_oxygen_risk_if_aeration_lost"
+          ]
+        },
+        {
+          "architecture_variant_id": "architecture_nft",
+          "fragility_level": "very_high",
+          "effects": [
+            "rapid_wilting",
+            "rapid_plant_loss"
+          ]
+        }
+      ],
+      "context_tags": [
+        "aquaponics_specific"
+      ]
+    },
+    {
+      "model_id": "solids_carryover_penalties_by_architecture",
+      "name": "Solids Carryover Penalties by Architecture",
+      "kind": "architecture_rule_table",
+      "status": "draft",
+      "rules": [
+        {
+          "architecture_variant_id": "architecture_media_bed",
+          "penalty_mode": "clogging_and_anaerobic_zone_escalation",
+          "effects": [
+            "reduced_circulation",
+            "root_impairment"
+          ]
+        },
+        {
+          "architecture_variant_id": "architecture_dwc_raft",
+          "penalty_mode": "root_coating_and_anaerobic_zone_escalation",
+          "effects": [
+            "reduced_root_oxygen_access",
+            "reduced_nutrient_uptake"
+          ]
+        },
+        {
+          "architecture_variant_id": "architecture_nft",
+          "penalty_mode": "channel_blockage_and_root_loss_escalation",
+          "effects": [
+            "flow_blockage",
+            "root_death_risk"
+          ]
+        }
+      ],
+      "context_tags": [
+        "aquaponics_specific"
+      ]
+    },
+    {
+      "model_id": "media_bed_clogging_to_anaerobic_zones",
+      "name": "Media Bed Clogging to Anaerobic Zones",
+      "kind": "state_transition_rule",
+      "status": "draft",
+      "rule": {
+        "state_variable": "media_solids_load",
+        "trigger": "progressive_solids_accumulation_without_cleaning",
+        "transition": "media_clogged_then_anaerobic_zone_risk_increases",
+        "effects": [
+          "reduced_circulation",
+          "root_damage",
+          "possible_ammonia_generation_if_severely_fouled"
+        ]
+      },
+      "context_tags": [
+        "aquaponics_specific",
+        "small_scale"
+      ]
+    },
+    {
+      "model_id": "architecture_driven_nitrification_support",
+      "name": "Architecture Driven Nitrification Support",
+      "kind": "architecture_rule_table",
+      "status": "draft",
+      "rules": [
+        {
+          "architecture_variant_id": "architecture_media_bed",
+          "support_level": "moderate_to_high",
+          "conditions": [
+            "not_organically_overloaded"
+          ]
+        },
+        {
+          "architecture_variant_id": "architecture_dwc_raft",
+          "support_level": "high_if_solids_removed_upstream",
+          "conditions": [
+            "solids_removed_before_raft"
+          ]
+        },
+        {
+          "architecture_variant_id": "architecture_nft",
+          "support_level": "low",
+          "conditions": [
+            "separate_biofilter_often_required"
+          ]
+        }
+      ],
+      "context_tags": [
+        "aquaponics_specific",
+        "UVI_style"
+      ]
+    },
+    {
+      "model_id": "water_volume_buffering_by_architecture",
+      "name": "Water Volume Buffering by Architecture",
+      "kind": "architecture_rule_table",
+      "status": "draft",
+      "rules": [
+        {
+          "architecture_variant_id": "architecture_dwc_raft",
+          "buffering_level": "high",
+          "effects": [
+            "damped_temperature_swings",
+            "damped_nutrient_concentration_swings"
+          ],
+          "notes": [
+            "Use raft as the high-buffer baseline."
+          ]
+        },
+        {
+          "architecture_variant_id": "architecture_media_bed",
+          "buffering_level": "low",
+          "effects": [
+            "higher_concentration_swings"
+          ]
+        },
+        {
+          "architecture_variant_id": "architecture_nft",
+          "buffering_level": "low",
+          "effects": [
+            "higher_concentration_swings",
+            "higher_temperature_swing_exposure"
+          ]
+        }
+      ],
+      "context_tags": [
+        "aquaponics_specific",
+        "warm_climate"
+      ],
+      "calibration_notes": [
+        "Media-bed report recommends using raft as the high-buffer reference and media or NFT as concentration-swing-prone architectures."
+      ]
+    },
+    {
+      "model_id": "root_zone_oxygen_dependence_by_architecture",
+      "name": "Root-Zone Oxygen Dependence by Architecture",
+      "kind": "architecture_rule_table",
+      "status": "draft",
+      "rules": [
+        {
+          "architecture_variant_id": "architecture_media_bed",
+          "dependency": "moderate",
+          "oxygen_delivery_mode": "ebb_flow_or_continuous_media_exchange"
+        },
+        {
+          "architecture_variant_id": "architecture_dwc_raft",
+          "dependency": "high",
+          "aerated_channels_effect": "exchange_constraint_relaxes_if_aerated",
+          "unaerated_channels_effect": "faster_exchange_required_to_avoid_root_hypoxia"
+        },
+        {
+          "architecture_variant_id": "architecture_nft",
+          "dependency": "diffusion_limited",
+          "oxygen_delivery_mode": "thin_film_diffusion_with_blockage_risk"
+        }
+      ],
+      "context_tags": [
+        "aquaponics_specific",
+        "UVI_style"
+      ]
+    },
+    {
+      "model_id": "climate_temperature_sensitivity_by_architecture",
+      "name": "Climate and Temperature Sensitivity by Architecture",
+      "kind": "architecture_rule_table",
+      "status": "draft",
+      "rules": [
+        {
+          "architecture_variant_id": "architecture_media_bed",
+          "sensitivity_level": "moderate",
+          "stressors": [
+            "ambient_exposure",
+            "flow_disruption_when_drained"
+          ]
+        },
+        {
+          "architecture_variant_id": "architecture_dwc_raft",
+          "sensitivity_level": "low_relative_to_nft",
+          "stressors": [
+            "warm_climate_rootzone_management"
+          ],
+          "effects": [
+            "buffered_temperature_swings"
+          ]
+        },
+        {
+          "architecture_variant_id": "architecture_nft",
+          "sensitivity_level": "high",
+          "stressors": [
+            "temperature_fluctuations",
+            "hot_high_irradiance_climate",
+            "pump_or_power_disruption"
+          ],
+          "effects": [
+            "plant_stress",
+            "disease_risk_increase",
+            "reduced_suitability_for_long_cycle_crops"
+          ]
+        }
+      ],
+      "context_tags": [
+        "hydroponic_baseline",
+        "warm_climate"
+      ]
+    },
+    {
+      "model_id": "biotic_intrusion_events_by_architecture",
+      "name": "Biotic Intrusion Events by Architecture",
+      "kind": "event_rule_table",
+      "status": "draft",
+      "rules": [
+        {
+          "architecture_variant_id": "architecture_media_bed",
+          "event_level": "not_primary_mode"
+        },
+        {
+          "architecture_variant_id": "architecture_dwc_raft",
+          "event_level": "enabled",
+          "triggers": [
+            "fish_fry_intrusion",
+            "ostracod_presence",
+            "tadpole_or_snail_intrusion"
+          ],
+          "effects": [
+            "root_damage",
+            "root_hair_loss",
+            "stunting"
+          ],
+          "mitigations": [
+            "mesh_screen",
+            "increased_agitation",
+            "biotic_control_fish"
+          ]
+        },
+        {
+          "architecture_variant_id": "architecture_nft",
+          "event_level": "not_primary_mode"
+        }
+      ],
+      "context_tags": [
+        "aquaponics_specific",
+        "UVI_style"
+      ]
+    },
+    {
+      "model_id": "plant_architecture_numeric_anchors",
+      "name": "Plant Architecture Numeric Anchors",
+      "kind": "anchor_table",
+      "status": "draft",
+      "anchors": [
+        {
+          "architecture_variant_id": "architecture_media_bed",
+          "parameter": "bed_depth",
+          "range": {
+            "min": 6.0,
+            "max": 12.0
+          },
+          "unit": "inches",
+          "context_tags": [
+            "aquaponics_specific",
+            "small_scale"
+          ]
+        },
+        {
+          "architecture_variant_id": "architecture_media_bed",
+          "parameter": "waterline_below_media_top",
+          "value": 1.0,
+          "unit": "inches",
+          "context_tags": [
+            "aquaponics_specific",
+            "small_scale"
+          ]
+        },
+        {
+          "architecture_variant_id": "architecture_dwc_raft",
+          "parameter": "water_depth",
+          "range": {
+            "min": 15.0,
+            "max": 30.0
+          },
+          "unit": "cm",
+          "context_tags": [
+            "aquaponics_specific",
+            "hydroponic_baseline"
+          ]
+        },
+        {
+          "architecture_variant_id": "architecture_dwc_raft",
+          "parameter": "uvi_water_depth",
+          "value": 12.0,
+          "unit": "inches",
+          "context_tags": [
+            "aquaponics_specific",
+            "UVI_style"
+          ]
+        },
+        {
+          "architecture_variant_id": "architecture_dwc_raft",
+          "parameter": "area_per_airstone",
+          "value": 10.0,
+          "unit": "ft2 per airstone",
+          "context_tags": [
+            "aquaponics_specific",
+            "small_scale"
+          ]
+        },
+        {
+          "architecture_variant_id": "architecture_dwc_raft",
+          "parameter": "uvi_diffuser_spacing",
+          "value": 4.0,
+          "unit": "ft",
+          "context_tags": [
+            "aquaponics_specific",
+            "UVI_style"
+          ]
+        },
+        {
+          "architecture_variant_id": "architecture_dwc_raft",
+          "parameter": "uvi_rootzone_do",
+          "range": {
+            "min": 6.0,
+            "max": 7.0
+          },
+          "unit": "mg/L",
+          "context_tags": [
+            "aquaponics_specific",
+            "UVI_style"
+          ]
+        },
+        {
+          "architecture_variant_id": "architecture_nft",
+          "parameter": "channel_slope_per_10ft",
+          "value": 0.5,
+          "unit": "inch",
+          "context_tags": [
+            "aquaponics_specific",
+            "small_scale"
+          ]
+        },
+        {
+          "architecture_variant_id": "architecture_nft",
+          "parameter": "channel_length",
+          "threshold": {
+            "operator": "<",
+            "value": 12.0
+          },
+          "unit": "ft",
+          "context_tags": [
+            "aquaponics_specific",
+            "small_scale"
+          ]
+        },
+        {
+          "architecture_variant_id": "architecture_nft",
+          "parameter": "water_layer_depth",
+          "range": {
+            "min": 1.0,
+            "max": 2.0
+          },
+          "unit": "cm",
+          "context_tags": [
+            "hydroponic_baseline"
+          ]
+        },
+        {
+          "architecture_variant_id": "architecture_nft",
+          "parameter": "long_cycle_constraint",
+          "threshold_range": {
+            "min": 4.0,
+            "max": 5.0,
+            "applies_when": "above_range"
+          },
+          "unit": "months",
+          "context_tags": [
+            "hydroponic_baseline"
+          ]
+        }
+      ]
+    },
+    {
+      "model_id": "architecture_adjusted_feeding_ratio_strategy",
+      "name": "Architecture Adjusted Feeding Ratio Strategy",
+      "kind": "strategy_rule",
+      "status": "draft",
+      "rule": {
+        "baseline_architecture_variant_id": "architecture_dwc_raft",
+        "reduced_loading_architecture_variant_ids": [
+          "architecture_media_bed",
+          "architecture_nft"
+        ],
+        "architecture_specific_ratio_anchor": {
+          "value": 0.25,
+          "unit": "relative_ratio"
+        },
+        "reason": "reduced_water_volume_buffering_and_higher_concentration_swings"
+      },
+      "context_tags": [
+        "aquaponics_specific",
+        "UVI_style"
+      ],
+      "notes": [
+        "Raft should be treated as the baseline architecture.",
+        "Media and NFT should use lower loading ratios than raft.",
+        "Supported anchor from the corroboration report: media and NFT around 25 percent of the raft feeding-rate ratio in the cited architecture-specific context."
+      ]
+    }
+  ]
+}

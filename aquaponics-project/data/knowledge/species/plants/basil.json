@@ -1,0 +1,185 @@
+{
+  "species_id": "plant_basil",
+  "scientific_name": "Ocimum basilicum",
+  "common_name": "Sweet basil",
+  "category": "plant",
+  "status": "starter_profile",
+  "generated_at_utc": "2026-04-05T18:20:50Z",
+  "source_basis": {
+    "primary_sources": [
+      "data/sources/research_reports/raw/Basil_Corroboration report for aquaponics Layer 1 species profile.pdf",
+      "data/sources/research_reports/distilled/Distilled_Research_Pack_Aquaponics_L1.md",
+      "data/sources/research_reports/markdown/Greenhouse climate control and disease-trigger variables.md"
+    ],
+    "canonical_owner": "data/knowledge/species/plants/basil.json",
+    "derived_from_simulation_path": "data/simulation/species/plants/basil.json",
+    "ownership_note": "Canonical Layer 1 ownership is in data/knowledge. The simulation file remains a runtime derivative until consumers are migrated or a sync path is introduced."
+  },
+  "environment": {
+    "preferred_pH": {
+      "min": 5.8,
+      "max": 6.2,
+      "unit": "pH"
+    },
+    "tolerated_pH": {
+      "min": 5.5,
+      "max": 6.5,
+      "unit": "pH"
+    },
+    "preferred_temp_c": {
+      "min": 26.0,
+      "max": 27.5,
+      "unit": "C"
+    },
+    "tolerated_temp_c": {
+      "min": 10.0,
+      "max": 31.0,
+      "unit": "C"
+    }
+  },
+  "nutrient_response": {
+    "nitrate_demand_level": "moderate",
+    "hydroponic_n_target_ppm": {
+      "min": 100.0,
+      "max": 150.0,
+      "unit": "ppm N"
+    },
+    "preferred_ec_mS_cm": {
+      "min": 0.5,
+      "max": 1.5,
+      "unit": "mS/cm"
+    },
+    "operational_ec_mS_cm": {
+      "min": 1.0,
+      "max": 1.6,
+      "unit": "mS/cm"
+    },
+    "aquaponics_nitrateN_anchor_mg_L": 42.0,
+    "aquaponics_nitrateN_anchor_context": {
+      "source_id": "basil_corroboration_report_2026",
+      "batch_mean": 42.2,
+      "batch_range": {
+        "min": 26.7,
+        "max": 54.7
+      },
+      "staggered_mean": 42.9,
+      "staggered_range": {
+        "min": 30.9,
+        "max": 51.8
+      },
+      "unit": "mg/L nitrate-N"
+    },
+    "pH_operating_aquaponics": {
+      "controlled_min": 7.0,
+      "controlled_max": 7.5,
+      "observed_min": 6.9,
+      "observed_max": 7.6,
+      "unit": "pH"
+    },
+    "high_pH_nutrient_lockout_notes": [
+      "At pH above about 6.5, basil risk increases for iron deficiency and interveinal chlorosis.",
+      "Corrective action thresholds are suggested around pH 6.2 to 6.4 on the high side.",
+      "Aquaponics can still operate near neutral pH, but supplementation with Ca, K, and Fe may be needed."
+    ],
+    "low_pH_sensitivity_notes": [
+      "Below about pH 5.8, basil risk increases for iron and manganese toxicity symptoms.",
+      "Corrective action thresholds are suggested around 5.5 to 5.7 on the low side."
+    ]
+  },
+  "simulation_weights": {
+    "pH_weight": 1.0,
+    "temperature_weight": 1.0,
+    "nitrate_weight": 1.0
+  },
+  "growth_notes": [
+    "Aquaponic basil yield anchor: about 2.0 kg/m2 in batch production and about 1.8 kg/m2 in staggered production under UVI commercial-scale conditions.",
+    "Cultivar selection affects basil yield more than the difference between common hydroponic systems such as NFT versus DFT.",
+    "Preferred air temperature is about 26.0 to 27.5 C for strong basil growth.",
+    "Preferred root-zone or nutrient solution temperature is about 27.5 C for greater growth for most cultivars.",
+    "Hydroponic nutrient anchor: about 100 to 150 ppm N with preferred EC about 0.5 to 1.5 mS/cm."
+  ],
+  "stress_notes": [
+    "Basil is chilling sensitive: temperatures below about 10 C can cause chilling injury and marketability loss, with severe injury at 5 C or below.",
+    "Successive cutting can weaken basil plants and increase root disease risk such as Pythium in aquaponic systems.",
+    "Multi-harvest stress can make nutrient deficiencies visible by about the fourth harvest, with final survival reported around 84.7 percent after harvest cycles.",
+    "Downy mildew risk increases when leaf wetness lasts at least 4 hours and night humidity exceeds 95 percent for at least 7.5 hours.",
+    "Basil downy mildew pathogen pressure is strongest within about 53 to 77 F, with an optimum around 68 F."
+  ],
+  "validation_benchmarks": {
+    "hydroponic_baseline": {
+      "preferred_pH_range": {
+        "min": 5.8,
+        "max": 6.2,
+        "unit": "pH"
+      },
+      "preferred_air_temp_c": {
+        "min": 26.0,
+        "max": 27.5,
+        "unit": "C"
+      },
+      "preferred_rootzone_temp_c": 27.5
+    },
+    "aquaponics_context": {
+      "pH_operating_aquaponics": {
+        "min": 6.9,
+        "max": 7.6,
+        "unit": "pH"
+      },
+      "controlled_pH_range": {
+        "min": 7.0,
+        "max": 7.5,
+        "unit": "pH"
+      },
+      "aquaponics_nitrateN_anchor_mg_L": 42.0,
+      "yield_anchor_kg_m2_batch": 2.0,
+      "yield_anchor_kg_m2_staggered": 1.8,
+      "notes": "Use as aquaponics operating benchmark, not as plant-only optimum."
+    }
+  },
+  "future_fields": {
+    "preferred_air_temp_c": {
+      "min": 26.0,
+      "max": 27.5,
+      "unit": "C"
+    },
+    "preferred_rootzone_temp_c": {
+      "value": 27.5,
+      "unit": "C"
+    },
+    "cold_stress_threshold_c": 10.0,
+    "severe_cold_injury_c": 5.0,
+    "pH_operating_aquaponics_context": {
+      "min": 6.9,
+      "max": 7.6,
+      "unit": "pH"
+    },
+    "controlled_aquaponics_pH_context": {
+      "min": 7.0,
+      "max": 7.5,
+      "unit": "pH"
+    },
+    "ec_tolerance_upper_mS_cm": 5.5,
+    "disease_downy_mildew_triggers": {
+      "leaf_wetness_hours_min": 4.0,
+      "night_relative_humidity_percent_min": 95.0,
+      "night_relative_humidity_duration_hours_min": 7.5,
+      "pathogen_temp_window_f": {
+        "min": 53.0,
+        "max": 77.0,
+        "optimum": 68.0
+      }
+    },
+    "stress_multi_harvest_root_disease_and_deficiency": {
+      "deficiency_visibility_harvest_number": 4,
+      "final_survival_fraction_anchor": 0.847,
+      "root_disease_risk": "elevated_with_successive_cutting"
+    }
+  },
+  "evidence": [
+    {
+      "source_id": "basil_corroboration_report_2026",
+      "type": "corroboration_report_pdf",
+      "notes": "Structured basil Layer 1 corroboration report synthesized from Tier 1 and Tier 2 sources."
+    }
+  ]
+}

@@ -1,0 +1,285 @@
+{
+  "version": "0.1",
+  "status": "draft",
+  "notes": [
+    "Starter filtration variants derived from the local 'Biofilters and solids filters_Corroboration report for aquaponics Layer 1.pdf'.",
+    "All variants remain draft.",
+    "Only evidence-backed quantitative values clearly supported by the corroboration report are included."
+  ],
+  "variants": [
+    {
+      "variant_id": "solids_filter_swirl_separator",
+      "parent_component_id": "solids_filter",
+      "name": "Swirl Separator",
+      "status": "draft",
+      "context": "Passive primary solids-separation option for aquaponics or RAS loops where simple gravity-based pretreatment is preferred ahead of downstream biofiltration or finer polishing.",
+      "sizing_method": "Use clarifier sizing around 15 to 30 minutes hydraulic retention time, with aquaponics operational corroboration around 19 to 20 minutes and tested surface loading anchor 0.0031 m3/s per m2.",
+      "key_parameters": {
+        "tss_removal_percent_anchor": 37.1,
+        "clarifier_hrt_target_min": 15,
+        "clarifier_hrt_target_max": 30,
+        "aquaponics_operational_hrt_min": 19,
+        "underperforming_hrt_reference_min": 9.5,
+        "surface_loading_rate_m3_s_per_m2": 0.0031,
+        "operation_mode": "passive_gravity_settling"
+      },
+      "expected_benefits": [
+        "Low-energy solids pretreatment",
+        "Simple construction and operation",
+        "Reduces settleable solids loading on downstream biofilters"
+      ],
+      "failure_modes": [
+        "solids_resuspension",
+        "short_circuiting_flow",
+        "sludge_accumulation",
+        "reduced_capture_under_high_hydraulic_loading"
+      ],
+      "maintenance_notes": [
+        "Remove accumulated sludge routinely.",
+        "Maintain inlet and outlet conditions that preserve stable settling behavior."
+      ],
+      "simulation_hooks": {
+        "solids_capture_efficiency_mode": "fixed_anchor",
+        "solids_capture_efficiency_value": 0.371,
+        "hrt_response_mode": "target_band_with_penalty_below_minimum",
+        "tan_impact_mode": "indirect_via_solids_export",
+        "energy_use_mode": "passive"
+      },
+      "evidence_notes": [
+        "Local corroboration report anchor: swirl separator TSS removal about 37.1%.",
+        "Distilled pack promotes design HRT about 15 to 30 minutes, with UVI operational corroboration around 19 to 20 minutes and weaker capture around 9.5 minutes.",
+        "Distilled pack promotes tested surface loading rate 0.0031 m3/s per m2.",
+        "Use as a starter filtration-performance anchor, not as a universal design guarantee."
+      ]
+    },
+    {
+      "variant_id": "solids_filter_radial_flow_settler",
+      "parent_component_id": "solids_filter",
+      "name": "Radial Flow Settler",
+      "status": "draft",
+      "context": "Passive primary solids-separation option for systems needing stronger settleable-solids removal than a swirl separator before biofiltration or polishing filtration.",
+      "sizing_method": "Use clarifier sizing around 15 to 30 minutes hydraulic retention time, with aquaponics operational corroboration around 19 to 20 minutes and tested surface loading anchor 0.0031 m3/s per m2.",
+      "key_parameters": {
+        "tss_removal_percent_anchor": 77.9,
+        "clarifier_hrt_target_min": 15,
+        "clarifier_hrt_target_max": 30,
+        "aquaponics_operational_hrt_min": 19,
+        "underperforming_hrt_reference_min": 9.5,
+        "surface_loading_rate_m3_s_per_m2": 0.0031,
+        "operation_mode": "passive_gravity_settling"
+      },
+      "expected_benefits": [
+        "Higher TSS removal than swirl separation under the corroborated comparison",
+        "Low operating energy",
+        "Reduces solids burden on downstream filters and biofilters"
+      ],
+      "failure_modes": [
+        "sludge_accumulation",
+        "poor_weir_leveling",
+        "hydraulic_short_circuiting",
+        "re-entrainment_of_settled_solids"
+      ],
+      "maintenance_notes": [
+        "Remove settled sludge routinely to prevent re-entrainment.",
+        "Check hydraulic leveling and flow distribution to preserve settling performance."
+      ],
+      "simulation_hooks": {
+        "solids_capture_efficiency_mode": "fixed_anchor",
+        "solids_capture_efficiency_value": 0.779,
+        "hrt_response_mode": "target_band_with_penalty_below_minimum",
+        "tan_impact_mode": "indirect_via_solids_export",
+        "energy_use_mode": "passive"
+      },
+      "evidence_notes": [
+        "Local corroboration report anchor: radial-flow settler TSS removal about 77.9%.",
+        "Distilled pack promotes design HRT about 15 to 30 minutes, with UVI operational corroboration around 19 to 20 minutes and weaker capture around 9.5 minutes.",
+        "Distilled pack promotes tested surface loading rate 0.0031 m3/s per m2.",
+        "Use as a starter comparative anchor against swirl separation."
+      ]
+    },
+    {
+      "variant_id": "solids_filter_drum_microscreen",
+      "parent_component_id": "solids_filter",
+      "name": "Drum Microscreen",
+      "status": "draft",
+      "context": "Active mechanical solids-polishing filter for systems that need finer suspended-solids control after primary settling.",
+      "sizing_method": "Size by design flow, solids loading, and mesh selection; the corroboration report supports the treatment role but no exact starter sizing coefficient is added here beyond qualitative use after primary solids removal.",
+      "key_parameters": {
+        "operation_mode": "active_mechanical_screening",
+        "backwash_required": true,
+        "upstream_primary_settling_recommended": true
+      },
+      "expected_benefits": [
+        "Improved fine suspended-solids control",
+        "Reduces particulate carryover into biofilters and plant zones",
+        "Supports cleaner downstream process water"
+      ],
+      "failure_modes": [
+        "screen_blinding",
+        "backwash_failure",
+        "drive_failure",
+        "solids_bypass"
+      ],
+      "maintenance_notes": [
+        "Inspect screen fouling and backwash function routinely.",
+        "Operate with effective upstream primary solids removal when possible."
+      ],
+      "simulation_hooks": {
+        "solids_capture_efficiency_mode": "active_polishing_filter",
+        "tan_impact_mode": "indirect_via_fine_solids_export",
+        "energy_use_mode": "active",
+        "maintenance_dependency": "high"
+      },
+      "evidence_notes": [
+        "Local corroboration report supports drum microscreen use as a mechanical solids-polishing step.",
+        "No exact quantitative starter removal coefficient from the report is included here because it was not one of the clearly supported values provided for this task."
+      ]
+    },
+    {
+      "variant_id": "biofilter_mbbr",
+      "parent_component_id": "biofilter",
+      "name": "Moving Bed Biofilm Reactor",
+      "status": "draft",
+      "context": "Aerated nitrifying biofilter option for systems prioritizing high protected media area and scalable biological treatment.",
+      "sizing_method": "Use media-volume sizing with feed loading anchor of 8 to 16 kg feed per m3 media per day, then check oxygen, alkalinity, DO, and startup maturity conditions.",
+      "key_parameters": {
+        "feed_loading_kg_feed_per_m3_media_day_min": 8.0,
+        "feed_loading_kg_feed_per_m3_media_day_max": 16.0,
+        "nitrification_oxygen_demand_g_o2_per_g_ammonia_n": 4.57,
+        "alkalinity_demand_g_caco3_per_g_ammonia_n": 7.14,
+        "operation_mode": "aerated_moving_media_biofilm"
+      },
+      "expected_benefits": [
+        "High nitrification capacity per unit media volume",
+        "Scalable treatment by adding carrier media",
+        "Suitable for dedicated biological treatment stages"
+      ],
+      "failure_modes": [
+        "insufficient_aeration",
+        "poor_media_mixing",
+        "biofilm_loss",
+        "reduced_treatment_under_overloading"
+      ],
+      "maintenance_notes": [
+        "Maintain adequate aeration for both biofilm mixing and oxygen supply.",
+        "Track loading, oxygen demand, and alkalinity demand together during operation."
+      ],
+      "simulation_hooks": {
+        "nitrification_capacity_mode": "feed_per_media_volume_range",
+        "feed_loading_anchor_min": 8.0,
+        "feed_loading_anchor_max": 16.0,
+        "oxygen_demand_mode": "ammonia_n_based",
+        "oxygen_demand_value": 4.57,
+        "alkalinity_demand_mode": "ammonia_n_based",
+        "alkalinity_demand_value": 7.14,
+        "startup_maturation_mode": "lagged_ramp"
+      },
+      "evidence_notes": [
+        "Distilled pack promotes MBBR sizing around 8 to 16 kg feed/m3 media/day.",
+        "Local corroboration report anchors: nitrification oxygen demand 4.57 g O2 per g ammonia-N and alkalinity demand 7.14 g CaCO3 per g ammonia-N.",
+        "Use as a starter biological-capacity anchor only."
+      ]
+    },
+    {
+      "variant_id": "biofilter_fluidized_sand",
+      "parent_component_id": "biofilter",
+      "name": "Fluidized Sand Biofilter",
+      "status": "draft",
+      "context": "High-intensity nitrifying biofilter option for systems seeking very high treatment capacity per media volume with controlled hydraulics.",
+      "sizing_method": "Use media-volume sizing with feed loading anchor of 16 to 32 kg feed per m3 media per day, then verify oxygen, alkalinity, DO, and startup maturity conditions.",
+      "key_parameters": {
+        "feed_loading_kg_feed_per_m3_media_day_min": 16.0,
+        "feed_loading_kg_feed_per_m3_media_day_max": 32.0,
+        "nitrification_oxygen_demand_g_o2_per_g_ammonia_n": 4.57,
+        "alkalinity_demand_g_caco3_per_g_ammonia_n": 7.14,
+        "operation_mode": "fluidized_media_biofilm"
+      },
+      "expected_benefits": [
+        "Higher feed treatment capacity per media volume than the corroborated MBBR anchor",
+        "Compact biofiltration footprint",
+        "Strong fit for dedicated high-rate nitrification stages"
+      ],
+      "failure_modes": [
+        "poor_fluidization",
+        "media_loss",
+        "hydraulic_instability",
+        "oxygen_limitation"
+      ],
+      "maintenance_notes": [
+        "Keep hydraulic conditions within the intended fluidization regime.",
+        "Track oxygen and alkalinity support because nitrification demand is substantial."
+      ],
+      "simulation_hooks": {
+        "nitrification_capacity_mode": "feed_per_media_volume_range",
+        "feed_loading_anchor_min": 16.0,
+        "feed_loading_anchor_max": 32.0,
+        "oxygen_demand_mode": "ammonia_n_based",
+        "oxygen_demand_value": 4.57,
+        "alkalinity_demand_mode": "ammonia_n_based",
+        "alkalinity_demand_value": 7.14,
+        "startup_maturation_mode": "lagged_ramp"
+      },
+      "evidence_notes": [
+        "Distilled pack promotes fluidized sand sizing around 16 to 32 kg feed/m3 media/day.",
+        "Local corroboration report anchors: nitrification oxygen demand 4.57 g O2 per g ammonia-N and alkalinity demand 7.14 g CaCO3 per g ammonia-N.",
+        "Use as a starter high-rate nitrification anchor."
+      ]
+    },
+    {
+      "variant_id": "biofilter_bead_biofilter",
+      "parent_component_id": "biofilter",
+      "name": "Bead Biofilter",
+      "status": "draft",
+      "context": "Pressurized bead-media biofilter option for compact treatment layouts that combine biological treatment with maintenance-intensive solids handling behavior.",
+      "sizing_method": "Use system-specific loading validation; the corroboration report supports its filtration role, but no exact starter feed-per-media sizing coefficient is added here beyond oxygen and alkalinity demand anchors for nitrification.",
+      "key_parameters": {
+        "feed_loading_kg_feed_per_m3_media_day_min": 16.0,
+        "feed_loading_kg_feed_per_m3_media_day_max": 32.0,
+        "nitrification_oxygen_demand_g_o2_per_g_ammonia_n": 4.57,
+        "alkalinity_demand_g_caco3_per_g_ammonia_n": 7.14,
+        "operation_mode": "pressurized_bead_media_biofilm",
+        "backwash_required": true,
+        "capacity_condition": "frequent_washing_required"
+      },
+      "expected_benefits": [
+        "Compact pressurized treatment configuration",
+        "Can support biological treatment in packaged filter trains",
+        "Useful where operators can support regular backwashing"
+      ],
+      "failure_modes": [
+        "media_clogging",
+        "headloss_buildup",
+        "insufficient_backwash",
+        "oxygen_limitation"
+      ],
+      "maintenance_notes": [
+        "Backwash regularly to manage solids accumulation and hydraulic resistance.",
+        "Track oxygen and alkalinity support where nitrification is expected."
+      ],
+      "simulation_hooks": {
+        "nitrification_capacity_mode": "feed_per_media_volume_range_conditional",
+        "feed_loading_anchor_min": 16.0,
+        "feed_loading_anchor_max": 32.0,
+        "oxygen_demand_mode": "ammonia_n_based",
+        "oxygen_demand_value": 4.57,
+        "alkalinity_demand_mode": "ammonia_n_based",
+        "alkalinity_demand_value": 7.14,
+        "maintenance_dependency": "high",
+        "startup_maturation_mode": "lagged_ramp"
+      },
+      "evidence_notes": [
+        "Distilled pack promotes bead-system sizing around 16 to 32 kg feed/m3 media/day when washing is frequent.",
+        "Local corroboration report anchors used here are nitrification oxygen demand 4.57 g O2 per g ammonia-N and alkalinity demand 7.14 g CaCO3 per g ammonia-N.",
+        "No exact bead-biofilter media loading coefficient is included because it was not one of the clearly supported values specified for this task."
+      ]
+    }
+  ],
+  "uvi_context_notes": {
+    "status": "draft",
+    "clarifier_sludge_removal_frequency": "three_times_daily",
+    "clarifier_operational_hrt_min": 19,
+    "evidence_notes": [
+      "Local corroboration report includes UVI context with clarifier sludge removal three times daily."
+    ]
+  }
+}

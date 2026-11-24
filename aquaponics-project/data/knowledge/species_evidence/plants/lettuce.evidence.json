@@ -1,0 +1,193 @@
+{
+  "species_id": "plant_lettuce",
+  "status": "draft",
+  "source_basis": {
+    "primary_sources": [
+      "data/sources/research_reports/raw/Lettuce_Corroboration report for aquaponics Layer 1 species profile.pdf",
+      "data/sources/research_reports/distilled/Distilled_Research_Pack_Aquaponics_L1.md",
+      "data/sources/research_reports/markdown/Greenhouse climate control and disease-trigger variables.md"
+    ],
+    "canonical_owner": "data/knowledge/species_evidence/plants/lettuce.evidence.json",
+    "derived_from_simulation_path": "data/simulation/species_evidence/plants/lettuce.evidence.json",
+    "ownership_note": "Canonical Layer 1 ownership is in data/knowledge. The simulation evidence file remains a runtime derivative until consumers are migrated or a sync path is introduced."
+  },
+  "target_fields": [
+    "preferred_pH",
+    "high_pH_nutrient_lockout_notes",
+    "preferred_air_temperature",
+    "cold_tolerance",
+    "hydroponic_n_target_ppm",
+    "preferred_ec_mS_cm",
+    "aquaponics_nitrate_minimal_spec_mg_L",
+    "stress_notes"
+  ],
+  "evidence_records": [
+    {
+      "field": "preferred_pH",
+      "value": {
+        "optimum": 5.8,
+        "acceptable_min": 5.6,
+        "acceptable_max": 6.0,
+        "unit": "pH"
+      },
+      "context_tags": [
+        "hydroponic_baseline",
+        "greenhouse_cea",
+        "plant_optimised"
+      ],
+      "normalized_field_name": "lettuce.preferred_pH_range",
+      "confidence": "high",
+      "status": "promote"
+    },
+    {
+      "field": "high_pH_nutrient_lockout_notes",
+      "value": {
+        "risk_threshold": 7.0,
+        "operator": ">",
+        "effect": "nutrient_availability_interference",
+        "focus": "micronutrients",
+        "unit": "pH"
+      },
+      "context_tags": [
+        "hydroponic_baseline",
+        "greenhouse",
+        "pH_lockout"
+      ],
+      "normalized_field_name": "lettuce.pH_lockout_high_risk",
+      "confidence": "high",
+      "status": "promote"
+    },
+    {
+      "field": "preferred_air_temperature",
+      "value": {
+        "day_max_c": 24.0,
+        "night_min_c": 18.0,
+        "night_max_c": 19.0
+      },
+      "context_tags": [
+        "hydroponic_baseline",
+        "greenhouse_cea",
+        "air_temperature"
+      ],
+      "normalized_field_name": "lettuce.preferred_air_temperature_range_c",
+      "confidence": "high",
+      "status": "promote"
+    },
+    {
+      "field": "cold_tolerance",
+      "value": {
+        "day_min_c": 15.0,
+        "night_min_c": 10.0,
+        "tradeoff": "slower_time_to_harvest"
+      },
+      "context_tags": [
+        "hydroponic_baseline",
+        "greenhouse_winter",
+        "suboptimal_but_possible"
+      ],
+      "normalized_field_name": "lettuce.tolerated_cold_temperature_range_c",
+      "confidence": "high",
+      "status": "promote_with_context"
+    },
+    {
+      "field": "hydroponic_n_target_ppm",
+      "value": 150.0,
+      "unit": "ppm N",
+      "context_tags": [
+        "hydroponic_baseline",
+        "greenhouse",
+        "nutrient_recipe_anchor"
+      ],
+      "normalized_field_name": "lettuce.nutrient_demand_N_and_EC_anchor",
+      "confidence": "high",
+      "status": "promote"
+    },
+    {
+      "field": "preferred_ec_mS_cm",
+      "value": 1.5,
+      "unit": "mS/cm",
+      "context_tags": [
+        "hydroponic_baseline",
+        "greenhouse",
+        "nutrient_recipe_anchor"
+      ],
+      "normalized_field_name": "lettuce.nutrient_demand_N_and_EC_anchor",
+      "confidence": "high",
+      "status": "promote"
+    },
+    {
+      "field": "aquaponics_nitrate_minimal_spec_mg_L",
+      "value": 47.0,
+      "unit": "mg/L nitrate",
+      "context_tags": [
+        "aquaponics_specific",
+        "dwc_raft",
+        "nitrate_anchor"
+      ],
+      "normalized_field_name": "lettuce.aquaponics_nitrate_min_spec_mg_L",
+      "confidence": "medium_high",
+      "status": "promote"
+    },
+    {
+      "field": "stress_notes",
+      "value": {
+        "trigger": "prolonged_heat_and_or_high_temperature_fluctuations",
+        "response": "bolting",
+        "quality_effect": [
+          "bitterness",
+          "unmarketable_crop"
+        ]
+      },
+      "context_tags": [
+        "hydroponic_baseline",
+        "greenhouse",
+        "heat_stress_quality_failure"
+      ],
+      "normalized_field_name": "lettuce.stress_bolting_heat_fluctuations",
+      "confidence": "high",
+      "status": "promote"
+    },
+    {
+      "field": "stress_notes",
+      "value": {
+        "trigger": [
+          "humid_microclimate",
+          "low_transpiration"
+        ],
+        "response": "poor_calcium_transport",
+        "quality_effect": "tipburn",
+        "management_knob": {
+          "calcium_min_ppm": 40.0,
+          "calcium_max_ppm": 50.0,
+          "unit": "ppm Ca"
+        }
+      },
+      "context_tags": [
+        "hydroponic_baseline",
+        "greenhouse",
+        "humidity_stress",
+        "physiological_disorder"
+      ],
+      "normalized_field_name": "lettuce.stress_tipburn_humidity_transpiration_Ca",
+      "confidence": "medium_high",
+      "status": "promote"
+    },
+    {
+      "field": "preferred_pH",
+      "value": {
+        "min": 6.0,
+        "max": 7.0,
+        "unit": "pH"
+      },
+      "context_tags": [
+        "aquaponics_specific",
+        "small_scale",
+        "context_split"
+      ],
+      "normalized_field_name": "lettuce.preferred_pH_range",
+      "confidence": "medium",
+      "status": "context_split",
+      "notes": "Broader small-system pH tables remain unresolved against the tighter CEA optimum near 5.8."
+    }
+  ]
+}

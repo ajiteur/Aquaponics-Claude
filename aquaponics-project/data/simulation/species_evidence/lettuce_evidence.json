@@ -1,0 +1,217 @@
+{
+  "species_id": "plant_lettuce",
+  "generated_at_utc": "2026-04-05T02:19:44Z",
+  "target_fields": [
+    "preferred_pH",
+    "tolerated_pH",
+    "preferred_temp_c",
+    "tolerated_temp_c",
+    "nitrate_demand_level",
+    "growth_notes",
+    "stress_notes",
+    "high_pH_nutrient_lockout_notes",
+    "low_pH_sensitivity_notes"
+  ],
+  "evidence_records": [
+    {
+      "field": "preferred_pH",
+      "value": {
+        "min": 5.5,
+        "max": 6.0,
+        "unit": "pH"
+      },
+      "source_id": "uk_ccd_cp63_hydroponic_lettuce",
+      "trust_tier": "tier_1",
+      "status": "promote",
+      "notes": "Optimal range for nutrient uptake in hydroponic lettuce."
+    },
+    {
+      "field": "preferred_pH",
+      "value": {
+        "optimum": 5.8,
+        "acceptable_min": 5.6,
+        "acceptable_max": 6.0,
+        "unit": "pH"
+      },
+      "source_id": "cornell_cea_hydroponic_lettuce_handbook",
+      "trust_tier": "tier_1",
+      "status": "promote",
+      "notes": "Tight CEA setpoint framing."
+    },
+    {
+      "field": "tolerated_pH",
+      "value": {
+        "min": 5.5,
+        "max": 7.0,
+        "unit": "pH"
+      },
+      "source_id": "lettuce_corroboration_normalized_summary",
+      "trust_tier": "tier_1_2_synthesis",
+      "status": "promote_with_context",
+      "notes": "General operational window; quality and deficiency risk rises outside preferred band."
+    },
+    {
+      "field": "preferred_temp_c",
+      "value": {
+        "min": 18.0,
+        "max": 24.0,
+        "unit": "C"
+      },
+      "source_id": "uk_ccd_cp63_hydroponic_lettuce",
+      "trust_tier": "tier_1",
+      "status": "promote",
+      "notes": "Day should not exceed 24 C; night around 18 C."
+    },
+    {
+      "field": "preferred_temp_c",
+      "value": {
+        "day": 24.0,
+        "night": 19.0,
+        "unit": "C"
+      },
+      "source_id": "cornell_cea_hydroponic_lettuce_handbook",
+      "trust_tier": "tier_1",
+      "status": "promote",
+      "notes": "Corroborating CEA setpoints."
+    },
+    {
+      "field": "tolerated_temp_c",
+      "value": {
+        "night_min": 10.0,
+        "day_min": 15.0,
+        "unit": "C"
+      },
+      "source_id": "uk_ccd_cp63_hydroponic_lettuce",
+      "trust_tier": "tier_1",
+      "status": "promote_with_context",
+      "notes": "Suboptimal winter tolerance with longer production time."
+    },
+    {
+      "field": "nitrate_anchor",
+      "value": 47.0,
+      "unit": "mg/L nitrate",
+      "source_id": "uh_ctahr_small_scale_lettuce_aquaponics",
+      "trust_tier": "tier_1",
+      "status": "promote",
+      "notes": "Aquaponics-specific minimal nitrate specification supporting good lettuce growth."
+    },
+    {
+      "field": "hydroponic_n_target",
+      "value": 150.0,
+      "unit": "ppm N",
+      "source_id": "uk_ccd_cp63_hydroponic_lettuce",
+      "trust_tier": "tier_1",
+      "status": "promote",
+      "notes": "Strong numeric fertigation anchor."
+    },
+    {
+      "field": "n_response_curve",
+      "value": {
+        "biomass_gain_up_to_mg_L_N": 150.0,
+        "foliar_n_plateau_near_mg_L_N": 111.4
+      },
+      "source_id": "egro_dialing_in_lettuce_fertility",
+      "trust_tier": "tier_2",
+      "status": "promote",
+      "notes": "Useful for diminishing-returns simulation."
+    },
+    {
+      "field": "stress_note",
+      "value": "Bolting risk rises with prolonged heat and temperature fluctuations, causing bitterness and unmarketable crop.",
+      "source_id": "uk_ccd_cp63_hydroponic_lettuce",
+      "trust_tier": "tier_1",
+      "status": "promote",
+      "notes": "Simulation-ready quality failure mode."
+    },
+    {
+      "field": "stress_note",
+      "value": "Tipburn is driven by humid microclimates and low transpiration reducing calcium transport to inner leaves.",
+      "source_id": "egro_tipburn_e406",
+      "trust_tier": "tier_2",
+      "status": "promote",
+      "notes": "Mechanistic stress note."
+    },
+    {
+      "field": "growth_note",
+      "value": {
+        "germination_days": 3,
+        "seedling_days": 10,
+        "post_transplant_days_to_harvest_min": 30,
+        "post_transplant_days_to_harvest_max": 40
+      },
+      "source_id": "uk_ccd_cp63_hydroponic_lettuce",
+      "trust_tier": "tier_1",
+      "status": "promote",
+      "notes": "Excellent simulation stage timing."
+    },
+    {
+      "field": "growth_note",
+      "value": {
+        "yield_min": 2.0,
+        "yield_max": 6.0,
+        "unit": "kg/m2/crop_cycle"
+      },
+      "source_id": "uk_ccd_cp63_hydroponic_lettuce",
+      "trust_tier": "tier_1",
+      "status": "promote",
+      "notes": "Yield anchor."
+    },
+    {
+      "field": "growth_note",
+      "value": {
+        "head_weight_g": 150.0,
+        "harvest_day": 35
+      },
+      "source_id": "cornell_cea_hydroponic_lettuce_handbook",
+      "trust_tier": "tier_1",
+      "status": "promote",
+      "notes": "Per-head anchor."
+    },
+    {
+      "field": "preferred_pH",
+      "value": {
+        "min": 5.5,
+        "max": 6.0,
+        "unit": "pH"
+      },
+      "source_id": "lettuce_corroboration_report_digest",
+      "trust_tier": "tier_1_2_synthesis",
+      "status": "promote",
+      "notes": "Plant-optimized hydroponic lettuce pH band."
+    },
+    {
+      "field": "tolerated_pH",
+      "value": {
+        "min": 5.5,
+        "max": 7.0,
+        "unit": "pH"
+      },
+      "source_id": "lettuce_corroboration_report_digest",
+      "trust_tier": "tier_1_2_synthesis",
+      "status": "promote_with_context",
+      "notes": "Broader operational pH window for lettuce."
+    },
+    {
+      "field": "preferred_temp_c",
+      "value": {
+        "min": 18.0,
+        "max": 24.0,
+        "unit": "C"
+      },
+      "source_id": "lettuce_corroboration_report_digest",
+      "trust_tier": "tier_1_2_synthesis",
+      "status": "promote",
+      "notes": "Preferred air temperature range for quality."
+    },
+    {
+      "field": "nitrate_anchor",
+      "value": 47.0,
+      "unit": "mg/L nitrate",
+      "source_id": "lettuce_corroboration_report_digest",
+      "trust_tier": "tier_1_2_synthesis",
+      "status": "promote",
+      "notes": "Aquaponics nitrate anchor."
+    }
+  ],
+  "updated_at_utc": "2026-04-05T07:34:22Z"
+}

@@ -1,0 +1,285 @@
+{
+  "version": "0.1",
+  "status": "draft",
+  "source_basis": {
+    "primary_sources": [
+      "data/sources/research_reports/distilled/Greenhouse climate control and disease-trigger variables.md",
+      "data/sources/research_reports/markdown/Greenhouse climate control and disease-trigger variables.md",
+      "data/sources/research_reports/raw/Greenhouse climate control and disease-trigger variables_Corroboration report for Aquaponics Layer 1.pdf"
+    ],
+    "canonical_owner": "data/knowledge/models/greenhouse_climate_models.json",
+    "ownership_note": "Canonical Layer 1 ownership is in data/knowledge. This is a primary knowledge file rather than a simulation mirror."
+  },
+  "records": [
+    {
+      "model_id": "disease_trigger_basil_downy_mildew",
+      "name": "Basil Downy Mildew Trigger",
+      "kind": "event_trigger",
+      "status": "draft",
+      "trigger_conditions": [
+        {
+          "parameter": "leaf_wetness_duration",
+          "threshold": {
+            "operator": ">=",
+            "value": 4.0
+          },
+          "unit": "hours"
+        },
+        {
+          "parameter": "night_relative_humidity",
+          "threshold": {
+            "operator": ">",
+            "value": 95.0
+          },
+          "unit": "%"
+        },
+        {
+          "parameter": "night_relative_humidity_duration",
+          "threshold": {
+            "operator": ">",
+            "value": 7.5
+          },
+          "unit": "hours"
+        },
+        {
+          "parameter": "pathogen_temperature_window",
+          "range": {
+            "min": 11.7,
+            "max": 25.0
+          },
+          "unit": "C"
+        }
+      ],
+      "context_tags": [
+        "greenhouse",
+        "basil",
+        "disease_trigger"
+      ]
+    },
+    {
+      "model_id": "disease_control_basil_downy_mildew",
+      "name": "Basil Downy Mildew Control Logic",
+      "kind": "control_rule_table",
+      "status": "draft",
+      "rules": [
+        {
+          "parameter": "canopy_relative_humidity_management",
+          "threshold": {
+            "operator": "<",
+            "value": 85.0
+          },
+          "unit": "%"
+        },
+        {
+          "rule_id": "supporting_controls",
+          "actions": [
+            "fans_keep_leaves_moving",
+            "dehumidification_plus_heat",
+            "night_lighting_optional"
+          ]
+        }
+      ],
+      "context_tags": [
+        "greenhouse",
+        "basil",
+        "disease_control"
+      ]
+    },
+    {
+      "model_id": "disease_trigger_botrytis",
+      "name": "Botrytis Trigger",
+      "kind": "event_trigger",
+      "status": "draft",
+      "trigger_conditions": [
+        {
+          "parameter": "leaf_wetness_film",
+          "range": {
+            "min": 8.0,
+            "max": 12.0
+          },
+          "unit": "hours"
+        },
+        {
+          "parameter": "relative_humidity",
+          "threshold": {
+            "operator": ">=",
+            "value": 93.0
+          },
+          "unit": "%"
+        },
+        {
+          "parameter": "temperature",
+          "range": {
+            "min": 12.8,
+            "max": 18.3
+          },
+          "unit": "C"
+        }
+      ],
+      "context_tags": [
+        "greenhouse",
+        "mixed_crop",
+        "disease_trigger"
+      ]
+    },
+    {
+      "model_id": "disease_trigger_lettuce_downy_mildew",
+      "name": "Lettuce Downy Mildew Trigger",
+      "kind": "event_trigger",
+      "status": "draft",
+      "trigger_conditions": [
+        {
+          "parameter": "leaf_wetness_or_near_saturation",
+          "range": {
+            "min": 5.0,
+            "max": 7.0
+          },
+          "unit": "hours"
+        },
+        {
+          "parameter": "night_temperature",
+          "range": {
+            "min": 4.4,
+            "max": 15.6
+          },
+          "unit": "C"
+        }
+      ],
+      "context_tags": [
+        "greenhouse",
+        "lettuce",
+        "disease_trigger"
+      ]
+    },
+    {
+      "model_id": "disease_trigger_lettuce_downy_mildew_fast_infection",
+      "name": "Lettuce Downy Mildew Fast Infection Context",
+      "kind": "event_trigger",
+      "status": "context_split",
+      "trigger_conditions": [
+        {
+          "parameter": "wet_leaf_duration",
+          "threshold": {
+            "operator": ">=",
+            "value": 3.0
+          },
+          "unit": "hours"
+        },
+        {
+          "parameter": "temperature_window",
+          "range": {
+            "min": 10.0,
+            "max": 22.2
+          },
+          "unit": "C"
+        }
+      ],
+      "context_tags": [
+        "greenhouse",
+        "lettuce",
+        "disease_trigger",
+        "context_split"
+      ],
+      "notes": [
+        "Keep this separate from the 5-7 hour epidemiology window rather than flattening both into one trigger."
+      ]
+    },
+    {
+      "model_id": "morning_drying_rule",
+      "name": "Morning Drying Rule",
+      "kind": "control_rule_table",
+      "status": "context_split",
+      "rules": [
+        {
+          "rule_id": "preferred_drying_time",
+          "threshold": {
+            "operator": "<=",
+            "value": 8.0
+          },
+          "unit": "hour_of_day"
+        },
+        {
+          "rule_id": "late_wetness_penalty_context",
+          "threshold": {
+            "operator": ">=",
+            "value": 10.0
+          },
+          "unit": "hour_of_day"
+        }
+      ],
+      "context_tags": [
+        "greenhouse",
+        "lettuce",
+        "disease_prevention",
+        "context_split"
+      ],
+      "notes": [
+        "This preserves the reported dry-by-8 a.m. versus wet-until-10 a.m. prevention context without collapsing it into the main trigger window."
+      ]
+    },
+    {
+      "model_id": "canopy_stratification_haf_control",
+      "name": "Canopy Stratification and HAF Control",
+      "kind": "control_rule_table",
+      "status": "draft",
+      "rules": [
+        {
+          "rule_id": "canopy_stratification_penalty",
+          "condition": "haf_fans_off_and_dense_canopy",
+          "effect_range": {
+            "range": {
+              "min": 20.0,
+              "max": 40.0
+            },
+            "unit": "% RH delta"
+          }
+        },
+        {
+          "rule_id": "haf_airflow_control",
+          "actions": [
+            "run_haf_fans",
+            "reduce_condensation_risk",
+            "reduce_leaf_wetness_persistence"
+          ]
+        }
+      ],
+      "context_tags": [
+        "greenhouse",
+        "airflow_control",
+        "humidity_stratification"
+      ]
+    },
+    {
+      "model_id": "dehumidification_cycle_rate",
+      "name": "Dehumidification Cycle Rate",
+      "kind": "control_anchor",
+      "status": "draft",
+      "anchor": {
+        "range": {
+          "min": 2.0,
+          "max": 3.0
+        },
+        "unit": "cycles/hour"
+      },
+      "context_tags": [
+        "greenhouse",
+        "humidity_control"
+      ]
+    },
+    {
+      "model_id": "humidity_control_vpd_preference",
+      "name": "VPD Preferred Humidity Metric",
+      "kind": "control_rule",
+      "status": "draft",
+      "rule": {
+        "preferred_metric": "VPD",
+        "secondary_metric": "RH"
+      },
+      "context_tags": [
+        "greenhouse",
+        "humidity_control",
+        "VPD"
+      ]
+    }
+  ]
+}

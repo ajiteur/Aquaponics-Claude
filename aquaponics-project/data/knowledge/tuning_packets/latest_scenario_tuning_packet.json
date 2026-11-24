@@ -1,0 +1,32 @@
+{
+  "generated_at_utc": "2026-04-05T10:37:39Z",
+  "source_digest_file": "C:\\Users\\ajith\\Documents\\Aquaponics\\aquaponics-project\\data\\report_digests\\latest_intervention_digest.json",
+  "scenario_filename": "starter_tilapia_lettuce_system.json",
+  "selection_notes": {
+    "logic": "start_from_experimental_defaults_then_apply_explicit_digest_overrides",
+    "idea_count_seen": 9,
+    "starting_defaults": {
+      "feed_rate_percent_body_weight_per_day": 1.0,
+      "plant_count": 90,
+      "biofilter_maturity": 1.0,
+      "water_volume_l": 6000.0,
+      "mode": "robust_compromise_mode"
+    }
+  },
+  "set_fields": {
+    "feeding": {
+      "feed_rate_percent_body_weight_per_day": 1.0
+    },
+    "plant_crop": {
+      "plant_count": 90
+    },
+    "system": {
+      "biofilter_maturity": 1.0,
+      "water_volume_l": 6000.0,
+      "mode": "robust_compromise_mode"
+    },
+    "operations_policy": {
+      "target_pH_mode": "robust_compromise_mode"
+    }
+  }
+}

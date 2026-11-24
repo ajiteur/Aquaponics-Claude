@@ -1,0 +1,258 @@
+{
+  "species_id": "plant_basil",
+  "status": "draft",
+  "source_basis": {
+    "primary_sources": [
+      "data/sources/research_reports/raw/Basil_Corroboration report for aquaponics Layer 1 species profile.pdf",
+      "data/sources/research_reports/distilled/Distilled_Research_Pack_Aquaponics_L1.md",
+      "data/sources/research_reports/markdown/Greenhouse climate control and disease-trigger variables.md"
+    ],
+    "canonical_owner": "data/knowledge/species_evidence/plants/basil.evidence.json",
+    "derived_from_simulation_path": "data/simulation/species_evidence/plants/basil.evidence.json",
+    "ownership_note": "Canonical Layer 1 ownership is in data/knowledge. The simulation evidence file remains a runtime derivative until consumers are migrated or a sync path is introduced."
+  },
+  "target_fields": [
+    "preferred_pH",
+    "pH_operating_aquaponics",
+    "high_pH_nutrient_lockout_notes",
+    "low_pH_sensitivity_notes",
+    "preferred_temp_c",
+    "preferred_rootzone_temp_c",
+    "cold_stress_threshold_c",
+    "severe_cold_injury_c",
+    "hydroponic_n_target_ppm",
+    "preferred_ec_mS_cm",
+    "aquaponics_nitrateN_anchor_mg_L",
+    "stress_notes"
+  ],
+  "evidence_records": [
+    {
+      "field": "preferred_pH",
+      "value": {
+        "min": 5.8,
+        "max": 6.2,
+        "corroborating_table_min": 5.5,
+        "corroborating_table_max": 6.0,
+        "unit": "pH"
+      },
+      "normalized_field_name": "basil.preferred_pH_range_hydroponics",
+      "confidence": "high",
+      "status": "promote",
+      "context_tags": [
+        "hydroponic_baseline",
+        "greenhouse_cea",
+        "plant_optimised"
+      ]
+    },
+    {
+      "field": "pH_operating_aquaponics",
+      "value": {
+        "controlled_min": 7.0,
+        "controlled_max": 7.5,
+        "observed_min": 6.9,
+        "observed_max": 7.6,
+        "unit": "pH"
+      },
+      "normalized_field_name": "basil.pH_operating_aquaponics",
+      "confidence": "high",
+      "status": "promote_with_context",
+      "context_tags": [
+        "aquaponics_specific",
+        "warmwater",
+        "commercial_scale",
+        "system_compromise"
+      ]
+    },
+    {
+      "field": "low_pH_sensitivity_notes",
+      "value": {
+        "risk_threshold": 5.8,
+        "corrective_action_min": 5.5,
+        "corrective_action_max": 5.7,
+        "effect": "Fe_Mn_toxicity_symptoms",
+        "unit": "pH"
+      },
+      "normalized_field_name": "basil.pH_lockout_or_deficiency_rules",
+      "confidence": "high",
+      "status": "promote",
+      "context_tags": [
+        "hydroponic_baseline",
+        "greenhouse",
+        "pH_lockout",
+        "nutrient_disorder",
+        "low_pH"
+      ]
+    },
+    {
+      "field": "high_pH_nutrient_lockout_notes",
+      "value": {
+        "risk_threshold": 6.5,
+        "corrective_action_min": 6.2,
+        "corrective_action_max": 6.4,
+        "effect": "Fe_deficiency_chlorosis",
+        "unit": "pH"
+      },
+      "normalized_field_name": "basil.pH_lockout_or_deficiency_rules",
+      "confidence": "high",
+      "status": "promote",
+      "context_tags": [
+        "hydroponic_baseline",
+        "greenhouse",
+        "pH_lockout",
+        "nutrient_disorder",
+        "high_pH"
+      ]
+    },
+    {
+      "field": "preferred_temp_c",
+      "value": {
+        "min": 26.0,
+        "max": 27.5,
+        "unit": "C"
+      },
+      "normalized_field_name": "basil.preferred_temperature_ranges_air_and_solution_c",
+      "confidence": "medium_high",
+      "status": "promote",
+      "context_tags": [
+        "hydroponic_baseline",
+        "nft",
+        "greenhouse",
+        "air_temp_and_solution_temp"
+      ]
+    },
+    {
+      "field": "preferred_rootzone_temp_c",
+      "value": {
+        "value": 27.5,
+        "tested_solution_band_min": 23.0,
+        "tested_solution_band_max": 31.0,
+        "unit": "C"
+      },
+      "normalized_field_name": "basil.preferred_temperature_ranges_air_and_solution_c",
+      "confidence": "medium_high",
+      "status": "promote",
+      "context_tags": [
+        "hydroponic_baseline",
+        "nft",
+        "greenhouse",
+        "air_temp_and_solution_temp"
+      ]
+    },
+    {
+      "field": "cold_stress_threshold_c",
+      "value": 10.0,
+      "unit": "C",
+      "normalized_field_name": "basil.tolerated_cold_stress_threshold_c",
+      "confidence": "high",
+      "status": "promote"
+    },
+    {
+      "field": "severe_cold_injury_c",
+      "value": 5.0,
+      "unit": "C",
+      "normalized_field_name": "basil.tolerated_cold_stress_threshold_c",
+      "confidence": "high",
+      "status": "promote"
+    },
+    {
+      "field": "hydroponic_n_target_ppm",
+      "value": {
+        "min": 100.0,
+        "max": 150.0,
+        "unit": "ppm N"
+      },
+      "normalized_field_name": "basil.nutrient_demand_N_EC_and_tolerance",
+      "confidence": "medium_high",
+      "status": "promote"
+    },
+    {
+      "field": "preferred_ec_mS_cm",
+      "value": {
+        "min": 0.5,
+        "max": 1.5,
+        "unit": "mS/cm"
+      },
+      "normalized_field_name": "basil.nutrient_demand_N_EC_and_tolerance",
+      "confidence": "medium_high",
+      "status": "promote"
+    },
+    {
+      "field": "ec_tolerance_upper_mS_cm",
+      "value": 5.5,
+      "unit": "dS/m",
+      "normalized_field_name": "basil.nutrient_demand_N_EC_and_tolerance",
+      "confidence": "medium_high",
+      "status": "promote_with_context",
+      "context_tags": [
+        "hydroponic_baseline",
+        "greenhouse_or_indoor",
+        "nutrient_anchor",
+        "tolerance_note",
+        "context_split"
+      ]
+    },
+    {
+      "field": "aquaponics_nitrateN_anchor_mg_L",
+      "value": 42.0,
+      "unit": "mg/L nitrate-N",
+      "normalized_field_name": "basil.aquaponics_nitrateN_anchor_mg_L",
+      "confidence": "medium_high",
+      "status": "promote_with_context",
+      "context_tags": [
+        "aquaponics_specific",
+        "warmwater",
+        "commercial_scale",
+        "nitrate_anchor"
+      ]
+    },
+    {
+      "field": "stress_notes",
+      "value": {
+        "trigger": "successive_cutting",
+        "effects": [
+          "plant_weakening",
+          "pythium_root_disease_risk",
+          "cumulative_nutrient_deficiency"
+        ],
+        "deficiency_visibility_harvest_number": 4,
+        "final_survival_fraction_anchor": 0.847
+      },
+      "normalized_field_name": "basil.stress_multi_harvest_root_disease_and_deficiency",
+      "confidence": "high",
+      "status": "promote"
+    },
+    {
+      "field": "stress_notes",
+      "value": {
+        "disease": "downy_mildew",
+        "leaf_wetness_hours_min": 4.0,
+        "night_relative_humidity_percent_min": 95.0,
+        "night_relative_humidity_duration_hours_min": 7.5,
+        "pathogen_temperature_window_f": {
+          "min": 53.0,
+          "max": 77.0,
+          "optimum": 68.0
+        }
+      },
+      "normalized_field_name": "basil.disease_downy_mildew_triggers",
+      "confidence": "high",
+      "status": "promote"
+    },
+    {
+      "field": "low_pH_sensitivity_notes",
+      "value": {
+        "trial_floor_pH": 4.0,
+        "scope": "short_run_special_case"
+      },
+      "normalized_field_name": "basil.pH_lockout_or_deficiency_rules",
+      "confidence": "medium",
+      "status": "context_split",
+      "context_tags": [
+        "hydroponic_baseline",
+        "special_case_experiment",
+        "context_split"
+      ],
+      "notes": "Short-run tolerance near pH 4.0 remains unresolved against the stronger disorder guidance below pH 5.8."
+    }
+  ]
+}

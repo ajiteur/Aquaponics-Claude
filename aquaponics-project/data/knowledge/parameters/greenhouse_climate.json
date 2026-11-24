@@ -1,0 +1,225 @@
+{
+  "version": "0.1",
+  "status": "draft",
+  "source_basis": {
+    "primary_sources": [
+      "data/sources/research_reports/markdown/Greenhouse climate control and disease-trigger variables.md"
+    ],
+    "canonical_owner": "data/knowledge/parameters/greenhouse_climate.json",
+    "ownership_note": "Canonical Layer 1 ownership is in data/knowledge. This file is a primary knowledge file rather than a simulation mirror."
+  },
+  "records": [
+    {
+      "parameter_id": "lettuce_RH_target_band",
+      "name": "Lettuce Relative Humidity Target Band",
+      "kind": "range",
+      "status": "draft",
+      "range": {
+        "min": 50.0,
+        "max": 70.0
+      },
+      "unit": "%",
+      "context_tags": [
+        "hydroponic_baseline",
+        "greenhouse",
+        "lettuce"
+      ]
+    },
+    {
+      "parameter_id": "floating_system_air_temp_optimum",
+      "name": "Floating System Air Temperature Optimum",
+      "kind": "scalar",
+      "status": "draft",
+      "value": 24.0,
+      "unit": "C",
+      "context_tags": [
+        "hydroponic_baseline",
+        "greenhouse",
+        "lettuce",
+        "floating_system"
+      ]
+    },
+    {
+      "parameter_id": "floating_system_water_temp_optimum",
+      "name": "Floating System Water Temperature Optimum",
+      "kind": "scalar",
+      "status": "draft",
+      "value": 24.0,
+      "unit": "C",
+      "context_tags": [
+        "hydroponic_baseline",
+        "greenhouse",
+        "lettuce",
+        "floating_system"
+      ]
+    },
+    {
+      "parameter_id": "lettuce_solution_temp_ceiling",
+      "name": "Lettuce Solution Temperature Ceiling",
+      "kind": "threshold",
+      "status": "draft",
+      "threshold": {
+        "operator": "<=",
+        "value": 25.0
+      },
+      "unit": "C",
+      "context_tags": [
+        "hydroponic_baseline",
+        "greenhouse",
+        "lettuce",
+        "solution_temperature"
+      ]
+    },
+    {
+      "parameter_id": "canopy_RH_stratification_delta",
+      "name": "Canopy Relative Humidity Stratification Delta",
+      "kind": "range",
+      "status": "draft",
+      "range": {
+        "min": 20.0,
+        "max": 40.0
+      },
+      "unit": "%",
+      "context_tags": [
+        "greenhouse",
+        "canopy_airflow",
+        "humidity_stratification"
+      ]
+    },
+    {
+      "parameter_id": "botrytis_leaf_wetness_trigger",
+      "name": "Botrytis Leaf Wetness Trigger",
+      "kind": "range",
+      "status": "draft",
+      "range": {
+        "min": 8.0,
+        "max": 12.0
+      },
+      "unit": "hours",
+      "context_tags": [
+        "greenhouse",
+        "disease_trigger",
+        "botrytis"
+      ]
+    },
+    {
+      "parameter_id": "botrytis_RH_trigger",
+      "name": "Botrytis Relative Humidity Trigger",
+      "kind": "threshold",
+      "status": "draft",
+      "threshold": {
+        "operator": ">=",
+        "value": 93.0
+      },
+      "unit": "%",
+      "context_tags": [
+        "greenhouse",
+        "disease_trigger",
+        "botrytis"
+      ]
+    },
+    {
+      "parameter_id": "botrytis_temp_trigger",
+      "name": "Botrytis Temperature Trigger",
+      "kind": "range",
+      "status": "draft",
+      "range": {
+        "min": 12.8,
+        "max": 18.3
+      },
+      "unit": "C",
+      "context_tags": [
+        "greenhouse",
+        "disease_trigger",
+        "botrytis"
+      ]
+    },
+    {
+      "parameter_id": "lettuce_downy_mildew_wetness_trigger",
+      "name": "Lettuce Downy Mildew Wetness Trigger",
+      "kind": "range",
+      "status": "draft",
+      "range": {
+        "min": 5.0,
+        "max": 7.0
+      },
+      "unit": "hours",
+      "context_tags": [
+        "greenhouse",
+        "disease_trigger",
+        "lettuce",
+        "downy_mildew"
+      ]
+    },
+    {
+      "parameter_id": "lettuce_downy_mildew_cool_night_trigger",
+      "name": "Lettuce Downy Mildew Cool Night Trigger",
+      "kind": "range",
+      "status": "draft",
+      "range": {
+        "min": 4.4,
+        "max": 15.6
+      },
+      "unit": "C",
+      "context_tags": [
+        "greenhouse",
+        "disease_trigger",
+        "lettuce",
+        "downy_mildew"
+      ]
+    },
+    {
+      "parameter_id": "dehumidification_cycle_rate",
+      "name": "Dehumidification Cycle Rate",
+      "kind": "range",
+      "status": "draft",
+      "range": {
+        "min": 2.0,
+        "max": 3.0
+      },
+      "unit": "cycles/hour",
+      "context_tags": [
+        "greenhouse",
+        "humidity_control",
+        "disease_prevention"
+      ]
+    },
+    {
+      "parameter_id": "VPD_preferred_metric",
+      "name": "VPD Preferred Humidity Control Metric",
+      "kind": "control_rule",
+      "status": "draft",
+      "context_tags": [
+        "greenhouse",
+        "humidity_control",
+        "VPD"
+      ],
+      "notes": [
+        "Use VPD as the preferred humidity control metric where controller capability exists."
+      ]
+    },
+    {
+      "parameter_id": "lettuce_downy_mildew_fast_infection_window",
+      "name": "Lettuce Downy Mildew Fast Infection Window",
+      "kind": "threshold_range",
+      "status": "provisional",
+      "threshold_range": {
+        "min": 10.0,
+        "max": 22.2,
+        "applies_when": "within_range"
+      },
+      "unit": "C",
+      "context_tags": [
+        "greenhouse",
+        "lettuce",
+        "downy_mildew",
+        "context_split",
+        "conflict_tagged"
+      ],
+      "notes": [
+        "This provisional record depends on a fast-infection wetness context of about 3 hours of wet leaves.",
+        "The corroboration report keeps this fast-infection context separate from the 5 to 7 hour epidemiology window."
+      ]
+    }
+  ]
+}

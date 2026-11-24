@@ -1,0 +1,66 @@
+{
+  "updated_at_utc": "2026-04-11T03:49:55Z",
+  "simulation_observations": [
+    {
+      "observation_id": "obs_nh3_7day_current_baseline",
+      "type": "simulation_outcome",
+      "scope": "starter_tilapia_lettuce_system",
+      "statement": "After 7 simulated days, unionized NH3 reached 0.187 mg/L under the current baseline scenario.",
+      "tags": [
+        "nh3",
+        "7_day_run",
+        "baseline",
+        "risk"
+      ],
+      "status": "observed"
+    },
+    {
+      "observation_id": "obs_best_tuning_candidate",
+      "type": "tuning_outcome",
+      "scope": "scenario_tuning_experiments",
+      "statement": "Best tuning candidate was biofilter_1_0 with final NH3 0.12 mg/L.",
+      "tags": [
+        "tuning",
+        "best_candidate",
+        "nh3"
+      ],
+      "status": "observed"
+    },
+    {
+      "observation_id": "obs_tan_7day_current_baseline",
+      "type": "simulation_outcome",
+      "scope": "starter_tilapia_lettuce_system",
+      "statement": "After 7 simulated days, TAN reached 2.247 mg/L under the current baseline scenario.",
+      "tags": [
+        "tan",
+        "7_day_run",
+        "baseline"
+      ],
+      "status": "observed"
+    }
+  ],
+  "simulation_validation_links": [
+    {
+      "map_id": "sim_validation_nh3_thresholds",
+      "link_type": "simulation_validation",
+      "related_entities": [
+        "fish_tilapia",
+        "unionized_nh3_warning_mg_L",
+        "unionized_nh3_critical_mg_L"
+      ],
+      "summary": "Simulation confirms NH3 is a decisive risk driver and should remain central in scoring and stability checks.",
+      "latest_observed_value": 0.187,
+      "latest_risk_band": "species_stress_warning"
+    },
+    {
+      "map_id": "sim_validation_pH_tradeoff_modes",
+      "link_type": "simulation_validation",
+      "related_entities": [
+        "pH_target_general",
+        "pH_compromise_optimal",
+        "pH_target_plant_yield_mode"
+      ],
+      "summary": "Simulation supports keeping separate robust compromise and plant-yield modes rather than collapsing to one pH rule."
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "scenario_id": "starter_tilapia_basil_system",
+  "crop_system_type": "architecture_dwc_raft",
+  "time": {
+    "day": 4,
+    "timestep": "daily",
+    "subdaily_safety_checks": true
+  },
+  "system": {
+    "mode": "robust_compromise_mode",
+    "loop_type": "coupled",
+    "water_volume_l": 6000.0,
+    "fish_tank_volume_l": 2000.0,
+    "plant_zone_volume_l": 1000.0,
+    "biofilter_maturity": 1.0,
+    "recirculation_rate_lph": 3000.0,
+    "aeration_capacity_relative": 1.0
+  },
+  "water_state": {
+    "pH": 6.9,
+    "water_temperature_c": 28.0,
+    "air_temperature_c": 27.0,
+    "dissolved_oxygen_mg_L": 5.5,
+    "tan_mg_L": 0.761,
+    "unionized_nh3_mg_L": 0.062,
+    "nitrite_mg_L": 0.1,
+    "nitrate_mg_L": 34.452,
+    "alkalinity_mg_L_as_CaCO3": 120.0
+  },
+  "fish_batch": {
+    "species_id": "fish_tilapia",
+    "count": 100,
+    "average_weight_g": 81.72,
+    "total_biomass_kg": 8.172,
+    "age_days": 49,
+    "life_stage": "juvenile",
+    "mortality_count": 0
+  },
+  "plant_crop": {
+    "species_id": "plant_basil",
+    "plant_count": 90,
+    "growth_stage": "vegetative",
+    "average_biomass_g": 28.0,
+    "days_since_transplant": 18
+  },
+  "feeding": {
+    "feed_rate_percent_body_weight_per_day": 1.0,
+    "feedings_per_day": 3,
+    "feed_protein_fraction": null,
+    "feed_conversion_ratio": 1.5,
+    "uneaten_feed_fraction": 0.03
+  },
+  "nitrogen_model": {
+    "tan_generation_mode": "placeholder",
+    "tan_generation_mg_per_g_feed": 30.0,
+    "nitrification_efficiency": 0.85,
+    "nitrification_capture_efficiency": 0.9,
+    "plant_nitrate_uptake_mode": "placeholder",
+    "nitrate_uptake_mg_l_per_plant_day": 0.05,
+    "solids_mineralization_mode": "later",
+    "pH_drift_per_mg_l_tan_removed": 0.01
+  },
+  "operations_policy": {
+    "pH_control_enabled": true,
+    "base_dosing_enabled": true,
+    "target_pH_mode": "robust_compromise_mode",
+    "water_top_up_l_per_day": 25.0,
+    "harvest_policy": "manual",
+    "feed_adjustment_policy": "biomass_based"
+  },
+  "economics": {
+    "electricity_tariff_per_kwh": 0.2,
+    "feed_cost_per_kg": 1.5,
+    "seedling_cost_each": 0.2,
+    "fish_sale_price_per_kg": 4.5,
+    "plant_sale_price_each": 1.2
+  },
+  "equipment": {
+    "pump_power_w": 80,
+    "aerator_power_w": 60,
+    "heater_power_w": 500,
+    "lights_power_w": 0,
+    "pump_hours_per_day": 24,
+    "aerator_hours_per_day": 24,
+    "heater_hours_per_day": 4,
+    "lights_hours_per_day": 0
+  },
+  "derived": {
+    "daily_feed_kg": 0.081,
+    "daily_energy_kwh": 5.36,
+    "daily_tan_input_mg_L_equivalent": 0.406,
+    "daily_nitrate_uptake_mg_L_equivalent": 2.25,
+    "nitrate_availability_score": 1.0,
+    "fish_growth_score": 1.0,
+    "plant_growth_score": 0.5,
+    "system_stability_score": 0.656,
+    "daily_fish_biomass_gain_kg": 0.043,
+    "daily_plant_biomass_gain_g_per_plant": 2.0,
+    "daily_operating_cost": 1.19
+  },
+  "notes": [
+    "Starter scenario for tilapia plus basil.",
+    "Uses current experimental defaults and basil starter profile anchors.",
+    "Used by simulate_day.py."
+  ],
+  "updated_at_utc": "2026-04-22T02:23:33Z"
+}

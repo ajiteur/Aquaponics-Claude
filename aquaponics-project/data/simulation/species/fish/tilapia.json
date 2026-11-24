@@ -1,0 +1,140 @@
+{
+  "species_id": "fish_tilapia",
+  "scientific_name": "Oreochromis niloticus",
+  "common_name": "Nile tilapia",
+  "category": "fish",
+  "status": "starter_profile",
+  "generated_at_utc": "2026-04-05T01:23:55Z",
+  "source_basis": {
+    "primary_sources": [
+      "data/sources/research_reports/raw/Tilapia Species Profile Corroboration Report for Aquaponics Layer 1.pdf",
+      "data/sources/research_reports/distilled/Distilled_Research_Pack_Aquaponics_L1.md"
+    ],
+    "canonical_owner": "data/knowledge/species/fish/tilapia.json",
+    "derived_from_simulation_path": "data/simulation/species/fish/tilapia.json",
+    "ownership_note": "Canonical Layer 1 ownership is in data/knowledge. The simulation file remains a runtime derivative until consumers are migrated or a sync path is introduced."
+  },
+  "environment": {
+    "preferred_pH": {
+      "min": 6.5,
+      "max": 8.5,
+      "unit": "pH"
+    },
+    "tolerated_pH": {
+      "min": 5.0,
+      "max": 10.0,
+      "unit": "pH"
+    },
+    "preferred_temp_c": {
+      "min": 27.0,
+      "max": 30.0,
+      "unit": "C"
+    },
+    "tolerated_temp_c": {
+      "min": 25.0,
+      "max": 32.0,
+      "unit": "C"
+    },
+    "minimum_dissolved_oxygen_mg_L": 5.0
+  },
+  "chemistry_response": {
+    "unionized_nh3_warning_mg_L": 0.08,
+    "unionized_nh3_critical_mg_L": 0.2,
+    "nh3_upper_ceiling_guidance_mg_L": 1.0
+  },
+  "simulation_weights": {
+    "pH_weight": 1.0,
+    "temperature_weight": 1.0,
+    "oxygen_weight": 1.0,
+    "ammonia_weight": 1.0
+  },
+  "growth_notes": [
+    "Temperature strongly drives growth: near optimal temperatures, growth can be about 3x that at about 22 C.",
+    "Under good temperature regimes, males may reach about 200 g in 3 to 4 months and about 400 g in 5 to 6 months, depending on system design."
+  ],
+  "stress_notes": [
+    "Chronic dissolved oxygen below about 3.5 mg/L reduces growth and feed conversion.",
+    "Handling or harvest in cooler water increases disease-induced mortality risk."
+  ],
+  "validation_benchmarks": {
+    "uvi_aquaponics_context": {
+      "pH_range": {
+        "min": 7.0,
+        "max": 7.5,
+        "unit": "pH"
+      },
+      "rearing_tank_do_mg_L": {
+        "lettuce_trials": {
+          "min": 5.0,
+          "max": 6.0
+        },
+        "basil_trials": {
+          "min": 4.0,
+          "max": 5.0
+        }
+      },
+      "tan_mg_L": {
+        "min": 1.1,
+        "max": 2.9
+      },
+      "notes": "Use as aquaponics validation benchmark, not as universal species requirement."
+    }
+  },
+  "future_fields": {
+    "temp_optimal_growth_tank_c": {
+      "min": 27.0,
+      "max": 29.0,
+      "unit": "C"
+    },
+    "temp_optimal_growth_general_c": {
+      "min": 29.0,
+      "max": 31.0,
+      "unit": "C"
+    },
+    "temp_habitat_preferred_c": {
+      "min": 31.0,
+      "max": 36.0,
+      "unit": "C"
+    },
+    "lethal_temp_low_c": {
+      "min": 10.0,
+      "max": 12.0,
+      "unit": "C"
+    },
+    "feeding_stops_below_temp_c": 17.2
+  },
+  "evidence": [
+    {
+      "source_id": "srac_282_tank_culture",
+      "type": "university_extension_pdf",
+      "notes": "Tank or RAS operating ranges for temperature, dissolved oxygen, pH and NH3 guidance."
+    },
+    {
+      "source_id": "srac_283_life_history_biology",
+      "type": "university_extension_pdf",
+      "notes": "Tolerance thresholds, NH3 sensitivity ladder, cold stress and disease notes."
+    },
+    {
+      "source_id": "worldfish_water_quality_management_2022",
+      "type": "institutional_pdf",
+      "notes": "Ideal ranges for temperature, dissolved oxygen and pH."
+    },
+    {
+      "source_id": "uvi_tilapia_basil_aquaponics",
+      "type": "experiment_station_pdf",
+      "notes": "Aquaponics-specific operating benchmark and validation values."
+    },
+    {
+      "source_id": "fao_nile_tilapia_species_info",
+      "type": "official_reference_page",
+      "notes": "Species anchor and hard-bound temperature context."
+    }
+  ],
+  "runtime_sync": {
+    "scope": "species",
+    "generated_at_utc": "2026-04-14T15:57:13Z",
+    "canonical_source": "data/knowledge/species/fish/tilapia.json",
+    "runtime_target": "data/simulation/species/fish/tilapia.json",
+    "ownership": "data/knowledge is canonical; data/simulation is a derived runtime mirror."
+  }
+}

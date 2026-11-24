@@ -1,0 +1,107 @@
+{
+  "generated_at_utc": "2026-04-05T07:34:20Z",
+  "source_digest_file": "C:\\Users\\ajith\\Documents\\Aquaponics\\aquaponics-project\\data\\report_digests\\latest_species_report_digest.json",
+  "species_updates": [
+    {
+      "category": "plants",
+      "filename": "lettuce.json",
+      "set_fields": {
+        "environment": {
+          "preferred_pH": {
+            "min": 5.5,
+            "max": 6.0,
+            "unit": "pH"
+          },
+          "tolerated_pH": {
+            "min": 5.5,
+            "max": 7.0,
+            "unit": "pH"
+          },
+          "preferred_temp_c": {
+            "min": 18.0,
+            "max": 24.0,
+            "unit": "C"
+          },
+          "tolerated_temp_c": {
+            "min": 10.0,
+            "max": 24.0,
+            "unit": "C"
+          }
+        },
+        "nutrient_response": {
+          "aquaponics_nitrate_minimal_spec_mg_L": 47.0,
+          "hydroponic_n_target_ppm": 150.0,
+          "n_response_biomass_gain_up_to_mg_L_N": 150.0,
+          "foliar_n_plateau_near_mg_L_N": 111.4
+        }
+      },
+      "append_growth_notes": [
+        "Hydroponic greenhouse baseline: germination about 3 days, seedling phase about 10 days, then post-transplant growth to harvest about 30 to 40 days.",
+        "With proper management, yields of about 2 to 6 kg per square meter per crop cycle are reported."
+      ],
+      "append_stress_notes": [
+        "Prolonged heat and high temperature fluctuations increase bolting risk and can make the crop bitter and unmarketable.",
+        "Tipburn is often driven by humid microclimates and low transpiration reducing calcium transport to inner leaves."
+      ],
+      "append_evidence": [
+        {
+          "source_id": "lettuce_corroboration_report_digest",
+          "type": "manual_digest_from_tier_1_2_report",
+          "notes": "Structured digest of lettuce corroboration report."
+        }
+      ]
+    }
+  ],
+  "evidence_updates": [
+    {
+      "filename": "lettuce_evidence.json",
+      "append_records": [
+        {
+          "field": "preferred_pH",
+          "value": {
+            "min": 5.5,
+            "max": 6.0,
+            "unit": "pH"
+          },
+          "source_id": "lettuce_corroboration_report_digest",
+          "trust_tier": "tier_1_2_synthesis",
+          "status": "promote",
+          "notes": "Plant-optimized hydroponic lettuce pH band."
+        },
+        {
+          "field": "tolerated_pH",
+          "value": {
+            "min": 5.5,
+            "max": 7.0,
+            "unit": "pH"
+          },
+          "source_id": "lettuce_corroboration_report_digest",
+          "trust_tier": "tier_1_2_synthesis",
+          "status": "promote_with_context",
+          "notes": "Broader operational pH window for lettuce."
+        },
+        {
+          "field": "preferred_temp_c",
+          "value": {
+            "min": 18.0,
+            "max": 24.0,
+            "unit": "C"
+          },
+          "source_id": "lettuce_corroboration_report_digest",
+          "trust_tier": "tier_1_2_synthesis",
+          "status": "promote",
+          "notes": "Preferred air temperature range for quality."
+        },
+        {
+          "field": "nitrate_anchor",
+          "value": 47.0,
+          "unit": "mg/L nitrate",
+          "source_id": "lettuce_corroboration_report_digest",
+          "trust_tier": "tier_1_2_synthesis",
+          "status": "promote",
+          "notes": "Aquaponics nitrate anchor."
+        }
+      ]
+    }
+  ]
+}

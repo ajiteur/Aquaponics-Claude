@@ -1,0 +1,29 @@
+{
+  "updated_at_utc": "2026-04-11T03:49:55Z",
+  "tickets": [
+    {
+      "proposal_id": "model_keep_nh3_as_primary_toxicity_signal",
+      "target": "nitrogen_model",
+      "action": "keep",
+      "reason": "Simulation reinforces that TAN alone is not enough; NH3 drives the actual risk signal."
+    },
+    {
+      "proposal_id": "model_test_more_biofilter_capacity",
+      "target": "scenario_defaults",
+      "action": "test",
+      "reason": "Best current tuning result came from raising biofilter maturity to 1.0."
+    },
+    {
+      "proposal_id": "model_test_more_water_or_lower_feed",
+      "target": "scenario_defaults",
+      "action": "test",
+      "reason": "Top candidates also included more water and lower feed, suggesting nitrogen loading remains the main bottleneck."
+    },
+    {
+      "ticket_id": "ticket_no_auto_atomic_fact_promotion_from_sim",
+      "target": "atomic_facts",
+      "action": "no_change",
+      "reason": "Simulation outcomes should not directly promote accepted atomic facts; they are model observations, not external evidence."
+    }
+  ]
+}

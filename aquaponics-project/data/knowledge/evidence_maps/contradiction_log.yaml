@@ -1,0 +1,86 @@
+contradictions:
+  - ticket_id: UQ-002
+    topic: pump_power_anchor_conflict
+    conflicting_anchors:
+      - "pump power example: 0.37 kW"
+      - "pump power example alt: 0.74 kW"
+    source_files:
+      - "data/sources/research_reports/distilled/Pumps and Aeration.md"
+      - "data/sources/research_reports/markdown/Pumps and Aeration.md"
+      - "data/sources/research_reports/raw/Pumps and aeration_Corroboration report for Aquaponics Layer 1.pdf"
+    recommended_handling: context_split
+  - ticket_id: UQ-003
+    topic: tan_generation_model_conflict
+    conflicting_anchors:
+      - "protein-based TAN equation: PTAN_kg_day = feed_kg_day * protein_fraction * 0.092"
+      - "alternative TAN rule: 2.2 lb NH3-N per 100 lb feed"
+    source_files:
+      - "data/sources/research_reports/distilled/Distilled_Research_Pack_Aquaponics_L1.md"
+      - "data/sources/research_reports/raw/Biofilters and solids filters_Corroboration report for aquaponics Layer 1.pdf"
+    recommended_handling: provisional
+  - ticket_id: UQ-004
+    topic: lettuce_ph_context_split
+    conflicting_anchors:
+      - "lettuce preferred pH in small-system tables: 6.0-7.0"
+      - "lettuce CEA optimum near 5.8 with preferred range 5.6-6.0"
+    source_files:
+      - "data/sources/research_reports/distilled/Distilled_Research_Pack_Aquaponics_L1.md"
+      - "data/sources/research_reports/raw/Lettuce_Corroboration report for aquaponics Layer 1 species profile.pdf"
+    recommended_handling: context_split
+  - ticket_id: UQ-005
+    topic: basil_low_ph_context_split
+    conflicting_anchors:
+      - "basil short-run tolerance floor near pH 4.0"
+      - "basil disorder or toxicity guidance below about pH 5.8"
+    source_files:
+      - "data/sources/research_reports/distilled/Distilled_Research_Pack_Aquaponics_L1.md"
+      - "data/sources/research_reports/raw/Basil_Corroboration report for aquaponics Layer 1 species profile.pdf"
+    recommended_handling: context_split
+  - ticket_id: UQ-006
+    topic: aeration_energy_model_gap
+    conflicting_anchors:
+      - "limited UVI kW anchors exist"
+      - "generalizable aeration efficiency anchors do not yet exist locally"
+    source_files:
+      - "data/sources/research_reports/distilled/Pumps and Aeration.md"
+      - "data/sources/research_reports/raw/Pumps and aeration_Corroboration report for Aquaponics Layer 1.pdf"
+    recommended_handling: review_needed
+  - ticket_id: UQ-007
+    topic: dwc_depth_context_split
+    conflicting_anchors:
+      - "DWC depth band: 15-30 cm"
+      - "small-scale or alternate framing: 10-12 inches"
+      - "UVI raft water anchor: 12 inches"
+    source_files:
+      - "data/sources/research_reports/distilled/Media bed vs DWC vs NFT.md"
+      - "data/sources/research_reports/markdown/Media bed vs DWC vs NFT.md"
+    recommended_handling: context_split
+  - ticket_id: UQ-008
+    topic: nft_biofilter_requirement_context_split
+    conflicting_anchors:
+      - "NFT has low built-in nitrification support"
+      - "separate biofilter often required"
+      - "conditional wording remains context-dependent rather than universal"
+    source_files:
+      - "data/sources/research_reports/distilled/Media bed vs DWC vs NFT.md"
+      - "data/sources/research_reports/markdown/Media bed vs DWC vs NFT.md"
+    recommended_handling: context_split
+  - ticket_id: UQ-009
+    topic: solids_removal_strategy_context_split
+    conflicting_anchors:
+      - "high-efficiency removal ahead of biofilter and plant zones"
+      - "lower-removal or mineralisation strategy can be beneficial in some contexts"
+    source_files:
+      - "data/sources/research_reports/distilled/Media bed vs DWC vs NFT.md"
+      - "data/sources/research_reports/raw/Biofilters and solids filters_Corroboration report for aquaponics Layer 1.pdf"
+    recommended_handling: context_split
+  - ticket_id: UQ-010
+    topic: lettuce_downy_mildew_wetness_window_split
+    conflicting_anchors:
+      - "epidemiology window: 5-7 hours near saturation or leaf wetness"
+      - "fast infection context: about 3 hours with wet leaves in a 10-22.2 C window"
+    source_files:
+      - "data/sources/research_reports/distilled/Greenhouse climate control and disease-trigger variables.md"
+      - "data/sources/research_reports/markdown/Greenhouse climate control and disease-trigger variables.md"
+      - "data/sources/research_reports/raw/Greenhouse climate control and disease-trigger variables_Corroboration report for Aquaponics Layer 1.pdf"
+    recommended_handling: context_split

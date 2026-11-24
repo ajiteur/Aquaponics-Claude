@@ -1,0 +1,5 @@
+Aquaponics systems rely on the nitrogen cycle to convert fish waste into plant nutrients.
+Fish excrete ammonia into the water, which is toxic at high concentrations.
+Nitrifying bacteria convert ammonia to nitrite and then nitrate.
+Plants absorb nitrate for growth, helping to clean the water.
+Low dissolved oxygen levels can reduce the efficiency of nitrification.

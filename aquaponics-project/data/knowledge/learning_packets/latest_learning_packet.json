@@ -1,0 +1,128 @@
+{
+  "generated_at_utc": "2026-04-05T07:34:29Z",
+  "source_reports": {
+    "full_bot_cycle_report": "C:\\Users\\ajith\\Documents\\Aquaponics\\aquaponics-project\\data\\update_logs\\full_bot_cycle_report_20260405T054506Z.json",
+    "tuning_experiments_report": "C:\\Users\\ajith\\Documents\\Aquaponics\\aquaponics-project\\data\\update_logs\\tuning_experiments_report_20260405T061329Z.json",
+    "multi_day_summary": "C:\\Users\\ajith\\Documents\\Aquaponics\\aquaponics-project\\data\\simulation\\multi_day_summary.json"
+  },
+  "simulation_observations": [
+    {
+      "observation_id": "obs_nh3_7day_current_baseline",
+      "type": "simulation_outcome",
+      "scope": "starter_tilapia_lettuce_system",
+      "statement": "After 7 simulated days, unionized NH3 reached 0.187 mg/L under the current baseline scenario.",
+      "tags": [
+        "nh3",
+        "7_day_run",
+        "baseline",
+        "risk"
+      ],
+      "status": "observed"
+    },
+    {
+      "observation_id": "obs_tan_7day_current_baseline",
+      "type": "simulation_outcome",
+      "scope": "starter_tilapia_lettuce_system",
+      "statement": "After 7 simulated days, TAN reached 2.247 mg/L under the current baseline scenario.",
+      "tags": [
+        "tan",
+        "7_day_run",
+        "baseline"
+      ],
+      "status": "observed"
+    },
+    {
+      "observation_id": "obs_best_tuning_candidate",
+      "type": "tuning_outcome",
+      "scope": "scenario_tuning_experiments",
+      "statement": "Best tuning candidate was biofilter_1_0 with final NH3 0.12 mg/L.",
+      "tags": [
+        "tuning",
+        "best_candidate",
+        "nh3"
+      ],
+      "status": "observed"
+    }
+  ],
+  "evidence_map_updates": [
+    {
+      "map_id": "sim_validation_nh3_thresholds",
+      "link_type": "simulation_validation",
+      "related_entities": [
+        "fish_tilapia",
+        "unionized_nh3_warning_mg_L",
+        "unionized_nh3_critical_mg_L"
+      ],
+      "summary": "Simulation confirms NH3 is a decisive risk driver and should remain central in scoring and stability checks.",
+      "latest_observed_value": 0.187,
+      "latest_risk_band": "species_stress_warning"
+    },
+    {
+      "map_id": "sim_validation_pH_tradeoff_modes",
+      "link_type": "simulation_validation",
+      "related_entities": [
+        "pH_target_general",
+        "pH_compromise_optimal",
+        "pH_target_plant_yield_mode"
+      ],
+      "summary": "Simulation supports keeping separate robust compromise and plant-yield modes rather than collapsing to one pH rule."
+    }
+  ],
+  "parameter_library_proposals": [
+    {
+      "proposal_id": "prop_keep_multi_record_pH_structure",
+      "target": "parameter_library",
+      "action": "retain_structure",
+      "field": "process_modes",
+      "reason": "Simulation still shows meaningful tradeoff between robust compromise mode and plant-yield mode."
+    },
+    {
+      "proposal_id": "prop_add_nh3_risk_band_labels",
+      "target": "parameter_library",
+      "action": "extend_metadata",
+      "field": "unionized_NH3_thresholds",
+      "reason": "Simulation outcomes are now being interpreted against risk bands; store explicit labels in the library."
+    },
+    {
+      "proposal_id": "prop_add_scenario_default_hints",
+      "target": "parameter_library",
+      "action": "add_experimental_defaults",
+      "field": "scenario_tuning_hints",
+      "value": {
+        "feed_rate_percent_body_weight_per_day": 2.0,
+        "plant_count": 90,
+        "biofilter_maturity": 1.0,
+        "water_volume_l": 4000.0
+      },
+      "reason": "Best 7-day tuning candidate should be stored as experimental defaults, not as accepted truth."
+    }
+  ],
+  "model_update_proposals": [
+    {
+      "proposal_id": "model_keep_nh3_as_primary_toxicity_signal",
+      "target": "nitrogen_model",
+      "action": "keep",
+      "reason": "Simulation reinforces that TAN alone is not enough; NH3 drives the actual risk signal."
+    },
+    {
+      "proposal_id": "model_test_more_biofilter_capacity",
+      "target": "scenario_defaults",
+      "action": "test",
+      "reason": "Best current tuning result came from raising biofilter maturity to 1.0."
+    },
+    {
+      "proposal_id": "model_test_more_water_or_lower_feed",
+      "target": "scenario_defaults",
+      "action": "test",
+      "reason": "Top candidates also included more water and lower feed, suggesting nitrogen loading remains the main bottleneck."
+    }
+  ],
+  "atomic_fact_tickets": [
+    {
+      "ticket_id": "ticket_no_auto_atomic_fact_promotion_from_sim",
+      "target": "atomic_facts",
+      "action": "no_change",
+      "reason": "Simulation outcomes should not directly promote accepted atomic facts; they are model observations, not external evidence."
+    }
+  ]
+}
