@@ -1,0 +1,210 @@
+{
+  "description": "Atomic facts on basil crop cycles from the UVI papers. Accepted by Ajit on 2026-11-25.",
+  "facts": [
+    {
+      "fact_id": "CROP_0001",
+      "statement": "In the UVI raft trials, basil was planted at a density of 8 plants/m2 in batch, staggered and field production.",
+      "domain": "system_design",
+      "type": "parameter",
+      "confidence": "high",
+      "status": "accepted",
+      "context": {
+        "species": "basil (Genovese)",
+        "system": "UVI coupled DWC raft, 214 m2",
+        "location": "St. Croix, USVI, tropical, outdoor"
+      },
+      "source_metadata": {
+        "source_id": "rakocy_2004_uvi_tilapia_basil_acta_hort_648",
+        "section_id": "materials_methods_results_tables_2_to_6",
+        "source_type": "peer_reviewed_journal"
+      },
+      "review_metadata": {
+        "reviewed_from_file": "web_read_2026-11-25_archive.uvi.edu Tilapia_and_Basil.pdf and ISTA6 676.pdf",
+        "source_gate": "trusted",
+        "source_gate_reason": "primary_research_source_already_cited_in_basil_corroboration_report",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_utc": "2026-11-25",
+          "scope": "UVI basil crop-cycle values from Rakocy et al. 2004 and ISTA6"
+        }
+      },
+      "added_utc": "2026-11-25"
+    },
+    {
+      "fact_id": "CROP_0002",
+      "statement": "In the UVI staggered trial, basil grew for 28 days before harvest at about 15 cm height, then regrew for a second harvest.",
+      "domain": "biology",
+      "type": "parameter",
+      "confidence": "high",
+      "status": "accepted",
+      "context": {
+        "species": "basil (Genovese)",
+        "system": "UVI coupled DWC raft, 214 m2",
+        "location": "St. Croix, USVI, tropical, outdoor"
+      },
+      "source_metadata": {
+        "source_id": "rakocy_2004_uvi_tilapia_basil_acta_hort_648",
+        "section_id": "materials_methods_results_tables_2_to_6",
+        "source_type": "peer_reviewed_journal"
+      },
+      "review_metadata": {
+        "reviewed_from_file": "web_read_2026-11-25_archive.uvi.edu Tilapia_and_Basil.pdf and ISTA6 676.pdf",
+        "source_gate": "trusted",
+        "source_gate_reason": "primary_research_source_already_cited_in_basil_corroboration_report",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_utc": "2026-11-25",
+          "scope": "UVI basil crop-cycle values from Rakocy et al. 2004 and ISTA6"
+        }
+      },
+      "added_utc": "2026-11-25"
+    },
+    {
+      "fact_id": "CROP_0003",
+      "statement": "UVI raft basil yielded a mean of 2.0 kg/m2 per harvest in batch production and 1.8 kg/m2 in staggered production, versus 0.6 kg/m2 in the field.",
+      "domain": "biology",
+      "type": "parameter",
+      "confidence": "high",
+      "status": "accepted",
+      "context": {
+        "species": "basil (Genovese)",
+        "system": "UVI coupled DWC raft, 214 m2",
+        "location": "St. Croix, USVI, tropical, outdoor"
+      },
+      "source_metadata": {
+        "source_id": "rakocy_2004_uvi_tilapia_basil_acta_hort_648",
+        "section_id": "materials_methods_results_tables_2_to_6",
+        "source_type": "peer_reviewed_journal"
+      },
+      "review_metadata": {
+        "reviewed_from_file": "web_read_2026-11-25_archive.uvi.edu Tilapia_and_Basil.pdf and ISTA6 676.pdf",
+        "source_gate": "trusted",
+        "source_gate_reason": "primary_research_source_already_cited_in_basil_corroboration_report",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_utc": "2026-11-25",
+          "scope": "UVI basil crop-cycle values from Rakocy et al. 2004 and ISTA6"
+        }
+      },
+      "added_utc": "2026-11-25",
+      "note": "Yield is harvested cut mass; fresh weight is implied but not stated. Culled mass is not quantified."
+    },
+    {
+      "fact_id": "CROP_0004",
+      "statement": "Annual UVI basil yields were about 25.0 kg/m2 (batch), 23.4 kg/m2 (staggered) and 7.8 kg/m2 (field).",
+      "domain": "biology",
+      "type": "parameter",
+      "confidence": "high",
+      "status": "accepted",
+      "context": {
+        "species": "basil (Genovese)",
+        "system": "UVI coupled DWC raft, 214 m2",
+        "location": "St. Croix, USVI, tropical, outdoor"
+      },
+      "source_metadata": {
+        "source_id": "rakocy_2004_uvi_tilapia_basil_acta_hort_648",
+        "section_id": "materials_methods_results_tables_2_to_6",
+        "source_type": "peer_reviewed_journal"
+      },
+      "review_metadata": {
+        "reviewed_from_file": "web_read_2026-11-25_archive.uvi.edu Tilapia_and_Basil.pdf and ISTA6 676.pdf",
+        "source_gate": "trusted",
+        "source_gate_reason": "primary_research_source_already_cited_in_basil_corroboration_report",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_utc": "2026-11-25",
+          "scope": "UVI basil crop-cycle values from Rakocy et al. 2004 and ISTA6"
+        }
+      },
+      "added_utc": "2026-11-25"
+    },
+    {
+      "fact_id": "CROP_0005",
+      "statement": "UVI authors observed that a higher basil planting density than 8 plants/m2 could be used in raft culture, but did not test one.",
+      "domain": "system_design",
+      "type": "guidance",
+      "confidence": "medium",
+      "status": "accepted",
+      "context": {
+        "species": "basil (Genovese)",
+        "system": "UVI coupled DWC raft, 214 m2",
+        "location": "St. Croix, USVI, tropical, outdoor"
+      },
+      "source_metadata": {
+        "source_id": "rakocy_2004_uvi_tilapia_basil_acta_hort_648",
+        "section_id": "materials_methods_results_tables_2_to_6",
+        "source_type": "peer_reviewed_journal"
+      },
+      "review_metadata": {
+        "reviewed_from_file": "web_read_2026-11-25_archive.uvi.edu Tilapia_and_Basil.pdf and ISTA6 676.pdf",
+        "source_gate": "trusted",
+        "source_gate_reason": "primary_research_source_already_cited_in_basil_corroboration_report",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_utc": "2026-11-25",
+          "scope": "UVI basil crop-cycle values from Rakocy et al. 2004 and ISTA6"
+        }
+      },
+      "added_utc": "2026-11-25"
+    },
+    {
+      "fact_id": "CROP_0006",
+      "statement": "At UVI, batch basil production was not sustainable with the system's fish output: nutrient deficiencies would make much of the harvest unmarketable.",
+      "domain": "operations",
+      "type": "warning",
+      "confidence": "high",
+      "status": "accepted",
+      "context": {
+        "species": "basil (Genovese)",
+        "system": "UVI coupled DWC raft, 214 m2",
+        "location": "St. Croix, USVI, tropical, outdoor"
+      },
+      "source_metadata": {
+        "source_id": "rakocy_2004_uvi_tilapia_basil_acta_hort_648",
+        "section_id": "materials_methods_results_tables_2_to_6",
+        "source_type": "peer_reviewed_journal"
+      },
+      "review_metadata": {
+        "reviewed_from_file": "web_read_2026-11-25_archive.uvi.edu Tilapia_and_Basil.pdf and ISTA6 676.pdf",
+        "source_gate": "trusted",
+        "source_gate_reason": "primary_research_source_already_cited_in_basil_corroboration_report",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_utc": "2026-11-25",
+          "scope": "UVI basil crop-cycle values from Rakocy et al. 2004 and ISTA6"
+        }
+      },
+      "added_utc": "2026-11-25"
+    },
+    {
+      "fact_id": "CROP_0007",
+      "statement": "UVI daily feed input was about 81.4 and 99.6 g of fish feed per m2 of plant growing area in the two basil trials.",
+      "domain": "operations",
+      "type": "parameter",
+      "confidence": "high",
+      "status": "accepted",
+      "context": {
+        "species": "basil (Genovese)",
+        "system": "UVI coupled DWC raft, 214 m2",
+        "location": "St. Croix, USVI, tropical, outdoor"
+      },
+      "source_metadata": {
+        "source_id": "rakocy_2004_uvi_tilapia_basil_acta_hort_648",
+        "section_id": "materials_methods_results_tables_2_to_6",
+        "source_type": "peer_reviewed_journal"
+      },
+      "review_metadata": {
+        "reviewed_from_file": "web_read_2026-11-25_archive.uvi.edu Tilapia_and_Basil.pdf and ISTA6 676.pdf",
+        "source_gate": "trusted",
+        "source_gate_reason": "primary_research_source_already_cited_in_basil_corroboration_report",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_utc": "2026-11-25",
+          "scope": "UVI basil crop-cycle values from Rakocy et al. 2004 and ISTA6"
+        }
+      },
+      "added_utc": "2026-11-25",
+      "note": "Which value belongs to which trial is not recorded here; check the source before using either as a trial-specific value."
+    }
+  ]
+}
