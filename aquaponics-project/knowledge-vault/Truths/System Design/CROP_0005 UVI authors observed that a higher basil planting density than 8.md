@@ -3,20 +3,18 @@ fact_id: "CROP_0005"
 domain: "system_design"
 type: "guidance"
 confidence: "medium"
-status: "provisional"
+status: "accepted"
 source_id: "rakocy_2004_uvi_tilapia_basil_acta_hort_648"
-source_file: "data/knowledge/atomic_facts/provisional_crop_cycle_candidates.json"
+source_file: "data/knowledge/atomic_facts/crop_cycle_facts.json"
 tags:
   - truth
   - system_design
-  - candidate
+  - accepted
 ---
 
 # CROP_0005
 
 > UVI authors observed that a higher basil planting density than 8 plants/m2 could be used in raft culture, but did not test one.
-
-**Candidate truth.** Not yet approved (`candidate_pending_user_review`).
 
 ## Context
 

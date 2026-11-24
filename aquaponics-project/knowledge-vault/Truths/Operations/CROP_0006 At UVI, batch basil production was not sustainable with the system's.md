@@ -3,20 +3,18 @@ fact_id: "CROP_0006"
 domain: "operations"
 type: "warning"
 confidence: "high"
-status: "provisional"
+status: "accepted"
 source_id: "rakocy_2004_uvi_tilapia_basil_acta_hort_648"
-source_file: "data/knowledge/atomic_facts/provisional_crop_cycle_candidates.json"
+source_file: "data/knowledge/atomic_facts/crop_cycle_facts.json"
 tags:
   - truth
   - operations
-  - candidate
+  - accepted
 ---
 
 # CROP_0006
 
 > At UVI, batch basil production was not sustainable with the system's fish output: nutrient deficiencies would make much of the harvest unmarketable.
-
-**Candidate truth.** Not yet approved (`candidate_pending_user_review`).
 
 ## Context
 

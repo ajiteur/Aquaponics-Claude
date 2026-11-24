@@ -3,20 +3,18 @@ fact_id: "CROP_0001"
 domain: "system_design"
 type: "parameter"
 confidence: "high"
-status: "provisional"
+status: "accepted"
 source_id: "rakocy_2004_uvi_tilapia_basil_acta_hort_648"
-source_file: "data/knowledge/atomic_facts/provisional_crop_cycle_candidates.json"
+source_file: "data/knowledge/atomic_facts/crop_cycle_facts.json"
 tags:
   - truth
   - system_design
-  - candidate
+  - accepted
 ---
 
 # CROP_0001
 
 > In the UVI raft trials, basil was planted at a density of 8 plants/m2 in batch, staggered and field production.
-
-**Candidate truth.** Not yet approved (`candidate_pending_user_review`).
 
 ## Context
 

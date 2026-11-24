@@ -3,20 +3,18 @@ fact_id: "CROP_0003"
 domain: "biology"
 type: "parameter"
 confidence: "high"
-status: "provisional"
+status: "accepted"
 source_id: "rakocy_2004_uvi_tilapia_basil_acta_hort_648"
-source_file: "data/knowledge/atomic_facts/provisional_crop_cycle_candidates.json"
+source_file: "data/knowledge/atomic_facts/crop_cycle_facts.json"
 tags:
   - truth
   - biology
-  - candidate
+  - accepted
 ---
 
 # CROP_0003
 
 > UVI raft basil yielded a mean of 2.0 kg/m2 per harvest in batch production and 1.8 kg/m2 in staggered production, versus 0.6 kg/m2 in the field.
-
-**Candidate truth.** Not yet approved (`candidate_pending_user_review`).
 
 Note: Yield is harvested cut mass; fresh weight is implied but not stated. Culled mass is not quantified.
 

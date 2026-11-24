@@ -3,20 +3,18 @@ fact_id: "CROP_0002"
 domain: "biology"
 type: "parameter"
 confidence: "high"
-status: "provisional"
+status: "accepted"
 source_id: "rakocy_2004_uvi_tilapia_basil_acta_hort_648"
-source_file: "data/knowledge/atomic_facts/provisional_crop_cycle_candidates.json"
+source_file: "data/knowledge/atomic_facts/crop_cycle_facts.json"
 tags:
   - truth
   - biology
-  - candidate
+  - accepted
 ---
 
 # CROP_0002
 
 > In the UVI staggered trial, basil grew for 28 days before harvest at about 15 cm height, then regrew for a second harvest.
-
-**Candidate truth.** Not yet approved (`candidate_pending_user_review`).
 
 ## Context
 

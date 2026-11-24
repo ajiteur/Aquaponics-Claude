@@ -5,7 +5,7 @@ Last updated: 2026-11-25
 ## Plan
 
 1. **Get the repo running again.** Done 2026-11-25. All tests pass, and the project moved to the `Aquaponics-Claude` repo.
-2. **First end-to-end basil prediction.** In progress. Basil can now be simulated to a harvest, calibrated to the UVI yield anchor (PR #1). The next part turns harvest into a revenue range.
+2. **First end-to-end basil prediction.** In progress. Basil can now be simulated to a harvest, calibrated to the UVI yield anchor (merged in PR #1, values accepted). The next part turns harvest into a revenue range.
 3. **Real-farm viability check.** Not started. Needs your inputs: location, scale, budget, energy and heating costs, local basil prices.
 4. **The fork.** If viable, a pilot farm design spec. If not, an original aquaponics simulation game built on the same engine.
 
