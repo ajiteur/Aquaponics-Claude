@@ -475,7 +475,10 @@ def main():
         ("Sources/Source Register", "Source Register"),
         ("Learnings/Simulation Learnings", "Simulation Learnings"),
     ])
-    write_text(VAULT_ROOT / "Home.md", "\n".join(home_lines))
+    # Home.md is hand-maintained since 2026-11-25; only create it if it is missing.
+    home_path = VAULT_ROOT / "Home.md"
+    if not home_path.exists():
+        write_text(home_path, "\n".join(home_lines))
 
     print(f"Exported Obsidian vault content to: {VAULT_ROOT}")
     print(json.dumps({

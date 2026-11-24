@@ -163,7 +163,7 @@
           "Rakocy, Shultz, Bailey, Thoman 2004, Acta Horticulturae 648:63-69, Aquaponic production of tilapia and basil: comparing a batch and staggered cropping system",
           "Rakocy, Bailey, Shultz, Thoman, ISTA6, Update on tilapia and vegetable production in the UVI aquaponic system"
         ],
-        "status": "candidate_pending_user_review",
+        "status": "accepted",
         "added_utc": "2026-11-25",
         "anchor_reference_conditions": {
           "pH": 7.4,
@@ -171,6 +171,11 @@
           "air_temperature_c": 26.5,
           "basis": "pH is the batch-trial mean (Rakocy et al. 2004, Table 2). Temperatures are the midpoint of the reported 24 to 29 C water range; air temperature is not reported and is set equal to water temperature as a stated assumption.",
           "use": "Simulation calibration only: the plant score at these conditions is treated as 100 percent of the yield anchor."
+        },
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_utc": "2026-11-25",
+          "scope": "UVI basil crop-cycle values from Rakocy et al. 2004 and ISTA6"
         }
       },
       "operating_pH_range": {
@@ -249,7 +254,7 @@
   ],
   "runtime_sync": {
     "scope": "species",
-    "generated_at_utc": "2026-11-24T23:43:04Z",
+    "generated_at_utc": "2026-11-24T23:50:52Z",
     "canonical_source": "data/knowledge/species/plants/basil.json",
     "runtime_target": "data/simulation/species/plants/basil.json",
     "ownership": "data/knowledge is canonical; data/simulation is a derived runtime mirror."
