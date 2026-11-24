@@ -84,6 +84,14 @@
     },
     "aquaponics_context": {
       "minimal_nitrate_mg_L": 47.0,
+      "small_system_pH_context": {
+        "pH_range": {
+          "min": 6.0,
+          "max": 7.0,
+          "unit": "pH"
+        },
+        "system_type": "small_scale_home_system"
+      },
       "notes": "University of Hawaii aquaponics anchor for lettuce growth."
     }
   },
@@ -171,7 +179,7 @@
   "updated_at_utc": "2026-04-05T07:34:22Z",
   "runtime_sync": {
     "scope": "species",
-    "generated_at_utc": "2026-04-14T15:57:13Z",
+    "generated_at_utc": "2026-11-24T23:41:34Z",
     "canonical_source": "data/knowledge/species/plants/lettuce.json",
     "runtime_target": "data/simulation/species/plants/lettuce.json",
     "ownership": "data/knowledge is canonical; data/simulation is a derived runtime mirror."
