@@ -1,10 +1,14 @@
 .env
 __pycache__/
 *.pyc
-data/*
-!data/knowledge/
-data/knowledge/*
-!data/knowledge/business/
-!data/knowledge/business/**
+# Canonical knowledge and derived runtime data are tracked so the repo is complete.
+# Logs, scratch output and sync backups stay local.
+data/logs/
+data/output/
+data/update_logs/
+data/simulation/_sync_backups/
+data/simulation/day_logs/
+*.log
+*.patch
 tmp*/
 tmp_*/

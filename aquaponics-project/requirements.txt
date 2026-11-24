@@ -1,0 +1,5 @@
+# The MVP path (scripts/, tests/, src/mvp_*) uses only the Python standard library.
+# These are needed by the research/LLM scripts in src/ (api_bot.py, extract_claims.py, ...).
+openai
+python-dotenv
+PyYAML

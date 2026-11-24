@@ -1,7 +1,19 @@
 # AGENTS.md
 
-This file defines safe operating rules for Codex and future agents working inside
-`aquaponics-project/`.
+This file defines safe operating rules for Claude Code, Codex and future agents
+working inside `aquaponics-project/`. Claude Code loads it through the repo-root
+`CLAUDE.md`.
+
+## 0. North star
+
+Build a thorough, evidence-first aquaponics knowledge and simulation engine, then
+use it to make predictions and to decide whether a real farm is worth building.
+
+- The near-term decision is a farm go/no-go, made with scenario estimates (see 1C).
+- If a real farm is not viable, the same engine becomes the base for an original
+  aquaponics simulation game.
+- Keep the engine reusable for both paths. Prefer work that produces a runnable
+  end-to-end result over new planning documents.
 
 ## 1. Repo contract
 
@@ -79,6 +91,27 @@ Terminology boundaries:
 - `crop_system_type` is context only; it must not activate saleability, pricing,
   buyer acceptance, product-form, or revenue logic by itself.
 
+## 1C. Scenario-estimate mode
+
+The blocked claims above stay blocked as claims of fact or proof. A scenario
+estimate is the one allowed way to talk about revenue, cost, margin, payback,
+break-even or viability, and only when all of these hold:
+
+- The user has explicitly asked for a scenario estimate for that scope.
+- Every input is either canonical, an explicitly reviewed manual input, or a
+  user-supplied assumption, and each one is labelled with its origin.
+- No price, wage, financing, utilization or market value is invented by the
+  agent. Missing inputs stay missing and are reported as gaps.
+- Results are given as ranges or sensitivity cases, never as a single
+  authoritative number.
+- Outputs carry `estimate_status: "scenario_estimate"` (or an equivalent visible
+  label) and the wording "scenario estimate, not validated".
+- Scenario estimates are never written into `data/knowledge/**` as canon.
+
+For `saleable_harvest_mass_kg`, a scenario estimate may use a reviewed manual
+value only after the user has approved that value for that scope. The approval
+must be recorded next to the value (who, date, scope).
+
 ## 2. Global safety rules
 
 - Prefer minimal diffs over broad rewrites.
@@ -100,6 +133,9 @@ Terminology boundaries:
 - Do not prepend `aquaponics-project/` when already operating from the repo root.
 - Prefer exact file paths over guessed paths.
 - If a referenced path is uncertain, stop and report the uncertainty instead of inventing one.
+- On the user's Windows machine, `python` in PowerShell may be the Windows Store
+  stub. Use `C:\Users\ajith\AppData\Local\Python\bin\python.exe` if `python`
+  fails or opens the Store.
 - If `rg` is unavailable, fall back to native shell search tools for the current environment rather than changing scope.
 
 ## 2B. Non-authoritative sources inside the repo
