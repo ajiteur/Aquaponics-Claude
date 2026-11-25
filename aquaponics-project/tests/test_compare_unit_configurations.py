@@ -61,6 +61,11 @@ class CompareUnitConfigurationsTests(unittest.TestCase):
         self.assertEqual(low["owner_hours_per_m2_yr"], 4.0)
         self.assertAlmostEqual(low["headroom_per_owner_hour"], (64.0 - 30.0) / 4.0)
 
+    def test_fx_given_as_object(self):
+        loc = dict(LOCATION, currency_code="INR", eur_per_currency_unit_for_comparison={"value": 0.01})
+        out = cuc.evaluate(config(), "in", loc)
+        self.assertAlmostEqual(out["cases"]["high"]["eur_comparison"]["headroom_per_m2_yr"], 1.48)
+
     def test_missing_price_is_a_gap_not_a_number(self):
         c = config(price_per_unit={"by_location": {"nl": None}})
         out = cuc.evaluate(c, "nl", LOCATION)
@@ -72,7 +77,7 @@ class CompareUnitConfigurationsTests(unittest.TestCase):
         self.assertEqual(out["estimate_status"], "scenario_estimate")
         self.assertIn("not total operating cost", out["label"])
         locations = {r["location"] for r in out["results"]}
-        self.assertEqual(locations, {"netherlands", "india"})
+        self.assertTrue({"netherlands", "india", "karnataka", "tamil_nadu", "andhra_pradesh", "telangana"} <= locations)
         text = json.dumps(out)
         for word in ('"profit', '"roi', '"payback', '"viable'):
             self.assertNotIn(word, text)

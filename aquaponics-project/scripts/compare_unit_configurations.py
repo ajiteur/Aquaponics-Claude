@@ -84,6 +84,8 @@ def evaluate(config: dict, location_id: str, location: dict) -> dict:
         missing.append("labour")
     owner = config.get("labour_mode") == "owner_uncosted"
     fx = location.get("eur_per_currency_unit_for_comparison")
+    if isinstance(fx, dict):
+        fx = fx.get("value")
     result = {
         "location": location_id,
         "currency_code": location.get("currency_code"),

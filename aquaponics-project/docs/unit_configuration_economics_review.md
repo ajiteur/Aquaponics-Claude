@@ -28,46 +28,72 @@ midpoints.
 
 ## Results (scenario estimate, not validated)
 
+Basil yield range for every basil design: 23.4 kg/m2/yr (UVI staggered, canon CROP_0004)
+to 25.9 kg/m2/yr (simulated, fish feed sized to the UVI ratio, 1.99 kg/m2 x 13 crops).
+Both are tropical-site yields. An under-fed unit yields far less, and Dutch winter light
+and heat are not in the range.
+
 | Configuration | NL headroom EUR/m2/yr (low / mid / high) | India headroom INR/m2/yr (low / mid / high) |
 |---|---|---|
-| A. UVI-style DWC basil, hired, UVI labour intensity (0.62-0.93 h/kg) | -212 / -142 / -59 | 5,232 / 11,458 / 19,841 (about EUR 48 / 105 / 181) |
-| B. Large raceway DWC basil, hired, Hawaii lettuce-farm labour per m2 (0.09-0.13 h/kg) | 26 / 84 / 153 | 6,334 / 12,583 / 20,942 |
-| C. Basil farm at Purdue labour per kg (0.53-0.65 h/kg) | -128 / -82 / -13 | 5,617 / 11,884 / 20,326 |
+| A. UVI-style DWC basil, hired, UVI labour intensity (0.56-0.62 h/kg) | -166 / -105 / -38 | 8,913 / 14,946 / 22,113 (about EUR 81 / 137 / 202) |
+| B. Large raceway DWC basil, hired, Hawaii lettuce-farm labour per m2 (0.08-0.09 h/kg) | 72 / 120 / 174 | 10,015 / 16,071 / 23,214 |
+| C. Basil farm at Purdue labour per kg (0.53-0.65 h/kg) | -177 / -98 / -13 | 8,862 / 15,153 / 22,520 |
 | D. Large raceway DWC lettuce, Flemish auction price | -42 / -19 / 6 | gap: no India lettuce price |
-| E. Owner-operated DWC basil, owner hours not costed | 65 / 119 / 185 | 6,513 / 12,733 / 21,063 |
+| E. Owner-operated DWC basil, owner hours not costed | 111 / 156 / 206 | 10,195 / 16,221 / 23,335 |
 
 Break-even labour intensity for basil wholesale:
 
-- **Netherlands: 0.22 to 0.49 labour hours per harvested kg** (at EUR 16-19/h).
-- **India: about 4.7 to 15 hours per kg** (at about INR 60-88/h). Labour is not the
+- **Netherlands: 0.25 to 0.50 labour hours per harvested kg** (at EUR 16-19/h). This
+  metric barely depends on yield, so it is the most robust result here.
+- **India: about 5 to 15 hours per kg** (at about INR 60-88/h). Labour is not the
   binding constraint there; price evidence and real yield are.
+
+### India by state
+
+Inputs from the Farm inputs thread (`india_state_location_inputs_v0.json`): state
+minimum wages (Telangana and Karnataka state rates, Tamil Nadu and Andhra Pradesh via
+the central-sphere proxy) and state electricity tariffs, with the all-India basil price
+and saleability band in every state.
+
+| State | Owner-run basil, INR/m2/yr (low / mid / high) | Hired, UVI labour, INR/m2/yr (low / mid / high) |
+|---|---|---|
+| Karnataka | 10,457 / 16,497 / 23,586 | 9,337 / 15,253 / 22,304 |
+| Tamil Nadu | 10,091 / 16,290 / 23,494 | 8,753 / 14,929 / 22,239 |
+| Andhra Pradesh | 10,741 / 16,592 / 23,562 | 9,403 / 15,314 / 22,359 |
+| Telangana | 10,304 / 16,414 / 23,552 | 8,809 / 14,954 / 22,233 |
+
+The states differ by only about 5 to 7% in the low case, because wages and power are
+small next to revenue and every state shares one price band. **What decides India is the
+basil price and a local yield, not which of these four states.** A state-specific basil
+price would change this more than anything else.
 
 ## Findings
 
 1. **In the Netherlands, hired labour decides it.** Every sourced basil labour
-   intensity (UVI 0.62-0.93 h/kg, Purdue 0.53-0.65 h/kg) is above the 0.22-0.49 h/kg
+   intensity (UVI 0.56-0.62 h/kg, Purdue 0.53-0.65 h/kg) is above the 0.25-0.50 h/kg
    break-even, before heating or CAPEX. Only configuration B clears, and it borrows a
    lettuce farm's labour per m2 for basil. Basil-specific harvest and handling hours
    per kg are the most important missing number.
 2. **Scale and simple raceways cut labour per m2 about sevenfold** (UVI 14.6 h/m2/yr at
    214 m2 versus Hawaii 2.0 h/m2/yr at about 1,142 m2). Processing and packing was 44%
    of the Hawaii hours, so harvest and pack flow is the design target.
-3. **Owner-operated in the Netherlands leaves EUR 65-185/m2/yr** for heating, CAPEX and
-   owner pay. In the low case that is about EUR 4.5 per owner hour before heating and
-   CAPEX; in the mid case about EUR 14.
+3. **Owner-operated in the Netherlands leaves EUR 111-206/m2/yr** for heating, CAPEX and
+   owner pay. In the low case (UVI labour intensity) that is about EUR 7.6 per owner hour
+   before heating and CAPEX; in the mid case about EUR 19.
 4. **Wholesale lettuce in the Low Countries does not work** at auction prices
-   (EUR 0.19-0.72 per head) even at Hawaii labour efficiency. Basil earns about four to
-   seven times more revenue per m2.
-5. **India clears labour and electricity in every case** (about EUR 48-191/m2/yr
-   headroom), but the price band rests on one hydroponic study and the same study's
-   yield is about 25 times below UVI's. India's open questions are price stage and
-   achievable yield, not wages.
+   (EUR 0.19-0.72 per head) even at Hawaii labour efficiency. Basil earns about 4 to 11
+   times more revenue per m2.
+5. **India clears labour and electricity in every case** (about EUR 81-213/m2/yr
+   headroom at the comparison rate), but the price band rests on one hydroponic study
+   whose own yield is about 25 times below UVI's. India's open questions are price stage
+   and achievable yield, not wages.
 
 ## Leading design candidates
 
 - **Netherlands:** a larger (several hundred m2 or more) simple DWC raceway for basil,
-  laid out for fast harvest and packing, either owner-operated or with labour under
-  about 0.2-0.5 h/kg. Viable only if heating plus CAPEX fit inside the headroom.
+  laid out for fast harvest and packing, fish feed sized to the UVI ratio, either
+  owner-operated or with labour under about 0.25-0.5 h/kg. Viable only if heating plus
+  CAPEX fit inside the headroom.
 - **India:** the same DWC basil unit, where heating is not the issue, once a
   first-wholesale price and a local yield are confirmed per state.
 
@@ -80,7 +106,7 @@ Break-even labour intensity for basil wholesale:
 | Basil wholesale price | Linear driver of revenue | NL: 2020 price lists (low); India: one study (low) |
 | Heating demand in NL | Could eat the headroom | Only a sector average, 0.99 GJ/m2 (not crop-specific) |
 | CAPEX per m2 | Must fit the headroom | USD references only (about USD 190-1,110/m2) |
-| Real yield | Scales revenue | UVI canon 23.4 kg/m2/yr; simulator 15.7 kg/m2/yr nitrate-limited |
+| Real yield | Scales revenue per m2 | UVI canon 23.4 kg/m2/yr; simulator 25.9 kg/m2/yr at the UVI feed ratio; under-fed units far lower |
 
 ## Source reliability
 
@@ -103,5 +129,4 @@ is canon or a value for `saleable_harvest_mass_kg`.
 - Source basil harvest and pack labour per kg (task timing studies or grower data).
 - Dutch heating demand for unlit, low-temperature basil or lettuce glasshouse.
 - A Dutch or EU build cost per m2 for a simple greenhouse with DWC.
-- State-level India inputs (Karnataka, Tamil Nadu, Andhra Pradesh, Telangana) from the
-  Farm inputs thread, then re-run.
+- A state-level first-wholesale basil price for each Indian state.

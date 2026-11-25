@@ -20,87 +20,93 @@
       "missing": "no source yet; left null and reported as a gap"
     },
     "source_tier_vocabulary": {
-      "T1_official_statistics": "government statistics office or official tariff/wage data",
-      "T2_peer_reviewed": "peer-reviewed journal article",
-      "T3_institutional_report": "university extension, government-backed market study, or project case study",
-      "T4_grey_or_industry": "industry blog, vendor page or unreviewed web data",
-      "T5_derived": "arithmetic on the above"
-    }
+      "tier_1": "official and university sources (Trusted Source Map)",
+      "tier_2": "reputable publishers, peer-reviewed journals",
+      "tier_3": "commercial manuals or catalogues, strict gating",
+      "derived": "arithmetic or simulation on the above"
+    },
+    "state_inputs_caveats": [
+      "Wages are legal minimum plus a burden proxy, not market wages",
+      "Paid hours per day are 8 in every state; sourced only for Telangana (overtime beyond 8 h)",
+      "Electricity is energy charge only; fixed/demand charges, duty and fuel surcharges are excluded",
+      "Which tariff category an aquaponic unit falls into is unknown in every state, so low = agri/horticulture-type category, high = commercial-type category",
+      "No state-specific basil price exists; all four share the all-India band"
+    ]
   },
   "sources": {
     "heidemann_bailey_2015_uvi_economics": {
       "citation": "Heidemann and Bailey 2015, Commercial Aquaponics Case Study #3: Economic Analysis of the UVI Commercial Aquaponics System (SARE, draft AEC 2015-18), Tables 7, 8, 11",
-      "source_tier": "T3_institutional_report",
+      "source_tier": "tier_1",
       "confidence": "medium",
       "confidence_reason": "Measured operating records from a long-running research system, but a draft report, USD 2014, tropical site, and labour and electricity are whole-system with no crop split.",
       "cross_check": "Grow area 214 m2 matches Rakocy et al. 2004 (canon). Labour share pattern (largest cost) agrees with Tokunaga et al. and Quagrainie et al."
     },
     "rakocy_2004_uvi_tilapia_basil_acta_hort_648": {
       "citation": "Rakocy et al. 2004, Aquaponic production of tilapia and basil: comparing a batch and staggered cropping system, Acta Hort 648",
-      "source_tier": "T2_peer_reviewed",
+      "source_tier": "tier_2",
       "confidence": "high",
       "confidence_reason": "Primary trial data, already accepted as canon (CROP_0004) by Ajit on 2026-11-25.",
       "cross_check": "Simulator calibrated to the same anchor (PR #1)."
     },
     "tokunaga_2015_hawaii_aquaponics_economics": {
       "citation": "Tokunaga, Tamaru, Ako and Leung, Economics of Small-scale Commercial Aquaponics in Hawai'i (CTSA report Nov 2013; published 2015, J World Aquaculture Society). Read: ctsa.org/files/publications/HawaiiAquaponicsEconomics_Nov13.pdf, Tables 1, 3, 7, 8, 12",
-      "source_tier": "T3_institutional_report",
+      "source_tier": "tier_1",
       "confidence": "medium",
       "confidence_reason": "Model farm built from a survey of operating Hawaii farms (fieldwork 2012), with an itemised labour task table. It is a representative model, not one farm's records, and it is lettuce, not basil. The journal version is peer-reviewed; the report version was read.",
       "cross_check": "Labour share of operating cost (48%) agrees with SRAC 5006 summary (46%) and Quagrainie et al. (62-67%). Labour cost line ($31,842) reproduces from 2,326 h x $9.75 x 1.40."
     },
     "quagrainie_purdue_indiana_aquaponics": {
       "citation": "Quagrainie et al., Economic analysis of aquaponics production in Indiana (Purdue Agricultural Economics), Tables 6-9",
-      "source_tier": "T3_institutional_report",
+      "source_tier": "tier_1",
       "confidence": "low",
       "confidence_reason": "Hypothetical representative farms, not measured, no grow area given, no price year, and several internal inconsistencies (Table 2 total, investment claim, NPV values in conclusion vs Table 5).",
       "cross_check": "Labour dominates operating cost, consistent with Tokunaga et al. and UVI. Scale effect direction (unit cost falls with size) agrees with SRAC 5006's general statement that scale economies are weaker than in other aquaculture."
     },
     "zappernick_2022_techno_economic": {
       "citation": "Zappernick et al. 2022, Techno-economic analysis of a recirculating tilapia-lettuce aquaponics system, Journal of Cleaner Production 365, 132753, Sec. 2.2.2",
-      "source_tier": "T2_peer_reviewed",
+      "source_tier": "tier_2",
       "confidence": "medium",
       "confidence_reason": "Peer-reviewed, but only the methods section was read verbatim; total labour hours and later results came from an extracted summary and are not used here.",
       "cross_check": "Harvest rate of 30 plants per hour is far slower than the Tokunaga task table implies for lettuce; treated as a small-system bound only."
     },
     "cbi_2024_fresh_culinary_herbs": {
       "citation": "CBI (Netherlands Enterprise Agency programme), Entering the European market for fresh culinary herbs, last updated 18 January 2024, Table 1",
-      "source_tier": "T3_institutional_report",
+      "source_tier": "tier_1",
       "confidence": "low",
       "confidence_reason": "Government-backed market study, but basil wholesale figures are price-list examples from March 2020 (over 5 years old) and the bundle range is for herbs in general.",
       "cross_check": "Same figures as the repo research pack (First-slice basil wholesale economics input pack)."
     },
     "vbt_landbouwcijfers_vlaanderen_weekly_prices": {
       "citation": "Departement Landbouw en Visserij (Vlaanderen), VBT weekly price information, vegetables, weeks 24/2024, 50/2024, 24/2025 (landbouwcijfers.vlaanderen.be)",
-      "source_tier": "T1_official_statistics",
+      "source_tier": "tier_1",
       "confidence": "low",
       "confidence_reason": "Official realised auction producer prices, but the PDF text extraction was column-scrambled, the per-product unit is not printed (lettuce is probably per head), and the lettuce type behind 'Sla' is not stated. Belgian, not Dutch.",
       "cross_check": "Order of magnitude (well under EUR 1 per head) is far below the US farm-gate lettuce prices in Tokunaga et al. (USD 2.15/lb) and Zappernick et al. (USD 2.05/head organic), which is expected for a Low Countries auction channel."
     },
     "research_pack_nl_inputs": {
       "citation": "data/sources/research_reports/markdown/First-slice basil wholesale economics input pack.md (CBS electricity 500-2,000 MWh/yr band; Dutch greenhouse CAO 1 July 2025 plus employer burden)",
-      "source_tier": "T1_official_statistics",
+      "source_tier": "tier_1",
       "confidence": "medium",
       "confidence_reason": "Underlying sources are official (CBS, CAO), read through a non-canonical research pack; the burden loading on top of the CAO wage is a pack estimate.",
       "cross_check": "Same values used by the Farm inputs thread (farm_viability_inputs_v0.json)."
     },
     "basil_crop_cycle_simulation": {
-      "citation": "data/simulation/results/basil_raft_crop_cycle_28d.json (starter fixture, 1.21 kg/m2 per harvest), PR #1",
-      "source_tier": "T5_derived",
+      "citation": "data/simulation/results/basil_raft_crop_cycle_uvi_feed_ratio_28d.json (UVI feed ratio, 1.99 kg/m2 per harvest after the PR #6 nitrification fix)",
+      "source_tier": "derived",
       "confidence": "low",
-      "confidence_reason": "Simulation output from a model with a placeholder nitrification model; a scenario estimate of a nitrate-limited unit.",
-      "cross_check": "Below the UVI anchor (2.0 kg/m2 per harvest), as expected for an under-fed system."
+      "confidence_reason": "Simulation output calibrated to the UVI anchor; the nitrification fix is still a candidate pending Ajit's review.",
+      "cross_check": "Matches the UVI batch per-harvest yield (2.0 kg/m2, canon CROP_0003)."
     },
     "research_pack_india_inputs": {
       "citation": "data/sources/research_reports/markdown/First-slice basil wholesale economics input pack.md, India section (Andhra Pradesh hydroponic basil study 2025; Chief Labour Commissioner agriculture minimum wages April 2025 plus EPF 12% and ESIC 3.25%; TNERC HT Tariff I 2025; ECB reference rate 20 April 2026)",
-      "source_tier": "T1_official_statistics (wages, tariff) / T2_peer_reviewed (price anchor)",
+      "source_tier": "tier_1 (wages, tariff) / tier_2 (price anchor)",
       "confidence": "low",
       "confidence_reason": "Wage floor and tariff anchor are official, but the price band is one hydroponic study's sale price (INR 1,000/kg) with operator haircuts for the lower points, the first-wholesale stage is unproven, and the tariff depends on state and category.",
       "cross_check": "Same values as the repo research pack; the India sale price anchor converts to about EUR 9.1/kg, inside the Dutch band, which is plausible for a premium fresh-herb channel but not confirmed."
     },
     "india_working_day_hours": {
       "citation": "Factories Act 1948 s.54 (adult working day at most 9 hours) and the common 8-hour working day under Indian minimum-wage rules",
-      "source_tier": "T1_official_statistics",
+      "source_tier": "tier_1",
       "confidence": "low",
       "confidence_reason": "Used only to convert a per-day wage into a per-hour wage; the real paid hours per day on an Indian farm are not sourced and need Ajit's check.",
       "cross_check": "none yet"
@@ -117,11 +123,12 @@
       "labour_mode": "hired",
       "output_unit": "kg",
       "yield_units_per_m2_yr": {
-        "low": 15.73,
-        "high": 23.4,
-        "origin": "simulation_output (low) and canonical (high)",
-        "source": "basil_crop_cycle_simulation; rakocy_2004_uvi_tilapia_basil_acta_hort_648",
-        "derivation": "low = 1.21 kg/m2 per harvest x 13 crops per year (simulated nitrate-limited unit); high = UVI staggered annual yield 23.4 kg/m2 (CROP_0004)"
+        "low": 23.4,
+        "high": 25.87,
+        "origin": "canonical (low) and simulation_output (high)",
+        "source": "rakocy_2004_uvi_tilapia_basil_acta_hort_648; basil_crop_cycle_simulation",
+        "derivation": "low = UVI staggered annual yield 23.4 kg/m2 (CROP_0004); high = 1.99 kg/m2 per harvest x 13 crops (simulated, fish feed sized to the UVI ratio)",
+        "bias": "tropical-site yields with feed sized to the UVI ratio. An under-fed unit yields far less (the starter fixture simulates 0.77 kg/m2 per harvest), and Dutch winter light and heat are not in the range."
       },
       "saleability_rate": {
         "ref": "basil_saleability_rate"
@@ -144,11 +151,7 @@
       },
       "price_per_unit": {
         "ref": "basil_wholesale_price_per_kg"
-      },
-      "locations": [
-        "netherlands",
-        "india"
-      ]
+      }
     },
     {
       "config_id": "B_large_raceway_dwc_basil_lean_labour",
@@ -160,11 +163,12 @@
       "labour_mode": "hired",
       "output_unit": "kg",
       "yield_units_per_m2_yr": {
-        "low": 15.73,
-        "high": 23.4,
-        "origin": "simulation_output (low) and canonical (high)",
-        "source": "basil_crop_cycle_simulation; rakocy_2004_uvi_tilapia_basil_acta_hort_648",
-        "derivation": "as configuration A"
+        "low": 23.4,
+        "high": 25.87,
+        "origin": "canonical (low) and simulation_output (high)",
+        "source": "rakocy_2004_uvi_tilapia_basil_acta_hort_648; basil_crop_cycle_simulation",
+        "derivation": "low = UVI staggered annual yield 23.4 kg/m2 (CROP_0004); high = 1.99 kg/m2 per harvest x 13 crops (simulated, fish feed sized to the UVI ratio)",
+        "bias": "tropical-site yields with feed sized to the UVI ratio. An under-fed unit yields far less (the starter fixture simulates 0.77 kg/m2 per harvest), and Dutch winter light and heat are not in the range."
       },
       "saleability_rate": {
         "ref": "basil_saleability_rate"
@@ -187,11 +191,7 @@
       },
       "price_per_unit": {
         "ref": "basil_wholesale_price_per_kg"
-      },
-      "locations": [
-        "netherlands",
-        "india"
-      ]
+      }
     },
     {
       "config_id": "C_representative_farm_basil_purdue_labour",
@@ -203,11 +203,12 @@
       "labour_mode": "hired",
       "output_unit": "kg",
       "yield_units_per_m2_yr": {
-        "low": 15.73,
-        "high": 23.4,
-        "origin": "simulation_output (low) and canonical (high)",
-        "source": "basil_crop_cycle_simulation; rakocy_2004_uvi_tilapia_basil_acta_hort_648",
-        "derivation": "as configuration A"
+        "low": 23.4,
+        "high": 25.87,
+        "origin": "canonical (low) and simulation_output (high)",
+        "source": "rakocy_2004_uvi_tilapia_basil_acta_hort_648; basil_crop_cycle_simulation",
+        "derivation": "low = UVI staggered annual yield 23.4 kg/m2 (CROP_0004); high = 1.99 kg/m2 per harvest x 13 crops (simulated, fish feed sized to the UVI ratio)",
+        "bias": "tropical-site yields with feed sized to the UVI ratio. An under-fed unit yields far less (the starter fixture simulates 0.77 kg/m2 per harvest), and Dutch winter light and heat are not in the range."
       },
       "saleability_rate": {
         "ref": "basil_saleability_rate"
@@ -229,11 +230,7 @@
       },
       "price_per_unit": {
         "ref": "basil_wholesale_price_per_kg"
-      },
-      "locations": [
-        "netherlands",
-        "india"
-      ]
+      }
     },
     {
       "config_id": "D_large_raceway_dwc_lettuce_auction",
@@ -286,11 +283,7 @@
           "india": null
         }
       },
-      "locations": [
-        "netherlands",
-        "india"
-      ],
-      "price_gap_note": "No sourced India lettuce price; India lettuce is reported as a gap."
+      "price_gap_note": "No sourced India lettuce price (national or state); India lettuce is reported as a gap."
     },
     {
       "config_id": "E_owner_operated_dwc_basil",
@@ -302,11 +295,12 @@
       "labour_mode": "owner_uncosted",
       "output_unit": "kg",
       "yield_units_per_m2_yr": {
-        "low": 15.73,
-        "high": 23.4,
-        "origin": "simulation_output (low) and canonical (high)",
-        "source": "basil_crop_cycle_simulation; rakocy_2004_uvi_tilapia_basil_acta_hort_648",
-        "derivation": "as configuration A"
+        "low": 23.4,
+        "high": 25.87,
+        "origin": "canonical (low) and simulation_output (high)",
+        "source": "rakocy_2004_uvi_tilapia_basil_acta_hort_648; basil_crop_cycle_simulation",
+        "derivation": "low = UVI staggered annual yield 23.4 kg/m2 (CROP_0004); high = 1.99 kg/m2 per harvest x 13 crops (simulated, fish feed sized to the UVI ratio)",
+        "bias": "tropical-site yields with feed sized to the UVI ratio. An under-fed unit yields far less (the starter fixture simulates 0.77 kg/m2 per harvest), and Dutch winter light and heat are not in the range."
       },
       "saleability_rate": {
         "ref": "basil_saleability_rate"
@@ -327,11 +321,7 @@
       },
       "price_per_unit": {
         "ref": "basil_wholesale_price_per_kg"
-      },
-      "locations": [
-        "netherlands",
-        "india"
-      ]
+      }
     }
   ],
   "not_in_cost_lines": {
@@ -339,13 +329,13 @@
       "value": null,
       "origin": "missing",
       "context": "Dutch greenhouse sector average total energy use was 0.99 GJ/m2 in 2024 (WUR Energiemonitor 2025-150, provisional, all crops incl. lit crops). Not crop-specific, so not applied.",
-      "context_source_tier": "T1_official_statistics"
+      "context_source_tier": "tier_1"
     },
     "annualised_capex": {
       "value": null,
       "origin": "missing",
       "context": "Only USD references found: Tokunaga et al. model farm USD 217,078 total investment for 1,141.6 m2 raceway (about USD 190 per m2, 2012); Zappernick et al. about USD 69,400 for a 62-63 m2 grow bed (about USD 1,110 per m2, 2019); UVI owner-built depreciation USD 3,420/yr for 214 m2 (2014). No EUR or Dutch build cost is sourced.",
-      "context_source_tier": "T2_peer_reviewed / T3_institutional_report"
+      "context_source_tier": "tier_1 / tier_2"
     },
     "consumables_feed_seed_fingerlings_water": {
       "value": null,
@@ -428,7 +418,229 @@
         "source": "research_pack_india_inputs",
         "approval_status": "pending_ajit_approval",
         "note": "Only INR 1,000/kg is evidenced (study sale price); 600 and 800 are haircuts for stage ambiguity."
-      }
+      },
+      "label": "All-India band (research pack)"
+    },
+    "karnataka": {
+      "wage_per_hour": {
+        "low": 76.82,
+        "high": 76.82,
+        "origin": "sourced_candidate",
+        "source": "WageIndicator compilation of Karnataka agriculture and related works minimum wage, Rs 533.21/day (basic 401.26 + VDA 131.95), valid 1 Apr 2025 to 31 Mar 2026; 8 h/day per a 2024-25 compilation (echoforum PDF, unverified)",
+        "source_tier": "grey_literature",
+        "confidence": "low",
+        "confidence_reason": "Secondary compiler, period has expired, newer revision not confirmed; 8 h/day unverified",
+        "derivation": "Minimum wage x 1.1525 statutory-burden proxy (research pack, EPF/ESI), divided by paid hours per day",
+        "raw_minimum_wage_per_day": 533.21,
+        "paid_hours_per_day": 8
+      },
+      "electricity_per_kwh": {
+        "low": 3.45,
+        "high": 7.1,
+        "origin": "sourced_candidate",
+        "source": "Low: LT-4c private horticultural nurseries Rs 3.45/kWh (electricbill.in aggregator). High: LT-3a commercial Rs 7.10/kWh (KERC review order, PTI via ThePrint, 4 Mar 2026)",
+        "source_tier": "grey_literature",
+        "confidence": "low",
+        "confidence_reason": "No primary KERC order read; aggregator and news values conflict for LT-3a and LT-5; aquaponics tariff category unknown",
+        "excluded": "fixed charges (about Rs 165-235 per kW or HP per month)"
+      },
+      "currency_code": "INR",
+      "eur_per_currency_unit_for_comparison": {
+        "value": 0.009136,
+        "origin": "repo_research_pack",
+        "source": "ECB reference rate 20 April 2026, EUR 1 = INR 109.4525, comparison only",
+        "source_tier": "government_statistics",
+        "confidence": "high",
+        "confidence_reason": "official reference rate; comparison only, not for canon"
+      },
+      "basil_wholesale_price_per_kg": {
+        "low": 600,
+        "high": 1000,
+        "origin": "repo_research_pack",
+        "source": "2025 Andhra Pradesh hydroponic basil study (Rs 1,000/kg sale price) with operator haircuts to 600",
+        "source_tier": "peer_reviewed (high end) + research_pack_operator_assumption",
+        "confidence": "low",
+        "confidence_reason": "No state-specific basil wholesale price found; same all-India band used for every state; the study price is not first-wholesale",
+        "note": "Same band in all four states"
+      },
+      "basil_saleability_rate": {
+        "low": 0.8,
+        "high": 0.92,
+        "origin": "repo_research_pack",
+        "source": "research pack India saleability band",
+        "source_tier": "research_pack_operator_assumption",
+        "confidence": "low",
+        "confidence_reason": "operator assumption, not measured"
+      },
+      "provenance_note": "Copied from the Farm inputs thread file india_state_location_inputs_v0.json (project files, 2026-11-25). Values are candidates; see that file for full caveats."
+    },
+    "tamil_nadu": {
+      "wage_per_hour": {
+        "low": 70.01,
+        "high": 91.77,
+        "origin": "sourced_candidate",
+        "source": "No Tamil Nadu state agriculture minimum wage found. Proxy: central-sphere agriculture minimum wage incl. VDA w.e.f. 1 Oct 2026 (Labour Bureau order 6/1/2026-VDA, via govtstaff.com), unskilled Area C Rs 486 to skilled Area A Rs 637/day",
+        "source_tier": "government_statistics (via secondary copy)",
+        "confidence": "low",
+        "confidence_reason": "Central-sphere rates bind only central-government establishments, used as proxy; paid hours/day (8) not sourced",
+        "derivation": "Minimum wage x 1.1525 statutory-burden proxy (research pack, EPF/ESI), divided by paid hours per day",
+        "raw_minimum_wage_per_day": [
+          486,
+          637
+        ],
+        "paid_hours_per_day": 8
+      },
+      "electricity_per_kwh": {
+        "low": 4.95,
+        "high": 10.45,
+        "origin": "sourced_candidate",
+        "source": "TNERC T.O. No.6 of 2025 (from 1 Jul 2025) per thediscombill.com: low LT-IIIA(1) cottage/micro incl. poultry and dairy up to 12 kW, 0-250 units Rs 4.95 (above 250: 7.15); high LT-V commercial above 50 units Rs 10.45. Consistent with official T.O. No.6 of 2024 (4.80 / 10.15)",
+        "source_tier": "grey_literature",
+        "confidence": "medium",
+        "confidence_reason": "Secondary site, but matches the pattern of the official 2024 order; agriculture LT-IV FY2025-26 not found; category for aquaponics unknown",
+        "excluded": "fixed charges Rs 77-110 per kW per month"
+      },
+      "currency_code": "INR",
+      "eur_per_currency_unit_for_comparison": {
+        "value": 0.009136,
+        "origin": "repo_research_pack",
+        "source": "ECB reference rate 20 April 2026, EUR 1 = INR 109.4525, comparison only",
+        "source_tier": "government_statistics",
+        "confidence": "high",
+        "confidence_reason": "official reference rate; comparison only, not for canon"
+      },
+      "basil_wholesale_price_per_kg": {
+        "low": 600,
+        "high": 1000,
+        "origin": "repo_research_pack",
+        "source": "2025 Andhra Pradesh hydroponic basil study (Rs 1,000/kg sale price) with operator haircuts to 600",
+        "source_tier": "peer_reviewed (high end) + research_pack_operator_assumption",
+        "confidence": "low",
+        "confidence_reason": "No state-specific basil wholesale price found; same all-India band used for every state; the study price is not first-wholesale",
+        "note": "Same band in all four states"
+      },
+      "basil_saleability_rate": {
+        "low": 0.8,
+        "high": 0.92,
+        "origin": "repo_research_pack",
+        "source": "research pack India saleability band",
+        "source_tier": "research_pack_operator_assumption",
+        "confidence": "low",
+        "confidence_reason": "operator assumption, not measured"
+      },
+      "provenance_note": "Copied from the Farm inputs thread file india_state_location_inputs_v0.json (project files, 2026-11-25). Values are candidates; see that file for full caveats."
+    },
+    "andhra_pradesh": {
+      "wage_per_hour": {
+        "low": 70.01,
+        "high": 91.77,
+        "origin": "sourced_candidate",
+        "source": "No Andhra Pradesh state agriculture minimum wage found (AP labour PDF failed to load). Proxy: central-sphere agriculture minimum wage w.e.f. 1 Oct 2026, unskilled Area C Rs 486 to skilled Area A Rs 637/day",
+        "source_tier": "government_statistics (via secondary copy)",
+        "confidence": "low",
+        "confidence_reason": "Central-sphere proxy, not the state rate; paid hours/day (8) not sourced",
+        "derivation": "Minimum wage x 1.1525 statutory-burden proxy (research pack, EPF/ESI), divided by paid hours per day",
+        "raw_minimum_wage_per_day": [
+          486,
+          637
+        ],
+        "paid_hours_per_day": 8
+      },
+      "electricity_per_kwh": {
+        "low": 3.85,
+        "high": 4.5,
+        "origin": "sourced_candidate",
+        "source": "APERC RSTO FY2025-26 (tariffs kept unchanged): V-B aquaculture and animal husbandry Rs 3.85; V-A(vi) floriculture in greenhouse Rs 4.50 (from an unverified extract of a RESCO copy). APERC highlights confirm horticultural nurseries get free power (GO 39) and aquaculture a Rs 1.50/unit concession (GO 70)",
+        "source_tier": "government_statistics (partly unverified)",
+        "confidence": "low",
+        "confidence_reason": "Tariff table not read verbatim; commercial fallback not found so the high end may be too low; eligibility of an aquaponic unit for agri or aquaculture categories unknown",
+        "excluded": "fixed charges Rs 30-75 per month (unit unconfirmed); concessions not applied"
+      },
+      "currency_code": "INR",
+      "eur_per_currency_unit_for_comparison": {
+        "value": 0.009136,
+        "origin": "repo_research_pack",
+        "source": "ECB reference rate 20 April 2026, EUR 1 = INR 109.4525, comparison only",
+        "source_tier": "government_statistics",
+        "confidence": "high",
+        "confidence_reason": "official reference rate; comparison only, not for canon"
+      },
+      "basil_wholesale_price_per_kg": {
+        "low": 600,
+        "high": 1000,
+        "origin": "repo_research_pack",
+        "source": "2025 Andhra Pradesh hydroponic basil study (Rs 1,000/kg sale price) with operator haircuts to 600",
+        "source_tier": "peer_reviewed (high end) + research_pack_operator_assumption",
+        "confidence": "low",
+        "confidence_reason": "No state-specific basil wholesale price found; same all-India band used for every state; the study price is not first-wholesale",
+        "note": "Same band in all four states"
+      },
+      "basil_saleability_rate": {
+        "low": 0.8,
+        "high": 0.92,
+        "origin": "repo_research_pack",
+        "source": "research pack India saleability band",
+        "source_tier": "research_pack_operator_assumption",
+        "confidence": "low",
+        "confidence_reason": "operator assumption, not measured"
+      },
+      "provenance_note": "Copied from the Farm inputs thread file india_state_location_inputs_v0.json (project files, 2026-11-25). Values are candidates; see that file for full caveats."
+    },
+    "telangana": {
+      "wage_per_hour": {
+        "low": 77.57,
+        "high": 102.51,
+        "origin": "sourced_candidate",
+        "source": "Telangana G.O.Ms.No.6, 30 May 2026, from 1 Jun 2026 (Code on Wages; agriculture listed in Schedule II): unskilled Zone III Rs 14,000/month to skilled Zone I Rs 18,500/month, divided by 26 days per the GO = Rs 538.46 to 711.54/day; overtime beyond 8 h",
+        "source_tier": "government_statistics (via consultancy copy)",
+        "confidence": "medium",
+        "confidence_reason": "Current state GO covering agriculture, read in full; hosted by a consultancy not the gazette; burden factor is a proxy",
+        "derivation": "Minimum wage x 1.1525 statutory-burden proxy (research pack, EPF/ESI), divided by paid hours per day",
+        "raw_minimum_wage_per_day": [
+          538.46,
+          711.54
+        ],
+        "paid_hours_per_day": 8
+      },
+      "electricity_per_kwh": {
+        "low": 4.0,
+        "high": 8.5,
+        "origin": "sourced_candidate",
+        "source": "TGSPDCL Retail Supply Tariff Schedule FY2025-26 (1 May 2025 to 31 Mar 2026): low LT-V(B) horticulture nurseries / LT-IV(B) agro-based activities Rs 4.00; high LT-II(B) non-domestic above 50 units Rs 8.50. Pisciculture LT-III Rs 6.20",
+        "source_tier": "government_statistics",
+        "confidence": "medium",
+        "confidence_reason": "Official discom schedule read directly, but its period has expired and no newer one was found; aquaponics category unknown",
+        "excluded": "fixed charges Rs 20-70 per kW or HP per month"
+      },
+      "currency_code": "INR",
+      "eur_per_currency_unit_for_comparison": {
+        "value": 0.009136,
+        "origin": "repo_research_pack",
+        "source": "ECB reference rate 20 April 2026, EUR 1 = INR 109.4525, comparison only",
+        "source_tier": "government_statistics",
+        "confidence": "high",
+        "confidence_reason": "official reference rate; comparison only, not for canon"
+      },
+      "basil_wholesale_price_per_kg": {
+        "low": 600,
+        "high": 1000,
+        "origin": "repo_research_pack",
+        "source": "2025 Andhra Pradesh hydroponic basil study (Rs 1,000/kg sale price) with operator haircuts to 600",
+        "source_tier": "peer_reviewed (high end) + research_pack_operator_assumption",
+        "confidence": "low",
+        "confidence_reason": "No state-specific basil wholesale price found; same all-India band used for every state; the study price is not first-wholesale",
+        "note": "Same band in all four states"
+      },
+      "basil_saleability_rate": {
+        "low": 0.8,
+        "high": 0.92,
+        "origin": "repo_research_pack",
+        "source": "research pack India saleability band",
+        "source_tier": "research_pack_operator_assumption",
+        "confidence": "low",
+        "confidence_reason": "operator assumption, not measured"
+      },
+      "provenance_note": "Copied from the Farm inputs thread file india_state_location_inputs_v0.json (project files, 2026-11-25). Values are candidates; see that file for full caveats."
     }
   }
 }
