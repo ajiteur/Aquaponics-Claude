@@ -6,6 +6,7 @@
 - [[Truths/Truths|Truths]]: evidence-backed facts, one note each
 - [[Learnings/Simulation Findings Log|Simulation Findings Log]]: what the model shows
 - [[Inbox/Inbox|Inbox]]: drop anything here
+- [[Project/How to Run Locally|How to Run Locally]]: run things yourself
 
 ## Reference
 

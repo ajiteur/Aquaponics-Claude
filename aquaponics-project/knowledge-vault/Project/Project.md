@@ -6,6 +6,7 @@ The hub for how this project runs. These notes are written by hand (by you or Cl
 - [[Project/Status and Roadmap|Status and Roadmap]]: where things stand and what's next
 - [[Project/Decisions Log|Decisions Log]]: choices made and why
 - [[Inbox/Inbox|Inbox]]: drop anything here and Claude will sort it
+- [[Project/How to Run Locally|How to Run Locally]]: run simulations and unit economics on your own PC
 
 ## How knowledge is split
 
