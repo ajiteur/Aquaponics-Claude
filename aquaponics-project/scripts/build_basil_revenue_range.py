@@ -82,7 +82,10 @@ def case_inputs(inputs: dict) -> dict[str, dict]:
             },
             "saleability_basis": provenance.get("saleability_basis"),
             "input_status": "provisional working assumption from the inputs file",
+            # AGENTS.md 1C: price and saleability must be user-approved for this scope.
+            "approval": case.get("approval") or inputs.get("metadata", {}).get("approval"),
         }
+        cases[name]["approval_status"] = "approved" if cases[name]["approval"] else "pending_user_approval"
     return cases
 
 
@@ -120,6 +123,7 @@ def build(result_paths: list[Path], inputs_path: Path, crops_per_year: int) -> d
         if "gross_revenue_per_m2_per_year" in row
     ]
     currencies = {c["currency_code"] for c in cases.values()}
+    pending = sorted(n for n, c in cases.items() if c["approval_status"] != "approved")
     return {
         "estimate_status": "scenario_estimate",
         "label": "Scenario estimate, not validated. Gross revenue only: no costs, margin or profit.",
@@ -128,10 +132,12 @@ def build(result_paths: list[Path], inputs_path: Path, crops_per_year: int) -> d
         "generated_at_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "inputs_file": rel(inputs_path),
         "crops_per_year": crops_per_year,
-        "crops_per_year_basis": "UVI staggered basil trial reported 13 crops per year (Rakocy et al. 2004)"
+        "crops_per_year_basis": "Rakocy et al. 2004 (Acta Hort 648), Results: the staggered trial is described as 13 crops per year, versus nine in an earlier study; consistent with 23.4 kg/m2/yr / 1.8 kg/m2 per harvest"
         if crops_per_year == DEFAULT_CROPS_PER_YEAR
         else "user-supplied",
         "currency_code": currencies.pop() if len(currencies) == 1 else sorted(c for c in currencies if c),
+        "input_approval_status": "approved" if not pending else "pending_user_approval",
+        "cases_pending_input_approval": pending,
         "case_inputs": cases,
         "scenarios": scenarios,
         "range_gross_revenue_per_m2_per_year": {"low": min(annual), "high": max(annual)} if annual else None,
