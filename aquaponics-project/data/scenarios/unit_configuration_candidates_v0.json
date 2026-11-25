@@ -426,12 +426,13 @@
             "indiamart_bengaluru_basil_listings_2026-11-25"
           ]
         },
-        "approval": {
-          "approved_by": "Ajit",
-          "approved_date_local": "2026-11-25",
-          "scope": "India base basil price for the unit-economics comparison"
+        "supersedes": "INR 600-1,000/kg study band (now the india_study_price_band_sensitivity location)",
+        "user_statement": {
+          "by": "Ajit",
+          "date_local": "2026-11-25",
+          "text": "It does cost that much in Bangalore (about INR 65-180/kg)"
         },
-        "supersedes": "INR 600-1,000/kg study band (now the india_study_price_band_sensitivity location)"
+        "approval_status": "pending_ajit_approval (Approval Batch 001)"
       },
       "label": "All-India band (research pack)"
     },
@@ -482,12 +483,13 @@
             "indiamart_bengaluru_basil_listings_2026-11-25"
           ]
         },
-        "approval": {
-          "approved_by": "Ajit",
-          "approved_date_local": "2026-11-25",
-          "scope": "India base basil price for the unit-economics comparison"
+        "supersedes": "INR 600-1,000/kg study band (now the india_study_price_band_sensitivity location)",
+        "user_statement": {
+          "by": "Ajit",
+          "date_local": "2026-11-25",
+          "text": "It does cost that much in Bangalore (about INR 65-180/kg)"
         },
-        "supersedes": "INR 600-1,000/kg study band (now the india_study_price_band_sensitivity location)"
+        "approval_status": "pending_ajit_approval (Approval Batch 001)"
       },
       "basil_saleability_rate": {
         "low": 0.8,
@@ -550,12 +552,13 @@
             "indiamart_bengaluru_basil_listings_2026-11-25"
           ]
         },
-        "approval": {
-          "approved_by": "Ajit",
-          "approved_date_local": "2026-11-25",
-          "scope": "India base basil price for the unit-economics comparison"
+        "supersedes": "INR 600-1,000/kg study band (now the india_study_price_band_sensitivity location)",
+        "user_statement": {
+          "by": "Ajit",
+          "date_local": "2026-11-25",
+          "text": "It does cost that much in Bangalore (about INR 65-180/kg)"
         },
-        "supersedes": "INR 600-1,000/kg study band (now the india_study_price_band_sensitivity location)"
+        "approval_status": "pending_ajit_approval (Approval Batch 001)"
       },
       "basil_saleability_rate": {
         "low": 0.8,
@@ -618,12 +621,13 @@
             "indiamart_bengaluru_basil_listings_2026-11-25"
           ]
         },
-        "approval": {
-          "approved_by": "Ajit",
-          "approved_date_local": "2026-11-25",
-          "scope": "India base basil price for the unit-economics comparison"
+        "supersedes": "INR 600-1,000/kg study band (now the india_study_price_band_sensitivity location)",
+        "user_statement": {
+          "by": "Ajit",
+          "date_local": "2026-11-25",
+          "text": "It does cost that much in Bangalore (about INR 65-180/kg)"
         },
-        "supersedes": "INR 600-1,000/kg study band (now the india_study_price_band_sensitivity location)"
+        "approval_status": "pending_ajit_approval (Approval Batch 001)"
       },
       "basil_saleability_rate": {
         "low": 0.8,
@@ -686,12 +690,13 @@
             "indiamart_bengaluru_basil_listings_2026-11-25"
           ]
         },
-        "approval": {
-          "approved_by": "Ajit",
-          "approved_date_local": "2026-11-25",
-          "scope": "India base basil price for the unit-economics comparison"
+        "supersedes": "INR 600-1,000/kg study band (now the india_study_price_band_sensitivity location)",
+        "user_statement": {
+          "by": "Ajit",
+          "date_local": "2026-11-25",
+          "text": "It does cost that much in Bangalore (about INR 65-180/kg)"
         },
-        "supersedes": "INR 600-1,000/kg study band (now the india_study_price_band_sensitivity location)"
+        "approval_status": "pending_ajit_approval (Approval Batch 001)"
       },
       "basil_saleability_rate": {
         "low": 0.8,

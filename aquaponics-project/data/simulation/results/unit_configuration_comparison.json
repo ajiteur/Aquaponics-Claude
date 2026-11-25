@@ -2,7 +2,7 @@
   "estimate_status": "scenario_estimate",
   "label": "Scenario estimate, not validated. Labour + electricity only: heating, CAPEX, consumables and fish revenue are not included, so this is not total operating cost, profit or viability.",
   "generated_by": "scripts/compare_unit_configurations.py",
-  "generated_at_utc": "2026-11-25T00:16:38Z",
+  "generated_at_utc": "2026-11-25T00:18:32Z",
   "inputs_file": "data/scenarios/unit_configuration_candidates_v0.json",
   "case_definitions": {
     "low": "lowest yield, price and saleability; highest labour, wage and electricity",
