@@ -2,7 +2,7 @@
   "estimate_status": "scenario_estimate",
   "label": "Scenario estimate, not validated. Labour + electricity only: heating, CAPEX, consumables and fish revenue are not included, so this is not total operating cost, profit or viability.",
   "generated_by": "scripts/compare_unit_configurations.py",
-  "generated_at_utc": "2026-11-25T00:18:32Z",
+  "generated_at_utc": "2026-11-25T21:30:40Z",
   "inputs_file": "data/scenarios/unit_configuration_candidates_v0.json",
   "case_definitions": {
     "low": "lowest yield, price and saleability; highest labour, wage and electricity",
@@ -69,7 +69,7 @@
         },
         "mid": {
           "inputs_used": {
-            "yield": 24.635,
+            "yield": 24.7,
             "price": 8.0,
             "saleability": 0.9,
             "wage": 17.5,
@@ -78,20 +78,20 @@
             "labour_m2": 14.58
           },
           "labour_h_per_m2_yr": 14.58,
-          "labour_h_per_harvested_unit": 0.5918,
-          "revenue_per_m2_yr": 177.37,
+          "labour_h_per_harvested_unit": 0.5903,
+          "revenue_per_m2_yr": 177.84,
           "revenue_per_saleable_unit": 8.0,
           "labour_cost_per_m2_yr": 255.15,
           "electricity_cost_per_m2_yr": 27.3,
-          "labour_plus_electricity_cost_per_saleable_unit": 12.739,
-          "headroom_per_m2_yr": -105.08,
-          "headroom_per_saleable_unit": -4.739,
-          "breakeven_labour_h_per_harvested_unit": 0.3481,
+          "labour_plus_electricity_cost_per_saleable_unit": 12.706,
+          "headroom_per_m2_yr": -104.61,
+          "headroom_per_saleable_unit": -4.706,
+          "breakeven_labour_h_per_harvested_unit": 0.3483,
           "covers_labour_and_electricity": false
         },
         "high": {
           "inputs_used": {
-            "yield": 25.87,
+            "yield": 26.0,
             "price": 9.0,
             "saleability": 0.95,
             "wage": 16.0,
@@ -100,15 +100,15 @@
             "labour_m2": 14.58
           },
           "labour_h_per_m2_yr": 14.58,
-          "labour_h_per_harvested_unit": 0.5636,
-          "revenue_per_m2_yr": 221.19,
+          "labour_h_per_harvested_unit": 0.5608,
+          "revenue_per_m2_yr": 222.3,
           "revenue_per_saleable_unit": 9.0,
           "labour_cost_per_m2_yr": 233.28,
           "electricity_cost_per_m2_yr": 26.21,
-          "labour_plus_electricity_cost_per_saleable_unit": 10.558,
-          "headroom_per_m2_yr": -38.3,
-          "headroom_per_saleable_unit": -1.558,
-          "breakeven_labour_h_per_harvested_unit": 0.4711,
+          "labour_plus_electricity_cost_per_saleable_unit": 10.506,
+          "headroom_per_m2_yr": -37.19,
+          "headroom_per_saleable_unit": -1.506,
+          "breakeven_labour_h_per_harvested_unit": 0.4714,
           "covers_labour_and_electricity": false
         }
       },
@@ -153,7 +153,7 @@
         },
         "mid": {
           "inputs_used": {
-            "yield": 24.635,
+            "yield": 24.7,
             "price": 122.5,
             "saleability": 0.86,
             "wage": 73.72,
@@ -162,25 +162,25 @@
             "labour_m2": 14.58
           },
           "labour_h_per_m2_yr": 14.58,
-          "labour_h_per_harvested_unit": 0.5918,
-          "revenue_per_m2_yr": 2595.3,
+          "labour_h_per_harvested_unit": 0.5903,
+          "revenue_per_m2_yr": 2602.14,
           "revenue_per_saleable_unit": 122.5,
           "labour_cost_per_m2_yr": 1074.84,
           "electricity_cost_per_m2_yr": 928.2,
-          "labour_plus_electricity_cost_per_saleable_unit": 94.545,
-          "headroom_per_m2_yr": 592.26,
-          "headroom_per_saleable_unit": 27.955,
-          "breakeven_labour_h_per_harvested_unit": 0.918,
+          "labour_plus_electricity_cost_per_saleable_unit": 94.296,
+          "headroom_per_m2_yr": 599.11,
+          "headroom_per_saleable_unit": 28.204,
+          "breakeven_labour_h_per_harvested_unit": 0.9193,
           "covers_labour_and_electricity": true,
           "eur_comparison": {
-            "revenue_per_m2_yr": 23.71,
-            "headroom_per_m2_yr": 5.41,
+            "revenue_per_m2_yr": 23.77,
+            "headroom_per_m2_yr": 5.47,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         },
         "high": {
           "inputs_used": {
-            "yield": 25.87,
+            "yield": 26.0,
             "price": 180.0,
             "saleability": 0.92,
             "wage": 59.56,
@@ -189,19 +189,19 @@
             "labour_m2": 14.58
           },
           "labour_h_per_m2_yr": 14.58,
-          "labour_h_per_harvested_unit": 0.5636,
-          "revenue_per_m2_yr": 4284.07,
+          "labour_h_per_harvested_unit": 0.5608,
+          "revenue_per_m2_yr": 4305.6,
           "revenue_per_saleable_unit": 180.0,
           "labour_cost_per_m2_yr": 868.38,
           "electricity_cost_per_m2_yr": 819.0,
-          "labour_plus_electricity_cost_per_saleable_unit": 70.897,
-          "headroom_per_m2_yr": 2596.69,
-          "headroom_per_saleable_unit": 109.103,
-          "breakeven_labour_h_per_harvested_unit": 2.2489,
+          "labour_plus_electricity_cost_per_saleable_unit": 70.543,
+          "headroom_per_m2_yr": 2618.22,
+          "headroom_per_saleable_unit": 109.457,
+          "breakeven_labour_h_per_harvested_unit": 2.2515,
           "covers_labour_and_electricity": true,
           "eur_comparison": {
-            "revenue_per_m2_yr": 39.14,
-            "headroom_per_m2_yr": 23.72,
+            "revenue_per_m2_yr": 39.34,
+            "headroom_per_m2_yr": 23.92,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         }
@@ -221,7 +221,7 @@
         "low": {
           "inputs_used": {
             "yield": 23.4,
-            "price": 65.0,
+            "price": 100.0,
             "saleability": 0.8,
             "wage": 76.82,
             "power_price": 7.1,
@@ -230,25 +230,25 @@
           },
           "labour_h_per_m2_yr": 14.58,
           "labour_h_per_harvested_unit": 0.6231,
-          "revenue_per_m2_yr": 1216.8,
-          "revenue_per_saleable_unit": 65.0,
+          "revenue_per_m2_yr": 1872.0,
+          "revenue_per_saleable_unit": 100.0,
           "labour_cost_per_m2_yr": 1120.04,
           "electricity_cost_per_m2_yr": 775.32,
           "labour_plus_electricity_cost_per_saleable_unit": 101.248,
-          "headroom_per_m2_yr": -678.56,
-          "headroom_per_saleable_unit": -36.248,
-          "breakeven_labour_h_per_harvested_unit": 0.2456,
+          "headroom_per_m2_yr": -23.36,
+          "headroom_per_saleable_unit": -1.248,
+          "breakeven_labour_h_per_harvested_unit": 0.6101,
           "covers_labour_and_electricity": false,
           "eur_comparison": {
-            "revenue_per_m2_yr": 11.12,
-            "headroom_per_m2_yr": -6.2,
+            "revenue_per_m2_yr": 17.1,
+            "headroom_per_m2_yr": -0.21,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         },
         "mid": {
           "inputs_used": {
-            "yield": 24.635,
-            "price": 122.5,
+            "yield": 24.7,
+            "price": 175.0,
             "saleability": 0.86,
             "wage": 76.82,
             "power_price": 5.275,
@@ -256,26 +256,26 @@
             "labour_m2": 14.58
           },
           "labour_h_per_m2_yr": 14.58,
-          "labour_h_per_harvested_unit": 0.5918,
-          "revenue_per_m2_yr": 2595.3,
-          "revenue_per_saleable_unit": 122.5,
+          "labour_h_per_harvested_unit": 0.5903,
+          "revenue_per_m2_yr": 3717.35,
+          "revenue_per_saleable_unit": 175.0,
           "labour_cost_per_m2_yr": 1120.04,
           "electricity_cost_per_m2_yr": 576.03,
-          "labour_plus_electricity_cost_per_saleable_unit": 80.056,
-          "headroom_per_m2_yr": 899.23,
-          "headroom_per_saleable_unit": 42.444,
-          "breakeven_labour_h_per_harvested_unit": 1.067,
+          "labour_plus_electricity_cost_per_saleable_unit": 79.845,
+          "headroom_per_m2_yr": 2021.28,
+          "headroom_per_saleable_unit": 95.155,
+          "breakeven_labour_h_per_harvested_unit": 1.6555,
           "covers_labour_and_electricity": true,
           "eur_comparison": {
-            "revenue_per_m2_yr": 23.71,
-            "headroom_per_m2_yr": 8.22,
+            "revenue_per_m2_yr": 33.96,
+            "headroom_per_m2_yr": 18.47,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         },
         "high": {
           "inputs_used": {
-            "yield": 25.87,
-            "price": 180.0,
+            "yield": 26.0,
+            "price": 250.0,
             "saleability": 0.92,
             "wage": 76.82,
             "power_price": 3.45,
@@ -283,19 +283,19 @@
             "labour_m2": 14.58
           },
           "labour_h_per_m2_yr": 14.58,
-          "labour_h_per_harvested_unit": 0.5636,
-          "revenue_per_m2_yr": 4284.07,
-          "revenue_per_saleable_unit": 180.0,
+          "labour_h_per_harvested_unit": 0.5608,
+          "revenue_per_m2_yr": 5980.0,
+          "revenue_per_saleable_unit": 250.0,
           "labour_cost_per_m2_yr": 1120.04,
           "electricity_cost_per_m2_yr": 376.74,
-          "labour_plus_electricity_cost_per_saleable_unit": 62.889,
-          "headroom_per_m2_yr": 2787.3,
-          "headroom_per_saleable_unit": 117.111,
-          "breakeven_labour_h_per_harvested_unit": 1.9661,
+          "labour_plus_electricity_cost_per_saleable_unit": 62.574,
+          "headroom_per_m2_yr": 4483.22,
+          "headroom_per_saleable_unit": 187.426,
+          "breakeven_labour_h_per_harvested_unit": 2.8054,
           "covers_labour_and_electricity": true,
           "eur_comparison": {
-            "revenue_per_m2_yr": 39.14,
-            "headroom_per_m2_yr": 25.46,
+            "revenue_per_m2_yr": 54.63,
+            "headroom_per_m2_yr": 40.96,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         }
@@ -341,7 +341,7 @@
         },
         "mid": {
           "inputs_used": {
-            "yield": 24.635,
+            "yield": 24.7,
             "price": 122.5,
             "saleability": 0.86,
             "wage": 80.89,
@@ -350,25 +350,25 @@
             "labour_m2": 14.58
           },
           "labour_h_per_m2_yr": 14.58,
-          "labour_h_per_harvested_unit": 0.5918,
-          "revenue_per_m2_yr": 2595.3,
+          "labour_h_per_harvested_unit": 0.5903,
+          "revenue_per_m2_yr": 2602.14,
           "revenue_per_saleable_unit": 122.5,
           "labour_cost_per_m2_yr": 1179.38,
           "electricity_cost_per_m2_yr": 840.84,
-          "labour_plus_electricity_cost_per_saleable_unit": 95.356,
-          "headroom_per_m2_yr": 575.08,
-          "headroom_per_saleable_unit": 27.144,
-          "breakeven_labour_h_per_harvested_unit": 0.8804,
+          "labour_plus_electricity_cost_per_saleable_unit": 95.105,
+          "headroom_per_m2_yr": 581.93,
+          "headroom_per_saleable_unit": 27.395,
+          "breakeven_labour_h_per_harvested_unit": 0.8815,
           "covers_labour_and_electricity": true,
           "eur_comparison": {
-            "revenue_per_m2_yr": 23.71,
-            "headroom_per_m2_yr": 5.25,
+            "revenue_per_m2_yr": 23.77,
+            "headroom_per_m2_yr": 5.32,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         },
         "high": {
           "inputs_used": {
-            "yield": 25.87,
+            "yield": 26.0,
             "price": 180.0,
             "saleability": 0.92,
             "wage": 70.01,
@@ -377,19 +377,19 @@
             "labour_m2": 14.58
           },
           "labour_h_per_m2_yr": 14.58,
-          "labour_h_per_harvested_unit": 0.5636,
-          "revenue_per_m2_yr": 4284.07,
+          "labour_h_per_harvested_unit": 0.5608,
+          "revenue_per_m2_yr": 4305.6,
           "revenue_per_saleable_unit": 180.0,
           "labour_cost_per_m2_yr": 1020.75,
           "electricity_cost_per_m2_yr": 540.54,
-          "labour_plus_electricity_cost_per_saleable_unit": 65.599,
-          "headroom_per_m2_yr": 2722.79,
-          "headroom_per_saleable_unit": 114.401,
-          "breakeven_labour_h_per_harvested_unit": 2.0669,
+          "labour_plus_electricity_cost_per_saleable_unit": 65.271,
+          "headroom_per_m2_yr": 2744.31,
+          "headroom_per_saleable_unit": 114.729,
+          "breakeven_labour_h_per_harvested_unit": 2.0684,
           "covers_labour_and_electricity": true,
           "eur_comparison": {
-            "revenue_per_m2_yr": 39.14,
-            "headroom_per_m2_yr": 24.88,
+            "revenue_per_m2_yr": 39.34,
+            "headroom_per_m2_yr": 25.07,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         }
@@ -435,7 +435,7 @@
         },
         "mid": {
           "inputs_used": {
-            "yield": 24.635,
+            "yield": 24.7,
             "price": 122.5,
             "saleability": 0.86,
             "wage": 80.89,
@@ -444,25 +444,25 @@
             "labour_m2": 14.58
           },
           "labour_h_per_m2_yr": 14.58,
-          "labour_h_per_harvested_unit": 0.5918,
-          "revenue_per_m2_yr": 2595.3,
+          "labour_h_per_harvested_unit": 0.5903,
+          "revenue_per_m2_yr": 2602.14,
           "revenue_per_saleable_unit": 122.5,
           "labour_cost_per_m2_yr": 1179.38,
           "electricity_cost_per_m2_yr": 455.91,
-          "labour_plus_electricity_cost_per_saleable_unit": 77.187,
-          "headroom_per_m2_yr": 960.01,
-          "headroom_per_saleable_unit": 45.313,
-          "breakeven_labour_h_per_harvested_unit": 1.0736,
+          "labour_plus_electricity_cost_per_saleable_unit": 76.984,
+          "headroom_per_m2_yr": 966.86,
+          "headroom_per_saleable_unit": 45.516,
+          "breakeven_labour_h_per_harvested_unit": 1.0742,
           "covers_labour_and_electricity": true,
           "eur_comparison": {
-            "revenue_per_m2_yr": 23.71,
-            "headroom_per_m2_yr": 8.77,
+            "revenue_per_m2_yr": 23.77,
+            "headroom_per_m2_yr": 8.83,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         },
         "high": {
           "inputs_used": {
-            "yield": 25.87,
+            "yield": 26.0,
             "price": 180.0,
             "saleability": 0.92,
             "wage": 70.01,
@@ -471,19 +471,19 @@
             "labour_m2": 14.58
           },
           "labour_h_per_m2_yr": 14.58,
-          "labour_h_per_harvested_unit": 0.5636,
-          "revenue_per_m2_yr": 4284.07,
+          "labour_h_per_harvested_unit": 0.5608,
+          "revenue_per_m2_yr": 4305.6,
           "revenue_per_saleable_unit": 180.0,
           "labour_cost_per_m2_yr": 1020.75,
           "electricity_cost_per_m2_yr": 420.42,
-          "labour_plus_electricity_cost_per_saleable_unit": 60.552,
-          "headroom_per_m2_yr": 2842.91,
-          "headroom_per_saleable_unit": 119.448,
-          "breakeven_labour_h_per_harvested_unit": 2.1332,
+          "labour_plus_electricity_cost_per_saleable_unit": 60.249,
+          "headroom_per_m2_yr": 2864.43,
+          "headroom_per_saleable_unit": 119.751,
+          "breakeven_labour_h_per_harvested_unit": 2.1344,
           "covers_labour_and_electricity": true,
           "eur_comparison": {
-            "revenue_per_m2_yr": 39.14,
-            "headroom_per_m2_yr": 25.97,
+            "revenue_per_m2_yr": 39.34,
+            "headroom_per_m2_yr": 26.17,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         }
@@ -529,7 +529,7 @@
         },
         "mid": {
           "inputs_used": {
-            "yield": 24.635,
+            "yield": 24.7,
             "price": 122.5,
             "saleability": 0.86,
             "wage": 90.04,
@@ -538,25 +538,25 @@
             "labour_m2": 14.58
           },
           "labour_h_per_m2_yr": 14.58,
-          "labour_h_per_harvested_unit": 0.5918,
-          "revenue_per_m2_yr": 2595.3,
+          "labour_h_per_harvested_unit": 0.5903,
+          "revenue_per_m2_yr": 2602.14,
           "revenue_per_saleable_unit": 122.5,
           "labour_cost_per_m2_yr": 1312.78,
           "electricity_cost_per_m2_yr": 682.5,
-          "labour_plus_electricity_cost_per_saleable_unit": 94.179,
-          "headroom_per_m2_yr": 600.01,
-          "headroom_per_saleable_unit": 28.321,
-          "breakeven_labour_h_per_harvested_unit": 0.8623,
+          "labour_plus_electricity_cost_per_saleable_unit": 93.931,
+          "headroom_per_m2_yr": 606.86,
+          "headroom_per_saleable_unit": 28.569,
+          "breakeven_labour_h_per_harvested_unit": 0.8632,
           "covers_labour_and_electricity": true,
           "eur_comparison": {
-            "revenue_per_m2_yr": 23.71,
-            "headroom_per_m2_yr": 5.48,
+            "revenue_per_m2_yr": 23.77,
+            "headroom_per_m2_yr": 5.54,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         },
         "high": {
           "inputs_used": {
-            "yield": 25.87,
+            "yield": 26.0,
             "price": 180.0,
             "saleability": 0.92,
             "wage": 77.57,
@@ -565,19 +565,19 @@
             "labour_m2": 14.58
           },
           "labour_h_per_m2_yr": 14.58,
-          "labour_h_per_harvested_unit": 0.5636,
-          "revenue_per_m2_yr": 4284.07,
+          "labour_h_per_harvested_unit": 0.5608,
+          "revenue_per_m2_yr": 4305.6,
           "revenue_per_saleable_unit": 180.0,
           "labour_cost_per_m2_yr": 1130.97,
           "electricity_cost_per_m2_yr": 436.8,
-          "labour_plus_electricity_cost_per_saleable_unit": 65.872,
-          "headroom_per_m2_yr": 2716.3,
-          "headroom_per_saleable_unit": 114.128,
-          "breakeven_labour_h_per_harvested_unit": 1.9172,
+          "labour_plus_electricity_cost_per_saleable_unit": 65.542,
+          "headroom_per_m2_yr": 2737.83,
+          "headroom_per_saleable_unit": 114.458,
+          "breakeven_labour_h_per_harvested_unit": 1.9183,
           "covers_labour_and_electricity": true,
           "eur_comparison": {
-            "revenue_per_m2_yr": 39.14,
-            "headroom_per_m2_yr": 24.82,
+            "revenue_per_m2_yr": 39.34,
+            "headroom_per_m2_yr": 25.01,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         }
@@ -623,7 +623,7 @@
         },
         "mid": {
           "inputs_used": {
-            "yield": 24.635,
+            "yield": 24.7,
             "price": 800.0,
             "saleability": 0.86,
             "wage": 73.72,
@@ -632,25 +632,25 @@
             "labour_m2": 14.58
           },
           "labour_h_per_m2_yr": 14.58,
-          "labour_h_per_harvested_unit": 0.5918,
-          "revenue_per_m2_yr": 16948.88,
+          "labour_h_per_harvested_unit": 0.5903,
+          "revenue_per_m2_yr": 16993.6,
           "revenue_per_saleable_unit": 800.0,
           "labour_cost_per_m2_yr": 1074.84,
           "electricity_cost_per_m2_yr": 928.2,
-          "labour_plus_electricity_cost_per_saleable_unit": 94.545,
-          "headroom_per_m2_yr": 14945.84,
-          "headroom_per_saleable_unit": 705.455,
-          "breakeven_labour_h_per_harvested_unit": 8.8215,
+          "labour_plus_electricity_cost_per_saleable_unit": 94.296,
+          "headroom_per_m2_yr": 14990.56,
+          "headroom_per_saleable_unit": 705.704,
+          "breakeven_labour_h_per_harvested_unit": 8.8229,
           "covers_labour_and_electricity": true,
           "eur_comparison": {
-            "revenue_per_m2_yr": 154.84,
-            "headroom_per_m2_yr": 136.55,
+            "revenue_per_m2_yr": 155.25,
+            "headroom_per_m2_yr": 136.95,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         },
         "high": {
           "inputs_used": {
-            "yield": 25.87,
+            "yield": 26.0,
             "price": 1000.0,
             "saleability": 0.92,
             "wage": 59.56,
@@ -659,24 +659,118 @@
             "labour_m2": 14.58
           },
           "labour_h_per_m2_yr": 14.58,
-          "labour_h_per_harvested_unit": 0.5636,
-          "revenue_per_m2_yr": 23800.4,
+          "labour_h_per_harvested_unit": 0.5608,
+          "revenue_per_m2_yr": 23920.0,
           "revenue_per_saleable_unit": 1000.0,
           "labour_cost_per_m2_yr": 868.38,
           "electricity_cost_per_m2_yr": 819.0,
-          "labour_plus_electricity_cost_per_saleable_unit": 70.897,
-          "headroom_per_m2_yr": 22113.02,
-          "headroom_per_saleable_unit": 929.103,
-          "breakeven_labour_h_per_harvested_unit": 14.9151,
+          "labour_plus_electricity_cost_per_saleable_unit": 70.543,
+          "headroom_per_m2_yr": 22232.62,
+          "headroom_per_saleable_unit": 929.457,
+          "breakeven_labour_h_per_harvested_unit": 14.9177,
           "covers_labour_and_electricity": true,
           "eur_comparison": {
-            "revenue_per_m2_yr": 217.44,
-            "headroom_per_m2_yr": 202.02,
+            "revenue_per_m2_yr": 218.53,
+            "headroom_per_m2_yr": 203.12,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         }
       },
       "verdict": "clears_in_all_cases"
+    },
+    {
+      "config_id": "A_uvi_style_dwc_basil_hired",
+      "label": "UVI-style coupled DWC raft, basil, hired labour at UVI intensity",
+      "crop": "basil",
+      "output_unit": "kg",
+      "labour_mode": "hired",
+      "location": "karnataka_listing_price_sensitivity",
+      "currency_code": "INR",
+      "missing_inputs": [],
+      "cases": {
+        "low": {
+          "inputs_used": {
+            "yield": 23.4,
+            "price": 65.0,
+            "saleability": 0.8,
+            "wage": 76.82,
+            "power_price": 7.1,
+            "kwh_m2": 109.2,
+            "labour_m2": 14.58
+          },
+          "labour_h_per_m2_yr": 14.58,
+          "labour_h_per_harvested_unit": 0.6231,
+          "revenue_per_m2_yr": 1216.8,
+          "revenue_per_saleable_unit": 65.0,
+          "labour_cost_per_m2_yr": 1120.04,
+          "electricity_cost_per_m2_yr": 775.32,
+          "labour_plus_electricity_cost_per_saleable_unit": 101.248,
+          "headroom_per_m2_yr": -678.56,
+          "headroom_per_saleable_unit": -36.248,
+          "breakeven_labour_h_per_harvested_unit": 0.2456,
+          "covers_labour_and_electricity": false,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 11.12,
+            "headroom_per_m2_yr": -6.2,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "mid": {
+          "inputs_used": {
+            "yield": 24.7,
+            "price": 122.5,
+            "saleability": 0.86,
+            "wage": 76.82,
+            "power_price": 5.275,
+            "kwh_m2": 109.2,
+            "labour_m2": 14.58
+          },
+          "labour_h_per_m2_yr": 14.58,
+          "labour_h_per_harvested_unit": 0.5903,
+          "revenue_per_m2_yr": 2602.14,
+          "revenue_per_saleable_unit": 122.5,
+          "labour_cost_per_m2_yr": 1120.04,
+          "electricity_cost_per_m2_yr": 576.03,
+          "labour_plus_electricity_cost_per_saleable_unit": 79.845,
+          "headroom_per_m2_yr": 906.08,
+          "headroom_per_saleable_unit": 42.655,
+          "breakeven_labour_h_per_harvested_unit": 1.0678,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 23.77,
+            "headroom_per_m2_yr": 8.28,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "high": {
+          "inputs_used": {
+            "yield": 26.0,
+            "price": 180.0,
+            "saleability": 0.92,
+            "wage": 76.82,
+            "power_price": 3.45,
+            "kwh_m2": 109.2,
+            "labour_m2": 14.58
+          },
+          "labour_h_per_m2_yr": 14.58,
+          "labour_h_per_harvested_unit": 0.5608,
+          "revenue_per_m2_yr": 4305.6,
+          "revenue_per_saleable_unit": 180.0,
+          "labour_cost_per_m2_yr": 1120.04,
+          "electricity_cost_per_m2_yr": 376.74,
+          "labour_plus_electricity_cost_per_saleable_unit": 62.574,
+          "headroom_per_m2_yr": 2808.82,
+          "headroom_per_saleable_unit": 117.426,
+          "breakeven_labour_h_per_harvested_unit": 1.9671,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 39.34,
+            "headroom_per_m2_yr": 25.66,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        }
+      },
+      "verdict": "clears_only_in_favourable_cases"
     },
     {
       "config_id": "B_large_raceway_dwc_basil_lean_labour",
@@ -712,7 +806,7 @@
         },
         "mid": {
           "inputs_used": {
-            "yield": 24.635,
+            "yield": 24.7,
             "price": 8.0,
             "saleability": 0.9,
             "wage": 17.5,
@@ -721,20 +815,20 @@
             "labour_m2": 2.04
           },
           "labour_h_per_m2_yr": 2.04,
-          "labour_h_per_harvested_unit": 0.0828,
-          "revenue_per_m2_yr": 177.37,
+          "labour_h_per_harvested_unit": 0.0826,
+          "revenue_per_m2_yr": 177.84,
           "revenue_per_saleable_unit": 8.0,
           "labour_cost_per_m2_yr": 35.7,
           "electricity_cost_per_m2_yr": 21.4,
-          "labour_plus_electricity_cost_per_saleable_unit": 2.575,
-          "headroom_per_m2_yr": 120.27,
-          "headroom_per_saleable_unit": 5.425,
-          "breakeven_labour_h_per_harvested_unit": 0.3618,
+          "labour_plus_electricity_cost_per_saleable_unit": 2.569,
+          "headroom_per_m2_yr": 120.74,
+          "headroom_per_saleable_unit": 5.431,
+          "breakeven_labour_h_per_harvested_unit": 0.3619,
           "covers_labour_and_electricity": true
         },
         "high": {
           "inputs_used": {
-            "yield": 25.87,
+            "yield": 26.0,
             "price": 9.0,
             "saleability": 0.95,
             "wage": 16.0,
@@ -743,15 +837,15 @@
             "labour_m2": 2.04
           },
           "labour_h_per_m2_yr": 2.04,
-          "labour_h_per_harvested_unit": 0.0789,
-          "revenue_per_m2_yr": 221.19,
+          "labour_h_per_harvested_unit": 0.0785,
+          "revenue_per_m2_yr": 222.3,
           "revenue_per_saleable_unit": 9.0,
           "labour_cost_per_m2_yr": 32.64,
           "electricity_cost_per_m2_yr": 14.88,
-          "labour_plus_electricity_cost_per_saleable_unit": 1.934,
-          "headroom_per_m2_yr": 173.67,
-          "headroom_per_saleable_unit": 7.066,
-          "breakeven_labour_h_per_harvested_unit": 0.4984,
+          "labour_plus_electricity_cost_per_saleable_unit": 1.924,
+          "headroom_per_m2_yr": 174.78,
+          "headroom_per_saleable_unit": 7.076,
+          "breakeven_labour_h_per_harvested_unit": 0.4986,
           "covers_labour_and_electricity": true
         }
       },
@@ -796,7 +890,7 @@
         },
         "mid": {
           "inputs_used": {
-            "yield": 24.635,
+            "yield": 24.7,
             "price": 122.5,
             "saleability": 0.86,
             "wage": 73.72,
@@ -805,25 +899,25 @@
             "labour_m2": 2.04
           },
           "labour_h_per_m2_yr": 2.04,
-          "labour_h_per_harvested_unit": 0.0828,
-          "revenue_per_m2_yr": 2595.3,
+          "labour_h_per_harvested_unit": 0.0826,
+          "revenue_per_m2_yr": 2602.14,
           "revenue_per_saleable_unit": 122.5,
           "labour_cost_per_m2_yr": 150.39,
           "electricity_cost_per_m2_yr": 727.6,
-          "labour_plus_electricity_cost_per_saleable_unit": 41.442,
-          "headroom_per_m2_yr": 1717.31,
-          "headroom_per_saleable_unit": 81.058,
-          "breakeven_labour_h_per_harvested_unit": 1.0284,
+          "labour_plus_electricity_cost_per_saleable_unit": 41.333,
+          "headroom_per_m2_yr": 1724.16,
+          "headroom_per_saleable_unit": 81.167,
+          "breakeven_labour_h_per_harvested_unit": 1.0295,
           "covers_labour_and_electricity": true,
           "eur_comparison": {
-            "revenue_per_m2_yr": 23.71,
-            "headroom_per_m2_yr": 15.69,
+            "revenue_per_m2_yr": 23.77,
+            "headroom_per_m2_yr": 15.75,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         },
         "high": {
           "inputs_used": {
-            "yield": 25.87,
+            "yield": 26.0,
             "price": 180.0,
             "saleability": 0.92,
             "wage": 59.56,
@@ -832,19 +926,19 @@
             "labour_m2": 2.04
           },
           "labour_h_per_m2_yr": 2.04,
-          "labour_h_per_harvested_unit": 0.0789,
-          "revenue_per_m2_yr": 4284.07,
+          "labour_h_per_harvested_unit": 0.0785,
+          "revenue_per_m2_yr": 4305.6,
           "revenue_per_saleable_unit": 180.0,
           "labour_cost_per_m2_yr": 121.5,
           "electricity_cost_per_m2_yr": 465.0,
-          "labour_plus_electricity_cost_per_saleable_unit": 24.643,
-          "headroom_per_m2_yr": 3697.57,
-          "headroom_per_saleable_unit": 155.357,
-          "breakeven_labour_h_per_harvested_unit": 2.4786,
+          "labour_plus_electricity_cost_per_saleable_unit": 24.519,
+          "headroom_per_m2_yr": 3719.1,
+          "headroom_per_saleable_unit": 155.481,
+          "breakeven_labour_h_per_harvested_unit": 2.4801,
           "covers_labour_and_electricity": true,
           "eur_comparison": {
-            "revenue_per_m2_yr": 39.14,
-            "headroom_per_m2_yr": 33.78,
+            "revenue_per_m2_yr": 39.34,
+            "headroom_per_m2_yr": 33.98,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         }
@@ -864,7 +958,7 @@
         "low": {
           "inputs_used": {
             "yield": 23.4,
-            "price": 65.0,
+            "price": 100.0,
             "saleability": 0.8,
             "wage": 76.82,
             "power_price": 7.1,
@@ -873,25 +967,25 @@
           },
           "labour_h_per_m2_yr": 2.04,
           "labour_h_per_harvested_unit": 0.0872,
-          "revenue_per_m2_yr": 1216.8,
-          "revenue_per_saleable_unit": 65.0,
+          "revenue_per_m2_yr": 1872.0,
+          "revenue_per_saleable_unit": 100.0,
           "labour_cost_per_m2_yr": 156.71,
           "electricity_cost_per_m2_yr": 775.32,
           "labour_plus_electricity_cost_per_saleable_unit": 49.788,
-          "headroom_per_m2_yr": 284.77,
-          "headroom_per_saleable_unit": 15.212,
-          "breakeven_labour_h_per_harvested_unit": 0.2456,
+          "headroom_per_m2_yr": 939.97,
+          "headroom_per_saleable_unit": 50.212,
+          "breakeven_labour_h_per_harvested_unit": 0.6101,
           "covers_labour_and_electricity": true,
           "eur_comparison": {
-            "revenue_per_m2_yr": 11.12,
-            "headroom_per_m2_yr": 2.6,
+            "revenue_per_m2_yr": 17.1,
+            "headroom_per_m2_yr": 8.59,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         },
         "mid": {
           "inputs_used": {
-            "yield": 24.635,
-            "price": 122.5,
+            "yield": 24.7,
+            "price": 175.0,
             "saleability": 0.86,
             "wage": 76.82,
             "power_price": 5.275,
@@ -899,26 +993,26 @@
             "labour_m2": 2.04
           },
           "labour_h_per_m2_yr": 2.04,
-          "labour_h_per_harvested_unit": 0.0828,
-          "revenue_per_m2_yr": 2595.3,
-          "revenue_per_saleable_unit": 122.5,
+          "labour_h_per_harvested_unit": 0.0826,
+          "revenue_per_m2_yr": 3717.35,
+          "revenue_per_saleable_unit": 175.0,
           "labour_cost_per_m2_yr": 156.71,
           "electricity_cost_per_m2_yr": 451.54,
-          "labour_plus_electricity_cost_per_saleable_unit": 28.71,
-          "headroom_per_m2_yr": 1987.04,
-          "headroom_per_saleable_unit": 93.79,
-          "breakeven_labour_h_per_harvested_unit": 1.1328,
+          "labour_plus_electricity_cost_per_saleable_unit": 28.634,
+          "headroom_per_m2_yr": 3109.1,
+          "headroom_per_saleable_unit": 146.366,
+          "breakeven_labour_h_per_harvested_unit": 1.7212,
           "covers_labour_and_electricity": true,
           "eur_comparison": {
-            "revenue_per_m2_yr": 23.71,
-            "headroom_per_m2_yr": 18.15,
+            "revenue_per_m2_yr": 33.96,
+            "headroom_per_m2_yr": 28.4,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         },
         "high": {
           "inputs_used": {
-            "yield": 25.87,
-            "price": 180.0,
+            "yield": 26.0,
+            "price": 250.0,
             "saleability": 0.92,
             "wage": 76.82,
             "power_price": 3.45,
@@ -926,19 +1020,19 @@
             "labour_m2": 2.04
           },
           "labour_h_per_m2_yr": 2.04,
-          "labour_h_per_harvested_unit": 0.0789,
-          "revenue_per_m2_yr": 4284.07,
-          "revenue_per_saleable_unit": 180.0,
+          "labour_h_per_harvested_unit": 0.0785,
+          "revenue_per_m2_yr": 5980.0,
+          "revenue_per_saleable_unit": 250.0,
           "labour_cost_per_m2_yr": 156.71,
           "electricity_cost_per_m2_yr": 213.9,
-          "labour_plus_electricity_cost_per_saleable_unit": 15.572,
-          "headroom_per_m2_yr": 3913.46,
-          "headroom_per_saleable_unit": 164.428,
-          "breakeven_labour_h_per_harvested_unit": 2.0481,
+          "labour_plus_electricity_cost_per_saleable_unit": 15.494,
+          "headroom_per_m2_yr": 5609.39,
+          "headroom_per_saleable_unit": 234.506,
+          "breakeven_labour_h_per_harvested_unit": 2.8869,
           "covers_labour_and_electricity": true,
           "eur_comparison": {
-            "revenue_per_m2_yr": 39.14,
-            "headroom_per_m2_yr": 35.75,
+            "revenue_per_m2_yr": 54.63,
+            "headroom_per_m2_yr": 51.25,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         }
@@ -984,7 +1078,7 @@
         },
         "mid": {
           "inputs_used": {
-            "yield": 24.635,
+            "yield": 24.7,
             "price": 122.5,
             "saleability": 0.86,
             "wage": 80.89,
@@ -993,25 +1087,25 @@
             "labour_m2": 2.04
           },
           "labour_h_per_m2_yr": 2.04,
-          "labour_h_per_harvested_unit": 0.0828,
-          "revenue_per_m2_yr": 2595.3,
+          "labour_h_per_harvested_unit": 0.0826,
+          "revenue_per_m2_yr": 2602.14,
           "revenue_per_saleable_unit": 122.5,
           "labour_cost_per_m2_yr": 165.02,
           "electricity_cost_per_m2_yr": 659.12,
-          "labour_plus_electricity_cost_per_saleable_unit": 38.9,
-          "headroom_per_m2_yr": 1771.16,
-          "headroom_per_saleable_unit": 83.6,
-          "breakeven_labour_h_per_harvested_unit": 0.9716,
+          "labour_plus_electricity_cost_per_saleable_unit": 38.797,
+          "headroom_per_m2_yr": 1778.01,
+          "headroom_per_saleable_unit": 83.703,
+          "breakeven_labour_h_per_harvested_unit": 0.9725,
           "covers_labour_and_electricity": true,
           "eur_comparison": {
-            "revenue_per_m2_yr": 23.71,
-            "headroom_per_m2_yr": 16.18,
+            "revenue_per_m2_yr": 23.77,
+            "headroom_per_m2_yr": 16.24,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         },
         "high": {
           "inputs_used": {
-            "yield": 25.87,
+            "yield": 26.0,
             "price": 180.0,
             "saleability": 0.92,
             "wage": 70.01,
@@ -1020,19 +1114,19 @@
             "labour_m2": 2.04
           },
           "labour_h_per_m2_yr": 2.04,
-          "labour_h_per_harvested_unit": 0.0789,
-          "revenue_per_m2_yr": 4284.07,
+          "labour_h_per_harvested_unit": 0.0785,
+          "revenue_per_m2_yr": 4305.6,
           "revenue_per_saleable_unit": 180.0,
           "labour_cost_per_m2_yr": 142.82,
           "electricity_cost_per_m2_yr": 306.9,
-          "labour_plus_electricity_cost_per_saleable_unit": 18.895,
-          "headroom_per_m2_yr": 3834.35,
-          "headroom_per_saleable_unit": 161.105,
-          "breakeven_labour_h_per_harvested_unit": 2.1959,
+          "labour_plus_electricity_cost_per_saleable_unit": 18.801,
+          "headroom_per_m2_yr": 3855.88,
+          "headroom_per_saleable_unit": 161.199,
+          "breakeven_labour_h_per_harvested_unit": 2.1968,
           "covers_labour_and_electricity": true,
           "eur_comparison": {
-            "revenue_per_m2_yr": 39.14,
-            "headroom_per_m2_yr": 35.03,
+            "revenue_per_m2_yr": 39.34,
+            "headroom_per_m2_yr": 35.23,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         }
@@ -1078,7 +1172,7 @@
         },
         "mid": {
           "inputs_used": {
-            "yield": 24.635,
+            "yield": 24.7,
             "price": 122.5,
             "saleability": 0.86,
             "wage": 80.89,
@@ -1087,25 +1181,25 @@
             "labour_m2": 2.04
           },
           "labour_h_per_m2_yr": 2.04,
-          "labour_h_per_harvested_unit": 0.0828,
-          "revenue_per_m2_yr": 2595.3,
+          "labour_h_per_harvested_unit": 0.0826,
+          "revenue_per_m2_yr": 2602.14,
           "revenue_per_saleable_unit": 122.5,
           "labour_cost_per_m2_yr": 165.02,
           "electricity_cost_per_m2_yr": 357.38,
-          "labour_plus_electricity_cost_per_saleable_unit": 24.657,
-          "headroom_per_m2_yr": 2072.9,
-          "headroom_per_saleable_unit": 97.843,
-          "breakeven_labour_h_per_harvested_unit": 1.123,
+          "labour_plus_electricity_cost_per_saleable_unit": 24.593,
+          "headroom_per_m2_yr": 2079.75,
+          "headroom_per_saleable_unit": 97.907,
+          "breakeven_labour_h_per_harvested_unit": 1.1235,
           "covers_labour_and_electricity": true,
           "eur_comparison": {
-            "revenue_per_m2_yr": 23.71,
-            "headroom_per_m2_yr": 18.94,
+            "revenue_per_m2_yr": 23.77,
+            "headroom_per_m2_yr": 19.0,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         },
         "high": {
           "inputs_used": {
-            "yield": 25.87,
+            "yield": 26.0,
             "price": 180.0,
             "saleability": 0.92,
             "wage": 70.01,
@@ -1114,19 +1208,19 @@
             "labour_m2": 2.04
           },
           "labour_h_per_m2_yr": 2.04,
-          "labour_h_per_harvested_unit": 0.0789,
-          "revenue_per_m2_yr": 4284.07,
+          "labour_h_per_harvested_unit": 0.0785,
+          "revenue_per_m2_yr": 4305.6,
           "revenue_per_saleable_unit": 180.0,
           "labour_cost_per_m2_yr": 142.82,
           "electricity_cost_per_m2_yr": 238.7,
-          "labour_plus_electricity_cost_per_saleable_unit": 16.03,
-          "headroom_per_m2_yr": 3902.55,
-          "headroom_per_saleable_unit": 163.97,
-          "breakeven_labour_h_per_harvested_unit": 2.2336,
+          "labour_plus_electricity_cost_per_saleable_unit": 15.95,
+          "headroom_per_m2_yr": 3924.08,
+          "headroom_per_saleable_unit": 164.05,
+          "breakeven_labour_h_per_harvested_unit": 2.2342,
           "covers_labour_and_electricity": true,
           "eur_comparison": {
-            "revenue_per_m2_yr": 39.14,
-            "headroom_per_m2_yr": 35.65,
+            "revenue_per_m2_yr": 39.34,
+            "headroom_per_m2_yr": 35.85,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         }
@@ -1172,7 +1266,7 @@
         },
         "mid": {
           "inputs_used": {
-            "yield": 24.635,
+            "yield": 24.7,
             "price": 122.5,
             "saleability": 0.86,
             "wage": 90.04,
@@ -1181,25 +1275,25 @@
             "labour_m2": 2.04
           },
           "labour_h_per_m2_yr": 2.04,
-          "labour_h_per_harvested_unit": 0.0828,
-          "revenue_per_m2_yr": 2595.3,
+          "labour_h_per_harvested_unit": 0.0826,
+          "revenue_per_m2_yr": 2602.14,
           "revenue_per_saleable_unit": 122.5,
           "labour_cost_per_m2_yr": 183.68,
           "electricity_cost_per_m2_yr": 535.0,
-          "labour_plus_electricity_cost_per_saleable_unit": 33.922,
-          "headroom_per_m2_yr": 1876.62,
-          "headroom_per_saleable_unit": 88.578,
-          "breakeven_labour_h_per_harvested_unit": 0.9288,
+          "labour_plus_electricity_cost_per_saleable_unit": 33.833,
+          "headroom_per_m2_yr": 1883.46,
+          "headroom_per_saleable_unit": 88.667,
+          "breakeven_labour_h_per_harvested_unit": 0.9295,
           "covers_labour_and_electricity": true,
           "eur_comparison": {
-            "revenue_per_m2_yr": 23.71,
-            "headroom_per_m2_yr": 17.14,
+            "revenue_per_m2_yr": 23.77,
+            "headroom_per_m2_yr": 17.21,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         },
         "high": {
           "inputs_used": {
-            "yield": 25.87,
+            "yield": 26.0,
             "price": 180.0,
             "saleability": 0.92,
             "wage": 77.57,
@@ -1208,19 +1302,19 @@
             "labour_m2": 2.04
           },
           "labour_h_per_m2_yr": 2.04,
-          "labour_h_per_harvested_unit": 0.0789,
-          "revenue_per_m2_yr": 4284.07,
+          "labour_h_per_harvested_unit": 0.0785,
+          "revenue_per_m2_yr": 4305.6,
           "revenue_per_saleable_unit": 180.0,
           "labour_cost_per_m2_yr": 158.24,
           "electricity_cost_per_m2_yr": 248.0,
-          "labour_plus_electricity_cost_per_saleable_unit": 17.069,
-          "headroom_per_m2_yr": 3877.83,
-          "headroom_per_saleable_unit": 162.931,
-          "breakeven_labour_h_per_harvested_unit": 2.0113,
+          "labour_plus_electricity_cost_per_saleable_unit": 16.983,
+          "headroom_per_m2_yr": 3899.36,
+          "headroom_per_saleable_unit": 163.017,
+          "breakeven_labour_h_per_harvested_unit": 2.0119,
           "covers_labour_and_electricity": true,
           "eur_comparison": {
-            "revenue_per_m2_yr": 39.14,
-            "headroom_per_m2_yr": 35.43,
+            "revenue_per_m2_yr": 39.34,
+            "headroom_per_m2_yr": 35.62,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         }
@@ -1266,7 +1360,7 @@
         },
         "mid": {
           "inputs_used": {
-            "yield": 24.635,
+            "yield": 24.7,
             "price": 800.0,
             "saleability": 0.86,
             "wage": 73.72,
@@ -1275,25 +1369,25 @@
             "labour_m2": 2.04
           },
           "labour_h_per_m2_yr": 2.04,
-          "labour_h_per_harvested_unit": 0.0828,
-          "revenue_per_m2_yr": 16948.88,
+          "labour_h_per_harvested_unit": 0.0826,
+          "revenue_per_m2_yr": 16993.6,
           "revenue_per_saleable_unit": 800.0,
           "labour_cost_per_m2_yr": 150.39,
           "electricity_cost_per_m2_yr": 727.6,
-          "labour_plus_electricity_cost_per_saleable_unit": 41.442,
-          "headroom_per_m2_yr": 16070.89,
-          "headroom_per_saleable_unit": 758.558,
-          "breakeven_labour_h_per_harvested_unit": 8.932,
+          "labour_plus_electricity_cost_per_saleable_unit": 41.333,
+          "headroom_per_m2_yr": 16115.61,
+          "headroom_per_saleable_unit": 758.667,
+          "breakeven_labour_h_per_harvested_unit": 8.933,
           "covers_labour_and_electricity": true,
           "eur_comparison": {
-            "revenue_per_m2_yr": 154.84,
-            "headroom_per_m2_yr": 146.82,
+            "revenue_per_m2_yr": 155.25,
+            "headroom_per_m2_yr": 147.23,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         },
         "high": {
           "inputs_used": {
-            "yield": 25.87,
+            "yield": 26.0,
             "price": 1000.0,
             "saleability": 0.92,
             "wage": 59.56,
@@ -1302,19 +1396,113 @@
             "labour_m2": 2.04
           },
           "labour_h_per_m2_yr": 2.04,
-          "labour_h_per_harvested_unit": 0.0789,
-          "revenue_per_m2_yr": 23800.4,
+          "labour_h_per_harvested_unit": 0.0785,
+          "revenue_per_m2_yr": 23920.0,
           "revenue_per_saleable_unit": 1000.0,
           "labour_cost_per_m2_yr": 121.5,
           "electricity_cost_per_m2_yr": 465.0,
-          "labour_plus_electricity_cost_per_saleable_unit": 24.643,
-          "headroom_per_m2_yr": 23213.9,
-          "headroom_per_saleable_unit": 975.357,
-          "breakeven_labour_h_per_harvested_unit": 15.1448,
+          "labour_plus_electricity_cost_per_saleable_unit": 24.519,
+          "headroom_per_m2_yr": 23333.5,
+          "headroom_per_saleable_unit": 975.481,
+          "breakeven_labour_h_per_harvested_unit": 15.1463,
           "covers_labour_and_electricity": true,
           "eur_comparison": {
-            "revenue_per_m2_yr": 217.44,
-            "headroom_per_m2_yr": 212.08,
+            "revenue_per_m2_yr": 218.53,
+            "headroom_per_m2_yr": 213.17,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        }
+      },
+      "verdict": "clears_in_all_cases"
+    },
+    {
+      "config_id": "B_large_raceway_dwc_basil_lean_labour",
+      "label": "Large simple raceway DWC (about 1,100 m2), basil, hired labour at Hawaii model-farm intensity",
+      "crop": "basil",
+      "output_unit": "kg",
+      "labour_mode": "hired",
+      "location": "karnataka_listing_price_sensitivity",
+      "currency_code": "INR",
+      "missing_inputs": [],
+      "cases": {
+        "low": {
+          "inputs_used": {
+            "yield": 23.4,
+            "price": 65.0,
+            "saleability": 0.8,
+            "wage": 76.82,
+            "power_price": 7.1,
+            "kwh_m2": 109.2,
+            "labour_m2": 2.04
+          },
+          "labour_h_per_m2_yr": 2.04,
+          "labour_h_per_harvested_unit": 0.0872,
+          "revenue_per_m2_yr": 1216.8,
+          "revenue_per_saleable_unit": 65.0,
+          "labour_cost_per_m2_yr": 156.71,
+          "electricity_cost_per_m2_yr": 775.32,
+          "labour_plus_electricity_cost_per_saleable_unit": 49.788,
+          "headroom_per_m2_yr": 284.77,
+          "headroom_per_saleable_unit": 15.212,
+          "breakeven_labour_h_per_harvested_unit": 0.2456,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 11.12,
+            "headroom_per_m2_yr": 2.6,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "mid": {
+          "inputs_used": {
+            "yield": 24.7,
+            "price": 122.5,
+            "saleability": 0.86,
+            "wage": 76.82,
+            "power_price": 5.275,
+            "kwh_m2": 85.6,
+            "labour_m2": 2.04
+          },
+          "labour_h_per_m2_yr": 2.04,
+          "labour_h_per_harvested_unit": 0.0826,
+          "revenue_per_m2_yr": 2602.14,
+          "revenue_per_saleable_unit": 122.5,
+          "labour_cost_per_m2_yr": 156.71,
+          "electricity_cost_per_m2_yr": 451.54,
+          "labour_plus_electricity_cost_per_saleable_unit": 28.634,
+          "headroom_per_m2_yr": 1993.89,
+          "headroom_per_saleable_unit": 93.866,
+          "breakeven_labour_h_per_harvested_unit": 1.1334,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 23.77,
+            "headroom_per_m2_yr": 18.22,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "high": {
+          "inputs_used": {
+            "yield": 26.0,
+            "price": 180.0,
+            "saleability": 0.92,
+            "wage": 76.82,
+            "power_price": 3.45,
+            "kwh_m2": 62.0,
+            "labour_m2": 2.04
+          },
+          "labour_h_per_m2_yr": 2.04,
+          "labour_h_per_harvested_unit": 0.0785,
+          "revenue_per_m2_yr": 4305.6,
+          "revenue_per_saleable_unit": 180.0,
+          "labour_cost_per_m2_yr": 156.71,
+          "electricity_cost_per_m2_yr": 213.9,
+          "labour_plus_electricity_cost_per_saleable_unit": 15.494,
+          "headroom_per_m2_yr": 3934.99,
+          "headroom_per_saleable_unit": 164.506,
+          "breakeven_labour_h_per_harvested_unit": 2.0486,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 39.34,
+            "headroom_per_m2_yr": 35.95,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         }
@@ -1355,7 +1543,7 @@
         },
         "mid": {
           "inputs_used": {
-            "yield": 24.635,
+            "yield": 24.7,
             "price": 8.0,
             "saleability": 0.9,
             "wage": 17.5,
@@ -1363,21 +1551,21 @@
             "kwh_m2": 85.6,
             "labour_unit": 0.5885
           },
-          "labour_h_per_m2_yr": 14.498,
+          "labour_h_per_m2_yr": 14.536,
           "labour_h_per_harvested_unit": 0.5885,
-          "revenue_per_m2_yr": 177.37,
+          "revenue_per_m2_yr": 177.84,
           "revenue_per_saleable_unit": 8.0,
-          "labour_cost_per_m2_yr": 253.71,
+          "labour_cost_per_m2_yr": 254.38,
           "electricity_cost_per_m2_yr": 21.4,
-          "labour_plus_electricity_cost_per_saleable_unit": 12.408,
-          "headroom_per_m2_yr": -97.74,
-          "headroom_per_saleable_unit": -4.408,
-          "breakeven_labour_h_per_harvested_unit": 0.3618,
+          "labour_plus_electricity_cost_per_saleable_unit": 12.406,
+          "headroom_per_m2_yr": -97.94,
+          "headroom_per_saleable_unit": -4.406,
+          "breakeven_labour_h_per_harvested_unit": 0.3619,
           "covers_labour_and_electricity": false
         },
         "high": {
           "inputs_used": {
-            "yield": 25.87,
+            "yield": 26.0,
             "price": 9.0,
             "saleability": 0.95,
             "wage": 16.0,
@@ -1385,16 +1573,16 @@
             "kwh_m2": 62.0,
             "labour_unit": 0.529
           },
-          "labour_h_per_m2_yr": 13.685,
+          "labour_h_per_m2_yr": 13.754,
           "labour_h_per_harvested_unit": 0.529,
-          "revenue_per_m2_yr": 221.19,
+          "revenue_per_m2_yr": 222.3,
           "revenue_per_saleable_unit": 9.0,
-          "labour_cost_per_m2_yr": 218.96,
+          "labour_cost_per_m2_yr": 220.06,
           "electricity_cost_per_m2_yr": 14.88,
-          "labour_plus_electricity_cost_per_saleable_unit": 9.515,
-          "headroom_per_m2_yr": -12.66,
-          "headroom_per_saleable_unit": -0.515,
-          "breakeven_labour_h_per_harvested_unit": 0.4984,
+          "labour_plus_electricity_cost_per_saleable_unit": 9.512,
+          "headroom_per_m2_yr": -12.64,
+          "headroom_per_saleable_unit": -0.512,
+          "breakeven_labour_h_per_harvested_unit": 0.4986,
           "covers_labour_and_electricity": false
         }
       },
@@ -1439,7 +1627,7 @@
         },
         "mid": {
           "inputs_used": {
-            "yield": 24.635,
+            "yield": 24.7,
             "price": 122.5,
             "saleability": 0.86,
             "wage": 73.72,
@@ -1447,26 +1635,26 @@
             "kwh_m2": 85.6,
             "labour_unit": 0.5885
           },
-          "labour_h_per_m2_yr": 14.498,
+          "labour_h_per_m2_yr": 14.536,
           "labour_h_per_harvested_unit": 0.5885,
-          "revenue_per_m2_yr": 2595.3,
+          "revenue_per_m2_yr": 2602.14,
           "revenue_per_saleable_unit": 122.5,
-          "labour_cost_per_m2_yr": 1068.77,
+          "labour_cost_per_m2_yr": 1071.59,
           "electricity_cost_per_m2_yr": 727.6,
-          "labour_plus_electricity_cost_per_saleable_unit": 84.79,
-          "headroom_per_m2_yr": 798.93,
-          "headroom_per_saleable_unit": 37.71,
-          "breakeven_labour_h_per_harvested_unit": 1.0284,
+          "labour_plus_electricity_cost_per_saleable_unit": 84.7,
+          "headroom_per_m2_yr": 802.95,
+          "headroom_per_saleable_unit": 37.8,
+          "breakeven_labour_h_per_harvested_unit": 1.0295,
           "covers_labour_and_electricity": true,
           "eur_comparison": {
-            "revenue_per_m2_yr": 23.71,
-            "headroom_per_m2_yr": 7.3,
+            "revenue_per_m2_yr": 23.77,
+            "headroom_per_m2_yr": 7.34,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         },
         "high": {
           "inputs_used": {
-            "yield": 25.87,
+            "yield": 26.0,
             "price": 180.0,
             "saleability": 0.92,
             "wage": 59.56,
@@ -1474,20 +1662,20 @@
             "kwh_m2": 62.0,
             "labour_unit": 0.529
           },
-          "labour_h_per_m2_yr": 13.685,
+          "labour_h_per_m2_yr": 13.754,
           "labour_h_per_harvested_unit": 0.529,
-          "revenue_per_m2_yr": 4284.07,
+          "revenue_per_m2_yr": 4305.6,
           "revenue_per_saleable_unit": 180.0,
-          "labour_cost_per_m2_yr": 815.09,
+          "labour_cost_per_m2_yr": 819.19,
           "electricity_cost_per_m2_yr": 465.0,
-          "labour_plus_electricity_cost_per_saleable_unit": 53.784,
-          "headroom_per_m2_yr": 3003.98,
-          "headroom_per_saleable_unit": 126.216,
-          "breakeven_labour_h_per_harvested_unit": 2.4786,
+          "labour_plus_electricity_cost_per_saleable_unit": 53.687,
+          "headroom_per_m2_yr": 3021.41,
+          "headroom_per_saleable_unit": 126.313,
+          "breakeven_labour_h_per_harvested_unit": 2.4801,
           "covers_labour_and_electricity": true,
           "eur_comparison": {
-            "revenue_per_m2_yr": 39.14,
-            "headroom_per_m2_yr": 27.44,
+            "revenue_per_m2_yr": 39.34,
+            "headroom_per_m2_yr": 27.6,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         }
@@ -1507,7 +1695,7 @@
         "low": {
           "inputs_used": {
             "yield": 23.4,
-            "price": 65.0,
+            "price": 100.0,
             "saleability": 0.8,
             "wage": 76.82,
             "power_price": 7.1,
@@ -1516,72 +1704,72 @@
           },
           "labour_h_per_m2_yr": 15.163,
           "labour_h_per_harvested_unit": 0.648,
-          "revenue_per_m2_yr": 1216.8,
-          "revenue_per_saleable_unit": 65.0,
+          "revenue_per_m2_yr": 1872.0,
+          "revenue_per_saleable_unit": 100.0,
           "labour_cost_per_m2_yr": 1164.84,
           "electricity_cost_per_m2_yr": 775.32,
           "labour_plus_electricity_cost_per_saleable_unit": 103.641,
-          "headroom_per_m2_yr": -723.36,
-          "headroom_per_saleable_unit": -38.641,
-          "breakeven_labour_h_per_harvested_unit": 0.2456,
+          "headroom_per_m2_yr": -68.16,
+          "headroom_per_saleable_unit": -3.641,
+          "breakeven_labour_h_per_harvested_unit": 0.6101,
           "covers_labour_and_electricity": false,
           "eur_comparison": {
-            "revenue_per_m2_yr": 11.12,
-            "headroom_per_m2_yr": -6.61,
+            "revenue_per_m2_yr": 17.1,
+            "headroom_per_m2_yr": -0.62,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         },
         "mid": {
           "inputs_used": {
-            "yield": 24.635,
-            "price": 122.5,
+            "yield": 24.7,
+            "price": 175.0,
             "saleability": 0.86,
             "wage": 76.82,
             "power_price": 5.275,
             "kwh_m2": 85.6,
             "labour_unit": 0.5885
           },
-          "labour_h_per_m2_yr": 14.498,
+          "labour_h_per_m2_yr": 14.536,
           "labour_h_per_harvested_unit": 0.5885,
-          "revenue_per_m2_yr": 2595.3,
-          "revenue_per_saleable_unit": 122.5,
-          "labour_cost_per_m2_yr": 1113.71,
+          "revenue_per_m2_yr": 3717.35,
+          "revenue_per_saleable_unit": 175.0,
+          "labour_cost_per_m2_yr": 1116.65,
           "electricity_cost_per_m2_yr": 451.54,
-          "labour_plus_electricity_cost_per_saleable_unit": 73.881,
-          "headroom_per_m2_yr": 1030.04,
-          "headroom_per_saleable_unit": 48.619,
-          "breakeven_labour_h_per_harvested_unit": 1.1328,
+          "labour_plus_electricity_cost_per_saleable_unit": 73.825,
+          "headroom_per_m2_yr": 2149.16,
+          "headroom_per_saleable_unit": 101.175,
+          "breakeven_labour_h_per_harvested_unit": 1.7212,
           "covers_labour_and_electricity": true,
           "eur_comparison": {
-            "revenue_per_m2_yr": 23.71,
-            "headroom_per_m2_yr": 9.41,
+            "revenue_per_m2_yr": 33.96,
+            "headroom_per_m2_yr": 19.63,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         },
         "high": {
           "inputs_used": {
-            "yield": 25.87,
-            "price": 180.0,
+            "yield": 26.0,
+            "price": 250.0,
             "saleability": 0.92,
             "wage": 76.82,
             "power_price": 3.45,
             "kwh_m2": 62.0,
             "labour_unit": 0.529
           },
-          "labour_h_per_m2_yr": 13.685,
+          "labour_h_per_m2_yr": 13.754,
           "labour_h_per_harvested_unit": 0.529,
-          "revenue_per_m2_yr": 4284.07,
-          "revenue_per_saleable_unit": 180.0,
-          "labour_cost_per_m2_yr": 1051.3,
+          "revenue_per_m2_yr": 5980.0,
+          "revenue_per_saleable_unit": 250.0,
+          "labour_cost_per_m2_yr": 1056.58,
           "electricity_cost_per_m2_yr": 213.9,
-          "labour_plus_electricity_cost_per_saleable_unit": 53.159,
-          "headroom_per_m2_yr": 3018.87,
-          "headroom_per_saleable_unit": 126.841,
-          "breakeven_labour_h_per_harvested_unit": 2.0481,
+          "labour_plus_electricity_cost_per_saleable_unit": 53.114,
+          "headroom_per_m2_yr": 4709.52,
+          "headroom_per_saleable_unit": 196.886,
+          "breakeven_labour_h_per_harvested_unit": 2.8869,
           "covers_labour_and_electricity": true,
           "eur_comparison": {
-            "revenue_per_m2_yr": 39.14,
-            "headroom_per_m2_yr": 27.58,
+            "revenue_per_m2_yr": 54.63,
+            "headroom_per_m2_yr": 43.03,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         }
@@ -1627,7 +1815,7 @@
         },
         "mid": {
           "inputs_used": {
-            "yield": 24.635,
+            "yield": 24.7,
             "price": 122.5,
             "saleability": 0.86,
             "wage": 80.89,
@@ -1635,26 +1823,26 @@
             "kwh_m2": 85.6,
             "labour_unit": 0.5885
           },
-          "labour_h_per_m2_yr": 14.498,
+          "labour_h_per_m2_yr": 14.536,
           "labour_h_per_harvested_unit": 0.5885,
-          "revenue_per_m2_yr": 2595.3,
+          "revenue_per_m2_yr": 2602.14,
           "revenue_per_saleable_unit": 122.5,
-          "labour_cost_per_m2_yr": 1172.72,
+          "labour_cost_per_m2_yr": 1175.81,
           "electricity_cost_per_m2_yr": 659.12,
-          "labour_plus_electricity_cost_per_saleable_unit": 86.464,
-          "headroom_per_m2_yr": 763.46,
-          "headroom_per_saleable_unit": 36.036,
-          "breakeven_labour_h_per_harvested_unit": 0.9716,
+          "labour_plus_electricity_cost_per_saleable_unit": 86.382,
+          "headroom_per_m2_yr": 767.21,
+          "headroom_per_saleable_unit": 36.118,
+          "breakeven_labour_h_per_harvested_unit": 0.9725,
           "covers_labour_and_electricity": true,
           "eur_comparison": {
-            "revenue_per_m2_yr": 23.71,
-            "headroom_per_m2_yr": 6.97,
+            "revenue_per_m2_yr": 23.77,
+            "headroom_per_m2_yr": 7.01,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         },
         "high": {
           "inputs_used": {
-            "yield": 25.87,
+            "yield": 26.0,
             "price": 180.0,
             "saleability": 0.92,
             "wage": 70.01,
@@ -1662,20 +1850,20 @@
             "kwh_m2": 62.0,
             "labour_unit": 0.529
           },
-          "labour_h_per_m2_yr": 13.685,
+          "labour_h_per_m2_yr": 13.754,
           "labour_h_per_harvested_unit": 0.529,
-          "revenue_per_m2_yr": 4284.07,
+          "revenue_per_m2_yr": 4305.6,
           "revenue_per_saleable_unit": 180.0,
-          "labour_cost_per_m2_yr": 958.1,
+          "labour_cost_per_m2_yr": 962.92,
           "electricity_cost_per_m2_yr": 306.9,
-          "labour_plus_electricity_cost_per_saleable_unit": 53.15,
-          "headroom_per_m2_yr": 3019.07,
-          "headroom_per_saleable_unit": 126.85,
-          "breakeven_labour_h_per_harvested_unit": 2.1959,
+          "labour_plus_electricity_cost_per_saleable_unit": 53.086,
+          "headroom_per_m2_yr": 3035.78,
+          "headroom_per_saleable_unit": 126.914,
+          "breakeven_labour_h_per_harvested_unit": 2.1968,
           "covers_labour_and_electricity": true,
           "eur_comparison": {
-            "revenue_per_m2_yr": 39.14,
-            "headroom_per_m2_yr": 27.58,
+            "revenue_per_m2_yr": 39.34,
+            "headroom_per_m2_yr": 27.73,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         }
@@ -1721,7 +1909,7 @@
         },
         "mid": {
           "inputs_used": {
-            "yield": 24.635,
+            "yield": 24.7,
             "price": 122.5,
             "saleability": 0.86,
             "wage": 80.89,
@@ -1729,26 +1917,26 @@
             "kwh_m2": 85.6,
             "labour_unit": 0.5885
           },
-          "labour_h_per_m2_yr": 14.498,
+          "labour_h_per_m2_yr": 14.536,
           "labour_h_per_harvested_unit": 0.5885,
-          "revenue_per_m2_yr": 2595.3,
+          "revenue_per_m2_yr": 2602.14,
           "revenue_per_saleable_unit": 122.5,
-          "labour_cost_per_m2_yr": 1172.72,
+          "labour_cost_per_m2_yr": 1175.81,
           "electricity_cost_per_m2_yr": 357.38,
-          "labour_plus_electricity_cost_per_saleable_unit": 72.222,
-          "headroom_per_m2_yr": 1065.2,
-          "headroom_per_saleable_unit": 50.278,
-          "breakeven_labour_h_per_harvested_unit": 1.123,
+          "labour_plus_electricity_cost_per_saleable_unit": 72.177,
+          "headroom_per_m2_yr": 1068.95,
+          "headroom_per_saleable_unit": 50.323,
+          "breakeven_labour_h_per_harvested_unit": 1.1235,
           "covers_labour_and_electricity": true,
           "eur_comparison": {
-            "revenue_per_m2_yr": 23.71,
-            "headroom_per_m2_yr": 9.73,
+            "revenue_per_m2_yr": 23.77,
+            "headroom_per_m2_yr": 9.77,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         },
         "high": {
           "inputs_used": {
-            "yield": 25.87,
+            "yield": 26.0,
             "price": 180.0,
             "saleability": 0.92,
             "wage": 70.01,
@@ -1756,20 +1944,20 @@
             "kwh_m2": 62.0,
             "labour_unit": 0.529
           },
-          "labour_h_per_m2_yr": 13.685,
+          "labour_h_per_m2_yr": 13.754,
           "labour_h_per_harvested_unit": 0.529,
-          "revenue_per_m2_yr": 4284.07,
+          "revenue_per_m2_yr": 4305.6,
           "revenue_per_saleable_unit": 180.0,
-          "labour_cost_per_m2_yr": 958.1,
+          "labour_cost_per_m2_yr": 962.92,
           "electricity_cost_per_m2_yr": 238.7,
-          "labour_plus_electricity_cost_per_saleable_unit": 50.285,
-          "headroom_per_m2_yr": 3087.27,
-          "headroom_per_saleable_unit": 129.715,
-          "breakeven_labour_h_per_harvested_unit": 2.2336,
+          "labour_plus_electricity_cost_per_saleable_unit": 50.235,
+          "headroom_per_m2_yr": 3103.98,
+          "headroom_per_saleable_unit": 129.765,
+          "breakeven_labour_h_per_harvested_unit": 2.2342,
           "covers_labour_and_electricity": true,
           "eur_comparison": {
-            "revenue_per_m2_yr": 39.14,
-            "headroom_per_m2_yr": 28.21,
+            "revenue_per_m2_yr": 39.34,
+            "headroom_per_m2_yr": 28.36,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         }
@@ -1815,7 +2003,7 @@
         },
         "mid": {
           "inputs_used": {
-            "yield": 24.635,
+            "yield": 24.7,
             "price": 122.5,
             "saleability": 0.86,
             "wage": 90.04,
@@ -1823,26 +2011,26 @@
             "kwh_m2": 85.6,
             "labour_unit": 0.5885
           },
-          "labour_h_per_m2_yr": 14.498,
+          "labour_h_per_m2_yr": 14.536,
           "labour_h_per_harvested_unit": 0.5885,
-          "revenue_per_m2_yr": 2595.3,
+          "revenue_per_m2_yr": 2602.14,
           "revenue_per_saleable_unit": 122.5,
-          "labour_cost_per_m2_yr": 1305.37,
+          "labour_cost_per_m2_yr": 1308.82,
           "electricity_cost_per_m2_yr": 535.0,
-          "labour_plus_electricity_cost_per_saleable_unit": 86.867,
-          "headroom_per_m2_yr": 754.92,
-          "headroom_per_saleable_unit": 35.633,
-          "breakeven_labour_h_per_harvested_unit": 0.9288,
+          "labour_plus_electricity_cost_per_saleable_unit": 86.801,
+          "headroom_per_m2_yr": 758.33,
+          "headroom_per_saleable_unit": 35.699,
+          "breakeven_labour_h_per_harvested_unit": 0.9295,
           "covers_labour_and_electricity": true,
           "eur_comparison": {
-            "revenue_per_m2_yr": 23.71,
-            "headroom_per_m2_yr": 6.9,
+            "revenue_per_m2_yr": 23.77,
+            "headroom_per_m2_yr": 6.93,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         },
         "high": {
           "inputs_used": {
-            "yield": 25.87,
+            "yield": 26.0,
             "price": 180.0,
             "saleability": 0.92,
             "wage": 77.57,
@@ -1850,20 +2038,20 @@
             "kwh_m2": 62.0,
             "labour_unit": 0.529
           },
-          "labour_h_per_m2_yr": 13.685,
+          "labour_h_per_m2_yr": 13.754,
           "labour_h_per_harvested_unit": 0.529,
-          "revenue_per_m2_yr": 4284.07,
+          "revenue_per_m2_yr": 4305.6,
           "revenue_per_saleable_unit": 180.0,
-          "labour_cost_per_m2_yr": 1061.56,
+          "labour_cost_per_m2_yr": 1066.9,
           "electricity_cost_per_m2_yr": 248.0,
-          "labour_plus_electricity_cost_per_saleable_unit": 55.023,
-          "headroom_per_m2_yr": 2974.51,
-          "headroom_per_saleable_unit": 124.977,
-          "breakeven_labour_h_per_harvested_unit": 2.0113,
+          "labour_plus_electricity_cost_per_saleable_unit": 54.971,
+          "headroom_per_m2_yr": 2990.7,
+          "headroom_per_saleable_unit": 125.029,
+          "breakeven_labour_h_per_harvested_unit": 2.0119,
           "covers_labour_and_electricity": true,
           "eur_comparison": {
-            "revenue_per_m2_yr": 39.14,
-            "headroom_per_m2_yr": 27.18,
+            "revenue_per_m2_yr": 39.34,
+            "headroom_per_m2_yr": 27.32,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         }
@@ -1909,7 +2097,7 @@
         },
         "mid": {
           "inputs_used": {
-            "yield": 24.635,
+            "yield": 24.7,
             "price": 800.0,
             "saleability": 0.86,
             "wage": 73.72,
@@ -1917,26 +2105,26 @@
             "kwh_m2": 85.6,
             "labour_unit": 0.5885
           },
-          "labour_h_per_m2_yr": 14.498,
+          "labour_h_per_m2_yr": 14.536,
           "labour_h_per_harvested_unit": 0.5885,
-          "revenue_per_m2_yr": 16948.88,
+          "revenue_per_m2_yr": 16993.6,
           "revenue_per_saleable_unit": 800.0,
-          "labour_cost_per_m2_yr": 1068.77,
+          "labour_cost_per_m2_yr": 1071.59,
           "electricity_cost_per_m2_yr": 727.6,
-          "labour_plus_electricity_cost_per_saleable_unit": 84.79,
-          "headroom_per_m2_yr": 15152.51,
-          "headroom_per_saleable_unit": 715.21,
-          "breakeven_labour_h_per_harvested_unit": 8.932,
+          "labour_plus_electricity_cost_per_saleable_unit": 84.7,
+          "headroom_per_m2_yr": 15194.41,
+          "headroom_per_saleable_unit": 715.3,
+          "breakeven_labour_h_per_harvested_unit": 8.933,
           "covers_labour_and_electricity": true,
           "eur_comparison": {
-            "revenue_per_m2_yr": 154.84,
-            "headroom_per_m2_yr": 138.43,
+            "revenue_per_m2_yr": 155.25,
+            "headroom_per_m2_yr": 138.82,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         },
         "high": {
           "inputs_used": {
-            "yield": 25.87,
+            "yield": 26.0,
             "price": 1000.0,
             "saleability": 0.92,
             "wage": 59.56,
@@ -1944,25 +2132,119 @@
             "kwh_m2": 62.0,
             "labour_unit": 0.529
           },
-          "labour_h_per_m2_yr": 13.685,
+          "labour_h_per_m2_yr": 13.754,
           "labour_h_per_harvested_unit": 0.529,
-          "revenue_per_m2_yr": 23800.4,
+          "revenue_per_m2_yr": 23920.0,
           "revenue_per_saleable_unit": 1000.0,
-          "labour_cost_per_m2_yr": 815.09,
+          "labour_cost_per_m2_yr": 819.19,
           "electricity_cost_per_m2_yr": 465.0,
-          "labour_plus_electricity_cost_per_saleable_unit": 53.784,
-          "headroom_per_m2_yr": 22520.31,
-          "headroom_per_saleable_unit": 946.216,
-          "breakeven_labour_h_per_harvested_unit": 15.1448,
+          "labour_plus_electricity_cost_per_saleable_unit": 53.687,
+          "headroom_per_m2_yr": 22635.81,
+          "headroom_per_saleable_unit": 946.313,
+          "breakeven_labour_h_per_harvested_unit": 15.1463,
           "covers_labour_and_electricity": true,
           "eur_comparison": {
-            "revenue_per_m2_yr": 217.44,
-            "headroom_per_m2_yr": 205.75,
+            "revenue_per_m2_yr": 218.53,
+            "headroom_per_m2_yr": 206.8,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         }
       },
       "verdict": "clears_in_all_cases"
+    },
+    {
+      "config_id": "C_representative_farm_basil_purdue_labour",
+      "label": "Basil-focused greenhouse farm at Purdue representative-farm labour per kg output",
+      "crop": "basil",
+      "output_unit": "kg",
+      "labour_mode": "hired",
+      "location": "karnataka_listing_price_sensitivity",
+      "currency_code": "INR",
+      "missing_inputs": [],
+      "cases": {
+        "low": {
+          "inputs_used": {
+            "yield": 23.4,
+            "price": 65.0,
+            "saleability": 0.8,
+            "wage": 76.82,
+            "power_price": 7.1,
+            "kwh_m2": 109.2,
+            "labour_unit": 0.648
+          },
+          "labour_h_per_m2_yr": 15.163,
+          "labour_h_per_harvested_unit": 0.648,
+          "revenue_per_m2_yr": 1216.8,
+          "revenue_per_saleable_unit": 65.0,
+          "labour_cost_per_m2_yr": 1164.84,
+          "electricity_cost_per_m2_yr": 775.32,
+          "labour_plus_electricity_cost_per_saleable_unit": 103.641,
+          "headroom_per_m2_yr": -723.36,
+          "headroom_per_saleable_unit": -38.641,
+          "breakeven_labour_h_per_harvested_unit": 0.2456,
+          "covers_labour_and_electricity": false,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 11.12,
+            "headroom_per_m2_yr": -6.61,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "mid": {
+          "inputs_used": {
+            "yield": 24.7,
+            "price": 122.5,
+            "saleability": 0.86,
+            "wage": 76.82,
+            "power_price": 5.275,
+            "kwh_m2": 85.6,
+            "labour_unit": 0.5885
+          },
+          "labour_h_per_m2_yr": 14.536,
+          "labour_h_per_harvested_unit": 0.5885,
+          "revenue_per_m2_yr": 2602.14,
+          "revenue_per_saleable_unit": 122.5,
+          "labour_cost_per_m2_yr": 1116.65,
+          "electricity_cost_per_m2_yr": 451.54,
+          "labour_plus_electricity_cost_per_saleable_unit": 73.825,
+          "headroom_per_m2_yr": 1033.95,
+          "headroom_per_saleable_unit": 48.675,
+          "breakeven_labour_h_per_harvested_unit": 1.1334,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 23.77,
+            "headroom_per_m2_yr": 9.45,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "high": {
+          "inputs_used": {
+            "yield": 26.0,
+            "price": 180.0,
+            "saleability": 0.92,
+            "wage": 76.82,
+            "power_price": 3.45,
+            "kwh_m2": 62.0,
+            "labour_unit": 0.529
+          },
+          "labour_h_per_m2_yr": 13.754,
+          "labour_h_per_harvested_unit": 0.529,
+          "revenue_per_m2_yr": 4305.6,
+          "revenue_per_saleable_unit": 180.0,
+          "labour_cost_per_m2_yr": 1056.58,
+          "electricity_cost_per_m2_yr": 213.9,
+          "labour_plus_electricity_cost_per_saleable_unit": 53.114,
+          "headroom_per_m2_yr": 3035.12,
+          "headroom_per_saleable_unit": 126.886,
+          "breakeven_labour_h_per_harvested_unit": 2.0486,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 39.34,
+            "headroom_per_m2_yr": 27.73,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        }
+      },
+      "verdict": "clears_only_in_favourable_cases"
     },
     {
       "config_id": "D_large_raceway_dwc_lettuce_auction",
@@ -2122,6 +2404,19 @@
       "cases": {}
     },
     {
+      "config_id": "D_large_raceway_dwc_lettuce_auction",
+      "label": "Large simple raceway DWC (about 1,100 m2), head lettuce, Low Countries auction channel",
+      "crop": "lettuce",
+      "output_unit": "head",
+      "labour_mode": "hired",
+      "location": "karnataka_listing_price_sensitivity",
+      "currency_code": "INR",
+      "missing_inputs": [
+        "price"
+      ],
+      "cases": {}
+    },
+    {
       "config_id": "E_owner_operated_dwc_basil",
       "label": "Owner-operated coupled DWC raft, basil, owner hours not costed",
       "crop": "basil",
@@ -2157,7 +2452,7 @@
         },
         "mid": {
           "inputs_used": {
-            "yield": 24.635,
+            "yield": 24.7,
             "price": 8.0,
             "saleability": 0.9,
             "wage": 17.5,
@@ -2166,22 +2461,22 @@
             "labour_m2": 8.31
           },
           "labour_h_per_m2_yr": 8.31,
-          "labour_h_per_harvested_unit": 0.3373,
-          "revenue_per_m2_yr": 177.37,
+          "labour_h_per_harvested_unit": 0.3364,
+          "revenue_per_m2_yr": 177.84,
           "revenue_per_saleable_unit": 8.0,
           "labour_cost_per_m2_yr": 0.0,
           "electricity_cost_per_m2_yr": 21.4,
-          "labour_plus_electricity_cost_per_saleable_unit": 0.965,
-          "headroom_per_m2_yr": 155.97,
-          "headroom_per_saleable_unit": 7.035,
-          "breakeven_labour_h_per_harvested_unit": 0.3618,
+          "labour_plus_electricity_cost_per_saleable_unit": 0.963,
+          "headroom_per_m2_yr": 156.44,
+          "headroom_per_saleable_unit": 7.037,
+          "breakeven_labour_h_per_harvested_unit": 0.3619,
           "covers_labour_and_electricity": true,
           "owner_hours_per_m2_yr": 8.31,
-          "headroom_per_owner_hour": 18.77
+          "headroom_per_owner_hour": 18.83
         },
         "high": {
           "inputs_used": {
-            "yield": 25.87,
+            "yield": 26.0,
             "price": 9.0,
             "saleability": 0.95,
             "wage": 16.0,
@@ -2190,18 +2485,18 @@
             "labour_m2": 2.04
           },
           "labour_h_per_m2_yr": 2.04,
-          "labour_h_per_harvested_unit": 0.0789,
-          "revenue_per_m2_yr": 221.19,
+          "labour_h_per_harvested_unit": 0.0785,
+          "revenue_per_m2_yr": 222.3,
           "revenue_per_saleable_unit": 9.0,
           "labour_cost_per_m2_yr": 0.0,
           "electricity_cost_per_m2_yr": 14.88,
-          "labour_plus_electricity_cost_per_saleable_unit": 0.605,
-          "headroom_per_m2_yr": 206.31,
-          "headroom_per_saleable_unit": 8.395,
-          "breakeven_labour_h_per_harvested_unit": 0.4984,
+          "labour_plus_electricity_cost_per_saleable_unit": 0.602,
+          "headroom_per_m2_yr": 207.42,
+          "headroom_per_saleable_unit": 8.398,
+          "breakeven_labour_h_per_harvested_unit": 0.4986,
           "covers_labour_and_electricity": true,
           "owner_hours_per_m2_yr": 2.04,
-          "headroom_per_owner_hour": 101.13
+          "headroom_per_owner_hour": 101.68
         }
       },
       "verdict": "clears_in_all_cases"
@@ -2247,7 +2542,7 @@
         },
         "mid": {
           "inputs_used": {
-            "yield": 24.635,
+            "yield": 24.7,
             "price": 122.5,
             "saleability": 0.86,
             "wage": 73.72,
@@ -2256,27 +2551,27 @@
             "labour_m2": 8.31
           },
           "labour_h_per_m2_yr": 8.31,
-          "labour_h_per_harvested_unit": 0.3373,
-          "revenue_per_m2_yr": 2595.3,
+          "labour_h_per_harvested_unit": 0.3364,
+          "revenue_per_m2_yr": 2602.14,
           "revenue_per_saleable_unit": 122.5,
           "labour_cost_per_m2_yr": 0.0,
           "electricity_cost_per_m2_yr": 727.6,
-          "labour_plus_electricity_cost_per_saleable_unit": 34.343,
-          "headroom_per_m2_yr": 1867.7,
-          "headroom_per_saleable_unit": 88.157,
-          "breakeven_labour_h_per_harvested_unit": 1.0284,
+          "labour_plus_electricity_cost_per_saleable_unit": 34.253,
+          "headroom_per_m2_yr": 1874.55,
+          "headroom_per_saleable_unit": 88.247,
+          "breakeven_labour_h_per_harvested_unit": 1.0295,
           "covers_labour_and_electricity": true,
           "owner_hours_per_m2_yr": 8.31,
-          "headroom_per_owner_hour": 224.75,
+          "headroom_per_owner_hour": 225.58,
           "eur_comparison": {
-            "revenue_per_m2_yr": 23.71,
-            "headroom_per_m2_yr": 17.06,
+            "revenue_per_m2_yr": 23.77,
+            "headroom_per_m2_yr": 17.13,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         },
         "high": {
           "inputs_used": {
-            "yield": 25.87,
+            "yield": 26.0,
             "price": 180.0,
             "saleability": 0.92,
             "wage": 59.56,
@@ -2285,21 +2580,21 @@
             "labour_m2": 2.04
           },
           "labour_h_per_m2_yr": 2.04,
-          "labour_h_per_harvested_unit": 0.0789,
-          "revenue_per_m2_yr": 4284.07,
+          "labour_h_per_harvested_unit": 0.0785,
+          "revenue_per_m2_yr": 4305.6,
           "revenue_per_saleable_unit": 180.0,
           "labour_cost_per_m2_yr": 0.0,
           "electricity_cost_per_m2_yr": 465.0,
-          "labour_plus_electricity_cost_per_saleable_unit": 19.537,
-          "headroom_per_m2_yr": 3819.07,
-          "headroom_per_saleable_unit": 160.463,
-          "breakeven_labour_h_per_harvested_unit": 2.4786,
+          "labour_plus_electricity_cost_per_saleable_unit": 19.44,
+          "headroom_per_m2_yr": 3840.6,
+          "headroom_per_saleable_unit": 160.56,
+          "breakeven_labour_h_per_harvested_unit": 2.4801,
           "covers_labour_and_electricity": true,
           "owner_hours_per_m2_yr": 2.04,
-          "headroom_per_owner_hour": 1872.09,
+          "headroom_per_owner_hour": 1882.65,
           "eur_comparison": {
-            "revenue_per_m2_yr": 39.14,
-            "headroom_per_m2_yr": 34.89,
+            "revenue_per_m2_yr": 39.34,
+            "headroom_per_m2_yr": 35.09,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         }
@@ -2319,7 +2614,7 @@
         "low": {
           "inputs_used": {
             "yield": 23.4,
-            "price": 65.0,
+            "price": 100.0,
             "saleability": 0.8,
             "wage": 76.82,
             "power_price": 7.1,
@@ -2328,27 +2623,27 @@
           },
           "labour_h_per_m2_yr": 14.58,
           "labour_h_per_harvested_unit": 0.6231,
-          "revenue_per_m2_yr": 1216.8,
-          "revenue_per_saleable_unit": 65.0,
+          "revenue_per_m2_yr": 1872.0,
+          "revenue_per_saleable_unit": 100.0,
           "labour_cost_per_m2_yr": 0.0,
           "electricity_cost_per_m2_yr": 775.32,
           "labour_plus_electricity_cost_per_saleable_unit": 41.417,
-          "headroom_per_m2_yr": 441.48,
-          "headroom_per_saleable_unit": 23.583,
-          "breakeven_labour_h_per_harvested_unit": 0.2456,
+          "headroom_per_m2_yr": 1096.68,
+          "headroom_per_saleable_unit": 58.583,
+          "breakeven_labour_h_per_harvested_unit": 0.6101,
           "covers_labour_and_electricity": true,
           "owner_hours_per_m2_yr": 14.58,
-          "headroom_per_owner_hour": 30.28,
+          "headroom_per_owner_hour": 75.22,
           "eur_comparison": {
-            "revenue_per_m2_yr": 11.12,
-            "headroom_per_m2_yr": 4.03,
+            "revenue_per_m2_yr": 17.1,
+            "headroom_per_m2_yr": 10.02,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         },
         "mid": {
           "inputs_used": {
-            "yield": 24.635,
-            "price": 122.5,
+            "yield": 24.7,
+            "price": 175.0,
             "saleability": 0.86,
             "wage": 76.82,
             "power_price": 5.275,
@@ -2356,28 +2651,28 @@
             "labour_m2": 8.31
           },
           "labour_h_per_m2_yr": 8.31,
-          "labour_h_per_harvested_unit": 0.3373,
-          "revenue_per_m2_yr": 2595.3,
-          "revenue_per_saleable_unit": 122.5,
+          "labour_h_per_harvested_unit": 0.3364,
+          "revenue_per_m2_yr": 3717.35,
+          "revenue_per_saleable_unit": 175.0,
           "labour_cost_per_m2_yr": 0.0,
           "electricity_cost_per_m2_yr": 451.54,
-          "labour_plus_electricity_cost_per_saleable_unit": 21.313,
-          "headroom_per_m2_yr": 2143.76,
-          "headroom_per_saleable_unit": 101.187,
-          "breakeven_labour_h_per_harvested_unit": 1.1328,
+          "labour_plus_electricity_cost_per_saleable_unit": 21.257,
+          "headroom_per_m2_yr": 3265.81,
+          "headroom_per_saleable_unit": 153.743,
+          "breakeven_labour_h_per_harvested_unit": 1.7212,
           "covers_labour_and_electricity": true,
           "owner_hours_per_m2_yr": 8.31,
-          "headroom_per_owner_hour": 257.97,
+          "headroom_per_owner_hour": 393.0,
           "eur_comparison": {
-            "revenue_per_m2_yr": 23.71,
-            "headroom_per_m2_yr": 19.59,
+            "revenue_per_m2_yr": 33.96,
+            "headroom_per_m2_yr": 29.84,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         },
         "high": {
           "inputs_used": {
-            "yield": 25.87,
-            "price": 180.0,
+            "yield": 26.0,
+            "price": 250.0,
             "saleability": 0.92,
             "wage": 76.82,
             "power_price": 3.45,
@@ -2385,21 +2680,21 @@
             "labour_m2": 2.04
           },
           "labour_h_per_m2_yr": 2.04,
-          "labour_h_per_harvested_unit": 0.0789,
-          "revenue_per_m2_yr": 4284.07,
-          "revenue_per_saleable_unit": 180.0,
+          "labour_h_per_harvested_unit": 0.0785,
+          "revenue_per_m2_yr": 5980.0,
+          "revenue_per_saleable_unit": 250.0,
           "labour_cost_per_m2_yr": 0.0,
           "electricity_cost_per_m2_yr": 213.9,
-          "labour_plus_electricity_cost_per_saleable_unit": 8.987,
-          "headroom_per_m2_yr": 4070.17,
-          "headroom_per_saleable_unit": 171.013,
-          "breakeven_labour_h_per_harvested_unit": 2.0481,
+          "labour_plus_electricity_cost_per_saleable_unit": 8.942,
+          "headroom_per_m2_yr": 5766.1,
+          "headroom_per_saleable_unit": 241.058,
+          "breakeven_labour_h_per_harvested_unit": 2.8869,
           "covers_labour_and_electricity": true,
           "owner_hours_per_m2_yr": 2.04,
-          "headroom_per_owner_hour": 1995.18,
+          "headroom_per_owner_hour": 2826.52,
           "eur_comparison": {
-            "revenue_per_m2_yr": 39.14,
-            "headroom_per_m2_yr": 37.19,
+            "revenue_per_m2_yr": 54.63,
+            "headroom_per_m2_yr": 52.68,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         }
@@ -2447,7 +2742,7 @@
         },
         "mid": {
           "inputs_used": {
-            "yield": 24.635,
+            "yield": 24.7,
             "price": 122.5,
             "saleability": 0.86,
             "wage": 80.89,
@@ -2456,27 +2751,27 @@
             "labour_m2": 8.31
           },
           "labour_h_per_m2_yr": 8.31,
-          "labour_h_per_harvested_unit": 0.3373,
-          "revenue_per_m2_yr": 2595.3,
+          "labour_h_per_harvested_unit": 0.3364,
+          "revenue_per_m2_yr": 2602.14,
           "revenue_per_saleable_unit": 122.5,
           "labour_cost_per_m2_yr": 0.0,
           "electricity_cost_per_m2_yr": 659.12,
-          "labour_plus_electricity_cost_per_saleable_unit": 31.111,
-          "headroom_per_m2_yr": 1936.18,
-          "headroom_per_saleable_unit": 91.389,
-          "breakeven_labour_h_per_harvested_unit": 0.9716,
+          "labour_plus_electricity_cost_per_saleable_unit": 31.029,
+          "headroom_per_m2_yr": 1943.03,
+          "headroom_per_saleable_unit": 91.471,
+          "breakeven_labour_h_per_harvested_unit": 0.9725,
           "covers_labour_and_electricity": true,
           "owner_hours_per_m2_yr": 8.31,
-          "headroom_per_owner_hour": 232.99,
+          "headroom_per_owner_hour": 233.82,
           "eur_comparison": {
-            "revenue_per_m2_yr": 23.71,
-            "headroom_per_m2_yr": 17.69,
+            "revenue_per_m2_yr": 23.77,
+            "headroom_per_m2_yr": 17.75,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         },
         "high": {
           "inputs_used": {
-            "yield": 25.87,
+            "yield": 26.0,
             "price": 180.0,
             "saleability": 0.92,
             "wage": 70.01,
@@ -2485,21 +2780,21 @@
             "labour_m2": 2.04
           },
           "labour_h_per_m2_yr": 2.04,
-          "labour_h_per_harvested_unit": 0.0789,
-          "revenue_per_m2_yr": 4284.07,
+          "labour_h_per_harvested_unit": 0.0785,
+          "revenue_per_m2_yr": 4305.6,
           "revenue_per_saleable_unit": 180.0,
           "labour_cost_per_m2_yr": 0.0,
           "electricity_cost_per_m2_yr": 306.9,
-          "labour_plus_electricity_cost_per_saleable_unit": 12.895,
-          "headroom_per_m2_yr": 3977.17,
-          "headroom_per_saleable_unit": 167.105,
-          "breakeven_labour_h_per_harvested_unit": 2.1959,
+          "labour_plus_electricity_cost_per_saleable_unit": 12.83,
+          "headroom_per_m2_yr": 3998.7,
+          "headroom_per_saleable_unit": 167.17,
+          "breakeven_labour_h_per_harvested_unit": 2.1968,
           "covers_labour_and_electricity": true,
           "owner_hours_per_m2_yr": 2.04,
-          "headroom_per_owner_hour": 1949.59,
+          "headroom_per_owner_hour": 1960.15,
           "eur_comparison": {
-            "revenue_per_m2_yr": 39.14,
-            "headroom_per_m2_yr": 36.34,
+            "revenue_per_m2_yr": 39.34,
+            "headroom_per_m2_yr": 36.53,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         }
@@ -2547,7 +2842,7 @@
         },
         "mid": {
           "inputs_used": {
-            "yield": 24.635,
+            "yield": 24.7,
             "price": 122.5,
             "saleability": 0.86,
             "wage": 80.89,
@@ -2556,27 +2851,27 @@
             "labour_m2": 8.31
           },
           "labour_h_per_m2_yr": 8.31,
-          "labour_h_per_harvested_unit": 0.3373,
-          "revenue_per_m2_yr": 2595.3,
+          "labour_h_per_harvested_unit": 0.3364,
+          "revenue_per_m2_yr": 2602.14,
           "revenue_per_saleable_unit": 122.5,
           "labour_cost_per_m2_yr": 0.0,
           "electricity_cost_per_m2_yr": 357.38,
-          "labour_plus_electricity_cost_per_saleable_unit": 16.869,
-          "headroom_per_m2_yr": 2237.92,
-          "headroom_per_saleable_unit": 105.631,
-          "breakeven_labour_h_per_harvested_unit": 1.123,
+          "labour_plus_electricity_cost_per_saleable_unit": 16.824,
+          "headroom_per_m2_yr": 2244.76,
+          "headroom_per_saleable_unit": 105.676,
+          "breakeven_labour_h_per_harvested_unit": 1.1235,
           "covers_labour_and_electricity": true,
           "owner_hours_per_m2_yr": 8.31,
-          "headroom_per_owner_hour": 269.3,
+          "headroom_per_owner_hour": 270.13,
           "eur_comparison": {
-            "revenue_per_m2_yr": 23.71,
-            "headroom_per_m2_yr": 20.45,
+            "revenue_per_m2_yr": 23.77,
+            "headroom_per_m2_yr": 20.51,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         },
         "high": {
           "inputs_used": {
-            "yield": 25.87,
+            "yield": 26.0,
             "price": 180.0,
             "saleability": 0.92,
             "wage": 70.01,
@@ -2585,21 +2880,21 @@
             "labour_m2": 2.04
           },
           "labour_h_per_m2_yr": 2.04,
-          "labour_h_per_harvested_unit": 0.0789,
-          "revenue_per_m2_yr": 4284.07,
+          "labour_h_per_harvested_unit": 0.0785,
+          "revenue_per_m2_yr": 4305.6,
           "revenue_per_saleable_unit": 180.0,
           "labour_cost_per_m2_yr": 0.0,
           "electricity_cost_per_m2_yr": 238.7,
-          "labour_plus_electricity_cost_per_saleable_unit": 10.029,
-          "headroom_per_m2_yr": 4045.37,
-          "headroom_per_saleable_unit": 169.971,
-          "breakeven_labour_h_per_harvested_unit": 2.2336,
+          "labour_plus_electricity_cost_per_saleable_unit": 9.979,
+          "headroom_per_m2_yr": 4066.9,
+          "headroom_per_saleable_unit": 170.021,
+          "breakeven_labour_h_per_harvested_unit": 2.2342,
           "covers_labour_and_electricity": true,
           "owner_hours_per_m2_yr": 2.04,
-          "headroom_per_owner_hour": 1983.03,
+          "headroom_per_owner_hour": 1993.58,
           "eur_comparison": {
-            "revenue_per_m2_yr": 39.14,
-            "headroom_per_m2_yr": 36.96,
+            "revenue_per_m2_yr": 39.34,
+            "headroom_per_m2_yr": 37.16,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         }
@@ -2647,7 +2942,7 @@
         },
         "mid": {
           "inputs_used": {
-            "yield": 24.635,
+            "yield": 24.7,
             "price": 122.5,
             "saleability": 0.86,
             "wage": 90.04,
@@ -2656,27 +2951,27 @@
             "labour_m2": 8.31
           },
           "labour_h_per_m2_yr": 8.31,
-          "labour_h_per_harvested_unit": 0.3373,
-          "revenue_per_m2_yr": 2595.3,
+          "labour_h_per_harvested_unit": 0.3364,
+          "revenue_per_m2_yr": 2602.14,
           "revenue_per_saleable_unit": 122.5,
           "labour_cost_per_m2_yr": 0.0,
           "electricity_cost_per_m2_yr": 535.0,
-          "labour_plus_electricity_cost_per_saleable_unit": 25.252,
-          "headroom_per_m2_yr": 2060.3,
-          "headroom_per_saleable_unit": 97.248,
-          "breakeven_labour_h_per_harvested_unit": 0.9288,
+          "labour_plus_electricity_cost_per_saleable_unit": 25.186,
+          "headroom_per_m2_yr": 2067.14,
+          "headroom_per_saleable_unit": 97.314,
+          "breakeven_labour_h_per_harvested_unit": 0.9295,
           "covers_labour_and_electricity": true,
           "owner_hours_per_m2_yr": 8.31,
-          "headroom_per_owner_hour": 247.93,
+          "headroom_per_owner_hour": 248.75,
           "eur_comparison": {
-            "revenue_per_m2_yr": 23.71,
-            "headroom_per_m2_yr": 18.82,
+            "revenue_per_m2_yr": 23.77,
+            "headroom_per_m2_yr": 18.89,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         },
         "high": {
           "inputs_used": {
-            "yield": 25.87,
+            "yield": 26.0,
             "price": 180.0,
             "saleability": 0.92,
             "wage": 77.57,
@@ -2685,21 +2980,21 @@
             "labour_m2": 2.04
           },
           "labour_h_per_m2_yr": 2.04,
-          "labour_h_per_harvested_unit": 0.0789,
-          "revenue_per_m2_yr": 4284.07,
+          "labour_h_per_harvested_unit": 0.0785,
+          "revenue_per_m2_yr": 4305.6,
           "revenue_per_saleable_unit": 180.0,
           "labour_cost_per_m2_yr": 0.0,
           "electricity_cost_per_m2_yr": 248.0,
-          "labour_plus_electricity_cost_per_saleable_unit": 10.42,
-          "headroom_per_m2_yr": 4036.07,
-          "headroom_per_saleable_unit": 169.58,
-          "breakeven_labour_h_per_harvested_unit": 2.0113,
+          "labour_plus_electricity_cost_per_saleable_unit": 10.368,
+          "headroom_per_m2_yr": 4057.6,
+          "headroom_per_saleable_unit": 169.632,
+          "breakeven_labour_h_per_harvested_unit": 2.0119,
           "covers_labour_and_electricity": true,
           "owner_hours_per_m2_yr": 2.04,
-          "headroom_per_owner_hour": 1978.47,
+          "headroom_per_owner_hour": 1989.02,
           "eur_comparison": {
-            "revenue_per_m2_yr": 39.14,
-            "headroom_per_m2_yr": 36.87,
+            "revenue_per_m2_yr": 39.34,
+            "headroom_per_m2_yr": 37.07,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         }
@@ -2747,7 +3042,7 @@
         },
         "mid": {
           "inputs_used": {
-            "yield": 24.635,
+            "yield": 24.7,
             "price": 800.0,
             "saleability": 0.86,
             "wage": 73.72,
@@ -2756,27 +3051,27 @@
             "labour_m2": 8.31
           },
           "labour_h_per_m2_yr": 8.31,
-          "labour_h_per_harvested_unit": 0.3373,
-          "revenue_per_m2_yr": 16948.88,
+          "labour_h_per_harvested_unit": 0.3364,
+          "revenue_per_m2_yr": 16993.6,
           "revenue_per_saleable_unit": 800.0,
           "labour_cost_per_m2_yr": 0.0,
           "electricity_cost_per_m2_yr": 727.6,
-          "labour_plus_electricity_cost_per_saleable_unit": 34.343,
-          "headroom_per_m2_yr": 16221.28,
-          "headroom_per_saleable_unit": 765.657,
-          "breakeven_labour_h_per_harvested_unit": 8.932,
+          "labour_plus_electricity_cost_per_saleable_unit": 34.253,
+          "headroom_per_m2_yr": 16266.0,
+          "headroom_per_saleable_unit": 765.747,
+          "breakeven_labour_h_per_harvested_unit": 8.933,
           "covers_labour_and_electricity": true,
           "owner_hours_per_m2_yr": 8.31,
-          "headroom_per_owner_hour": 1952.02,
+          "headroom_per_owner_hour": 1957.4,
           "eur_comparison": {
-            "revenue_per_m2_yr": 154.84,
-            "headroom_per_m2_yr": 148.2,
+            "revenue_per_m2_yr": 155.25,
+            "headroom_per_m2_yr": 148.61,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         },
         "high": {
           "inputs_used": {
-            "yield": 25.87,
+            "yield": 26.0,
             "price": 1000.0,
             "saleability": 0.92,
             "wage": 59.56,
@@ -2785,21 +3080,121 @@
             "labour_m2": 2.04
           },
           "labour_h_per_m2_yr": 2.04,
-          "labour_h_per_harvested_unit": 0.0789,
-          "revenue_per_m2_yr": 23800.4,
+          "labour_h_per_harvested_unit": 0.0785,
+          "revenue_per_m2_yr": 23920.0,
           "revenue_per_saleable_unit": 1000.0,
           "labour_cost_per_m2_yr": 0.0,
           "electricity_cost_per_m2_yr": 465.0,
-          "labour_plus_electricity_cost_per_saleable_unit": 19.537,
-          "headroom_per_m2_yr": 23335.4,
-          "headroom_per_saleable_unit": 980.463,
-          "breakeven_labour_h_per_harvested_unit": 15.1448,
+          "labour_plus_electricity_cost_per_saleable_unit": 19.44,
+          "headroom_per_m2_yr": 23455.0,
+          "headroom_per_saleable_unit": 980.56,
+          "breakeven_labour_h_per_harvested_unit": 15.1463,
           "covers_labour_and_electricity": true,
           "owner_hours_per_m2_yr": 2.04,
-          "headroom_per_owner_hour": 11438.92,
+          "headroom_per_owner_hour": 11497.55,
           "eur_comparison": {
-            "revenue_per_m2_yr": 217.44,
-            "headroom_per_m2_yr": 213.19,
+            "revenue_per_m2_yr": 218.53,
+            "headroom_per_m2_yr": 214.28,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        }
+      },
+      "verdict": "clears_in_all_cases"
+    },
+    {
+      "config_id": "E_owner_operated_dwc_basil",
+      "label": "Owner-operated coupled DWC raft, basil, owner hours not costed",
+      "crop": "basil",
+      "output_unit": "kg",
+      "labour_mode": "owner_uncosted",
+      "location": "karnataka_listing_price_sensitivity",
+      "currency_code": "INR",
+      "missing_inputs": [],
+      "cases": {
+        "low": {
+          "inputs_used": {
+            "yield": 23.4,
+            "price": 65.0,
+            "saleability": 0.8,
+            "wage": 76.82,
+            "power_price": 7.1,
+            "kwh_m2": 109.2,
+            "labour_m2": 14.58
+          },
+          "labour_h_per_m2_yr": 14.58,
+          "labour_h_per_harvested_unit": 0.6231,
+          "revenue_per_m2_yr": 1216.8,
+          "revenue_per_saleable_unit": 65.0,
+          "labour_cost_per_m2_yr": 0.0,
+          "electricity_cost_per_m2_yr": 775.32,
+          "labour_plus_electricity_cost_per_saleable_unit": 41.417,
+          "headroom_per_m2_yr": 441.48,
+          "headroom_per_saleable_unit": 23.583,
+          "breakeven_labour_h_per_harvested_unit": 0.2456,
+          "covers_labour_and_electricity": true,
+          "owner_hours_per_m2_yr": 14.58,
+          "headroom_per_owner_hour": 30.28,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 11.12,
+            "headroom_per_m2_yr": 4.03,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "mid": {
+          "inputs_used": {
+            "yield": 24.7,
+            "price": 122.5,
+            "saleability": 0.86,
+            "wage": 76.82,
+            "power_price": 5.275,
+            "kwh_m2": 85.6,
+            "labour_m2": 8.31
+          },
+          "labour_h_per_m2_yr": 8.31,
+          "labour_h_per_harvested_unit": 0.3364,
+          "revenue_per_m2_yr": 2602.14,
+          "revenue_per_saleable_unit": 122.5,
+          "labour_cost_per_m2_yr": 0.0,
+          "electricity_cost_per_m2_yr": 451.54,
+          "labour_plus_electricity_cost_per_saleable_unit": 21.257,
+          "headroom_per_m2_yr": 2150.61,
+          "headroom_per_saleable_unit": 101.243,
+          "breakeven_labour_h_per_harvested_unit": 1.1334,
+          "covers_labour_and_electricity": true,
+          "owner_hours_per_m2_yr": 8.31,
+          "headroom_per_owner_hour": 258.8,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 23.77,
+            "headroom_per_m2_yr": 19.65,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "high": {
+          "inputs_used": {
+            "yield": 26.0,
+            "price": 180.0,
+            "saleability": 0.92,
+            "wage": 76.82,
+            "power_price": 3.45,
+            "kwh_m2": 62.0,
+            "labour_m2": 2.04
+          },
+          "labour_h_per_m2_yr": 2.04,
+          "labour_h_per_harvested_unit": 0.0785,
+          "revenue_per_m2_yr": 4305.6,
+          "revenue_per_saleable_unit": 180.0,
+          "labour_cost_per_m2_yr": 0.0,
+          "electricity_cost_per_m2_yr": 213.9,
+          "labour_plus_electricity_cost_per_saleable_unit": 8.942,
+          "headroom_per_m2_yr": 4091.7,
+          "headroom_per_saleable_unit": 171.058,
+          "breakeven_labour_h_per_harvested_unit": 2.0486,
+          "covers_labour_and_electricity": true,
+          "owner_hours_per_m2_yr": 2.04,
+          "headroom_per_owner_hour": 2005.74,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 39.34,
+            "headroom_per_m2_yr": 37.38,
             "note": "Converted at the research pack's ECB reference rate for comparison only."
           }
         }
