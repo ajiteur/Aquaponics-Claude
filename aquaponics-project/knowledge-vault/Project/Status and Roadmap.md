@@ -6,7 +6,7 @@ Last updated: 2026-11-25
 
 1. **Get the repo running again.** Done 2026-11-25. All tests pass, and the project moved to the `Aquaponics-Claude` repo.
 2. **First end-to-end basil prediction.** In progress. Basil can now be simulated to a harvest, calibrated to the UVI yield anchor (merged in PR #1, values accepted). A gross revenue range now exists: about €60 to €222 per m² per year, as a scenario estimate. It was rerun after the nitrification fix, and the high end needs fish feed sized to the UVI ratio. Costs come with step 3.
-2a. **Find a unit design whose economics work.** In progress. First comparison of five designs in the Netherlands and India (labour + electricity only): in the Netherlands, hired basil labour must stay under about 0.25-0.50 h/kg, which no sourced basil system reaches yet; owner-operated or very lean large raceways are the candidates. India clears labour and power in every case but its price evidence is weak.
+2a. **Find a unit design whose economics work.** In progress. First comparison of five designs in the Netherlands and India (labour + electricity only): in the Netherlands, hired basil labour must stay under about 0.25-0.50 h/kg, which no sourced basil system reaches yet; owner-operated or very lean large raceways are the candidates. India clears labour and power at the study-based price, but Bengaluru B2B listings are 5-15 times lower, and at those prices headroom falls by 85-95%. A real buyer quote is needed.
 3. **Real-farm viability check.** Not started. Needs your inputs: location, scale, budget, energy and heating costs, local basil prices.
 4. **The fork.** If viable, a pilot farm design spec. If not, an original aquaponics simulation game built on the same engine.
 

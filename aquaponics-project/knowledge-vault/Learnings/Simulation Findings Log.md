@@ -21,6 +21,7 @@ Basil yield: 23.4 to 25.9 kg/m² per year (UVI canon to simulated UVI feed ratio
 - **Owner-operated NL leaves €111-206 per m² per year** for heating, CAPEX and owner pay (about €7.6 to €19 per owner hour in the low and mid cases).
 - **Wholesale lettuce doesn't work** at Low Countries auction prices. Basil earns about 4 to 11 times more revenue per m².
 - **India clears in every case** (about €81-213 per m² at the comparison rate), but the price rests on one study. **By state** (Karnataka, Tamil Nadu, Andhra Pradesh, Telangana), owner-run basil ranges about ₹10,100-10,700 per m² in the low case and ₹23,500-23,600 in the high case. The states differ by only 5 to 7%, because they share one price band. Price and local yield decide India, not the state.
+- **Karnataka price sensitivity:** at Bengaluru B2B listing prices (₹65-180/kg, low confidence, asking prices) instead of ₹600-1,000/kg, headroom falls to about ₹-720 to ₹4,070 per m² (about €-7 to €37), 85-95% lower, and below the Dutch owner-run case. The India answer hinges on which basil price is real.
 - Biggest gaps: basil harvest and pack hours per kg, Dutch heating demand, build cost per m².
 
 Related truths: [[Truths/Business/Business|Business]] and [[Truths/Operations/Operations|Operations]] (UE_0001 to UE_0011, candidates).
