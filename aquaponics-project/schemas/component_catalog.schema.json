@@ -1,0 +1,143 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "schemas/component_catalog.schema.json",
+  "title": "Aquaponics component catalog (candidate inputs for the configurator)",
+  "description": "Schema for data/catalog/components_v0.json. Species sizing (data/catalog/species_sizing_v0.json) uses $defs/species_entry. Every number is a {low, high} range with its own reliability block; null means missing and is reported as a gap.",
+  "type": "object",
+  "required": ["metadata", "sources", "design_rules", "components", "running_inputs", "labour_regimes"],
+  "properties": {
+    "metadata": {"type": "object", "required": ["catalog_id", "status", "approval_status"]},
+    "sources": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["citation", "source_tier"],
+        "properties": {
+          "citation": {"type": "string"},
+          "url": {"type": "string"},
+          "read_date": {"type": "string"},
+          "source_tier": {"enum": ["tier_1", "tier_2", "tier_3"]}
+        }
+      }
+    },
+    "design_rules": {"type": "object"},
+    "components": {"type": "array", "items": {"$ref": "#/$defs/component"}},
+    "running_inputs": {"type": "array", "items": {"$ref": "#/$defs/running_input"}},
+    "labour_regimes": {"type": "array", "items": {"$ref": "#/$defs/labour_regime"}},
+    "known_gaps": {"type": "array", "items": {"type": "string"}}
+  },
+  "$defs": {
+    "range": {
+      "type": ["object", "null"],
+      "required": ["low", "high"],
+      "properties": {
+        "low": {"type": ["number", "null"]},
+        "high": {"type": ["number", "null"]},
+        "unit": {"type": "string"},
+        "favourable": {"enum": ["low", "high"], "description": "Which end lowers cost per kg. Omitted = neutral design value (midpoint used unless overridden)."},
+        "source_ids": {"type": "array", "items": {"type": "string"}},
+        "derivation": {"type": "string"},
+        "price_basis": {"type": "string"}
+      }
+    },
+    "reliability": {
+      "type": "object",
+      "required": ["source_tier", "source_gate", "source_gate_reason", "confidence", "confidence_reason", "corroboration"],
+      "properties": {
+        "source_tier": {"enum": ["tier_1", "tier_2", "tier_3"]},
+        "source_gate": {"enum": ["trusted", "conditional"]},
+        "source_gate_reason": {"type": "string"},
+        "confidence": {"enum": ["high", "medium", "low"]},
+        "confidence_reason": {"type": "string"},
+        "corroboration": {
+          "type": "object",
+          "required": ["status", "source_ids"],
+          "properties": {
+            "status": {"enum": ["corroborated", "single_source", "conflicting"]},
+            "source_ids": {"type": "array", "items": {"type": "string"}}
+          }
+        }
+      }
+    },
+    "component": {
+      "type": "object",
+      "required": ["component_id", "name", "category", "role", "function", "region", "status", "approval_status",
+                   "sizing", "capex_per_unit", "lifetime_years", "energy", "labour_effect", "trade_offs", "price_reliability"],
+      "properties": {
+        "component_id": {"type": "string", "pattern": "^[a-z0-9_]+$"},
+        "name": {"type": "string"},
+        "category": {"enum": ["fish_tank", "grow_unit", "water_pump", "aeration", "biofilter", "solids_filter", "structure", "heating", "lighting", "backup_power", "monitoring"]},
+        "role": {"type": "string", "description": "Sub-slot inside a category (e.g. liner, raft, trough_walls). Alternatives are only swapped within the same role."},
+        "function": {"type": "string"},
+        "region": {"type": "string", "description": "A region key (netherlands, india) or 'any'."},
+        "currency_code": {"type": ["string", "null"]},
+        "status": {"enum": ["candidate", "accepted"]},
+        "approval_status": {"type": "string"},
+        "architectures": {"type": "array", "items": {"enum": ["dwc_raft", "nft", "media_bed"]}},
+        "sizing": {
+          "type": "object",
+          "required": ["driver", "mode", "unit_label"],
+          "properties": {
+            "driver": {"enum": ["grow_area_m2", "raft_area_m2", "liner_area_m2", "media_volume_m3", "nft_channel_length_m",
+                                "fish_tank_volume_m3", "recirculation_flow_lph", "clarifier_volume_m3", "biofilter_media_m3",
+                                "air_flow_lpm", "structure_area_m2"]},
+            "mode": {"enum": ["discrete", "continuous"]},
+            "capacity_per_unit": {"type": "number", "description": "discrete: driver units one item covers; quantity = ceil(driver / capacity)."},
+            "per_driver_unit": {"type": "number", "description": "continuous: items per driver unit (usually 1)."},
+            "min_units": {"type": "integer"},
+            "unit_label": {"type": "string"}
+          }
+        },
+        "capex_per_unit": {"$ref": "#/$defs/range"},
+        "lifetime_years": {"$ref": "#/$defs/range"},
+        "energy": {
+          "type": ["object", "null"],
+          "properties": {
+            "power_w_per_unit": {"$ref": "#/$defs/range"},
+            "duty_hours_per_day": {"type": "number"}
+          }
+        },
+        "occupies_floor": {"type": "boolean"},
+        "footprint_m2_per_unit": {"type": ["number", "null"]},
+        "labour_effect": {"type": "string"},
+        "trade_offs": {"type": "array", "items": {"type": "string"}},
+        "price_reliability": {"$ref": "#/$defs/reliability"}
+      }
+    },
+    "running_input": {
+      "type": "object",
+      "required": ["input_id", "region", "unit", "value", "source_ids", "source_tier", "confidence", "confidence_reason", "corroboration"],
+      "properties": {
+        "input_id": {"type": "string"},
+        "region": {"type": "string"},
+        "unit": {"type": "string"},
+        "value": {"$ref": "#/$defs/range"},
+        "favourable": {"enum": ["low", "high"]}
+      }
+    },
+    "labour_regime": {
+      "type": "object",
+      "required": ["regime_id", "label", "costed"],
+      "properties": {
+        "regime_id": {"type": "string"},
+        "label": {"type": "string"},
+        "hours_per_m2_yr": {"$ref": "#/$defs/range"},
+        "hours_per_kg_output": {"$ref": "#/$defs/range"},
+        "costed": {"type": "boolean"}
+      }
+    },
+    "species_entry": {
+      "type": "object",
+      "required": ["species_key", "canon_ref", "status", "sizing"],
+      "properties": {
+        "species_key": {"type": "string"},
+        "canon_ref": {"type": "string", "description": "Path of the canonical species profile in data/knowledge/species/**."},
+        "simulation_supported": {"type": "boolean"},
+        "sizing": {
+          "type": "object",
+          "description": "Fish: fcr, annual_production_kg_per_m3_tank, harvest_weight_kg, survival_fraction. Plants: yield_kg_per_m2_yr, feeding_rate_ratio_g_per_m2_day, planting_density_plants_per_m2 or heads_per_m2_yr, cycle_days, harvests_per_planting. Each is a range plus a reliability block."
+        }
+      }
+    }
+  }
+}

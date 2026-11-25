@@ -1,0 +1,50 @@
+{
+  "label": "Configurator: tilapia + basil DWC raft, 100 m2 grow area, Karnataka polyhouse",
+  "_how_to_edit": "Pick one component id per category from data/catalog/components_v0.json (region must match). Change the target, labour regime or any value under the *_overrides blocks. Every value you add yourself is your own assumption: note where it came from.",
+  "configurator": {
+    "build": {
+      "build_id": "basil_dwc_karnataka_100m2",
+      "region": "india",
+      "location": "karnataka",
+      "_location": "Wage and electricity come from data/scenarios/unit_configuration_candidates_v0.json (locations block).",
+      "fish": "tilapia",
+      "plant": "basil",
+      "grow_architecture": "dwc_raft",
+      "target": {
+        "grow_area_m2": 100
+      },
+      "_target": "Or {\"plant_output_kg_per_year\": 2500}.",
+      "components": {
+        "fish_tank": "fish_tank_pvc_biofloc_5000l_in",
+        "grow_unit": [
+          "dwc_liner_hdpe_in",
+          "dwc_raft_eps_40mm_in",
+          "dwc_trough_walls_in"
+        ],
+        "water_pump": "pump_submersible_0_5hp_in",
+        "aeration": "air_blower_1_5kw_in",
+        "solids_filter": "settling_tank_pvc_5000l_in",
+        "biofilter": null,
+        "structure": "structure_polyhouse_nvph_in"
+      },
+      "structure_area_basis": "planning_area_m2_uvi_ratio",
+      "_structure_area_basis": "planning_area_m2_uvi_ratio (grow area x UVI land ratio) or minimum_area_m2 (grow area + equipment footprint).",
+      "heating": {
+        "enabled": false
+      },
+      "labour_regime": "owner_operated_uncosted",
+      "_labour_regime": "uvi_whole_system_hired | hawaii_lean_hired | purdue_per_kg_hired | owner_operated_uncosted",
+      "design_overrides": {},
+      "species_overrides": {
+        "plant": {},
+        "fish": {}
+      },
+      "running_overrides": {
+        "_examples": "\"basil_seed_price_each\": 1.0, \"water_price_per_m3\": 0, \"electricity_per_kwh\": 6, \"wage_per_hour\": 80"
+      },
+      "simulation_check": {
+        "days": 28
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "label": "Configurator: tilapia + basil DWC raft, 100 m2 grow area, Netherlands greenhouse",
+  "_how_to_edit": "Pick one component id per category from data/catalog/components_v0.json (region must match). Change the target, labour regime or any value under the *_overrides blocks. Every value you add yourself is your own assumption: note where it came from.",
+  "configurator": {
+    "build": {
+      "build_id": "basil_dwc_nl_100m2",
+      "region": "netherlands",
+      "location": "netherlands",
+      "_location": "Wage and electricity come from data/scenarios/unit_configuration_candidates_v0.json (locations block).",
+      "fish": "tilapia",
+      "plant": "basil",
+      "grow_architecture": "dwc_raft",
+      "target": {"grow_area_m2": 100},
+      "_target": "Or {\"plant_output_kg_per_year\": 2500}.",
+      "components": {
+        "fish_tank": "fish_tank_ibc_1000l_used_nl",
+        "grow_unit": ["dwc_liner_epdm_1mm_nl", "dwc_raft_xps_30mm_nl", "dwc_trough_walls_nl"],
+        "water_pump": "pump_aquaforte_dme_10000_nl",
+        "aeration": "air_hailea_aco500_nl",
+        "solids_filter": "settling_tank_ibc_used_nl",
+        "biofilter": null,
+        "structure": "structure_venlo_glasshouse_nl"
+      },
+      "structure_area_basis": "planning_area_m2_uvi_ratio",
+      "_structure_area_basis": "planning_area_m2_uvi_ratio (grow area x UVI land ratio) or minimum_area_m2 (grow area + equipment footprint).",
+      "heating": {"enabled": true},
+      "labour_regime": "owner_operated_uncosted",
+      "_labour_regime": "uvi_whole_system_hired | hawaii_lean_hired | purdue_per_kg_hired | owner_operated_uncosted",
+      "design_overrides": {},
+      "species_overrides": {"plant": {}, "fish": {}},
+      "running_overrides": {
+        "_examples": "\"fingerling_price_each\": 0.5, \"basil_seed_price_each\": 0.02, \"electricity_per_kwh\": 0.25, \"wage_per_hour\": 17"
+      },
+      "simulation_check": {"days": 28}
+    }
+  }
+}

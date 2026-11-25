@@ -1,0 +1,206 @@
+{
+  "metadata": {
+    "catalog_id": "species_sizing_v0",
+    "status": "candidate",
+    "approval_status": "pending_ajit_approval",
+    "canon_status": "non_canonical. Biology lives in data/knowledge/species/**; this file only adds the sizing numbers the configurator needs and points back to canon.",
+    "created": "2026-11-25",
+    "schema": "schemas/component_catalog.schema.json#/$defs/species_entry",
+    "range_convention": "Every number is {low, high}. 'low' and 'high' are the ends of the sourced range, not pessimistic and optimistic cases; the configurator decides which end is favourable.",
+    "reliability_fields": "AGENTS.md 6A: source_tier (tier_1 to tier_3), source_gate, confidence, confidence_reason, corroboration {status, source_ids}.",
+    "how_to_add_a_species": "knowledge-vault/Project/How to Add Components.md"
+  },
+  "sources": {
+    "srac_454_rakocy_masser_losordo": {
+      "citation": "Rakocy, Masser, Losordo, SRAC Publication 454, Recirculating Aquaculture Tank Production Systems: Aquaponics - Integrating Fish and Plant Culture (revised 2016)",
+      "url": "https://pods.okstate.edu/fact-sheets/SRAC-454pod.pdf",
+      "source_tier": "tier_1",
+      "note": "Already cited in canon (data/knowledge/models/nitrification_models.json)."
+    },
+    "uvi_aquaponic_system_design": {
+      "citation": "Rakocy, Bailey, Shultz, Danaher, Design and Operation of the UVI Aquaponic System / A Commercial-Scale Aquaponic System (UVI)",
+      "url": "https://archive.uvi.edu/files/documents/Research_and_Public_Service/WRRI/UVIAquaponicSystem.pdf",
+      "url_alt": "https://cales.arizona.edu/azaqua/ista/ISTA9/PDF's/RakocyAquaponicSystem.pdf",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_1",
+      "note": "University research-station design summary of the 214 m2 commercial-scale system."
+    },
+    "rakocy_2004_uvi_tilapia_basil_acta_hort_648": {
+      "citation": "Rakocy, Shultz, Bailey, Thoman 2004, Acta Horticulturae 648:63-69 (canon: data/knowledge/species/plants/basil.json, approved by Ajit 2026-11-25)",
+      "source_tier": "tier_1"
+    },
+    "research_pack_tilapia_feed": {
+      "citation": "data/sources/research_reports/markdown/Tilapia feed-regime and stocking-input research pack for a first fish-feed-to-water-quality MVP.md (FCR 1.5-1.8 for intensive grow-out; cites SRAC and WorldFish)",
+      "source_tier": "tier_2",
+      "note": "Repo research pack summarising Tier 1 sources; not read at the primary source in this pass."
+    },
+    "nfdb_ras_recent_trends": {
+      "citation": "National Fisheries Development Board (Govt of India), Recent Trends in Aquaculture: Recirculatory Aquaculture System (RAS), GIFT tilapia RAS model and PMMSY unit costs",
+      "url": "https://nfdb.gov.in/PDF/RAS%20RT.pdf",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_1",
+      "note": "Official scheme model, undated (file name suggests 2017). Internal arithmetic inconsistencies found: 6,000 vs 4,500 fingerlings per tank, feed total vs feed cost."
+    },
+    "lettuce_canon": {
+      "citation": "data/knowledge/species/plants/lettuce.json (future_fields.head_weight_g_anchor 150 g, harvest_day_anchor 35)",
+      "source_tier": "tier_2"
+    },
+    "basil_canon_crop_cycle": {
+      "citation": "data/knowledge/species/plants/basil.json validation_benchmarks.aquaponics_context.crop_cycle_context (8 plants/m2, 28-day growing period, deficiency visible by harvest 4)",
+      "source_tier": "tier_1"
+    }
+  },
+  "fish": [
+    {
+      "species_key": "tilapia",
+      "canon_ref": "data/knowledge/species/fish/tilapia.json",
+      "common_name": "Nile tilapia",
+      "status": "candidate",
+      "sizing": {
+        "fcr": {
+          "low": 1.5, "high": 1.8, "unit": "kg feed / kg fish gain",
+          "favourable": "low",
+          "source_ids": ["research_pack_tilapia_feed"],
+          "source_tier": "tier_2", "source_gate": "conditional",
+          "source_gate_reason": "Research pack summary of SRAC/WorldFish ranges; intensive tank grow-out, not aquaponics-specific.",
+          "confidence": "medium",
+          "confidence_reason": "Several Tier 1 sources agree on 1.4-1.8 for tank grow-out; aquaponic studies report 1.46-1.88.",
+          "corroboration": {"status": "corroborated", "source_ids": ["research_pack_tilapia_feed", "nfdb_ras_recent_trends"]},
+          "note": "NFDB's RAS model uses 1.3, lower than this band; kept as a cross-check, not used."
+        },
+        "annual_production_kg_per_m3_tank": {
+          "low": 160.0, "high": 160.0, "unit": "kg fish harvested / m3 rearing tank / year",
+          "favourable": "high",
+          "source_ids": ["uvi_aquaponic_system_design"],
+          "source_tier": "tier_1", "source_gate": "trusted",
+          "source_gate_reason": "University research system, direct number.",
+          "confidence": "medium",
+          "confidence_reason": "Direct UVI figure (5 t/yr from 4 x 7.8 m3 tanks), staggered culture with aeration; one site, tropical water temperature.",
+          "corroboration": {"status": "corroborated", "source_ids": ["uvi_aquaponic_system_design"]},
+          "cross_check": "5,000 kg / 31.2 m3 = 160 kg/m3/yr, consistent with the stated figure. Per-crop densities in the tank research pack (61.5-70.7 kg/m3) are per harvest, about 2.3 harvests a year.",
+          "context_tags": ["uvi_commercial_raft", "staggered_4_tank", "tropical", "diffused_aeration"]
+        },
+        "harvest_weight_kg": {
+          "low": 0.5, "high": 0.5, "unit": "kg per fish",
+          "source_ids": ["nfdb_ras_recent_trends"],
+          "source_tier": "tier_1", "source_gate": "conditional",
+          "source_gate_reason": "Official scheme model, but a planning figure, not a measurement.",
+          "confidence": "low",
+          "confidence_reason": "Single planning figure; the UVI documents read do not state individual harvest weight.",
+          "corroboration": {"status": "single_source", "source_ids": ["nfdb_ras_recent_trends"]}
+        },
+        "survival_fraction": {
+          "low": 0.9, "high": 0.9, "unit": "fraction",
+          "favourable": "high",
+          "source_ids": ["nfdb_ras_recent_trends"],
+          "source_tier": "tier_1", "source_gate": "conditional",
+          "source_gate_reason": "Official scheme planning assumption.",
+          "confidence": "low",
+          "confidence_reason": "Planning assumption, not measured.",
+          "corroboration": {"status": "single_source", "source_ids": ["nfdb_ras_recent_trends"]}
+        }
+      }
+    }
+  ],
+  "plants": [
+    {
+      "species_key": "basil",
+      "canon_ref": "data/knowledge/species/plants/basil.json",
+      "common_name": "Sweet basil (Genovese)",
+      "status": "candidate",
+      "simulation_supported": true,
+      "sizing": {
+        "yield_kg_per_m2_yr": {
+          "low": 23.4, "high": 25.0, "unit": "kg harvested fresh cut mass / m2 grow area / year",
+          "favourable": "high",
+          "source_ids": ["rakocy_2004_uvi_tilapia_basil_acta_hort_648"],
+          "source_tier": "tier_1", "source_gate": "trusted",
+          "source_gate_reason": "Peer-reviewed, values already accepted in canon by Ajit.",
+          "confidence": "medium",
+          "confidence_reason": "Staggered 23.4 and batch 25.0 kg/m2/yr from one tropical site; Dutch light and heat not represented.",
+          "corroboration": {"status": "corroborated", "source_ids": ["rakocy_2004_uvi_tilapia_basil_acta_hort_648", "uvi_aquaponic_system_design"]},
+          "cross_check": "UVI design summary: basil 5 t/yr on 214 m2 = 23.4 kg/m2/yr.",
+          "applies_to_architectures": ["dwc_raft"],
+          "note": "Harvested cut mass, not saleable_harvest_mass_kg. NFT and media-bed yields are not sourced; the configurator reports them as missing."
+        },
+        "feeding_rate_ratio_g_per_m2_day": {
+          "low": 60.0, "high": 100.0, "unit": "g fish feed / m2 plant area / day",
+          "source_ids": ["uvi_aquaponic_system_design", "srac_454_rakocy_masser_losordo"],
+          "source_tier": "tier_1", "source_gate": "trusted",
+          "source_gate_reason": "Design ratio stated by the system's lead researchers.",
+          "confidence": "medium",
+          "confidence_reason": "Design range for raft culture; not specific to basil or lettuce.",
+          "corroboration": {"status": "corroborated", "source_ids": ["uvi_aquaponic_system_design", "srac_454_rakocy_masser_losordo"]},
+          "applies_to_architectures": ["dwc_raft"]
+        },
+        "planting_density_plants_per_m2": {
+          "low": 8.0, "high": 8.0, "unit": "plants / m2",
+          "source_ids": ["basil_canon_crop_cycle"],
+          "source_tier": "tier_1", "source_gate": "trusted",
+          "source_gate_reason": "Canon, accepted.",
+          "confidence": "medium",
+          "confidence_reason": "UVI trial density; authors note higher density could work.",
+          "corroboration": {"status": "single_source", "source_ids": ["basil_canon_crop_cycle"]}
+        },
+        "cycle_days": {
+          "low": 28.0, "high": 28.0, "unit": "days between cuts",
+          "source_ids": ["basil_canon_crop_cycle"],
+          "source_tier": "tier_1", "source_gate": "trusted",
+          "source_gate_reason": "Canon, accepted.",
+          "confidence": "medium",
+          "confidence_reason": "UVI trial growing period.",
+          "corroboration": {"status": "single_source", "source_ids": ["basil_canon_crop_cycle"]}
+        },
+        "harvests_per_planting": {
+          "low": 4.0, "high": 4.0, "unit": "cuts before replanting",
+          "source_ids": ["basil_canon_crop_cycle"],
+          "source_tier": "tier_1", "source_gate": "conditional",
+          "source_gate_reason": "Derived: canon says deficiency becomes visible by harvest 4 and survival falls with successive cutting; replanting after 4 cuts is an inference.",
+          "confidence": "low",
+          "confidence_reason": "Agent inference from canon; drives seed count only, which is a small cost line.",
+          "corroboration": {"status": "single_source", "source_ids": ["basil_canon_crop_cycle"]}
+        }
+      }
+    },
+    {
+      "species_key": "lettuce",
+      "canon_ref": "data/knowledge/species/plants/lettuce.json",
+      "common_name": "Lettuce (leaf)",
+      "status": "candidate",
+      "simulation_supported": false,
+      "sizing": {
+        "yield_kg_per_m2_yr": {
+          "low": 23.6, "high": 29.5, "unit": "kg fresh heads / m2 grow area / year",
+          "favourable": "high",
+          "source_ids": ["uvi_aquaponic_system_design", "lettuce_canon"],
+          "source_tier": "tier_1", "source_gate": "conditional",
+          "source_gate_reason": "Derived: UVI 1,404 cases/yr x 24-30 heads per case on 214 m2 = 157-197 heads/m2/yr, times canon head weight anchor 150 g. Mixes two sources.",
+          "confidence": "low",
+          "confidence_reason": "Case mass is not given by UVI, so head weight is borrowed from the canon anchor; single tropical site.",
+          "corroboration": {"status": "single_source", "source_ids": ["uvi_aquaponic_system_design"]},
+          "derivation": "1,404 x 24 / 214 x 0.150 = 23.6; 1,404 x 30 / 214 x 0.150 = 29.5",
+          "applies_to_architectures": ["dwc_raft"]
+        },
+        "heads_per_m2_yr": {
+          "low": 157.0, "high": 197.0, "unit": "heads (plants) / m2 / year",
+          "source_ids": ["uvi_aquaponic_system_design"],
+          "source_tier": "tier_1", "source_gate": "trusted",
+          "source_gate_reason": "Direct UVI figures, arithmetic only.",
+          "confidence": "medium",
+          "confidence_reason": "Direct annual output figure from the UVI system.",
+          "corroboration": {"status": "single_source", "source_ids": ["uvi_aquaponic_system_design"]}
+        },
+        "feeding_rate_ratio_g_per_m2_day": {
+          "low": 60.0, "high": 100.0, "unit": "g fish feed / m2 plant area / day",
+          "source_ids": ["uvi_aquaponic_system_design", "srac_454_rakocy_masser_losordo"],
+          "source_tier": "tier_1", "source_gate": "trusted",
+          "source_gate_reason": "Design ratio stated by the system's lead researchers.",
+          "confidence": "medium",
+          "confidence_reason": "Design range for raft culture; not specific to lettuce.",
+          "corroboration": {"status": "corroborated", "source_ids": ["uvi_aquaponic_system_design", "srac_454_rakocy_masser_losordo"]},
+          "applies_to_architectures": ["dwc_raft"]
+        }
+      }
+    }
+  ]
+}
