@@ -27,6 +27,20 @@ Basil yield: 23.4 to 25.9 kg/m² per year (UVI canon to simulated UVI feed ratio
 
 Related truths: [[Truths/Business/Business|Business]] and [[Truths/Operations/Operations|Operations]] (UE_0001 to UE_0011, candidates).
 
+## 2026-11-25: New nitrification and nitrate uptake models (PR #6 and PR #11)
+
+Run: `src/simulate_crop_cycle.py`, 28 days, both basil raft scenarios, with the raft (11.25 m²) as the only nitrifying surface. All new model values are candidates. This **supersedes the revenue rerun entry below** for current numbers. Details and source reliability: [[Learnings/Nitrification Model Findings|Nitrification Model Findings]].
+
+| Scenario | TAN (mg/L) | NH3 (mg/L) | Nitrate (mg/L) | Basil kg/m² | € per m² per year (cons. / base / opt.) |
+|---|---|---|---|---:|---|
+| Starter fixture (8 kg fish) | about 0.2 | about 0.0015 | 42 to 38 | 1.91 (was 1.21) | 148 / 179 / 213 |
+| UVI feed ratio | 1.9 to 2.3 (was about 14) | about 0.015 (was about 1.1) | 45 to 161 | 2.00 | 155 / 187 / 222 |
+
+- **The UVI-scale fish load is now a valid operating point for ammonia.** The raft runs at about 58 percent of its modelled capacity.
+- **TAN of about 2 mg/L is above the NMSU guidance of TAN under 1 ppm**, but NH3 stays low at pH 6.9.
+- **The old nitrate uptake placeholder was about 7 times too high.** Growth-based uptake is about 0.6 mg/L per day for 90 plants in 6,000 L. The starter case is no longer nitrate-limited, so its yield rises to 1.91 kg/m².
+- **Nitrate now builds up to about 161 mg/L in the UVI case; UVI measured about 42.** The model has no nitrogen sinks besides plant shoots: no water exchange, sludge removal, denitrification or root uptake. That is the next gap to close.
+
 ## 2026-11-25: Basil revenue range rerun after the nitrification and pH fix
 
 The 28-day basil runs were regenerated after PR #6 (nitrification model and basil pH scoring fix), and the revenue range was rebuilt from them. This **supersedes the two entries below** for current numbers. Same price and saleability inputs as before, still pending your approval.

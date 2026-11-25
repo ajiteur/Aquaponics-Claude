@@ -75,6 +75,19 @@ def run_overlap_score(
     return json.loads(result.stdout)
 
 
+def shoot_n_uptake_g_day(plant_profile: dict, fresh_gain_g_per_plant: float | None, plant_count: int) -> float | None:
+    """Plant N uptake from growth: fresh shoot gain x dry matter x tissue N.
+
+    Returns None when the profile has no uptake model or no growth figure is available.
+    """
+    model = plant_profile.get("nutrient_response", {}).get("shoot_n_uptake_model")
+    if not model or fresh_gain_g_per_plant is None:
+        return None
+    dry_matter = model["shoot_dry_matter_fraction"]["simulation_default"]
+    tissue_n = model["tissue_n_fraction_of_dry_mass"]["simulation_default"]
+    return fresh_gain_g_per_plant * plant_count * dry_matter * tissue_n
+
+
 def plant_ph_context(scenario: dict) -> str:
     """Coupled loops score plant pH against aquaponic ranges where the profile has them."""
     loop_type = scenario.get("system", {}).get("loop_type")
@@ -166,6 +179,7 @@ def update_harvestable_mass(
     policy = plant_crop.setdefault("harvest_policy", {})
     period_days = int(policy.get("growing_period_days") or calibration["growing_period_days"])
     daily_gain = calibration["ideal_rate_g_per_plant_day"] * plant_score * nitrate_availability_score
+    plant_crop["last_daily_cut_gain_g_per_plant"] = round(daily_gain, 4)
     plant_crop["harvestable_cut_mass_g_per_plant"] = round(
         plant_crop.get("harvestable_cut_mass_g_per_plant", 0.0) + daily_gain, 3
     )
@@ -362,7 +376,19 @@ def main():
         }
 
     nitrate_generated_mg_l = tan_removed_mg_l
-    daily_nitrate_uptake_mg_l = plant_crop["plant_count"] * nitrate_uptake_mg_l_per_plant_day * plant_score * nitrate_availability_score
+    # update_harvestable_mass (above) records today's cut-mass gain, including on harvest day.
+    uptake_g = shoot_n_uptake_g_day(
+        plant_profile, plant_crop.get("last_daily_cut_gain_g_per_plant"), plant_crop["plant_count"]
+    )
+    if uptake_g is not None:
+        # Growth-based uptake (candidate): today's calibrated cut-mass gain x dry matter x tissue N.
+        daily_nitrate_uptake_mg_l = uptake_g * 1000.0 / water_volume_l
+        nitrate_uptake_basis = "growth_based_shoot_n_uptake_candidate"
+    else:
+        daily_nitrate_uptake_mg_l = plant_crop["plant_count"] * nitrate_uptake_mg_l_per_plant_day * plant_score * nitrate_availability_score
+        nitrate_uptake_basis = "legacy_placeholder_per_plant_rate"
+    # Plants cannot take up more nitrate than the water holds.
+    daily_nitrate_uptake_mg_l = min(daily_nitrate_uptake_mg_l, water["nitrate_mg_L"] + nitrate_generated_mg_l)
     new_nitrate = max(0.0, water["nitrate_mg_L"] + nitrate_generated_mg_l - daily_nitrate_uptake_mg_l)
 
     water["tan_mg_L"] = round(new_tan, 3)
@@ -415,6 +441,7 @@ def main():
         "daily_tan_input_mg_L_equivalent": round(daily_tan_input_mg_l, 3),
         "nitrification": nitrification_summary,
         "daily_nitrate_uptake_mg_L_equivalent": round(daily_nitrate_uptake_mg_l, 3),
+        "nitrate_uptake_basis": nitrate_uptake_basis,
         "nitrate_availability_score": round(nitrate_availability_score, 3),
         "fish_growth_score": fish_score,
         "plant_growth_score": plant_score,

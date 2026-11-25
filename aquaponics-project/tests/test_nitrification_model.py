@@ -7,6 +7,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
 import nitrification_model as nm  # noqa: E402
+import simulate_day  # noqa: E402
 import simulate_overlap_score as overlap  # noqa: E402
 
 CANON_MODELS = PROJECT_ROOT / "data/knowledge/models/nitrification_models.json"
@@ -115,6 +116,23 @@ class BasilPhScoringTests(unittest.TestCase):
         lettuce = overlap.load_species_profile("lettuce", "plant")
         result = overlap.score_plant(lettuce, 6.5, 20.0, "aquaponics_coupled")
         self.assertEqual(result["pH_basis"], "hydroponic_pH_ranges")
+
+
+class ShootNUptakeTests(unittest.TestCase):
+    def test_uptake_from_growth(self):
+        basil = overlap.load_species_profile("basil", "plant")
+        uptake = simulate_day.shoot_n_uptake_g_day(basil, 10.0, 90)
+        self.assertAlmostEqual(uptake, 10.0 * 90 * 0.112 * 0.04)
+        model = basil["nutrient_response"]["shoot_n_uptake_model"]
+        self.assertEqual(model["status"], "candidate_pending_user_review")
+        for key in ("shoot_dry_matter_fraction", "tissue_n_fraction_of_dry_mass"):
+            self.assertIn("confidence", model[key]["evidence_assessment"])
+
+    def test_no_model_or_no_growth_returns_none(self):
+        basil = overlap.load_species_profile("basil", "plant")
+        self.assertIsNone(simulate_day.shoot_n_uptake_g_day(basil, None, 90))
+        lettuce = overlap.load_species_profile("lettuce", "plant")
+        self.assertIsNone(simulate_day.shoot_n_uptake_g_day(lettuce, 10.0, 90))
 
 
 if __name__ == "__main__":

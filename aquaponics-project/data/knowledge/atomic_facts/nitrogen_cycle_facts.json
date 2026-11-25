@@ -1,0 +1,247 @@
+{
+  "description": "Atomic facts on nitrification capacity and basil N uptake, added 2026-11-25. Candidates until Ajit approves them. Reliability recorded per AGENTS.md 6A.",
+  "facts": [
+    {
+      "fact_id": "NITR_0001",
+      "statement": "In UVI-style raft aquaponics, the raft can treat the waste of about 180 g of fish feed per m2 of grow area per day, if solids are removed before the raft.",
+      "domain": "system_design",
+      "type": "parameter",
+      "confidence": "medium",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "system": "coupled DWC raft (UVI-style)",
+        "condition": "solids removed upstream of the raft"
+      },
+      "source_metadata": {
+        "source_id": "srac_454_rakocy_masser_losordo_aquaponics",
+        "section_id": "waste_treatment_capacity",
+        "source_type": "university_extension",
+        "source_tier": "tier_1"
+      },
+      "added_date_local": "2026-11-25",
+      "review_metadata": {
+        "source_gate": "trusted",
+        "source_gate_reason": "source level E4; direct_quote; context partial",
+        "confidence_reason": "Extension fact sheet by UVI's lead researcher. It does not say at what TAN level this applies, or whether plant ammonium uptake is included. Cross-check: Consistent with UVI's statement that the raft gives adequate biofiltration at the design feed ratio; about 10x higher per m2 than trickling-filter and RBC biofilm rates, which are not directly comparable.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": []
+        },
+        "reviewed_from_file": "web reads 2026-11-25 (see data/knowledge/models/nitrification_models.json and basil.json for URLs)"
+      }
+    },
+    {
+      "fact_id": "NITR_0002",
+      "statement": "In raft aquaponics, a significant amount of nitrification happens on the undersides of the polystyrene rafts.",
+      "domain": "biology",
+      "type": "parameter",
+      "confidence": "medium",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "system": "coupled DWC raft"
+      },
+      "source_metadata": {
+        "source_id": "srac_454_rakocy_masser_losordo_aquaponics",
+        "section_id": "raft_hydroponics",
+        "source_type": "university_extension",
+        "source_tier": "tier_1"
+      },
+      "added_date_local": "2026-11-25",
+      "review_metadata": {
+        "source_gate": "trusted",
+        "source_gate_reason": "source level E4; direct_quote; context partial",
+        "confidence_reason": "University extension; consistent with UVI's own system page via the Biofilters corroboration report.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "uvi_aquaponic_systems_page"
+          ]
+        },
+        "reviewed_from_file": "web reads 2026-11-25 (see data/knowledge/models/nitrification_models.json and basil.json for URLs)"
+      }
+    },
+    {
+      "fact_id": "NITR_0003",
+      "statement": "Biofilter nitrification rate rises roughly in step with TAN below about 2 mg/L and stops rising above about 3 to 4 mg/L.",
+      "domain": "water_chemistry",
+      "type": "parameter",
+      "confidence": "low",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "system": "RAS fixed-film biofilters (generic, not raft-specific)"
+      },
+      "source_metadata": {
+        "source_id": "losordo_delong_guerdat_2015_gaa_advocate",
+        "section_id": "tan_concentration",
+        "source_type": "industry_magazine_summary_of_textbook_chapter",
+        "source_tier": "tier_2"
+      },
+      "added_date_local": "2026-11-25",
+      "review_metadata": {
+        "source_gate": "conditional",
+        "source_gate_reason": "source level E1 host summarising E2 textbook; direct_quote; context partial",
+        "confidence_reason": "Industry magazine article by recognised RAS engineers, drawn from a Woodhead textbook chapter. Generic RAS, not aquaponics.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": []
+        },
+        "reviewed_from_file": "web reads 2026-11-25 (see data/knowledge/models/nitrification_models.json and basil.json for URLs)"
+      }
+    },
+    {
+      "fact_id": "NITR_0004",
+      "statement": "Nitrification works best from pH 7.0 up (more efficient in the high 8s) and practically stops below pH 6.0.",
+      "domain": "water_chemistry",
+      "type": "parameter",
+      "confidence": "medium",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "system": "aquaponics and RAS biofilters"
+      },
+      "source_metadata": {
+        "source_id": "srac_454_rakocy_masser_losordo_aquaponics",
+        "section_id": "ph_effects",
+        "source_type": "university_extension",
+        "source_tier": "tier_1"
+      },
+      "added_date_local": "2026-11-25",
+      "review_metadata": {
+        "source_gate": "trusted",
+        "source_gate_reason": "source level E4; direct_quote and paraphrase; context partial",
+        "confidence_reason": "SRAC 454 and the UVI system page agree on the endpoints; matches existing canon (inhibited at or below pH 6.0).",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "uvi_aquaponic_systems_page"
+          ]
+        },
+        "reviewed_from_file": "web reads 2026-11-25 (see data/knowledge/models/nitrification_models.json and basil.json for URLs)"
+      }
+    },
+    {
+      "fact_id": "NITR_0005",
+      "statement": "Biofilters perform best at 25 to 30 C (77 to 86 F).",
+      "domain": "water_chemistry",
+      "type": "parameter",
+      "confidence": "medium",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "system": "biofilters (generic)"
+      },
+      "source_metadata": {
+        "source_id": "srac_454_rakocy_masser_losordo_aquaponics",
+        "section_id": "temperature",
+        "source_type": "university_extension",
+        "source_tier": "tier_1"
+      },
+      "added_date_local": "2026-11-25",
+      "review_metadata": {
+        "source_gate": "trusted",
+        "source_gate_reason": "source level E4; direct_quote; context partial",
+        "confidence_reason": "University extension, generic statement.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": []
+        },
+        "reviewed_from_file": "web reads 2026-11-25 (see data/knowledge/models/nitrification_models.json and basil.json for URLs)"
+      }
+    },
+    {
+      "fact_id": "NITR_0006",
+      "statement": "Temperature affects fixed-film nitrification less than the Arrhenius equation predicts: at 20 C the rate rises about 4.3 percent per C when TAN-limited and about 1.1 percent per C when oxygen-limited.",
+      "domain": "water_chemistry",
+      "type": "parameter",
+      "confidence": "medium",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "system": "fixed-film biofilters, lab study"
+      },
+      "source_metadata": {
+        "source_id": "zhu_chen_2002_aquacultural_engineering_26_221",
+        "section_id": "abstract",
+        "source_type": "peer_reviewed_journal",
+        "source_tier": "tier_2"
+      },
+      "added_date_local": "2026-11-25",
+      "review_metadata": {
+        "source_gate": "trusted",
+        "source_gate_reason": "source level E3; direct_number (abstract only); context partial",
+        "confidence_reason": "Peer-reviewed; only the abstract was read. Losordo et al. 2015 make the same qualitative point.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "losordo_delong_guerdat_2015_gaa_advocate"
+          ]
+        },
+        "reviewed_from_file": "web reads 2026-11-25 (see data/knowledge/models/nitrification_models.json and basil.json for URLs)"
+      }
+    },
+    {
+      "fact_id": "NITR_0007",
+      "statement": "Fresh basil shoots grown in a warm greenhouse were about 11 percent dry matter.",
+      "domain": "biology",
+      "type": "parameter",
+      "confidence": "medium",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "species": "basil (Genovese Compact)",
+        "system": "small DWC hydroponics",
+        "location": "Florida greenhouse, 29/24 C"
+      },
+      "source_metadata": {
+        "source_id": "solis_toapanta_fisher_gomez_2020_hortscience",
+        "section_id": "table_1",
+        "source_type": "peer_reviewed_journal",
+        "source_tier": "tier_2"
+      },
+      "added_date_local": "2026-11-25",
+      "review_metadata": {
+        "source_gate": "trusted",
+        "source_gate_reason": "source level E3; inferred (arithmetic on printed fresh and dry mass); context partial",
+        "confidence_reason": "Printed values from a peer-reviewed two-run study; the percentage is our arithmetic. Indoor plants at 21 C were about 9 percent.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": []
+        },
+        "reviewed_from_file": "web reads 2026-11-25 (see data/knowledge/models/nitrification_models.json and basil.json for URLs)"
+      }
+    },
+    {
+      "fact_id": "NITR_0008",
+      "statement": "Basil shoot tissue N sufficiency is about 4 to 6 percent of dry mass; N-limited greenhouse basil measured 2.2 to 2.9 percent.",
+      "domain": "biology",
+      "type": "parameter",
+      "confidence": "medium",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "species": "basil",
+        "system": "hydroponics"
+      },
+      "source_metadata": {
+        "source_id": "solis_toapanta_fisher_gomez_2020_hortscience",
+        "section_id": "table_4",
+        "source_type": "peer_reviewed_journal",
+        "source_tier": "tier_2"
+      },
+      "added_date_local": "2026-11-25",
+      "review_metadata": {
+        "source_gate": "trusted",
+        "source_gate_reason": "source level E3; direct_number; context partial",
+        "confidence_reason": "Peer-reviewed; the 4 to 6 percent range is a survey the paper cites, which was not checked itself.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": []
+        },
+        "reviewed_from_file": "web reads 2026-11-25 (see data/knowledge/models/nitrification_models.json and basil.json for URLs)"
+      }
+    }
+  ]
+}
