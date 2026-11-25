@@ -561,8 +561,8 @@ def simulation_check(catalog: Catalog, build: dict, mid: dict, days: int) -> dic
     area = s["grow_area_m2"]
     density = species_value(plant, "planting_density_plants_per_m2", "mid", build, "plant") or 8.0
     scenario["scenario_id"] = f"configurator_{build.get('build_id', 'build')}"
-    # The placeholder plant uptake is in mg/L per plant per day, so it does not scale with
-    # water volume. Keep the uptake per plant in mg constant by rescaling it to the new volume.
+    # Basil now uses growth-based N uptake (PR #11), which already scales with volume. The legacy
+    # placeholder fallback is in mg/L per plant per day, so rescale it to keep mg per plant constant.
     base_volume_l = scenario["system"]["water_volume_l"]
     new_volume_l = s["system_water_m3"] * 1000
     nm = scenario.get("nitrogen_model", {})
