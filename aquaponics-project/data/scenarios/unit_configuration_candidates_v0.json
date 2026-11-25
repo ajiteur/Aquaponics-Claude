@@ -128,7 +128,7 @@
         "origin": "canonical (low) and simulation_output (high)",
         "source": "rakocy_2004_uvi_tilapia_basil_acta_hort_648; basil_crop_cycle_simulation",
         "derivation": "low = UVI staggered annual yield 23.4 kg/m2 (CROP_0004); high = 2.00 kg/m2 per harvest x 13 crops (simulated, fish feed sized to the UVI ratio, after PR #11)",
-        "bias": "tropical-site yields with feed sized to the UVI ratio. An under-fed unit yields less (the starter fixture simulates 1.91 kg/m2 per harvest after PR #11), and Dutch winter light and heat are not in the range."
+        "bias": "tropical-site yields with feed sized to the UVI ratio. An under-fed unit yields less (the starter fixture simulates 1.44 kg/m2 per harvest after PR #21, nitrate-limited), and Dutch winter light and heat are not in the range."
       },
       "saleability_rate": {
         "ref": "basil_saleability_rate"
@@ -168,7 +168,7 @@
         "origin": "canonical (low) and simulation_output (high)",
         "source": "rakocy_2004_uvi_tilapia_basil_acta_hort_648; basil_crop_cycle_simulation",
         "derivation": "low = UVI staggered annual yield 23.4 kg/m2 (CROP_0004); high = 2.00 kg/m2 per harvest x 13 crops (simulated, fish feed sized to the UVI ratio, after PR #11)",
-        "bias": "tropical-site yields with feed sized to the UVI ratio. An under-fed unit yields less (the starter fixture simulates 1.91 kg/m2 per harvest after PR #11), and Dutch winter light and heat are not in the range."
+        "bias": "tropical-site yields with feed sized to the UVI ratio. An under-fed unit yields less (the starter fixture simulates 1.44 kg/m2 per harvest after PR #21, nitrate-limited), and Dutch winter light and heat are not in the range."
       },
       "saleability_rate": {
         "ref": "basil_saleability_rate"
@@ -208,7 +208,7 @@
         "origin": "canonical (low) and simulation_output (high)",
         "source": "rakocy_2004_uvi_tilapia_basil_acta_hort_648; basil_crop_cycle_simulation",
         "derivation": "low = UVI staggered annual yield 23.4 kg/m2 (CROP_0004); high = 2.00 kg/m2 per harvest x 13 crops (simulated, fish feed sized to the UVI ratio, after PR #11)",
-        "bias": "tropical-site yields with feed sized to the UVI ratio. An under-fed unit yields less (the starter fixture simulates 1.91 kg/m2 per harvest after PR #11), and Dutch winter light and heat are not in the range."
+        "bias": "tropical-site yields with feed sized to the UVI ratio. An under-fed unit yields less (the starter fixture simulates 1.44 kg/m2 per harvest after PR #21, nitrate-limited), and Dutch winter light and heat are not in the range."
       },
       "saleability_rate": {
         "ref": "basil_saleability_rate"
@@ -300,7 +300,7 @@
         "origin": "canonical (low) and simulation_output (high)",
         "source": "rakocy_2004_uvi_tilapia_basil_acta_hort_648; basil_crop_cycle_simulation",
         "derivation": "low = UVI staggered annual yield 23.4 kg/m2 (CROP_0004); high = 2.00 kg/m2 per harvest x 13 crops (simulated, fish feed sized to the UVI ratio, after PR #11)",
-        "bias": "tropical-site yields with feed sized to the UVI ratio. An under-fed unit yields less (the starter fixture simulates 1.91 kg/m2 per harvest after PR #11), and Dutch winter light and heat are not in the range."
+        "bias": "tropical-site yields with feed sized to the UVI ratio. An under-fed unit yields less (the starter fixture simulates 1.44 kg/m2 per harvest after PR #21, nitrate-limited), and Dutch winter light and heat are not in the range."
       },
       "saleability_rate": {
         "ref": "basil_saleability_rate"
