@@ -181,6 +181,200 @@
       "notes": [
         "Do not model startup as instant full nitrification capacity."
       ]
+    },
+    {
+      "model_id": "biofilm_nitrification_capacity",
+      "name": "Surface-Based Biofilm Nitrification Capacity",
+      "kind": "capacity_rate_model",
+      "status": "candidate_pending_user_review",
+      "added_utc": "2026-11-25",
+      "equation_text": "removal_g_tan_day = capacity_g_tan_day * f_concentration * f_pH * f_temperature * f_DO * biofilter_maturity; capacity_g_tan_day = sum(surface_feed_capacity_g_feed_day * tan_per_g_feed); f_concentration = min(1, TAN_mg_L / tan_saturation_mg_L)",
+      "capacity_anchors": [
+        {
+          "parameter": "raft_waste_treatment_capacity_feed_equivalent",
+          "value": 180.0,
+          "unit": "g feed / m2 raft grow area / day",
+          "context_tags": [
+            "aquaponics_coupled",
+            "architecture_dwc_raft",
+            "solids_removed_before_raft"
+          ],
+          "source": "Rakocy, Masser, Losordo, SRAC 454 'Recirculating Aquaculture Tank Production Systems: Aquaponics - Integrating Fish and Plant Culture'",
+          "quote": "The waste treatment capacity of raft hydroponics is equivalent to a feeding ratio of 180 grams of fish feed",
+          "notes": [
+            "Capacity equivalence, not the operating design ratio (60 to 100 g/m2/day, design 80).",
+            "SRAC 454: 'A significant amount of nitrification occurs on the undersides of the polystyrene sheets'.",
+            "Applies only when solids are removed before the raft. NFT has much smaller surface and may need a separate biofilter; no NFT capacity value is given, so NFT gets none here."
+          ],
+          "source_url": "https://pods.okstate.edu/fact-sheets/SRAC-454pod.pdf",
+          "evidence_assessment": {
+            "source_level": "E4",
+            "trust_tier": "Tier 1",
+            "directness": "direct_quote",
+            "context_completeness": "partial",
+            "replicability": "single_source",
+            "confidence": "medium",
+            "confidence_reason": "University extension fact sheet by the UVI system's lead researcher, direct number. Context partial: it does not say at what TAN level the capacity applies, or whether it counts plant ammonium uptake as well as nitrification.",
+            "cross_check": "Consistent with UVI's statement (Biofilters corroboration report) that the raft gives adequate biofiltration at the design feeding ratio, and with SRAC 454's note that ammonia need not be monitored after the first month. Per-m2 biofilm rates from trickling filters and RBCs (0.24 to 0.53 g TAN/m2/day) are about 10x lower per m2 of grow area, but are not directly comparable (see cross_check_note)."
+          }
+        },
+        {
+          "parameter": "dedicated_biofilter_feed_loading",
+          "value_ref": "data/knowledge/models/nitrification_models.json#biofilter_feed_loading_capacities",
+          "unit": "kg feed / m3 media / day",
+          "notes": [
+            "Reuses the existing canonical media feed-loading ranges. The simulation uses the conservative low end of each range unless the scenario names a value."
+          ],
+          "evidence_assessment": {
+            "inherits": "biofilter_feed_loading_capacities (existing draft canon, distilled pack / SRAC 0453)",
+            "confidence": "medium",
+            "confidence_reason": "Existing canonical draft values; low end used for conservatism."
+          }
+        }
+      ],
+      "concentration_response": {
+        "linear_below_tan_mg_L": 2.0,
+        "no_further_increase_above_tan_mg_L": {
+          "min": 3.0,
+          "max": 4.0
+        },
+        "simulation_default_tan_saturation_mg_L": 4.0,
+        "simulation_default_basis": "Upper end of the sourced 3 to 4 mg/L saturation band; the conservative choice because it gives slower removal at a given TAN.",
+        "source": "Losordo, DeLong, Guerdat, 'TAN, other water quality factors affect nitrification rates in biofilters', Global Aquaculture Advocate, 2 May 2015 (from New Technologies in Aquaculture, ch. 31, 2009)",
+        "quotes": [
+          "At these levels, there is generally a linear relationship between the TAN conversion rate and TAN concentration in the filter.",
+          "When values rise much above 3-4 mg TAN/L, there is usually no further increase in the rate of nitrification."
+        ],
+        "assumption": "The raft capacity equivalence is treated as the saturated (maximum) rate. SRAC 454 does not state the TAN level at which it applies.",
+        "source_url": "https://www.globalseafood.org/advocate/tan-other-water-quality-factors-affect-nitrification-rates-in-biofilters/",
+        "evidence_assessment": {
+          "source_level": "E1 (host) summarising E2 (Woodhead textbook chapter)",
+          "trust_tier": "Tier 2",
+          "directness": "direct_quote",
+          "context_completeness": "partial",
+          "replicability": "single_source",
+          "confidence": "low",
+          "confidence_reason": "Industry magazine article, though written by recognised RAS engineers (Losordo is a co-author of SRAC 454) and drawn from a published textbook chapter. Generic RAS biofilters, not aquaponic raft. Low until the textbook chapter or a peer-reviewed half-saturation constant is checked.",
+          "cross_check": "Qualitatively consistent with the Chen, Ling, Blancheton 2006 review (Aquacultural Engineering 34:179-197), which names substrate concentration as a governing factor; its abstract gives no number."
+        }
+      },
+      "pH_response": {
+        "full_rate_at_or_above_pH": 7.0,
+        "practically_ceases_below_pH": 6.0,
+        "simulation_shape": "linear from 0 at pH 6.0 to 1 at pH 7.0; 1 above 7.0",
+        "sources": [
+          "SRAC 454: 'The optimum pH range for nitrification is 7.0 to 9.0, although most studies indicate that nitrification efficiency is greater at the higher end of this range (high 8s)'",
+          "UVI Aquaponic Systems page (via Biofilters corroboration report): nitrification efficient at pH 7.5 and above, practically ceases below 6.0"
+        ],
+        "assumption": "The linear shape between 6.0 and 7.0 is a modelling assumption; only the endpoints are sourced. The higher efficiency in the high 8s is not modelled (conservative).",
+        "evidence_assessment": {
+          "source_level": "E4",
+          "trust_tier": "Tier 1",
+          "directness": "direct_quote (7.0 optimum, SRAC 454); paraphrase (below 6.0, UVI page via corroboration report)",
+          "context_completeness": "partial",
+          "replicability": "multi_source",
+          "confidence": "medium",
+          "confidence_reason": "Two university sources agree on the endpoints. The linear shape between them is an assumption and is low confidence on its own.",
+          "cross_check": "Matches existing canon parameter nitrification_inhibited_at_or_below_pH = 6.0."
+        }
+      },
+      "temperature_response": {
+        "optimal_range_c": {
+          "min": 25.0,
+          "max": 30.0
+        },
+        "optimal_range_source": "SRAC 454: 'Biofilters perform optimally at a temperature range of 77 to 86 F' (25 to 30 C)",
+        "rate_change_per_c_below_optimum": 0.04275,
+        "rate_change_basis": "Zhu and Chen 2002, Aquacultural Engineering 26(4):221-237: at 20 C, +4.275 percent per C under TAN-limited conditions (+1.108 percent per C under DO-limited conditions). TAN-limited value used because the simulated system runs in the linear (TAN-limited) regime.",
+        "assumption": "Applied as a linear decline below 25 C. Zhu and Chen report the effect is weaker than van't Hoff-Arrhenius predicts. No decline above 30 C is modelled (evidence gap).",
+        "optimal_range_evidence": {
+          "source_level": "E4",
+          "trust_tier": "Tier 1",
+          "directness": "direct_quote",
+          "context_completeness": "partial",
+          "replicability": "single_source",
+          "confidence": "medium",
+          "confidence_reason": "University extension fact sheet; generic biofilter statement, not raft-specific."
+        },
+        "rate_change_evidence": {
+          "source_level": "E3",
+          "trust_tier": "Tier 2",
+          "directness": "direct_number (abstract only; full text paywalled)",
+          "context_completeness": "partial",
+          "replicability": "single_source",
+          "confidence": "medium",
+          "confidence_reason": "Peer-reviewed study on fixed-film biofilters. Number read from the abstract only; sensitivity was measured at 20 C and extrapolating it linearly is an assumption (low on its own).",
+          "cross_check": "Losordo et al. 2015 also say temperature effects are less significant than previously thought, consistent with Zhu and Chen."
+        },
+        "rate_change_source_url": "https://rex.libraries.wsu.edu/esploro/outputs/journalArticle/The-impact-of-temperature-on-nitrification/99900547739201842"
+      },
+      "dissolved_oxygen_response": {
+        "inefficient_below_do_mg_L": 2.0,
+        "source": "Biofilters corroboration report: 'Nitrifying bacteria become inefficient... below 2 ppm.'",
+        "simulation_shape": "min(1, DO / 2.0)",
+        "assumption": "Linear shape below 2 mg/L is a modelling assumption.",
+        "evidence_assessment": {
+          "source_level": "E4",
+          "trust_tier": "Tier 1",
+          "directness": "paraphrase (via corroboration report)",
+          "context_completeness": "partial",
+          "replicability": "single_source",
+          "confidence": "medium",
+          "confidence_reason": "Threshold from university guidance through the Biofilters corroboration report; the linear shape below 2 mg/L is an assumption."
+        }
+      },
+      "cross_check_areal_rates_g_tan_m2_day": [
+        {
+          "value": 0.241,
+          "context": "nitrifying trickling filter, mean at 27 C, highest hydraulic and TAN load",
+          "source": "Godoy-Olmos et al. 2019, J. Environ. Chem. Eng. 7(4):103257",
+          "evidence_assessment": {
+            "source_level": "E3",
+            "trust_tier": "Tier 2",
+            "directness": "direct_number (abstract only)",
+            "context_completeness": "partial",
+            "replicability": "single_source",
+            "confidence": "medium",
+            "confidence_reason": "Peer-reviewed; trickling filters, marine/temperate RAS context, abstract only. Cross-check only, not used in the model."
+          }
+        },
+        {
+          "range": {
+            "min": 0.378,
+            "max": 0.534
+          },
+          "context": "rotating biological contactors, commercial tilapia RAS, about 28.4 C, pH 7.14",
+          "source": "Sandu and Hallerman 2013, IntechOpen, doi 10.5772/55841 (values read from a summary of the page, not verbatim; verify)",
+          "evidence_assessment": {
+            "source_level": "E3",
+            "trust_tier": "Tier 2",
+            "directness": "inferred (read from a page summary, not verbatim)",
+            "context_completeness": "partial",
+            "replicability": "single_source",
+            "confidence": "low",
+            "confidence_reason": "Open-access book chapter; the numbers were not read verbatim. Cross-check only, verify before any use."
+          }
+        }
+      ],
+      "cross_check_note": "At about 30 mg TAN per g feed, the raft equivalence of 180 g feed/m2/day is about 5.4 g TAN/m2 grow area/day. That is far above the per-m2 media rates above, but the raft figure counts all raft-tank surfaces and plant uptake per m2 of grow area, not per m2 of biofilm. The two are not directly comparable; kept as a cross-check only.",
+      "gaps": [
+        "No half-saturation constant for aquaponic raft biofilm.",
+        "Organic carbon effect not modelled (Losordo et al. 2015: C:N of 1:1 can cut nitrification by over 70 percent).",
+        "Nitrite step (two-stage nitrification) not modelled.",
+        "Startup ramp still comes from scenario biofilter_maturity, not from a dynamic model."
+      ],
+      "context_tags": [
+        "aquaponics_coupled",
+        "biofilm",
+        "capacity_limited",
+        "temperature_sensitive",
+        "pH_sensitive"
+      ],
+      "simulation_use": {
+        "target_role": "daily_tan_removal",
+        "consumer": "src/nitrification_model.py"
+      },
+      "evidence_policy": "Trusted Source Map and Source Trust Policy for Aquaponics Layer 1: source levels E5-E0, confidence high/medium/low rule"
     }
   ]
 }

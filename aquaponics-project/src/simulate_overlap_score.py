@@ -246,7 +246,24 @@ def score_fish(profile: dict, pH: float, water_temp_c: float, do_mg_l: float, un
     }
 
 
-def score_plant(profile: dict, pH: float, air_temp_c: float) -> dict:
+PH_CONTEXTS = ("hydroponic", "aquaponics_coupled")
+
+
+def plant_ph_ranges(profile: dict, ph_context: str) -> tuple[dict, dict, str]:
+    """Pick the plant pH ranges for the loop context.
+
+    Coupled aquaponics runs near neutral pH for nitrification and fish, so species
+    with an aquaponics_coupled_pH_scoring block are scored against it there. Without
+    that block, or in hydroponic context, the hydroponic ranges are used.
+    """
+    env = profile["environment"]
+    aquaponic = env.get("aquaponics_coupled_pH_scoring")
+    if ph_context == "aquaponics_coupled" and isinstance(aquaponic, dict):
+        return aquaponic["preferred_pH"], aquaponic["tolerated_pH"], "aquaponics_coupled_pH_scoring"
+    return env["preferred_pH"], env["tolerated_pH"], "hydroponic_pH_ranges"
+
+
+def score_plant(profile: dict, pH: float, air_temp_c: float, ph_context: str = "hydroponic") -> dict:
     env = profile["environment"]
 
     if not has_complete_range(profile, ["environment", "preferred_pH"]) or not has_complete_range(profile, ["environment", "tolerated_pH"]):
@@ -263,12 +280,13 @@ def score_plant(profile: dict, pH: float, air_temp_c: float) -> dict:
             "note": "Plant temperature ranges are not filled yet."
         }
 
+    preferred_pH, tolerated_pH, pH_basis = plant_ph_ranges(profile, ph_context)
     pH_score = score_by_ranges(
         pH,
-        env["preferred_pH"]["min"],
-        env["preferred_pH"]["max"],
-        env["tolerated_pH"]["min"],
-        env["tolerated_pH"]["max"],
+        preferred_pH["min"],
+        preferred_pH["max"],
+        tolerated_pH["min"],
+        tolerated_pH["max"],
     )
 
     temp_score = score_by_ranges(
@@ -284,6 +302,7 @@ def score_plant(profile: dict, pH: float, air_temp_c: float) -> dict:
     return {
         "species_id": profile["species_id"],
         "pH_score": round(pH_score, 3),
+        "pH_basis": pH_basis,
         "temperature_score": round(temp_score, 3),
         "overall_plant_score": overall
     }
@@ -293,7 +312,7 @@ def main():
     if len(sys.argv) < 7:
         raise ValueError(
         "Usage:\n"
-        "python src/simulate_overlap_score.py <fish_name> <plant_name_or_none> <pH> <water_temp_c> <air_temp_c> <do_mg_l> <unionized_nh3_mg_l> [mode]\n\n"
+        "python src/simulate_overlap_score.py <fish_name> <plant_name_or_none> <pH> <water_temp_c> <air_temp_c> <do_mg_l> <unionized_nh3_mg_l> [mode] [hydroponic|aquaponics_coupled]\n\n"
         "Example:\n"
         "python src/simulate_overlap_score.py tilapia lettuce 6.9 28 24 5.5 0.05 robust_compromise_mode"
        )
@@ -306,6 +325,9 @@ def main():
     do_mg_l = float(sys.argv[6])
     unionized_nh3_mg_l = float(sys.argv[7]) if len(sys.argv) > 7 else 0.05
     mode_name = sys.argv[8] if len(sys.argv) > 8 else "robust_compromise_mode"
+    ph_context = sys.argv[9] if len(sys.argv) > 9 else "hydroponic"
+    if ph_context not in PH_CONTEXTS:
+        raise ValueError(f"Unknown pH context: {ph_context}")
 
     parameter_library = load_json(PARAM_LIBRARY_PATH)
 
@@ -331,7 +353,7 @@ def main():
 
     plant_result = None
     if plant_profile is not None:
-        plant_result = score_plant(plant_profile, pH, air_temp_c)
+        plant_result = score_plant(plant_profile, pH, air_temp_c, ph_context)
 
         components = [
         fish_result["overall_fish_score"],
@@ -356,7 +378,8 @@ def main():
             "air_temperature_c": air_temp_c,
             "dissolved_oxygen_mg_L": do_mg_l,
             "unionized_nh3_mg_L": unionized_nh3_mg_l,
-            "mode": mode_name
+            "mode": mode_name,
+            "plant_pH_context": ph_context
         },
         "mode_assessment": {
             "target_range": mode_range,

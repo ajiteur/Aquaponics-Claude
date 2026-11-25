@@ -4,6 +4,8 @@ import subprocess
 import sys
 from datetime import datetime, UTC
 
+import nitrification_model
+
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 SCENARIO_DIR = PROJECT_ROOT / "data" / "simulation" / "scenarios"
@@ -42,6 +44,7 @@ def run_overlap_score(
     do_mg_l: float,
     nh3_mg_l: float,
     mode: str,
+    ph_context: str = "hydroponic",
 ) -> dict:
     cmd = [
         sys.executable,
@@ -54,6 +57,7 @@ def run_overlap_score(
         str(do_mg_l),
         str(nh3_mg_l),
         mode,
+        ph_context,
     ]
 
     result = subprocess.run(
@@ -69,6 +73,12 @@ def run_overlap_score(
         )
 
     return json.loads(result.stdout)
+
+
+def plant_ph_context(scenario: dict) -> str:
+    """Coupled loops score plant pH against aquaponic ranges where the profile has them."""
+    loop_type = scenario.get("system", {}).get("loop_type")
+    return "aquaponics_coupled" if loop_type == "coupled" else "hydroponic"
 
 
 def clamp(value: float, min_value: float = 0.0, max_value: float = 1.0) -> float:
@@ -107,6 +117,7 @@ def plant_score_relative_to_anchor(
     plant_name: str,
     water: dict,
     mode: str,
+    ph_context: str = "hydroponic",
 ) -> float:
     """Express today's plant score as a fraction of the score at the yield-anchor site.
 
@@ -128,6 +139,7 @@ def plant_score_relative_to_anchor(
         do_mg_l=water["dissolved_oxygen_mg_L"],
         nh3_mg_l=water["unionized_nh3_mg_L"],
         mode=mode,
+        ph_context=ph_context,
     )
     reference_score = reference["plant_assessment"]["overall_plant_score"]
     if not reference_score:
@@ -239,6 +251,7 @@ def main():
         do_mg_l=water["dissolved_oxygen_mg_L"],
         nh3_mg_l=water["unionized_nh3_mg_L"],
         mode=system["mode"],
+        ph_context=plant_ph_context(scenario),
     )
 
     fish_score = overlap["fish_assessment"]["overall_fish_score"]
@@ -284,39 +297,75 @@ def main():
 
     # Harvestable cut mass, calibrated to the species yield anchor when available.
     relative_plant_score = plant_score_relative_to_anchor(
-        plant_profile, plant_score, fish_name, plant_name, water, system["mode"]
+        plant_profile, plant_score, fish_name, plant_name, water, system["mode"], plant_ph_context(scenario)
     )
     harvest_event = update_harvestable_mass(
         scenario, plant_crop, plant_profile, relative_plant_score, nitrate_availability_score
     )
 
     # Nitrogen updates
-    tan_generation_mg_per_g_feed = nitrogen_model.get("tan_generation_mg_per_g_feed", 30.0)
-    nitrification_capture_efficiency = nitrogen_model.get("nitrification_capture_efficiency", 0.9)
     nitrate_uptake_mg_l_per_plant_day = nitrogen_model.get("nitrate_uptake_mg_l_per_plant_day", 0.05)
-
     water_volume_l = system["water_volume_l"]
     daily_feed_g = daily_feed_kg * 1000.0
 
-    daily_tan_input_mg_l = (daily_feed_g * tan_generation_mg_per_g_feed) / water_volume_l
-    effective_nitrification = nitrification_score * system.get("biofilter_maturity", 1.0) * nitrification_capture_efficiency
-    tan_removed_mg_l = daily_tan_input_mg_l * effective_nitrification
+    tan_per_g_feed_mg, tan_generation_basis = nitrification_model.tan_mg_per_g_feed(feeding, nitrogen_model)
+    daily_tan_input_g = daily_feed_g * tan_per_g_feed_mg / 1000.0
+    daily_tan_input_mg_l = daily_tan_input_g * 1000.0 / water_volume_l
 
     old_tan = water["tan_mg_L"]
-    new_tan = max(0.0, old_tan + daily_tan_input_mg_l - tan_removed_mg_l)
-
-    old_unionized_nh3 = water["unionized_nh3_mg_L"]
-    if old_tan > 0:
-        new_unionized_nh3 = old_unionized_nh3 * (new_tan / old_tan)
+    surfaces = nitrification_model.resolve_surfaces(scenario, plant_profile)
+    if surfaces is not None:
+        # Surface-based biofilm model (candidate): capacity from raft area and any
+        # dedicated biofilter, limited by TAN concentration, pH, temperature and DO.
+        model = nitrification_model.load_model()
+        capacity = nitrification_model.capacity_g_tan_day(
+            surfaces, model, tan_per_g_feed_mg, nitrification_model.media_feed_loading_low_end()
+        )
+        step = nitrification_model.step_day(
+            tan_mg_l=old_tan,
+            daily_tan_input_g=daily_tan_input_g,
+            capacity_g_day=capacity,
+            water_volume_l=water_volume_l,
+            pH=water["pH"],
+            water_temp_c=water_temp_c,
+            do_mg_l=water["dissolved_oxygen_mg_L"],
+            maturity=system.get("biofilter_maturity", 1.0),
+            model=model,
+            tan_saturation_mg_l=nitrogen_model.get("tan_saturation_mg_L"),
+        )
+        new_tan = step["new_tan_mg_L"]
+        tan_removed_mg_l = step["tan_removed_mg_L"]
+        steady_state = nitrification_model.steady_state_tan_mg_l(
+            daily_tan_input_g, step["effective_capacity_g_tan_day"], step["tan_saturation_mg_L"]
+        )
+        nitrification_summary = {
+            "model_basis": "biofilm_nitrification_capacity_candidate",
+            "surfaces": surfaces,
+            "tan_generation_basis": tan_generation_basis,
+            "tan_mg_per_g_feed": round(tan_per_g_feed_mg, 3),
+            "daily_tan_input_g": round(daily_tan_input_g, 3),
+            **{k: v for k, v in step.items() if k not in ("new_tan_mg_L", "tan_removed_mg_L")},
+            "tan_removed_g": round(step["tan_removed_g"], 3),
+            "steady_state_tan_mg_L": round(steady_state, 3) if steady_state is not None else None,
+        }
     else:
-        new_unionized_nh3 = old_unionized_nh3
+        # Legacy placeholder: removes a fixed fraction of today's input. Kept only for
+        # scenarios with no nitrifying surface defined; TAN can climb without limit.
+        nitrification_capture_efficiency = nitrogen_model.get("nitrification_capture_efficiency", 0.9)
+        effective_nitrification = nitrification_score * system.get("biofilter_maturity", 1.0) * nitrification_capture_efficiency
+        tan_removed_mg_l = daily_tan_input_mg_l * effective_nitrification
+        new_tan = max(0.0, old_tan + daily_tan_input_mg_l - tan_removed_mg_l)
+        nitrification_summary = {
+            "model_basis": "legacy_placeholder_fraction_of_input",
+            "tan_generation_basis": tan_generation_basis,
+            "note": "No nitrification_surfaces in scenario and none derivable; placeholder used.",
+        }
 
     nitrate_generated_mg_l = tan_removed_mg_l
     daily_nitrate_uptake_mg_l = plant_crop["plant_count"] * nitrate_uptake_mg_l_per_plant_day * plant_score * nitrate_availability_score
     new_nitrate = max(0.0, water["nitrate_mg_L"] + nitrate_generated_mg_l - daily_nitrate_uptake_mg_l)
 
     water["tan_mg_L"] = round(new_tan, 3)
-    water["unionized_nh3_mg_L"] = round(new_unionized_nh3, 3)
     water["nitrate_mg_L"] = round(new_nitrate, 3)
 
     # Simple pH drift from nitrification acidification
@@ -341,6 +390,11 @@ def main():
     else:
         water["pH"] = round(max(5.0, water["pH"] - pH_drop), 3)
 
+    # Unionized ammonia from TAN-N, pH and temperature (Emerson-type pKa formula).
+    nh3 = nitrification_model.unionized_nh3(water["tan_mg_L"], water["pH"], water_temp_c)
+    water["unionized_nh3_mg_L"] = round(nh3["nh3_mg_L"], 4)
+    water["unionized_nh3_n_mg_L"] = round(nh3["nh3_n_mg_L"], 4)
+
     # Energy / cost
     daily_energy_kwh = (
         (equipment["pump_power_w"] * equipment["pump_hours_per_day"]) +
@@ -359,6 +413,7 @@ def main():
         "daily_feed_kg": round(daily_feed_kg, 3),
         "daily_energy_kwh": round(daily_energy_kwh, 3),
         "daily_tan_input_mg_L_equivalent": round(daily_tan_input_mg_l, 3),
+        "nitrification": nitrification_summary,
         "daily_nitrate_uptake_mg_L_equivalent": round(daily_nitrate_uptake_mg_l, 3),
         "nitrate_availability_score": round(nitrate_availability_score, 3),
         "fish_growth_score": fish_score,
