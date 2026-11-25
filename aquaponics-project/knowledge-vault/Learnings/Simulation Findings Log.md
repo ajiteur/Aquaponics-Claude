@@ -2,6 +2,22 @@
 
 What the simulation shows, newest first. These are **scenario estimates, not validated**: they describe the model, not the real world, and they are never truths.
 
+## 2026-11-25: Unit design comparison rerun after PR #11
+
+Rerun of `scripts/compare_unit_configurations.py` after the nitrate-uptake fix (PR #11). Scenario estimate, not validated. The simulated UVI-ratio basil yield is now 2.00 kg/m² per harvest, so the top of the basil yield range is 26.0 kg/m² per year (was 25.9). The starter fixture now simulates 1.91 kg/m² per harvest (was 0.77).
+
+- **Only the high and mid cases move, by under 1%.** Netherlands owner-run: €111 to €207 per m² per year (was €111 to €206). Karnataka owner-run at Ajit's price: ₹1,097 to ₹5,766.
+- The break-even labour intensity in the Netherlands is unchanged at about 0.25 to 0.50 h per kg.
+- Current numbers live in `docs/unit_configuration_economics_review.md`. The two entries below keep their original numbers as history.
+
+## 2026-11-25: Karnataka rerun at Ajit's Bangalore price
+
+Run: `scripts/compare_unit_configurations.py`, Karnataka basil price set to ₹100-250/kg (Ajit's local read, depends on processed, fresh or organic; agrees with the ₹65-180 listings). Scenario estimate, not validated. Headroom = revenue minus labour and electricity.
+
+- **Owner-run basil: ₹1,100 to ₹5,740 per m² per year** (about €10 to €52), up about 50% from the listing price, but still well below the Dutch owner-run case (€111 to €206).
+- **Hired staff at UVI or Purdue labour intensity: about break-even in the low case** (₹-70 to ₹-20), ₹2,000 to ₹4,700 in the mid and high cases.
+- Where a unit lands in the band depends on grade (fresh, processed, organic). A defined grade and buyer would settle it.
+
 ## 2026-11-25: Which unit design clears labour and electricity (Netherlands vs India)
 
 Run: `scripts/compare_unit_configurations.py` on `data/scenarios/unit_configuration_candidates_v0.json`. Scenario estimate, not validated. **Headroom** = revenue minus labour and electricity per m² per year; it still has to pay heating, CAPEX, consumables and any uncosted owner time. Review: `docs/unit_configuration_economics_review.md`.
