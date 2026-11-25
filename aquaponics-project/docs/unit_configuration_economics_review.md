@@ -29,7 +29,7 @@ midpoints.
 ## Results (scenario estimate, not validated)
 
 Basil yield range for every basil design: 23.4 kg/m2/yr (UVI staggered, canon CROP_0004)
-to 25.9 kg/m2/yr (simulated, fish feed sized to the UVI ratio, 1.99 kg/m2 x 13 crops).
+to 26.0 kg/m2/yr (simulated, fish feed sized to the UVI ratio, 2.00 kg/m2 x 13 crops, after PR #11).
 Both are tropical-site yields. An under-fed unit yields far less, and Dutch winter light
 and heat are not in the range.
 
@@ -40,11 +40,11 @@ case.
 
 | Configuration | NL headroom EUR/m2/yr (low / mid / high) | India headroom INR/m2/yr (low / mid / high), base price |
 |---|---|---|
-| A. UVI-style DWC basil, hired, UVI labour intensity (0.56-0.62 h/kg) | -166 / -105 / -38 | -1,102 / 592 / 2,597 (about EUR -10 / 5 / 24) |
-| B. Large raceway DWC basil, hired, Hawaii lettuce-farm labour per m2 (0.08-0.09 h/kg) | 72 / 120 / 174 | 0 / 1,717 / 3,698 |
-| C. Basil farm at Purdue labour per kg (0.53-0.65 h/kg) | -177 / -98 / -13 | -1,153 / 799 / 3,004 |
+| A. UVI-style DWC basil, hired, UVI labour intensity (0.56-0.62 h/kg) | -166 / -105 / -37 | -1,102 / 599 / 2,618 (about EUR -10 / 5 / 24) |
+| B. Large raceway DWC basil, hired, Hawaii lettuce-farm labour per m2 (0.08-0.09 h/kg) | 72 / 121 / 175 | 0 / 1,724 / 3,719 |
+| C. Basil farm at Purdue labour per kg (0.53-0.65 h/kg) | -177 / -98 / -13 | -1,153 / 803 / 3,021 |
 | D. Large raceway DWC lettuce, Flemish auction price | -42 / -19 / 6 | gap: no India lettuce price |
-| E. Owner-operated DWC basil, owner hours not costed | 111 / 156 / 206 | 179 / 1,868 / 3,819 (about EUR 2 / 17 / 35) |
+| E. Owner-operated DWC basil, owner hours not costed | 111 / 156 / 207 | 179 / 1,875 / 3,841 (about EUR 2 / 17 / 35) |
 
 Break-even labour intensity for basil wholesale:
 
@@ -60,10 +60,10 @@ every state (a transfer outside Karnataka, low confidence there).
 
 | State | Owner-run, INR/m2/yr (low / mid / high) | Hired, UVI labour, INR/m2/yr (low / mid / high) |
 |---|---|---|
-| Karnataka | 441 / 2,144 / 4,070 | -679 / 899 / 2,787 |
-| Tamil Nadu | 76 / 1,936 / 3,977 | -1,262 / 575 / 2,723 |
-| Andhra Pradesh | 725 / 2,238 / 4,045 | -613 / 960 / 2,843 |
-| Telangana | 289 / 2,060 / 4,036 | -1,206 / 600 / 2,716 |
+| Karnataka (listing price; see Ajit's price below) | 441 / 2,151 / 4,092 | -679 / 906 / 2,809 |
+| Tamil Nadu | 76 / 1,943 / 3,999 | -1,262 / 582 / 2,744 |
+| Andhra Pradesh | 725 / 2,245 / 4,067 | -613 / 967 / 2,864 |
+| Telangana | 289 / 2,067 / 4,058 | -1,206 / 607 / 2,738 |
 
 At the base price, electricity becomes a large share of cost, so state tariffs now
 matter: Andhra Pradesh (lowest tariff band) leaves the most, Tamil Nadu the least.
@@ -76,19 +76,19 @@ approval) and is now the Karnataka base; the listings stay as a Karnataka sensit
 
 | Design (Karnataka, INR 100-250/kg) | INR/m2/yr (low / mid / high) | About EUR/m2/yr |
 |---|---|---|
-| A. UVI-style, hired, UVI labour | -23 / 2,012 / 4,453 | 0 / 18 / 41 |
-| B. Large raceway, hired, lean labour | 940 / 3,099 / 5,579 | 9 / 28 / 51 |
-| C. Purdue labour per kg | -68 / 2,142 / 4,685 | -1 / 20 / 43 |
-| E. Owner-run | 1,097 / 3,256 / 5,736 | 10 / 30 / 52 |
+| A. UVI-style, hired, UVI labour | -23 / 2,021 / 4,483 | 0 / 18 / 41 |
+| B. Large raceway, hired, lean labour | 940 / 3,109 / 5,609 | 9 / 28 / 51 |
+| C. Purdue labour per kg | -68 / 2,149 / 4,710 | -1 / 20 / 43 |
+| E. Owner-run | 1,097 / 3,266 / 5,766 | 10 / 30 / 53 |
 
 That is about 50% more headroom than at the listing prices, but still well below the
-Dutch owner-run case (EUR 111-206). The top of Ajit's band depends on grade (processed,
+Dutch owner-run case (EUR 111-207). The top of Ajit's band depends on grade (processed,
 fresh, organic), so a defined grade and buyer would decide where in the band a unit sells.
 
 ### Demoted sensitivity: the INR 600-1,000/kg study band
 
 At the old band every design clears in every state, with about INR 8,900-23,300/m2/yr
-(about EUR 81-213). That band rests on one study's sale price and is now kept only to
+(about EUR 81-214). That band rests on one study's sale price and is now kept only to
 show how much the India result depends on price.
 
 ## Findings
@@ -101,14 +101,14 @@ show how much the India result depends on price.
 2. **Scale and simple raceways cut labour per m2 about sevenfold** (UVI 14.6 h/m2/yr at
    214 m2 versus Hawaii 2.0 h/m2/yr at about 1,142 m2). Processing and packing was 44%
    of the Hawaii hours, so harvest and pack flow is the design target.
-3. **Owner-operated in the Netherlands leaves EUR 111-206/m2/yr** for heating, CAPEX and
+3. **Owner-operated in the Netherlands leaves EUR 111-207/m2/yr** for heating, CAPEX and
    owner pay. In the low case (UVI labour intensity) that is about EUR 7.6 per owner hour
    before heating and CAPEX; in the mid case about EUR 19.
 4. **Wholesale lettuce in the Low Countries does not work** at auction prices
    (EUR 0.19-0.72 per head) even at Hawaii labour efficiency. Basil earns about 4 to 11
    times more revenue per m2.
 5. **India at the Bangalore price barely covers labour and electricity.** Owner-run
-   basil leaves about EUR 2-37/m2/yr (INR 179-4,070), less than the Dutch owner-run case,
+   basil leaves about EUR 2-37/m2/yr (INR 179-4,092), less than the Dutch owner-run case,
    and hired staff at UVI or Purdue labour intensity lose money in the low case. In the
    low case the owner earns about INR 5-50 per hour before CAPEX. India's cheap labour
    does not offset a basil price about 4 to 15 times lower than the Dutch EUR 7-9/kg at
@@ -132,7 +132,7 @@ show how much the India result depends on price.
 | Basil wholesale price | Linear driver of revenue | NL: 2020 price lists (low); India: Bangalore INR 65-180/kg, Ajit plus listings (medium) |
 | Heating demand in NL | Could eat the headroom | Only a sector average, 0.99 GJ/m2 (not crop-specific) |
 | CAPEX per m2 | Must fit the headroom | USD references only (about USD 190-1,110/m2) |
-| Real yield | Scales revenue per m2 | UVI canon 23.4 kg/m2/yr; simulator 25.9 kg/m2/yr at the UVI feed ratio; under-fed units far lower |
+| Real yield | Scales revenue per m2 | UVI canon 23.4 kg/m2/yr; simulator 26.0 kg/m2/yr at the UVI feed ratio; under-fed units far lower |
 
 ## Source reliability
 
