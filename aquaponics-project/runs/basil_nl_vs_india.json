@@ -1,0 +1,36 @@
+{
+  "label": "Basil raft crop cycle (28 days) plus unit economics, Netherlands vs India",
+  "_how_to_edit": "Change values under 'overrides'. Each key is a dotted path into the base file; each value replaces what is there. Keys starting with _ are comments and are ignored. Every value you add is your own assumption: note where it came from.",
+
+  "farm_area_m2": null,
+  "_farm_area_m2": "Set a number (for example the grow area you are thinking of) to also see headroom for the whole farm. null = per m2 only.",
+
+  "simulation": {
+    "scenario": "data/simulation/scenarios/basil_raft_crop_cycle.json",
+    "days": 28,
+    "overrides": {
+      "_examples": {
+        "feeding.feed_rate_percent_body_weight_per_day": "fish feed per day as % of fish weight",
+        "fish_batch.count": "number of fish",
+        "plant_crop.plant_count": "number of basil plants",
+        "water_state.water_temperature_c": "water temperature"
+      }
+    }
+  },
+
+  "unit_economics": {
+    "inputs": "data/scenarios/unit_configuration_candidates_v0.json",
+    "configs": [],
+    "locations": ["netherlands", "india"],
+    "_configs": "Empty list = all configurations in the inputs file. Or list ids, e.g. [\"E_owner_operated_dwc_basil\"].",
+    "overrides": {
+      "_examples": {
+        "locations.netherlands.wage_per_hour": "{\"low\": ..., \"high\": ...} wage per hour in that location's currency",
+        "locations.india.electricity_per_kwh": "{\"low\": ..., \"high\": ...} power price per kWh",
+        "locations.india.basil_wholesale_price_per_kg": "{\"low\": ..., \"high\": ...} selling price per kg",
+        "configurations.C_representative_farm_basil_purdue_labour.labour_h_per_unit": "{\"low\": ..., \"high\": ...} labour hours per kg",
+        "configurations.E_owner_operated_dwc_basil.yield_units_per_m2_yr": "{\"low\": ..., \"high\": ...} kg per m2 per year"
+      }
+    }
+  }
+}
