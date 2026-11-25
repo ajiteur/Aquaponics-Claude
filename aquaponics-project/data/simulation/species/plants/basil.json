@@ -47,7 +47,7 @@
         "No evidence above pH 7.6, so the score drops to zero there. This is an evidence boundary, not an observed failure.",
         "High-pH Fe deficiency risk above 6.5 (hydroponic note) is assumed managed by supplementation, as at UVI; supplementation is not modelled."
       ],
-      "status": "candidate_pending_user_review",
+      "status": "accepted_edges_assumption_band",
       "added_utc": "2026-11-25",
       "evidence_policy": "Trusted Source Map and Source Trust Policy for Aquaponics Layer 1: source levels E5-E0, confidence high/medium/low rule",
       "evidence_assessment": {
@@ -72,8 +72,15 @@
         "preferred_band_6.2_to_6.9": {
           "directness": "inferred",
           "confidence": "low",
-          "confidence_reason": "Agent inference between two evidenced bands; not observed. Needs Ajit's review."
+          "confidence_reason": "Agent inference between two evidenced bands; not observed. Needs Ajit's review.",
+          "status": "assumption_not_approved_as_evidence"
         }
+      },
+      "approval": {
+        "approved_by": "Ajit",
+        "approved_date_local": "2026-11-25",
+        "scope": "coupled-aquaponics basil pH scoring: evidenced edges (preferred 5.8, tolerated 5.5, upper 7.6) accepted; the 6.2 to 6.9 preferred band stays a low-confidence assumption",
+        "record": "Approval Batch 001, approved as recommended (thread message 2026-11-25 23:56 Europe/Amsterdam)"
       }
     },
     "preferred_temp_c": {
@@ -362,7 +369,7 @@
   ],
   "runtime_sync": {
     "scope": "species",
-    "generated_at_utc": "2026-11-25T00:06:40Z",
+    "generated_at_utc": "2026-11-25T22:58:05Z",
     "canonical_source": "data/knowledge/species/plants/basil.json",
     "runtime_target": "data/simulation/species/plants/basil.json",
     "ownership": "data/knowledge is canonical; data/simulation is a derived runtime mirror."
