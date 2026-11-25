@@ -1,0 +1,335 @@
+{
+  "description": "Candidate atomic facts read for the component library and configurator on 2026-11-25 (system design, build cost, lifetimes). Pending Ajit's review. Reliability fields follow AGENTS.md 6A.",
+  "facts": [
+    {
+      "fact_id": "CD_0001",
+      "statement": "The UVI commercial aquaponic system produced about 5 t of tilapia a year from four 7.8 m3 rearing tanks, about 160 kg of fish per m3 of rearing tank per year.",
+      "domain": "system_design",
+      "type": "parameter",
+      "confidence": "medium",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "system": "UVI commercial-scale coupled DWC raft, 214 m2 grow area, 4 rearing tanks",
+        "location": "St. Croix, US Virgin Islands, tropical",
+        "species": "tilapia with lettuce or basil"
+      },
+      "source_metadata": {
+        "source_id": "uvi_aquaponic_system_design",
+        "section_id": "system_summary",
+        "source_type": "institutional_report",
+        "source_tier": "tier_1"
+      },
+      "review_metadata": {
+        "reviewed_from": "archive.uvi.edu/files/documents/Research_and_Public_Service/WRRI/UVIAquaponicSystem.pdf",
+        "read_date_local": "2026-11-25",
+        "source_gate": "trusted",
+        "source_gate_reason": "university_research_station_design_summary",
+        "confidence_reason": "Direct figures, arithmetic checks (5,000 / 31.2 = 160); one site, tropical water.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "ista9_rakocy_commercial_scale_aquaponic_system"
+          ]
+        },
+        "cross_check_note": "Both UVI design documents give the same numbers."
+      },
+      "added_date_local": "2026-11-25"
+    },
+    {
+      "fact_id": "CD_0002",
+      "statement": "The UVI aquaponic system adds make-up water daily at about 1.5% of its 110 m3 system volume.",
+      "domain": "operations",
+      "type": "parameter",
+      "confidence": "medium",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "system": "UVI commercial-scale coupled DWC raft, 214 m2 grow area, 4 rearing tanks",
+        "location": "St. Croix, US Virgin Islands, tropical",
+        "species": "tilapia with lettuce or basil"
+      },
+      "source_metadata": {
+        "source_id": "uvi_aquaponic_system_design",
+        "section_id": "system_summary",
+        "source_type": "institutional_report",
+        "source_tier": "tier_1"
+      },
+      "review_metadata": {
+        "reviewed_from": "archive.uvi.edu/files/documents/Research_and_Public_Service/WRRI/UVIAquaponicSystem.pdf",
+        "read_date_local": "2026-11-25",
+        "source_gate": "trusted",
+        "source_gate_reason": "university_research_station_design_summary",
+        "confidence_reason": "Direct figure; tropical evaporation, so a greenhouse elsewhere may differ.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "srac_454"
+          ]
+        },
+        "cross_check_note": "SRAC 454 says closed aquaponic systems replace under 2% of volume a day."
+      },
+      "added_date_local": "2026-11-25"
+    },
+    {
+      "fact_id": "CD_0003",
+      "statement": "The UVI aquaponic system used one 0.37 kW water pump, a 1.12 kW blower for fish and degassing and a 0.75 kW blower for the hydroponic tanks, 2.24 kW in total for 214 m2 of plant area.",
+      "domain": "system_design",
+      "type": "parameter",
+      "confidence": "medium",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "system": "UVI commercial-scale coupled DWC raft, 214 m2 grow area, 4 rearing tanks",
+        "location": "St. Croix, US Virgin Islands, tropical",
+        "species": "tilapia with lettuce or basil"
+      },
+      "source_metadata": {
+        "source_id": "uvi_aquaponic_system_design",
+        "section_id": "system_summary",
+        "source_type": "institutional_report",
+        "source_tier": "tier_1"
+      },
+      "review_metadata": {
+        "reviewed_from": "archive.uvi.edu/files/documents/Research_and_Public_Service/WRRI/UVIAquaponicSystem.pdf",
+        "read_date_local": "2026-11-25",
+        "source_gate": "trusted",
+        "source_gate_reason": "university_research_station_design_summary",
+        "confidence_reason": "Rated power, not metered use; metered use (Heidemann and Bailey) was 23,360 kWh/yr, about 2.7 kW average.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "heidemann_bailey_2015_uvi_economics"
+          ]
+        }
+      },
+      "added_date_local": "2026-11-25"
+    },
+    {
+      "fact_id": "CD_0004",
+      "statement": "The UVI aquaponic system occupies about 0.05 ha (500 m2) of land for 214 m2 of plant growing area, about 2.3 m2 of land per m2 of grow area.",
+      "domain": "system_design",
+      "type": "parameter",
+      "confidence": "low",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "system": "UVI commercial-scale coupled DWC raft, 214 m2 grow area, 4 rearing tanks",
+        "location": "St. Croix, US Virgin Islands, tropical",
+        "species": "tilapia with lettuce or basil"
+      },
+      "source_metadata": {
+        "source_id": "uvi_aquaponic_system_design",
+        "section_id": "system_summary",
+        "source_type": "institutional_report",
+        "source_tier": "tier_1"
+      },
+      "review_metadata": {
+        "reviewed_from": "archive.uvi.edu/files/documents/Research_and_Public_Service/WRRI/UVIAquaponicSystem.pdf",
+        "read_date_local": "2026-11-25",
+        "source_gate": "conditional",
+        "source_gate_reason": "land_area_may_include_space_beyond_the_system",
+        "confidence_reason": "One site; the land figure is rounded and its boundary is not described.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": []
+        }
+      },
+      "added_date_local": "2026-11-25"
+    },
+    {
+      "fact_id": "CD_0005",
+      "statement": "In the UVI economic study, tanks were depreciated over 20 years, liner, rafts, hydroponic tank walls, blowers, PVC and other parts over 10 years, and the circulating pump over 5 years (2014 prices, total build about USD 40,500).",
+      "domain": "business",
+      "type": "parameter",
+      "confidence": "medium",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "system": "UVI commercial aquaponics system, owner-built",
+        "location": "St. Croix",
+        "year_basis": "prices as of 2014, USD"
+      },
+      "source_metadata": {
+        "source_id": "heidemann_bailey_2015_uvi_economics",
+        "section_id": "table_7_construction_materials",
+        "source_type": "institutional_report",
+        "source_tier": "tier_1"
+      },
+      "review_metadata": {
+        "reviewed_from": "sare.org/wp-content/uploads/Economic-Analysis-of-UVI-Commercial-Aquaponics-System.pdf",
+        "read_date_local": "2026-11-25",
+        "source_gate": "trusted",
+        "source_gate_reason": "university_extension_case_study",
+        "confidence_reason": "Itemised table, but a draft and depreciation lives are accounting choices, not durability tests.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": []
+        }
+      },
+      "added_date_local": "2026-11-25"
+    },
+    {
+      "fact_id": "CD_0006",
+      "statement": "In the UVI build, PVC parts, other parts and equipment were about USD 10,900 of USD 40,500, about 37% on top of the tanks, pumps, blowers, liner and rafts.",
+      "domain": "business",
+      "type": "finding",
+      "confidence": "low",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "system": "UVI commercial aquaponics system, owner-built",
+        "year_basis": "2014 USD"
+      },
+      "source_metadata": {
+        "source_id": "heidemann_bailey_2015_uvi_economics",
+        "section_id": "table_7_construction_materials",
+        "source_type": "institutional_report",
+        "source_tier": "tier_1"
+      },
+      "review_metadata": {
+        "reviewed_from": "sare.org/wp-content/uploads/Economic-Analysis-of-UVI-Commercial-Aquaponics-System.pdf",
+        "read_date_local": "2026-11-25",
+        "source_gate": "conditional",
+        "source_gate_reason": "derived_share_from_one_system",
+        "confidence_reason": "Derived share; 'other parts' is not itemised.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": []
+        }
+      },
+      "added_date_local": "2026-11-25"
+    },
+    {
+      "fact_id": "CD_0007",
+      "statement": "Dutch Venlo glasshouse investment for structure, glass, screens and fans was about EUR 50 to 63 per m2 in 2017 builder quotes, with a 16-year structure life; heating installation not included.",
+      "domain": "business",
+      "type": "parameter",
+      "confidence": "low",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "system": "commercial Venlo glasshouse (hectare scale)",
+        "location": "Netherlands",
+        "year_basis": "2017 quotes (AAB Nederland)"
+      },
+      "source_metadata": {
+        "source_id": "wecr_2017_070_greenhouse_quickscan",
+        "section_id": "bijlage_1_3_tabel_3",
+        "source_type": "research_note",
+        "source_tier": "tier_2"
+      },
+      "review_metadata": {
+        "reviewed_from": "kasalsenergiebron.nl (WEcR nota 2017-070)",
+        "read_date_local": "2026-11-25",
+        "source_gate": "conditional",
+        "source_gate_reason": "research_note_using_builder_quotes",
+        "confidence_reason": "2017 prices for large greenhouses; a small farm greenhouse costs more per m2. KWIN 2026 (paid) has current figures.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": []
+        }
+      },
+      "added_date_local": "2026-11-25"
+    },
+    {
+      "fact_id": "CD_0008",
+      "statement": "An unlit Dutch sweet-pepper greenhouse used about 21 to 30 m3 of natural gas per m2 per year for heating (2015 Energiemonitor data and 2018 modern-greenhouse estimates).",
+      "domain": "operations",
+      "type": "parameter",
+      "confidence": "low",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "crop": "sweet pepper, unlit",
+        "location": "Netherlands"
+      },
+      "source_metadata": {
+        "source_id": "wecr_2017_070_greenhouse_quickscan",
+        "section_id": "verwarming",
+        "source_type": "research_note",
+        "source_tier": "tier_2"
+      },
+      "review_metadata": {
+        "reviewed_from": "kasalsenergiebron.nl (WEcR nota 2017-070)",
+        "read_date_local": "2026-11-25",
+        "source_gate": "conditional",
+        "source_gate_reason": "modelled_values_for_another_crop",
+        "confidence_reason": "Not basil: used in the configurator only as a transferred heating range.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": []
+        }
+      },
+      "added_date_local": "2026-11-25"
+    },
+    {
+      "fact_id": "CD_0009",
+      "statement": "India's NFDB GIFT tilapia RAS model costs one 90 m3 tank at Rs 1.5 lakh and its pumps, filters, aerators, pipes and valves at Rs 4.5 lakh, with fingerlings at Rs 4 each and floating feed at Rs 30/kg.",
+      "domain": "business",
+      "type": "parameter",
+      "confidence": "low",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "system": "RAS, one 90 m3 tank, GIFT tilapia",
+        "location": "India",
+        "year_basis": "undated (file name suggests 2017)"
+      },
+      "source_metadata": {
+        "source_id": "nfdb_ras_recent_trends",
+        "section_id": "gift_tilapia_ras_model",
+        "source_type": "government_scheme_document",
+        "source_tier": "tier_1"
+      },
+      "review_metadata": {
+        "reviewed_from": "nfdb.gov.in/PDF/RAS RT.pdf",
+        "read_date_local": "2026-11-25",
+        "source_gate": "conditional",
+        "source_gate_reason": "official_but_undated_with_arithmetic_errors",
+        "confidence_reason": "The model's own numbers disagree (6,000 vs 4,500 fingerlings; feed total vs cost); 2026 listings price feed at Rs 45-47/kg.",
+        "corroboration": {
+          "status": "conflicting",
+          "source_ids": [
+            "retail_in_indiamart"
+          ]
+        }
+      },
+      "added_date_local": "2026-11-25"
+    },
+    {
+      "fact_id": "CD_0010",
+      "statement": "Indian government horticulture cost norms put a naturally ventilated tubular polyhouse at Rs 935 per m2 (MIDH HMNEH 2018-19) and, earlier, Rs 400 to 650 per m2 excluding micro-irrigation (NHB, 2008).",
+      "domain": "business",
+      "type": "parameter",
+      "confidence": "low",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "system": "naturally ventilated polyhouse",
+        "location": "India (HMNEH norm is for North-East and Himalayan states)",
+        "year_basis": "2008 and 2018-19"
+      },
+      "source_metadata": {
+        "source_id": "midh_hmneh_cost_norms_2018_19",
+        "section_id": "c_1_i",
+        "source_type": "government_scheme_document",
+        "source_tier": "tier_1"
+      },
+      "review_metadata": {
+        "reviewed_from": "dirhorti.assam.gov.in (COST NORMS HMNEH 2018-19); nhb.gov.in/documents/cost-norms.pdf",
+        "read_date_local": "2026-11-25",
+        "source_gate": "conditional",
+        "source_gate_reason": "official_norms_but_old_and_regional",
+        "confidence_reason": "Norms are subsidy ceilings, not quotes; the plains norm for 2026 was not read.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "nhb_cost_norms_2008"
+          ]
+        }
+      },
+      "added_date_local": "2026-11-25"
+    }
+  ]
+}

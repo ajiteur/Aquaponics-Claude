@@ -2,6 +2,26 @@
 
 What the simulation shows, newest first. These are **scenario estimates, not validated**: they describe the model, not the real world, and they are never truths.
 
+## 2026-11-25: Cost of production per kg from the component configurator
+
+Run: `scripts/configure_system.py` (or `run.bat configure_basil_dwc_nl` / `configure_basil_dwc_karnataka`) on the candidate catalog in `data/catalog/`. Scenario estimate, not validated. Tilapia + basil DWC raft, 100 m² grow area, sized from UVI rules (80 g feed per m² per day, 160 kg fish per m³ tank per year). Counts build cost spread over each part's life, electricity, feed, fingerlings, seeds, water, heating and labour. Logistics, packaging, land and financing are not included. Fish are a co-product and are not credited.
+
+| Build | Labour | € or ₹ per kg basil (low / mid / high cost) | per kg of basil + fish |
+|---|---|---|---|
+| Netherlands, glasshouse, heated | owner, not costed (830 h/yr needed) | €8.3 / 10.0 / 12.2 | €4.7 / 5.8 / 7.2 |
+| Netherlands | hired, lean (Hawaii) | €9.6 / 11.5 / 13.9 | €5.4 / 6.6 / 8.2 |
+| Netherlands | hired, UVI intensity | €17.6 / 20.6 / 24.0 | €9.9 / 11.9 / 14.2 |
+| Karnataka, polyhouse | owner, not costed | ₹89 / 108 / 128 | ₹50 / 62 / 75 |
+| Karnataka | hired, UVI intensity | ₹134 / 154 / 176 | ₹75 / 89 / 104 |
+
+- **Feed is the biggest line** (about 40% in NL, 52% in Karnataka) because fish feed is charged to basil and the fish aren't credited. Crediting fish sales is the next lever.
+- **NL heating is the second line** (about 34%), from a transferred sweet-pepper gas range, so it is the least reliable big number.
+- **Air pumps matter:** small piston air pumps (NL) cost 17% of the total in electricity; one oversized 1.5 kW blower (India) costs 27%. A right-sized regenerative blower is the obvious alternative to source.
+- **Build cost is small per kg** (under €0.70/kg in NL) once spread over 10-20 year lives, but several prices are still missing (trough walls, India pump, polyhouse life).
+- **Next to the candidate price bands (comparison only, not a margin):** the NL cost range sits above the €7-9/kg wholesale band even owner-run; the Karnataka range overlaps the ₹65-180/kg Bangalore band. Fish income and logistics are not in yet.
+- Simulator cross-check: the sized 100 m² system harvests about 2.0 kg/m² per cut at TAN about 2.3 mg/L, close to the catalog yield (1.9). The simulator runs at tropical water temperature in both regions.
+- Gaps: NL fingerling and seed prices, India pump price, water price and seed price, structure lifetime in India, labour by task.
+
 ## 2026-11-25: Unit design comparison rerun after PR #11
 
 Rerun of `scripts/compare_unit_configurations.py` after the nitrate-uptake fix (PR #11). Scenario estimate, not validated. The simulated UVI-ratio basil yield is now 2.00 kg/m² per harvest, so the top of the basil yield range is 26.0 kg/m² per year (was 25.9). The starter fixture now simulates 1.91 kg/m² per harvest (was 0.77).

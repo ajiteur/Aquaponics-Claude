@@ -1,0 +1,2510 @@
+{
+  "metadata": {
+    "catalog_id": "components_v0",
+    "status": "candidate",
+    "approval_status": "pending_ajit_approval",
+    "canon_status": "non_canonical. Prices are candidate manual inputs; nothing here is canon until Ajit approves it, and approved values go to data/knowledge/business/** in a separate canon pass.",
+    "created": "2026-11-25",
+    "schema": "schemas/component_catalog.schema.json",
+    "regions": [
+      "netherlands",
+      "india",
+      "any"
+    ],
+    "range_convention": "Numbers are {low, high} source ranges. A null price or lifetime means missing: the configurator lists it as a gap and leaves it out of totals.",
+    "vat_note": "Price bases differ (incl. VAT, excl. VAT, not stated) and are recorded per item. No VAT is added or removed.",
+    "currency_note": "Each region uses its own currency (EUR, INR). No exchange rate is applied inside a build.",
+    "how_to_add_a_component": "knowledge-vault/Project/How to Add Components.md",
+    "reliability_fields": "AGENTS.md 6A: source_tier, source_gate + reason, confidence + reason, corroboration {status, source_ids}."
+  },
+  "sources": {
+    "uvi_aquaponic_system_design": {
+      "citation": "Rakocy, Bailey, Shultz, Danaher, Design and Operation of the UVI Aquaponic System (UVI); A Commercial-Scale Aquaponic System (ISTA9)",
+      "url": "https://archive.uvi.edu/files/documents/Research_and_Public_Service/WRRI/UVIAquaponicSystem.pdf",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_1"
+    },
+    "heidemann_bailey_2015_uvi_economics": {
+      "citation": "Heidemann and Bailey 2015, Economic Analysis of the UVI Commercial Aquaponics System (SARE case study, draft), Table 7 construction materials with years of life, prices as of 2014",
+      "url": "https://sare.org/wp-content/uploads/Economic-Analysis-of-UVI-Commercial-Aquaponics-System.pdf",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_1",
+      "note": "Same source as data/scenarios/unit_configuration_candidates_v0.json. USD 2014, St. Croix, owner-built."
+    },
+    "srac_453_454": {
+      "citation": "SRAC 453 (Recirculating aquaculture tank production systems: a review of component options) and SRAC 454 (Aquaponics), via repo research packs: Aeration Capacity and Solids Load Translation Research Pack; Tank Volume, Exchange and TAN-to-NH3 Risk Research Pack; Distilled Research Pack",
+      "source_tier": "tier_1",
+      "note": "Read through the repo research packs, not at the primary PDF in this pass."
+    },
+    "repo_capex_basis_pack": {
+      "citation": "data/sources/research_reports/markdown/UVI-like module boundary and raft-area interpretation implied by feed_kg_day = 1.0.md and Architecture-Specific CAPEX Basis pack (raft beds 4-8 ft wide; media beds ~0.3-0.35 m deep)",
+      "source_tier": "tier_2"
+    },
+    "canon_biofilter_loading": {
+      "citation": "data/knowledge/models/nitrification_models.json#biofilter_feed_loading_capacities (MBBR 8-16 kg feed/m3 media/day; Distilled Research Pack, SRAC 453)",
+      "source_tier": "tier_1"
+    },
+    "wecr_2017_070_greenhouse_quickscan": {
+      "citation": "Buurma, Smit, van der Velden 2017, Vervangen van kassen. Quickscan van kosten en baten van diffuus glas, innovatieve kasdekken en klimaatverbetering. Wageningen Economic Research nota 2017-070 (Kas als Energiebron). Investment from AAB Nederland builder quotes 2017; gas use from Energiemonitor 2015 data.",
+      "url": "https://www.kasalsenergiebron.nl/content/onderzoeken/2018/2017-070_Vervangen_van_kassen._Quickscan_van_kosten_en_baten_van_diffuus_glas__innovatieve_kasdekken_en_klimaatverbetering.pdf",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_2"
+    },
+    "cbs_85666eng_gas": {
+      "citation": "CBS StatLine 85666ENG, non-household gas, smallest band, incl. VAT and tax (already in project file farm_viability_inputs_v0.json)",
+      "source_tier": "tier_1"
+    },
+    "nhb_cost_norms_2008": {
+      "citation": "National Horticulture Board, Revised approved cost norms (term loans from 01.04.2008): polyhouse Rs 400 (low cost) to 650 (high cost) per m2 excl. micro-irrigation; shade house Rs 200 per m2 excl. micro-irrigation",
+      "url": "https://www.nhb.gov.in/documents/cost-norms.pdf",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_1"
+    },
+    "midh_hmneh_cost_norms_2018_19": {
+      "citation": "MIDH cost norms for HMNEH sub-schemes 2018-19 (Assam Directorate of Horticulture copy): naturally ventilated tubular polyhouse Rs 935/m2 (>500 to 1,008 m2); bamboo shade net Rs 414/m2",
+      "url": "https://dirhorti.assam.gov.in/sites/default/files/swf_utility_folder/departments/horticulture_medhassu_in_oid_5/menu/document/COST%20NORMS%20HMNEH%2C%202018-19.pdf",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_1",
+      "note": "North-East and Himalayan norm; plains norm not read. A 2026 blog claims Rs 1,000/m2 without a source."
+    },
+    "nfdb_ras_recent_trends": {
+      "citation": "National Fisheries Development Board, Recent Trends in Aquaculture: Recirculatory Aquaculture System (RAS); GIFT tilapia model and PMMSY unit costs",
+      "url": "https://nfdb.gov.in/PDF/RAS%20RT.pdf",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_1",
+      "note": "Undated official scheme model. Internal inconsistencies (fingerling count, feed total vs cost)."
+    },
+    "retail_nl_toppy": {
+      "citation": "toppy.nl product pages (Aquaforte DM-E 10000, DM-10000 pond pumps; EPDM 1 mm 8x6 m liner), prices incl. BTW",
+      "url": "https://www.toppy.nl/product/21537/aquaforte-dm-e-10000-vijverpomp.html",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_3"
+    },
+    "retail_nl_binqer_ibc": {
+      "citation": "binqer.nl IBC 1000 L listings: used B-grade steel base EUR 90.75 incl. VAT; new EUR 195-205 excl. VAT",
+      "url": "https://www.binqer.nl/ibc-container-1000-liter-stalen-onderstel-gebruikt-b-keus",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_3"
+    },
+    "retail_ie_hailea_aco500": {
+      "citation": "aquatic-dublin.ie, Hailea ACO 500 air pump EUR 186.00 (VAT basis not stated), 275 L/min, 175 W",
+      "url": "https://aquatic-dublin.ie/Hailea-ACO-500-16500L-H-Air-Pump-For-Pond",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_3"
+    },
+    "retail_nl_gamma_eps_xps": {
+      "citation": "Gamma NL EPS 40 mm board EUR 5.10/m2; Gamma BE Jackodur XPS 30 mm EUR 9.69/m2 (VAT basis not stated)",
+      "url": "https://www.gamma.nl/assortiment/polystyreen-isolatieplaat-eps-100x50x4cm-6st-3m2/p/B287677",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_3"
+    },
+    "retail_nl_coppens_feed": {
+      "citation": "vergelijk.nl Coppens listings: Steurvoer Premium Select 25 kg from EUR 73.02; Koivoer Grower 15 kg from EUR 54.99",
+      "url": "https://www.vergelijk.nl/vis_voer/coppens/",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_3"
+    },
+    "vitens_tarieven_2026": {
+      "citation": "Vitens Tarieven 2026 Consument: drinking water EUR 1.34/m3 incl. 9% BTW; Belasting op Leidingwater EUR 0.477/m3; fixed EUR 56.68/yr",
+      "url": "https://www.vitens.nl/-/media/Project/Vitens/VitensNl/Tarieven/Documenten-tarieven-2026/050004-31_Vitens-Tarieven-2026-Consument.pdf",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_1"
+    },
+    "retail_in_indiamart": {
+      "citation": "IndiaMART listings read 2026-11-25: ARK Aquatech PVC 5,000 L biofloc tank Rs 4,100 (Guntur); Vaishnav Composites FRP 750 L tank Rs 18,500 (Hyderabad); Aquatech Solution HDPE pond liner Rs 130/m2 (Baleshwar); Sam Acquaculture blower 1.5 kW 500 CFM Rs 8,000 (Karnal); Greenz NFT channel 100x50 mm 20 ft Rs 145 (Pune); MBBR media Rs 7,200 and 11,000 per m3; EPS thermocol Rs 260/kg (50 mm) and Rs 105/piece (40 mm, 10 kg/m3); floating feed Rs 45-47/kg (30-32% protein)",
+      "url": "https://m.indiamart.com/impcat/floating-fish-feed.html",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_3",
+      "note": "Asking prices from B2B listings; specs are seller-entered and sometimes implausible."
+    },
+    "unit_config_locations": {
+      "citation": "data/scenarios/unit_configuration_candidates_v0.json locations block (wages, electricity) and labour sources (Heidemann and Bailey 2015; Tokunaga 2015; Quagrainie, Purdue)",
+      "source_tier": "tier_1"
+    },
+    "equipment_inventory_2026_11_25": {
+      "citation": "Aquaponics equipment inventory (deep research, 2026-11-25), project files equipment-inventory/; candidate, not canon",
+      "url": "",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_3",
+      "note": "Cross-check pointer only; cite the primary sources below for values."
+    },
+    "kvafsu_fric_hebbal_2020": {
+      "citation": "KVAFSU Fisheries Research and Information Centre (Inland), Hebbal, Bengaluru. Rate list, office order FRIC(I)/Hebbal/112/2019-20, 2020-01-06",
+      "url": "https://www.kvafsu.edu.in/services_and_inputs/FRIC-Hebbal-Benagaluru-1.pdf",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_1"
+    },
+    "dunea_tarieven_2026": {
+      "citation": "Dunea. Tarievenregeling 2026",
+      "url": "https://www.dunea.nl/-/media/bestanden/over-dunea/tarievenregeling/dunea-tarievenregeling-2026.pdf",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_1"
+    },
+    "usda_nifa_1012572_rafts": {
+      "citation": "USDA NIFA CRIS project 1012572, Hawaii Fish Company: Innovative Manufactured Aquaponic Raft for Commercial Farms (2017-2020)",
+      "url": "https://portal.nifa.usda.gov/web/crisprojectpages/1012572-innovative-manufactured-aquaponic-raft-for-commercial-farms.html",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_2"
+    },
+    "nhb_cost_norms_xii_plan": {
+      "citation": "National Horticulture Board (India). Cost Norms, Appendix-1 (XII Plan); plains vs hilly-area rates",
+      "url": "https://nhb.gov.in/hindi/pdf/Cost%20Norms.pdf",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_1"
+    },
+    "fao_589_farmhub": {
+      "citation": "FAO Fisheries and Aquaculture Technical Paper 589 (Somerville et al. 2014), sections 4.2-4.5, read on the FarmHub reproduction",
+      "url": "https://learn.farmhub.ag/resources/small-scale-aquaponic-food-production/4-design-of-aquaponic-units/the-media-bed-technique/",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_1",
+      "note": "Mirror, not the FAO PDF; medium confidence until checked against the original."
+    },
+    "srac_5007": {
+      "citation": "Mullins, Nerrie & Sink (2015). SRAC 5007, Principles of Small-Scale Aquaponics",
+      "url": "https://srac.msstate.edu/pdfs/Fact%20Sheets/5007%20Principles%20of%20Small-Scale%20Aquaponics.pdf",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_1"
+    },
+    "forum_tractorbynet_ibc": {
+      "citation": "TractorByNet forum thread: '275 and larger IBC's - how long do they last?' (anecdote)",
+      "url": "https://tractorbynet.com/forums/goto/post?id=2710792",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_3"
+    },
+    "hiblow_maintenance_guide": {
+      "citation": "Hiblow HP-Series Maintenance Guide",
+      "url": "https://cdn.shopify.com/s/files/1/2394/4493/files/Hiblow_HP-Series_Maintenance_Guide_PDF.pdf",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_2"
+    },
+    "crompton_owe052": {
+      "citation": "Crompton OWE052(1PH)Z-21FS 0.5 HP openwell submersible pump, product page (MRP incl. all taxes)",
+      "url": "https://www.crompton.co.in/products/owe0521phz-21fs",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_3",
+      "note": "Specs tier_2 (maker), price tier_3."
+    },
+    "retail_nl_hornbach_liner": {
+      "citation": "Hornbach.nl pond liner (vijverfolie) category page",
+      "url": "https://www.hornbach.nl/c/tuin/vijvers/vijverfolies/S13832/",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_3"
+    }
+  },
+  "design_rules": {
+    "architectures": {
+      "values": [
+        "dwc_raft",
+        "nft",
+        "media_bed"
+      ]
+    },
+    "fish_tank_retention_h": {
+      "low": 1.37,
+      "high": 1.37,
+      "unit": "hours (tank volume / pump flow)",
+      "source_ids": [
+        "srac_453_454"
+      ],
+      "source_tier": "tier_1",
+      "source_gate": "trusted",
+      "source_gate_reason": "UVI CA2 rearing-tank retention time in the tank research pack.",
+      "confidence": "medium",
+      "confidence_reason": "Direct UVI value; one design.",
+      "corroboration": {
+        "status": "corroborated",
+        "source_ids": [
+          "srac_453_454",
+          "uvi_aquaponic_system_design"
+        ]
+      }
+    },
+    "clarifier_hrt_min": {
+      "low": 15.0,
+      "high": 30.0,
+      "unit": "minutes",
+      "source_ids": [
+        "srac_453_454"
+      ],
+      "source_tier": "tier_1",
+      "source_gate": "trusted",
+      "source_gate_reason": "SRAC 453 settling basin range (canon solids model).",
+      "confidence": "medium",
+      "confidence_reason": "General RAS range; UVI clarifiers about 20 min.",
+      "corroboration": {
+        "status": "corroborated",
+        "source_ids": [
+          "srac_453_454"
+        ]
+      }
+    },
+    "air_lpm_per_kg_feed_day": {
+      "low": 187.0,
+      "high": 249.0,
+      "unit": "L air per minute per kg feed per day",
+      "source_ids": [
+        "srac_453_454"
+      ],
+      "source_tier": "tier_1",
+      "source_gate": "trusted",
+      "source_gate_reason": "SRAC 453 rules of thumb: 3 cfm per lb daily feed (blown air, = 187 L/min per kg) and 249 L/min per kg (airlift).",
+      "confidence": "medium",
+      "confidence_reason": "Rule of thumb, not a DO model; not aeration adequacy.",
+      "corroboration": {
+        "status": "corroborated",
+        "source_ids": [
+          "srac_453_454"
+        ]
+      },
+      "favourable": "low"
+    },
+    "raft_air_share_of_fish_air": {
+      "low": 0.67,
+      "high": 0.67,
+      "unit": "ratio",
+      "derivation": "UVI hydroponic blower 0.75 kW / fish blower 1.12 kW",
+      "source_ids": [
+        "uvi_aquaponic_system_design"
+      ],
+      "source_tier": "tier_1",
+      "source_gate": "conditional",
+      "source_gate_reason": "Derived from blower power ratings; assumes equal blower efficiency.",
+      "confidence": "low",
+      "confidence_reason": "Power ratio used as an airflow ratio.",
+      "corroboration": {
+        "status": "conflicting",
+        "source_ids": [
+          "uvi_aquaponic_system_design",
+          "heidemann_bailey_2015_uvi_economics"
+        ]
+      },
+      "review_flags": [
+        {
+          "date": "2026-11-25",
+          "source_ids": [
+            "equipment_inventory_2026_11_25"
+          ],
+          "flag": "SRAC 454 and the UVI design paper list a 1 hp plant blower, but the UVI costing (Heidemann & Bailey) lists 2 hp. At 2 hp the ratio would be 1.33 (derived). Value not changed."
+        }
+      ]
+    },
+    "raft_water_depth_m": {
+      "low": 0.317,
+      "high": 0.317,
+      "unit": "m",
+      "derivation": "6 hydroponic tanks x 11.3 m3 / 214 m2",
+      "source_ids": [
+        "uvi_aquaponic_system_design"
+      ],
+      "source_tier": "tier_1",
+      "source_gate": "trusted",
+      "source_gate_reason": "Arithmetic on UVI design figures.",
+      "confidence": "medium",
+      "confidence_reason": "Direct UVI volumes and area.",
+      "corroboration": {
+        "status": "single_source",
+        "source_ids": [
+          "uvi_aquaponic_system_design"
+        ]
+      }
+    },
+    "raft_trough_width_m": {
+      "low": 1.22,
+      "high": 2.44,
+      "unit": "m (4 to 8 ft)",
+      "source_ids": [
+        "repo_capex_basis_pack"
+      ],
+      "source_tier": "tier_2",
+      "source_gate": "conditional",
+      "source_gate_reason": "Repo research pack summary of extension guides.",
+      "confidence": "medium",
+      "confidence_reason": "Common range; drives liner area only.",
+      "corroboration": {
+        "status": "single_source",
+        "source_ids": [
+          "repo_capex_basis_pack"
+        ]
+      },
+      "favourable": "high"
+    },
+    "media_bed_depth_m": {
+      "low": 0.3,
+      "high": 0.35,
+      "unit": "m",
+      "source_ids": [
+        "repo_capex_basis_pack"
+      ],
+      "source_tier": "tier_2",
+      "source_gate": "conditional",
+      "source_gate_reason": "Repo research pack summary.",
+      "confidence": "medium",
+      "confidence_reason": "Common small-system guidance.",
+      "corroboration": {
+        "status": "conflicting",
+        "source_ids": [
+          "repo_capex_basis_pack",
+          "fao_589_farmhub",
+          "srac_5007"
+        ]
+      },
+      "review_flags": [
+        {
+          "date": "2026-11-25",
+          "source_ids": [
+            "equipment_inventory_2026_11_25"
+          ],
+          "flag": "0.30-0.35 m sits at or above the primary sources: FAO 589 gives 15-30 cm (30 cm only for large fruiting crops), SRAC 5007 gives 6-12 in (15-30 cm). Re-check where 0.35 came from."
+        }
+      ]
+    },
+    "mbbr_loading_kg_feed_per_m3_day": {
+      "low": 8.0,
+      "high": 16.0,
+      "unit": "kg feed / m3 media / day",
+      "source_ids": [
+        "canon_biofilter_loading"
+      ],
+      "favourable": "high",
+      "source_tier": "tier_1",
+      "source_gate": "trusted",
+      "source_gate_reason": "Canon draft biofilter loading range.",
+      "confidence": "medium",
+      "confidence_reason": "Design range from SRAC 453 via the distilled pack.",
+      "corroboration": {
+        "status": "corroborated",
+        "source_ids": [
+          "canon_biofilter_loading"
+        ]
+      }
+    },
+    "separate_biofilter_needed_for": {
+      "values": [
+        "nft",
+        "media_bed"
+      ],
+      "note": "DWC rafts nitrify when solids are removed (canon raft_waste_treatment_capacity_feed_equivalent). Media beds are their own biofilter in simple systems, but are listed here because the configurator does not credit media nitrification yet; remove media_bed to credit it."
+    },
+    "feeding_rate_architecture_factor": {
+      "values": {
+        "dwc_raft": 1.0,
+        "nft": 0.25,
+        "media_bed": 0.25
+      },
+      "source_ids": [
+        "srac_453_454"
+      ],
+      "note": "SRAC 454 via the distilled pack: gravel and NFT systems should use about 25% of the raft feeding rate ratio.",
+      "source_tier": "tier_1",
+      "source_gate": "conditional",
+      "source_gate_reason": "Read through the distilled research pack.",
+      "confidence": "low",
+      "confidence_reason": "One sentence in one fact sheet; strongly changes fish output for NFT and media beds.",
+      "corroboration": {
+        "status": "single_source",
+        "source_ids": [
+          "srac_453_454"
+        ]
+      }
+    },
+    "makeup_water_fraction_per_day": {
+      "low": 0.015,
+      "high": 0.015,
+      "unit": "fraction of system volume per day",
+      "source_ids": [
+        "uvi_aquaponic_system_design"
+      ],
+      "source_tier": "tier_1",
+      "source_gate": "trusted",
+      "source_gate_reason": "UVI: add make-up water daily, about 1.5% of system volume.",
+      "confidence": "medium",
+      "confidence_reason": "Tropical site; evaporation differs in a Dutch greenhouse.",
+      "corroboration": {
+        "status": "corroborated",
+        "source_ids": [
+          "uvi_aquaponic_system_design",
+          "srac_453_454"
+        ]
+      },
+      "cross_check": "SRAC 454 says less than 2% per day in closed aquaponics."
+    },
+    "land_to_grow_area_ratio_uvi": {
+      "low": 2.34,
+      "high": 2.34,
+      "unit": "m2 land per m2 grow area",
+      "derivation": "0.05 ha (500 m2) land / 214 m2 grow area",
+      "source_ids": [
+        "uvi_aquaponic_system_design"
+      ],
+      "source_tier": "tier_1",
+      "source_gate": "conditional",
+      "source_gate_reason": "Arithmetic on UVI figures; land area may include space beyond the system itself.",
+      "confidence": "low",
+      "confidence_reason": "One site; used as a planning area, not a minimum.",
+      "corroboration": {
+        "status": "single_source",
+        "source_ids": [
+          "uvi_aquaponic_system_design"
+        ]
+      }
+    },
+    "plumbing_misc_fraction_of_hardware_capex": {
+      "low": 0.369,
+      "high": 0.369,
+      "unit": "fraction of priced hardware",
+      "derivation": "UVI Table 7: (PVC parts 1,327.20 + other parts 7,577.80 + equipment 2,019.00) / (all other items 29,596.09) = 0.369",
+      "source_ids": [
+        "heidemann_bailey_2015_uvi_economics"
+      ],
+      "source_tier": "tier_1",
+      "source_gate": "conditional",
+      "source_gate_reason": "Derived share from one owner-built system.",
+      "confidence": "low",
+      "confidence_reason": "Applies UVI's mix of parts to a different build.",
+      "corroboration": {
+        "status": "single_source",
+        "source_ids": [
+          "heidemann_bailey_2015_uvi_economics"
+        ]
+      }
+    },
+    "plumbing_misc_lifetime_years": {
+      "low": 10,
+      "high": 10,
+      "unit": "years",
+      "source_ids": [
+        "heidemann_bailey_2015_uvi_economics"
+      ],
+      "source_tier": "tier_1",
+      "source_gate": "conditional",
+      "source_gate_reason": "UVI life for PVC, other parts and equipment.",
+      "confidence": "low",
+      "confidence_reason": "Depreciation life of one system.",
+      "corroboration": {
+        "status": "single_source",
+        "source_ids": [
+          "heidemann_bailey_2015_uvi_economics"
+        ]
+      }
+    }
+  },
+  "components": [
+    {
+      "component_id": "fish_tank_ibc_1000l_used_nl",
+      "name": "Used IBC 1,000 L tote (B-grade, steel cage)",
+      "category": "fish_tank",
+      "function": "Holds fish; volume sized from fish production per m3.",
+      "region": "netherlands",
+      "currency_code": "EUR",
+      "status": "candidate",
+      "approval_status": "pending_ajit_approval",
+      "sizing": {
+        "driver": "fish_tank_volume_m3",
+        "mode": "discrete",
+        "capacity_per_unit": 1.0,
+        "unit_label": "totes"
+      },
+      "capex_per_unit": {
+        "low": 90.75,
+        "high": 90.75,
+        "price_basis": "incl. 21% VAT, listing price",
+        "source_ids": [
+          "retail_nl_binqer_ibc"
+        ]
+      },
+      "lifetime_years": {
+        "low": 10,
+        "high": 20,
+        "unit": "years",
+        "source_ids": [
+          "heidemann_bailey_2015_uvi_economics"
+        ],
+        "source_tier": "tier_1",
+        "source_gate": "conditional",
+        "source_gate_reason": "Transferred from UVI Table 7 life classes (tanks 20 yr, liner/walls/rafts 10 yr) to a different tank type.",
+        "confidence": "low",
+        "confidence_reason": "No life figure for this product; UVI life classes used as a range.",
+        "corroboration": {
+          "status": "conflicting",
+          "source_ids": [
+            "heidemann_bailey_2015_uvi_economics",
+            "forum_tractorbynet_ibc"
+          ]
+        }
+      },
+      "energy": null,
+      "labour_effect": "More units to check and clean than one large tank.",
+      "trade_offs": [
+        "Cheapest tank; small (1 m3), so many units and much plumbing for larger systems.",
+        "Used food-grade history must be checked; translucent walls grow algae unless covered."
+      ],
+      "occupies_floor": true,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_3",
+        "source_gate": "conditional",
+        "source_gate_reason": "Retail listing (Tier 3): one seller, one date.",
+        "confidence": "low",
+        "confidence_reason": "Single listing; B-grade used stock varies.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "retail_nl_binqer_ibc"
+          ]
+        }
+      },
+      "role": "fish_tank",
+      "notes": [
+        "Usable volume assumed equal to nominal 1.0 m3; footprint not recorded."
+      ],
+      "review_flags": [
+        {
+          "date": "2026-11-25",
+          "source_ids": [
+            "equipment_inventory_2026_11_25"
+          ],
+          "flag": "Lifetime 10-20 yr is transferred from UVI rearing tanks. Forum anecdotes (tier_3) report about 5 yr in direct sun vs about 8 yr outdoors for IBCs; UV exposure shortens life. Keep the UVI basis but expect lower outdoors without UV cover."
+        }
+      ]
+    },
+    {
+      "component_id": "fish_tank_ibc_1000l_new_nl",
+      "name": "New IBC 1,000 L tote (plastic pallet)",
+      "category": "fish_tank",
+      "function": "Holds fish.",
+      "region": "netherlands",
+      "currency_code": "EUR",
+      "status": "candidate",
+      "approval_status": "pending_ajit_approval",
+      "sizing": {
+        "driver": "fish_tank_volume_m3",
+        "mode": "discrete",
+        "capacity_per_unit": 1.0,
+        "unit_label": "totes"
+      },
+      "capex_per_unit": {
+        "low": 195.0,
+        "high": 205.0,
+        "price_basis": "excl. VAT, listing price",
+        "source_ids": [
+          "retail_nl_binqer_ibc"
+        ]
+      },
+      "lifetime_years": {
+        "low": 10,
+        "high": 20,
+        "unit": "years",
+        "source_ids": [
+          "heidemann_bailey_2015_uvi_economics"
+        ],
+        "source_tier": "tier_1",
+        "source_gate": "conditional",
+        "source_gate_reason": "Transferred from UVI Table 7 life classes (tanks 20 yr, liner/walls/rafts 10 yr) to a different tank type.",
+        "confidence": "low",
+        "confidence_reason": "No life figure for this product; UVI life classes used as a range.",
+        "corroboration": {
+          "status": "conflicting",
+          "source_ids": [
+            "heidemann_bailey_2015_uvi_economics",
+            "forum_tractorbynet_ibc"
+          ]
+        }
+      },
+      "energy": null,
+      "labour_effect": "Same as used IBC.",
+      "trade_offs": [
+        "About twice the used price; known clean history.",
+        "Same small-unit drawback as used IBCs."
+      ],
+      "occupies_floor": true,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_3",
+        "source_gate": "conditional",
+        "source_gate_reason": "Retail listing (Tier 3): one seller, one date.",
+        "confidence": "low",
+        "confidence_reason": "Category listing summary of 16 items; exact item prices not verified verbatim.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "retail_nl_binqer_ibc"
+          ]
+        }
+      },
+      "role": "fish_tank",
+      "review_flags": [
+        {
+          "date": "2026-11-25",
+          "source_ids": [
+            "equipment_inventory_2026_11_25"
+          ],
+          "flag": "Lifetime 10-20 yr is transferred from UVI rearing tanks. Forum anecdotes (tier_3) report about 5 yr in direct sun vs about 8 yr outdoors for IBCs; UV exposure shortens life. Keep the UVI basis but expect lower outdoors without UV cover."
+        }
+      ]
+    },
+    {
+      "component_id": "fish_tank_pvc_biofloc_5000l_in",
+      "name": "PVC tarpaulin biofloc tank 5,000 L",
+      "category": "fish_tank",
+      "function": "Holds fish.",
+      "region": "india",
+      "currency_code": "INR",
+      "status": "candidate",
+      "approval_status": "pending_ajit_approval",
+      "sizing": {
+        "driver": "fish_tank_volume_m3",
+        "mode": "discrete",
+        "capacity_per_unit": 5.0,
+        "unit_label": "tanks"
+      },
+      "capex_per_unit": {
+        "low": 4100.0,
+        "high": 4100.0,
+        "price_basis": "listing price, GST basis not stated",
+        "source_ids": [
+          "retail_in_indiamart"
+        ]
+      },
+      "lifetime_years": {
+        "low": 10,
+        "high": 20,
+        "unit": "years",
+        "source_ids": [
+          "heidemann_bailey_2015_uvi_economics"
+        ],
+        "source_tier": "tier_1",
+        "source_gate": "conditional",
+        "source_gate_reason": "Transferred from UVI Table 7 life classes (tanks 20 yr, liner/walls/rafts 10 yr) to a different tank type.",
+        "confidence": "low",
+        "confidence_reason": "No life figure for this product; UVI life classes used as a range.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "heidemann_bailey_2015_uvi_economics"
+          ]
+        }
+      },
+      "energy": null,
+      "labour_effect": "Liner checks for leaks.",
+      "trade_offs": [
+        "Very cheap per m3; liner tanks are easily punctured and may need a frame (not in price).",
+        "Common in Indian biofloc farming, so local support exists."
+      ],
+      "occupies_floor": true,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_3",
+        "source_gate": "conditional",
+        "source_gate_reason": "Retail listing (Tier 3): one seller, one date.",
+        "confidence": "low",
+        "confidence_reason": "Single listing; spec says 'diameter 20 m', clearly an entry error; frame inclusion unclear.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "retail_in_indiamart"
+          ]
+        }
+      },
+      "role": "fish_tank"
+    },
+    {
+      "component_id": "fish_tank_frp_750l_in",
+      "name": "FRP rectangular fish tank 750 L",
+      "category": "fish_tank",
+      "function": "Holds fish.",
+      "region": "india",
+      "currency_code": "INR",
+      "status": "candidate",
+      "approval_status": "pending_ajit_approval",
+      "sizing": {
+        "driver": "fish_tank_volume_m3",
+        "mode": "discrete",
+        "capacity_per_unit": 0.75,
+        "unit_label": "tanks"
+      },
+      "capex_per_unit": {
+        "low": 18500.0,
+        "high": 18500.0,
+        "price_basis": "listing price, GST basis not stated",
+        "source_ids": [
+          "retail_in_indiamart"
+        ]
+      },
+      "lifetime_years": {
+        "low": 10,
+        "high": 20,
+        "unit": "years",
+        "source_ids": [
+          "heidemann_bailey_2015_uvi_economics"
+        ],
+        "source_tier": "tier_1",
+        "source_gate": "conditional",
+        "source_gate_reason": "Transferred from UVI Table 7 life classes (tanks 20 yr, liner/walls/rafts 10 yr) to a different tank type.",
+        "confidence": "low",
+        "confidence_reason": "No life figure for this product; UVI life classes used as a range.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "heidemann_bailey_2015_uvi_economics"
+          ]
+        }
+      },
+      "energy": null,
+      "labour_effect": "Easy to clean.",
+      "trade_offs": [
+        "Rigid and durable, but about 6x the PVC tank price per m3.",
+        "Small unit size."
+      ],
+      "occupies_floor": true,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_3",
+        "source_gate": "conditional",
+        "source_gate_reason": "Retail listing (Tier 3): one seller, one date.",
+        "confidence": "low",
+        "confidence_reason": "Single listing.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "retail_in_indiamart"
+          ]
+        }
+      },
+      "role": "fish_tank"
+    },
+    {
+      "component_id": "fish_tank_cement_90m3_nfdb_in",
+      "name": "Cement or FRP circular RAS tank 90 m3 (NFDB model, 6.7 x 6.7 x 2 m)",
+      "category": "fish_tank",
+      "function": "Holds fish; one large tank.",
+      "region": "india",
+      "currency_code": "INR",
+      "status": "candidate",
+      "approval_status": "pending_ajit_approval",
+      "sizing": {
+        "driver": "fish_tank_volume_m3",
+        "mode": "discrete",
+        "capacity_per_unit": 90.0,
+        "unit_label": "tanks"
+      },
+      "capex_per_unit": {
+        "low": 150000.0,
+        "high": 150000.0,
+        "price_basis": "NFDB/PMMSY unit cost, construction of one tank",
+        "source_ids": [
+          "nfdb_ras_recent_trends"
+        ]
+      },
+      "lifetime_years": {
+        "low": 10,
+        "high": 20,
+        "unit": "years",
+        "source_ids": [
+          "heidemann_bailey_2015_uvi_economics"
+        ],
+        "source_tier": "tier_1",
+        "source_gate": "conditional",
+        "source_gate_reason": "Transferred from UVI Table 7 life classes (tanks 20 yr, liner/walls/rafts 10 yr) to a different tank type.",
+        "confidence": "low",
+        "confidence_reason": "No life figure for this product; UVI life classes used as a range.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "heidemann_bailey_2015_uvi_economics"
+          ]
+        }
+      },
+      "energy": null,
+      "labour_effect": "One tank to manage.",
+      "trade_offs": [
+        "Lowest labour per m3 and one plumbing point; only sensible above roughly one tank's worth of fish.",
+        "Official scheme cost, so it matches subsidy paperwork; undated."
+      ],
+      "occupies_floor": true,
+      "footprint_m2_per_unit": 44.9,
+      "price_reliability": {
+        "source_tier": "tier_1",
+        "source_gate": "conditional",
+        "source_gate_reason": "Official scheme model, but undated and with internal arithmetic errors.",
+        "confidence": "low",
+        "confidence_reason": "Planning cost, not a quote; age unknown.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "nfdb_ras_recent_trends"
+          ]
+        }
+      },
+      "role": "fish_tank",
+      "spec": {
+        "water_depth_m": 2.0,
+        "footprint_basis": "6.7 x 6.7 m from NFDB"
+      }
+    },
+    {
+      "component_id": "dwc_liner_epdm_1mm_nl",
+      "name": "EPDM pond liner 1.0 mm (raft troughs)",
+      "category": "grow_unit",
+      "function": "Waterproofs the raft troughs.",
+      "region": "netherlands",
+      "currency_code": "EUR",
+      "status": "candidate",
+      "approval_status": "pending_ajit_approval",
+      "sizing": {
+        "driver": "liner_area_m2",
+        "mode": "continuous",
+        "per_driver_unit": 1.0,
+        "unit_label": "m2 liner"
+      },
+      "capex_per_unit": {
+        "low": 12.65,
+        "high": 12.65,
+        "price_basis": "incl. BTW; EUR 607.20 for 8 x 6 m (sale price, item discontinued)",
+        "source_ids": [
+          "retail_nl_toppy"
+        ]
+      },
+      "lifetime_years": {
+        "low": 10,
+        "high": 35,
+        "unit": "years",
+        "source_ids": [
+          "heidemann_bailey_2015_uvi_economics",
+          "retail_nl_toppy"
+        ],
+        "source_tier": "tier_3",
+        "source_gate": "conditional",
+        "source_gate_reason": "10 yr is UVI's liner depreciation life; 35 yr is the seller's claim.",
+        "confidence": "low",
+        "confidence_reason": "Seller claim vs one system's depreciation life.",
+        "corroboration": {
+          "status": "conflicting",
+          "source_ids": [
+            "heidemann_bailey_2015_uvi_economics",
+            "retail_nl_toppy"
+          ]
+        }
+      },
+      "energy": null,
+      "labour_effect": "None beyond normal trough cleaning.",
+      "trade_offs": [
+        "Durable and flexible; dearer than PE/HDPE liners."
+      ],
+      "occupies_floor": false,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_3",
+        "source_gate": "conditional",
+        "source_gate_reason": "Retail listing (Tier 3): one seller, one date.",
+        "confidence": "low",
+        "confidence_reason": "Sale price on a discontinued pack.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "retail_nl_toppy"
+          ]
+        }
+      },
+      "role": "liner",
+      "architectures": [
+        "dwc_raft"
+      ],
+      "review_flags": [
+        {
+          "date": "2026-11-25",
+          "source_ids": [
+            "equipment_inventory_2026_11_25"
+          ],
+          "flag": "Price EUR 12.65/m2 is a clearance price on a discontinued 1 mm liner. Hornbach lists 0.6 mm EPDM at EUR 12.63-18.46/m2 incl. VAT, so a current 1 mm price is likely higher. Add a second seller before use."
+        }
+      ]
+    },
+    {
+      "component_id": "dwc_raft_xps_30mm_nl",
+      "name": "XPS board 30 mm as rafts",
+      "category": "grow_unit",
+      "function": "Floating plant support.",
+      "region": "netherlands",
+      "currency_code": "EUR",
+      "status": "candidate",
+      "approval_status": "pending_ajit_approval",
+      "sizing": {
+        "driver": "raft_area_m2",
+        "mode": "continuous",
+        "per_driver_unit": 1.0,
+        "unit_label": "m2 raft"
+      },
+      "capex_per_unit": {
+        "low": 9.69,
+        "high": 9.69,
+        "price_basis": "Gamma BE listing, VAT basis not stated",
+        "source_ids": [
+          "retail_nl_gamma_eps_xps"
+        ]
+      },
+      "lifetime_years": {
+        "low": 10,
+        "high": 10,
+        "unit": "years",
+        "source_ids": [
+          "heidemann_bailey_2015_uvi_economics"
+        ],
+        "source_tier": "tier_1",
+        "source_gate": "conditional",
+        "source_gate_reason": "UVI Table 7 life for liner, rafts and hydroponic tank walls.",
+        "confidence": "low",
+        "confidence_reason": "Depreciation life of one system, not a durability test. Insulation board, not a purpose-made raft; USDA-NIFA test shows water uptake and breakage.",
+        "corroboration": {
+          "status": "conflicting",
+          "source_ids": [
+            "heidemann_bailey_2015_uvi_economics",
+            "usda_nifa_1012572_rafts"
+          ]
+        }
+      },
+      "energy": null,
+      "labour_effect": "Rafts must be washed between crops.",
+      "trade_offs": [
+        "Closed-cell XPS absorbs less water and is stiffer than EPS; about twice the price.",
+        "Food-contact suitability of building insulation is not established.",
+        "Homemade EPS rafts absorb water and break under load (USDA-NIFA); XPS carries fire retardants, a food-contact concern."
+      ],
+      "occupies_floor": false,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_3",
+        "source_gate": "conditional",
+        "source_gate_reason": "Retail listing (Tier 3): one seller, one date.",
+        "confidence": "low",
+        "confidence_reason": "Belgian Gamma listing used for the Netherlands.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "retail_nl_gamma_eps_xps"
+          ]
+        }
+      },
+      "role": "raft",
+      "architectures": [
+        "dwc_raft"
+      ],
+      "review_flags": [
+        {
+          "date": "2026-11-25",
+          "source_ids": [
+            "equipment_inventory_2026_11_25"
+          ],
+          "flag": "Lifetime not transferable: the 10 yr is UVI's depreciation life for purpose-made rafts. A USDA-NIFA raft test found homemade EPS rafts had the highest water uptake and broke at a 5.9 kg load; it judged XPS unsuitable because of mandatory fire retardants. Treat this life as unknown until a durability source is found."
+        }
+      ],
+      "failure_modes": [
+        "Raft breaks or waterlogs and sinks; plants lost from that raft (USDA-NIFA test, homemade EPS)."
+      ]
+    },
+    {
+      "component_id": "dwc_raft_eps_40mm_nl",
+      "name": "EPS board 40 mm as rafts",
+      "category": "grow_unit",
+      "function": "Floating plant support.",
+      "region": "netherlands",
+      "currency_code": "EUR",
+      "status": "candidate",
+      "approval_status": "pending_ajit_approval",
+      "sizing": {
+        "driver": "raft_area_m2",
+        "mode": "continuous",
+        "per_driver_unit": 1.0,
+        "unit_label": "m2 raft"
+      },
+      "capex_per_unit": {
+        "low": 5.1,
+        "high": 5.1,
+        "price_basis": "Gamma NL listing, VAT basis not stated",
+        "source_ids": [
+          "retail_nl_gamma_eps_xps"
+        ]
+      },
+      "lifetime_years": {
+        "low": 10,
+        "high": 10,
+        "unit": "years",
+        "source_ids": [
+          "heidemann_bailey_2015_uvi_economics"
+        ],
+        "source_tier": "tier_1",
+        "source_gate": "conditional",
+        "source_gate_reason": "UVI Table 7 life for liner, rafts and hydroponic tank walls.",
+        "confidence": "low",
+        "confidence_reason": "Depreciation life of one system, not a durability test. Insulation board, not a purpose-made raft; USDA-NIFA test shows water uptake and breakage.",
+        "corroboration": {
+          "status": "conflicting",
+          "source_ids": [
+            "heidemann_bailey_2015_uvi_economics",
+            "usda_nifa_1012572_rafts"
+          ]
+        }
+      },
+      "energy": null,
+      "labour_effect": "Rafts must be washed between crops.",
+      "trade_offs": [
+        "Cheapest raft; EPS beads crumble and soak water, so it wears faster and is harder to sanitise.",
+        "Homemade EPS rafts absorb water and break under load (USDA-NIFA); XPS carries fire retardants, a food-contact concern."
+      ],
+      "occupies_floor": false,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_3",
+        "source_gate": "conditional",
+        "source_gate_reason": "Retail listing (Tier 3): one seller, one date.",
+        "confidence": "low",
+        "confidence_reason": "Single listing.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "retail_nl_gamma_eps_xps"
+          ]
+        }
+      },
+      "role": "raft",
+      "architectures": [
+        "dwc_raft"
+      ],
+      "review_flags": [
+        {
+          "date": "2026-11-25",
+          "source_ids": [
+            "equipment_inventory_2026_11_25"
+          ],
+          "flag": "Lifetime not transferable: the 10 yr is UVI's depreciation life for purpose-made rafts. A USDA-NIFA raft test found homemade EPS rafts had the highest water uptake and broke at a 5.9 kg load; it judged XPS unsuitable because of mandatory fire retardants. Treat this life as unknown until a durability source is found."
+        }
+      ],
+      "failure_modes": [
+        "Raft breaks or waterlogs and sinks; plants lost from that raft (USDA-NIFA test, homemade EPS)."
+      ]
+    },
+    {
+      "component_id": "dwc_trough_walls_nl",
+      "name": "Raft trough walls and frame",
+      "category": "grow_unit",
+      "function": "Holds the liner and water.",
+      "region": "netherlands",
+      "currency_code": "EUR",
+      "status": "candidate",
+      "approval_status": "pending_ajit_approval",
+      "sizing": {
+        "driver": "grow_area_m2",
+        "mode": "continuous",
+        "per_driver_unit": 1.0,
+        "unit_label": "m2 grow area"
+      },
+      "capex_per_unit": null,
+      "lifetime_years": {
+        "low": 10,
+        "high": 10,
+        "unit": "years",
+        "source_ids": [
+          "heidemann_bailey_2015_uvi_economics"
+        ],
+        "source_tier": "tier_1",
+        "source_gate": "conditional",
+        "source_gate_reason": "UVI Table 7 life for liner, rafts and hydroponic tank walls.",
+        "confidence": "low",
+        "confidence_reason": "Depreciation life of one system, not a durability test.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "heidemann_bailey_2015_uvi_economics"
+          ]
+        }
+      },
+      "energy": null,
+      "labour_effect": "None.",
+      "trade_offs": [
+        "UVI spent USD 6,889 (2014) on six trough walls for 214 m2; no Dutch price read yet."
+      ],
+      "occupies_floor": false,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_1",
+        "source_gate": "conditional",
+        "source_gate_reason": "No NL price; UVI cost is USD 2014 and not converted.",
+        "confidence": "low",
+        "confidence_reason": "Price missing.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "heidemann_bailey_2015_uvi_economics"
+          ]
+        }
+      },
+      "role": "trough_walls",
+      "architectures": [
+        "dwc_raft"
+      ],
+      "notes": [
+        "Price left null on purpose: it shows up as a gap until a Dutch quote is added."
+      ]
+    },
+    {
+      "component_id": "dwc_liner_hdpe_in",
+      "name": "HDPE pond liner (raft troughs)",
+      "category": "grow_unit",
+      "function": "Waterproofs the raft troughs.",
+      "region": "india",
+      "currency_code": "INR",
+      "status": "candidate",
+      "approval_status": "pending_ajit_approval",
+      "sizing": {
+        "driver": "liner_area_m2",
+        "mode": "continuous",
+        "per_driver_unit": 1.0,
+        "unit_label": "m2 liner"
+      },
+      "capex_per_unit": {
+        "low": 130.0,
+        "high": 130.0,
+        "price_basis": "listing price, thickness not shown",
+        "source_ids": [
+          "retail_in_indiamart"
+        ]
+      },
+      "lifetime_years": {
+        "low": 10,
+        "high": 10,
+        "unit": "years",
+        "source_ids": [
+          "heidemann_bailey_2015_uvi_economics"
+        ],
+        "source_tier": "tier_1",
+        "source_gate": "conditional",
+        "source_gate_reason": "UVI Table 7 life for liner, rafts and hydroponic tank walls.",
+        "confidence": "low",
+        "confidence_reason": "Depreciation life of one system, not a durability test.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "heidemann_bailey_2015_uvi_economics"
+          ]
+        }
+      },
+      "energy": null,
+      "labour_effect": "None.",
+      "trade_offs": [
+        "Cheap and widely sold for farm ponds; stiffer than EPDM so corners need welding or folds."
+      ],
+      "occupies_floor": false,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_3",
+        "source_gate": "conditional",
+        "source_gate_reason": "Retail listing (Tier 3): one seller, one date.",
+        "confidence": "low",
+        "confidence_reason": "Single listing, thickness unknown.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "retail_in_indiamart"
+          ]
+        }
+      },
+      "role": "liner",
+      "architectures": [
+        "dwc_raft"
+      ]
+    },
+    {
+      "component_id": "dwc_raft_eps_40mm_in",
+      "name": "EPS (thermocol) sheet 40 mm as rafts",
+      "category": "grow_unit",
+      "function": "Floating plant support.",
+      "region": "india",
+      "currency_code": "INR",
+      "status": "candidate",
+      "approval_status": "pending_ajit_approval",
+      "sizing": {
+        "driver": "raft_area_m2",
+        "mode": "continuous",
+        "per_driver_unit": 1.0,
+        "unit_label": "m2 raft"
+      },
+      "capex_per_unit": {
+        "low": 104.0,
+        "high": 104.0,
+        "price_basis": "derived: Rs 260/kg x 10 kg/m3 x 0.04 m (two listings combined)",
+        "source_ids": [
+          "retail_in_indiamart"
+        ]
+      },
+      "lifetime_years": {
+        "low": 10,
+        "high": 10,
+        "unit": "years",
+        "source_ids": [
+          "heidemann_bailey_2015_uvi_economics"
+        ],
+        "source_tier": "tier_1",
+        "source_gate": "conditional",
+        "source_gate_reason": "UVI Table 7 life for liner, rafts and hydroponic tank walls.",
+        "confidence": "low",
+        "confidence_reason": "Depreciation life of one system, not a durability test. Insulation board, not a purpose-made raft; USDA-NIFA test shows water uptake and breakage.",
+        "corroboration": {
+          "status": "conflicting",
+          "source_ids": [
+            "heidemann_bailey_2015_uvi_economics",
+            "usda_nifa_1012572_rafts"
+          ]
+        }
+      },
+      "energy": null,
+      "labour_effect": "Rafts washed between crops.",
+      "trade_offs": [
+        "Cheap; low-density thermocol breaks and soaks water.",
+        "Homemade EPS rafts absorb water and break under load (USDA-NIFA); XPS carries fire retardants, a food-contact concern."
+      ],
+      "occupies_floor": false,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_3",
+        "source_gate": "conditional",
+        "source_gate_reason": "Retail listing (Tier 3): one seller, one date.",
+        "confidence": "low",
+        "confidence_reason": "Derived from two different sellers' price per kg and density; low confidence.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "retail_in_indiamart"
+          ]
+        }
+      },
+      "role": "raft",
+      "architectures": [
+        "dwc_raft"
+      ],
+      "review_flags": [
+        {
+          "date": "2026-11-25",
+          "source_ids": [
+            "equipment_inventory_2026_11_25"
+          ],
+          "flag": "Lifetime not transferable: the 10 yr is UVI's depreciation life for purpose-made rafts. A USDA-NIFA raft test found homemade EPS rafts had the highest water uptake and broke at a 5.9 kg load; it judged XPS unsuitable because of mandatory fire retardants. Treat this life as unknown until a durability source is found."
+        }
+      ],
+      "failure_modes": [
+        "Raft breaks or waterlogs and sinks; plants lost from that raft (USDA-NIFA test, homemade EPS)."
+      ]
+    },
+    {
+      "component_id": "dwc_trough_walls_in",
+      "name": "Raft trough walls and frame",
+      "category": "grow_unit",
+      "function": "Holds the liner and water.",
+      "region": "india",
+      "currency_code": "INR",
+      "status": "candidate",
+      "approval_status": "pending_ajit_approval",
+      "sizing": {
+        "driver": "grow_area_m2",
+        "mode": "continuous",
+        "per_driver_unit": 1.0,
+        "unit_label": "m2 grow area"
+      },
+      "capex_per_unit": null,
+      "lifetime_years": {
+        "low": 10,
+        "high": 10,
+        "unit": "years",
+        "source_ids": [
+          "heidemann_bailey_2015_uvi_economics"
+        ],
+        "source_tier": "tier_1",
+        "source_gate": "conditional",
+        "source_gate_reason": "UVI Table 7 life for liner, rafts and hydroponic tank walls.",
+        "confidence": "low",
+        "confidence_reason": "Depreciation life of one system, not a durability test.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "heidemann_bailey_2015_uvi_economics"
+          ]
+        }
+      },
+      "energy": null,
+      "labour_effect": "None.",
+      "trade_offs": [
+        "No Indian price read yet (brick, block or GI frame are the usual options)."
+      ],
+      "occupies_floor": false,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_3",
+        "source_gate": "conditional",
+        "source_gate_reason": "No price.",
+        "confidence": "low",
+        "confidence_reason": "Price missing.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": []
+        }
+      },
+      "role": "trough_walls",
+      "architectures": [
+        "dwc_raft"
+      ]
+    },
+    {
+      "component_id": "nft_channel_upvc_100x50_in",
+      "name": "UPVC NFT channel 100 x 50 mm (20 ft)",
+      "category": "grow_unit",
+      "function": "Plant channels with a thin nutrient film.",
+      "region": "india",
+      "currency_code": "INR",
+      "status": "candidate",
+      "approval_status": "pending_ajit_approval",
+      "sizing": {
+        "driver": "nft_channel_length_m",
+        "mode": "continuous",
+        "per_driver_unit": 1.0,
+        "unit_label": "m channel"
+      },
+      "capex_per_unit": {
+        "low": 23.8,
+        "high": 23.8,
+        "price_basis": "derived: Rs 145 per 20 ft (6.1 m) piece",
+        "source_ids": [
+          "retail_in_indiamart"
+        ]
+      },
+      "lifetime_years": {
+        "low": 10,
+        "high": 10,
+        "unit": "years",
+        "source_ids": [
+          "heidemann_bailey_2015_uvi_economics"
+        ],
+        "source_tier": "tier_1",
+        "source_gate": "conditional",
+        "source_gate_reason": "UVI Table 7 life for liner, rafts and hydroponic tank walls.",
+        "confidence": "low",
+        "confidence_reason": "Depreciation life of one system, not a durability test.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "heidemann_bailey_2015_uvi_economics"
+          ]
+        }
+      },
+      "energy": null,
+      "labour_effect": "Channels need flushing; roots cleared after each crop.",
+      "trade_offs": [
+        "Light, cheap, easy to harvest; aquaponic NFT needs fine solids removal and a separate biofilter, and is the most sensitive to pump stops.",
+        "Price looks very low for 3 mm UPVC; check before use."
+      ],
+      "occupies_floor": false,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_3",
+        "source_gate": "conditional",
+        "source_gate_reason": "Retail listing (Tier 3): one seller, one date.",
+        "confidence": "low",
+        "confidence_reason": "Single listing; unusually low price.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "retail_in_indiamart"
+          ]
+        }
+      },
+      "role": "channel",
+      "architectures": [
+        "nft"
+      ],
+      "review_flags": [
+        {
+          "date": "2026-11-25",
+          "source_ids": [
+            "equipment_inventory_2026_11_25"
+          ],
+          "flag": "Price is plain uPVC pipe (Rs 145 per 6.1 m). Purpose-made NFT channels on IndiaMART list at about Rs 112-1,500 per piece (one Chennai listing Rs 310). The catalog value may understate NFT cost; add a purpose-made channel as an alternative."
+        }
+      ]
+    },
+    {
+      "component_id": "pump_aquaforte_dme_10000_nl",
+      "name": "Aquaforte DM-E 10000 pond pump (9,800 L/h, 75 W)",
+      "category": "water_pump",
+      "function": "Recirculates water; sized on flow = tank volume / retention time.",
+      "region": "netherlands",
+      "currency_code": "EUR",
+      "status": "candidate",
+      "approval_status": "pending_ajit_approval",
+      "sizing": {
+        "driver": "recirculation_flow_lph",
+        "mode": "discrete",
+        "capacity_per_unit": 9800.0,
+        "unit_label": "pumps",
+        "min_units": 1
+      },
+      "capex_per_unit": {
+        "low": 124.95,
+        "high": 124.95,
+        "price_basis": "incl. BTW",
+        "source_ids": [
+          "retail_nl_toppy"
+        ]
+      },
+      "lifetime_years": {
+        "low": 5,
+        "high": 5,
+        "unit": "years",
+        "source_ids": [
+          "heidemann_bailey_2015_uvi_economics"
+        ],
+        "source_tier": "tier_1",
+        "source_gate": "conditional",
+        "source_gate_reason": "UVI circulating pump life, transferred to a different pump.",
+        "confidence": "low",
+        "confidence_reason": "One owner-built system's depreciation life.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "heidemann_bailey_2015_uvi_economics"
+          ]
+        }
+      },
+      "energy": {
+        "power_w_per_unit": {
+          "low": 75.0,
+          "high": 75.0,
+          "source_ids": [
+            "retail_nl_toppy"
+          ]
+        },
+        "duty_hours_per_day": 24
+      },
+      "labour_effect": "Clean intake screen.",
+      "trade_offs": [
+        "Low power for its flow; rated flow is at zero head, so real flow is lower (not derated here)."
+      ],
+      "occupies_floor": false,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_3",
+        "source_gate": "conditional",
+        "source_gate_reason": "Retail listing (Tier 3): one seller, one date.",
+        "confidence": "low",
+        "confidence_reason": "Single listing, in stock.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "retail_nl_toppy"
+          ]
+        }
+      },
+      "role": "water_pump"
+    },
+    {
+      "component_id": "pump_aquaforte_dm_10000_nl",
+      "name": "Aquaforte DM-10000 pond pump (10,000 L/h, 85 W)",
+      "category": "water_pump",
+      "function": "Recirculates water.",
+      "region": "netherlands",
+      "currency_code": "EUR",
+      "status": "candidate",
+      "approval_status": "pending_ajit_approval",
+      "sizing": {
+        "driver": "recirculation_flow_lph",
+        "mode": "discrete",
+        "capacity_per_unit": 10000.0,
+        "unit_label": "pumps",
+        "min_units": 1
+      },
+      "capex_per_unit": {
+        "low": 219.0,
+        "high": 219.0,
+        "price_basis": "incl. BTW (item no longer available)",
+        "source_ids": [
+          "retail_nl_toppy"
+        ]
+      },
+      "lifetime_years": {
+        "low": 5,
+        "high": 5,
+        "unit": "years",
+        "source_ids": [
+          "heidemann_bailey_2015_uvi_economics"
+        ],
+        "source_tier": "tier_1",
+        "source_gate": "conditional",
+        "source_gate_reason": "UVI circulating pump life, transferred to a different pump.",
+        "confidence": "low",
+        "confidence_reason": "One owner-built system's depreciation life.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "heidemann_bailey_2015_uvi_economics"
+          ]
+        }
+      },
+      "energy": {
+        "power_w_per_unit": {
+          "low": 85.0,
+          "high": 85.0,
+          "source_ids": [
+            "retail_nl_toppy"
+          ]
+        },
+        "duty_hours_per_day": 24
+      },
+      "labour_effect": "Clean intake screen.",
+      "trade_offs": [
+        "Slightly more flow for more watts and a higher price; discontinued."
+      ],
+      "occupies_floor": false,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_3",
+        "source_gate": "conditional",
+        "source_gate_reason": "Retail listing (Tier 3): one seller, one date.",
+        "confidence": "low",
+        "confidence_reason": "Discontinued item.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "retail_nl_toppy"
+          ]
+        }
+      },
+      "role": "water_pump"
+    },
+    {
+      "component_id": "pump_submersible_0_5hp_in",
+      "name": "Submersible pump 0.5 hp (about 5,760-15,480 L/h)",
+      "category": "water_pump",
+      "function": "Recirculates water.",
+      "region": "india",
+      "currency_code": "INR",
+      "status": "candidate",
+      "approval_status": "pending_ajit_approval",
+      "sizing": {
+        "driver": "recirculation_flow_lph",
+        "mode": "discrete",
+        "capacity_per_unit": 5760.0,
+        "unit_label": "pumps",
+        "min_units": 1
+      },
+      "capex_per_unit": {
+        "low": 13400.0,
+        "high": 13400.0,
+        "price_basis": "MRP incl. all taxes (GST included), national list price, one model",
+        "source_ids": [
+          "crompton_owe052"
+        ]
+      },
+      "lifetime_years": {
+        "low": 5,
+        "high": 5,
+        "unit": "years",
+        "source_ids": [
+          "heidemann_bailey_2015_uvi_economics"
+        ],
+        "source_tier": "tier_1",
+        "source_gate": "conditional",
+        "source_gate_reason": "UVI circulating pump life, transferred to a different pump.",
+        "confidence": "low",
+        "confidence_reason": "One owner-built system's depreciation life.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "heidemann_bailey_2015_uvi_economics"
+          ]
+        }
+      },
+      "energy": {
+        "power_w_per_unit": {
+          "low": 373.0,
+          "high": 373.0,
+          "derivation": "0.5 hp x 745.7 W/hp"
+        },
+        "duty_hours_per_day": 24
+      },
+      "labour_effect": "Clean intake screen.",
+      "trade_offs": [
+        "Borewell-type pumps are built for high head; a low-head circulation pump would use less power."
+      ],
+      "occupies_floor": false,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_3",
+        "source_gate": "conditional",
+        "source_gate_reason": "Maker list price (MRP), one model, one date.",
+        "confidence": "low",
+        "confidence_reason": "Openwell well pump used as a proxy for a circulation pump; out of stock on read.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "crompton_owe052"
+          ]
+        }
+      },
+      "role": "water_pump",
+      "notes": [
+        "Capacity uses the low end of the listed flow range."
+      ],
+      "review_flags": [
+        {
+          "date": "2026-11-25",
+          "source_ids": [
+            "equipment_inventory_2026_11_25"
+          ],
+          "flag": "Price gap filled with a candidate: Crompton OWE052 0.5 HP openwell submersible, MRP Rs 13,400 incl. all taxes (72-140 L/min, 18 m max head). This is a well pump, not a pond or aquaculture pump; one seller, out of stock on read. Its rated flow (72-140 L/min, about 4,320-8,400 L/h) differs from the Kirloskar spec behind capacity_per_unit (5,760 L/h); capacity not changed."
+        }
+      ]
+    },
+    {
+      "component_id": "air_hailea_aco500_nl",
+      "name": "Hailea ACO-500 air pump (275 L/min, 175 W)",
+      "category": "aeration",
+      "function": "Supplies air for fish and raft roots; sized on airflow per kg feed.",
+      "region": "netherlands",
+      "currency_code": "EUR",
+      "status": "candidate",
+      "approval_status": "pending_ajit_approval",
+      "sizing": {
+        "driver": "air_flow_lpm",
+        "mode": "discrete",
+        "capacity_per_unit": 275.0,
+        "unit_label": "air pumps",
+        "min_units": 1
+      },
+      "capex_per_unit": {
+        "low": 186.0,
+        "high": 186.0,
+        "price_basis": "Irish retailer, VAT basis not stated",
+        "source_ids": [
+          "retail_ie_hailea_aco500"
+        ]
+      },
+      "lifetime_years": {
+        "low": 10,
+        "high": 10,
+        "unit": "years",
+        "source_ids": [
+          "heidemann_bailey_2015_uvi_economics"
+        ],
+        "source_tier": "tier_1",
+        "source_gate": "conditional",
+        "source_gate_reason": "UVI blower life (regenerative blowers), transferred.",
+        "confidence": "low",
+        "confidence_reason": "Diaphragm air pumps likely need membrane kits sooner; not sourced.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "heidemann_bailey_2015_uvi_economics"
+          ]
+        }
+      },
+      "energy": {
+        "power_w_per_unit": {
+          "low": 175.0,
+          "high": 175.0,
+          "source_ids": [
+            "retail_ie_hailea_aco500"
+          ]
+        },
+        "duty_hours_per_day": 24
+      },
+      "labour_effect": "Check diffusers and air lines. Wear parts (diaphragms, valves or pistons) need periodic replacement; Hiblow interval 1-1.5 yr.",
+      "trade_offs": [
+        "Piston air pump: cheap and quiet at small scale; for larger systems a regenerative blower uses fewer units."
+      ],
+      "occupies_floor": false,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_3",
+        "source_gate": "conditional",
+        "source_gate_reason": "Retail listing (Tier 3): one seller, one date.",
+        "confidence": "low",
+        "confidence_reason": "Single Irish listing used for the Netherlands.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "retail_ie_hailea_aco500"
+          ]
+        }
+      },
+      "role": "aeration",
+      "review_flags": [
+        {
+          "date": "2026-11-25",
+          "source_ids": [
+            "equipment_inventory_2026_11_25"
+          ],
+          "flag": "Lifetime 10 yr is transferred from UVI regenerative blowers to a piston air pump; weak transfer. Hiblow (diaphragm pump maker) specifies replacing diaphragms and valves every 1-1.5 yr. No life found for piston pumps."
+        }
+      ]
+    },
+    {
+      "component_id": "air_blower_1_5kw_in",
+      "name": "Aquaculture air blower 1.5 kW (listed 500 CFM)",
+      "category": "aeration",
+      "function": "Supplies air.",
+      "region": "india",
+      "currency_code": "INR",
+      "status": "candidate",
+      "approval_status": "pending_ajit_approval",
+      "sizing": {
+        "driver": "air_flow_lpm",
+        "mode": "discrete",
+        "capacity_per_unit": 14158.0,
+        "unit_label": "blowers",
+        "min_units": 1
+      },
+      "capex_per_unit": {
+        "low": 8000.0,
+        "high": 8000.0,
+        "price_basis": "listing price",
+        "source_ids": [
+          "retail_in_indiamart"
+        ]
+      },
+      "lifetime_years": {
+        "low": 10,
+        "high": 10,
+        "unit": "years",
+        "source_ids": [
+          "heidemann_bailey_2015_uvi_economics"
+        ],
+        "source_tier": "tier_1",
+        "source_gate": "conditional",
+        "source_gate_reason": "UVI blower life (regenerative blowers), transferred.",
+        "confidence": "low",
+        "confidence_reason": "Diaphragm air pumps likely need membrane kits sooner; not sourced.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "heidemann_bailey_2015_uvi_economics"
+          ]
+        }
+      },
+      "energy": {
+        "power_w_per_unit": {
+          "low": 1500.0,
+          "high": 1500.0,
+          "source_ids": [
+            "retail_in_indiamart"
+          ]
+        },
+        "duty_hours_per_day": 24
+      },
+      "labour_effect": "Check diffusers and air lines.",
+      "trade_offs": [
+        "One cheap blower covers a large system, but 1.5 kW runs all day even for a small one: oversized blowers cost electricity."
+      ],
+      "occupies_floor": false,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_3",
+        "source_gate": "conditional",
+        "source_gate_reason": "Retail listing (Tier 3): one seller, one date.",
+        "confidence": "low",
+        "confidence_reason": "Single listing; 500 CFM for 1.5 kW is a seller figure and looks high.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "retail_in_indiamart"
+          ]
+        }
+      },
+      "role": "aeration",
+      "notes": [
+        "500 CFM x 28.317 L/ft3 = 14,158 L/min."
+      ]
+    },
+    {
+      "component_id": "biofilter_mbbr_media_in",
+      "name": "MBBR media (bulk, per m3)",
+      "category": "biofilter",
+      "function": "Nitrifying surface for NFT and media-bed builds that need a separate biofilter.",
+      "region": "india",
+      "currency_code": "INR",
+      "status": "candidate",
+      "approval_status": "pending_ajit_approval",
+      "sizing": {
+        "driver": "biofilter_media_m3",
+        "mode": "continuous",
+        "per_driver_unit": 1.0,
+        "unit_label": "m3 media"
+      },
+      "capex_per_unit": {
+        "low": 7200.0,
+        "high": 11000.0,
+        "price_basis": "two listings, per m3",
+        "source_ids": [
+          "retail_in_indiamart"
+        ]
+      },
+      "lifetime_years": {
+        "low": 10,
+        "high": 10,
+        "unit": "years",
+        "source_ids": [
+          "heidemann_bailey_2015_uvi_economics"
+        ],
+        "source_tier": "tier_1",
+        "source_gate": "conditional",
+        "source_gate_reason": "UVI Table 7 life for liner, rafts and hydroponic tank walls.",
+        "confidence": "low",
+        "confidence_reason": "Depreciation life of one system, not a durability test.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "heidemann_bailey_2015_uvi_economics"
+          ]
+        }
+      },
+      "energy": null,
+      "labour_effect": "Little; check media movement.",
+      "trade_offs": [
+        "Rafts already nitrify in DWC (canon), so DWC builds skip this.",
+        "Needs a tank and aeration to move the media (vessel not priced)."
+      ],
+      "occupies_floor": false,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_3",
+        "source_gate": "conditional",
+        "source_gate_reason": "Retail listing (Tier 3): one seller, one date.",
+        "confidence": "low",
+        "confidence_reason": "Two sellers agree within 1.5x.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "retail_in_indiamart"
+          ]
+        }
+      },
+      "role": "biofilter"
+    },
+    {
+      "component_id": "settling_tank_ibc_used_nl",
+      "name": "Used IBC 1,000 L as settling tank (clarifier)",
+      "category": "solids_filter",
+      "function": "Settles solids before the plants; sized on flow x 15-30 min retention.",
+      "region": "netherlands",
+      "currency_code": "EUR",
+      "status": "candidate",
+      "approval_status": "pending_ajit_approval",
+      "sizing": {
+        "driver": "clarifier_volume_m3",
+        "mode": "discrete",
+        "capacity_per_unit": 1.0,
+        "unit_label": "totes",
+        "min_units": 1
+      },
+      "capex_per_unit": {
+        "low": 90.75,
+        "high": 90.75,
+        "price_basis": "incl. 21% VAT",
+        "source_ids": [
+          "retail_nl_binqer_ibc"
+        ]
+      },
+      "lifetime_years": {
+        "low": 10,
+        "high": 20,
+        "unit": "years",
+        "source_ids": [
+          "heidemann_bailey_2015_uvi_economics"
+        ],
+        "source_tier": "tier_1",
+        "source_gate": "conditional",
+        "source_gate_reason": "Transferred from UVI Table 7 life classes (tanks 20 yr, liner/walls/rafts 10 yr) to a different tank type.",
+        "confidence": "low",
+        "confidence_reason": "No life figure for this product; UVI life classes used as a range.",
+        "corroboration": {
+          "status": "conflicting",
+          "source_ids": [
+            "heidemann_bailey_2015_uvi_economics",
+            "forum_tractorbynet_ibc"
+          ]
+        }
+      },
+      "energy": null,
+      "labour_effect": "Sludge drained daily or more often.",
+      "trade_offs": [
+        "A flat-bottom tote settles worse than a cone-bottom clarifier or swirl separator (UVI used cone clarifiers; USD 1,000 each in 2014)."
+      ],
+      "occupies_floor": true,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_3",
+        "source_gate": "conditional",
+        "source_gate_reason": "Retail listing (Tier 3): one seller, one date.",
+        "confidence": "low",
+        "confidence_reason": "Single listing.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "retail_nl_binqer_ibc"
+          ]
+        }
+      },
+      "role": "solids_filter",
+      "review_flags": [
+        {
+          "date": "2026-11-25",
+          "source_ids": [
+            "equipment_inventory_2026_11_25"
+          ],
+          "flag": "Lifetime 10-20 yr is transferred from UVI rearing tanks. Forum anecdotes (tier_3) report about 5 yr in direct sun vs about 8 yr outdoors for IBCs; UV exposure shortens life. Keep the UVI basis but expect lower outdoors without UV cover."
+        }
+      ]
+    },
+    {
+      "component_id": "settling_tank_pvc_5000l_in",
+      "name": "PVC 5,000 L tank as settling tank (clarifier)",
+      "category": "solids_filter",
+      "function": "Settles solids before the plants.",
+      "region": "india",
+      "currency_code": "INR",
+      "status": "candidate",
+      "approval_status": "pending_ajit_approval",
+      "sizing": {
+        "driver": "clarifier_volume_m3",
+        "mode": "discrete",
+        "capacity_per_unit": 5.0,
+        "unit_label": "tanks",
+        "min_units": 1
+      },
+      "capex_per_unit": {
+        "low": 4100.0,
+        "high": 4100.0,
+        "price_basis": "listing price",
+        "source_ids": [
+          "retail_in_indiamart"
+        ]
+      },
+      "lifetime_years": {
+        "low": 10,
+        "high": 20,
+        "unit": "years",
+        "source_ids": [
+          "heidemann_bailey_2015_uvi_economics"
+        ],
+        "source_tier": "tier_1",
+        "source_gate": "conditional",
+        "source_gate_reason": "Transferred from UVI Table 7 life classes (tanks 20 yr, liner/walls/rafts 10 yr) to a different tank type.",
+        "confidence": "low",
+        "confidence_reason": "No life figure for this product; UVI life classes used as a range.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "heidemann_bailey_2015_uvi_economics"
+          ]
+        }
+      },
+      "energy": null,
+      "labour_effect": "Sludge drained often.",
+      "trade_offs": [
+        "Cheap but flat-bottomed; settled sludge is harder to remove."
+      ],
+      "occupies_floor": true,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_3",
+        "source_gate": "conditional",
+        "source_gate_reason": "Retail listing (Tier 3): one seller, one date.",
+        "confidence": "low",
+        "confidence_reason": "Single listing.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "retail_in_indiamart"
+          ]
+        }
+      },
+      "role": "solids_filter"
+    },
+    {
+      "component_id": "structure_venlo_glasshouse_nl",
+      "name": "Venlo glasshouse (structure, glass, screens, fans; no heating system)",
+      "category": "structure",
+      "function": "Covers the whole planning area; allows year-round growing with heating.",
+      "region": "netherlands",
+      "currency_code": "EUR",
+      "status": "candidate",
+      "approval_status": "pending_ajit_approval",
+      "sizing": {
+        "driver": "structure_area_m2",
+        "mode": "continuous",
+        "per_driver_unit": 1.0,
+        "unit_label": "m2 covered"
+      },
+      "capex_per_unit": {
+        "low": 50.2,
+        "high": 63.0,
+        "price_basis": "2017 builder quotes (AAB Nederland), excl. heating installation",
+        "source_ids": [
+          "wecr_2017_070_greenhouse_quickscan"
+        ]
+      },
+      "lifetime_years": {
+        "low": 16,
+        "high": 16,
+        "unit": "years",
+        "source_ids": [
+          "wecr_2017_070_greenhouse_quickscan"
+        ],
+        "source_tier": "tier_2",
+        "source_gate": "trusted",
+        "source_gate_reason": "Wageningen Economic Research note.",
+        "confidence": "medium",
+        "confidence_reason": "Stated structure life used in the note's cost model.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "wecr_2017_070_greenhouse_quickscan"
+          ]
+        }
+      },
+      "energy": null,
+      "labour_effect": "Climate control and screens need operation.",
+      "trade_offs": [
+        "Commercial-scale glass prices (hectares); a small greenhouse costs much more per m2.",
+        "Prices are 2017; KWIN 2026 (paid) has current ones."
+      ],
+      "occupies_floor": false,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_2",
+        "source_gate": "conditional",
+        "source_gate_reason": "Research note figures from builder quotes, but 2017 and large-scale.",
+        "confidence": "low",
+        "confidence_reason": "Old prices and scale mismatch with a small farm.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "wecr_2017_070_greenhouse_quickscan"
+          ]
+        }
+      },
+      "role": "structure"
+    },
+    {
+      "component_id": "structure_polyhouse_nvph_in",
+      "name": "Naturally ventilated tubular polyhouse",
+      "category": "structure",
+      "function": "Covers the planning area; rain and pest protection.",
+      "region": "india",
+      "currency_code": "INR",
+      "status": "candidate",
+      "approval_status": "pending_ajit_approval",
+      "sizing": {
+        "driver": "structure_area_m2",
+        "mode": "continuous",
+        "per_driver_unit": 1.0,
+        "unit_label": "m2 covered"
+      },
+      "capex_per_unit": {
+        "low": 650.0,
+        "high": 935.0,
+        "price_basis": "government cost norms: NHB 2008 high-cost polyhouse Rs 650/m2 (excl. drip) to MIDH HMNEH 2018-19 Rs 935/m2",
+        "source_ids": [
+          "nhb_cost_norms_2008",
+          "midh_hmneh_cost_norms_2018_19"
+        ]
+      },
+      "lifetime_years": null,
+      "energy": null,
+      "labour_effect": "Film and vents need upkeep.",
+      "trade_offs": [
+        "Cheapest proper cover; film needs replacing every few years (life not sourced).",
+        "Norms are subsidy ceilings, not quotes."
+      ],
+      "occupies_floor": false,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_1",
+        "source_gate": "conditional",
+        "source_gate_reason": "Official norms, but 2008 and 2018-19 vintages and a hill-region norm.",
+        "confidence": "low",
+        "confidence_reason": "Norms are old ceilings; current plains norm not read.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "nhb_cost_norms_2008",
+            "midh_hmneh_cost_norms_2018_19"
+          ]
+        }
+      },
+      "role": "structure",
+      "notes": [
+        "Lifetime left null: no sourced life, so build cost per year shows as a gap."
+      ]
+    },
+    {
+      "component_id": "structure_shade_net_in",
+      "name": "Shade net house (bamboo)",
+      "category": "structure",
+      "function": "Shade and some pest protection; no rain or cold protection.",
+      "region": "india",
+      "currency_code": "INR",
+      "status": "candidate",
+      "approval_status": "pending_ajit_approval",
+      "sizing": {
+        "driver": "structure_area_m2",
+        "mode": "continuous",
+        "per_driver_unit": 1.0,
+        "unit_label": "m2 covered"
+      },
+      "capex_per_unit": {
+        "low": 200.0,
+        "high": 414.0,
+        "price_basis": "NHB 2008 shade house Rs 200/m2 (excl. irrigation) to MIDH HMNEH 2018-19 bamboo shade net Rs 414/m2",
+        "source_ids": [
+          "nhb_cost_norms_2008",
+          "midh_hmneh_cost_norms_2018_19"
+        ]
+      },
+      "lifetime_years": null,
+      "energy": null,
+      "labour_effect": "Net repairs.",
+      "trade_offs": [
+        "About half the polyhouse cost; no rain cover, so monsoon disease risk rises for basil."
+      ],
+      "occupies_floor": false,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_1",
+        "source_gate": "conditional",
+        "source_gate_reason": "Official norms, old vintages.",
+        "confidence": "low",
+        "confidence_reason": "Old ceilings.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "nhb_cost_norms_2008",
+            "midh_hmneh_cost_norms_2018_19"
+          ]
+        }
+      },
+      "role": "structure",
+      "review_flags": [
+        {
+          "date": "2026-11-25",
+          "source_ids": [
+            "equipment_inventory_2026_11_25"
+          ],
+          "flag": "High end Rs 414/m2 appears to be the hilly or north-east (HMNEH) rate. NHB/MIDH norms give bamboo shade net Rs 360/m2 for plains and Rs 414 for hilly areas; the four southern states are plains. Value not changed; Ajit to confirm using 360."
+        }
+      ]
+    },
+    {
+      "component_id": "structure_none_existing_space",
+      "name": "No new structure (existing building or open site)",
+      "category": "structure",
+      "function": "Use a space you already have.",
+      "region": "any",
+      "currency_code": null,
+      "status": "candidate",
+      "approval_status": "pending_ajit_approval",
+      "sizing": {
+        "driver": "structure_area_m2",
+        "mode": "continuous",
+        "per_driver_unit": 1.0,
+        "unit_label": "m2"
+      },
+      "capex_per_unit": {
+        "low": 0.0,
+        "high": 0.0,
+        "price_basis": "definition: no structure is bought"
+      },
+      "lifetime_years": {
+        "low": 1,
+        "high": 1,
+        "unit": "years",
+        "note": "placeholder so the zero cost divides; has no effect"
+      },
+      "energy": null,
+      "labour_effect": "None.",
+      "trade_offs": [
+        "Zero build cost, but rent or the value of the space is not counted, and an open site has no climate control."
+      ],
+      "occupies_floor": false,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_3",
+        "source_gate": "conditional",
+        "source_gate_reason": "Not a sourced price: a zero-cost choice by definition.",
+        "confidence": "high",
+        "confidence_reason": "Zero by definition; the real cost is the unpriced space.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": []
+        }
+      },
+      "role": "structure"
+    }
+  ],
+  "running_inputs": [
+    {
+      "input_id": "fish_feed_price_per_kg",
+      "region": "netherlands",
+      "unit": "EUR/kg",
+      "value": {
+        "low": 2.92,
+        "high": 3.67
+      },
+      "price_basis": "retail 15-25 kg bags of Coppens fish feed (sturgeon and koi grower lines; no tilapia line listed)",
+      "source_ids": [
+        "retail_nl_coppens_feed"
+      ],
+      "source_tier": "tier_3",
+      "source_gate": "conditional",
+      "source_gate_reason": "Retail listing (Tier 3): one seller, one date.",
+      "confidence": "low",
+      "confidence_reason": "Retail pond-fish bags, not a farm feed contract; tilapia feed not listed.",
+      "corroboration": {
+        "status": "single_source",
+        "source_ids": [
+          "retail_nl_coppens_feed"
+        ]
+      }
+    },
+    {
+      "input_id": "fish_feed_price_per_kg",
+      "region": "india",
+      "unit": "INR/kg",
+      "value": {
+        "low": 45.0,
+        "high": 47.0
+      },
+      "price_basis": "IndiaMART floating feed 30-32% protein, three sellers",
+      "source_ids": [
+        "retail_in_indiamart",
+        "nfdb_ras_recent_trends"
+      ],
+      "source_tier": "tier_3",
+      "source_gate": "conditional",
+      "source_gate_reason": "Retail listing (Tier 3): one seller, one date.",
+      "confidence": "low",
+      "confidence_reason": "Three listings agree; NFDB model uses Rs 30/kg (older, 28-30% protein), so conflicting.",
+      "corroboration": {
+        "status": "conflicting",
+        "source_ids": [
+          "retail_in_indiamart",
+          "nfdb_ras_recent_trends"
+        ]
+      }
+    },
+    {
+      "input_id": "fingerling_price_each",
+      "region": "india",
+      "unit": "INR/fish",
+      "value": {
+        "low": 4.0,
+        "high": 4.0
+      },
+      "price_basis": "NFDB GIFT tilapia RAS model, Rs 4 per fingerling",
+      "source_ids": [
+        "nfdb_ras_recent_trends",
+        "kvafsu_fric_hebbal_2020"
+      ],
+      "source_tier": "tier_1",
+      "source_gate": "conditional",
+      "source_gate_reason": "Official model, undated.",
+      "confidence": "medium",
+      "confidence_reason": "Two government sources agree on Rs 4 per tilapia fingerling (NFDB model; KVAFSU Hebbal rate list Rs 4,000 per 1,000, 2020). Both several years old.",
+      "corroboration": {
+        "status": "corroborated",
+        "source_ids": [
+          "nfdb_ras_recent_trends",
+          "kvafsu_fric_hebbal_2020"
+        ]
+      }
+    },
+    {
+      "input_id": "water_price_per_m3",
+      "region": "netherlands",
+      "unit": "EUR/m3",
+      "value": {
+        "low": 1.34,
+        "high": 1.817
+      },
+      "price_basis": "Vitens 2026 consumer tariff incl. 9% BTW; high end adds Belasting op Leidingwater EUR 0.477/m3. Fixed EUR 56.68/yr not included.",
+      "source_ids": [
+        "vitens_tarieven_2026",
+        "dunea_tarieven_2026"
+      ],
+      "source_tier": "tier_1",
+      "source_gate": "trusted",
+      "source_gate_reason": "Utility's own tariff sheet.",
+      "confidence": "medium",
+      "confidence_reason": "Official tariff; consumer sheet, business tariff not read; region-specific (Vitens area). Dunea 2026 (EUR 1.45 excl. / 1.58 incl. VAT) agrees within the range; tap-water tax about EUR 0.44-0.48/m3 in both.",
+      "corroboration": {
+        "status": "corroborated",
+        "source_ids": [
+          "vitens_tarieven_2026",
+          "dunea_tarieven_2026"
+        ]
+      }
+    },
+    {
+      "input_id": "natural_gas_price_per_m3",
+      "region": "netherlands",
+      "unit": "EUR/m3",
+      "value": {
+        "low": 1.339,
+        "high": 1.454
+      },
+      "price_basis": "CBS non-household gas, smallest band, incl. VAT and tax, 2024 H1 to 2026 H1",
+      "source_ids": [
+        "cbs_85666eng_gas"
+      ],
+      "source_tier": "tier_1",
+      "source_gate": "trusted",
+      "source_gate_reason": "Official statistics.",
+      "confidence": "high",
+      "confidence_reason": "Read directly from CBS.",
+      "corroboration": {
+        "status": "single_source",
+        "source_ids": [
+          "cbs_85666eng_gas"
+        ]
+      }
+    },
+    {
+      "input_id": "greenhouse_heat_demand_m3_gas_per_m2_yr",
+      "region": "netherlands",
+      "unit": "m3 gas / m2 greenhouse / yr",
+      "value": {
+        "low": 21.0,
+        "high": 30.0
+      },
+      "price_basis": "unlit sweet-pepper greenhouse: modern 2018 type 21-24, 2005 reference 30 (Energiemonitor 2015 data)",
+      "source_ids": [
+        "wecr_2017_070_greenhouse_quickscan"
+      ],
+      "source_tier": "tier_2",
+      "source_gate": "conditional",
+      "source_gate_reason": "Transferred from sweet pepper to basil.",
+      "confidence": "low",
+      "confidence_reason": "Different crop and set-point; basil prefers 26-27.5 C air, warmer than pepper, so demand may be higher.",
+      "corroboration": {
+        "status": "single_source",
+        "source_ids": [
+          "wecr_2017_070_greenhouse_quickscan"
+        ]
+      }
+    }
+  ],
+  "labour_regimes": [
+    {
+      "regime_id": "uvi_whole_system_hired",
+      "label": "Hired, UVI whole-system intensity (14.58 h per m2 grow area per year)",
+      "hours_per_m2_yr": {
+        "low": 14.58,
+        "high": 14.58
+      },
+      "costed": true,
+      "source_ids": [
+        "unit_config_locations"
+      ],
+      "derivation": "3,120 h/yr / 214 m2 (Heidemann and Bailey 2015)",
+      "bias": "upper bound: fish, lettuce and basil labour all charged to the plant crop",
+      "source_tier": "tier_1",
+      "source_gate": "trusted",
+      "source_gate_reason": "Measured records, whole system.",
+      "confidence": "medium",
+      "confidence_reason": "No split by crop or task.",
+      "corroboration": {
+        "status": "corroborated",
+        "source_ids": [
+          "heidemann_bailey_2015_uvi_economics"
+        ]
+      }
+    },
+    {
+      "regime_id": "hawaii_lean_hired",
+      "label": "Hired, lean model-farm intensity (2.04 h per m2 per year)",
+      "hours_per_m2_yr": {
+        "low": 2.04,
+        "high": 2.04
+      },
+      "costed": true,
+      "source_ids": [
+        "unit_config_locations"
+      ],
+      "derivation": "44.74 h/week x 52 / 1,141.6 m2 (Tokunaga et al. 2015 lettuce farm)",
+      "bias": "lettuce task table; basil harvest per kg not sourced, so optimistic for basil",
+      "source_tier": "tier_1",
+      "source_gate": "conditional",
+      "source_gate_reason": "Model farm, lettuce.",
+      "confidence": "low",
+      "confidence_reason": "Transferred across crops.",
+      "corroboration": {
+        "status": "single_source",
+        "source_ids": [
+          "unit_config_locations"
+        ]
+      }
+    },
+    {
+      "regime_id": "purdue_per_kg_hired",
+      "label": "Hired, Purdue representative farm (0.529-0.648 h per kg of all output)",
+      "hours_per_kg_output": {
+        "low": 0.529,
+        "high": 0.648
+      },
+      "costed": true,
+      "source_ids": [
+        "unit_config_locations"
+      ],
+      "derivation": "24,000 h / 100,000 lb and 8,400 h / 28,600 lb total output (Quagrainie, Purdue)",
+      "bias": "hours per kg of all output, fish included",
+      "source_tier": "tier_2",
+      "source_gate": "conditional",
+      "source_gate_reason": "Representative-farm budget.",
+      "confidence": "low",
+      "confidence_reason": "Budget model, not records.",
+      "corroboration": {
+        "status": "single_source",
+        "source_ids": [
+          "unit_config_locations"
+        ]
+      }
+    },
+    {
+      "regime_id": "owner_operated_uncosted",
+      "label": "Owner-operated, hours reported but not costed (2.04-14.58 h per m2 per year)",
+      "hours_per_m2_yr": {
+        "low": 2.04,
+        "high": 14.58
+      },
+      "costed": false,
+      "source_ids": [
+        "unit_config_locations"
+      ],
+      "derivation": "lean (Tokunaga) to UVI whole-system intensity",
+      "source_tier": "tier_1",
+      "source_gate": "conditional",
+      "source_gate_reason": "Range spans two sources.",
+      "confidence": "low",
+      "confidence_reason": "Wide range; owner time is a decision, not a price.",
+      "corroboration": {
+        "status": "corroborated",
+        "source_ids": [
+          "unit_config_locations"
+        ]
+      }
+    }
+  ],
+  "known_gaps": [
+    "Labour by task (feeding, harvest, packing, cleaning): no sourced split; labour is a whole-system rate.",
+    "Netherlands: fingerling price, basil and lettuce seed price per seed, trough wall price, biofilter media in EUR, second air-pump option, greenhouse heating installation CAPEX.",
+    "India: raft trough walls, seed price in INR, water price (borewell or municipal), structure lifetime.",
+    "Seedling propagation (trays, media, germination losses), grow lights, back-up power, sensors and test kits, packaging and cold chain.",
+    "Water held in NFT and media-bed grow units; NFT channel layout per m2; NFT and media-bed yields.",
+    "Fish sale value and logistics/market costs (layered on later by design)."
+  ]
+}

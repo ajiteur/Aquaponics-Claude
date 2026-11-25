@@ -36,6 +36,7 @@ RUNS_DIR = PROJECT_ROOT / "runs"
 OUT_ROOT = PROJECT_ROOT / "data" / "simulation" / "results" / "local_runs"
 COMPARE_SCRIPT = PROJECT_ROOT / "scripts" / "compare_unit_configurations.py"
 CROP_CYCLE_SCRIPT = PROJECT_ROOT / "src" / "simulate_crop_cycle.py"
+CONFIGURATOR_SCRIPT = PROJECT_ROOT / "scripts" / "configure_system.py"
 LABEL = "Scenario estimate, not validated."
 
 
@@ -265,6 +266,34 @@ def run_unit_economics(spec: dict, area_m2: float | None, out_dir: Path) -> tupl
     return output, lines
 
 
+# --- configurator ------------------------------------------------------------
+
+def run_configurator(spec: dict, out_dir: Path) -> tuple[dict, list[str]]:
+    """Assemble a system from catalog parts and report cost per kg (scripts/configure_system.py)."""
+    build = spec.get("build")
+    if not isinstance(build, dict):
+        raise RunError("The 'configurator' block needs a 'build' object (see runs/configure_basil_dwc_nl.json).")
+    build = copy.deepcopy(build)
+    if spec.get("build_overrides"):
+        apply_overrides(build, spec["build_overrides"])
+    configurator = load_module(CONFIGURATOR_SCRIPT, "configure_system")
+    try:
+        result = configurator.build_result(build)
+    except configurator.ConfigError as exc:
+        raise RunError(str(exc))
+    (out_dir / "configurator_result.json").write_text(json.dumps(result, indent=2), encoding="utf-8")
+    rows = []
+    for case, c in result["cases"].items():
+        for b in c["breakdown"]:
+            rows.append({"estimate_status": "scenario_estimate", "case": case, "currency": result["currency_code"], **b})
+    if rows:
+        with open(out_dir / "configurator_cost_breakdown.csv", "w", newline="", encoding="utf-8") as f:
+            writer = csv.DictWriter(f, fieldnames=list(rows[0]))
+            writer.writeheader()
+            writer.writerows(rows)
+    return result, configurator.summary_lines(result)
+
+
 # --- main ------------------------------------------------------------------
 
 def run(run_file: Path) -> int:
@@ -285,8 +314,11 @@ def run(run_file: Path) -> int:
     if spec.get("unit_economics") is not None:
         _, ue_lines = run_unit_economics(spec["unit_economics"], area, out_dir)
         lines += ue_lines + [""]
-    if spec.get("simulation") is None and spec.get("unit_economics") is None:
-        raise RunError("The run file needs a 'simulation' block, a 'unit_economics' block, or both.")
+    if spec.get("configurator") is not None:
+        _, cf_lines = run_configurator(spec["configurator"], out_dir)
+        lines += cf_lines + [""]
+    if all(spec.get(k) is None for k in ("simulation", "unit_economics", "configurator")):
+        raise RunError("The run file needs a 'simulation', 'unit_economics' or 'configurator' block.")
 
     lines.append(f"Files written to {rel(out_dir)}/")
     text = "\n".join(lines)
