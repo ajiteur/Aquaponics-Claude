@@ -4,6 +4,8 @@ Newest first. Each entry gives the decision, why, and who made it.
 
 ## 2026-11-25
 
+- **Check reliability for every new learning.** Each new truth or manual input records its source tier, source gate, confidence with a reason, and corroboration, in canon and in the vault. Tier 3 or single-source items stay candidate. Why: we need to know how far each piece of knowledge can be trusted. Decided by Ajit.
+- **Run work as parallel threads with a Gatekeeper.** One workstream per thread. The Gatekeeper reviews every PR and tags save points on main once Ajit merges. Decided by Ajit.
 - **Accept the UVI basil crop-cycle values.** 8 plants/m², 28-day growing period, 2.0 kg/m² per harvest and related context, plus truths CROP_0001 to CROP_0007, are now accepted. Decided by Ajit.
 - **Capture all learnings in Obsidian, split by trust level.** Truths (evidence-backed, one note each), simulation findings, decisions, inbox. Why: you use Obsidian as your local knowledge base. Decided by Ajit.
 - **Fix the simulator, not a manual harvest value.** Basil harvest mass comes from a simulation calibrated to the UVI yield anchor, not from a hand-entered number. Why: the farm decision and the game both need a real prediction engine. Decided by Ajit.
