@@ -21,6 +21,7 @@ From `aquaponics-project`:
 | List the runs | `.\run.bat` or `python run.py` |
 | Basil crop cycle + Netherlands vs India economics | `.\run.bat basil_nl_vs_india` |
 | Economics for all-India and the four southern states | `.\run.bat india_states` |
+| Configurator: build a system from parts, cost per kg (NL / Karnataka) | `.\run.bat configure_basil_dwc_nl` or `.\run.bat configure_basil_dwc_karnataka` |
 | Health check | `python scripts/check_mvp_integrity.py --quick` then `python -m unittest discover -s tests` |
 
 `run.bat` picks `.venv` if it exists, else the real Python path above, else `python`.
@@ -30,6 +31,7 @@ The summary prints in the terminal. Files go to `data/simulation/results/local_r
 - `summary.txt`: the same summary
 - `simulation_daily.csv`: one row per simulated day (growth, TAN, NH3, nitrate, pH, harvests); opens in Excel
 - `unit_economics.csv`: one row per configuration, location and case (low / mid / high)
+- `configurator_cost_breakdown.csv`: one row per cost line and case, with its cost per kg and share; edit parts in the run file's `configurator.build` block (see [[Project/How to Add Components|How to Add Components]])
 - `*_result.json`: the full raw output
 
 These files are ignored by git, so running things never changes the repo.

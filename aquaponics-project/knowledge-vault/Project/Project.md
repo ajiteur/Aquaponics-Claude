@@ -7,6 +7,7 @@ The hub for how this project runs. These notes are written by hand (by you or Cl
 - [[Project/Decisions Log|Decisions Log]]: choices made and why
 - [[Inbox/Inbox|Inbox]]: drop anything here and Claude will sort it
 - [[Project/How to Run Locally|How to Run Locally]]: run simulations and unit economics on your own PC
+- [[Project/How to Add Components|How to Add Components]]: add parts, species and regions to the configurator
 
 ## How knowledge is split
 
