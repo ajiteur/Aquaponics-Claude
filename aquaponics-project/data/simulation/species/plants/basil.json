@@ -135,6 +135,62 @@
       "Below about pH 5.8, basil risk increases for iron and manganese toxicity symptoms.",
       "Corrective action thresholds are suggested around 5.5 to 5.7 on the low side."
     ],
+    "shoot_n_uptake_model": {
+      "equation_text": "n_uptake_g_day = fresh_shoot_gain_g_day * shoot_dry_matter_fraction * tissue_n_fraction_of_dry_mass",
+      "shoot_dry_matter_fraction": {
+        "simulation_default": 0.112,
+        "range": {
+          "min": 0.089,
+          "max": 0.114
+        },
+        "basis": "Derived from Table 1 shoot fresh and dry mass: greenhouse 158/1417 g and 165/1452 g (11.2 to 11.4 percent); indoors 31/344 and 32/359 g (about 9.0 percent). Default is the greenhouse value, closest to warm UVI conditions (29/24 C day/night).",
+        "source": "Solis-Toapanta, Fisher, Gomez 2020, 'Growth Rate and Nutrient Uptake of Basil in Small-scale Hydroponics', HortScience, doi 10.21273/HORTSCI14727-19",
+        "source_url": "https://www.purdue.edu/hla/sites/master-gardener/wp-content/uploads/sites/9/2022/10/Growth-Rate-and-Nutrient-Uptake-of-Basil-in-Small-scale-Hydroponics-Solis-Toapanta-et-al.-2020.pdf",
+        "evidence_assessment": {
+          "source_level": "E3",
+          "trust_tier": "Tier 2",
+          "directness": "inferred (arithmetic on printed table values)",
+          "context_completeness": "partial (small DWC, Florida greenhouse, Genovese Compact)",
+          "replicability": "single_source",
+          "confidence": "medium",
+          "confidence_reason": "Printed values from a peer-reviewed study with two runs; the fraction is our arithmetic, not stated by the authors."
+        }
+      },
+      "tissue_n_fraction_of_dry_mass": {
+        "simulation_default": 0.04,
+        "sufficiency_survey_range": {
+          "min": 0.04,
+          "max": 0.06
+        },
+        "measured": {
+          "greenhouse": {
+            "min": 0.022,
+            "max": 0.029
+          },
+          "indoors": {
+            "min": 0.059,
+            "max": 0.062
+          }
+        },
+        "basis": "Default is the low end of the 4 to 6 percent survey sufficiency range the paper cites. Greenhouse plants measured 2.2 to 2.9 percent, which the authors say was below that range because N supply limited growth; UVI basil had ample nitrate (about 42 mg/L), so the sufficiency range fits better.",
+        "source": "Solis-Toapanta, Fisher, Gomez 2020, 'Growth Rate and Nutrient Uptake of Basil in Small-scale Hydroponics', HortScience, doi 10.21273/HORTSCI14727-19",
+        "source_url": "https://www.purdue.edu/hla/sites/master-gardener/wp-content/uploads/sites/9/2022/10/Growth-Rate-and-Nutrient-Uptake-of-Basil-in-Small-scale-Hydroponics-Solis-Toapanta-et-al.-2020.pdf",
+        "quote": "final tissue N concentration was below the survey range",
+        "evidence_assessment": {
+          "source_level": "E3",
+          "trust_tier": "Tier 2",
+          "directness": "direct_number (Table 4 and the cited survey range)",
+          "context_completeness": "partial (hydroponic, not aquaponic)",
+          "replicability": "single_source",
+          "confidence": "medium",
+          "confidence_reason": "Peer-reviewed, printed values. Measured values vary 2.2 to 6.2 percent with conditions, so the default carries real uncertainty; the survey's original source was not checked."
+        }
+      },
+      "scope": "Shoot uptake only. Roots and the stem left after cutting are not included (the study measured shoots only), so uptake is likely understated.",
+      "status": "candidate_pending_user_review",
+      "added_utc": "2026-11-25",
+      "evidence_policy": "Trusted Source Map and Source Trust Policy for Aquaponics Layer 1: source levels E5-E0, confidence high/medium/low rule"
+    },
     "aquaponics_nitrate_n_anchor_mg_L": 42.0,
     "aquaponics_operating_pH": {
       "controlled_min": 7.0,
@@ -306,7 +362,7 @@
   ],
   "runtime_sync": {
     "scope": "species",
-    "generated_at_utc": "2026-11-25T00:05:02Z",
+    "generated_at_utc": "2026-11-25T00:06:40Z",
     "canonical_source": "data/knowledge/species/plants/basil.json",
     "runtime_target": "data/simulation/species/plants/basil.json",
     "ownership": "data/knowledge is canonical; data/simulation is a derived runtime mirror."
