@@ -3,7 +3,7 @@
   "label": "Scenario estimate, not validated. Gross revenue only: no costs, margin or profit.",
   "slice_id": "basil_bulk_kg_wholesale",
   "generated_by": "scripts/build_basil_revenue_range.py",
-  "generated_at_utc": "2026-11-25T00:07:23Z",
+  "generated_at_utc": "2026-11-25T04:35:06Z",
   "inputs_file": "scripts/example_first_slice_working_inputs.json",
   "crops_per_year": 13,
   "crops_per_year_basis": "Rakocy et al. 2004 (Acta Hort 648), Results: the staggered trial is described as 13 crops per year, versus nine in an earlier study; consistent with 23.4 kg/m2/yr / 1.8 kg/m2 per harvest",

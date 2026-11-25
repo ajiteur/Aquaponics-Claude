@@ -2,9 +2,9 @@
 
 What the simulation shows, newest first. These are **scenario estimates, not validated**: they describe the model, not the real world, and they are never truths.
 
-## 2026-11-25: New nitrification and nitrate uptake models (PR #6)
+## 2026-11-25: New nitrification and nitrate uptake models (PR #6 and PR #11)
 
-Run: `src/simulate_crop_cycle.py`, 28 days, both basil raft scenarios, with the raft (11.25 m²) as the only nitrifying surface. All new model values are candidates. Details and source reliability: [[Learnings/Nitrification Model Findings|Nitrification Model Findings]].
+Run: `src/simulate_crop_cycle.py`, 28 days, both basil raft scenarios, with the raft (11.25 m²) as the only nitrifying surface. All new model values are candidates. This **supersedes the revenue rerun entry below** for current numbers. Details and source reliability: [[Learnings/Nitrification Model Findings|Nitrification Model Findings]].
 
 | Scenario | TAN (mg/L) | NH3 (mg/L) | Nitrate (mg/L) | Basil kg/m² | € per m² per year (cons. / base / opt.) |
 |---|---|---|---|---:|---|
@@ -15,6 +15,20 @@ Run: `src/simulate_crop_cycle.py`, 28 days, both basil raft scenarios, with the 
 - **TAN of about 2 mg/L is above the NMSU guidance of TAN under 1 ppm**, but NH3 stays low at pH 6.9.
 - **The old nitrate uptake placeholder was about 7 times too high.** Growth-based uptake is about 0.6 mg/L per day for 90 plants in 6,000 L. The starter case is no longer nitrate-limited, so its yield rises to 1.91 kg/m².
 - **Nitrate now builds up to about 161 mg/L in the UVI case; UVI measured about 42.** The model has no nitrogen sinks besides plant shoots: no water exchange, sludge removal, denitrification or root uptake. That is the next gap to close.
+
+## 2026-11-25: Basil revenue range rerun after the nitrification and pH fix
+
+The 28-day basil runs were regenerated after PR #6 (nitrification model and basil pH scoring fix), and the revenue range was rebuilt from them. This **supersedes the two entries below** for current numbers. Same price and saleability inputs as before, still pending your approval.
+
+| Scenario | Harvest kg/m² | Water state over the run | € per m² per year (cons. / base / opt.) |
+|---|---:|---|---|
+| Starter fixture | 0.77 (was 1.21) | TAN max about 0.22 mg/L, nitrate falls to about 5.7 mg/L | 60 / 72 / 86 |
+| UVI feed ratio | 1.99 (was 2.00) | TAN max about 2.3 mg/L, NH3 max about 0.016 mg/L, nitrate stays near 41 to 44 mg/L | 154 / 187 / 222 |
+
+- **Range: about €60 to €222 per m² per year gross.**
+- **The UVI feed-ratio case now holds water quality in a normal-looking range** (TAN about 2.3 mg/L, close to the UVI trial mean of 2.2), so 2.0 kg/m² is no longer just a plant-side ceiling. This is context, not a fish-safety assessment.
+- **The starter fixture is more nitrate-limited than before.** It has too little fish feed for its 90 plants. The 11.25 m² system grosses about €670 to €970 a year at that yield.
+- **Takeaway:** feed per m² of grow area drives basil output. A real design should size fish feed to the UVI ratio, about 80 to 100 g per m² per day.
 
 ## 2026-11-25: Basil gross revenue range
 
