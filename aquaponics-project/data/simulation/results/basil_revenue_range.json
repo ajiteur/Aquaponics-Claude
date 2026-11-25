@@ -3,7 +3,7 @@
   "label": "Scenario estimate, not validated. Gross revenue only: no costs, margin or profit.",
   "slice_id": "basil_bulk_kg_wholesale",
   "generated_by": "scripts/build_basil_revenue_range.py",
-  "generated_at_utc": "2026-11-24T23:58:01Z",
+  "generated_at_utc": "2026-11-25T00:07:23Z",
   "inputs_file": "scripts/example_first_slice_working_inputs.json",
   "crops_per_year": 13,
   "crops_per_year_basis": "Rakocy et al. 2004 (Acta Hort 648), Results: the staggered trial is described as 13 crops per year, versus nine in an earlier study; consistent with 23.4 kg/m2/yr / 1.8 kg/m2 per harvest",
@@ -65,37 +65,37 @@
         "scenario_id": "basil_raft_crop_cycle",
         "harvest_event_count": 1,
         "grow_area_m2": 11.25,
-        "harvested_kg_per_m2_per_harvest": 1.208,
-        "harvested_kg_per_harvest": 13.595,
+        "harvested_kg_per_m2_per_harvest": 1.913,
+        "harvested_kg_per_harvest": 21.518,
         "output_basis": "runtime_native_calibrated_simulation",
         "water_state_context": {
-          "max_tan_mg_L": 1.804,
-          "max_unionized_nh3_mg_L": 0.134,
-          "min_nitrate_mg_L": 14.77,
+          "max_tan_mg_L": 0.224,
+          "max_unionized_nh3_mg_L": 0.0015,
+          "min_nitrate_mg_L": 38.373,
           "note": "Context only. Not a fish-safety or system-safety assessment."
         }
       },
       "cases": {
         "conservative": {
-          "saleable_kg_per_m2_per_harvest": 1.027,
-          "gross_revenue_per_m2_per_harvest": 7.19,
-          "gross_revenue_per_m2_per_year": 93.44,
-          "gross_revenue_per_harvest_for_scenario_area": 80.86,
-          "gross_revenue_per_year_for_scenario_area": 1051.19
+          "saleable_kg_per_m2_per_harvest": 1.626,
+          "gross_revenue_per_m2_per_harvest": 11.38,
+          "gross_revenue_per_m2_per_year": 147.97,
+          "gross_revenue_per_harvest_for_scenario_area": 128.05,
+          "gross_revenue_per_year_for_scenario_area": 1664.67
         },
         "base": {
-          "saleable_kg_per_m2_per_harvest": 1.087,
-          "gross_revenue_per_m2_per_harvest": 8.7,
-          "gross_revenue_per_m2_per_year": 113.07,
-          "gross_revenue_per_harvest_for_scenario_area": 97.85,
-          "gross_revenue_per_year_for_scenario_area": 1272.02
+          "saleable_kg_per_m2_per_harvest": 1.722,
+          "gross_revenue_per_m2_per_harvest": 13.77,
+          "gross_revenue_per_m2_per_year": 179.06,
+          "gross_revenue_per_harvest_for_scenario_area": 154.95,
+          "gross_revenue_per_year_for_scenario_area": 2014.39
         },
         "optimistic": {
-          "saleable_kg_per_m2_per_harvest": 1.148,
-          "gross_revenue_per_m2_per_harvest": 10.33,
-          "gross_revenue_per_m2_per_year": 134.27,
-          "gross_revenue_per_harvest_for_scenario_area": 116.19,
-          "gross_revenue_per_year_for_scenario_area": 1510.53
+          "saleable_kg_per_m2_per_harvest": 1.817,
+          "gross_revenue_per_m2_per_harvest": 16.36,
+          "gross_revenue_per_m2_per_year": 212.63,
+          "gross_revenue_per_harvest_for_scenario_area": 184.01,
+          "gross_revenue_per_year_for_scenario_area": 2392.09
         }
       }
     },
@@ -109,9 +109,9 @@
         "harvested_kg_per_harvest": 22.501,
         "output_basis": "runtime_native_calibrated_simulation",
         "water_state_context": {
-          "max_tan_mg_L": 14.256,
-          "max_unionized_nh3_mg_L": 1.182,
-          "min_nitrate_mg_L": 43.872,
+          "max_tan_mg_L": 2.319,
+          "max_unionized_nh3_mg_L": 0.0156,
+          "min_nitrate_mg_L": 44.73,
           "note": "Context only. Not a fish-safety or system-safety assessment."
         }
       },
@@ -141,7 +141,7 @@
     }
   ],
   "range_gross_revenue_per_m2_per_year": {
-    "low": 93.44,
+    "low": 147.97,
     "high": 222.3
   },
   "limits": [
