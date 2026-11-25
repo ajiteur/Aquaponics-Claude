@@ -32,7 +32,25 @@ The Gatekeeper checks every PR for these before giving a merge verdict:
 
 ## Log
 
-None yet. The first save point (`save-point-001`) is planned once PR #4 and PR #5 are merged.
+### save-point-001 (2026-11-25)
+
+- **Commit:** `07ce825` on `main`, after PRs #1 to #19 and Approval Batch 001.
+- **What it holds:**
+  - Basil grown to a 28-day harvest, calibrated to UVI.
+  - A candidate biofilm nitrification model and growth-based basil nitrate uptake.
+  - Basil aquaponic pH scoring (evidenced edges accepted).
+  - The basil gross revenue range, now with approved inputs.
+  - The unit design comparison for the Netherlands and the Indian states.
+  - The component catalog and cost-per-kg configurator.
+  - The local runner (`run.bat`).
+  - Obsidian truths with reliability fields, and the Gatekeeper rules.
+- **Checks:** 189 tests OK. `check_mvp_integrity.py --full` PASS, protected paths clean. Runtime sync dry run: no changes. Vault export dry run: 0 to write, 0 stale.
+- **Open at this point:**
+  - Batch 002 items: TN, AP and TG basil prices, the all-India band, the sensitivity locations, the NL lettuce price, the EPS/XPS raft lives and two conflicting design rules.
+  - 13 older truths have no reliability record yet.
+  - The nitrate balance has no sinks besides plant uptake, so it runs to about 161 to 180 mg/L at the UVI feed ratio.
+  - Standing biomass is still a placeholder.
+  - Fish revenue, heating, CAPEX and logistics are not in the cost lines.
 
 ## Related Notes
 
