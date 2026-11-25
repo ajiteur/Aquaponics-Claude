@@ -4,7 +4,7 @@ Newest first. Each entry gives the decision, why, and who made it.
 
 ## 2026-11-25
 
-- **Use ₹65-180/kg as the India basil base price.** Why: Ajit confirms basil costs that much in Bangalore, matching ten Bengaluru B2B listings. The ₹600-1,000/kg study band is demoted to a sensitivity case. Decided by Ajit.
+- **Use ₹65-180/kg as the India basil base price in the comparison.** Why: Ajit confirmed basil costs that much in Bangalore, matching ten Bengaluru B2B listings. The ₹600-1,000/kg study band is demoted to a sensitivity case. Formal approval of the value is pending in the approval batch.
 - **Find the unit design with workable unit economics before the go/no-go.** Compare system type, scale, crop, labour model and location, then decide on the farm. Decided by Ajit.
 - **Compare two locations side by side: the Netherlands and India.** For India, cover Karnataka, Tamil Nadu, Andhra Pradesh and Telangana. Decided by Ajit.
 - **Check reliability for every new learning.** Each new truth or manual input records its source tier, source gate, confidence with a reason, and corroboration, in canon and in the vault. Tier 3 or single-source items stay candidate. Why: we need to know how far each piece of knowledge can be trusted. Decided by Ajit.
