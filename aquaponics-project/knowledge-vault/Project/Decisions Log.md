@@ -4,6 +4,8 @@ Newest first. Each entry gives the decision, why, and who made it.
 
 ## 2026-11-25
 
+- **Apply the equipment inventory cross-check to the catalog.** Upgrade India fingerlings (Rs 4) and Dutch water to corroborated, flag nine shaky catalog values without changing them, and fill the India pump price with a candidate (Crompton 0.5 HP, Rs 13,400). Why: the 2026-11-25 equipment inventory agreed on most design rules but found failure data and rate mismatches. Asked by Ajit.
+- **Research the remaining equipment in small batches.** The backlog is in `docs/equipment_research_backlog.md`. Run two or three researchers at a time to stay under the shared page-read limit. Proposed by Claude.
 - **Start from cost of production, not market price.** Build a component library and a configurator that report cost per kg by component, with alternatives, before layering on logistics and market costs. Long-term goal: a worldwide database of components, fish and plants to find the configuration with the best output. Decided by Ajit.
 - **Keep the component catalog outside canon for now.** It lives in `data/catalog/` as candidate inputs. Approved values move to `data/knowledge/business/` in a separate canon pass. Why: most prices are shop listings (tier 3) and need your approval first. Proposed by Claude, pending Ajit's review.
 - **Use ₹65-180/kg as the India basil base price in the comparison.** Why: Ajit confirmed basil costs that much in Bangalore, matching ten Bengaluru B2B listings. The ₹600-1,000/kg study band is demoted to a sensitivity case. Formal approval of the value is pending in the approval batch.

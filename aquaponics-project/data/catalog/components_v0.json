@@ -120,6 +120,75 @@
     "unit_config_locations": {
       "citation": "data/scenarios/unit_configuration_candidates_v0.json locations block (wages, electricity) and labour sources (Heidemann and Bailey 2015; Tokunaga 2015; Quagrainie, Purdue)",
       "source_tier": "tier_1"
+    },
+    "equipment_inventory_2026_11_25": {
+      "citation": "Aquaponics equipment inventory (deep research, 2026-11-25), project files equipment-inventory/; candidate, not canon",
+      "url": "",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_3",
+      "note": "Cross-check pointer only; cite the primary sources below for values."
+    },
+    "kvafsu_fric_hebbal_2020": {
+      "citation": "KVAFSU Fisheries Research and Information Centre (Inland), Hebbal, Bengaluru. Rate list, office order FRIC(I)/Hebbal/112/2019-20, 2020-01-06",
+      "url": "https://www.kvafsu.edu.in/services_and_inputs/FRIC-Hebbal-Benagaluru-1.pdf",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_1"
+    },
+    "dunea_tarieven_2026": {
+      "citation": "Dunea. Tarievenregeling 2026",
+      "url": "https://www.dunea.nl/-/media/bestanden/over-dunea/tarievenregeling/dunea-tarievenregeling-2026.pdf",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_1"
+    },
+    "usda_nifa_1012572_rafts": {
+      "citation": "USDA NIFA CRIS project 1012572, Hawaii Fish Company: Innovative Manufactured Aquaponic Raft for Commercial Farms (2017-2020)",
+      "url": "https://portal.nifa.usda.gov/web/crisprojectpages/1012572-innovative-manufactured-aquaponic-raft-for-commercial-farms.html",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_2"
+    },
+    "nhb_cost_norms_xii_plan": {
+      "citation": "National Horticulture Board (India). Cost Norms, Appendix-1 (XII Plan); plains vs hilly-area rates",
+      "url": "https://nhb.gov.in/hindi/pdf/Cost%20Norms.pdf",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_1"
+    },
+    "fao_589_farmhub": {
+      "citation": "FAO Fisheries and Aquaculture Technical Paper 589 (Somerville et al. 2014), sections 4.2-4.5, read on the FarmHub reproduction",
+      "url": "https://learn.farmhub.ag/resources/small-scale-aquaponic-food-production/4-design-of-aquaponic-units/the-media-bed-technique/",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_1",
+      "note": "Mirror, not the FAO PDF; medium confidence until checked against the original."
+    },
+    "srac_5007": {
+      "citation": "Mullins, Nerrie & Sink (2015). SRAC 5007, Principles of Small-Scale Aquaponics",
+      "url": "https://srac.msstate.edu/pdfs/Fact%20Sheets/5007%20Principles%20of%20Small-Scale%20Aquaponics.pdf",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_1"
+    },
+    "forum_tractorbynet_ibc": {
+      "citation": "TractorByNet forum thread: '275 and larger IBC's - how long do they last?' (anecdote)",
+      "url": "https://tractorbynet.com/forums/goto/post?id=2710792",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_3"
+    },
+    "hiblow_maintenance_guide": {
+      "citation": "Hiblow HP-Series Maintenance Guide",
+      "url": "https://cdn.shopify.com/s/files/1/2394/4493/files/Hiblow_HP-Series_Maintenance_Guide_PDF.pdf",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_2"
+    },
+    "crompton_owe052": {
+      "citation": "Crompton OWE052(1PH)Z-21FS 0.5 HP openwell submersible pump, product page (MRP incl. all taxes)",
+      "url": "https://www.crompton.co.in/products/owe0521phz-21fs",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_3",
+      "note": "Specs tier_2 (maker), price tier_3."
+    },
+    "retail_nl_hornbach_liner": {
+      "citation": "Hornbach.nl pond liner (vijverfolie) category page",
+      "url": "https://www.hornbach.nl/c/tuin/vijvers/vijverfolies/S13832/",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_3"
     }
   },
   "design_rules": {
@@ -203,11 +272,21 @@
       "confidence": "low",
       "confidence_reason": "Power ratio used as an airflow ratio.",
       "corroboration": {
-        "status": "single_source",
+        "status": "conflicting",
         "source_ids": [
-          "uvi_aquaponic_system_design"
+          "uvi_aquaponic_system_design",
+          "heidemann_bailey_2015_uvi_economics"
         ]
-      }
+      },
+      "review_flags": [
+        {
+          "date": "2026-11-25",
+          "source_ids": [
+            "equipment_inventory_2026_11_25"
+          ],
+          "flag": "SRAC 454 and the UVI design paper list a 1 hp plant blower, but the UVI costing (Heidemann & Bailey) lists 2 hp. At 2 hp the ratio would be 1.33 (derived). Value not changed."
+        }
+      ]
     },
     "raft_water_depth_m": {
       "low": 0.317,
@@ -262,11 +341,22 @@
       "confidence": "medium",
       "confidence_reason": "Common small-system guidance.",
       "corroboration": {
-        "status": "single_source",
+        "status": "conflicting",
         "source_ids": [
-          "repo_capex_basis_pack"
+          "repo_capex_basis_pack",
+          "fao_589_farmhub",
+          "srac_5007"
         ]
-      }
+      },
+      "review_flags": [
+        {
+          "date": "2026-11-25",
+          "source_ids": [
+            "equipment_inventory_2026_11_25"
+          ],
+          "flag": "0.30-0.35 m sits at or above the primary sources: FAO 589 gives 15-30 cm (30 cm only for large fruiting crops), SRAC 5007 gives 6-12 in (15-30 cm). Re-check where 0.35 came from."
+        }
+      ]
     },
     "mbbr_loading_kg_feed_per_m3_day": {
       "low": 8.0,
@@ -435,9 +525,10 @@
         "confidence": "low",
         "confidence_reason": "No life figure for this product; UVI life classes used as a range.",
         "corroboration": {
-          "status": "single_source",
+          "status": "conflicting",
           "source_ids": [
-            "heidemann_bailey_2015_uvi_economics"
+            "heidemann_bailey_2015_uvi_economics",
+            "forum_tractorbynet_ibc"
           ]
         }
       },
@@ -465,6 +556,15 @@
       "role": "fish_tank",
       "notes": [
         "Usable volume assumed equal to nominal 1.0 m3; footprint not recorded."
+      ],
+      "review_flags": [
+        {
+          "date": "2026-11-25",
+          "source_ids": [
+            "equipment_inventory_2026_11_25"
+          ],
+          "flag": "Lifetime 10-20 yr is transferred from UVI rearing tanks. Forum anecdotes (tier_3) report about 5 yr in direct sun vs about 8 yr outdoors for IBCs; UV exposure shortens life. Keep the UVI basis but expect lower outdoors without UV cover."
+        }
       ]
     },
     {
@@ -503,9 +603,10 @@
         "confidence": "low",
         "confidence_reason": "No life figure for this product; UVI life classes used as a range.",
         "corroboration": {
-          "status": "single_source",
+          "status": "conflicting",
           "source_ids": [
-            "heidemann_bailey_2015_uvi_economics"
+            "heidemann_bailey_2015_uvi_economics",
+            "forum_tractorbynet_ibc"
           ]
         }
       },
@@ -530,7 +631,16 @@
           ]
         }
       },
-      "role": "fish_tank"
+      "role": "fish_tank",
+      "review_flags": [
+        {
+          "date": "2026-11-25",
+          "source_ids": [
+            "equipment_inventory_2026_11_25"
+          ],
+          "flag": "Lifetime 10-20 yr is transferred from UVI rearing tanks. Forum anecdotes (tier_3) report about 5 yr in direct sun vs about 8 yr outdoors for IBCs; UV exposure shortens life. Keep the UVI basis but expect lower outdoors without UV cover."
+        }
+      ]
     },
     {
       "component_id": "fish_tank_pvc_biofloc_5000l_in",
@@ -798,6 +908,15 @@
       "role": "liner",
       "architectures": [
         "dwc_raft"
+      ],
+      "review_flags": [
+        {
+          "date": "2026-11-25",
+          "source_ids": [
+            "equipment_inventory_2026_11_25"
+          ],
+          "flag": "Price EUR 12.65/m2 is a clearance price on a discontinued 1 mm liner. Hornbach lists 0.6 mm EPDM at EUR 12.63-18.46/m2 incl. VAT, so a current 1 mm price is likely higher. Add a second seller before use."
+        }
       ]
     },
     {
@@ -834,11 +953,12 @@
         "source_gate": "conditional",
         "source_gate_reason": "UVI Table 7 life for liner, rafts and hydroponic tank walls.",
         "confidence": "low",
-        "confidence_reason": "Depreciation life of one system, not a durability test.",
+        "confidence_reason": "Depreciation life of one system, not a durability test. Insulation board, not a purpose-made raft; USDA-NIFA test shows water uptake and breakage.",
         "corroboration": {
-          "status": "single_source",
+          "status": "conflicting",
           "source_ids": [
-            "heidemann_bailey_2015_uvi_economics"
+            "heidemann_bailey_2015_uvi_economics",
+            "usda_nifa_1012572_rafts"
           ]
         }
       },
@@ -846,7 +966,8 @@
       "labour_effect": "Rafts must be washed between crops.",
       "trade_offs": [
         "Closed-cell XPS absorbs less water and is stiffer than EPS; about twice the price.",
-        "Food-contact suitability of building insulation is not established."
+        "Food-contact suitability of building insulation is not established.",
+        "Homemade EPS rafts absorb water and break under load (USDA-NIFA); XPS carries fire retardants, a food-contact concern."
       ],
       "occupies_floor": false,
       "footprint_m2_per_unit": null,
@@ -866,6 +987,18 @@
       "role": "raft",
       "architectures": [
         "dwc_raft"
+      ],
+      "review_flags": [
+        {
+          "date": "2026-11-25",
+          "source_ids": [
+            "equipment_inventory_2026_11_25"
+          ],
+          "flag": "Lifetime not transferable: the 10 yr is UVI's depreciation life for purpose-made rafts. A USDA-NIFA raft test found homemade EPS rafts had the highest water uptake and broke at a 5.9 kg load; it judged XPS unsuitable because of mandatory fire retardants. Treat this life as unknown until a durability source is found."
+        }
+      ],
+      "failure_modes": [
+        "Raft breaks or waterlogs and sinks; plants lost from that raft (USDA-NIFA test, homemade EPS)."
       ]
     },
     {
@@ -902,18 +1035,20 @@
         "source_gate": "conditional",
         "source_gate_reason": "UVI Table 7 life for liner, rafts and hydroponic tank walls.",
         "confidence": "low",
-        "confidence_reason": "Depreciation life of one system, not a durability test.",
+        "confidence_reason": "Depreciation life of one system, not a durability test. Insulation board, not a purpose-made raft; USDA-NIFA test shows water uptake and breakage.",
         "corroboration": {
-          "status": "single_source",
+          "status": "conflicting",
           "source_ids": [
-            "heidemann_bailey_2015_uvi_economics"
+            "heidemann_bailey_2015_uvi_economics",
+            "usda_nifa_1012572_rafts"
           ]
         }
       },
       "energy": null,
       "labour_effect": "Rafts must be washed between crops.",
       "trade_offs": [
-        "Cheapest raft; EPS beads crumble and soak water, so it wears faster and is harder to sanitise."
+        "Cheapest raft; EPS beads crumble and soak water, so it wears faster and is harder to sanitise.",
+        "Homemade EPS rafts absorb water and break under load (USDA-NIFA); XPS carries fire retardants, a food-contact concern."
       ],
       "occupies_floor": false,
       "footprint_m2_per_unit": null,
@@ -933,6 +1068,18 @@
       "role": "raft",
       "architectures": [
         "dwc_raft"
+      ],
+      "review_flags": [
+        {
+          "date": "2026-11-25",
+          "source_ids": [
+            "equipment_inventory_2026_11_25"
+          ],
+          "flag": "Lifetime not transferable: the 10 yr is UVI's depreciation life for purpose-made rafts. A USDA-NIFA raft test found homemade EPS rafts had the highest water uptake and broke at a 5.9 kg load; it judged XPS unsuitable because of mandatory fire retardants. Treat this life as unknown until a durability source is found."
+        }
+      ],
+      "failure_modes": [
+        "Raft breaks or waterlogs and sinks; plants lost from that raft (USDA-NIFA test, homemade EPS)."
       ]
     },
     {
@@ -1099,18 +1246,20 @@
         "source_gate": "conditional",
         "source_gate_reason": "UVI Table 7 life for liner, rafts and hydroponic tank walls.",
         "confidence": "low",
-        "confidence_reason": "Depreciation life of one system, not a durability test.",
+        "confidence_reason": "Depreciation life of one system, not a durability test. Insulation board, not a purpose-made raft; USDA-NIFA test shows water uptake and breakage.",
         "corroboration": {
-          "status": "single_source",
+          "status": "conflicting",
           "source_ids": [
-            "heidemann_bailey_2015_uvi_economics"
+            "heidemann_bailey_2015_uvi_economics",
+            "usda_nifa_1012572_rafts"
           ]
         }
       },
       "energy": null,
       "labour_effect": "Rafts washed between crops.",
       "trade_offs": [
-        "Cheap; low-density thermocol breaks and soaks water."
+        "Cheap; low-density thermocol breaks and soaks water.",
+        "Homemade EPS rafts absorb water and break under load (USDA-NIFA); XPS carries fire retardants, a food-contact concern."
       ],
       "occupies_floor": false,
       "footprint_m2_per_unit": null,
@@ -1130,6 +1279,18 @@
       "role": "raft",
       "architectures": [
         "dwc_raft"
+      ],
+      "review_flags": [
+        {
+          "date": "2026-11-25",
+          "source_ids": [
+            "equipment_inventory_2026_11_25"
+          ],
+          "flag": "Lifetime not transferable: the 10 yr is UVI's depreciation life for purpose-made rafts. A USDA-NIFA raft test found homemade EPS rafts had the highest water uptake and broke at a 5.9 kg load; it judged XPS unsuitable because of mandatory fire retardants. Treat this life as unknown until a durability source is found."
+        }
+      ],
+      "failure_modes": [
+        "Raft breaks or waterlogs and sinks; plants lost from that raft (USDA-NIFA test, homemade EPS)."
       ]
     },
     {
@@ -1256,6 +1417,15 @@
       "role": "channel",
       "architectures": [
         "nft"
+      ],
+      "review_flags": [
+        {
+          "date": "2026-11-25",
+          "source_ids": [
+            "equipment_inventory_2026_11_25"
+          ],
+          "flag": "Price is plain uPVC pipe (Rs 145 per 6.1 m). Purpose-made NFT channels on IndiaMART list at about Rs 112-1,500 per piece (one Chennai listing Rs 310). The catalog value may understate NFT cost; add a purpose-made channel as an alternative."
+        }
       ]
     },
     {
@@ -1422,7 +1592,14 @@
         "unit_label": "pumps",
         "min_units": 1
       },
-      "capex_per_unit": null,
+      "capex_per_unit": {
+        "low": 13400.0,
+        "high": 13400.0,
+        "price_basis": "MRP incl. all taxes (GST included), national list price, one model",
+        "source_ids": [
+          "crompton_owe052"
+        ]
+      },
       "lifetime_years": {
         "low": 5,
         "high": 5,
@@ -1452,24 +1629,35 @@
       },
       "labour_effect": "Clean intake screen.",
       "trade_offs": [
-        "Borewell-type pumps are built for high head; a low-head circulation pump would use less power. No Indian price read yet."
+        "Borewell-type pumps are built for high head; a low-head circulation pump would use less power."
       ],
       "occupies_floor": false,
       "footprint_m2_per_unit": null,
       "price_reliability": {
         "source_tier": "tier_3",
         "source_gate": "conditional",
-        "source_gate_reason": "Kirloskar KOSi-123 spec read on L&T-SuFin; price not shown.",
+        "source_gate_reason": "Maker list price (MRP), one model, one date.",
         "confidence": "low",
-        "confidence_reason": "Price missing; power from 0.5 hp rating.",
+        "confidence_reason": "Openwell well pump used as a proxy for a circulation pump; out of stock on read.",
         "corroboration": {
           "status": "single_source",
-          "source_ids": []
+          "source_ids": [
+            "crompton_owe052"
+          ]
         }
       },
       "role": "water_pump",
       "notes": [
         "Capacity uses the low end of the listed flow range."
+      ],
+      "review_flags": [
+        {
+          "date": "2026-11-25",
+          "source_ids": [
+            "equipment_inventory_2026_11_25"
+          ],
+          "flag": "Price gap filled with a candidate: Crompton OWE052 0.5 HP openwell submersible, MRP Rs 13,400 incl. all taxes (72-140 L/min, 18 m max head). This is a well pump, not a pond or aquaculture pump; one seller, out of stock on read. Its rated flow (72-140 L/min, about 4,320-8,400 L/h) differs from the Kirloskar spec behind capacity_per_unit (5,760 L/h); capacity not changed."
+        }
       ]
     },
     {
@@ -1525,7 +1713,7 @@
         },
         "duty_hours_per_day": 24
       },
-      "labour_effect": "Check diffusers and air lines.",
+      "labour_effect": "Check diffusers and air lines. Wear parts (diaphragms, valves or pistons) need periodic replacement; Hiblow interval 1-1.5 yr.",
       "trade_offs": [
         "Piston air pump: cheap and quiet at small scale; for larger systems a regenerative blower uses fewer units."
       ],
@@ -1544,7 +1732,16 @@
           ]
         }
       },
-      "role": "aeration"
+      "role": "aeration",
+      "review_flags": [
+        {
+          "date": "2026-11-25",
+          "source_ids": [
+            "equipment_inventory_2026_11_25"
+          ],
+          "flag": "Lifetime 10 yr is transferred from UVI regenerative blowers to a piston air pump; weak transfer. Hiblow (diaphragm pump maker) specifies replacing diaphragms and valves every 1-1.5 yr. No life found for piston pumps."
+        }
+      ]
     },
     {
       "component_id": "air_blower_1_5kw_in",
@@ -1725,9 +1922,10 @@
         "confidence": "low",
         "confidence_reason": "No life figure for this product; UVI life classes used as a range.",
         "corroboration": {
-          "status": "single_source",
+          "status": "conflicting",
           "source_ids": [
-            "heidemann_bailey_2015_uvi_economics"
+            "heidemann_bailey_2015_uvi_economics",
+            "forum_tractorbynet_ibc"
           ]
         }
       },
@@ -1751,7 +1949,16 @@
           ]
         }
       },
-      "role": "solids_filter"
+      "role": "solids_filter",
+      "review_flags": [
+        {
+          "date": "2026-11-25",
+          "source_ids": [
+            "equipment_inventory_2026_11_25"
+          ],
+          "flag": "Lifetime 10-20 yr is transferred from UVI rearing tanks. Forum anecdotes (tier_3) report about 5 yr in direct sun vs about 8 yr outdoors for IBCs; UV exposure shortens life. Keep the UVI basis but expect lower outdoors without UV cover."
+        }
+      ]
     },
     {
       "component_id": "settling_tank_pvc_5000l_in",
@@ -1981,7 +2188,16 @@
           ]
         }
       },
-      "role": "structure"
+      "role": "structure",
+      "review_flags": [
+        {
+          "date": "2026-11-25",
+          "source_ids": [
+            "equipment_inventory_2026_11_25"
+          ],
+          "flag": "High end Rs 414/m2 appears to be the hilly or north-east (HMNEH) rate. NHB/MIDH norms give bamboo shade net Rs 360/m2 for plains and Rs 414 for hilly areas; the four southern states are plains. Value not changed; Ajit to confirm using 360."
+        }
+      ]
     },
     {
       "component_id": "structure_none_existing_space",
@@ -2091,17 +2307,19 @@
       },
       "price_basis": "NFDB GIFT tilapia RAS model, Rs 4 per fingerling",
       "source_ids": [
-        "nfdb_ras_recent_trends"
+        "nfdb_ras_recent_trends",
+        "kvafsu_fric_hebbal_2020"
       ],
       "source_tier": "tier_1",
       "source_gate": "conditional",
       "source_gate_reason": "Official model, undated.",
-      "confidence": "low",
-      "confidence_reason": "Planning figure.",
+      "confidence": "medium",
+      "confidence_reason": "Two government sources agree on Rs 4 per tilapia fingerling (NFDB model; KVAFSU Hebbal rate list Rs 4,000 per 1,000, 2020). Both several years old.",
       "corroboration": {
-        "status": "single_source",
+        "status": "corroborated",
         "source_ids": [
-          "nfdb_ras_recent_trends"
+          "nfdb_ras_recent_trends",
+          "kvafsu_fric_hebbal_2020"
         ]
       }
     },
@@ -2115,17 +2333,19 @@
       },
       "price_basis": "Vitens 2026 consumer tariff incl. 9% BTW; high end adds Belasting op Leidingwater EUR 0.477/m3. Fixed EUR 56.68/yr not included.",
       "source_ids": [
-        "vitens_tarieven_2026"
+        "vitens_tarieven_2026",
+        "dunea_tarieven_2026"
       ],
       "source_tier": "tier_1",
       "source_gate": "trusted",
       "source_gate_reason": "Utility's own tariff sheet.",
       "confidence": "medium",
-      "confidence_reason": "Official tariff; consumer sheet, business tariff not read; region-specific (Vitens area).",
+      "confidence_reason": "Official tariff; consumer sheet, business tariff not read; region-specific (Vitens area). Dunea 2026 (EUR 1.45 excl. / 1.58 incl. VAT) agrees within the range; tap-water tax about EUR 0.44-0.48/m3 in both.",
       "corroboration": {
-        "status": "single_source",
+        "status": "corroborated",
         "source_ids": [
-          "vitens_tarieven_2026"
+          "vitens_tarieven_2026",
+          "dunea_tarieven_2026"
         ]
       }
     },
@@ -2282,7 +2502,7 @@
   "known_gaps": [
     "Labour by task (feeding, harvest, packing, cleaning): no sourced split; labour is a whole-system rate.",
     "Netherlands: fingerling price, basil and lettuce seed price per seed, trough wall price, biofilter media in EUR, second air-pump option, greenhouse heating installation CAPEX.",
-    "India: circulation pump price, raft trough walls, seed price in INR, water price (borewell or municipal), structure lifetime.",
+    "India: raft trough walls, seed price in INR, water price (borewell or municipal), structure lifetime.",
     "Seedling propagation (trays, media, germination losses), grow lights, back-up power, sensors and test kits, packaging and cold chain.",
     "Water held in NFT and media-bed grow units; NFT channel layout per m2; NFT and media-bed yields.",
     "Fish sale value and logistics/market costs (layered on later by design)."
