@@ -2,7 +2,7 @@
 
 Everything waiting on Ajit, in one list, with the Gatekeeper's recommendation for each. Reply "approve batch 001 as recommended", or list the item numbers you want changed. Approvals are then recorded next to each value (who, date, scope).
 
-Prepared: 2026-11-25, against `main` at `7f57d3f`, PR #10 at `dccb31c` and PR #11 at `a539274`.
+Prepared: 2026-11-25, against `main` at `7f57d3f`, PR #10 at `4cf2758` and PR #11 at `a539274`.
 
 Rule used for the recommendations (AGENTS.md 6A): approve items with medium or high confidence that Tier 1 or Tier 2 sources corroborate. Single-source, Tier 3 and low-confidence items stay candidates. The simulation uses candidates anyway, so keeping one as a candidate doesn't stop any work.
 
@@ -20,7 +20,7 @@ Rule used for the recommendations (AGENTS.md 6A): approve items with medium or h
 |---|---|---|
 | B1 | Netherlands basil wholesale price €7 / €8 / €9 per kg (CBI 2024, citing March 2020 importer examples) | **Approve for scenario use.** Sourced, but old, with tax treatment not normalized. |
 | B2 | Netherlands basil saleability 85 / 90 / 95% | **Approve for scenario use.** Research-pack operator assumption, not measured. |
-| B3 | India basil price ₹600 to ₹1,000 per kg, same band in every state | **Approve only if it matches what you see in Bangalore.** The high end is a 2025 Andhra Pradesh study's sale price, not first-wholesale, and the low end is an operator haircut. Your local knowledge would make this a user-supplied input, which is stronger than what we have. |
+| B3 | India basil price ₹65 to ₹180 per kg (about ₹110 typical) as the base case | **Approve.** Ten Bengaluru IndiaMART listings ask ₹65 to ₹180, and Ajit confirmed on 2026-11-25 that basil does cost that much in Bangalore. That makes it a user-supplied input from local knowledge. It's still an asking-price level, not first-wholesale. The old ₹600 to ₹1,000 band (one 2025 Andhra Pradesh study) stays only as a sensitivity case. |
 | B4 | India basil saleability 80 to 92% | Approve for scenario use. Operator assumption, low confidence. |
 | B5 | Karnataka wage (₹533/day minimum + 15% burden, 8 h/day) and electricity (₹3.45 to ₹7.10/kWh) | Approve for scenario use. Low confidence: the wage period has expired, and the tariff category for aquaponics is unknown. |
 
