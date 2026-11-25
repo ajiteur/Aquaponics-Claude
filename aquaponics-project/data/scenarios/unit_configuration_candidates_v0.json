@@ -412,12 +412,26 @@
         "note": "Operator assumption."
       },
       "basil_wholesale_price_per_kg": {
-        "low": 600.0,
-        "high": 1000.0,
-        "origin": "repo_research_pack",
-        "source": "research_pack_india_inputs",
-        "approval_status": "pending_ajit_approval",
-        "note": "Only INR 1,000/kg is evidenced (study sale price); 600 and 800 are haircuts for stage ambiguity."
+        "low": 65.0,
+        "high": 180.0,
+        "origin": "user_supplied (Ajit's local knowledge) corroborated by sourced_candidate listings",
+        "source": "Ajit, project chat 2026-11-25 ('It does cost that much in Bangalore'); IndiaMART Bengaluru fresh Italian basil B2B listings, 10 sellers, INR 65-180/kg, median about 110, read 2026-11-25",
+        "source_tier": "user_supplied + tier_3 (B2B directory listings)",
+        "confidence": "medium",
+        "confidence_reason": "Ajit confirms the Bangalore price level from local knowledge, and ten independent listings (three from hydroponic growers) agree. Still asking prices, and the market level (farm-gate vs wholesale) is not stated.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "ajit_local_knowledge_2026-11-25",
+            "indiamart_bengaluru_basil_listings_2026-11-25"
+          ]
+        },
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-25",
+          "scope": "India base basil price for the unit-economics comparison"
+        },
+        "supersedes": "INR 600-1,000/kg study band (now the india_study_price_band_sensitivity location)"
       },
       "label": "All-India band (research pack)"
     },
@@ -454,14 +468,26 @@
         "confidence_reason": "official reference rate; comparison only, not for canon"
       },
       "basil_wholesale_price_per_kg": {
-        "low": 600,
-        "high": 1000,
-        "origin": "repo_research_pack",
-        "source": "2025 Andhra Pradesh hydroponic basil study (Rs 1,000/kg sale price) with operator haircuts to 600",
-        "source_tier": "peer_reviewed (high end) + research_pack_operator_assumption",
-        "confidence": "low",
-        "confidence_reason": "No state-specific basil wholesale price found; same all-India band used for every state; the study price is not first-wholesale",
-        "note": "Same band in all four states"
+        "low": 65.0,
+        "high": 180.0,
+        "origin": "user_supplied (Ajit's local knowledge) corroborated by sourced_candidate listings",
+        "source": "Ajit, project chat 2026-11-25 ('It does cost that much in Bangalore'); IndiaMART Bengaluru fresh Italian basil B2B listings, 10 sellers, INR 65-180/kg, median about 110, read 2026-11-25",
+        "source_tier": "user_supplied + tier_3 (B2B directory listings)",
+        "confidence": "medium",
+        "confidence_reason": "Ajit confirms the Bangalore price level from local knowledge, and ten independent listings (three from hydroponic growers) agree. Still asking prices, and the market level (farm-gate vs wholesale) is not stated.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "ajit_local_knowledge_2026-11-25",
+            "indiamart_bengaluru_basil_listings_2026-11-25"
+          ]
+        },
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-25",
+          "scope": "India base basil price for the unit-economics comparison"
+        },
+        "supersedes": "INR 600-1,000/kg study band (now the india_study_price_band_sensitivity location)"
       },
       "basil_saleability_rate": {
         "low": 0.8,
@@ -510,14 +536,26 @@
         "confidence_reason": "official reference rate; comparison only, not for canon"
       },
       "basil_wholesale_price_per_kg": {
-        "low": 600,
-        "high": 1000,
-        "origin": "repo_research_pack",
-        "source": "2025 Andhra Pradesh hydroponic basil study (Rs 1,000/kg sale price) with operator haircuts to 600",
-        "source_tier": "peer_reviewed (high end) + research_pack_operator_assumption",
+        "low": 65.0,
+        "high": 180.0,
+        "origin": "transferred_candidate from Bangalore (Ajit, IndiaMART)",
+        "source": "Ajit, project chat 2026-11-25 ('It does cost that much in Bangalore'); IndiaMART Bengaluru fresh Italian basil B2B listings, 10 sellers, INR 65-180/kg, median about 110, read 2026-11-25",
+        "source_tier": "user_supplied + tier_3 (B2B directory listings)",
         "confidence": "low",
-        "confidence_reason": "No state-specific basil wholesale price found; same all-India band used for every state; the study price is not first-wholesale",
-        "note": "Same band in all four states"
+        "confidence_reason": "Bangalore price applied to this state; no state listings found.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "ajit_local_knowledge_2026-11-25",
+            "indiamart_bengaluru_basil_listings_2026-11-25"
+          ]
+        },
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-25",
+          "scope": "India base basil price for the unit-economics comparison"
+        },
+        "supersedes": "INR 600-1,000/kg study band (now the india_study_price_band_sensitivity location)"
       },
       "basil_saleability_rate": {
         "low": 0.8,
@@ -566,14 +604,26 @@
         "confidence_reason": "official reference rate; comparison only, not for canon"
       },
       "basil_wholesale_price_per_kg": {
-        "low": 600,
-        "high": 1000,
-        "origin": "repo_research_pack",
-        "source": "2025 Andhra Pradesh hydroponic basil study (Rs 1,000/kg sale price) with operator haircuts to 600",
-        "source_tier": "peer_reviewed (high end) + research_pack_operator_assumption",
+        "low": 65.0,
+        "high": 180.0,
+        "origin": "transferred_candidate from Bangalore (Ajit, IndiaMART)",
+        "source": "Ajit, project chat 2026-11-25 ('It does cost that much in Bangalore'); IndiaMART Bengaluru fresh Italian basil B2B listings, 10 sellers, INR 65-180/kg, median about 110, read 2026-11-25",
+        "source_tier": "user_supplied + tier_3 (B2B directory listings)",
         "confidence": "low",
-        "confidence_reason": "No state-specific basil wholesale price found; same all-India band used for every state; the study price is not first-wholesale",
-        "note": "Same band in all four states"
+        "confidence_reason": "Bangalore price applied to this state; no state listings found.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "ajit_local_knowledge_2026-11-25",
+            "indiamart_bengaluru_basil_listings_2026-11-25"
+          ]
+        },
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-25",
+          "scope": "India base basil price for the unit-economics comparison"
+        },
+        "supersedes": "INR 600-1,000/kg study band (now the india_study_price_band_sensitivity location)"
       },
       "basil_saleability_rate": {
         "low": 0.8,
@@ -622,14 +672,26 @@
         "confidence_reason": "official reference rate; comparison only, not for canon"
       },
       "basil_wholesale_price_per_kg": {
-        "low": 600,
-        "high": 1000,
-        "origin": "repo_research_pack",
-        "source": "2025 Andhra Pradesh hydroponic basil study (Rs 1,000/kg sale price) with operator haircuts to 600",
-        "source_tier": "peer_reviewed (high end) + research_pack_operator_assumption",
+        "low": 65.0,
+        "high": 180.0,
+        "origin": "transferred_candidate from Bangalore (Ajit, IndiaMART)",
+        "source": "Ajit, project chat 2026-11-25 ('It does cost that much in Bangalore'); IndiaMART Bengaluru fresh Italian basil B2B listings, 10 sellers, INR 65-180/kg, median about 110, read 2026-11-25",
+        "source_tier": "user_supplied + tier_3 (B2B directory listings)",
         "confidence": "low",
-        "confidence_reason": "No state-specific basil wholesale price found; same all-India band used for every state; the study price is not first-wholesale",
-        "note": "Same band in all four states"
+        "confidence_reason": "Bangalore price applied to this state; no state listings found.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "ajit_local_knowledge_2026-11-25",
+            "indiamart_bengaluru_basil_listings_2026-11-25"
+          ]
+        },
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-25",
+          "scope": "India base basil price for the unit-economics comparison"
+        },
+        "supersedes": "INR 600-1,000/kg study band (now the india_study_price_band_sensitivity location)"
       },
       "basil_saleability_rate": {
         "low": 0.8,
@@ -642,74 +704,44 @@
       },
       "provenance_note": "Copied from the Farm inputs thread file india_state_location_inputs_v0.json (project files, 2026-11-25). Values are candidates; see that file for full caveats."
     },
-    "karnataka_b2b_listing_price_sensitivity": {
+    "india_study_price_band_sensitivity": {
+      "currency_code": "INR",
+      "eur_per_currency_unit_for_comparison": 0.009136,
+      "fx_note": "ECB reference rate 20 April 2026, EUR 1 = INR 109.4525 (from the research pack). Comparison only.",
       "wage_per_hour": {
-        "low": 76.82,
-        "high": 76.82,
-        "origin": "sourced_candidate",
-        "source": "WageIndicator compilation of Karnataka agriculture and related works minimum wage, Rs 533.21/day (basic 401.26 + VDA 131.95), valid 1 Apr 2025 to 31 Mar 2026; 8 h/day per a 2024-25 compilation (echoforum PDF, unverified)",
-        "source_tier": "grey_literature",
-        "confidence": "low",
-        "confidence_reason": "Secondary compiler, period has expired, newer revision not confirmed; 8 h/day unverified",
-        "derivation": "Minimum wage x 1.1525 statutory-burden proxy (research pack, EPF/ESI), divided by paid hours per day",
-        "raw_minimum_wage_per_day": 533.21,
-        "paid_hours_per_day": 8
+        "low": 59.56,
+        "high": 87.88,
+        "origin": "derived_candidate",
+        "source": "research_pack_india_inputs; india_working_day_hours",
+        "derivation": "burdened daily wage INR 536-703 (minimum wage incl. VDA x 1.1525) / 9 h (low) or 8 h (high)",
+        "note": "Formal burdened floor, not a market average. A 2025 basil study budgeted INR 250/day direct labour, which would be far lower."
       },
       "electricity_per_kwh": {
-        "low": 3.45,
-        "high": 7.1,
-        "origin": "sourced_candidate",
-        "source": "Low: LT-4c private horticultural nurseries Rs 3.45/kWh (electricbill.in aggregator). High: LT-3a commercial Rs 7.10/kWh (KERC review order, PTI via ThePrint, 4 Mar 2026)",
-        "source_tier": "grey_literature",
-        "confidence": "low",
-        "confidence_reason": "No primary KERC order read; aggregator and news values conflict for LT-3a and LT-5; aquaponics tariff category unknown",
-        "excluded": "fixed charges (about Rs 165-235 per kW or HP per month)"
-      },
-      "currency_code": "INR",
-      "eur_per_currency_unit_for_comparison": {
-        "value": 0.009136,
+        "low": 7.5,
+        "high": 9.5,
         "origin": "repo_research_pack",
-        "source": "ECB reference rate 20 April 2026, EUR 1 = INR 109.4525, comparison only",
-        "source_tier": "government_statistics",
-        "confidence": "high",
-        "confidence_reason": "official reference rate; comparison only, not for canon"
-      },
-      "basil_wholesale_price_per_kg": {
-        "low": 65,
-        "high": 180,
-        "median": 110,
-        "n_listings": 10,
-        "values": [
-          65,
-          65,
-          70,
-          80,
-          100,
-          120,
-          130,
-          140,
-          160,
-          180
-        ],
-        "origin": "sourced_candidate",
-        "source": "IndiaMART Bengaluru fresh Italian/sweet basil listings (m.indiamart.com/city/bengaluru/ocimum-basilicum.html and impcat/ocimum-basilicum.html), page dated 25 Nov 2026, read 2026-11-25; seeds, dried, tulsi, oil and plants excluded",
-        "source_tier": "grey_literature",
-        "confidence": "low",
-        "confidence_reason": "Seller asking prices on a B2B directory, marked approximate; not transaction prices; market level (farm-gate vs wholesale vs distributor) not stated; but 10 independent Bengaluru sellers, including 3 hydroponic growers at Rs 65-130, agree on order of magnitude",
-        "conflict": "5x to 15x below the all-India band (Rs 600-1,000) whose only anchor is one 2025 Andhra hydroponic study. Treat as a context split to resolve, not an overwrite. Other cities on the same pages: Ahmedabad 200, Neemuch 150, Indore 90.",
-        "status": "candidate, awaiting Ajit's review; not used as the default band"
+        "source": "research_pack_india_inputs",
+        "note": "Energy charge only; demand charges (INR 608/kVA/month in the TNERC anchor) are not included."
       },
       "basil_saleability_rate": {
         "low": 0.8,
         "high": 0.92,
         "origin": "repo_research_pack",
-        "source": "research pack India saleability band",
-        "source_tier": "research_pack_operator_assumption",
-        "confidence": "low",
-        "confidence_reason": "operator assumption, not measured"
+        "source": "research_pack_india_inputs",
+        "approval_status": "pending_ajit_approval",
+        "note": "Operator assumption."
       },
-      "label": "Sensitivity case: Karnataka with Bengaluru B2B listing prices (INR 65-180/kg) in place of the all-India band",
-      "provenance_note": "Copied from the Farm inputs thread file india_state_location_inputs_v0.json (2026-11-25). Price conflicts with the all-India band; a context split to resolve, not an overwrite."
+      "basil_wholesale_price_per_kg": {
+        "low": 600.0,
+        "high": 1000.0,
+        "origin": "repo_research_pack",
+        "source": "research_pack_india_inputs",
+        "approval_status": "pending_ajit_approval",
+        "note": "Only INR 1,000/kg is evidenced (study sale price); 600 and 800 are haircuts for stage ambiguity.",
+        "confidence": "low",
+        "demoted": "2026-11-25: Ajit confirmed Bangalore basil sells at about INR 65-180/kg, so this study-based band is kept only as a sensitivity case."
+      },
+      "label": "Demoted sensitivity case: all-India band from one 2025 Andhra hydroponic study (INR 600-1,000/kg)"
     }
   }
 }

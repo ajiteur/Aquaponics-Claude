@@ -77,7 +77,7 @@ class CompareUnitConfigurationsTests(unittest.TestCase):
         self.assertEqual(out["estimate_status"], "scenario_estimate")
         self.assertIn("not total operating cost", out["label"])
         locations = {r["location"] for r in out["results"]}
-        self.assertTrue({"netherlands", "india", "karnataka", "tamil_nadu", "andhra_pradesh", "telangana"} <= locations)
+        self.assertTrue({"netherlands", "india", "karnataka", "tamil_nadu", "andhra_pradesh", "telangana", "india_study_price_band_sensitivity"} <= locations)
         text = json.dumps(out)
         for word in ('"profit', '"roi', '"payback', '"viable'):
             self.assertNotIn(word, text)
