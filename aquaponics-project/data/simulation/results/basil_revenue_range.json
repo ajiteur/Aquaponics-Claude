@@ -3,17 +3,13 @@
   "label": "Scenario estimate, not validated. Gross revenue only: no costs, margin or profit.",
   "slice_id": "basil_bulk_kg_wholesale",
   "generated_by": "scripts/build_basil_revenue_range.py",
-  "generated_at_utc": "2026-11-25T04:35:06Z",
+  "generated_at_utc": "2026-11-25T22:58:24Z",
   "inputs_file": "scripts/example_first_slice_working_inputs.json",
   "crops_per_year": 13,
   "crops_per_year_basis": "Rakocy et al. 2004 (Acta Hort 648), Results: the staggered trial is described as 13 crops per year, versus nine in an earlier study; consistent with 23.4 kg/m2/yr / 1.8 kg/m2 per harvest",
   "currency_code": "EUR",
-  "input_approval_status": "pending_user_approval",
-  "cases_pending_input_approval": [
-    "base",
-    "conservative",
-    "optimistic"
-  ],
+  "input_approval_status": "approved",
+  "cases_pending_input_approval": [],
   "case_inputs": {
     "conservative": {
       "price_per_saleable_kg": 7.0,
@@ -26,8 +22,13 @@
       },
       "saleability_basis": "operator assumption informed by basil postharvest handling science",
       "input_status": "provisional working assumption from the inputs file",
-      "approval": null,
-      "approval_status": "pending_user_approval"
+      "approval": {
+        "approved_by": "Ajit",
+        "approved_date_local": "2026-11-25",
+        "scope": "B1 + B2: Netherlands basil wholesale price 7/8/9 EUR/kg and saleability 0.85/0.90/0.95, for scenario estimates only (not canon)",
+        "record": "Approval Batch 001, approved as recommended (thread message 2026-11-25 23:56 Europe/Amsterdam)"
+      },
+      "approval_status": "approved"
     },
     "base": {
       "price_per_saleable_kg": 8.0,
@@ -40,8 +41,13 @@
       },
       "saleability_basis": "operator assumption informed by basil postharvest handling science",
       "input_status": "provisional working assumption from the inputs file",
-      "approval": null,
-      "approval_status": "pending_user_approval"
+      "approval": {
+        "approved_by": "Ajit",
+        "approved_date_local": "2026-11-25",
+        "scope": "B1 + B2: Netherlands basil wholesale price 7/8/9 EUR/kg and saleability 0.85/0.90/0.95, for scenario estimates only (not canon)",
+        "record": "Approval Batch 001, approved as recommended (thread message 2026-11-25 23:56 Europe/Amsterdam)"
+      },
+      "approval_status": "approved"
     },
     "optimistic": {
       "price_per_saleable_kg": 9.0,
@@ -54,8 +60,13 @@
       },
       "saleability_basis": "operator assumption informed by basil postharvest handling science",
       "input_status": "provisional working assumption from the inputs file",
-      "approval": null,
-      "approval_status": "pending_user_approval"
+      "approval": {
+        "approved_by": "Ajit",
+        "approved_date_local": "2026-11-25",
+        "scope": "B1 + B2: Netherlands basil wholesale price 7/8/9 EUR/kg and saleability 0.85/0.90/0.95, for scenario estimates only (not canon)",
+        "record": "Approval Batch 001, approved as recommended (thread message 2026-11-25 23:56 Europe/Amsterdam)"
+      },
+      "approval_status": "approved"
     }
   },
   "scenarios": [

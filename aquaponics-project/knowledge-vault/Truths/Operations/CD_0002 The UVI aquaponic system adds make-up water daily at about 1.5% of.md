@@ -3,7 +3,7 @@ fact_id: "CD_0002"
 domain: "operations"
 type: "parameter"
 confidence: "medium"
-status: "provisional"
+status: "accepted"
 source_id: "uvi_aquaponic_system_design"
 source_tier: "tier_1"
 source_gate: "trusted"
@@ -11,14 +11,12 @@ source_file: "data/knowledge/atomic_facts/component_design_facts.json"
 tags:
   - truth
   - operations
-  - candidate
+  - accepted
 ---
 
 # CD_0002
 
 > The UVI aquaponic system adds make-up water daily at about 1.5% of its 110 m3 system volume.
-
-**Candidate truth.** Not yet approved (`candidate_pending_user_review`).
 
 ## Context
 

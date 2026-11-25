@@ -3,7 +3,7 @@ fact_id: "CD_0003"
 domain: "system_design"
 type: "parameter"
 confidence: "medium"
-status: "provisional"
+status: "accepted"
 source_id: "uvi_aquaponic_system_design"
 source_tier: "tier_1"
 source_gate: "trusted"
@@ -11,14 +11,12 @@ source_file: "data/knowledge/atomic_facts/component_design_facts.json"
 tags:
   - truth
   - system_design
-  - candidate
+  - accepted
 ---
 
 # CD_0003
 
 > The UVI aquaponic system used one 0.37 kW water pump, a 1.12 kW blower for fish and degassing and a 0.75 kW blower for the hydroponic tanks, 2.24 kW in total for 214 m2 of plant area.
-
-**Candidate truth.** Not yet approved (`candidate_pending_user_review`).
 
 ## Context
 

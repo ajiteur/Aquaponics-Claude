@@ -3,7 +3,7 @@ fact_id: "UE_0002"
 domain: "business"
 type: "finding"
 confidence: "medium"
-status: "provisional"
+status: "accepted"
 source_id: "tokunaga_2015_hawaii_aquaponics_economics"
 source_tier: "tier_1"
 source_gate: "trusted"
@@ -11,14 +11,12 @@ source_file: "data/knowledge/atomic_facts/unit_economics_facts.json"
 tags:
   - truth
   - business
-  - candidate
+  - accepted
 ---
 
 # UE_0002
 
 > In the Hawaii model aquaponics farm, labour was 48% of year-1 operating cost, and the return was most sensitive to lettuce price, then wage.
-
-**Candidate truth.** Not yet approved (`candidate_pending_user_review`).
 
 ## Context
 

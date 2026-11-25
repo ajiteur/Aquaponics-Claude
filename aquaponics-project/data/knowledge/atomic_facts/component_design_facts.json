@@ -7,8 +7,7 @@
       "domain": "system_design",
       "type": "parameter",
       "confidence": "medium",
-      "status": "provisional",
-      "provisional_reason": "candidate_pending_user_review",
+      "status": "accepted",
       "context": {
         "system": "UVI commercial-scale coupled DWC raft, 214 m2 grow area, 4 rearing tanks",
         "location": "St. Croix, US Virgin Islands, tropical",
@@ -32,7 +31,13 @@
             "ista9_rakocy_commercial_scale_aquaponic_system"
           ]
         },
-        "cross_check_note": "Both UVI design documents give the same numbers."
+        "cross_check_note": "Both UVI design documents give the same numbers.",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-25",
+          "scope": "truth CD_0001 (medium confidence, Tier 1-2 corroborated)",
+          "record": "Approval Batch 001, approved as recommended (thread message 2026-11-25 23:56 Europe/Amsterdam)"
+        }
       },
       "added_date_local": "2026-11-25"
     },
@@ -42,8 +47,7 @@
       "domain": "operations",
       "type": "parameter",
       "confidence": "medium",
-      "status": "provisional",
-      "provisional_reason": "candidate_pending_user_review",
+      "status": "accepted",
       "context": {
         "system": "UVI commercial-scale coupled DWC raft, 214 m2 grow area, 4 rearing tanks",
         "location": "St. Croix, US Virgin Islands, tropical",
@@ -67,7 +71,13 @@
             "srac_454"
           ]
         },
-        "cross_check_note": "SRAC 454 says closed aquaponic systems replace under 2% of volume a day."
+        "cross_check_note": "SRAC 454 says closed aquaponic systems replace under 2% of volume a day.",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-25",
+          "scope": "truth CD_0002 (medium confidence, Tier 1-2 corroborated)",
+          "record": "Approval Batch 001, approved as recommended (thread message 2026-11-25 23:56 Europe/Amsterdam)"
+        }
       },
       "added_date_local": "2026-11-25"
     },
@@ -77,8 +87,7 @@
       "domain": "system_design",
       "type": "parameter",
       "confidence": "medium",
-      "status": "provisional",
-      "provisional_reason": "candidate_pending_user_review",
+      "status": "accepted",
       "context": {
         "system": "UVI commercial-scale coupled DWC raft, 214 m2 grow area, 4 rearing tanks",
         "location": "St. Croix, US Virgin Islands, tropical",
@@ -101,6 +110,12 @@
           "source_ids": [
             "heidemann_bailey_2015_uvi_economics"
           ]
+        },
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-25",
+          "scope": "truth CD_0003 (medium confidence, Tier 1-2 corroborated)",
+          "record": "Approval Batch 001, approved as recommended (thread message 2026-11-25 23:56 Europe/Amsterdam)"
         }
       },
       "added_date_local": "2026-11-25"

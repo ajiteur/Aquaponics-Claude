@@ -3,7 +3,7 @@ fact_id: "UE_0007"
 domain: "operations"
 type: "guidance"
 confidence: "medium"
-status: "provisional"
+status: "accepted"
 source_id: "cbi_2024_fresh_culinary_herbs"
 source_tier: "tier_1"
 source_gate: "trusted"
@@ -11,14 +11,12 @@ source_file: "data/knowledge/atomic_facts/unit_economics_facts.json"
 tags:
   - truth
   - operations
-  - candidate
+  - accepted
 ---
 
 # UE_0007
 
 > CBI notes that most herbs are best kept near 0 C but basil is the exception and is best kept at about 10 C, and that European local basil supply peaks June to September with imports dominating September to May.
-
-**Candidate truth.** Not yet approved (`candidate_pending_user_review`).
 
 ## Context
 

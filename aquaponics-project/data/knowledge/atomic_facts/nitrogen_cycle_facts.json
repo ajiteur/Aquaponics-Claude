@@ -37,8 +37,7 @@
       "domain": "biology",
       "type": "parameter",
       "confidence": "medium",
-      "status": "provisional",
-      "provisional_reason": "candidate_pending_user_review",
+      "status": "accepted",
       "context": {
         "system": "coupled DWC raft"
       },
@@ -59,7 +58,13 @@
             "uvi_aquaponic_systems_page"
           ]
         },
-        "reviewed_from_file": "web reads 2026-11-25 (see data/knowledge/models/nitrification_models.json and basil.json for URLs)"
+        "reviewed_from_file": "web reads 2026-11-25 (see data/knowledge/models/nitrification_models.json and basil.json for URLs)",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-25",
+          "scope": "truth NITR_0002 (medium confidence, Tier 1-2 corroborated)",
+          "record": "Approval Batch 001, approved as recommended (thread message 2026-11-25 23:56 Europe/Amsterdam)"
+        }
       }
     },
     {
@@ -97,8 +102,7 @@
       "domain": "water_chemistry",
       "type": "parameter",
       "confidence": "medium",
-      "status": "provisional",
-      "provisional_reason": "candidate_pending_user_review",
+      "status": "accepted",
       "context": {
         "system": "aquaponics and RAS biofilters"
       },
@@ -119,7 +123,13 @@
             "uvi_aquaponic_systems_page"
           ]
         },
-        "reviewed_from_file": "web reads 2026-11-25 (see data/knowledge/models/nitrification_models.json and basil.json for URLs)"
+        "reviewed_from_file": "web reads 2026-11-25 (see data/knowledge/models/nitrification_models.json and basil.json for URLs)",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-25",
+          "scope": "truth NITR_0004 (medium confidence, Tier 1-2 corroborated)",
+          "record": "Approval Batch 001, approved as recommended (thread message 2026-11-25 23:56 Europe/Amsterdam)"
+        }
       }
     },
     {
@@ -157,8 +167,7 @@
       "domain": "water_chemistry",
       "type": "parameter",
       "confidence": "medium",
-      "status": "provisional",
-      "provisional_reason": "candidate_pending_user_review",
+      "status": "accepted",
       "context": {
         "system": "fixed-film biofilters, lab study"
       },
@@ -179,7 +188,13 @@
             "losordo_delong_guerdat_2015_gaa_advocate"
           ]
         },
-        "reviewed_from_file": "web reads 2026-11-25 (see data/knowledge/models/nitrification_models.json and basil.json for URLs)"
+        "reviewed_from_file": "web reads 2026-11-25 (see data/knowledge/models/nitrification_models.json and basil.json for URLs)",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-25",
+          "scope": "truth NITR_0006 (medium confidence, Tier 1-2 corroborated)",
+          "record": "Approval Batch 001, approved as recommended (thread message 2026-11-25 23:56 Europe/Amsterdam)"
+        }
       }
     },
     {

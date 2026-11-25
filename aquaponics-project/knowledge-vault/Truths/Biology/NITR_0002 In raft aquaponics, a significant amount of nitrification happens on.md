@@ -3,7 +3,7 @@ fact_id: "NITR_0002"
 domain: "biology"
 type: "parameter"
 confidence: "medium"
-status: "provisional"
+status: "accepted"
 source_id: "srac_454_rakocy_masser_losordo_aquaponics"
 source_tier: "tier_1"
 source_gate: "trusted"
@@ -11,14 +11,12 @@ source_file: "data/knowledge/atomic_facts/nitrogen_cycle_facts.json"
 tags:
   - truth
   - biology
-  - candidate
+  - accepted
 ---
 
 # NITR_0002
 
 > In raft aquaponics, a significant amount of [[Reference/Explainers/Nitrification|nitrification]] happens on the undersides of the polystyrene rafts.
-
-**Candidate truth.** Not yet approved (`candidate_pending_user_review`).
 
 ## Context
 

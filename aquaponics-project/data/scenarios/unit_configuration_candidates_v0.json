@@ -372,16 +372,28 @@
         "high": 0.95,
         "origin": "repo_research_pack",
         "source": "research_pack_nl_inputs",
-        "approval_status": "pending_ajit_approval",
-        "note": "Operator assumption, not measured."
+        "approval_status": "approved",
+        "note": "Operator assumption, not measured.",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-25",
+          "scope": "B2 Netherlands basil saleability, scenario use only",
+          "record": "Approval Batch 001, approved as recommended (thread message 2026-11-25 23:56 Europe/Amsterdam)"
+        }
       },
       "basil_wholesale_price_per_kg": {
         "low": 7.0,
         "high": 9.0,
         "origin": "repo_research_pack",
         "source": "cbi_2024_fresh_culinary_herbs",
-        "approval_status": "pending_ajit_approval",
-        "note": "Dutch importing-wholesaler price-list examples from March 2020 (EUR 7.50-9.25/kg), with a haircut on the low end. Needs a refresh."
+        "approval_status": "approved",
+        "note": "Dutch importing-wholesaler price-list examples from March 2020 (EUR 7.50-9.25/kg), with a haircut on the low end. Needs a refresh.",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-25",
+          "scope": "B1 Netherlands basil price, scenario use only",
+          "record": "Approval Batch 001, approved as recommended (thread message 2026-11-25 23:56 Europe/Amsterdam)"
+        }
       }
     },
     "india": {
@@ -408,8 +420,14 @@
         "high": 0.92,
         "origin": "repo_research_pack",
         "source": "research_pack_india_inputs",
-        "approval_status": "pending_ajit_approval",
-        "note": "Operator assumption."
+        "approval_status": "approved",
+        "note": "Operator assumption.",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-25",
+          "scope": "B4 India basil saleability 0.80-0.92, scenario use only",
+          "record": "Approval Batch 001, approved as recommended (thread message 2026-11-25 23:56 Europe/Amsterdam)"
+        }
       },
       "basil_wholesale_price_per_kg": {
         "low": 65.0,
@@ -447,7 +465,14 @@
         "confidence_reason": "Secondary compiler, period has expired, newer revision not confirmed; 8 h/day unverified",
         "derivation": "Minimum wage x 1.1525 statutory-burden proxy (research pack, EPF/ESI), divided by paid hours per day",
         "raw_minimum_wage_per_day": 533.21,
-        "paid_hours_per_day": 8
+        "paid_hours_per_day": 8,
+        "approval_status": "approved",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-25",
+          "scope": "B5 Karnataka wage_per_hour, scenario use only, low confidence",
+          "record": "Approval Batch 001, approved as recommended (thread message 2026-11-25 23:56 Europe/Amsterdam)"
+        }
       },
       "electricity_per_kwh": {
         "low": 3.45,
@@ -457,7 +482,14 @@
         "source_tier": "grey_literature",
         "confidence": "low",
         "confidence_reason": "No primary KERC order read; aggregator and news values conflict for LT-3a and LT-5; aquaponics tariff category unknown",
-        "excluded": "fixed charges (about Rs 165-235 per kW or HP per month)"
+        "excluded": "fixed charges (about Rs 165-235 per kW or HP per month)",
+        "approval_status": "approved",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-25",
+          "scope": "B5 Karnataka electricity_per_kwh, scenario use only, low confidence",
+          "record": "Approval Batch 001, approved as recommended (thread message 2026-11-25 23:56 Europe/Amsterdam)"
+        }
       },
       "currency_code": "INR",
       "eur_per_currency_unit_for_comparison": {
@@ -484,8 +516,14 @@
             "indiamart_bengaluru_basil_listings_2026-11-25"
           ]
         },
-        "approval_status": "pending_ajit_approval",
-        "supersedes": "INR 65-180/kg Bengaluru listings (now the karnataka_listing_price_sensitivity location)"
+        "approval_status": "approved",
+        "supersedes": "INR 65-180/kg Bengaluru listings (now the karnataka_listing_price_sensitivity location)",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-25",
+          "scope": "B3 Karnataka basil price INR 100-250/kg (Ajit local knowledge), scenario base case",
+          "record": "Approval Batch 001, approved as recommended (thread message 2026-11-25 23:56 Europe/Amsterdam)"
+        }
       },
       "basil_saleability_rate": {
         "low": 0.8,

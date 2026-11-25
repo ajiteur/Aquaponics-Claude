@@ -2,7 +2,7 @@
   "metadata": {
     "catalog_id": "components_v0",
     "status": "candidate",
-    "approval_status": "pending_ajit_approval",
+    "approval_status": "approved_for_scenario_use_except_listed",
     "canon_status": "non_canonical. Prices are candidate manual inputs; nothing here is canon until Ajit approves it, and approved values go to data/knowledge/business/** in a separate canon pass.",
     "created": "2026-11-25",
     "schema": "schemas/component_catalog.schema.json",
@@ -15,7 +15,20 @@
     "vat_note": "Price bases differ (incl. VAT, excl. VAT, not stated) and are recorded per item. No VAT is added or removed.",
     "currency_note": "Each region uses its own currency (EUR, INR). No exchange rate is applied inside a build.",
     "how_to_add_a_component": "knowledge-vault/Project/How to Add Components.md",
-    "reliability_fields": "AGENTS.md 6A: source_tier, source_gate + reason, confidence + reason, corroboration {status, source_ids}."
+    "reliability_fields": "AGENTS.md 6A: source_tier, source_gate + reason, confidence + reason, corroboration {status, source_ids}.",
+    "approval": {
+      "approved_by": "Ajit",
+      "approved_date_local": "2026-11-25",
+      "scope": "B6: catalog part prices, lifetimes and running inputs approved for scenario estimates (cost-per-kg ranges, not quotes). Not approved: EPS/XPS raft lifetimes and the design rules media_bed_depth_m and raft_air_share_of_fish_air, which stay candidates.",
+      "record": "Approval Batch 001, approved as recommended (thread message 2026-11-25 23:56 Europe/Amsterdam)"
+    },
+    "not_approved": [
+      "dwc_raft_eps_40mm_in",
+      "dwc_raft_eps_40mm_nl",
+      "dwc_raft_xps_30mm_nl",
+      "design_rules.media_bed_depth_m",
+      "design_rules.raft_air_share_of_fish_air"
+    ]
   },
   "sources": {
     "uvi_aquaponic_system_design": {
@@ -286,7 +299,8 @@
           ],
           "flag": "SRAC 454 and the UVI design paper list a 1 hp plant blower, but the UVI costing (Heidemann & Bailey) lists 2 hp. At 2 hp the ratio would be 1.33 (derived). Value not changed."
         }
-      ]
+      ],
+      "approval_status": "pending_ajit_approval (conflicting, excluded from batch 001)"
     },
     "raft_water_depth_m": {
       "low": 0.317,
@@ -356,7 +370,8 @@
           ],
           "flag": "0.30-0.35 m sits at or above the primary sources: FAO 589 gives 15-30 cm (30 cm only for large fruiting crops), SRAC 5007 gives 6-12 in (15-30 cm). Re-check where 0.35 came from."
         }
-      ]
+      ],
+      "approval_status": "pending_ajit_approval (conflicting, excluded from batch 001)"
     },
     "mbbr_loading_kg_feed_per_m3_day": {
       "low": 8.0,
@@ -497,7 +512,7 @@
       "region": "netherlands",
       "currency_code": "EUR",
       "status": "candidate",
-      "approval_status": "pending_ajit_approval",
+      "approval_status": "approved_for_scenario_use",
       "sizing": {
         "driver": "fish_tank_volume_m3",
         "mode": "discrete",
@@ -575,7 +590,7 @@
       "region": "netherlands",
       "currency_code": "EUR",
       "status": "candidate",
-      "approval_status": "pending_ajit_approval",
+      "approval_status": "approved_for_scenario_use",
       "sizing": {
         "driver": "fish_tank_volume_m3",
         "mode": "discrete",
@@ -650,7 +665,7 @@
       "region": "india",
       "currency_code": "INR",
       "status": "candidate",
-      "approval_status": "pending_ajit_approval",
+      "approval_status": "approved_for_scenario_use",
       "sizing": {
         "driver": "fish_tank_volume_m3",
         "mode": "discrete",
@@ -715,7 +730,7 @@
       "region": "india",
       "currency_code": "INR",
       "status": "candidate",
-      "approval_status": "pending_ajit_approval",
+      "approval_status": "approved_for_scenario_use",
       "sizing": {
         "driver": "fish_tank_volume_m3",
         "mode": "discrete",
@@ -780,7 +795,7 @@
       "region": "india",
       "currency_code": "INR",
       "status": "candidate",
-      "approval_status": "pending_ajit_approval",
+      "approval_status": "approved_for_scenario_use",
       "sizing": {
         "driver": "fish_tank_volume_m3",
         "mode": "discrete",
@@ -849,7 +864,7 @@
       "region": "netherlands",
       "currency_code": "EUR",
       "status": "candidate",
-      "approval_status": "pending_ajit_approval",
+      "approval_status": "approved_for_scenario_use",
       "sizing": {
         "driver": "liner_area_m2",
         "mode": "continuous",
@@ -927,7 +942,7 @@
       "region": "netherlands",
       "currency_code": "EUR",
       "status": "candidate",
-      "approval_status": "pending_ajit_approval",
+      "approval_status": "pending_ajit_approval (conflicting lifetime, excluded from batch 001)",
       "sizing": {
         "driver": "raft_area_m2",
         "mode": "continuous",
@@ -1009,7 +1024,7 @@
       "region": "netherlands",
       "currency_code": "EUR",
       "status": "candidate",
-      "approval_status": "pending_ajit_approval",
+      "approval_status": "pending_ajit_approval (conflicting lifetime, excluded from batch 001)",
       "sizing": {
         "driver": "raft_area_m2",
         "mode": "continuous",
@@ -1090,7 +1105,7 @@
       "region": "netherlands",
       "currency_code": "EUR",
       "status": "candidate",
-      "approval_status": "pending_ajit_approval",
+      "approval_status": "approved_for_scenario_use",
       "sizing": {
         "driver": "grow_area_m2",
         "mode": "continuous",
@@ -1153,7 +1168,7 @@
       "region": "india",
       "currency_code": "INR",
       "status": "candidate",
-      "approval_status": "pending_ajit_approval",
+      "approval_status": "approved_for_scenario_use",
       "sizing": {
         "driver": "liner_area_m2",
         "mode": "continuous",
@@ -1220,7 +1235,7 @@
       "region": "india",
       "currency_code": "INR",
       "status": "candidate",
-      "approval_status": "pending_ajit_approval",
+      "approval_status": "pending_ajit_approval (conflicting lifetime, excluded from batch 001)",
       "sizing": {
         "driver": "raft_area_m2",
         "mode": "continuous",
@@ -1301,7 +1316,7 @@
       "region": "india",
       "currency_code": "INR",
       "status": "candidate",
-      "approval_status": "pending_ajit_approval",
+      "approval_status": "approved_for_scenario_use",
       "sizing": {
         "driver": "grow_area_m2",
         "mode": "continuous",
@@ -1359,7 +1374,7 @@
       "region": "india",
       "currency_code": "INR",
       "status": "candidate",
-      "approval_status": "pending_ajit_approval",
+      "approval_status": "approved_for_scenario_use",
       "sizing": {
         "driver": "nft_channel_length_m",
         "mode": "continuous",
@@ -1436,7 +1451,7 @@
       "region": "netherlands",
       "currency_code": "EUR",
       "status": "candidate",
-      "approval_status": "pending_ajit_approval",
+      "approval_status": "approved_for_scenario_use",
       "sizing": {
         "driver": "recirculation_flow_lph",
         "mode": "discrete",
@@ -1510,7 +1525,7 @@
       "region": "netherlands",
       "currency_code": "EUR",
       "status": "candidate",
-      "approval_status": "pending_ajit_approval",
+      "approval_status": "approved_for_scenario_use",
       "sizing": {
         "driver": "recirculation_flow_lph",
         "mode": "discrete",
@@ -1584,7 +1599,7 @@
       "region": "india",
       "currency_code": "INR",
       "status": "candidate",
-      "approval_status": "pending_ajit_approval",
+      "approval_status": "approved_for_scenario_use",
       "sizing": {
         "driver": "recirculation_flow_lph",
         "mode": "discrete",
@@ -1668,7 +1683,7 @@
       "region": "netherlands",
       "currency_code": "EUR",
       "status": "candidate",
-      "approval_status": "pending_ajit_approval",
+      "approval_status": "approved_for_scenario_use",
       "sizing": {
         "driver": "air_flow_lpm",
         "mode": "discrete",
@@ -1751,7 +1766,7 @@
       "region": "india",
       "currency_code": "INR",
       "status": "candidate",
-      "approval_status": "pending_ajit_approval",
+      "approval_status": "approved_for_scenario_use",
       "sizing": {
         "driver": "air_flow_lpm",
         "mode": "discrete",
@@ -1828,7 +1843,7 @@
       "region": "india",
       "currency_code": "INR",
       "status": "candidate",
-      "approval_status": "pending_ajit_approval",
+      "approval_status": "approved_for_scenario_use",
       "sizing": {
         "driver": "biofilter_media_m3",
         "mode": "continuous",
@@ -1893,7 +1908,7 @@
       "region": "netherlands",
       "currency_code": "EUR",
       "status": "candidate",
-      "approval_status": "pending_ajit_approval",
+      "approval_status": "approved_for_scenario_use",
       "sizing": {
         "driver": "clarifier_volume_m3",
         "mode": "discrete",
@@ -1968,7 +1983,7 @@
       "region": "india",
       "currency_code": "INR",
       "status": "candidate",
-      "approval_status": "pending_ajit_approval",
+      "approval_status": "approved_for_scenario_use",
       "sizing": {
         "driver": "clarifier_volume_m3",
         "mode": "discrete",
@@ -2033,7 +2048,7 @@
       "region": "netherlands",
       "currency_code": "EUR",
       "status": "candidate",
-      "approval_status": "pending_ajit_approval",
+      "approval_status": "approved_for_scenario_use",
       "sizing": {
         "driver": "structure_area_m2",
         "mode": "continuous",
@@ -2098,7 +2113,7 @@
       "region": "india",
       "currency_code": "INR",
       "status": "candidate",
-      "approval_status": "pending_ajit_approval",
+      "approval_status": "approved_for_scenario_use",
       "sizing": {
         "driver": "structure_area_m2",
         "mode": "continuous",
@@ -2150,7 +2165,7 @@
       "region": "india",
       "currency_code": "INR",
       "status": "candidate",
-      "approval_status": "pending_ajit_approval",
+      "approval_status": "approved_for_scenario_use",
       "sizing": {
         "driver": "structure_area_m2",
         "mode": "continuous",
@@ -2207,7 +2222,7 @@
       "region": "any",
       "currency_code": null,
       "status": "candidate",
-      "approval_status": "pending_ajit_approval",
+      "approval_status": "approved_for_scenario_use",
       "sizing": {
         "driver": "structure_area_m2",
         "mode": "continuous",
