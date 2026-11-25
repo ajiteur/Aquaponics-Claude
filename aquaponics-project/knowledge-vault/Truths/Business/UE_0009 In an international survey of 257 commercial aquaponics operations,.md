@@ -5,6 +5,8 @@ type: "finding"
 confidence: "medium"
 status: "provisional"
 source_id: "love_2015_commercial_aquaponics_survey"
+source_tier: "tier_2"
+source_gate: "trusted"
 source_file: "data/knowledge/atomic_facts/unit_economics_facts.json"
 tags:
   - truth
@@ -23,18 +25,18 @@ tags:
 - sample: self-selected online survey, 81% US
 - year basis: 2013 survey, published 2015
 
-## Reliability
-
-- Source tier: T2_peer_reviewed
-- Confidence: medium
-- Confidence reason: Peer-reviewed, but only the abstract was read; associations from a self-selected sample, not causal.
-- Cross check: Climate and market-premium findings agree with SRAC 5006 (Engle 2015).
-
 ## Source
 
 - Source ID: `love_2015_commercial_aquaponics_survey`
 - Section: `abstract`
 - Source type: `peer_reviewed_journal`
+
+## Reliability
+
+- Source tier: tier_2
+- Source gate: trusted (peer_reviewed_journal_abstract_only_read)
+- Confidence: medium. Reason: Peer-reviewed, but only the abstract was read; associations from a self-selected sample, not causal.
+- Corroboration: corroborated; `engle_2015_srac_5006`
 
 ## Related Notes
 

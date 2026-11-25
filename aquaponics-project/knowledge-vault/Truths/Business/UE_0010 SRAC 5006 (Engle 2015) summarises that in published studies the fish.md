@@ -5,6 +5,8 @@ type: "finding"
 confidence: "medium"
 status: "provisional"
 source_id: "engle_2015_srac_5006"
+source_tier: "tier_1"
+source_gate: "trusted"
 source_file: "data/knowledge/atomic_facts/unit_economics_facts.json"
 tags:
   - truth
@@ -22,18 +24,18 @@ tags:
 
 - scope: review of US and Caribbean economic studies 1997-2015
 
-## Reliability
-
-- Source tier: T3_institutional_report
-- Confidence: medium
-- Confidence reason: Extension review by an aquaculture economist; secondary summary of older studies.
-- Cross check: Consistent with Tokunaga et al. (lettuce 79% of revenue) and Quagrainie et al. (basil price dominates).
-
 ## Source
 
 - Source ID: `engle_2015_srac_5006`
 - Section: `pages_2_to_5`
 - Source type: `institutional_report`
+
+## Reliability
+
+- Source tier: tier_1
+- Source gate: trusted (university_extension_review)
+- Confidence: medium. Reason: Extension review by an aquaculture economist; secondary summary of older studies.
+- Corroboration: corroborated; `tokunaga_2015_hawaii_aquaponics_economics`, `quagrainie_purdue_indiana_aquaponics`
 
 ## Related Notes
 

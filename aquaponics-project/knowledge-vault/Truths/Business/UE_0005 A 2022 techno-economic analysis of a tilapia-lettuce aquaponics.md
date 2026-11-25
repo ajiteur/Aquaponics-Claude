@@ -5,6 +5,8 @@ type: "finding"
 confidence: "medium"
 status: "provisional"
 source_id: "zappernick_2022_techno_economic"
+source_tier: "tier_2"
+source_gate: "trusted"
 source_file: "data/knowledge/atomic_facts/unit_economics_facts.json"
 tags:
   - truth
@@ -25,18 +27,18 @@ tags:
 - location: US Midwest
 - year basis: 2019, USD
 
-## Reliability
-
-- Source tier: T2_peer_reviewed
-- Confidence: medium
-- Confidence reason: Peer-reviewed; the abstract and methods were read verbatim, later results only through a summary.
-- Cross check: Labour as a top driver agrees with Tokunaga et al.; the harvest rate is much slower than the Hawaii task table implies.
-
 ## Source
 
 - Source ID: `zappernick_2022_techno_economic`
 - Section: `abstract_and_sec_2_2_2`
 - Source type: `peer_reviewed_journal`
+
+## Reliability
+
+- Source tier: tier_2
+- Source gate: trusted (peer_reviewed_journal)
+- Confidence: medium. Reason: Peer-reviewed; the abstract and methods were read verbatim, later results only through a summary.
+- Corroboration: corroborated; `tokunaga_2015_hawaii_aquaponics_economics`
 
 ## Related Notes
 

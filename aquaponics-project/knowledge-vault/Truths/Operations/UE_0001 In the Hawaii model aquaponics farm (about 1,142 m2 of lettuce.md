@@ -5,6 +5,8 @@ type: "parameter"
 confidence: "medium"
 status: "provisional"
 source_id: "tokunaga_2015_hawaii_aquaponics_economics"
+source_tier: "tier_1"
+source_gate: "trusted"
 source_file: "data/knowledge/atomic_facts/unit_economics_facts.json"
 tags:
   - truth
@@ -25,18 +27,18 @@ tags:
 - location: Hawaii, tropical
 - year basis: fieldwork 2012, USD
 
-## Reliability
-
-- Source tier: T3_institutional_report
-- Confidence: medium
-- Confidence reason: Itemised task table for a representative farm built from a survey of operating farms; a model, not one farm's records.
-- Cross check: Labour cost line reproduces from hours x wage x 1.40 fringe; labour share agrees with SRAC 5006.
-
 ## Source
 
 - Source ID: `tokunaga_2015_hawaii_aquaponics_economics`
 - Section: `table_8_labour`
 - Source type: `institutional_report`
+
+## Reliability
+
+- Source tier: tier_1
+- Source gate: trusted (university_regional_aquaculture_center_report)
+- Confidence: medium. Reason: Itemised task table for a representative farm built from a survey of operating farms; a model, not one farm's records.
+- Corroboration: single_source
 
 ## Related Notes
 

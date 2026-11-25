@@ -5,6 +5,8 @@ type: "guidance"
 confidence: "medium"
 status: "provisional"
 source_id: "cbi_2024_fresh_culinary_herbs"
+source_tier: "tier_1"
+source_gate: "trusted"
 source_file: "data/knowledge/atomic_facts/unit_economics_facts.json"
 tags:
   - truth
@@ -23,18 +25,18 @@ tags:
 - market: EU
 - product: fresh basil
 
-## Reliability
-
-- Source tier: T3_institutional_report
-- Confidence: medium
-- Confidence reason: Qualitative market guidance from a government-backed study.
-- Cross check: Storage temperature agrees with UC Davis and Rutgers guidance cited in the research pack.
-
 ## Source
 
 - Source ID: `cbi_2024_fresh_culinary_herbs`
 - Section: `sections_on_seasonality_and_handling`
 - Source type: `institutional_report`
+
+## Reliability
+
+- Source tier: tier_1
+- Source gate: trusted (government_backed_market_study_qualitative_guidance)
+- Confidence: medium. Reason: Qualitative market guidance from a government-backed study.
+- Corroboration: corroborated; `research_pack_first_slice_basil_wholesale_economics (UC Davis, Rutgers)`
 
 ## Related Notes
 

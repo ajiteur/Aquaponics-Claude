@@ -5,6 +5,8 @@ type: "finding"
 confidence: "low"
 status: "provisional"
 source_id: "quagrainie_purdue_indiana_aquaponics"
+source_tier: "tier_1"
+source_gate: "conditional"
 source_file: "data/knowledge/atomic_facts/unit_economics_facts.json"
 tags:
   - truth
@@ -25,18 +27,18 @@ tags:
 - location: Indiana, USA
 - year basis: USD, year not stated
 
-## Reliability
-
-- Source tier: T3_institutional_report
-- Confidence: low
-- Confidence reason: Hypothetical farms, no grow area, no price year, and several internal inconsistencies in the paper.
-- Cross check: Direction (labour dominates; mild scale economies) agrees with Tokunaga et al. and SRAC 5006.
-
 ## Source
 
 - Source ID: `quagrainie_purdue_indiana_aquaponics`
 - Section: `tables_6_to_9`
 - Source type: `institutional_report`
+
+## Reliability
+
+- Source tier: tier_1
+- Source gate: conditional (university_report_with_internal_inconsistencies_and_hypothetical_farms)
+- Confidence: low. Reason: Hypothetical farms, no grow area, no price year, and several internal inconsistencies in the paper.
+- Corroboration: corroborated; `tokunaga_2015_hawaii_aquaponics_economics`, `engle_2015_srac_5006`
 
 ## Related Notes
 

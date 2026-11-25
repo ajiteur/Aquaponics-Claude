@@ -5,6 +5,8 @@ type: "parameter"
 confidence: "medium"
 status: "provisional"
 source_id: "wur_energiemonitor_2024"
+source_tier: "tier_1"
+source_gate: "trusted"
 source_file: "data/knowledge/atomic_facts/unit_economics_facts.json"
 tags:
   - truth
@@ -23,18 +25,18 @@ tags:
 - scope: all Dutch greenhouse horticulture, incl. lit crops
 - year basis: 2024, provisional
 
-## Reliability
-
-- Source tier: T1_official_statistics
-- Confidence: medium
-- Confidence reason: Government-funded WUR time series; a sector average, not specific to basil or unheated production.
-- Cross check: Order of magnitude matches about 95 PJ over about 10,000 ha.
-
 ## Source
 
 - Source ID: `wur_energiemonitor_2024`
 - Section: `summary_s1`
 - Source type: `official_statistics`
+
+## Reliability
+
+- Source tier: tier_1
+- Source gate: trusted (government_funded_wur_statistics_series)
+- Confidence: medium. Reason: Government-funded WUR time series; a sector average, not specific to basil or unheated production.
+- Corroboration: single_source
 
 ## Related Notes
 
