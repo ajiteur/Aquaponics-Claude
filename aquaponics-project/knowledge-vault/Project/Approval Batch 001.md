@@ -10,10 +10,13 @@ Rule used for the recommendations (AGENTS.md 6A): approve items with medium or h
 
 | # | Item | Recommendation |
 |---|---|---|
-| A1 | PR #11: basil nitrate uptake based on growth, plus NITR truths | **Merge first, once its conflict is fixed.** Since PR #9 merged, it conflicts with main in the revenue range, the Simulation Findings Log and Status and Roadmap, so its thread has to merge main and regenerate. Tests, the full integrity check, and the canon and vault syncs passed before that. Known gap: with no nitrogen sinks besides basil shoots, nitrate climbs to about 161 mg/L at the UVI feed ratio, where UVI measured about 42. |
-| A2 | PR #10: unit design comparison (Netherlands and India) | **Merge second, after one rerun.** Checks pass, but it conflicts with #11 in the revenue range, the vault logs and the truths hub. After #11 merges, it needs main merged in, the comparison rerun (the simulated high yield moves from 25.87 to about 26.0 kg/m²/yr) and the truths re-exported. |
+| A1 | PR #11 (merged 2026-11-25): basil nitrate uptake based on growth, plus NITR truths | **Merge first, once its conflict is fixed.** Since PR #9 merged, it conflicts with main in the revenue range, the Simulation Findings Log and Status and Roadmap, so its thread has to merge main and regenerate. Tests, the full integrity check, and the canon and vault syncs passed before that. Known gap: with no nitrogen sinks besides basil shoots, nitrate climbs to about 161 mg/L at the UVI feed ratio, where UVI measured about 42. |
+| A2 | PR #10 (merged 2026-11-25): unit design comparison (Netherlands and India) | **Merge second, after one rerun.** Checks pass, but it conflicts with #11 in the revenue range, the vault logs and the truths hub. After #11 merges, it needs main merged in, the comparison rerun (the simulated high yield moves from 25.87 to about 26.0 kg/m²/yr) and the truths re-exported. |
 | A3 | PR #12: this note | Merged 2026-11-25. |
-| A4 | PR #13: `run.bat` / `run.py` local runner, plus the *How to Run Locally* note | **Merge after #10.** Tests pass (1 skipped until #10 lands) and the integrity check passes. No conflicts with main. Standard library only, writes to a git-ignored folder, adds no numbers, and labels every output as a scenario estimate. Without #10 it still runs the simulation and skips unit economics. |
+| A4 | PR #13 (merged 2026-11-25): `run.bat` / `run.py` local runner, plus the *How to Run Locally* note | **Merge after #10.** Tests pass (1 skipped until #10 lands) and the integrity check passes. No conflicts with main. Standard library only, writes to a git-ignored folder, adds no numbers, and labels every output as a scenario estimate. Without #10 it still runs the simulation and skips unit economics. |
+| A5 | PR #16: unit design comparison rerun after PR #11 (yield high bound 26.0 kg/m²/yr) and Karnataka at ₹100 to ₹250 | **Merge.** It merges cleanly. Tests, the integrity check, and the canon and vault syncs pass. Only the high and mid cases move, by under 1%, and the Netherlands break-even is unchanged. |
+| A6 | PR #15: component library and configurator (cost per kg of production, by part) | **Merge after #16.** Tests (189), the integrity check, and the canon and vault syncs pass, and it merges cleanly with main. Both #15 and #16 add Simulation Findings Log entries, so whichever lands second needs main merged in. Every catalog value has a source, tier, gate, confidence and corroboration. Most prices are Tier 3 shop listings at low confidence, and the conflicts (India feed price, liner life) are recorded rather than hidden. |
+| A7 | PR #17: catalog cross-check, nine review flags and the equipment research backlog | **Merge after #15**, either into #15 or retargeted to main. On main it conflicts only in generated truth notes, which re-exporting fixes. Tests and the integrity check pass. Values are unchanged except two corroboration upgrades and one new India pump price candidate. |
 
 ## B. Scenario inputs (scenario estimates only, never canon)
 
@@ -21,9 +24,10 @@ Rule used for the recommendations (AGENTS.md 6A): approve items with medium or h
 |---|---|---|
 | B1 | Netherlands basil wholesale price €7 / €8 / €9 per kg (CBI 2024, citing March 2020 importer examples) | **Approve for scenario use.** Sourced, but old, with tax treatment not normalized. |
 | B2 | Netherlands basil saleability 85 / 90 / 95% | **Approve for scenario use.** Research-pack operator assumption, not measured. |
-| B3 | India basil price ₹65 to ₹180 per kg (about ₹110 typical) as the base case | **Approve.** Ten Bengaluru IndiaMART listings ask ₹65 to ₹180, and Ajit confirmed on 2026-11-25 that basil does cost that much in Bangalore. That makes it a user-supplied input from local knowledge. It's still an asking-price level, not first-wholesale. The old ₹600 to ₹1,000 band (one 2025 Andhra Pradesh study) stays only as a sensitivity case. |
+| B3 | Karnataka (Bangalore) basil price ₹100 to ₹250 per kg as the base case | **Approve.** It's Ajit's own local knowledge (2026-11-25): basil sells for ₹100 to ₹250 depending on whether it's processed, fresh or organic. It agrees with ten Bengaluru IndiaMART listings at ₹65 to ₹180. The grade is not pinned down, so this is a price band, not a first-wholesale price. The listings stay as a sensitivity case, and the ₹600 to ₹1,000 study band is dropped as too high for Bangalore. |
 | B4 | India basil saleability 80 to 92% | Approve for scenario use. Operator assumption, low confidence. |
 | B5 | Karnataka wage (₹533/day minimum + 15% burden, 8 h/day) and electricity (₹3.45 to ₹7.10/kWh) | Approve for scenario use. Low confidence: the wage period has expired, and the tariff category for aquaponics is unknown. |
+| B6 | Catalog part prices, lifetimes and running inputs (PRs #15 and #17), Netherlands and India | **Approve for scenario use, except the items #17 flags as conflicting** (EPS/XPS raft life, `media_bed_depth_m`, `raft_air_share_of_fish_air`), which stay candidates until resolved. Mostly Tier 3 listings from one date at low confidence, so they are good enough for cost-per-kg ranges but not for a quote. |
 
 ## C. Candidate model values in canon
 
@@ -44,6 +48,8 @@ Rule used for the recommendations (AGENTS.md 6A): approve items with medium or h
 | D5 | UE_0001, UE_0003, UE_0011 (medium, single source) | Keep as candidates. |
 | D6 | UE_0004 (low, corroborated); UE_0006, UE_0008 (low, single source) | Keep as candidates. |
 | D7 | 13 older candidates: PROV_CORE_0001 to 0005, PROV_GUIDE_0001 to 0002, PROV_PARAM_0001 to 0005, PROV_WARN_0001 | Keep as candidates. They have no reliability record yet, and several are conditional sources. They need the backfill pass first. |
+| D8 | CD_0001, CD_0002, CD_0003 (medium, Tier 1, corroborated: UVI fish output, make-up water, pump and blower) | **Approve.** |
+| D9 | CD_0004 to CD_0010 (low confidence, or single source, or conflicting) | Keep as candidates. |
 | — | CROP_0001 to CROP_0007 | Already accepted on 2026-11-25. Nothing to do. |
 
 ## After approval
