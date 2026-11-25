@@ -1,0 +1,383 @@
+{
+  "description": "Candidate atomic facts on aquaponics unit economics (labour, prices, energy) read on 2026-11-25. Pending Ajit's review. Reliability fields follow AGENTS.md 6A.",
+  "facts": [
+    {
+      "fact_id": "UE_0001",
+      "statement": "In the Hawaii model aquaponics farm (about 1,142 m2 of lettuce raceway), labour totalled 44.74 hours per week, of which processing and packing was 19.86 hours (44%).",
+      "domain": "operations",
+      "type": "parameter",
+      "confidence": "medium",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "system": "Coupled DWC raceway model farm, 4 x 5,000 gal tanks, 12,288 sq ft (about 1,142 m2) raceway",
+        "crop": "lettuce plus tilapia",
+        "location": "Hawaii, tropical",
+        "year_basis": "fieldwork 2012, USD"
+      },
+      "source_metadata": {
+        "source_id": "tokunaga_2015_hawaii_aquaponics_economics",
+        "section_id": "table_8_labour",
+        "source_type": "institutional_report",
+        "source_tier": "tier_1"
+      },
+      "review_metadata": {
+        "reviewed_from": "ctsa.org/files/publications/HawaiiAquaponicsEconomics_Nov13.pdf",
+        "read_date_local": "2026-11-25",
+        "source_gate": "trusted",
+        "source_gate_reason": "university_regional_aquaculture_center_report",
+        "confidence_reason": "Itemised task table for a representative farm built from a survey of operating farms; a model, not one farm's records.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": []
+        },
+        "cross_check_note": "Labour cost line reproduces from hours x wage x 1.40 fringe; labour share agrees with SRAC 5006."
+      },
+      "added_date_local": "2026-11-25"
+    },
+    {
+      "fact_id": "UE_0002",
+      "statement": "In the Hawaii model aquaponics farm, labour was 48% of year-1 operating cost, and the return was most sensitive to lettuce price, then wage.",
+      "domain": "business",
+      "type": "finding",
+      "confidence": "medium",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "system": "Coupled DWC raceway model farm, 4 x 5,000 gal tanks, 12,288 sq ft (about 1,142 m2) raceway",
+        "crop": "lettuce plus tilapia",
+        "location": "Hawaii, tropical",
+        "year_basis": "fieldwork 2012, USD"
+      },
+      "source_metadata": {
+        "source_id": "tokunaga_2015_hawaii_aquaponics_economics",
+        "section_id": "table_7_and_sec_6_sensitivity",
+        "source_type": "institutional_report",
+        "source_tier": "tier_1"
+      },
+      "review_metadata": {
+        "reviewed_from": "ctsa.org/files/publications/HawaiiAquaponicsEconomics_Nov13.pdf",
+        "read_date_local": "2026-11-25",
+        "source_gate": "trusted",
+        "source_gate_reason": "university_regional_aquaculture_center_report",
+        "confidence_reason": "Representative model farm with a documented sensitivity analysis; USD 2012 prices.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "heidemann_bailey_2015_uvi_economics",
+            "quagrainie_purdue_indiana_aquaponics",
+            "engle_2015_srac_5006"
+          ]
+        },
+        "cross_check_note": "Labour as the largest cost agrees with UVI (Heidemann and Bailey 2015) and Purdue (Quagrainie et al.)."
+      },
+      "added_date_local": "2026-11-25"
+    },
+    {
+      "fact_id": "UE_0003",
+      "statement": "The UVI commercial aquaponics system (about 214 m2 of rafts) used about 3,120 labour hours and 23,360 kWh per year for the whole system (fish, lettuce and basil), with no split by crop.",
+      "domain": "operations",
+      "type": "parameter",
+      "confidence": "medium",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "system": "UVI coupled DWC raft, 214 m2",
+        "location": "St. Croix, USVI, tropical",
+        "year_basis": "2014, USD"
+      },
+      "source_metadata": {
+        "source_id": "heidemann_bailey_2015_uvi_economics",
+        "section_id": "tables_8_and_11",
+        "source_type": "institutional_report",
+        "source_tier": "tier_1"
+      },
+      "review_metadata": {
+        "reviewed_from": "SARE Commercial Aquaponics Case Study #3 (draft AEC 2015-18)",
+        "read_date_local": "2026-11-25",
+        "source_gate": "conditional",
+        "source_gate_reason": "draft_case_study_whole_system_figures_only",
+        "confidence_reason": "Operating records of a long-running research system, but a draft case study with whole-system figures only.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": []
+        },
+        "cross_check_note": "Grow area matches Rakocy et al. 2004 (canon CROP_0004)."
+      },
+      "added_date_local": "2026-11-25"
+    },
+    {
+      "fact_id": "UE_0004",
+      "statement": "In Purdue's representative Indiana basil-and-tilapia aquaponics farms, labour was 62-67% of operating cost, and blended cost per lb of output fell from USD 4.44 (small) to USD 3.60 (large).",
+      "domain": "business",
+      "type": "finding",
+      "confidence": "low",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "system": "hypothetical representative greenhouse aquaponics farms (small, medium, large)",
+        "crop": "basil plus tilapia",
+        "location": "Indiana, USA",
+        "year_basis": "USD, year not stated"
+      },
+      "source_metadata": {
+        "source_id": "quagrainie_purdue_indiana_aquaponics",
+        "section_id": "tables_6_to_9",
+        "source_type": "institutional_report",
+        "source_tier": "tier_1"
+      },
+      "review_metadata": {
+        "reviewed_from": "ag.purdue.edu/department/agecon/_docs/aquaculture/aquaponics-in-indiana.pdf",
+        "read_date_local": "2026-11-25",
+        "source_gate": "conditional",
+        "source_gate_reason": "university_report_with_internal_inconsistencies_and_hypothetical_farms",
+        "confidence_reason": "Hypothetical farms, no grow area, no price year, and several internal inconsistencies in the paper.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "tokunaga_2015_hawaii_aquaponics_economics",
+            "engle_2015_srac_5006"
+          ]
+        },
+        "cross_check_note": "Direction (labour dominates; mild scale economies) agrees with Tokunaga et al. and SRAC 5006."
+      },
+      "added_date_local": "2026-11-25"
+    },
+    {
+      "fact_id": "UE_0005",
+      "statement": "A 2022 techno-economic analysis of a tilapia-lettuce aquaponics system found labour and greenhouse costs to be the prime factors controlling profitability; it assumed lettuce harvest at about 30 plants per hour.",
+      "domain": "business",
+      "type": "finding",
+      "confidence": "medium",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "system": "modelled RAS aquaponics, about 62 m2 grow bed in a greenhouse",
+        "crop": "lettuce plus tilapia",
+        "location": "US Midwest",
+        "year_basis": "2019, USD"
+      },
+      "source_metadata": {
+        "source_id": "zappernick_2022_techno_economic",
+        "section_id": "abstract_and_sec_2_2_2",
+        "source_type": "peer_reviewed_journal",
+        "source_tier": "tier_2"
+      },
+      "review_metadata": {
+        "reviewed_from": "bsal.osu.edu (J. Cleaner Production 365, 132753)",
+        "read_date_local": "2026-11-25",
+        "source_gate": "trusted",
+        "source_gate_reason": "peer_reviewed_journal",
+        "confidence_reason": "Peer-reviewed; the abstract and methods were read verbatim, later results only through a summary.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "tokunaga_2015_hawaii_aquaponics_economics"
+          ]
+        },
+        "cross_check_note": "Labour as a top driver agrees with Tokunaga et al.; the harvest rate is much slower than the Hawaii task table implies."
+      },
+      "added_date_local": "2026-11-25"
+    },
+    {
+      "fact_id": "UE_0006",
+      "statement": "CBI's 2024 herbs study lists Dutch importing-wholesaler basil prices of EUR 7.50 (Kenya), 8.00 (Ethiopia) and 9.25 (Israel) per kg box, dated March 2020.",
+      "domain": "business",
+      "type": "parameter",
+      "confidence": "low",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "market": "Netherlands, importing wholesaler price lists",
+        "product": "fresh cut basil, kg boxes",
+        "year_basis": "March 2020, EUR"
+      },
+      "source_metadata": {
+        "source_id": "cbi_2024_fresh_culinary_herbs",
+        "section_id": "table_1",
+        "source_type": "institutional_report",
+        "source_tier": "tier_1"
+      },
+      "review_metadata": {
+        "reviewed_from": "cbi.eu/sites/default/files/pdf/research/1555.pdf",
+        "read_date_local": "2026-11-25",
+        "source_gate": "conditional",
+        "source_gate_reason": "government_backed_study_but_price_list_examples_from_march_2020",
+        "confidence_reason": "Government-backed market study, but price-list examples (not transactions) and more than 5 years old.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": []
+        },
+        "cross_check_note": "Same figures as the repo research pack; no current Dutch basil wholesale series found yet."
+      },
+      "added_date_local": "2026-11-25"
+    },
+    {
+      "fact_id": "UE_0007",
+      "statement": "CBI notes that most herbs are best kept near 0 C but basil is the exception and is best kept at about 10 C, and that European local basil supply peaks June to September with imports dominating September to May.",
+      "domain": "operations",
+      "type": "guidance",
+      "confidence": "medium",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "market": "EU",
+        "product": "fresh basil"
+      },
+      "source_metadata": {
+        "source_id": "cbi_2024_fresh_culinary_herbs",
+        "section_id": "sections_on_seasonality_and_handling",
+        "source_type": "institutional_report",
+        "source_tier": "tier_1"
+      },
+      "review_metadata": {
+        "reviewed_from": "cbi.eu/market-information/fresh-fruit-vegetables/herbs/market-entry",
+        "read_date_local": "2026-11-25",
+        "source_gate": "trusted",
+        "source_gate_reason": "government_backed_market_study_qualitative_guidance",
+        "confidence_reason": "Qualitative market guidance from a government-backed study.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "research_pack_first_slice_basil_wholesale_economics (UC Davis, Rutgers)"
+          ]
+        },
+        "cross_check_note": "Storage temperature agrees with UC Davis and Rutgers guidance cited in the research pack."
+      },
+      "added_date_local": "2026-11-25"
+    },
+    {
+      "fact_id": "UE_0008",
+      "statement": "Flemish VBT auction weekly realised producer prices for lettuce ('Sla') ranged from about EUR 0.19 (week 24, 2025) to EUR 0.72 (week 24, 2024) per unit, probably per head.",
+      "domain": "business",
+      "type": "parameter",
+      "confidence": "low",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "market": "Belgium (Flanders), VBT auctions, producer price",
+        "product": "lettuce, type not stated",
+        "year_basis": "2024-2025, EUR"
+      },
+      "source_metadata": {
+        "source_id": "vbt_landbouwcijfers_vlaanderen_weekly_prices",
+        "section_id": "weekly_price_pdfs_w24_2024_w50_2024_w24_2025",
+        "source_type": "official_statistics",
+        "source_tier": "tier_1"
+      },
+      "review_metadata": {
+        "reviewed_from": "landbouwcijfers.vlaanderen.be",
+        "read_date_local": "2026-11-25",
+        "source_gate": "conditional",
+        "source_gate_reason": "official_statistics_but_text_extraction_scrambled_and_unit_not_printed",
+        "confidence_reason": "Official realised prices, but the text extraction was column-scrambled and the unit per product is not printed.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": []
+        },
+        "cross_check_note": "Far below US farm-gate lettuce prices used in Tokunaga et al. and Zappernick et al., as expected for an auction channel."
+      },
+      "added_date_local": "2026-11-25"
+    },
+    {
+      "fact_id": "UE_0009",
+      "statement": "In an international survey of 257 commercial aquaponics operations, profitability was associated with aquaponics being the primary income, warmer climate zones (USDA 7-13), sales of USD 5,000 or more, greater knowledge, and non-food sales.",
+      "domain": "business",
+      "type": "finding",
+      "confidence": "medium",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "sample": "self-selected online survey, 81% US",
+        "year_basis": "2013 survey, published 2015"
+      },
+      "source_metadata": {
+        "source_id": "love_2015_commercial_aquaponics_survey",
+        "section_id": "abstract",
+        "source_type": "peer_reviewed_journal",
+        "source_tier": "tier_2"
+      },
+      "review_metadata": {
+        "reviewed_from": "clf.jhsph.edu (Aquaculture 435, 2015)",
+        "read_date_local": "2026-11-25",
+        "source_gate": "trusted",
+        "source_gate_reason": "peer_reviewed_journal_abstract_only_read",
+        "confidence_reason": "Peer-reviewed, but only the abstract was read; associations from a self-selected sample, not causal.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "engle_2015_srac_5006"
+          ]
+        },
+        "cross_check_note": "Climate and market-premium findings agree with SRAC 5006 (Engle 2015)."
+      },
+      "added_date_local": "2026-11-25"
+    },
+    {
+      "fact_id": "UE_0010",
+      "statement": "SRAC 5006 (Engle 2015) summarises that in published studies the fish portion of aquaponics was often not profitable, while lettuce and basil could be, and that a premium market is essential.",
+      "domain": "business",
+      "type": "finding",
+      "confidence": "medium",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "scope": "review of US and Caribbean economic studies 1997-2015"
+      },
+      "source_metadata": {
+        "source_id": "engle_2015_srac_5006",
+        "section_id": "pages_2_to_5",
+        "source_type": "institutional_report",
+        "source_tier": "tier_1"
+      },
+      "review_metadata": {
+        "reviewed_from": "srac.msstate.edu/pdfs/Fact Sheets/5006 Economics of Aquaponics.pdf",
+        "read_date_local": "2026-11-25",
+        "source_gate": "trusted",
+        "source_gate_reason": "university_extension_review",
+        "confidence_reason": "Extension review by an aquaculture economist; secondary summary of older studies.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "tokunaga_2015_hawaii_aquaponics_economics",
+            "quagrainie_purdue_indiana_aquaponics"
+          ]
+        },
+        "cross_check_note": "Consistent with Tokunaga et al. (lettuce 79% of revenue) and Quagrainie et al. (basil price dominates)."
+      },
+      "added_date_local": "2026-11-25"
+    },
+    {
+      "fact_id": "UE_0011",
+      "statement": "Average energy use of Dutch greenhouse horticulture was 0.99 GJ per m2 in 2024 (temperature-corrected, provisional), across about 10,000 ha and all crop types.",
+      "domain": "operations",
+      "type": "parameter",
+      "confidence": "medium",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "scope": "all Dutch greenhouse horticulture, incl. lit crops",
+        "year_basis": "2024, provisional"
+      },
+      "source_metadata": {
+        "source_id": "wur_energiemonitor_2024",
+        "section_id": "summary_s1",
+        "source_type": "official_statistics",
+        "source_tier": "tier_1"
+      },
+      "review_metadata": {
+        "reviewed_from": "edepot.wur.nl/702373",
+        "read_date_local": "2026-11-25",
+        "source_gate": "trusted",
+        "source_gate_reason": "government_funded_wur_statistics_series",
+        "confidence_reason": "Government-funded WUR time series; a sector average, not specific to basil or unheated production.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": []
+        },
+        "cross_check_note": "Order of magnitude matches about 95 PJ over about 10,000 ha."
+      },
+      "added_date_local": "2026-11-25"
+    }
+  ]
+}

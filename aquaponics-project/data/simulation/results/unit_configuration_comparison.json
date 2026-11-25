@@ -1,0 +1,2810 @@
+{
+  "estimate_status": "scenario_estimate",
+  "label": "Scenario estimate, not validated. Labour + electricity only: heating, CAPEX, consumables and fish revenue are not included, so this is not total operating cost, profit or viability.",
+  "generated_by": "scripts/compare_unit_configurations.py",
+  "generated_at_utc": "2026-11-25T00:18:32Z",
+  "inputs_file": "data/scenarios/unit_configuration_candidates_v0.json",
+  "case_definitions": {
+    "low": "lowest yield, price and saleability; highest labour, wage and electricity",
+    "mid": "midpoint of every range",
+    "high": "highest yield, price and saleability; lowest labour, wage and electricity"
+  },
+  "headroom_meaning": "Revenue minus labour and electricity. It must still pay for heating, CAPEX, consumables and (where uncosted) owner time.",
+  "not_in_cost_lines": {
+    "heating": {
+      "value": null,
+      "origin": "missing",
+      "context": "Dutch greenhouse sector average total energy use was 0.99 GJ/m2 in 2024 (WUR Energiemonitor 2025-150, provisional, all crops incl. lit crops). Not crop-specific, so not applied.",
+      "context_source_tier": "tier_1"
+    },
+    "annualised_capex": {
+      "value": null,
+      "origin": "missing",
+      "context": "Only USD references found: Tokunaga et al. model farm USD 217,078 total investment for 1,141.6 m2 raceway (about USD 190 per m2, 2012); Zappernick et al. about USD 69,400 for a 62-63 m2 grow bed (about USD 1,110 per m2, 2019); UVI owner-built depreciation USD 3,420/yr for 214 m2 (2014). No EUR or Dutch build cost is sourced.",
+      "context_source_tier": "tier_1 / tier_2"
+    },
+    "consumables_feed_seed_fingerlings_water": {
+      "value": null,
+      "origin": "missing",
+      "context": "Tokunaga et al. Year 1: feed USD 7,216, water 4,155, seed 1,122, chemicals 1,209 for 1,141.6 m2 (USD, 2012). Not converted."
+    },
+    "fish_revenue": {
+      "value": null,
+      "origin": "missing",
+      "context": "SRAC 5006 (Engle 2015) summarises that the fish portion of studied systems was often not profitable, so fish revenue is treated as a cost offset to research later, not a design driver."
+    }
+  },
+  "results": [
+    {
+      "config_id": "A_uvi_style_dwc_basil_hired",
+      "label": "UVI-style coupled DWC raft, basil, hired labour at UVI intensity",
+      "crop": "basil",
+      "output_unit": "kg",
+      "labour_mode": "hired",
+      "location": "netherlands",
+      "currency_code": "EUR",
+      "missing_inputs": [],
+      "cases": {
+        "low": {
+          "inputs_used": {
+            "yield": 23.4,
+            "price": 7.0,
+            "saleability": 0.85,
+            "wage": 19.0,
+            "power_price": 0.26,
+            "kwh_m2": 109.2,
+            "labour_m2": 14.58
+          },
+          "labour_h_per_m2_yr": 14.58,
+          "labour_h_per_harvested_unit": 0.6231,
+          "revenue_per_m2_yr": 139.23,
+          "revenue_per_saleable_unit": 7.0,
+          "labour_cost_per_m2_yr": 277.02,
+          "electricity_cost_per_m2_yr": 28.39,
+          "labour_plus_electricity_cost_per_saleable_unit": 15.355,
+          "headroom_per_m2_yr": -166.18,
+          "headroom_per_saleable_unit": -8.355,
+          "breakeven_labour_h_per_harvested_unit": 0.2493,
+          "covers_labour_and_electricity": false
+        },
+        "mid": {
+          "inputs_used": {
+            "yield": 24.635,
+            "price": 8.0,
+            "saleability": 0.9,
+            "wage": 17.5,
+            "power_price": 0.25,
+            "kwh_m2": 109.2,
+            "labour_m2": 14.58
+          },
+          "labour_h_per_m2_yr": 14.58,
+          "labour_h_per_harvested_unit": 0.5918,
+          "revenue_per_m2_yr": 177.37,
+          "revenue_per_saleable_unit": 8.0,
+          "labour_cost_per_m2_yr": 255.15,
+          "electricity_cost_per_m2_yr": 27.3,
+          "labour_plus_electricity_cost_per_saleable_unit": 12.739,
+          "headroom_per_m2_yr": -105.08,
+          "headroom_per_saleable_unit": -4.739,
+          "breakeven_labour_h_per_harvested_unit": 0.3481,
+          "covers_labour_and_electricity": false
+        },
+        "high": {
+          "inputs_used": {
+            "yield": 25.87,
+            "price": 9.0,
+            "saleability": 0.95,
+            "wage": 16.0,
+            "power_price": 0.24,
+            "kwh_m2": 109.2,
+            "labour_m2": 14.58
+          },
+          "labour_h_per_m2_yr": 14.58,
+          "labour_h_per_harvested_unit": 0.5636,
+          "revenue_per_m2_yr": 221.19,
+          "revenue_per_saleable_unit": 9.0,
+          "labour_cost_per_m2_yr": 233.28,
+          "electricity_cost_per_m2_yr": 26.21,
+          "labour_plus_electricity_cost_per_saleable_unit": 10.558,
+          "headroom_per_m2_yr": -38.3,
+          "headroom_per_saleable_unit": -1.558,
+          "breakeven_labour_h_per_harvested_unit": 0.4711,
+          "covers_labour_and_electricity": false
+        }
+      },
+      "verdict": "fails_in_all_cases"
+    },
+    {
+      "config_id": "A_uvi_style_dwc_basil_hired",
+      "label": "UVI-style coupled DWC raft, basil, hired labour at UVI intensity",
+      "crop": "basil",
+      "output_unit": "kg",
+      "labour_mode": "hired",
+      "location": "india",
+      "currency_code": "INR",
+      "missing_inputs": [],
+      "cases": {
+        "low": {
+          "inputs_used": {
+            "yield": 23.4,
+            "price": 65.0,
+            "saleability": 0.8,
+            "wage": 87.88,
+            "power_price": 9.5,
+            "kwh_m2": 109.2,
+            "labour_m2": 14.58
+          },
+          "labour_h_per_m2_yr": 14.58,
+          "labour_h_per_harvested_unit": 0.6231,
+          "revenue_per_m2_yr": 1216.8,
+          "revenue_per_saleable_unit": 65.0,
+          "labour_cost_per_m2_yr": 1281.29,
+          "electricity_cost_per_m2_yr": 1037.4,
+          "labour_plus_electricity_cost_per_saleable_unit": 123.862,
+          "headroom_per_m2_yr": -1101.89,
+          "headroom_per_saleable_unit": -58.862,
+          "breakeven_labour_h_per_harvested_unit": 0.0872,
+          "covers_labour_and_electricity": false,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 11.12,
+            "headroom_per_m2_yr": -10.07,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "mid": {
+          "inputs_used": {
+            "yield": 24.635,
+            "price": 122.5,
+            "saleability": 0.86,
+            "wage": 73.72,
+            "power_price": 8.5,
+            "kwh_m2": 109.2,
+            "labour_m2": 14.58
+          },
+          "labour_h_per_m2_yr": 14.58,
+          "labour_h_per_harvested_unit": 0.5918,
+          "revenue_per_m2_yr": 2595.3,
+          "revenue_per_saleable_unit": 122.5,
+          "labour_cost_per_m2_yr": 1074.84,
+          "electricity_cost_per_m2_yr": 928.2,
+          "labour_plus_electricity_cost_per_saleable_unit": 94.545,
+          "headroom_per_m2_yr": 592.26,
+          "headroom_per_saleable_unit": 27.955,
+          "breakeven_labour_h_per_harvested_unit": 0.918,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 23.71,
+            "headroom_per_m2_yr": 5.41,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "high": {
+          "inputs_used": {
+            "yield": 25.87,
+            "price": 180.0,
+            "saleability": 0.92,
+            "wage": 59.56,
+            "power_price": 7.5,
+            "kwh_m2": 109.2,
+            "labour_m2": 14.58
+          },
+          "labour_h_per_m2_yr": 14.58,
+          "labour_h_per_harvested_unit": 0.5636,
+          "revenue_per_m2_yr": 4284.07,
+          "revenue_per_saleable_unit": 180.0,
+          "labour_cost_per_m2_yr": 868.38,
+          "electricity_cost_per_m2_yr": 819.0,
+          "labour_plus_electricity_cost_per_saleable_unit": 70.897,
+          "headroom_per_m2_yr": 2596.69,
+          "headroom_per_saleable_unit": 109.103,
+          "breakeven_labour_h_per_harvested_unit": 2.2489,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 39.14,
+            "headroom_per_m2_yr": 23.72,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        }
+      },
+      "verdict": "clears_only_in_favourable_cases"
+    },
+    {
+      "config_id": "A_uvi_style_dwc_basil_hired",
+      "label": "UVI-style coupled DWC raft, basil, hired labour at UVI intensity",
+      "crop": "basil",
+      "output_unit": "kg",
+      "labour_mode": "hired",
+      "location": "karnataka",
+      "currency_code": "INR",
+      "missing_inputs": [],
+      "cases": {
+        "low": {
+          "inputs_used": {
+            "yield": 23.4,
+            "price": 65.0,
+            "saleability": 0.8,
+            "wage": 76.82,
+            "power_price": 7.1,
+            "kwh_m2": 109.2,
+            "labour_m2": 14.58
+          },
+          "labour_h_per_m2_yr": 14.58,
+          "labour_h_per_harvested_unit": 0.6231,
+          "revenue_per_m2_yr": 1216.8,
+          "revenue_per_saleable_unit": 65.0,
+          "labour_cost_per_m2_yr": 1120.04,
+          "electricity_cost_per_m2_yr": 775.32,
+          "labour_plus_electricity_cost_per_saleable_unit": 101.248,
+          "headroom_per_m2_yr": -678.56,
+          "headroom_per_saleable_unit": -36.248,
+          "breakeven_labour_h_per_harvested_unit": 0.2456,
+          "covers_labour_and_electricity": false,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 11.12,
+            "headroom_per_m2_yr": -6.2,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "mid": {
+          "inputs_used": {
+            "yield": 24.635,
+            "price": 122.5,
+            "saleability": 0.86,
+            "wage": 76.82,
+            "power_price": 5.275,
+            "kwh_m2": 109.2,
+            "labour_m2": 14.58
+          },
+          "labour_h_per_m2_yr": 14.58,
+          "labour_h_per_harvested_unit": 0.5918,
+          "revenue_per_m2_yr": 2595.3,
+          "revenue_per_saleable_unit": 122.5,
+          "labour_cost_per_m2_yr": 1120.04,
+          "electricity_cost_per_m2_yr": 576.03,
+          "labour_plus_electricity_cost_per_saleable_unit": 80.056,
+          "headroom_per_m2_yr": 899.23,
+          "headroom_per_saleable_unit": 42.444,
+          "breakeven_labour_h_per_harvested_unit": 1.067,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 23.71,
+            "headroom_per_m2_yr": 8.22,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "high": {
+          "inputs_used": {
+            "yield": 25.87,
+            "price": 180.0,
+            "saleability": 0.92,
+            "wage": 76.82,
+            "power_price": 3.45,
+            "kwh_m2": 109.2,
+            "labour_m2": 14.58
+          },
+          "labour_h_per_m2_yr": 14.58,
+          "labour_h_per_harvested_unit": 0.5636,
+          "revenue_per_m2_yr": 4284.07,
+          "revenue_per_saleable_unit": 180.0,
+          "labour_cost_per_m2_yr": 1120.04,
+          "electricity_cost_per_m2_yr": 376.74,
+          "labour_plus_electricity_cost_per_saleable_unit": 62.889,
+          "headroom_per_m2_yr": 2787.3,
+          "headroom_per_saleable_unit": 117.111,
+          "breakeven_labour_h_per_harvested_unit": 1.9661,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 39.14,
+            "headroom_per_m2_yr": 25.46,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        }
+      },
+      "verdict": "clears_only_in_favourable_cases"
+    },
+    {
+      "config_id": "A_uvi_style_dwc_basil_hired",
+      "label": "UVI-style coupled DWC raft, basil, hired labour at UVI intensity",
+      "crop": "basil",
+      "output_unit": "kg",
+      "labour_mode": "hired",
+      "location": "tamil_nadu",
+      "currency_code": "INR",
+      "missing_inputs": [],
+      "cases": {
+        "low": {
+          "inputs_used": {
+            "yield": 23.4,
+            "price": 65.0,
+            "saleability": 0.8,
+            "wage": 91.77,
+            "power_price": 10.45,
+            "kwh_m2": 109.2,
+            "labour_m2": 14.58
+          },
+          "labour_h_per_m2_yr": 14.58,
+          "labour_h_per_harvested_unit": 0.6231,
+          "revenue_per_m2_yr": 1216.8,
+          "revenue_per_saleable_unit": 65.0,
+          "labour_cost_per_m2_yr": 1338.01,
+          "electricity_cost_per_m2_yr": 1141.14,
+          "labour_plus_electricity_cost_per_saleable_unit": 132.433,
+          "headroom_per_m2_yr": -1262.35,
+          "headroom_per_saleable_unit": -67.433,
+          "breakeven_labour_h_per_harvested_unit": 0.0352,
+          "covers_labour_and_electricity": false,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 11.12,
+            "headroom_per_m2_yr": -11.53,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "mid": {
+          "inputs_used": {
+            "yield": 24.635,
+            "price": 122.5,
+            "saleability": 0.86,
+            "wage": 80.89,
+            "power_price": 7.7,
+            "kwh_m2": 109.2,
+            "labour_m2": 14.58
+          },
+          "labour_h_per_m2_yr": 14.58,
+          "labour_h_per_harvested_unit": 0.5918,
+          "revenue_per_m2_yr": 2595.3,
+          "revenue_per_saleable_unit": 122.5,
+          "labour_cost_per_m2_yr": 1179.38,
+          "electricity_cost_per_m2_yr": 840.84,
+          "labour_plus_electricity_cost_per_saleable_unit": 95.356,
+          "headroom_per_m2_yr": 575.08,
+          "headroom_per_saleable_unit": 27.144,
+          "breakeven_labour_h_per_harvested_unit": 0.8804,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 23.71,
+            "headroom_per_m2_yr": 5.25,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "high": {
+          "inputs_used": {
+            "yield": 25.87,
+            "price": 180.0,
+            "saleability": 0.92,
+            "wage": 70.01,
+            "power_price": 4.95,
+            "kwh_m2": 109.2,
+            "labour_m2": 14.58
+          },
+          "labour_h_per_m2_yr": 14.58,
+          "labour_h_per_harvested_unit": 0.5636,
+          "revenue_per_m2_yr": 4284.07,
+          "revenue_per_saleable_unit": 180.0,
+          "labour_cost_per_m2_yr": 1020.75,
+          "electricity_cost_per_m2_yr": 540.54,
+          "labour_plus_electricity_cost_per_saleable_unit": 65.599,
+          "headroom_per_m2_yr": 2722.79,
+          "headroom_per_saleable_unit": 114.401,
+          "breakeven_labour_h_per_harvested_unit": 2.0669,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 39.14,
+            "headroom_per_m2_yr": 24.88,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        }
+      },
+      "verdict": "clears_only_in_favourable_cases"
+    },
+    {
+      "config_id": "A_uvi_style_dwc_basil_hired",
+      "label": "UVI-style coupled DWC raft, basil, hired labour at UVI intensity",
+      "crop": "basil",
+      "output_unit": "kg",
+      "labour_mode": "hired",
+      "location": "andhra_pradesh",
+      "currency_code": "INR",
+      "missing_inputs": [],
+      "cases": {
+        "low": {
+          "inputs_used": {
+            "yield": 23.4,
+            "price": 65.0,
+            "saleability": 0.8,
+            "wage": 91.77,
+            "power_price": 4.5,
+            "kwh_m2": 109.2,
+            "labour_m2": 14.58
+          },
+          "labour_h_per_m2_yr": 14.58,
+          "labour_h_per_harvested_unit": 0.6231,
+          "revenue_per_m2_yr": 1216.8,
+          "revenue_per_saleable_unit": 65.0,
+          "labour_cost_per_m2_yr": 1338.01,
+          "electricity_cost_per_m2_yr": 491.4,
+          "labour_plus_electricity_cost_per_saleable_unit": 97.725,
+          "headroom_per_m2_yr": -612.61,
+          "headroom_per_saleable_unit": -32.725,
+          "breakeven_labour_h_per_harvested_unit": 0.3378,
+          "covers_labour_and_electricity": false,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 11.12,
+            "headroom_per_m2_yr": -5.6,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "mid": {
+          "inputs_used": {
+            "yield": 24.635,
+            "price": 122.5,
+            "saleability": 0.86,
+            "wage": 80.89,
+            "power_price": 4.175,
+            "kwh_m2": 109.2,
+            "labour_m2": 14.58
+          },
+          "labour_h_per_m2_yr": 14.58,
+          "labour_h_per_harvested_unit": 0.5918,
+          "revenue_per_m2_yr": 2595.3,
+          "revenue_per_saleable_unit": 122.5,
+          "labour_cost_per_m2_yr": 1179.38,
+          "electricity_cost_per_m2_yr": 455.91,
+          "labour_plus_electricity_cost_per_saleable_unit": 77.187,
+          "headroom_per_m2_yr": 960.01,
+          "headroom_per_saleable_unit": 45.313,
+          "breakeven_labour_h_per_harvested_unit": 1.0736,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 23.71,
+            "headroom_per_m2_yr": 8.77,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "high": {
+          "inputs_used": {
+            "yield": 25.87,
+            "price": 180.0,
+            "saleability": 0.92,
+            "wage": 70.01,
+            "power_price": 3.85,
+            "kwh_m2": 109.2,
+            "labour_m2": 14.58
+          },
+          "labour_h_per_m2_yr": 14.58,
+          "labour_h_per_harvested_unit": 0.5636,
+          "revenue_per_m2_yr": 4284.07,
+          "revenue_per_saleable_unit": 180.0,
+          "labour_cost_per_m2_yr": 1020.75,
+          "electricity_cost_per_m2_yr": 420.42,
+          "labour_plus_electricity_cost_per_saleable_unit": 60.552,
+          "headroom_per_m2_yr": 2842.91,
+          "headroom_per_saleable_unit": 119.448,
+          "breakeven_labour_h_per_harvested_unit": 2.1332,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 39.14,
+            "headroom_per_m2_yr": 25.97,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        }
+      },
+      "verdict": "clears_only_in_favourable_cases"
+    },
+    {
+      "config_id": "A_uvi_style_dwc_basil_hired",
+      "label": "UVI-style coupled DWC raft, basil, hired labour at UVI intensity",
+      "crop": "basil",
+      "output_unit": "kg",
+      "labour_mode": "hired",
+      "location": "telangana",
+      "currency_code": "INR",
+      "missing_inputs": [],
+      "cases": {
+        "low": {
+          "inputs_used": {
+            "yield": 23.4,
+            "price": 65.0,
+            "saleability": 0.8,
+            "wage": 102.51,
+            "power_price": 8.5,
+            "kwh_m2": 109.2,
+            "labour_m2": 14.58
+          },
+          "labour_h_per_m2_yr": 14.58,
+          "labour_h_per_harvested_unit": 0.6231,
+          "revenue_per_m2_yr": 1216.8,
+          "revenue_per_saleable_unit": 65.0,
+          "labour_cost_per_m2_yr": 1494.6,
+          "electricity_cost_per_m2_yr": 928.2,
+          "labour_plus_electricity_cost_per_saleable_unit": 129.423,
+          "headroom_per_m2_yr": -1206.0,
+          "headroom_per_saleable_unit": -64.423,
+          "breakeven_labour_h_per_harvested_unit": 0.1203,
+          "covers_labour_and_electricity": false,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 11.12,
+            "headroom_per_m2_yr": -11.02,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "mid": {
+          "inputs_used": {
+            "yield": 24.635,
+            "price": 122.5,
+            "saleability": 0.86,
+            "wage": 90.04,
+            "power_price": 6.25,
+            "kwh_m2": 109.2,
+            "labour_m2": 14.58
+          },
+          "labour_h_per_m2_yr": 14.58,
+          "labour_h_per_harvested_unit": 0.5918,
+          "revenue_per_m2_yr": 2595.3,
+          "revenue_per_saleable_unit": 122.5,
+          "labour_cost_per_m2_yr": 1312.78,
+          "electricity_cost_per_m2_yr": 682.5,
+          "labour_plus_electricity_cost_per_saleable_unit": 94.179,
+          "headroom_per_m2_yr": 600.01,
+          "headroom_per_saleable_unit": 28.321,
+          "breakeven_labour_h_per_harvested_unit": 0.8623,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 23.71,
+            "headroom_per_m2_yr": 5.48,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "high": {
+          "inputs_used": {
+            "yield": 25.87,
+            "price": 180.0,
+            "saleability": 0.92,
+            "wage": 77.57,
+            "power_price": 4.0,
+            "kwh_m2": 109.2,
+            "labour_m2": 14.58
+          },
+          "labour_h_per_m2_yr": 14.58,
+          "labour_h_per_harvested_unit": 0.5636,
+          "revenue_per_m2_yr": 4284.07,
+          "revenue_per_saleable_unit": 180.0,
+          "labour_cost_per_m2_yr": 1130.97,
+          "electricity_cost_per_m2_yr": 436.8,
+          "labour_plus_electricity_cost_per_saleable_unit": 65.872,
+          "headroom_per_m2_yr": 2716.3,
+          "headroom_per_saleable_unit": 114.128,
+          "breakeven_labour_h_per_harvested_unit": 1.9172,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 39.14,
+            "headroom_per_m2_yr": 24.82,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        }
+      },
+      "verdict": "clears_only_in_favourable_cases"
+    },
+    {
+      "config_id": "A_uvi_style_dwc_basil_hired",
+      "label": "UVI-style coupled DWC raft, basil, hired labour at UVI intensity",
+      "crop": "basil",
+      "output_unit": "kg",
+      "labour_mode": "hired",
+      "location": "india_study_price_band_sensitivity",
+      "currency_code": "INR",
+      "missing_inputs": [],
+      "cases": {
+        "low": {
+          "inputs_used": {
+            "yield": 23.4,
+            "price": 600.0,
+            "saleability": 0.8,
+            "wage": 87.88,
+            "power_price": 9.5,
+            "kwh_m2": 109.2,
+            "labour_m2": 14.58
+          },
+          "labour_h_per_m2_yr": 14.58,
+          "labour_h_per_harvested_unit": 0.6231,
+          "revenue_per_m2_yr": 11232.0,
+          "revenue_per_saleable_unit": 600.0,
+          "labour_cost_per_m2_yr": 1281.29,
+          "electricity_cost_per_m2_yr": 1037.4,
+          "labour_plus_electricity_cost_per_saleable_unit": 123.862,
+          "headroom_per_m2_yr": 8913.31,
+          "headroom_per_saleable_unit": 476.138,
+          "breakeven_labour_h_per_harvested_unit": 4.9575,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 102.62,
+            "headroom_per_m2_yr": 81.43,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "mid": {
+          "inputs_used": {
+            "yield": 24.635,
+            "price": 800.0,
+            "saleability": 0.86,
+            "wage": 73.72,
+            "power_price": 8.5,
+            "kwh_m2": 109.2,
+            "labour_m2": 14.58
+          },
+          "labour_h_per_m2_yr": 14.58,
+          "labour_h_per_harvested_unit": 0.5918,
+          "revenue_per_m2_yr": 16948.88,
+          "revenue_per_saleable_unit": 800.0,
+          "labour_cost_per_m2_yr": 1074.84,
+          "electricity_cost_per_m2_yr": 928.2,
+          "labour_plus_electricity_cost_per_saleable_unit": 94.545,
+          "headroom_per_m2_yr": 14945.84,
+          "headroom_per_saleable_unit": 705.455,
+          "breakeven_labour_h_per_harvested_unit": 8.8215,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 154.84,
+            "headroom_per_m2_yr": 136.55,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "high": {
+          "inputs_used": {
+            "yield": 25.87,
+            "price": 1000.0,
+            "saleability": 0.92,
+            "wage": 59.56,
+            "power_price": 7.5,
+            "kwh_m2": 109.2,
+            "labour_m2": 14.58
+          },
+          "labour_h_per_m2_yr": 14.58,
+          "labour_h_per_harvested_unit": 0.5636,
+          "revenue_per_m2_yr": 23800.4,
+          "revenue_per_saleable_unit": 1000.0,
+          "labour_cost_per_m2_yr": 868.38,
+          "electricity_cost_per_m2_yr": 819.0,
+          "labour_plus_electricity_cost_per_saleable_unit": 70.897,
+          "headroom_per_m2_yr": 22113.02,
+          "headroom_per_saleable_unit": 929.103,
+          "breakeven_labour_h_per_harvested_unit": 14.9151,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 217.44,
+            "headroom_per_m2_yr": 202.02,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        }
+      },
+      "verdict": "clears_in_all_cases"
+    },
+    {
+      "config_id": "B_large_raceway_dwc_basil_lean_labour",
+      "label": "Large simple raceway DWC (about 1,100 m2), basil, hired labour at Hawaii model-farm intensity",
+      "crop": "basil",
+      "output_unit": "kg",
+      "labour_mode": "hired",
+      "location": "netherlands",
+      "currency_code": "EUR",
+      "missing_inputs": [],
+      "cases": {
+        "low": {
+          "inputs_used": {
+            "yield": 23.4,
+            "price": 7.0,
+            "saleability": 0.85,
+            "wage": 19.0,
+            "power_price": 0.26,
+            "kwh_m2": 109.2,
+            "labour_m2": 2.04
+          },
+          "labour_h_per_m2_yr": 2.04,
+          "labour_h_per_harvested_unit": 0.0872,
+          "revenue_per_m2_yr": 139.23,
+          "revenue_per_saleable_unit": 7.0,
+          "labour_cost_per_m2_yr": 38.76,
+          "electricity_cost_per_m2_yr": 28.39,
+          "labour_plus_electricity_cost_per_saleable_unit": 3.376,
+          "headroom_per_m2_yr": 72.08,
+          "headroom_per_saleable_unit": 3.624,
+          "breakeven_labour_h_per_harvested_unit": 0.2493,
+          "covers_labour_and_electricity": true
+        },
+        "mid": {
+          "inputs_used": {
+            "yield": 24.635,
+            "price": 8.0,
+            "saleability": 0.9,
+            "wage": 17.5,
+            "power_price": 0.25,
+            "kwh_m2": 85.6,
+            "labour_m2": 2.04
+          },
+          "labour_h_per_m2_yr": 2.04,
+          "labour_h_per_harvested_unit": 0.0828,
+          "revenue_per_m2_yr": 177.37,
+          "revenue_per_saleable_unit": 8.0,
+          "labour_cost_per_m2_yr": 35.7,
+          "electricity_cost_per_m2_yr": 21.4,
+          "labour_plus_electricity_cost_per_saleable_unit": 2.575,
+          "headroom_per_m2_yr": 120.27,
+          "headroom_per_saleable_unit": 5.425,
+          "breakeven_labour_h_per_harvested_unit": 0.3618,
+          "covers_labour_and_electricity": true
+        },
+        "high": {
+          "inputs_used": {
+            "yield": 25.87,
+            "price": 9.0,
+            "saleability": 0.95,
+            "wage": 16.0,
+            "power_price": 0.24,
+            "kwh_m2": 62.0,
+            "labour_m2": 2.04
+          },
+          "labour_h_per_m2_yr": 2.04,
+          "labour_h_per_harvested_unit": 0.0789,
+          "revenue_per_m2_yr": 221.19,
+          "revenue_per_saleable_unit": 9.0,
+          "labour_cost_per_m2_yr": 32.64,
+          "electricity_cost_per_m2_yr": 14.88,
+          "labour_plus_electricity_cost_per_saleable_unit": 1.934,
+          "headroom_per_m2_yr": 173.67,
+          "headroom_per_saleable_unit": 7.066,
+          "breakeven_labour_h_per_harvested_unit": 0.4984,
+          "covers_labour_and_electricity": true
+        }
+      },
+      "verdict": "clears_in_all_cases"
+    },
+    {
+      "config_id": "B_large_raceway_dwc_basil_lean_labour",
+      "label": "Large simple raceway DWC (about 1,100 m2), basil, hired labour at Hawaii model-farm intensity",
+      "crop": "basil",
+      "output_unit": "kg",
+      "labour_mode": "hired",
+      "location": "india",
+      "currency_code": "INR",
+      "missing_inputs": [],
+      "cases": {
+        "low": {
+          "inputs_used": {
+            "yield": 23.4,
+            "price": 65.0,
+            "saleability": 0.8,
+            "wage": 87.88,
+            "power_price": 9.5,
+            "kwh_m2": 109.2,
+            "labour_m2": 2.04
+          },
+          "labour_h_per_m2_yr": 2.04,
+          "labour_h_per_harvested_unit": 0.0872,
+          "revenue_per_m2_yr": 1216.8,
+          "revenue_per_saleable_unit": 65.0,
+          "labour_cost_per_m2_yr": 179.28,
+          "electricity_cost_per_m2_yr": 1037.4,
+          "labour_plus_electricity_cost_per_saleable_unit": 64.993,
+          "headroom_per_m2_yr": 0.12,
+          "headroom_per_saleable_unit": 0.007,
+          "breakeven_labour_h_per_harvested_unit": 0.0872,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 11.12,
+            "headroom_per_m2_yr": 0.0,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "mid": {
+          "inputs_used": {
+            "yield": 24.635,
+            "price": 122.5,
+            "saleability": 0.86,
+            "wage": 73.72,
+            "power_price": 8.5,
+            "kwh_m2": 85.6,
+            "labour_m2": 2.04
+          },
+          "labour_h_per_m2_yr": 2.04,
+          "labour_h_per_harvested_unit": 0.0828,
+          "revenue_per_m2_yr": 2595.3,
+          "revenue_per_saleable_unit": 122.5,
+          "labour_cost_per_m2_yr": 150.39,
+          "electricity_cost_per_m2_yr": 727.6,
+          "labour_plus_electricity_cost_per_saleable_unit": 41.442,
+          "headroom_per_m2_yr": 1717.31,
+          "headroom_per_saleable_unit": 81.058,
+          "breakeven_labour_h_per_harvested_unit": 1.0284,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 23.71,
+            "headroom_per_m2_yr": 15.69,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "high": {
+          "inputs_used": {
+            "yield": 25.87,
+            "price": 180.0,
+            "saleability": 0.92,
+            "wage": 59.56,
+            "power_price": 7.5,
+            "kwh_m2": 62.0,
+            "labour_m2": 2.04
+          },
+          "labour_h_per_m2_yr": 2.04,
+          "labour_h_per_harvested_unit": 0.0789,
+          "revenue_per_m2_yr": 4284.07,
+          "revenue_per_saleable_unit": 180.0,
+          "labour_cost_per_m2_yr": 121.5,
+          "electricity_cost_per_m2_yr": 465.0,
+          "labour_plus_electricity_cost_per_saleable_unit": 24.643,
+          "headroom_per_m2_yr": 3697.57,
+          "headroom_per_saleable_unit": 155.357,
+          "breakeven_labour_h_per_harvested_unit": 2.4786,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 39.14,
+            "headroom_per_m2_yr": 33.78,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        }
+      },
+      "verdict": "clears_in_all_cases"
+    },
+    {
+      "config_id": "B_large_raceway_dwc_basil_lean_labour",
+      "label": "Large simple raceway DWC (about 1,100 m2), basil, hired labour at Hawaii model-farm intensity",
+      "crop": "basil",
+      "output_unit": "kg",
+      "labour_mode": "hired",
+      "location": "karnataka",
+      "currency_code": "INR",
+      "missing_inputs": [],
+      "cases": {
+        "low": {
+          "inputs_used": {
+            "yield": 23.4,
+            "price": 65.0,
+            "saleability": 0.8,
+            "wage": 76.82,
+            "power_price": 7.1,
+            "kwh_m2": 109.2,
+            "labour_m2": 2.04
+          },
+          "labour_h_per_m2_yr": 2.04,
+          "labour_h_per_harvested_unit": 0.0872,
+          "revenue_per_m2_yr": 1216.8,
+          "revenue_per_saleable_unit": 65.0,
+          "labour_cost_per_m2_yr": 156.71,
+          "electricity_cost_per_m2_yr": 775.32,
+          "labour_plus_electricity_cost_per_saleable_unit": 49.788,
+          "headroom_per_m2_yr": 284.77,
+          "headroom_per_saleable_unit": 15.212,
+          "breakeven_labour_h_per_harvested_unit": 0.2456,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 11.12,
+            "headroom_per_m2_yr": 2.6,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "mid": {
+          "inputs_used": {
+            "yield": 24.635,
+            "price": 122.5,
+            "saleability": 0.86,
+            "wage": 76.82,
+            "power_price": 5.275,
+            "kwh_m2": 85.6,
+            "labour_m2": 2.04
+          },
+          "labour_h_per_m2_yr": 2.04,
+          "labour_h_per_harvested_unit": 0.0828,
+          "revenue_per_m2_yr": 2595.3,
+          "revenue_per_saleable_unit": 122.5,
+          "labour_cost_per_m2_yr": 156.71,
+          "electricity_cost_per_m2_yr": 451.54,
+          "labour_plus_electricity_cost_per_saleable_unit": 28.71,
+          "headroom_per_m2_yr": 1987.04,
+          "headroom_per_saleable_unit": 93.79,
+          "breakeven_labour_h_per_harvested_unit": 1.1328,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 23.71,
+            "headroom_per_m2_yr": 18.15,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "high": {
+          "inputs_used": {
+            "yield": 25.87,
+            "price": 180.0,
+            "saleability": 0.92,
+            "wage": 76.82,
+            "power_price": 3.45,
+            "kwh_m2": 62.0,
+            "labour_m2": 2.04
+          },
+          "labour_h_per_m2_yr": 2.04,
+          "labour_h_per_harvested_unit": 0.0789,
+          "revenue_per_m2_yr": 4284.07,
+          "revenue_per_saleable_unit": 180.0,
+          "labour_cost_per_m2_yr": 156.71,
+          "electricity_cost_per_m2_yr": 213.9,
+          "labour_plus_electricity_cost_per_saleable_unit": 15.572,
+          "headroom_per_m2_yr": 3913.46,
+          "headroom_per_saleable_unit": 164.428,
+          "breakeven_labour_h_per_harvested_unit": 2.0481,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 39.14,
+            "headroom_per_m2_yr": 35.75,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        }
+      },
+      "verdict": "clears_in_all_cases"
+    },
+    {
+      "config_id": "B_large_raceway_dwc_basil_lean_labour",
+      "label": "Large simple raceway DWC (about 1,100 m2), basil, hired labour at Hawaii model-farm intensity",
+      "crop": "basil",
+      "output_unit": "kg",
+      "labour_mode": "hired",
+      "location": "tamil_nadu",
+      "currency_code": "INR",
+      "missing_inputs": [],
+      "cases": {
+        "low": {
+          "inputs_used": {
+            "yield": 23.4,
+            "price": 65.0,
+            "saleability": 0.8,
+            "wage": 91.77,
+            "power_price": 10.45,
+            "kwh_m2": 109.2,
+            "labour_m2": 2.04
+          },
+          "labour_h_per_m2_yr": 2.04,
+          "labour_h_per_harvested_unit": 0.0872,
+          "revenue_per_m2_yr": 1216.8,
+          "revenue_per_saleable_unit": 65.0,
+          "labour_cost_per_m2_yr": 187.21,
+          "electricity_cost_per_m2_yr": 1141.14,
+          "labour_plus_electricity_cost_per_saleable_unit": 70.959,
+          "headroom_per_m2_yr": -111.55,
+          "headroom_per_saleable_unit": -5.959,
+          "breakeven_labour_h_per_harvested_unit": 0.0352,
+          "covers_labour_and_electricity": false,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 11.12,
+            "headroom_per_m2_yr": -1.02,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "mid": {
+          "inputs_used": {
+            "yield": 24.635,
+            "price": 122.5,
+            "saleability": 0.86,
+            "wage": 80.89,
+            "power_price": 7.7,
+            "kwh_m2": 85.6,
+            "labour_m2": 2.04
+          },
+          "labour_h_per_m2_yr": 2.04,
+          "labour_h_per_harvested_unit": 0.0828,
+          "revenue_per_m2_yr": 2595.3,
+          "revenue_per_saleable_unit": 122.5,
+          "labour_cost_per_m2_yr": 165.02,
+          "electricity_cost_per_m2_yr": 659.12,
+          "labour_plus_electricity_cost_per_saleable_unit": 38.9,
+          "headroom_per_m2_yr": 1771.16,
+          "headroom_per_saleable_unit": 83.6,
+          "breakeven_labour_h_per_harvested_unit": 0.9716,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 23.71,
+            "headroom_per_m2_yr": 16.18,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "high": {
+          "inputs_used": {
+            "yield": 25.87,
+            "price": 180.0,
+            "saleability": 0.92,
+            "wage": 70.01,
+            "power_price": 4.95,
+            "kwh_m2": 62.0,
+            "labour_m2": 2.04
+          },
+          "labour_h_per_m2_yr": 2.04,
+          "labour_h_per_harvested_unit": 0.0789,
+          "revenue_per_m2_yr": 4284.07,
+          "revenue_per_saleable_unit": 180.0,
+          "labour_cost_per_m2_yr": 142.82,
+          "electricity_cost_per_m2_yr": 306.9,
+          "labour_plus_electricity_cost_per_saleable_unit": 18.895,
+          "headroom_per_m2_yr": 3834.35,
+          "headroom_per_saleable_unit": 161.105,
+          "breakeven_labour_h_per_harvested_unit": 2.1959,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 39.14,
+            "headroom_per_m2_yr": 35.03,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        }
+      },
+      "verdict": "clears_only_in_favourable_cases"
+    },
+    {
+      "config_id": "B_large_raceway_dwc_basil_lean_labour",
+      "label": "Large simple raceway DWC (about 1,100 m2), basil, hired labour at Hawaii model-farm intensity",
+      "crop": "basil",
+      "output_unit": "kg",
+      "labour_mode": "hired",
+      "location": "andhra_pradesh",
+      "currency_code": "INR",
+      "missing_inputs": [],
+      "cases": {
+        "low": {
+          "inputs_used": {
+            "yield": 23.4,
+            "price": 65.0,
+            "saleability": 0.8,
+            "wage": 91.77,
+            "power_price": 4.5,
+            "kwh_m2": 109.2,
+            "labour_m2": 2.04
+          },
+          "labour_h_per_m2_yr": 2.04,
+          "labour_h_per_harvested_unit": 0.0872,
+          "revenue_per_m2_yr": 1216.8,
+          "revenue_per_saleable_unit": 65.0,
+          "labour_cost_per_m2_yr": 187.21,
+          "electricity_cost_per_m2_yr": 491.4,
+          "labour_plus_electricity_cost_per_saleable_unit": 36.251,
+          "headroom_per_m2_yr": 538.19,
+          "headroom_per_saleable_unit": 28.749,
+          "breakeven_labour_h_per_harvested_unit": 0.3378,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 11.12,
+            "headroom_per_m2_yr": 4.92,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "mid": {
+          "inputs_used": {
+            "yield": 24.635,
+            "price": 122.5,
+            "saleability": 0.86,
+            "wage": 80.89,
+            "power_price": 4.175,
+            "kwh_m2": 85.6,
+            "labour_m2": 2.04
+          },
+          "labour_h_per_m2_yr": 2.04,
+          "labour_h_per_harvested_unit": 0.0828,
+          "revenue_per_m2_yr": 2595.3,
+          "revenue_per_saleable_unit": 122.5,
+          "labour_cost_per_m2_yr": 165.02,
+          "electricity_cost_per_m2_yr": 357.38,
+          "labour_plus_electricity_cost_per_saleable_unit": 24.657,
+          "headroom_per_m2_yr": 2072.9,
+          "headroom_per_saleable_unit": 97.843,
+          "breakeven_labour_h_per_harvested_unit": 1.123,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 23.71,
+            "headroom_per_m2_yr": 18.94,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "high": {
+          "inputs_used": {
+            "yield": 25.87,
+            "price": 180.0,
+            "saleability": 0.92,
+            "wage": 70.01,
+            "power_price": 3.85,
+            "kwh_m2": 62.0,
+            "labour_m2": 2.04
+          },
+          "labour_h_per_m2_yr": 2.04,
+          "labour_h_per_harvested_unit": 0.0789,
+          "revenue_per_m2_yr": 4284.07,
+          "revenue_per_saleable_unit": 180.0,
+          "labour_cost_per_m2_yr": 142.82,
+          "electricity_cost_per_m2_yr": 238.7,
+          "labour_plus_electricity_cost_per_saleable_unit": 16.03,
+          "headroom_per_m2_yr": 3902.55,
+          "headroom_per_saleable_unit": 163.97,
+          "breakeven_labour_h_per_harvested_unit": 2.2336,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 39.14,
+            "headroom_per_m2_yr": 35.65,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        }
+      },
+      "verdict": "clears_in_all_cases"
+    },
+    {
+      "config_id": "B_large_raceway_dwc_basil_lean_labour",
+      "label": "Large simple raceway DWC (about 1,100 m2), basil, hired labour at Hawaii model-farm intensity",
+      "crop": "basil",
+      "output_unit": "kg",
+      "labour_mode": "hired",
+      "location": "telangana",
+      "currency_code": "INR",
+      "missing_inputs": [],
+      "cases": {
+        "low": {
+          "inputs_used": {
+            "yield": 23.4,
+            "price": 65.0,
+            "saleability": 0.8,
+            "wage": 102.51,
+            "power_price": 8.5,
+            "kwh_m2": 109.2,
+            "labour_m2": 2.04
+          },
+          "labour_h_per_m2_yr": 2.04,
+          "labour_h_per_harvested_unit": 0.0872,
+          "revenue_per_m2_yr": 1216.8,
+          "revenue_per_saleable_unit": 65.0,
+          "labour_cost_per_m2_yr": 209.12,
+          "electricity_cost_per_m2_yr": 928.2,
+          "labour_plus_electricity_cost_per_saleable_unit": 60.754,
+          "headroom_per_m2_yr": 79.48,
+          "headroom_per_saleable_unit": 4.246,
+          "breakeven_labour_h_per_harvested_unit": 0.1203,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 11.12,
+            "headroom_per_m2_yr": 0.73,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "mid": {
+          "inputs_used": {
+            "yield": 24.635,
+            "price": 122.5,
+            "saleability": 0.86,
+            "wage": 90.04,
+            "power_price": 6.25,
+            "kwh_m2": 85.6,
+            "labour_m2": 2.04
+          },
+          "labour_h_per_m2_yr": 2.04,
+          "labour_h_per_harvested_unit": 0.0828,
+          "revenue_per_m2_yr": 2595.3,
+          "revenue_per_saleable_unit": 122.5,
+          "labour_cost_per_m2_yr": 183.68,
+          "electricity_cost_per_m2_yr": 535.0,
+          "labour_plus_electricity_cost_per_saleable_unit": 33.922,
+          "headroom_per_m2_yr": 1876.62,
+          "headroom_per_saleable_unit": 88.578,
+          "breakeven_labour_h_per_harvested_unit": 0.9288,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 23.71,
+            "headroom_per_m2_yr": 17.14,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "high": {
+          "inputs_used": {
+            "yield": 25.87,
+            "price": 180.0,
+            "saleability": 0.92,
+            "wage": 77.57,
+            "power_price": 4.0,
+            "kwh_m2": 62.0,
+            "labour_m2": 2.04
+          },
+          "labour_h_per_m2_yr": 2.04,
+          "labour_h_per_harvested_unit": 0.0789,
+          "revenue_per_m2_yr": 4284.07,
+          "revenue_per_saleable_unit": 180.0,
+          "labour_cost_per_m2_yr": 158.24,
+          "electricity_cost_per_m2_yr": 248.0,
+          "labour_plus_electricity_cost_per_saleable_unit": 17.069,
+          "headroom_per_m2_yr": 3877.83,
+          "headroom_per_saleable_unit": 162.931,
+          "breakeven_labour_h_per_harvested_unit": 2.0113,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 39.14,
+            "headroom_per_m2_yr": 35.43,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        }
+      },
+      "verdict": "clears_in_all_cases"
+    },
+    {
+      "config_id": "B_large_raceway_dwc_basil_lean_labour",
+      "label": "Large simple raceway DWC (about 1,100 m2), basil, hired labour at Hawaii model-farm intensity",
+      "crop": "basil",
+      "output_unit": "kg",
+      "labour_mode": "hired",
+      "location": "india_study_price_band_sensitivity",
+      "currency_code": "INR",
+      "missing_inputs": [],
+      "cases": {
+        "low": {
+          "inputs_used": {
+            "yield": 23.4,
+            "price": 600.0,
+            "saleability": 0.8,
+            "wage": 87.88,
+            "power_price": 9.5,
+            "kwh_m2": 109.2,
+            "labour_m2": 2.04
+          },
+          "labour_h_per_m2_yr": 2.04,
+          "labour_h_per_harvested_unit": 0.0872,
+          "revenue_per_m2_yr": 11232.0,
+          "revenue_per_saleable_unit": 600.0,
+          "labour_cost_per_m2_yr": 179.28,
+          "electricity_cost_per_m2_yr": 1037.4,
+          "labour_plus_electricity_cost_per_saleable_unit": 64.993,
+          "headroom_per_m2_yr": 10015.32,
+          "headroom_per_saleable_unit": 535.007,
+          "breakeven_labour_h_per_harvested_unit": 4.9575,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 102.62,
+            "headroom_per_m2_yr": 91.5,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "mid": {
+          "inputs_used": {
+            "yield": 24.635,
+            "price": 800.0,
+            "saleability": 0.86,
+            "wage": 73.72,
+            "power_price": 8.5,
+            "kwh_m2": 85.6,
+            "labour_m2": 2.04
+          },
+          "labour_h_per_m2_yr": 2.04,
+          "labour_h_per_harvested_unit": 0.0828,
+          "revenue_per_m2_yr": 16948.88,
+          "revenue_per_saleable_unit": 800.0,
+          "labour_cost_per_m2_yr": 150.39,
+          "electricity_cost_per_m2_yr": 727.6,
+          "labour_plus_electricity_cost_per_saleable_unit": 41.442,
+          "headroom_per_m2_yr": 16070.89,
+          "headroom_per_saleable_unit": 758.558,
+          "breakeven_labour_h_per_harvested_unit": 8.932,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 154.84,
+            "headroom_per_m2_yr": 146.82,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "high": {
+          "inputs_used": {
+            "yield": 25.87,
+            "price": 1000.0,
+            "saleability": 0.92,
+            "wage": 59.56,
+            "power_price": 7.5,
+            "kwh_m2": 62.0,
+            "labour_m2": 2.04
+          },
+          "labour_h_per_m2_yr": 2.04,
+          "labour_h_per_harvested_unit": 0.0789,
+          "revenue_per_m2_yr": 23800.4,
+          "revenue_per_saleable_unit": 1000.0,
+          "labour_cost_per_m2_yr": 121.5,
+          "electricity_cost_per_m2_yr": 465.0,
+          "labour_plus_electricity_cost_per_saleable_unit": 24.643,
+          "headroom_per_m2_yr": 23213.9,
+          "headroom_per_saleable_unit": 975.357,
+          "breakeven_labour_h_per_harvested_unit": 15.1448,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 217.44,
+            "headroom_per_m2_yr": 212.08,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        }
+      },
+      "verdict": "clears_in_all_cases"
+    },
+    {
+      "config_id": "C_representative_farm_basil_purdue_labour",
+      "label": "Basil-focused greenhouse farm at Purdue representative-farm labour per kg output",
+      "crop": "basil",
+      "output_unit": "kg",
+      "labour_mode": "hired",
+      "location": "netherlands",
+      "currency_code": "EUR",
+      "missing_inputs": [],
+      "cases": {
+        "low": {
+          "inputs_used": {
+            "yield": 23.4,
+            "price": 7.0,
+            "saleability": 0.85,
+            "wage": 19.0,
+            "power_price": 0.26,
+            "kwh_m2": 109.2,
+            "labour_unit": 0.648
+          },
+          "labour_h_per_m2_yr": 15.163,
+          "labour_h_per_harvested_unit": 0.648,
+          "revenue_per_m2_yr": 139.23,
+          "revenue_per_saleable_unit": 7.0,
+          "labour_cost_per_m2_yr": 288.1,
+          "electricity_cost_per_m2_yr": 28.39,
+          "labour_plus_electricity_cost_per_saleable_unit": 15.912,
+          "headroom_per_m2_yr": -177.26,
+          "headroom_per_saleable_unit": -8.912,
+          "breakeven_labour_h_per_harvested_unit": 0.2493,
+          "covers_labour_and_electricity": false
+        },
+        "mid": {
+          "inputs_used": {
+            "yield": 24.635,
+            "price": 8.0,
+            "saleability": 0.9,
+            "wage": 17.5,
+            "power_price": 0.25,
+            "kwh_m2": 85.6,
+            "labour_unit": 0.5885
+          },
+          "labour_h_per_m2_yr": 14.498,
+          "labour_h_per_harvested_unit": 0.5885,
+          "revenue_per_m2_yr": 177.37,
+          "revenue_per_saleable_unit": 8.0,
+          "labour_cost_per_m2_yr": 253.71,
+          "electricity_cost_per_m2_yr": 21.4,
+          "labour_plus_electricity_cost_per_saleable_unit": 12.408,
+          "headroom_per_m2_yr": -97.74,
+          "headroom_per_saleable_unit": -4.408,
+          "breakeven_labour_h_per_harvested_unit": 0.3618,
+          "covers_labour_and_electricity": false
+        },
+        "high": {
+          "inputs_used": {
+            "yield": 25.87,
+            "price": 9.0,
+            "saleability": 0.95,
+            "wage": 16.0,
+            "power_price": 0.24,
+            "kwh_m2": 62.0,
+            "labour_unit": 0.529
+          },
+          "labour_h_per_m2_yr": 13.685,
+          "labour_h_per_harvested_unit": 0.529,
+          "revenue_per_m2_yr": 221.19,
+          "revenue_per_saleable_unit": 9.0,
+          "labour_cost_per_m2_yr": 218.96,
+          "electricity_cost_per_m2_yr": 14.88,
+          "labour_plus_electricity_cost_per_saleable_unit": 9.515,
+          "headroom_per_m2_yr": -12.66,
+          "headroom_per_saleable_unit": -0.515,
+          "breakeven_labour_h_per_harvested_unit": 0.4984,
+          "covers_labour_and_electricity": false
+        }
+      },
+      "verdict": "fails_in_all_cases"
+    },
+    {
+      "config_id": "C_representative_farm_basil_purdue_labour",
+      "label": "Basil-focused greenhouse farm at Purdue representative-farm labour per kg output",
+      "crop": "basil",
+      "output_unit": "kg",
+      "labour_mode": "hired",
+      "location": "india",
+      "currency_code": "INR",
+      "missing_inputs": [],
+      "cases": {
+        "low": {
+          "inputs_used": {
+            "yield": 23.4,
+            "price": 65.0,
+            "saleability": 0.8,
+            "wage": 87.88,
+            "power_price": 9.5,
+            "kwh_m2": 109.2,
+            "labour_unit": 0.648
+          },
+          "labour_h_per_m2_yr": 15.163,
+          "labour_h_per_harvested_unit": 0.648,
+          "revenue_per_m2_yr": 1216.8,
+          "revenue_per_saleable_unit": 65.0,
+          "labour_cost_per_m2_yr": 1332.54,
+          "electricity_cost_per_m2_yr": 1037.4,
+          "labour_plus_electricity_cost_per_saleable_unit": 126.599,
+          "headroom_per_m2_yr": -1153.14,
+          "headroom_per_saleable_unit": -61.599,
+          "breakeven_labour_h_per_harvested_unit": 0.0872,
+          "covers_labour_and_electricity": false,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 11.12,
+            "headroom_per_m2_yr": -10.54,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "mid": {
+          "inputs_used": {
+            "yield": 24.635,
+            "price": 122.5,
+            "saleability": 0.86,
+            "wage": 73.72,
+            "power_price": 8.5,
+            "kwh_m2": 85.6,
+            "labour_unit": 0.5885
+          },
+          "labour_h_per_m2_yr": 14.498,
+          "labour_h_per_harvested_unit": 0.5885,
+          "revenue_per_m2_yr": 2595.3,
+          "revenue_per_saleable_unit": 122.5,
+          "labour_cost_per_m2_yr": 1068.77,
+          "electricity_cost_per_m2_yr": 727.6,
+          "labour_plus_electricity_cost_per_saleable_unit": 84.79,
+          "headroom_per_m2_yr": 798.93,
+          "headroom_per_saleable_unit": 37.71,
+          "breakeven_labour_h_per_harvested_unit": 1.0284,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 23.71,
+            "headroom_per_m2_yr": 7.3,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "high": {
+          "inputs_used": {
+            "yield": 25.87,
+            "price": 180.0,
+            "saleability": 0.92,
+            "wage": 59.56,
+            "power_price": 7.5,
+            "kwh_m2": 62.0,
+            "labour_unit": 0.529
+          },
+          "labour_h_per_m2_yr": 13.685,
+          "labour_h_per_harvested_unit": 0.529,
+          "revenue_per_m2_yr": 4284.07,
+          "revenue_per_saleable_unit": 180.0,
+          "labour_cost_per_m2_yr": 815.09,
+          "electricity_cost_per_m2_yr": 465.0,
+          "labour_plus_electricity_cost_per_saleable_unit": 53.784,
+          "headroom_per_m2_yr": 3003.98,
+          "headroom_per_saleable_unit": 126.216,
+          "breakeven_labour_h_per_harvested_unit": 2.4786,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 39.14,
+            "headroom_per_m2_yr": 27.44,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        }
+      },
+      "verdict": "clears_only_in_favourable_cases"
+    },
+    {
+      "config_id": "C_representative_farm_basil_purdue_labour",
+      "label": "Basil-focused greenhouse farm at Purdue representative-farm labour per kg output",
+      "crop": "basil",
+      "output_unit": "kg",
+      "labour_mode": "hired",
+      "location": "karnataka",
+      "currency_code": "INR",
+      "missing_inputs": [],
+      "cases": {
+        "low": {
+          "inputs_used": {
+            "yield": 23.4,
+            "price": 65.0,
+            "saleability": 0.8,
+            "wage": 76.82,
+            "power_price": 7.1,
+            "kwh_m2": 109.2,
+            "labour_unit": 0.648
+          },
+          "labour_h_per_m2_yr": 15.163,
+          "labour_h_per_harvested_unit": 0.648,
+          "revenue_per_m2_yr": 1216.8,
+          "revenue_per_saleable_unit": 65.0,
+          "labour_cost_per_m2_yr": 1164.84,
+          "electricity_cost_per_m2_yr": 775.32,
+          "labour_plus_electricity_cost_per_saleable_unit": 103.641,
+          "headroom_per_m2_yr": -723.36,
+          "headroom_per_saleable_unit": -38.641,
+          "breakeven_labour_h_per_harvested_unit": 0.2456,
+          "covers_labour_and_electricity": false,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 11.12,
+            "headroom_per_m2_yr": -6.61,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "mid": {
+          "inputs_used": {
+            "yield": 24.635,
+            "price": 122.5,
+            "saleability": 0.86,
+            "wage": 76.82,
+            "power_price": 5.275,
+            "kwh_m2": 85.6,
+            "labour_unit": 0.5885
+          },
+          "labour_h_per_m2_yr": 14.498,
+          "labour_h_per_harvested_unit": 0.5885,
+          "revenue_per_m2_yr": 2595.3,
+          "revenue_per_saleable_unit": 122.5,
+          "labour_cost_per_m2_yr": 1113.71,
+          "electricity_cost_per_m2_yr": 451.54,
+          "labour_plus_electricity_cost_per_saleable_unit": 73.881,
+          "headroom_per_m2_yr": 1030.04,
+          "headroom_per_saleable_unit": 48.619,
+          "breakeven_labour_h_per_harvested_unit": 1.1328,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 23.71,
+            "headroom_per_m2_yr": 9.41,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "high": {
+          "inputs_used": {
+            "yield": 25.87,
+            "price": 180.0,
+            "saleability": 0.92,
+            "wage": 76.82,
+            "power_price": 3.45,
+            "kwh_m2": 62.0,
+            "labour_unit": 0.529
+          },
+          "labour_h_per_m2_yr": 13.685,
+          "labour_h_per_harvested_unit": 0.529,
+          "revenue_per_m2_yr": 4284.07,
+          "revenue_per_saleable_unit": 180.0,
+          "labour_cost_per_m2_yr": 1051.3,
+          "electricity_cost_per_m2_yr": 213.9,
+          "labour_plus_electricity_cost_per_saleable_unit": 53.159,
+          "headroom_per_m2_yr": 3018.87,
+          "headroom_per_saleable_unit": 126.841,
+          "breakeven_labour_h_per_harvested_unit": 2.0481,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 39.14,
+            "headroom_per_m2_yr": 27.58,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        }
+      },
+      "verdict": "clears_only_in_favourable_cases"
+    },
+    {
+      "config_id": "C_representative_farm_basil_purdue_labour",
+      "label": "Basil-focused greenhouse farm at Purdue representative-farm labour per kg output",
+      "crop": "basil",
+      "output_unit": "kg",
+      "labour_mode": "hired",
+      "location": "tamil_nadu",
+      "currency_code": "INR",
+      "missing_inputs": [],
+      "cases": {
+        "low": {
+          "inputs_used": {
+            "yield": 23.4,
+            "price": 65.0,
+            "saleability": 0.8,
+            "wage": 91.77,
+            "power_price": 10.45,
+            "kwh_m2": 109.2,
+            "labour_unit": 0.648
+          },
+          "labour_h_per_m2_yr": 15.163,
+          "labour_h_per_harvested_unit": 0.648,
+          "revenue_per_m2_yr": 1216.8,
+          "revenue_per_saleable_unit": 65.0,
+          "labour_cost_per_m2_yr": 1391.53,
+          "electricity_cost_per_m2_yr": 1141.14,
+          "labour_plus_electricity_cost_per_saleable_unit": 135.292,
+          "headroom_per_m2_yr": -1315.87,
+          "headroom_per_saleable_unit": -70.292,
+          "breakeven_labour_h_per_harvested_unit": 0.0352,
+          "covers_labour_and_electricity": false,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 11.12,
+            "headroom_per_m2_yr": -12.02,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "mid": {
+          "inputs_used": {
+            "yield": 24.635,
+            "price": 122.5,
+            "saleability": 0.86,
+            "wage": 80.89,
+            "power_price": 7.7,
+            "kwh_m2": 85.6,
+            "labour_unit": 0.5885
+          },
+          "labour_h_per_m2_yr": 14.498,
+          "labour_h_per_harvested_unit": 0.5885,
+          "revenue_per_m2_yr": 2595.3,
+          "revenue_per_saleable_unit": 122.5,
+          "labour_cost_per_m2_yr": 1172.72,
+          "electricity_cost_per_m2_yr": 659.12,
+          "labour_plus_electricity_cost_per_saleable_unit": 86.464,
+          "headroom_per_m2_yr": 763.46,
+          "headroom_per_saleable_unit": 36.036,
+          "breakeven_labour_h_per_harvested_unit": 0.9716,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 23.71,
+            "headroom_per_m2_yr": 6.97,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "high": {
+          "inputs_used": {
+            "yield": 25.87,
+            "price": 180.0,
+            "saleability": 0.92,
+            "wage": 70.01,
+            "power_price": 4.95,
+            "kwh_m2": 62.0,
+            "labour_unit": 0.529
+          },
+          "labour_h_per_m2_yr": 13.685,
+          "labour_h_per_harvested_unit": 0.529,
+          "revenue_per_m2_yr": 4284.07,
+          "revenue_per_saleable_unit": 180.0,
+          "labour_cost_per_m2_yr": 958.1,
+          "electricity_cost_per_m2_yr": 306.9,
+          "labour_plus_electricity_cost_per_saleable_unit": 53.15,
+          "headroom_per_m2_yr": 3019.07,
+          "headroom_per_saleable_unit": 126.85,
+          "breakeven_labour_h_per_harvested_unit": 2.1959,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 39.14,
+            "headroom_per_m2_yr": 27.58,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        }
+      },
+      "verdict": "clears_only_in_favourable_cases"
+    },
+    {
+      "config_id": "C_representative_farm_basil_purdue_labour",
+      "label": "Basil-focused greenhouse farm at Purdue representative-farm labour per kg output",
+      "crop": "basil",
+      "output_unit": "kg",
+      "labour_mode": "hired",
+      "location": "andhra_pradesh",
+      "currency_code": "INR",
+      "missing_inputs": [],
+      "cases": {
+        "low": {
+          "inputs_used": {
+            "yield": 23.4,
+            "price": 65.0,
+            "saleability": 0.8,
+            "wage": 91.77,
+            "power_price": 4.5,
+            "kwh_m2": 109.2,
+            "labour_unit": 0.648
+          },
+          "labour_h_per_m2_yr": 15.163,
+          "labour_h_per_harvested_unit": 0.648,
+          "revenue_per_m2_yr": 1216.8,
+          "revenue_per_saleable_unit": 65.0,
+          "labour_cost_per_m2_yr": 1391.53,
+          "electricity_cost_per_m2_yr": 491.4,
+          "labour_plus_electricity_cost_per_saleable_unit": 100.584,
+          "headroom_per_m2_yr": -666.13,
+          "headroom_per_saleable_unit": -35.584,
+          "breakeven_labour_h_per_harvested_unit": 0.3378,
+          "covers_labour_and_electricity": false,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 11.12,
+            "headroom_per_m2_yr": -6.09,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "mid": {
+          "inputs_used": {
+            "yield": 24.635,
+            "price": 122.5,
+            "saleability": 0.86,
+            "wage": 80.89,
+            "power_price": 4.175,
+            "kwh_m2": 85.6,
+            "labour_unit": 0.5885
+          },
+          "labour_h_per_m2_yr": 14.498,
+          "labour_h_per_harvested_unit": 0.5885,
+          "revenue_per_m2_yr": 2595.3,
+          "revenue_per_saleable_unit": 122.5,
+          "labour_cost_per_m2_yr": 1172.72,
+          "electricity_cost_per_m2_yr": 357.38,
+          "labour_plus_electricity_cost_per_saleable_unit": 72.222,
+          "headroom_per_m2_yr": 1065.2,
+          "headroom_per_saleable_unit": 50.278,
+          "breakeven_labour_h_per_harvested_unit": 1.123,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 23.71,
+            "headroom_per_m2_yr": 9.73,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "high": {
+          "inputs_used": {
+            "yield": 25.87,
+            "price": 180.0,
+            "saleability": 0.92,
+            "wage": 70.01,
+            "power_price": 3.85,
+            "kwh_m2": 62.0,
+            "labour_unit": 0.529
+          },
+          "labour_h_per_m2_yr": 13.685,
+          "labour_h_per_harvested_unit": 0.529,
+          "revenue_per_m2_yr": 4284.07,
+          "revenue_per_saleable_unit": 180.0,
+          "labour_cost_per_m2_yr": 958.1,
+          "electricity_cost_per_m2_yr": 238.7,
+          "labour_plus_electricity_cost_per_saleable_unit": 50.285,
+          "headroom_per_m2_yr": 3087.27,
+          "headroom_per_saleable_unit": 129.715,
+          "breakeven_labour_h_per_harvested_unit": 2.2336,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 39.14,
+            "headroom_per_m2_yr": 28.21,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        }
+      },
+      "verdict": "clears_only_in_favourable_cases"
+    },
+    {
+      "config_id": "C_representative_farm_basil_purdue_labour",
+      "label": "Basil-focused greenhouse farm at Purdue representative-farm labour per kg output",
+      "crop": "basil",
+      "output_unit": "kg",
+      "labour_mode": "hired",
+      "location": "telangana",
+      "currency_code": "INR",
+      "missing_inputs": [],
+      "cases": {
+        "low": {
+          "inputs_used": {
+            "yield": 23.4,
+            "price": 65.0,
+            "saleability": 0.8,
+            "wage": 102.51,
+            "power_price": 8.5,
+            "kwh_m2": 109.2,
+            "labour_unit": 0.648
+          },
+          "labour_h_per_m2_yr": 15.163,
+          "labour_h_per_harvested_unit": 0.648,
+          "revenue_per_m2_yr": 1216.8,
+          "revenue_per_saleable_unit": 65.0,
+          "labour_cost_per_m2_yr": 1554.38,
+          "electricity_cost_per_m2_yr": 928.2,
+          "labour_plus_electricity_cost_per_saleable_unit": 132.616,
+          "headroom_per_m2_yr": -1265.78,
+          "headroom_per_saleable_unit": -67.616,
+          "breakeven_labour_h_per_harvested_unit": 0.1203,
+          "covers_labour_and_electricity": false,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 11.12,
+            "headroom_per_m2_yr": -11.56,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "mid": {
+          "inputs_used": {
+            "yield": 24.635,
+            "price": 122.5,
+            "saleability": 0.86,
+            "wage": 90.04,
+            "power_price": 6.25,
+            "kwh_m2": 85.6,
+            "labour_unit": 0.5885
+          },
+          "labour_h_per_m2_yr": 14.498,
+          "labour_h_per_harvested_unit": 0.5885,
+          "revenue_per_m2_yr": 2595.3,
+          "revenue_per_saleable_unit": 122.5,
+          "labour_cost_per_m2_yr": 1305.37,
+          "electricity_cost_per_m2_yr": 535.0,
+          "labour_plus_electricity_cost_per_saleable_unit": 86.867,
+          "headroom_per_m2_yr": 754.92,
+          "headroom_per_saleable_unit": 35.633,
+          "breakeven_labour_h_per_harvested_unit": 0.9288,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 23.71,
+            "headroom_per_m2_yr": 6.9,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "high": {
+          "inputs_used": {
+            "yield": 25.87,
+            "price": 180.0,
+            "saleability": 0.92,
+            "wage": 77.57,
+            "power_price": 4.0,
+            "kwh_m2": 62.0,
+            "labour_unit": 0.529
+          },
+          "labour_h_per_m2_yr": 13.685,
+          "labour_h_per_harvested_unit": 0.529,
+          "revenue_per_m2_yr": 4284.07,
+          "revenue_per_saleable_unit": 180.0,
+          "labour_cost_per_m2_yr": 1061.56,
+          "electricity_cost_per_m2_yr": 248.0,
+          "labour_plus_electricity_cost_per_saleable_unit": 55.023,
+          "headroom_per_m2_yr": 2974.51,
+          "headroom_per_saleable_unit": 124.977,
+          "breakeven_labour_h_per_harvested_unit": 2.0113,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 39.14,
+            "headroom_per_m2_yr": 27.18,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        }
+      },
+      "verdict": "clears_only_in_favourable_cases"
+    },
+    {
+      "config_id": "C_representative_farm_basil_purdue_labour",
+      "label": "Basil-focused greenhouse farm at Purdue representative-farm labour per kg output",
+      "crop": "basil",
+      "output_unit": "kg",
+      "labour_mode": "hired",
+      "location": "india_study_price_band_sensitivity",
+      "currency_code": "INR",
+      "missing_inputs": [],
+      "cases": {
+        "low": {
+          "inputs_used": {
+            "yield": 23.4,
+            "price": 600.0,
+            "saleability": 0.8,
+            "wage": 87.88,
+            "power_price": 9.5,
+            "kwh_m2": 109.2,
+            "labour_unit": 0.648
+          },
+          "labour_h_per_m2_yr": 15.163,
+          "labour_h_per_harvested_unit": 0.648,
+          "revenue_per_m2_yr": 11232.0,
+          "revenue_per_saleable_unit": 600.0,
+          "labour_cost_per_m2_yr": 1332.54,
+          "electricity_cost_per_m2_yr": 1037.4,
+          "labour_plus_electricity_cost_per_saleable_unit": 126.599,
+          "headroom_per_m2_yr": 8862.06,
+          "headroom_per_saleable_unit": 473.401,
+          "breakeven_labour_h_per_harvested_unit": 4.9575,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 102.62,
+            "headroom_per_m2_yr": 80.96,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "mid": {
+          "inputs_used": {
+            "yield": 24.635,
+            "price": 800.0,
+            "saleability": 0.86,
+            "wage": 73.72,
+            "power_price": 8.5,
+            "kwh_m2": 85.6,
+            "labour_unit": 0.5885
+          },
+          "labour_h_per_m2_yr": 14.498,
+          "labour_h_per_harvested_unit": 0.5885,
+          "revenue_per_m2_yr": 16948.88,
+          "revenue_per_saleable_unit": 800.0,
+          "labour_cost_per_m2_yr": 1068.77,
+          "electricity_cost_per_m2_yr": 727.6,
+          "labour_plus_electricity_cost_per_saleable_unit": 84.79,
+          "headroom_per_m2_yr": 15152.51,
+          "headroom_per_saleable_unit": 715.21,
+          "breakeven_labour_h_per_harvested_unit": 8.932,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 154.84,
+            "headroom_per_m2_yr": 138.43,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "high": {
+          "inputs_used": {
+            "yield": 25.87,
+            "price": 1000.0,
+            "saleability": 0.92,
+            "wage": 59.56,
+            "power_price": 7.5,
+            "kwh_m2": 62.0,
+            "labour_unit": 0.529
+          },
+          "labour_h_per_m2_yr": 13.685,
+          "labour_h_per_harvested_unit": 0.529,
+          "revenue_per_m2_yr": 23800.4,
+          "revenue_per_saleable_unit": 1000.0,
+          "labour_cost_per_m2_yr": 815.09,
+          "electricity_cost_per_m2_yr": 465.0,
+          "labour_plus_electricity_cost_per_saleable_unit": 53.784,
+          "headroom_per_m2_yr": 22520.31,
+          "headroom_per_saleable_unit": 946.216,
+          "breakeven_labour_h_per_harvested_unit": 15.1448,
+          "covers_labour_and_electricity": true,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 217.44,
+            "headroom_per_m2_yr": 205.75,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        }
+      },
+      "verdict": "clears_in_all_cases"
+    },
+    {
+      "config_id": "D_large_raceway_dwc_lettuce_auction",
+      "label": "Large simple raceway DWC (about 1,100 m2), head lettuce, Low Countries auction channel",
+      "crop": "lettuce",
+      "output_unit": "head",
+      "labour_mode": "hired",
+      "location": "netherlands",
+      "currency_code": "EUR",
+      "missing_inputs": [],
+      "cases": {
+        "low": {
+          "inputs_used": {
+            "yield": 78.4,
+            "price": 0.188,
+            "saleability": 0.85,
+            "wage": 19.0,
+            "power_price": 0.26,
+            "kwh_m2": 62.0,
+            "labour_m2": 2.04
+          },
+          "labour_h_per_m2_yr": 2.04,
+          "labour_h_per_harvested_unit": 0.026,
+          "revenue_per_m2_yr": 12.53,
+          "revenue_per_saleable_unit": 0.188,
+          "labour_cost_per_m2_yr": 38.76,
+          "electricity_cost_per_m2_yr": 16.12,
+          "labour_plus_electricity_cost_per_saleable_unit": 0.824,
+          "headroom_per_m2_yr": -42.35,
+          "headroom_per_saleable_unit": -0.636,
+          "breakeven_labour_h_per_harvested_unit": -0.0024,
+          "covers_labour_and_electricity": false
+        },
+        "mid": {
+          "inputs_used": {
+            "yield": 78.4,
+            "price": 0.456,
+            "saleability": 0.9,
+            "wage": 17.5,
+            "power_price": 0.25,
+            "kwh_m2": 62.0,
+            "labour_m2": 2.04
+          },
+          "labour_h_per_m2_yr": 2.04,
+          "labour_h_per_harvested_unit": 0.026,
+          "revenue_per_m2_yr": 32.18,
+          "revenue_per_saleable_unit": 0.456,
+          "labour_cost_per_m2_yr": 35.7,
+          "electricity_cost_per_m2_yr": 15.5,
+          "labour_plus_electricity_cost_per_saleable_unit": 0.726,
+          "headroom_per_m2_yr": -19.02,
+          "headroom_per_saleable_unit": -0.27,
+          "breakeven_labour_h_per_harvested_unit": 0.0122,
+          "covers_labour_and_electricity": false
+        },
+        "high": {
+          "inputs_used": {
+            "yield": 78.4,
+            "price": 0.724,
+            "saleability": 0.95,
+            "wage": 16.0,
+            "power_price": 0.24,
+            "kwh_m2": 62.0,
+            "labour_m2": 2.04
+          },
+          "labour_h_per_m2_yr": 2.04,
+          "labour_h_per_harvested_unit": 0.026,
+          "revenue_per_m2_yr": 53.92,
+          "revenue_per_saleable_unit": 0.724,
+          "labour_cost_per_m2_yr": 32.64,
+          "electricity_cost_per_m2_yr": 14.88,
+          "labour_plus_electricity_cost_per_saleable_unit": 0.638,
+          "headroom_per_m2_yr": 6.4,
+          "headroom_per_saleable_unit": 0.086,
+          "breakeven_labour_h_per_harvested_unit": 0.0311,
+          "covers_labour_and_electricity": true
+        }
+      },
+      "verdict": "clears_only_in_favourable_cases"
+    },
+    {
+      "config_id": "D_large_raceway_dwc_lettuce_auction",
+      "label": "Large simple raceway DWC (about 1,100 m2), head lettuce, Low Countries auction channel",
+      "crop": "lettuce",
+      "output_unit": "head",
+      "labour_mode": "hired",
+      "location": "india",
+      "currency_code": "INR",
+      "missing_inputs": [
+        "price"
+      ],
+      "cases": {}
+    },
+    {
+      "config_id": "D_large_raceway_dwc_lettuce_auction",
+      "label": "Large simple raceway DWC (about 1,100 m2), head lettuce, Low Countries auction channel",
+      "crop": "lettuce",
+      "output_unit": "head",
+      "labour_mode": "hired",
+      "location": "karnataka",
+      "currency_code": "INR",
+      "missing_inputs": [
+        "price"
+      ],
+      "cases": {}
+    },
+    {
+      "config_id": "D_large_raceway_dwc_lettuce_auction",
+      "label": "Large simple raceway DWC (about 1,100 m2), head lettuce, Low Countries auction channel",
+      "crop": "lettuce",
+      "output_unit": "head",
+      "labour_mode": "hired",
+      "location": "tamil_nadu",
+      "currency_code": "INR",
+      "missing_inputs": [
+        "price"
+      ],
+      "cases": {}
+    },
+    {
+      "config_id": "D_large_raceway_dwc_lettuce_auction",
+      "label": "Large simple raceway DWC (about 1,100 m2), head lettuce, Low Countries auction channel",
+      "crop": "lettuce",
+      "output_unit": "head",
+      "labour_mode": "hired",
+      "location": "andhra_pradesh",
+      "currency_code": "INR",
+      "missing_inputs": [
+        "price"
+      ],
+      "cases": {}
+    },
+    {
+      "config_id": "D_large_raceway_dwc_lettuce_auction",
+      "label": "Large simple raceway DWC (about 1,100 m2), head lettuce, Low Countries auction channel",
+      "crop": "lettuce",
+      "output_unit": "head",
+      "labour_mode": "hired",
+      "location": "telangana",
+      "currency_code": "INR",
+      "missing_inputs": [
+        "price"
+      ],
+      "cases": {}
+    },
+    {
+      "config_id": "D_large_raceway_dwc_lettuce_auction",
+      "label": "Large simple raceway DWC (about 1,100 m2), head lettuce, Low Countries auction channel",
+      "crop": "lettuce",
+      "output_unit": "head",
+      "labour_mode": "hired",
+      "location": "india_study_price_band_sensitivity",
+      "currency_code": "INR",
+      "missing_inputs": [
+        "price"
+      ],
+      "cases": {}
+    },
+    {
+      "config_id": "E_owner_operated_dwc_basil",
+      "label": "Owner-operated coupled DWC raft, basil, owner hours not costed",
+      "crop": "basil",
+      "output_unit": "kg",
+      "labour_mode": "owner_uncosted",
+      "location": "netherlands",
+      "currency_code": "EUR",
+      "missing_inputs": [],
+      "cases": {
+        "low": {
+          "inputs_used": {
+            "yield": 23.4,
+            "price": 7.0,
+            "saleability": 0.85,
+            "wage": 19.0,
+            "power_price": 0.26,
+            "kwh_m2": 109.2,
+            "labour_m2": 14.58
+          },
+          "labour_h_per_m2_yr": 14.58,
+          "labour_h_per_harvested_unit": 0.6231,
+          "revenue_per_m2_yr": 139.23,
+          "revenue_per_saleable_unit": 7.0,
+          "labour_cost_per_m2_yr": 0.0,
+          "electricity_cost_per_m2_yr": 28.39,
+          "labour_plus_electricity_cost_per_saleable_unit": 1.427,
+          "headroom_per_m2_yr": 110.84,
+          "headroom_per_saleable_unit": 5.573,
+          "breakeven_labour_h_per_harvested_unit": 0.2493,
+          "covers_labour_and_electricity": true,
+          "owner_hours_per_m2_yr": 14.58,
+          "headroom_per_owner_hour": 7.6
+        },
+        "mid": {
+          "inputs_used": {
+            "yield": 24.635,
+            "price": 8.0,
+            "saleability": 0.9,
+            "wage": 17.5,
+            "power_price": 0.25,
+            "kwh_m2": 85.6,
+            "labour_m2": 8.31
+          },
+          "labour_h_per_m2_yr": 8.31,
+          "labour_h_per_harvested_unit": 0.3373,
+          "revenue_per_m2_yr": 177.37,
+          "revenue_per_saleable_unit": 8.0,
+          "labour_cost_per_m2_yr": 0.0,
+          "electricity_cost_per_m2_yr": 21.4,
+          "labour_plus_electricity_cost_per_saleable_unit": 0.965,
+          "headroom_per_m2_yr": 155.97,
+          "headroom_per_saleable_unit": 7.035,
+          "breakeven_labour_h_per_harvested_unit": 0.3618,
+          "covers_labour_and_electricity": true,
+          "owner_hours_per_m2_yr": 8.31,
+          "headroom_per_owner_hour": 18.77
+        },
+        "high": {
+          "inputs_used": {
+            "yield": 25.87,
+            "price": 9.0,
+            "saleability": 0.95,
+            "wage": 16.0,
+            "power_price": 0.24,
+            "kwh_m2": 62.0,
+            "labour_m2": 2.04
+          },
+          "labour_h_per_m2_yr": 2.04,
+          "labour_h_per_harvested_unit": 0.0789,
+          "revenue_per_m2_yr": 221.19,
+          "revenue_per_saleable_unit": 9.0,
+          "labour_cost_per_m2_yr": 0.0,
+          "electricity_cost_per_m2_yr": 14.88,
+          "labour_plus_electricity_cost_per_saleable_unit": 0.605,
+          "headroom_per_m2_yr": 206.31,
+          "headroom_per_saleable_unit": 8.395,
+          "breakeven_labour_h_per_harvested_unit": 0.4984,
+          "covers_labour_and_electricity": true,
+          "owner_hours_per_m2_yr": 2.04,
+          "headroom_per_owner_hour": 101.13
+        }
+      },
+      "verdict": "clears_in_all_cases"
+    },
+    {
+      "config_id": "E_owner_operated_dwc_basil",
+      "label": "Owner-operated coupled DWC raft, basil, owner hours not costed",
+      "crop": "basil",
+      "output_unit": "kg",
+      "labour_mode": "owner_uncosted",
+      "location": "india",
+      "currency_code": "INR",
+      "missing_inputs": [],
+      "cases": {
+        "low": {
+          "inputs_used": {
+            "yield": 23.4,
+            "price": 65.0,
+            "saleability": 0.8,
+            "wage": 87.88,
+            "power_price": 9.5,
+            "kwh_m2": 109.2,
+            "labour_m2": 14.58
+          },
+          "labour_h_per_m2_yr": 14.58,
+          "labour_h_per_harvested_unit": 0.6231,
+          "revenue_per_m2_yr": 1216.8,
+          "revenue_per_saleable_unit": 65.0,
+          "labour_cost_per_m2_yr": 0.0,
+          "electricity_cost_per_m2_yr": 1037.4,
+          "labour_plus_electricity_cost_per_saleable_unit": 55.417,
+          "headroom_per_m2_yr": 179.4,
+          "headroom_per_saleable_unit": 9.583,
+          "breakeven_labour_h_per_harvested_unit": 0.0872,
+          "covers_labour_and_electricity": true,
+          "owner_hours_per_m2_yr": 14.58,
+          "headroom_per_owner_hour": 12.3,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 11.12,
+            "headroom_per_m2_yr": 1.64,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "mid": {
+          "inputs_used": {
+            "yield": 24.635,
+            "price": 122.5,
+            "saleability": 0.86,
+            "wage": 73.72,
+            "power_price": 8.5,
+            "kwh_m2": 85.6,
+            "labour_m2": 8.31
+          },
+          "labour_h_per_m2_yr": 8.31,
+          "labour_h_per_harvested_unit": 0.3373,
+          "revenue_per_m2_yr": 2595.3,
+          "revenue_per_saleable_unit": 122.5,
+          "labour_cost_per_m2_yr": 0.0,
+          "electricity_cost_per_m2_yr": 727.6,
+          "labour_plus_electricity_cost_per_saleable_unit": 34.343,
+          "headroom_per_m2_yr": 1867.7,
+          "headroom_per_saleable_unit": 88.157,
+          "breakeven_labour_h_per_harvested_unit": 1.0284,
+          "covers_labour_and_electricity": true,
+          "owner_hours_per_m2_yr": 8.31,
+          "headroom_per_owner_hour": 224.75,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 23.71,
+            "headroom_per_m2_yr": 17.06,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "high": {
+          "inputs_used": {
+            "yield": 25.87,
+            "price": 180.0,
+            "saleability": 0.92,
+            "wage": 59.56,
+            "power_price": 7.5,
+            "kwh_m2": 62.0,
+            "labour_m2": 2.04
+          },
+          "labour_h_per_m2_yr": 2.04,
+          "labour_h_per_harvested_unit": 0.0789,
+          "revenue_per_m2_yr": 4284.07,
+          "revenue_per_saleable_unit": 180.0,
+          "labour_cost_per_m2_yr": 0.0,
+          "electricity_cost_per_m2_yr": 465.0,
+          "labour_plus_electricity_cost_per_saleable_unit": 19.537,
+          "headroom_per_m2_yr": 3819.07,
+          "headroom_per_saleable_unit": 160.463,
+          "breakeven_labour_h_per_harvested_unit": 2.4786,
+          "covers_labour_and_electricity": true,
+          "owner_hours_per_m2_yr": 2.04,
+          "headroom_per_owner_hour": 1872.09,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 39.14,
+            "headroom_per_m2_yr": 34.89,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        }
+      },
+      "verdict": "clears_in_all_cases"
+    },
+    {
+      "config_id": "E_owner_operated_dwc_basil",
+      "label": "Owner-operated coupled DWC raft, basil, owner hours not costed",
+      "crop": "basil",
+      "output_unit": "kg",
+      "labour_mode": "owner_uncosted",
+      "location": "karnataka",
+      "currency_code": "INR",
+      "missing_inputs": [],
+      "cases": {
+        "low": {
+          "inputs_used": {
+            "yield": 23.4,
+            "price": 65.0,
+            "saleability": 0.8,
+            "wage": 76.82,
+            "power_price": 7.1,
+            "kwh_m2": 109.2,
+            "labour_m2": 14.58
+          },
+          "labour_h_per_m2_yr": 14.58,
+          "labour_h_per_harvested_unit": 0.6231,
+          "revenue_per_m2_yr": 1216.8,
+          "revenue_per_saleable_unit": 65.0,
+          "labour_cost_per_m2_yr": 0.0,
+          "electricity_cost_per_m2_yr": 775.32,
+          "labour_plus_electricity_cost_per_saleable_unit": 41.417,
+          "headroom_per_m2_yr": 441.48,
+          "headroom_per_saleable_unit": 23.583,
+          "breakeven_labour_h_per_harvested_unit": 0.2456,
+          "covers_labour_and_electricity": true,
+          "owner_hours_per_m2_yr": 14.58,
+          "headroom_per_owner_hour": 30.28,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 11.12,
+            "headroom_per_m2_yr": 4.03,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "mid": {
+          "inputs_used": {
+            "yield": 24.635,
+            "price": 122.5,
+            "saleability": 0.86,
+            "wage": 76.82,
+            "power_price": 5.275,
+            "kwh_m2": 85.6,
+            "labour_m2": 8.31
+          },
+          "labour_h_per_m2_yr": 8.31,
+          "labour_h_per_harvested_unit": 0.3373,
+          "revenue_per_m2_yr": 2595.3,
+          "revenue_per_saleable_unit": 122.5,
+          "labour_cost_per_m2_yr": 0.0,
+          "electricity_cost_per_m2_yr": 451.54,
+          "labour_plus_electricity_cost_per_saleable_unit": 21.313,
+          "headroom_per_m2_yr": 2143.76,
+          "headroom_per_saleable_unit": 101.187,
+          "breakeven_labour_h_per_harvested_unit": 1.1328,
+          "covers_labour_and_electricity": true,
+          "owner_hours_per_m2_yr": 8.31,
+          "headroom_per_owner_hour": 257.97,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 23.71,
+            "headroom_per_m2_yr": 19.59,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "high": {
+          "inputs_used": {
+            "yield": 25.87,
+            "price": 180.0,
+            "saleability": 0.92,
+            "wage": 76.82,
+            "power_price": 3.45,
+            "kwh_m2": 62.0,
+            "labour_m2": 2.04
+          },
+          "labour_h_per_m2_yr": 2.04,
+          "labour_h_per_harvested_unit": 0.0789,
+          "revenue_per_m2_yr": 4284.07,
+          "revenue_per_saleable_unit": 180.0,
+          "labour_cost_per_m2_yr": 0.0,
+          "electricity_cost_per_m2_yr": 213.9,
+          "labour_plus_electricity_cost_per_saleable_unit": 8.987,
+          "headroom_per_m2_yr": 4070.17,
+          "headroom_per_saleable_unit": 171.013,
+          "breakeven_labour_h_per_harvested_unit": 2.0481,
+          "covers_labour_and_electricity": true,
+          "owner_hours_per_m2_yr": 2.04,
+          "headroom_per_owner_hour": 1995.18,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 39.14,
+            "headroom_per_m2_yr": 37.19,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        }
+      },
+      "verdict": "clears_in_all_cases"
+    },
+    {
+      "config_id": "E_owner_operated_dwc_basil",
+      "label": "Owner-operated coupled DWC raft, basil, owner hours not costed",
+      "crop": "basil",
+      "output_unit": "kg",
+      "labour_mode": "owner_uncosted",
+      "location": "tamil_nadu",
+      "currency_code": "INR",
+      "missing_inputs": [],
+      "cases": {
+        "low": {
+          "inputs_used": {
+            "yield": 23.4,
+            "price": 65.0,
+            "saleability": 0.8,
+            "wage": 91.77,
+            "power_price": 10.45,
+            "kwh_m2": 109.2,
+            "labour_m2": 14.58
+          },
+          "labour_h_per_m2_yr": 14.58,
+          "labour_h_per_harvested_unit": 0.6231,
+          "revenue_per_m2_yr": 1216.8,
+          "revenue_per_saleable_unit": 65.0,
+          "labour_cost_per_m2_yr": 0.0,
+          "electricity_cost_per_m2_yr": 1141.14,
+          "labour_plus_electricity_cost_per_saleable_unit": 60.958,
+          "headroom_per_m2_yr": 75.66,
+          "headroom_per_saleable_unit": 4.042,
+          "breakeven_labour_h_per_harvested_unit": 0.0352,
+          "covers_labour_and_electricity": true,
+          "owner_hours_per_m2_yr": 14.58,
+          "headroom_per_owner_hour": 5.19,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 11.12,
+            "headroom_per_m2_yr": 0.69,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "mid": {
+          "inputs_used": {
+            "yield": 24.635,
+            "price": 122.5,
+            "saleability": 0.86,
+            "wage": 80.89,
+            "power_price": 7.7,
+            "kwh_m2": 85.6,
+            "labour_m2": 8.31
+          },
+          "labour_h_per_m2_yr": 8.31,
+          "labour_h_per_harvested_unit": 0.3373,
+          "revenue_per_m2_yr": 2595.3,
+          "revenue_per_saleable_unit": 122.5,
+          "labour_cost_per_m2_yr": 0.0,
+          "electricity_cost_per_m2_yr": 659.12,
+          "labour_plus_electricity_cost_per_saleable_unit": 31.111,
+          "headroom_per_m2_yr": 1936.18,
+          "headroom_per_saleable_unit": 91.389,
+          "breakeven_labour_h_per_harvested_unit": 0.9716,
+          "covers_labour_and_electricity": true,
+          "owner_hours_per_m2_yr": 8.31,
+          "headroom_per_owner_hour": 232.99,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 23.71,
+            "headroom_per_m2_yr": 17.69,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "high": {
+          "inputs_used": {
+            "yield": 25.87,
+            "price": 180.0,
+            "saleability": 0.92,
+            "wage": 70.01,
+            "power_price": 4.95,
+            "kwh_m2": 62.0,
+            "labour_m2": 2.04
+          },
+          "labour_h_per_m2_yr": 2.04,
+          "labour_h_per_harvested_unit": 0.0789,
+          "revenue_per_m2_yr": 4284.07,
+          "revenue_per_saleable_unit": 180.0,
+          "labour_cost_per_m2_yr": 0.0,
+          "electricity_cost_per_m2_yr": 306.9,
+          "labour_plus_electricity_cost_per_saleable_unit": 12.895,
+          "headroom_per_m2_yr": 3977.17,
+          "headroom_per_saleable_unit": 167.105,
+          "breakeven_labour_h_per_harvested_unit": 2.1959,
+          "covers_labour_and_electricity": true,
+          "owner_hours_per_m2_yr": 2.04,
+          "headroom_per_owner_hour": 1949.59,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 39.14,
+            "headroom_per_m2_yr": 36.34,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        }
+      },
+      "verdict": "clears_in_all_cases"
+    },
+    {
+      "config_id": "E_owner_operated_dwc_basil",
+      "label": "Owner-operated coupled DWC raft, basil, owner hours not costed",
+      "crop": "basil",
+      "output_unit": "kg",
+      "labour_mode": "owner_uncosted",
+      "location": "andhra_pradesh",
+      "currency_code": "INR",
+      "missing_inputs": [],
+      "cases": {
+        "low": {
+          "inputs_used": {
+            "yield": 23.4,
+            "price": 65.0,
+            "saleability": 0.8,
+            "wage": 91.77,
+            "power_price": 4.5,
+            "kwh_m2": 109.2,
+            "labour_m2": 14.58
+          },
+          "labour_h_per_m2_yr": 14.58,
+          "labour_h_per_harvested_unit": 0.6231,
+          "revenue_per_m2_yr": 1216.8,
+          "revenue_per_saleable_unit": 65.0,
+          "labour_cost_per_m2_yr": 0.0,
+          "electricity_cost_per_m2_yr": 491.4,
+          "labour_plus_electricity_cost_per_saleable_unit": 26.25,
+          "headroom_per_m2_yr": 725.4,
+          "headroom_per_saleable_unit": 38.75,
+          "breakeven_labour_h_per_harvested_unit": 0.3378,
+          "covers_labour_and_electricity": true,
+          "owner_hours_per_m2_yr": 14.58,
+          "headroom_per_owner_hour": 49.75,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 11.12,
+            "headroom_per_m2_yr": 6.63,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "mid": {
+          "inputs_used": {
+            "yield": 24.635,
+            "price": 122.5,
+            "saleability": 0.86,
+            "wage": 80.89,
+            "power_price": 4.175,
+            "kwh_m2": 85.6,
+            "labour_m2": 8.31
+          },
+          "labour_h_per_m2_yr": 8.31,
+          "labour_h_per_harvested_unit": 0.3373,
+          "revenue_per_m2_yr": 2595.3,
+          "revenue_per_saleable_unit": 122.5,
+          "labour_cost_per_m2_yr": 0.0,
+          "electricity_cost_per_m2_yr": 357.38,
+          "labour_plus_electricity_cost_per_saleable_unit": 16.869,
+          "headroom_per_m2_yr": 2237.92,
+          "headroom_per_saleable_unit": 105.631,
+          "breakeven_labour_h_per_harvested_unit": 1.123,
+          "covers_labour_and_electricity": true,
+          "owner_hours_per_m2_yr": 8.31,
+          "headroom_per_owner_hour": 269.3,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 23.71,
+            "headroom_per_m2_yr": 20.45,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "high": {
+          "inputs_used": {
+            "yield": 25.87,
+            "price": 180.0,
+            "saleability": 0.92,
+            "wage": 70.01,
+            "power_price": 3.85,
+            "kwh_m2": 62.0,
+            "labour_m2": 2.04
+          },
+          "labour_h_per_m2_yr": 2.04,
+          "labour_h_per_harvested_unit": 0.0789,
+          "revenue_per_m2_yr": 4284.07,
+          "revenue_per_saleable_unit": 180.0,
+          "labour_cost_per_m2_yr": 0.0,
+          "electricity_cost_per_m2_yr": 238.7,
+          "labour_plus_electricity_cost_per_saleable_unit": 10.029,
+          "headroom_per_m2_yr": 4045.37,
+          "headroom_per_saleable_unit": 169.971,
+          "breakeven_labour_h_per_harvested_unit": 2.2336,
+          "covers_labour_and_electricity": true,
+          "owner_hours_per_m2_yr": 2.04,
+          "headroom_per_owner_hour": 1983.03,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 39.14,
+            "headroom_per_m2_yr": 36.96,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        }
+      },
+      "verdict": "clears_in_all_cases"
+    },
+    {
+      "config_id": "E_owner_operated_dwc_basil",
+      "label": "Owner-operated coupled DWC raft, basil, owner hours not costed",
+      "crop": "basil",
+      "output_unit": "kg",
+      "labour_mode": "owner_uncosted",
+      "location": "telangana",
+      "currency_code": "INR",
+      "missing_inputs": [],
+      "cases": {
+        "low": {
+          "inputs_used": {
+            "yield": 23.4,
+            "price": 65.0,
+            "saleability": 0.8,
+            "wage": 102.51,
+            "power_price": 8.5,
+            "kwh_m2": 109.2,
+            "labour_m2": 14.58
+          },
+          "labour_h_per_m2_yr": 14.58,
+          "labour_h_per_harvested_unit": 0.6231,
+          "revenue_per_m2_yr": 1216.8,
+          "revenue_per_saleable_unit": 65.0,
+          "labour_cost_per_m2_yr": 0.0,
+          "electricity_cost_per_m2_yr": 928.2,
+          "labour_plus_electricity_cost_per_saleable_unit": 49.583,
+          "headroom_per_m2_yr": 288.6,
+          "headroom_per_saleable_unit": 15.417,
+          "breakeven_labour_h_per_harvested_unit": 0.1203,
+          "covers_labour_and_electricity": true,
+          "owner_hours_per_m2_yr": 14.58,
+          "headroom_per_owner_hour": 19.79,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 11.12,
+            "headroom_per_m2_yr": 2.64,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "mid": {
+          "inputs_used": {
+            "yield": 24.635,
+            "price": 122.5,
+            "saleability": 0.86,
+            "wage": 90.04,
+            "power_price": 6.25,
+            "kwh_m2": 85.6,
+            "labour_m2": 8.31
+          },
+          "labour_h_per_m2_yr": 8.31,
+          "labour_h_per_harvested_unit": 0.3373,
+          "revenue_per_m2_yr": 2595.3,
+          "revenue_per_saleable_unit": 122.5,
+          "labour_cost_per_m2_yr": 0.0,
+          "electricity_cost_per_m2_yr": 535.0,
+          "labour_plus_electricity_cost_per_saleable_unit": 25.252,
+          "headroom_per_m2_yr": 2060.3,
+          "headroom_per_saleable_unit": 97.248,
+          "breakeven_labour_h_per_harvested_unit": 0.9288,
+          "covers_labour_and_electricity": true,
+          "owner_hours_per_m2_yr": 8.31,
+          "headroom_per_owner_hour": 247.93,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 23.71,
+            "headroom_per_m2_yr": 18.82,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "high": {
+          "inputs_used": {
+            "yield": 25.87,
+            "price": 180.0,
+            "saleability": 0.92,
+            "wage": 77.57,
+            "power_price": 4.0,
+            "kwh_m2": 62.0,
+            "labour_m2": 2.04
+          },
+          "labour_h_per_m2_yr": 2.04,
+          "labour_h_per_harvested_unit": 0.0789,
+          "revenue_per_m2_yr": 4284.07,
+          "revenue_per_saleable_unit": 180.0,
+          "labour_cost_per_m2_yr": 0.0,
+          "electricity_cost_per_m2_yr": 248.0,
+          "labour_plus_electricity_cost_per_saleable_unit": 10.42,
+          "headroom_per_m2_yr": 4036.07,
+          "headroom_per_saleable_unit": 169.58,
+          "breakeven_labour_h_per_harvested_unit": 2.0113,
+          "covers_labour_and_electricity": true,
+          "owner_hours_per_m2_yr": 2.04,
+          "headroom_per_owner_hour": 1978.47,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 39.14,
+            "headroom_per_m2_yr": 36.87,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        }
+      },
+      "verdict": "clears_in_all_cases"
+    },
+    {
+      "config_id": "E_owner_operated_dwc_basil",
+      "label": "Owner-operated coupled DWC raft, basil, owner hours not costed",
+      "crop": "basil",
+      "output_unit": "kg",
+      "labour_mode": "owner_uncosted",
+      "location": "india_study_price_band_sensitivity",
+      "currency_code": "INR",
+      "missing_inputs": [],
+      "cases": {
+        "low": {
+          "inputs_used": {
+            "yield": 23.4,
+            "price": 600.0,
+            "saleability": 0.8,
+            "wage": 87.88,
+            "power_price": 9.5,
+            "kwh_m2": 109.2,
+            "labour_m2": 14.58
+          },
+          "labour_h_per_m2_yr": 14.58,
+          "labour_h_per_harvested_unit": 0.6231,
+          "revenue_per_m2_yr": 11232.0,
+          "revenue_per_saleable_unit": 600.0,
+          "labour_cost_per_m2_yr": 0.0,
+          "electricity_cost_per_m2_yr": 1037.4,
+          "labour_plus_electricity_cost_per_saleable_unit": 55.417,
+          "headroom_per_m2_yr": 10194.6,
+          "headroom_per_saleable_unit": 544.583,
+          "breakeven_labour_h_per_harvested_unit": 4.9575,
+          "covers_labour_and_electricity": true,
+          "owner_hours_per_m2_yr": 14.58,
+          "headroom_per_owner_hour": 699.22,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 102.62,
+            "headroom_per_m2_yr": 93.14,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "mid": {
+          "inputs_used": {
+            "yield": 24.635,
+            "price": 800.0,
+            "saleability": 0.86,
+            "wage": 73.72,
+            "power_price": 8.5,
+            "kwh_m2": 85.6,
+            "labour_m2": 8.31
+          },
+          "labour_h_per_m2_yr": 8.31,
+          "labour_h_per_harvested_unit": 0.3373,
+          "revenue_per_m2_yr": 16948.88,
+          "revenue_per_saleable_unit": 800.0,
+          "labour_cost_per_m2_yr": 0.0,
+          "electricity_cost_per_m2_yr": 727.6,
+          "labour_plus_electricity_cost_per_saleable_unit": 34.343,
+          "headroom_per_m2_yr": 16221.28,
+          "headroom_per_saleable_unit": 765.657,
+          "breakeven_labour_h_per_harvested_unit": 8.932,
+          "covers_labour_and_electricity": true,
+          "owner_hours_per_m2_yr": 8.31,
+          "headroom_per_owner_hour": 1952.02,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 154.84,
+            "headroom_per_m2_yr": 148.2,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        },
+        "high": {
+          "inputs_used": {
+            "yield": 25.87,
+            "price": 1000.0,
+            "saleability": 0.92,
+            "wage": 59.56,
+            "power_price": 7.5,
+            "kwh_m2": 62.0,
+            "labour_m2": 2.04
+          },
+          "labour_h_per_m2_yr": 2.04,
+          "labour_h_per_harvested_unit": 0.0789,
+          "revenue_per_m2_yr": 23800.4,
+          "revenue_per_saleable_unit": 1000.0,
+          "labour_cost_per_m2_yr": 0.0,
+          "electricity_cost_per_m2_yr": 465.0,
+          "labour_plus_electricity_cost_per_saleable_unit": 19.537,
+          "headroom_per_m2_yr": 23335.4,
+          "headroom_per_saleable_unit": 980.463,
+          "breakeven_labour_h_per_harvested_unit": 15.1448,
+          "covers_labour_and_electricity": true,
+          "owner_hours_per_m2_yr": 2.04,
+          "headroom_per_owner_hour": 11438.92,
+          "eur_comparison": {
+            "revenue_per_m2_yr": 217.44,
+            "headroom_per_m2_yr": 213.19,
+            "note": "Converted at the research pack's ECB reference rate for comparison only."
+          }
+        }
+      },
+      "verdict": "clears_in_all_cases"
+    }
+  ]
+}
