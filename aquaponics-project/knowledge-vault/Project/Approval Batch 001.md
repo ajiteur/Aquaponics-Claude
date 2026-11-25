@@ -10,9 +10,10 @@ Rule used for the recommendations (AGENTS.md 6A): approve items with medium or h
 
 | # | Item | Recommendation |
 |---|---|---|
-| A1 | PR #11: basil nitrate uptake based on growth, plus NITR truths | **Merge first.** Tests, the full integrity check, and the canon and vault syncs pass. Known gap: with no nitrogen sinks besides basil shoots, nitrate climbs to about 161 mg/L at the UVI feed ratio, where UVI measured about 42. |
+| A1 | PR #11: basil nitrate uptake based on growth, plus NITR truths | **Merge first, once its conflict is fixed.** Since PR #9 merged, it conflicts with main in the revenue range, the Simulation Findings Log and Status and Roadmap, so its thread has to merge main and regenerate. Tests, the full integrity check, and the canon and vault syncs passed before that. Known gap: with no nitrogen sinks besides basil shoots, nitrate climbs to about 161 mg/L at the UVI feed ratio, where UVI measured about 42. |
 | A2 | PR #10: unit design comparison (Netherlands and India) | **Merge second, after one rerun.** Checks pass, but it conflicts with #11 in the revenue range, the vault logs and the truths hub. After #11 merges, it needs main merged in, the comparison rerun (the simulated high yield moves from 25.87 to about 26.0 kg/m²/yr) and the truths re-exported. |
-| A3 | This note (PR #12) | Merge. Vault only. |
+| A3 | PR #12: this note | Merged 2026-11-25. |
+| A4 | PR #13: `run.bat` / `run.py` local runner, plus the *How to Run Locally* note | **Merge after #10.** Tests pass (1 skipped until #10 lands) and the integrity check passes. No conflicts with main. Standard library only, writes to a git-ignored folder, adds no numbers, and labels every output as a scenario estimate. Without #10 it still runs the simulation and skips unit economics. |
 
 ## B. Scenario inputs (scenario estimates only, never canon)
 
