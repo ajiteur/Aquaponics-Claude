@@ -257,6 +257,134 @@
         },
         "reviewed_from_file": "web reads 2026-11-25 (see data/knowledge/models/nitrification_models.json and basil.json for URLs)"
       }
+    },
+    {
+      "fact_id": "NITR_0009",
+      "statement": "The UVI commercial aquaponic system replaced about 1.5 percent of its water volume per day on average.",
+      "domain": "operations",
+      "type": "parameter",
+      "confidence": "medium",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "approval_batch": "pending_batch_002",
+      "context": {
+        "system": "UVI coupled DWC raft, about 111 m3, 214 m2 grow area",
+        "location": "St. Croix, USVI"
+      },
+      "source_metadata": {
+        "source_id": "uvi_commercial_scale_aquaponic_system_rakocy_bailey_shultz_danaher",
+        "section_id": "abstract",
+        "source_type": "university_research_station_report",
+        "source_tier": "tier_1"
+      },
+      "review_metadata": {
+        "source_gate": "conditional",
+        "source_gate_reason": "E4 report by the system's developers; read from a third-party copy (tag2grow.org), not UVI-hosted.",
+        "confidence_reason": "Direct number. Undated, and the cause of the loss (evaporation, transpiration, solids discharge) is not stated.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "srac_454_rakocy_masser_losordo_aquaponics"
+          ],
+          "note": "SRAC 454 says closed systems exchange less than 2 percent a day."
+        },
+        "reviewed_from_file": "web reads 2026-11-25 (URLs in data/knowledge/models/nitrification_models.json, record nitrate_sinks)"
+      },
+      "added_date_local": "2026-11-25"
+    },
+    {
+      "fact_id": "NITR_0010",
+      "statement": "In UVI-style aquaponics, denitrification happens in anaerobic sludge on the filter-tank netting; cleaning the netting less often increases denitrification and lowers nitrate.",
+      "domain": "biology",
+      "type": "parameter",
+      "confidence": "medium",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "approval_batch": "pending_batch_002",
+      "context": {
+        "system": "UVI coupled DWC raft with clarifier and orchard-netting filter tanks"
+      },
+      "source_metadata": {
+        "source_id": "srac_454_rakocy_masser_losordo_aquaponics",
+        "section_id": "solids_removal",
+        "source_type": "university_extension",
+        "source_tier": "tier_1"
+      },
+      "review_metadata": {
+        "source_gate": "trusted",
+        "source_gate_reason": "E4 university extension; direct quotes.",
+        "confidence_reason": "Two UVI-authored sources agree on mechanism and direction. No denitrification rate is given by either.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "uvi_commercial_scale_aquaponic_system_rakocy_bailey_shultz_danaher"
+          ]
+        },
+        "reviewed_from_file": "web reads 2026-11-25 (URLs in data/knowledge/models/nitrification_models.json, record nitrate_sinks)"
+      },
+      "added_date_local": "2026-11-25"
+    },
+    {
+      "fact_id": "NITR_0011",
+      "statement": "By adjusting filter-tank cleaning, nitrate-N in a UVI-style system can be held anywhere from about 1 to 100 mg/L or more.",
+      "domain": "operations",
+      "type": "parameter",
+      "confidence": "low",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "approval_batch": "pending_batch_002",
+      "context": {
+        "system": "UVI coupled DWC raft"
+      },
+      "source_metadata": {
+        "source_id": "srac_454_rakocy_masser_losordo_aquaponics",
+        "section_id": "solids_removal",
+        "source_type": "university_extension",
+        "source_tier": "tier_1"
+      },
+      "review_metadata": {
+        "source_gate": "trusted",
+        "source_gate_reason": "E4 university extension; direct quote.",
+        "confidence_reason": "Stated as guidance without a cited measurement.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": []
+        },
+        "reviewed_from_file": "web reads 2026-11-25 (URLs in data/knowledge/models/nitrification_models.json, record nitrate_sinks)"
+      },
+      "added_date_local": "2026-11-25"
+    },
+    {
+      "fact_id": "NITR_0012",
+      "statement": "In tilapia aquaponics with tomato, basil or lettuce, about 45 to 50 percent of total N input was lost by denitrification, 14 to 20 percent left in wastewater, and 9 to 17 percent ended up in plants.",
+      "domain": "biology",
+      "type": "parameter",
+      "confidence": "medium",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "approval_batch": "pending_batch_002",
+      "context": {
+        "system": "recirculating tilapia aquaponics, 3-month trial",
+        "species": "tilapia; cherry tomato, basil, lettuce"
+      },
+      "source_metadata": {
+        "source_id": "yang_kim_2020_j_clean_prod_274_122619",
+        "section_id": "abstract",
+        "source_type": "peer_reviewed_journal",
+        "source_tier": "tier_2"
+      },
+      "review_metadata": {
+        "source_gate": "trusted",
+        "source_gate_reason": "E3 peer-reviewed journal with DOI; abstract only, read via FAO AGRIS.",
+        "confidence_reason": "Peer-reviewed mass balance, but only the abstract was read and ranges span three crops. Scale and feed rate not known.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [],
+          "note": "Qualitatively consistent with UVI's account of denitrification controlling nitrate."
+        },
+        "reviewed_from_file": "web reads 2026-11-25 (URLs in data/knowledge/models/nitrification_models.json, record nitrate_sinks)"
+      },
+      "added_date_local": "2026-11-25"
     }
   ]
 }
