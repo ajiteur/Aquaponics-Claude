@@ -41,8 +41,7 @@
       "domain": "business",
       "type": "finding",
       "confidence": "medium",
-      "status": "provisional",
-      "provisional_reason": "candidate_pending_user_review",
+      "status": "accepted",
       "context": {
         "system": "Coupled DWC raceway model farm, 4 x 5,000 gal tanks, 12,288 sq ft (about 1,142 m2) raceway",
         "crop": "lettuce plus tilapia",
@@ -69,7 +68,13 @@
             "engle_2015_srac_5006"
           ]
         },
-        "cross_check_note": "Labour as the largest cost agrees with UVI (Heidemann and Bailey 2015) and Purdue (Quagrainie et al.)."
+        "cross_check_note": "Labour as the largest cost agrees with UVI (Heidemann and Bailey 2015) and Purdue (Quagrainie et al.).",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-25",
+          "scope": "truth UE_0002 (medium confidence, Tier 1-2 corroborated)",
+          "record": "Approval Batch 001, approved as recommended (thread message 2026-11-25 23:56 Europe/Amsterdam)"
+        }
       },
       "added_date_local": "2026-11-25"
     },
@@ -149,8 +154,7 @@
       "domain": "business",
       "type": "finding",
       "confidence": "medium",
-      "status": "provisional",
-      "provisional_reason": "candidate_pending_user_review",
+      "status": "accepted",
       "context": {
         "system": "modelled RAS aquaponics, about 62 m2 grow bed in a greenhouse",
         "crop": "lettuce plus tilapia",
@@ -175,7 +179,13 @@
             "tokunaga_2015_hawaii_aquaponics_economics"
           ]
         },
-        "cross_check_note": "Labour as a top driver agrees with Tokunaga et al.; the harvest rate is much slower than the Hawaii task table implies."
+        "cross_check_note": "Labour as a top driver agrees with Tokunaga et al.; the harvest rate is much slower than the Hawaii task table implies.",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-25",
+          "scope": "truth UE_0005 (medium confidence, Tier 1-2 corroborated)",
+          "record": "Approval Batch 001, approved as recommended (thread message 2026-11-25 23:56 Europe/Amsterdam)"
+        }
       },
       "added_date_local": "2026-11-25"
     },
@@ -218,8 +228,7 @@
       "domain": "operations",
       "type": "guidance",
       "confidence": "medium",
-      "status": "provisional",
-      "provisional_reason": "candidate_pending_user_review",
+      "status": "accepted",
       "context": {
         "market": "EU",
         "product": "fresh basil"
@@ -242,7 +251,13 @@
             "research_pack_first_slice_basil_wholesale_economics (UC Davis, Rutgers)"
           ]
         },
-        "cross_check_note": "Storage temperature agrees with UC Davis and Rutgers guidance cited in the research pack."
+        "cross_check_note": "Storage temperature agrees with UC Davis and Rutgers guidance cited in the research pack.",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-25",
+          "scope": "truth UE_0007 (medium confidence, Tier 1-2 corroborated)",
+          "record": "Approval Batch 001, approved as recommended (thread message 2026-11-25 23:56 Europe/Amsterdam)"
+        }
       },
       "added_date_local": "2026-11-25"
     },
@@ -285,8 +300,7 @@
       "domain": "business",
       "type": "finding",
       "confidence": "medium",
-      "status": "provisional",
-      "provisional_reason": "candidate_pending_user_review",
+      "status": "accepted",
       "context": {
         "sample": "self-selected online survey, 81% US",
         "year_basis": "2013 survey, published 2015"
@@ -309,7 +323,13 @@
             "engle_2015_srac_5006"
           ]
         },
-        "cross_check_note": "Climate and market-premium findings agree with SRAC 5006 (Engle 2015)."
+        "cross_check_note": "Climate and market-premium findings agree with SRAC 5006 (Engle 2015).",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-25",
+          "scope": "truth UE_0009 (medium confidence, Tier 1-2 corroborated)",
+          "record": "Approval Batch 001, approved as recommended (thread message 2026-11-25 23:56 Europe/Amsterdam)"
+        }
       },
       "added_date_local": "2026-11-25"
     },
@@ -319,8 +339,7 @@
       "domain": "business",
       "type": "finding",
       "confidence": "medium",
-      "status": "provisional",
-      "provisional_reason": "candidate_pending_user_review",
+      "status": "accepted",
       "context": {
         "scope": "review of US and Caribbean economic studies 1997-2015"
       },
@@ -343,7 +362,13 @@
             "quagrainie_purdue_indiana_aquaponics"
           ]
         },
-        "cross_check_note": "Consistent with Tokunaga et al. (lettuce 79% of revenue) and Quagrainie et al. (basil price dominates)."
+        "cross_check_note": "Consistent with Tokunaga et al. (lettuce 79% of revenue) and Quagrainie et al. (basil price dominates).",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-25",
+          "scope": "truth UE_0010 (medium confidence, Tier 1-2 corroborated)",
+          "record": "Approval Batch 001, approved as recommended (thread message 2026-11-25 23:56 Europe/Amsterdam)"
+        }
       },
       "added_date_local": "2026-11-25"
     },
