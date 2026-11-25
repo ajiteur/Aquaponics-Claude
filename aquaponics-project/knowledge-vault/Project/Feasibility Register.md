@@ -32,7 +32,7 @@ Status key: **Buildable now** = canon and tests support it. **Buildable with lab
 | Item | Blocked on |
 |---|---|
 | Fish-safe stocking or feed rate | Fish safety is a blocked claim (AGENTS.md 1B). The nitrification model is still a candidate, and nitrite and organic-carbon effects aren't modelled. |
-| Nitrate balance and basil yield at low fish load | Nitrate uptake is a placeholder that scales with plant score. After the pH fix the starter fixture runs out of nitrate and drops to about 0.77 kg/m². |
+| Nitrate balance and basil yield at low fish load | Uptake is growth-based and nitrate sinks are modelled (candidates). The residual loss is a fixed fraction calibrated at UVI's feed ratio; whether it holds at much lower feed is not known. |
 | Feed-protein TAN | Both basil scenarios have feed protein set to null, so TAN per gram of feed uses the 30 mg/g scenario placeholder. |
 | Standing basil biomass over time | `average_biomass_g` still grows at a fixed 4 g per plant per day. Only harvested cut mass is calibrated. |
 | `saleable_harvest_mass_kg` | Needs observed output or a reviewed manual value approved by Ajit for that scope. The UVI papers don't quantify culled mass. |

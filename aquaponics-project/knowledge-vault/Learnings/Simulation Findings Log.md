@@ -2,6 +2,20 @@
 
 What the simulation shows, newest first. These are **scenario estimates, not validated**: they describe the model, not the real world, and they are never truths.
 
+## 2026-11-25: Nitrate removal added (water exchange and filter-tank losses)
+
+Run: `src/simulate_crop_cycle.py`, 28 days, both basil raft scenarios, with UVI-style solids handling assumed. Scenario estimate, not validated. New values are candidates pending Batch 002.
+
+| Scenario | Nitrate-N (mg/L) over 28 days | Basil kg/m² | € per m² per year (cons. / base / opt.) |
+|---|---|---:|---|
+| Starter fixture (8 kg fish) | 41 → 21 (was 42 → 38) | 1.44 (was 1.91) | 111 / 135 / 160 |
+| UVI feed ratio | 42 → 43 (was 45 → 161) | 1.99 | 154 / 187 / 222 |
+
+- **At the UVI feed ratio, nitrate now holds near UVI's measured 42 mg/L** instead of building up to about 161. This is by construction: the residual loss is calibrated to that anchor.
+- **About 73 percent of nitrified N is lost to denitrification and solids** in the calibration, roughly 42 percent of feed N. A peer-reviewed tilapia aquaponics N budget (Yang and Kim 2020) found 45 to 50 percent lost by denitrification, so the size looks plausible.
+- **Water exchange at 1.5 percent a day (UVI) removes only a small share.** On its own it would leave nitrate far too high.
+- **The starter fixture is now nitrate-limited again** (1.44 kg/m²). With only about a tenth of UVI's feed per m², the same loss fraction leaves too little nitrate for 90 plants. This again says to size fish feed to about 80 g per m² per day.
+
 ## 2026-11-25: Cost of production per kg from the component configurator
 
 Run: `scripts/configure_system.py` (or `run.bat configure_basil_dwc_nl` / `configure_basil_dwc_karnataka`) on the candidate catalog in `data/catalog/`. Scenario estimate, not validated. Tilapia + basil DWC raft, 100 m² grow area, sized from UVI rules (80 g feed per m² per day, 160 kg fish per m³ tank per year). Counts build cost spread over each part's life, electricity, feed, fingerlings, seeds, water, heating and labour. Logistics, packaging, land and financing are not included. Fish are a co-product and are not credited.
