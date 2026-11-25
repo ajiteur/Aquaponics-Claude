@@ -19,6 +19,11 @@
       "raft_grow_area_m2": 11.25,
       "dedicated_biofilter": null,
       "basis": "scenario_explicit: 90 plants at the UVI density of 8 plants/m2; raft is the only nitrifying surface (no separate biofilter), as in UVI raft systems"
+    },
+    "nitrate_sinks": {
+      "water_exchange_fraction_per_day": null,
+      "residual_loss": "calibrated_uvi_filter_tanks",
+      "basis": "Assumes UVI-style solids handling (clarifier plus filter tanks with orchard netting cleaned weekly). null exchange uses the UVI 1.5 percent per day."
     }
   },
   "water_state": {

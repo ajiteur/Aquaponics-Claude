@@ -9,7 +9,7 @@ Run: `src/simulate_crop_cycle.py`, 28 days, on the two `basil_raft_crop_cycle` s
 - **Fish scaled to the UVI feed ratio: TAN settles near 2.1 to 2.3 mg/L and NH3 near 0.015 mg/L.** The old placeholder let TAN climb to about 14 mg/L and NH3 to about 1.1 mg/L. The raft runs at about 58 percent of its modelled capacity. Basil still reaches the 2.0 kg/m² anchor.
 - **TAN of about 2 mg/L is above the NMSU guidance of TAN < 1 ppm**, but NH3 stays low because pH is 6.9. Guidance, not a toxicity rule.
 - **Starter fixture (8 kg fish): TAN about 0.2 mg/L.** With the pH fix alone, basil fell to 0.77 kg/m² because the placeholder nitrate uptake scaled with the plant score. After replacing that placeholder with growth-based uptake, basil reaches 1.91 kg/m² and nitrate stays near 38 to 42 mg/L.
-- **Nitrate builds up to about 161 mg/L in the UVI case** (UVI measured about 42), because the model has no nitrogen sinks besides plant shoots.
+- **Nitrate builds up to about 161 mg/L in the UVI case** (UVI measured about 42), because the model has no nitrogen sinks besides plant shoots. *Fixed later the same day: water exchange and a calibrated residual loss now hold it near 42 (see the Simulation Findings Log).*
 - **Basil pH score is now 1.0 across pH 6.9 to 7.6 in coupled loops** (was 0 everywhere in that range).
 
 ## Candidate values and their reliability

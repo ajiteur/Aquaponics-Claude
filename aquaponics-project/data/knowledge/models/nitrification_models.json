@@ -375,6 +375,95 @@
         "consumer": "src/nitrification_model.py"
       },
       "evidence_policy": "Trusted Source Map and Source Trust Policy for Aquaponics Layer 1: source levels E5-E0, confidence high/medium/low rule"
+    },
+    {
+      "model_id": "nitrate_sinks",
+      "name": "Nitrate Sinks: Water Exchange and Calibrated Residual N Loss",
+      "kind": "mass_balance_sinks",
+      "status": "candidate_pending_user_review",
+      "approval_batch": "pending_batch_002",
+      "added_utc": "2026-11-25",
+      "evidence_policy": "Trusted Source Map and Source Trust Policy for Aquaponics Layer 1; reliability fields per AGENTS.md 6A",
+      "equation_text": "nitrate_next = nitrate + nitrified - plant_uptake - residual_loss_fraction * nitrified - water_exchange_fraction * nitrate",
+      "water_exchange": {
+        "fraction_of_system_volume_per_day": 0.015,
+        "quote": "water (1.5% of system volume daily on average)",
+        "source": "Rakocy, Bailey, Shultz, Danaher, 'A Commercial-Scale Aquaponic System Developed at the University of the Virgin Islands' (UVI Agricultural Experiment Station; copy hosted at https://www.tag2grow.org/wp-content/uploads/2021/09/UVI-Aquaponics.pdf)",
+        "assumption": "Make-up water is treated as nitrate-free (source water nitrate unknown; gap). The cause of the 1.5 percent (evaporation, transpiration, sludge and filter-tank discharge) is not stated, so all of it is treated as nitrate-carrying discharge.",
+        "source_metadata": {
+          "source_tier": "tier_1",
+          "source_type": "university_research_station_report"
+        },
+        "review_metadata": {
+          "source_gate": "conditional",
+          "source_gate_reason": "E4 UVI report by the system's developers, but read from a third-party copy (tag2grow.org), not a UVI-hosted file.",
+          "confidence": "medium",
+          "confidence_reason": "Direct number from the system developers, averaged over operation. Undated; context partial (cause of the loss not stated).",
+          "corroboration": {
+            "status": "corroborated",
+            "source_ids": [
+              "srac_454_rakocy_masser_losordo_aquaponics"
+            ],
+            "note": "SRAC 454: closed systems run 'very little daily water exchange (less than 2 percent)'."
+          }
+        }
+      },
+      "residual_loss": {
+        "mechanism": "Denitrification in anaerobic sludge on the filter-tank orchard netting, plus N leaving with clarifier and filter-tank solids. Lumped, because no source gives either rate.",
+        "mechanism_quotes": [
+          "SRAC 454: 'Denitrification occurs in anaerobic pockets that develop in the sludge.'",
+          "SRAC 454: 'The frequency of cleaning the netting regulates the degree of denitrification.'",
+          "SRAC 454: 'Nitrate-nitrogen levels can be regulated within a range of 1 to 100 milligrams per liter or more.'",
+          "UVI report: 'Nitrate levels were controlled by regulating the cleaning frequency of the filter tanks.'"
+        ],
+        "form": "fraction of the day's nitrified N lost, because denitrification is driven by the solids (carbon) load, which scales with feed",
+        "calibration": {
+          "method": "Solve the steady-state balance at the UVI basil anchor: nitrified = plant uptake + water exchange + residual loss, with nitrate held at the anchor.",
+          "anchors": {
+            "feed_ratio_g_per_m2_day": 81.4,
+            "feed_ratio_ref": "data/knowledge/atomic_facts/crop_cycle_facts.json CROP_0007 (accepted)",
+            "nitrate_n_mg_L": 42.0,
+            "nitrate_ref": "data/knowledge/species/plants/basil.json nutrient_response.aquaponics_nitrateN_anchor_mg_L (UVI batch mean 42.2)",
+            "water_volume_l_per_m2_grow_area": 519.6,
+            "water_volume_basis": "UVI report: total system water volume 111,196 L over 214 m2 plant growing area",
+            "plant_uptake": "basil shoot N uptake model at the yield anchor (2.0 kg/m2 per 28 days)"
+          },
+          "computed_in": "src/nitrate_sinks.py calibrated_residual_loss_fraction()",
+          "valid_for": "UVI-style systems that keep solids on filter-tank netting between weekly cleanings. Not valid for systems that remove all solids or have no anaerobic zones."
+        },
+        "cross_check": {
+          "source": "Yang and Kim 2020, 'Comparisons of nitrogen and phosphorus mass balance for tomato-, basil-, and lettuce-based aquaponic and hydroponic systems', Journal of Cleaner Production 274:122619, doi 10.1016/j.jclepro.2020.122619 (abstract via FAO AGRIS)",
+          "quote": "In aquaponics, 59\u201370% of total N input was estimated to be lost via denitrification (45\u201350%), wastewater (14\u201320%), and solid waste (0.7\u20132%)",
+          "comparison": "The calibrated loss is about 73 percent of nitrified N. If TAN is about 57 percent of feed N (0.092 / 0.16), that is about 42 percent of feed N, close to the 45 to 50 percent denitrification Yang and Kim report. Feed protein at UVI is not in canon, so this is approximate."
+        },
+        "source_metadata": {
+          "source_tier": "tier_1",
+          "source_type": "calibrated_parameter"
+        },
+        "review_metadata": {
+          "source_gate": "conditional",
+          "source_gate_reason": "Mechanism from E4 university sources; the value itself is a calibration, not a measurement.",
+          "confidence": "low",
+          "confidence_reason": "Calibrated to one site's nitrate mean, through two other candidate models (TAN placeholder of 30 mg/g feed, basil shoot uptake). Magnitude agrees with an independent peer-reviewed N budget, which lifts it from guess to plausible.",
+          "corroboration": {
+            "status": "corroborated",
+            "source_ids": [
+              "yang_kim_2020_j_clean_prod_274_122619",
+              "srac_454_rakocy_masser_losordo_aquaponics"
+            ]
+          }
+        }
+      },
+      "sensitivity_note": "Gloger et al. 1995 (cited in the UVI report) measured raft removal of 0.83 g total N/m2/day under romaine lettuce, by plant uptake and bacterial oxidation. That is above the basil shoot uptake of about 0.32 g N/m2/day; if real plant uptake is higher, the calibrated residual loss shrinks.",
+      "gaps": [
+        "No measured denitrification rate or sludge N content for UVI.",
+        "Source water nitrate unknown; make-up water assumed nitrate-free.",
+        "Water exchange does not yet remove TAN, phosphorus or other ions."
+      ],
+      "simulation_use": {
+        "target_role": "daily_nitrate_sinks",
+        "consumer": "src/nitrate_sinks.py"
+      }
     }
   ]
 }
