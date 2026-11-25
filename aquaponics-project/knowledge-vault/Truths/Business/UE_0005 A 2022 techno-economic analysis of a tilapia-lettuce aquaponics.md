@@ -3,7 +3,7 @@ fact_id: "UE_0005"
 domain: "business"
 type: "finding"
 confidence: "medium"
-status: "provisional"
+status: "accepted"
 source_id: "zappernick_2022_techno_economic"
 source_tier: "tier_2"
 source_gate: "trusted"
@@ -11,14 +11,12 @@ source_file: "data/knowledge/atomic_facts/unit_economics_facts.json"
 tags:
   - truth
   - business
-  - candidate
+  - accepted
 ---
 
 # UE_0005
 
 > A 2022 techno-economic analysis of a tilapia-lettuce aquaponics system found labour and greenhouse costs to be the prime factors controlling profitability; it assumed lettuce harvest at about 30 plants per hour.
-
-**Candidate truth.** Not yet approved (`candidate_pending_user_review`).
 
 ## Context
 

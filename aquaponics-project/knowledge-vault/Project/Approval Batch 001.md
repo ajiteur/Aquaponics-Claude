@@ -1,6 +1,8 @@
 # Approval Batch 001
 
-Everything waiting on Ajit, in one list, with the Gatekeeper's recommendation for each. Reply "approve batch 001 as recommended", or list the item numbers you want changed. Approvals are then recorded next to each value (who, date, scope).
+**Status: approved as recommended by Ajit on 2026-11-25 (23:56 Europe/Amsterdam).** Each approval is recorded next to its value (who, date, scope). Items recommended "keep as candidate" stay candidates.
+
+Everything that was waiting on Ajit, in one list, with the Gatekeeper's recommendation for each.
 
 Prepared: 2026-11-25, against `main` at `7f57d3f`, PR #10 at `4cf2758` and PR #11 at `a539274`.
 
@@ -51,6 +53,14 @@ Rule used for the recommendations (AGENTS.md 6A): approve items with medium or h
 | D8 | CD_0001, CD_0002, CD_0003 (medium, Tier 1, corroborated: UVI fish output, make-up water, pump and blower) | **Approve.** |
 | D9 | CD_0004 to CD_0010 (low confidence, or single source, or conflicting) | Keep as candidates. |
 | — | CROP_0001 to CROP_0007 | Already accepted on 2026-11-25. Nothing to do. |
+
+## Not covered by this batch
+
+These were marked pending in the inputs but weren't items in this batch, so they stay pending for Batch 002:
+
+- Basil prices for Tamil Nadu, Andhra Pradesh and Telangana, and the all-India price band.
+- The sensitivity locations: the ₹600 to ₹1,000 study band and the Bengaluru listings at ₹65 to ₹180.
+- The Netherlands lettuce auction price (configuration C).
 
 ## After approval
 

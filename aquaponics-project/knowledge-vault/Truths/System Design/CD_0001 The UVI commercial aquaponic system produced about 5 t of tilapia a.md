@@ -3,7 +3,7 @@ fact_id: "CD_0001"
 domain: "system_design"
 type: "parameter"
 confidence: "medium"
-status: "provisional"
+status: "accepted"
 source_id: "uvi_aquaponic_system_design"
 source_tier: "tier_1"
 source_gate: "trusted"
@@ -11,14 +11,12 @@ source_file: "data/knowledge/atomic_facts/component_design_facts.json"
 tags:
   - truth
   - system_design
-  - candidate
+  - accepted
 ---
 
 # CD_0001
 
 > The UVI commercial aquaponic system produced about 5 t of tilapia a year from four 7.8 m3 rearing tanks, about 160 kg of fish per m3 of rearing tank per year.
-
-**Candidate truth.** Not yet approved (`candidate_pending_user_review`).
 
 ## Context
 

@@ -3,7 +3,7 @@ fact_id: "NITR_0006"
 domain: "water_chemistry"
 type: "parameter"
 confidence: "medium"
-status: "provisional"
+status: "accepted"
 source_id: "zhu_chen_2002_aquacultural_engineering_26_221"
 source_tier: "tier_2"
 source_gate: "trusted"
@@ -11,14 +11,12 @@ source_file: "data/knowledge/atomic_facts/nitrogen_cycle_facts.json"
 tags:
   - truth
   - water_chemistry
-  - candidate
+  - accepted
 ---
 
 # NITR_0006
 
 > Temperature affects fixed-film [[Reference/Explainers/Nitrification|nitrification]] less than the Arrhenius equation predicts: at 20 C the rate rises about 4.3 percent per C when [[Reference/Explainers/TAN|TAN]]-limited and about 1.1 percent per C when oxygen-limited.
-
-**Candidate truth.** Not yet approved (`candidate_pending_user_review`).
 
 ## Context
 

@@ -3,7 +3,7 @@ fact_id: "UE_0009"
 domain: "business"
 type: "finding"
 confidence: "medium"
-status: "provisional"
+status: "accepted"
 source_id: "love_2015_commercial_aquaponics_survey"
 source_tier: "tier_2"
 source_gate: "trusted"
@@ -11,14 +11,12 @@ source_file: "data/knowledge/atomic_facts/unit_economics_facts.json"
 tags:
   - truth
   - business
-  - candidate
+  - accepted
 ---
 
 # UE_0009
 
 > In an international survey of 257 commercial aquaponics operations, profitability was associated with aquaponics being the primary income, warmer climate zones (USDA 7-13), sales of USD 5,000 or more, greater knowledge, and non-food sales.
-
-**Candidate truth.** Not yet approved (`candidate_pending_user_review`).
 
 ## Context
 
