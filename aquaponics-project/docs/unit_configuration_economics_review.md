@@ -68,6 +68,23 @@ every state (a transfer outside Karnataka, low confidence there).
 At the base price, electricity becomes a large share of cost, so state tariffs now
 matter: Andhra Pradesh (lowest tariff band) leaves the most, Tamil Nadu the least.
 
+### Karnataka at Ajit's Bangalore price (INR 100-250/kg)
+
+Ajit's own read (2026-11-25) is INR 100-250/kg in Bangalore, depending on processed,
+fresh or organic. It agrees with the INR 65-180 listings (medium confidence, pending
+approval) and is now the Karnataka base; the listings stay as a Karnataka sensitivity case.
+
+| Design (Karnataka, INR 100-250/kg) | INR/m2/yr (low / mid / high) | About EUR/m2/yr |
+|---|---|---|
+| A. UVI-style, hired, UVI labour | -23 / 2,012 / 4,453 | 0 / 18 / 41 |
+| B. Large raceway, hired, lean labour | 940 / 3,099 / 5,579 | 9 / 28 / 51 |
+| C. Purdue labour per kg | -68 / 2,142 / 4,685 | -1 / 20 / 43 |
+| E. Owner-run | 1,097 / 3,256 / 5,736 | 10 / 30 / 52 |
+
+That is about 50% more headroom than at the listing prices, but still well below the
+Dutch owner-run case (EUR 111-206). The top of Ajit's band depends on grade (processed,
+fresh, organic), so a defined grade and buyer would decide where in the band a unit sells.
+
 ### Demoted sensitivity: the INR 600-1,000/kg study band
 
 At the old band every design clears in every state, with about INR 8,900-23,300/m2/yr
