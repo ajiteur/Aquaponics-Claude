@@ -2,7 +2,7 @@
 
 What the current evidence can support building now, and what is blocked and on what. Kept by the Gatekeeper. Hand-written, not generated.
 
-Last reviewed: 2026-11-24 (against `main` at PR #1, with PR #2 open)
+Last reviewed: 2026-11-25 (against `main` after PRs #1 to #7)
 
 Status key: **Buildable now** = canon and tests support it. **Buildable with labels** = allowed only as a labelled scenario estimate. **Blocked** = missing evidence or input; don't build it as fact.
 
@@ -15,22 +15,25 @@ Status key: **Buildable now** = canon and tests support it. **Buildable with lab
 | Aeration and dry-solids context (P1.5) | MVP baseline. Context only, not aeration adequacy or solids-removal capacity. |
 | Basil grown to a 28-day harvest, calibrated to UVI | Accepted UVI facts: 8 plants/m², 28 days, 2.0 kg/m² batch and 1.8 kg/m² staggered per harvest (CROP_0001 to CROP_0004). Output is harvested cut mass, labelled scenario estimate. |
 | Feed + electricity cost pressure (P2a) | MVP baseline. Selected costs only, not total operating cost. |
-| Obsidian truths export, one note per truth | PR #2; dry run matches the JSON. |
+| Obsidian truths export, one note per truth, with a Reliability section | PRs #2 and #7; dry run matches the JSON. |
 
 ## Buildable with labels (scenario estimate, not validated)
 
 | Item | Condition |
 |---|---|
-| Basil revenue range | Only with price and saleability cases that are canonical, reviewed, or supplied by Ajit, each labelled with its origin. Ranges only. The canonical `pricing_models.json` prices are all still `todo`. |
-| Basil at UVI feed ratio (81.4 g/day/m²) | Runs, but the result is not a valid operating point until nitrification is fixed (TAN about 14 mg/L, NH3 about 1.1 mg/L in the run). |
+| Basil revenue range | Built (PRs #3 and #5). Price and saleability inputs are research-pack values still pending Ajit's approval, and the canonical `pricing_models.json` prices are all `todo`. Ranges only. |
+| Biofilm nitrification capacity | Built in PR #6 as a candidate model: SRAC 454 raft capacity (E4, medium) with TAN, pH, temperature and DO limits. It runs about ten times above trickling-filter and RBC biofilm rates. That is the largest open question, so it waits for Ajit's review. |
+| Basil score in coupled aquaponic loops | Built in PR #6 as a candidate: preferred pH 5.8 to 7.6. The 6.2 to 6.9 band is a low-confidence assumption, and above pH 7.6 there is no evidence. |
+| Basil at UVI feed ratio (81.4 g/day/m²) | With the candidate nitrification model, TAN settles near 2 mg/L and basil reaches about 2.0 kg/m². That TAN is above the NMSU guidance of under 1 mg/L, so it is not a fish-safety result. |
 | Unit economics example | The `variable_cost_per_saleable_kg` (6.8) and `fixed_batch_cost` (500.0) are constructed placeholders. Any output that uses them must say so. |
 
 ## Blocked
 
 | Item | Blocked on |
 |---|---|
-| Fish-safe stocking or feed rate at a given biofilter size | Nitrification and TAN model is a placeholder (no biofilter capacity). Evidence: Biofilters corroboration report; model work in the nitrification thread. |
-| Basil growth response to pH | Basil pH score uses hydroponic ranges and scores 0 from pH 6.9 to 7.6, though UVI grew basil well at pH 7.4. Needs a context-split decision (aquaponic vs hydroponic). |
+| Fish-safe stocking or feed rate | Fish safety is a blocked claim (AGENTS.md 1B). The nitrification model is still a candidate, and nitrite and organic-carbon effects aren't modelled. |
+| Nitrate balance and basil yield at low fish load | Nitrate uptake is a placeholder that scales with plant score. After the pH fix the starter fixture runs out of nitrate and drops to about 0.77 kg/m². |
+| Feed-protein TAN | Both basil scenarios have feed protein set to null, so TAN per gram of feed uses the 30 mg/g scenario placeholder. |
 | Standing basil biomass over time | `average_biomass_g` still grows at a fixed 4 g per plant per day. Only harvested cut mass is calibrated. |
 | `saleable_harvest_mass_kg` | Needs observed output or a reviewed manual value approved by Ajit for that scope. The UVI papers don't quantify culled mass. |
 | Revenue, margin, payback, break-even as fact | Blocked by AGENTS.md. Allowed only as labelled scenario estimates (AGENTS.md 1C). |
