@@ -67,6 +67,27 @@ small next to revenue and every state shares one price band. **What decides Indi
 basil price and a local yield, not which of these four states.** A state-specific basil
 price would change this more than anything else.
 
+### Karnataka price sensitivity (Bengaluru B2B listings)
+
+The Farm inputs thread found ten Bengaluru B2B listings for fresh Italian basil
+(IndiaMART, read 2026-11-25) asking INR 65-180/kg, median about 110. Three sellers are
+hydroponic growers at INR 65-130. That is 5 to 15 times below the INR 600-1,000 band.
+Grey literature, asking prices, market level not stated: confidence low. It is run as a
+sensitivity case, not as the default.
+
+| Design (Karnataka, listing prices) | INR/m2/yr (low / mid / high) | About EUR/m2/yr |
+|---|---|---|
+| A. UVI-style, hired, UVI labour | -679 / 899 / 2,787 | -6 / 8 / 25 |
+| B. Large raceway, hired, lean labour | 285 / 1,987 / 3,913 | 3 / 18 / 36 |
+| C. Purdue labour per kg | -723 / 1,030 / 3,019 | -7 / 9 / 28 |
+| E. Owner-run | 441 / 2,144 / 4,070 | 4 / 20 / 37 |
+
+At these prices headroom falls by about 85 to 95%, below the Netherlands' owner-run
+case, and in the low case the owner earns about INR 30 per hour before CAPEX. The
+break-even labour intensity drops to about 0.25-2.0 h/kg. **The India result depends
+almost entirely on which price is right.** This is a context split (study sale price
+versus B2B asking prices) to resolve with a real buyer quote, not an overwrite.
+
 ## Findings
 
 1. **In the Netherlands, hired labour decides it.** Every sourced basil labour
@@ -83,10 +104,11 @@ price would change this more than anything else.
 4. **Wholesale lettuce in the Low Countries does not work** at auction prices
    (EUR 0.19-0.72 per head) even at Hawaii labour efficiency. Basil earns about 4 to 11
    times more revenue per m2.
-5. **India clears labour and electricity in every case** (about EUR 81-213/m2/yr
+5. **India clears labour and electricity in every case at the study-based price band** (about EUR 81-213/m2/yr
    headroom at the comparison rate), but the price band rests on one hydroponic study
-   whose own yield is about 25 times below UVI's. India's open questions are price stage
-   and achievable yield, not wages.
+   whose own yield is about 25 times below UVI's. At Bengaluru B2B listing prices
+   (INR 65-180/kg) the headroom shrinks by 85-95% (see the Karnataka sensitivity). India's
+   open questions are price stage and achievable yield, not wages.
 
 ## Leading design candidates
 
