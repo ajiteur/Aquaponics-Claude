@@ -14,3 +14,6 @@ simulation game as the fallback path.
 
 Setup: Python 3.13+. The MVP path needs only the standard library; the research scripts
 need `pip install -r aquaponics-project/requirements.txt`.
+
+Run it yourself: `cd aquaponics-project` then `.\run.bat` (Windows) or `python run.py` to list the runs,
+and `python run.py <name>` to run one. See `knowledge-vault/Project/How to Run Locally.md`.

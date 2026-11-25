@@ -1,0 +1,10 @@
+{
+  "label": "Unit economics only: all-India and the four southern states",
+  "farm_area_m2": null,
+  "unit_economics": {
+    "inputs": "data/scenarios/unit_configuration_candidates_v0.json",
+    "configs": [],
+    "locations": ["india", "karnataka", "tamil_nadu", "andhra_pradesh", "telangana"],
+    "overrides": {}
+  }
+}

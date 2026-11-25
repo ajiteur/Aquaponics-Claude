@@ -12,3 +12,6 @@ data/simulation/day_logs/
 *.patch
 tmp*/
 tmp_*/
+
+# Local runs from run.py (python run.py <name>)
+data/simulation/results/local_runs/
