@@ -2,6 +2,14 @@
 
 What the simulation shows, newest first. These are **scenario estimates, not validated**: they describe the model, not the real world, and they are never truths.
 
+## 2026-11-25: Karnataka rerun at Ajit's Bangalore price
+
+Run: `scripts/compare_unit_configurations.py`, Karnataka basil price set to ₹100-250/kg (Ajit's local read, depends on processed, fresh or organic; agrees with the ₹65-180 listings). Scenario estimate, not validated. Headroom = revenue minus labour and electricity.
+
+- **Owner-run basil: ₹1,100 to ₹5,740 per m² per year** (about €10 to €52), up about 50% from the listing price, but still well below the Dutch owner-run case (€111 to €206).
+- **Hired staff at UVI or Purdue labour intensity: about break-even in the low case** (₹-70 to ₹-20), ₹2,000 to ₹4,700 in the mid and high cases.
+- Where a unit lands in the band depends on grade (fresh, processed, organic). A defined grade and buyer would settle it.
+
 ## 2026-11-25: Which unit design clears labour and electricity (Netherlands vs India)
 
 Run: `scripts/compare_unit_configurations.py` on `data/scenarios/unit_configuration_candidates_v0.json`. Scenario estimate, not validated. **Headroom** = revenue minus labour and electricity per m² per year; it still has to pay heating, CAPEX, consumables and any uncosted owner time. Review: `docs/unit_configuration_economics_review.md`.
