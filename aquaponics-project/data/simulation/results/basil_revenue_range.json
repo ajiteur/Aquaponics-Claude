@@ -3,11 +3,17 @@
   "label": "Scenario estimate, not validated. Gross revenue only: no costs, margin or profit.",
   "slice_id": "basil_bulk_kg_wholesale",
   "generated_by": "scripts/build_basil_revenue_range.py",
-  "generated_at_utc": "2026-11-24T23:54:54Z",
+  "generated_at_utc": "2026-11-25T00:07:00Z",
   "inputs_file": "scripts/example_first_slice_working_inputs.json",
   "crops_per_year": 13,
-  "crops_per_year_basis": "UVI staggered basil trial reported 13 crops per year (Rakocy et al. 2004)",
+  "crops_per_year_basis": "Rakocy et al. 2004 (Acta Hort 648), Results: the staggered trial is described as 13 crops per year, versus nine in an earlier study; consistent with 23.4 kg/m2/yr / 1.8 kg/m2 per harvest",
   "currency_code": "EUR",
+  "input_approval_status": "pending_user_approval",
+  "cases_pending_input_approval": [
+    "base",
+    "conservative",
+    "optimistic"
+  ],
   "case_inputs": {
     "conservative": {
       "price_per_saleable_kg": 7.0,
@@ -19,7 +25,9 @@
         "price_tax_treatment": "not normalized in current research pack"
       },
       "saleability_basis": "operator assumption informed by basil postharvest handling science",
-      "input_status": "provisional working assumption from the inputs file"
+      "input_status": "provisional working assumption from the inputs file",
+      "approval": null,
+      "approval_status": "pending_user_approval"
     },
     "base": {
       "price_per_saleable_kg": 8.0,
@@ -31,7 +39,9 @@
         "price_tax_treatment": "not normalized in current research pack"
       },
       "saleability_basis": "operator assumption informed by basil postharvest handling science",
-      "input_status": "provisional working assumption from the inputs file"
+      "input_status": "provisional working assumption from the inputs file",
+      "approval": null,
+      "approval_status": "pending_user_approval"
     },
     "optimistic": {
       "price_per_saleable_kg": 9.0,
@@ -43,7 +53,9 @@
         "price_tax_treatment": "not normalized in current research pack"
       },
       "saleability_basis": "operator assumption informed by basil postharvest handling science",
-      "input_status": "provisional working assumption from the inputs file"
+      "input_status": "provisional working assumption from the inputs file",
+      "approval": null,
+      "approval_status": "pending_user_approval"
     }
   },
   "scenarios": [
@@ -53,37 +65,37 @@
         "scenario_id": "basil_raft_crop_cycle",
         "harvest_event_count": 1,
         "grow_area_m2": 11.25,
-        "harvested_kg_per_m2_per_harvest": 1.208,
-        "harvested_kg_per_harvest": 13.595,
+        "harvested_kg_per_m2_per_harvest": 0.773,
+        "harvested_kg_per_harvest": 8.695,
         "output_basis": "runtime_native_calibrated_simulation",
         "water_state_context": {
-          "max_tan_mg_L": 1.804,
-          "max_unionized_nh3_mg_L": 0.134,
-          "min_nitrate_mg_L": 14.77,
+          "max_tan_mg_L": 0.224,
+          "max_unionized_nh3_mg_L": 0.0015,
+          "min_nitrate_mg_L": 5.746,
           "note": "Context only. Not a fish-safety or system-safety assessment."
         }
       },
       "cases": {
         "conservative": {
-          "saleable_kg_per_m2_per_harvest": 1.027,
-          "gross_revenue_per_m2_per_harvest": 7.19,
-          "gross_revenue_per_m2_per_year": 93.44,
-          "gross_revenue_per_harvest_for_scenario_area": 80.86,
-          "gross_revenue_per_year_for_scenario_area": 1051.19
+          "saleable_kg_per_m2_per_harvest": 0.657,
+          "gross_revenue_per_m2_per_harvest": 4.6,
+          "gross_revenue_per_m2_per_year": 59.79,
+          "gross_revenue_per_harvest_for_scenario_area": 51.74,
+          "gross_revenue_per_year_for_scenario_area": 672.65
         },
         "base": {
-          "saleable_kg_per_m2_per_harvest": 1.087,
-          "gross_revenue_per_m2_per_harvest": 8.7,
-          "gross_revenue_per_m2_per_year": 113.07,
-          "gross_revenue_per_harvest_for_scenario_area": 97.85,
-          "gross_revenue_per_year_for_scenario_area": 1272.02
+          "saleable_kg_per_m2_per_harvest": 0.696,
+          "gross_revenue_per_m2_per_harvest": 5.57,
+          "gross_revenue_per_m2_per_year": 72.35,
+          "gross_revenue_per_harvest_for_scenario_area": 62.61,
+          "gross_revenue_per_year_for_scenario_area": 813.97
         },
         "optimistic": {
-          "saleable_kg_per_m2_per_harvest": 1.148,
-          "gross_revenue_per_m2_per_harvest": 10.33,
-          "gross_revenue_per_m2_per_year": 134.27,
-          "gross_revenue_per_harvest_for_scenario_area": 116.19,
-          "gross_revenue_per_year_for_scenario_area": 1510.53
+          "saleable_kg_per_m2_per_harvest": 0.734,
+          "gross_revenue_per_m2_per_harvest": 6.61,
+          "gross_revenue_per_m2_per_year": 85.92,
+          "gross_revenue_per_harvest_for_scenario_area": 74.35,
+          "gross_revenue_per_year_for_scenario_area": 966.59
         }
       }
     },
@@ -93,44 +105,44 @@
         "scenario_id": "basil_raft_crop_cycle_uvi_feed_ratio",
         "harvest_event_count": 1,
         "grow_area_m2": 11.25,
-        "harvested_kg_per_m2_per_harvest": 2.0,
-        "harvested_kg_per_harvest": 22.501,
+        "harvested_kg_per_m2_per_harvest": 1.993,
+        "harvested_kg_per_harvest": 22.418,
         "output_basis": "runtime_native_calibrated_simulation",
         "water_state_context": {
-          "max_tan_mg_L": 14.256,
-          "max_unionized_nh3_mg_L": 1.182,
-          "min_nitrate_mg_L": 43.872,
+          "max_tan_mg_L": 2.319,
+          "max_unionized_nh3_mg_L": 0.0156,
+          "min_nitrate_mg_L": 40.83,
           "note": "Context only. Not a fish-safety or system-safety assessment."
         }
       },
       "cases": {
         "conservative": {
-          "saleable_kg_per_m2_per_harvest": 1.7,
-          "gross_revenue_per_m2_per_harvest": 11.9,
-          "gross_revenue_per_m2_per_year": 154.7,
-          "gross_revenue_per_harvest_for_scenario_area": 133.88,
-          "gross_revenue_per_year_for_scenario_area": 1740.38
+          "saleable_kg_per_m2_per_harvest": 1.694,
+          "gross_revenue_per_m2_per_harvest": 11.86,
+          "gross_revenue_per_m2_per_year": 154.16,
+          "gross_revenue_per_harvest_for_scenario_area": 133.41,
+          "gross_revenue_per_year_for_scenario_area": 1734.28
         },
         "base": {
-          "saleable_kg_per_m2_per_harvest": 1.8,
-          "gross_revenue_per_m2_per_harvest": 14.4,
-          "gross_revenue_per_m2_per_year": 187.2,
-          "gross_revenue_per_harvest_for_scenario_area": 162.0,
-          "gross_revenue_per_year_for_scenario_area": 2106.0
+          "saleable_kg_per_m2_per_harvest": 1.794,
+          "gross_revenue_per_m2_per_harvest": 14.35,
+          "gross_revenue_per_m2_per_year": 186.54,
+          "gross_revenue_per_harvest_for_scenario_area": 161.43,
+          "gross_revenue_per_year_for_scenario_area": 2098.63
         },
         "optimistic": {
-          "saleable_kg_per_m2_per_harvest": 1.9,
-          "gross_revenue_per_m2_per_harvest": 17.1,
-          "gross_revenue_per_m2_per_year": 222.3,
-          "gross_revenue_per_harvest_for_scenario_area": 192.37,
-          "gross_revenue_per_year_for_scenario_area": 2500.87
+          "saleable_kg_per_m2_per_harvest": 1.893,
+          "gross_revenue_per_m2_per_harvest": 17.04,
+          "gross_revenue_per_m2_per_year": 221.52,
+          "gross_revenue_per_harvest_for_scenario_area": 191.7,
+          "gross_revenue_per_year_for_scenario_area": 2492.12
         }
       }
     }
   ],
   "range_gross_revenue_per_m2_per_year": {
-    "low": 93.44,
-    "high": 222.3
+    "low": 59.79,
+    "high": 221.52
   },
   "limits": [
     "Harvested mass is runtime-native simulation output calibrated to the UVI yield anchor, not observed harvest data.",

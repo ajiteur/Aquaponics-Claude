@@ -14,7 +14,12 @@
     "plant_zone_volume_l": 1000.0,
     "biofilter_maturity": 1.0,
     "recirculation_rate_lph": 3000.0,
-    "aeration_capacity_relative": 1.0
+    "aeration_capacity_relative": 1.0,
+    "nitrification_surfaces": {
+      "raft_grow_area_m2": 11.25,
+      "dedicated_biofilter": null,
+      "basis": "scenario_explicit: 90 plants at the UVI density of 8 plants/m2; raft is the only nitrifying surface (no separate biofilter), as in UVI raft systems"
+    }
   },
   "water_state": {
     "pH": 6.9,

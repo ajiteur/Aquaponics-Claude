@@ -32,13 +32,20 @@ class ExportTruthsTests(unittest.TestCase):
         self.assertIn('status: "provisional"', candidate)
         self.assertIn("**Candidate truth.**", candidate)
 
-    def test_reliability_block_is_rendered(self):
-        fact = {"fact_id": "T_2", "statement": "x", "domain": "business", "status": "provisional",
-                "reliability": {"source_tier": "T1_official_statistics", "confidence_reason": "because"}}
+    def test_reliability_is_shown_and_gaps_are_visible(self):
+        fact = {"fact_id": "T_2", "statement": "x", "domain": "biology", "status": "provisional",
+                "confidence": "medium",
+                "source_metadata": {"source_id": "s1", "source_tier": "tier_1"},
+                "review_metadata": {"source_gate": "trusted", "confidence_reason": "one extension guide",
+                                    "corroboration": {"status": "corroborated", "source_ids": ["s2"]}}}
         note = exporter.render_truth(fact, exporter.FACTS_DIR / "example.json")
-        self.assertIn("## Reliability", note)
-        self.assertIn("- Source tier: T1_official_statistics", note)
-        self.assertIn("- Confidence reason: because", note)
+        self.assertIn('source_tier: "tier_1"', note)
+        self.assertIn("- Corroboration: corroborated; `s2`", note)
+        self.assertIn("Reason: one extension guide", note)
+        bare = exporter.render_truth({"fact_id": "T_3", "statement": "x", "domain": "biology"},
+                                     exporter.FACTS_DIR / "example.json")
+        self.assertIn("- Source tier: not recorded", bare)
+        self.assertIn("- Corroboration: not recorded", bare)
 
 
 if __name__ == "__main__":

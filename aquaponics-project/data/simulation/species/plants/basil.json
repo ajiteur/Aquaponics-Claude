@@ -26,6 +26,56 @@
       "max": 6.5,
       "unit": "pH"
     },
+    "aquaponics_coupled_pH_scoring": {
+      "preferred_pH": {
+        "min": 5.8,
+        "max": 7.6,
+        "unit": "pH"
+      },
+      "tolerated_pH": {
+        "min": 5.5,
+        "max": 7.6,
+        "unit": "pH"
+      },
+      "applies_to": "coupled aquaponics loops only; hydroponic scoring keeps preferred_pH / tolerated_pH above",
+      "basis": [
+        "Lower edges from the hydroponic evidence: preferred 5.8, tolerated 5.5 (CEA Herbs factsheet; peer-reviewed hydroponic basil study).",
+        "Upper edge 7.6 is the highest pH observed in the UVI aquaponic basil trials (Rakocy et al. 2004, Table 2: 7.4 mean, 7.0 to 7.6 batch; 7.1 mean, 6.9 to 7.3 staggered), where basil yields stayed high with Ca, K and Fe supplementation."
+      ],
+      "assumptions": [
+        "pH 6.2 to 6.9 is treated as preferred because it lies between two evidenced good-growth bands; it was not directly observed in either source.",
+        "No evidence above pH 7.6, so the score drops to zero there. This is an evidence boundary, not an observed failure.",
+        "High-pH Fe deficiency risk above 6.5 (hydroponic note) is assumed managed by supplementation, as at UVI; supplementation is not modelled."
+      ],
+      "status": "candidate_pending_user_review",
+      "added_utc": "2026-11-25",
+      "evidence_policy": "Trusted Source Map and Source Trust Policy for Aquaponics Layer 1: source levels E5-E0, confidence high/medium/low rule",
+      "evidence_assessment": {
+        "lower_edges_5.5_5.8": {
+          "source_level": "E4 (CEA Herbs factsheet) and E3 (hydroponic basil study)",
+          "trust_tier": "Tier 1",
+          "directness": "direct_quote",
+          "context_completeness": "complete for hydroponics",
+          "replicability": "multi_source",
+          "confidence": "medium",
+          "confidence_reason": "Same values already in canon as hydroponic ranges; reused for the low end."
+        },
+        "upper_edge_7.6": {
+          "source_level": "E3 (Rakocy et al. 2004, Acta Horticulturae) / E4 (UVI)",
+          "trust_tier": "Tier 1",
+          "directness": "direct_number (Table 2, via Basil corroboration report)",
+          "context_completeness": "complete (UVI commercial raft, Genovese, tropical)",
+          "replicability": "single_site",
+          "confidence": "medium",
+          "confidence_reason": "Observed operating pH at a high-yield trial; one site only. It shows basil does well up to 7.6, not that it fails above."
+        },
+        "preferred_band_6.2_to_6.9": {
+          "directness": "inferred",
+          "confidence": "low",
+          "confidence_reason": "Agent inference between two evidenced bands; not observed. Needs Ajit's review."
+        }
+      }
+    },
     "preferred_temp_c": {
       "min": 26.0,
       "max": 27.5,
@@ -256,7 +306,7 @@
   ],
   "runtime_sync": {
     "scope": "species",
-    "generated_at_utc": "2026-11-24T23:56:31Z",
+    "generated_at_utc": "2026-11-25T00:05:02Z",
     "canonical_source": "data/knowledge/species/plants/basil.json",
     "runtime_target": "data/simulation/species/plants/basil.json",
     "ownership": "data/knowledge is canonical; data/simulation is a derived runtime mirror."

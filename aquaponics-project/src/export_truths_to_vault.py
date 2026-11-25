@@ -102,10 +102,27 @@ def domain_folder(fact: dict) -> str:
     return DOMAIN_FOLDERS.get(domain, domain.replace("_", " ").title())
 
 
+def format_corroboration(value) -> str:
+    """Corroborating source ids, or the recorded status (e.g. single_source)."""
+    if not value:
+        return "not recorded"
+    if isinstance(value, str):
+        return value
+    if isinstance(value, dict):
+        ids = value.get("source_ids") or []
+        status = value.get("status")
+        parts = [status] if status else []
+        if ids:
+            parts.append(", ".join(f"`{i}`" for i in ids))
+        return "; ".join(parts) or "not recorded"
+    return ", ".join(f"`{i}`" for i in value)
+
+
 def render_truth(fact: dict, source_path: Path) -> str:
     folder = domain_folder(fact)
     status = fact.get("status", "unknown")
     source = fact.get("source_metadata", {})
+    review = fact.get("review_metadata", {})
     lines = [
         "---",
         f"fact_id: {yaml_value(fact.get('fact_id'))}",
@@ -114,6 +131,8 @@ def render_truth(fact: dict, source_path: Path) -> str:
         f"confidence: {yaml_value(fact.get('confidence'))}",
         f"status: {yaml_value(status)}",
         f"source_id: {yaml_value(source.get('source_id'))}",
+        f"source_tier: {yaml_value(source.get('source_tier'))}",
+        f"source_gate: {yaml_value(review.get('source_gate'))}",
         f"source_file: {yaml_value(source_path.relative_to(PROJECT_ROOT).as_posix())}",
         "tags:",
         "  - truth",
@@ -137,17 +156,21 @@ def render_truth(fact: dict, source_path: Path) -> str:
         lines.append("")
         lines += [f"- {k.replace('_', ' ')}: {v}" for k, v in context.items()]
         lines.append("")
-    reliability = fact.get("reliability")
-    if reliability:
-        lines += ["## Reliability", ""]
-        lines += [f"- {k.replace('_', ' ').capitalize()}: {v}" for k, v in reliability.items()]
-        lines.append("")
     lines += [
         "## Source",
         "",
         f"- Source ID: `{source.get('source_id', 'unknown')}`",
         f"- Section: `{source.get('section_id', 'unknown')}`",
         f"- Source type: `{source.get('source_type', 'unknown')}`",
+        "",
+        "## Reliability",
+        "",
+        f"- Source tier: {source.get('source_tier') or 'not recorded'}",
+        f"- Source gate: {review.get('source_gate') or 'not recorded'}"
+        + (f" ({review['source_gate_reason']})" if review.get("source_gate_reason") else ""),
+        f"- Confidence: {fact.get('confidence') or 'not recorded'}"
+        + (f". Reason: {review['confidence_reason']}" if review.get("confidence_reason") else ". Reason: not recorded"),
+        f"- Corroboration: {format_corroboration(review.get('corroboration'))}",
         "",
         "## Related Notes",
         "",

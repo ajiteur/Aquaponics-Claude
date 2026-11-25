@@ -5,6 +5,8 @@ type: "definition"
 confidence: "high"
 status: "provisional"
 source_id: "nelson_pade_ph_blog"
+source_tier: null
+source_gate: "conditional"
 source_file: "data/knowledge/atomic_facts/provisional_core_candidates.json"
 tags:
   - truth
@@ -23,6 +25,13 @@ tags:
 - Source ID: `nelson_pade_ph_blog`
 - Section: `ph_master_factor_001`
 - Source type: `commercial_manual`
+
+## Reliability
+
+- Source tier: not recorded
+- Source gate: conditional (source_conditional)
+- Confidence: high. Reason: not recorded
+- Corroboration: not recorded
 
 ## Related Notes
 

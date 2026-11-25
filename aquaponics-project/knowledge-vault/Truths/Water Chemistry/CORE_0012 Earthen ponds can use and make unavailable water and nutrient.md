@@ -5,6 +5,8 @@ type: "process"
 confidence: "high"
 status: "accepted"
 source_id: "wur_aquaponics_basics"
+source_tier: null
+source_gate: "trusted"
 source_file: "data/knowledge/atomic_facts/atomic_facts_core.json"
 tags:
   - truth
@@ -21,6 +23,13 @@ tags:
 - Source ID: `wur_aquaponics_basics`
 - Section: `section_001`
 - Source type: `peer_reviewed_article`
+
+## Reliability
+
+- Source tier: not recorded
+- Source gate: trusted (trusted_source)
+- Confidence: high. Reason: not recorded
+- Corroboration: not recorded
 
 ## Related Notes
 

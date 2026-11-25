@@ -6,22 +6,38 @@ What the simulation shows, newest first. These are **scenario estimates, not val
 
 Run: `scripts/compare_unit_configurations.py` on `data/scenarios/unit_configuration_candidates_v0.json`. Scenario estimate, not validated. **Headroom** = revenue minus labour and electricity per m² per year; it still has to pay heating, CAPEX, consumables and any uncosted owner time. Review: `docs/unit_configuration_economics_review.md`.
 
+Basil yield: 23.4 to 25.9 kg/m² per year (UVI canon to simulated UVI feed ratio). Tropical yields; Dutch winter is not in the range.
+
 | Design | NL € per m²/yr (low / mid / high) | India ₹ per m²/yr (low / mid / high) |
 |---|---|---|
-| A. UVI-style DWC basil, hired, UVI labour (0.62-0.93 h/kg) | -212 / -142 / -59 | 5,232 / 11,458 / 19,841 |
-| B. Large raceway DWC basil, hired, Hawaii-farm labour per m² (0.09-0.13 h/kg) | 26 / 84 / 153 | 6,334 / 12,583 / 20,942 |
-| C. Basil farm at Purdue labour per kg (0.53-0.65 h/kg) | -128 / -82 / -13 | 5,617 / 11,884 / 20,326 |
+| A. UVI-style DWC basil, hired, UVI labour (0.56-0.62 h/kg) | -166 / -105 / -38 | 8,913 / 14,946 / 22,113 |
+| B. Large raceway DWC basil, hired, Hawaii-farm labour per m² (0.08-0.09 h/kg) | 72 / 120 / 174 | 10,015 / 16,071 / 23,214 |
+| C. Basil farm at Purdue labour per kg (0.53-0.65 h/kg) | -177 / -98 / -13 | 8,862 / 15,153 / 22,520 |
 | D. Large raceway DWC lettuce, Flemish auction price | -42 / -19 / 6 | no India lettuce price |
-| E. Owner-operated DWC basil | 65 / 119 / 185 | 6,513 / 12,733 / 21,063 |
+| E. Owner-operated DWC basil | 111 / 156 / 206 | 10,195 / 16,221 / 23,335 |
 
-- **Netherlands: hired basil labour must stay under about 0.22-0.49 h per harvested kg.** Every sourced basil labour figure (0.53-0.93 h/kg) is above that. Only design B clears, and it borrows a lettuce farm's labour per m².
+- **Netherlands: hired basil labour must stay under about 0.25-0.50 h per harvested kg.** Every sourced basil labour figure (0.53-0.65 h/kg) is above that. Only design B clears, and it borrows a lettuce farm's labour per m².
 - **Scale and a simple raceway layout cut labour per m² about sevenfold** (UVI 214 m² vs Hawaii about 1,142 m²). Processing and packing was 44% of Hawaii's hours.
-- **Owner-operated NL leaves €65-185 per m² per year** for heating, CAPEX and owner pay (about €4.5 to €14 per owner hour in the low and mid cases).
-- **Wholesale lettuce doesn't work** at Low Countries auction prices. Basil earns about four to seven times more revenue per m².
-- **India clears in every case** (about €48-191 per m² at the comparison rate), but the price rests on one study. State-level inputs are coming from the Farm inputs work.
+- **Owner-operated NL leaves €111-206 per m² per year** for heating, CAPEX and owner pay (about €7.6 to €19 per owner hour in the low and mid cases).
+- **Wholesale lettuce doesn't work** at Low Countries auction prices. Basil earns about 4 to 11 times more revenue per m².
+- **India clears in every case** (about €81-213 per m² at the comparison rate), but the price rests on one study. State-level inputs are coming from the Farm inputs work.
 - Biggest gaps: basil harvest and pack hours per kg, Dutch heating demand, build cost per m².
 
 Related truths: [[Truths/Business/Business|Business]] and [[Truths/Operations/Operations|Operations]] (UE_0001 to UE_0011, candidates).
+
+## 2026-11-25: Basil revenue range rerun after the nitrification and pH fix
+
+The 28-day basil runs were regenerated after PR #6 (nitrification model and basil pH scoring fix), and the revenue range was rebuilt from them. This **supersedes the two entries below** for current numbers. Same price and saleability inputs as before, still pending your approval.
+
+| Scenario | Harvest kg/m² | Water state over the run | € per m² per year (cons. / base / opt.) |
+|---|---:|---|---|
+| Starter fixture | 0.77 (was 1.21) | TAN max about 0.22 mg/L, nitrate falls to about 5.7 mg/L | 60 / 72 / 86 |
+| UVI feed ratio | 1.99 (was 2.00) | TAN max about 2.3 mg/L, NH3 max about 0.016 mg/L, nitrate stays near 41 to 44 mg/L | 154 / 187 / 222 |
+
+- **Range: about €60 to €222 per m² per year gross.**
+- **The UVI feed-ratio case now holds water quality in a normal-looking range** (TAN about 2.3 mg/L, close to the UVI trial mean of 2.2), so 2.0 kg/m² is no longer just a plant-side ceiling. This is context, not a fish-safety assessment.
+- **The starter fixture is more nitrate-limited than before.** It has too little fish feed for its 90 plants. The 11.25 m² system grosses about €670 to €970 a year at that yield.
+- **Takeaway:** feed per m² of grow area drives basil output. A real design should size fish feed to the UVI ratio, about 80 to 100 g per m² per day.
 
 ## 2026-11-25: Basil gross revenue range
 
