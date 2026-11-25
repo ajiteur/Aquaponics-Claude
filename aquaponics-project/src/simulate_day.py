@@ -4,6 +4,7 @@ import subprocess
 import sys
 from datetime import datetime, UTC
 
+import nitrate_sinks
 import nitrification_model
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -389,7 +390,39 @@ def main():
         nitrate_uptake_basis = "legacy_placeholder_per_plant_rate"
     # Plants cannot take up more nitrate than the water holds.
     daily_nitrate_uptake_mg_l = min(daily_nitrate_uptake_mg_l, water["nitrate_mg_L"] + nitrate_generated_mg_l)
-    new_nitrate = max(0.0, water["nitrate_mg_L"] + nitrate_generated_mg_l - daily_nitrate_uptake_mg_l)
+    sinks_cfg = system.get("nitrate_sinks")
+    if isinstance(sinks_cfg, dict):
+        # Water exchange and calibrated residual N loss (candidate, pending Batch 002).
+        sinks_model = nitrate_sinks.load_model()
+        exchange_fraction = sinks_cfg.get("water_exchange_fraction_per_day")
+        if exchange_fraction is None:
+            exchange_fraction = sinks_model["water_exchange"]["fraction_of_system_volume_per_day"]
+        residual_fraction = sinks_cfg.get("residual_loss_fraction")
+        residual_basis = "scenario_explicit"
+        if residual_fraction is None and sinks_cfg.get("residual_loss") == "calibrated_uvi_filter_tanks":
+            residual_fraction = nitrate_sinks.calibrated_residual_loss_fraction(sinks_model, tan_per_g_feed_mg, plant_profile)
+            residual_basis = "calibrated_to_uvi_basil_nitrate_anchor"
+        if residual_fraction is None:
+            residual_fraction, residual_basis = 0.0, "none"
+        sink_step = nitrate_sinks.apply_sinks(
+            nitrate_mg_l=water["nitrate_mg_L"],
+            nitrified_mg_l=nitrate_generated_mg_l,
+            plant_uptake_mg_l=daily_nitrate_uptake_mg_l,
+            exchange_fraction=exchange_fraction,
+            residual_loss_fraction=residual_fraction,
+        )
+        new_nitrate = sink_step["new_nitrate_mg_L"]
+        nitrate_sink_summary = {
+            "model_basis": "nitrate_sinks_candidate",
+            "water_exchange_fraction_per_day": exchange_fraction,
+            "residual_loss_fraction": round(residual_fraction, 4),
+            "residual_loss_basis": residual_basis,
+            "residual_loss_mg_L": round(sink_step["residual_loss_mg_L"], 3),
+            "water_exchange_loss_mg_L": round(sink_step["water_exchange_loss_mg_L"], 3),
+        }
+    else:
+        new_nitrate = max(0.0, water["nitrate_mg_L"] + nitrate_generated_mg_l - daily_nitrate_uptake_mg_l)
+        nitrate_sink_summary = {"model_basis": "none", "note": "No nitrate_sinks in scenario; only plant uptake removes nitrate."}
 
     water["tan_mg_L"] = round(new_tan, 3)
     water["nitrate_mg_L"] = round(new_nitrate, 3)
@@ -442,6 +475,7 @@ def main():
         "nitrification": nitrification_summary,
         "daily_nitrate_uptake_mg_L_equivalent": round(daily_nitrate_uptake_mg_l, 3),
         "nitrate_uptake_basis": nitrate_uptake_basis,
+        "nitrate_sinks": nitrate_sink_summary,
         "nitrate_availability_score": round(nitrate_availability_score, 3),
         "fish_growth_score": fish_score,
         "plant_growth_score": plant_score,
