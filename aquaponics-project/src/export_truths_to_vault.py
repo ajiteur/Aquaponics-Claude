@@ -137,6 +137,11 @@ def render_truth(fact: dict, source_path: Path) -> str:
         lines.append("")
         lines += [f"- {k.replace('_', ' ')}: {v}" for k, v in context.items()]
         lines.append("")
+    reliability = fact.get("reliability")
+    if reliability:
+        lines += ["## Reliability", ""]
+        lines += [f"- {k.replace('_', ' ').capitalize()}: {v}" for k, v in reliability.items()]
+        lines.append("")
     lines += [
         "## Source",
         "",

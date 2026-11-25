@@ -32,6 +32,14 @@ class ExportTruthsTests(unittest.TestCase):
         self.assertIn('status: "provisional"', candidate)
         self.assertIn("**Candidate truth.**", candidate)
 
+    def test_reliability_block_is_rendered(self):
+        fact = {"fact_id": "T_2", "statement": "x", "domain": "business", "status": "provisional",
+                "reliability": {"source_tier": "T1_official_statistics", "confidence_reason": "because"}}
+        note = exporter.render_truth(fact, exporter.FACTS_DIR / "example.json")
+        self.assertIn("## Reliability", note)
+        self.assertIn("- Source tier: T1_official_statistics", note)
+        self.assertIn("- Confidence reason: because", note)
+
 
 if __name__ == "__main__":
     unittest.main()
