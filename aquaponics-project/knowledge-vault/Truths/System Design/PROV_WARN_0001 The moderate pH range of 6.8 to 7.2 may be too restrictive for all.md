@@ -5,6 +5,8 @@ type: "risk"
 confidence: "medium"
 status: "provisional"
 source_id: "osu_nitrification_media_bed_hla_6729"
+source_tier: null
+source_gate: "trusted"
 source_file: "data/knowledge/atomic_facts/provisional_warnings_and_cautions.json"
 tags:
   - truth
@@ -23,6 +25,13 @@ tags:
 - Source ID: `osu_nitrification_media_bed_hla_6729`
 - Section: `section_001`
 - Source type: `university_extension`
+
+## Reliability
+
+- Source tier: not recorded
+- Source gate: trusted (trusted_source)
+- Confidence: medium. Reason: not recorded
+- Corroboration: not recorded
 
 ## Related Notes
 

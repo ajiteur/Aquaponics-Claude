@@ -42,6 +42,7 @@ Status key: **Buildable now** = canon and tests support it. **Buildable with lab
 ## Evidence notes from review
 
 - The UVI yield values 2.0, 1.8 and 0.6 kg/m² are in the Basil corroboration report in the repo. The other UVI values (8 plants/m², 28 days, annual yields, 81.4 and 99.6 g/day/m² feed) came from a web read of the primary papers, which are not stored in the repo. Ajit approved them on 2026-11-24 (UTC).
+- None of the 53 existing truths records a source tier, a confidence reason or corroboration yet. Their notes now show "not recorded" under Reliability. Backfilling those fields is a follow-up canon pass, with each fact staying as it is until then.
 - The basil anchor conditions use one stated assumption: air temperature equals water temperature at the 26.5 °C midpoint. It is calibration only, not a measured value.
 
 ## Related Notes

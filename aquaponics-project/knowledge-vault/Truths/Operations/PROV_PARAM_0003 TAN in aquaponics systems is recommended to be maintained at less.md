@@ -5,6 +5,8 @@ type: "parameter"
 confidence: "high"
 status: "provisional"
 source_id: "nmsu_cr680_water_quality_parameters"
+source_tier: null
+source_gate: "trusted"
 source_file: "data/knowledge/atomic_facts/provisional_parameter_ranges.json"
 tags:
   - truth
@@ -23,6 +25,13 @@ tags:
 - Source ID: `nmsu_cr680_water_quality_parameters`
 - Section: `ph_section_001`
 - Source type: `university_extension`
+
+## Reliability
+
+- Source tier: not recorded
+- Source gate: trusted (trusted_source)
+- Confidence: high. Reason: not recorded
+- Corroboration: not recorded
 
 ## Related Notes
 

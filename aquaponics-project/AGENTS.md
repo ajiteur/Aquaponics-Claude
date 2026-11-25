@@ -264,6 +264,22 @@ capture. Keep the four kinds of knowledge separate:
 4. **Inbox**: sort items in `knowledge-vault/Inbox/` into the three above, answer
    questions, and remove sorted items.
 
+**Reliability check for every new learning.** Before a truth or a manual input
+(price, rate, cost) is saved, check the source and look for corroboration, then
+record the result next to the value:
+
+- `source_metadata.source_tier`: `tier_1`, `tier_2` or `tier_3`, per the Trusted
+  Source Map and Source Trust Policy PDF in the repo root.
+- `review_metadata.source_gate` (`trusted` or `conditional`) and
+  `source_gate_reason`.
+- `confidence` (`high`, `medium` or `low`) and `review_metadata.confidence_reason`.
+- `review_metadata.corroboration`: `{"status": "corroborated" | "single_source" |
+  "conflicting", "source_ids": [...]}`. Conflicts get a contradiction ticket (see 4).
+
+Tier 3 or single-source items stay `provisional` unless Tier 1 or 2 sources
+corroborate them. Unknown fields are written as missing, never guessed. The vault
+export shows these fields, and shows "not recorded" where one is missing.
+
 Also update `knowledge-vault/Project/Status and Roadmap.md` when status changes.
 Hand-written vault notes: `Home.md`, `Project/**`, `Inbox/**`, `Learnings/Simulation
 Findings Log.md`. Generated vault notes: `Truths/**`, `Atomic Truths/**`,
