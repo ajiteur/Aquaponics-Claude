@@ -11,8 +11,9 @@ Last updated: 2026-11-25
 
 ## Known weak spots in the engine
 
-- ~~The nitrification and TAN model is a placeholder and can't carry UVI-scale feed loads.~~ Addressed in PR #6. The UVI feed-ratio run now holds TAN around 2.3 mg/L.
-- ~~The basil pH score uses hydroponic ranges, so it scores 0 across the whole aquaponic pH range.~~ Addressed in PR #6.
+- ~~The nitrification and TAN model is a placeholder and can't carry UVI-scale feed loads.~~ Addressed in PR #6 (candidate, pending Ajit's review). The UVI feed-ratio run now holds TAN around 2.3 mg/L.
+- ~~The basil pH score uses hydroponic ranges, so it scores 0 across the whole aquaponic pH range.~~ Addressed in PR #6 (candidate, pending Ajit's review).
+- Nitrate uptake is a placeholder that scales with the plant score. That's why the starter basil fell to 0.77 kg/m² once PR #6 raised the basil plant score.
 - Standing plant biomass still grows at a fixed 4 g per plant per day. Only harvestable mass is calibrated.
 - Two cost inputs in the unit-economics example (variable cost per kg, a €500 batch fixed cost) are constructed placeholders, not evidence.
 
