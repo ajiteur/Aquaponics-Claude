@@ -2,6 +2,12 @@
 
 What the simulation shows, newest first. These are **scenario estimates, not validated**: they describe the model, not the real world, and they are never truths.
 
+## 2026-11-26: Equipment P1 research, Batch 002 candidates (scenario estimate, not validated)
+
+- Karnataka basil DWC configurator, mid case: INR 110.25 to 130.78 per kg of plant output (low to high case moves from 91.65-130.41 to 106.95-156.78). Why: polyhouse life (10-12 yr) and an India water price are now counted instead of left out as gaps. The water price is Chennai's commercial tariff (Rs 99-163/m3) used as a proxy, because no current Bengaluru tariff was found.
+- Netherlands basil DWC: unchanged at EUR 8.27 / 10.04 / 12.21 per kg. The basil seed price added (EUR 0.0005-0.002 per seed) is too small to move it.
+- All new values are candidates pending Batch 002 approval.
+
 ## 2026-11-25: Nitrate removal added (water exchange and filter-tank losses)
 
 Run: `src/simulate_crop_cycle.py`, 28 days, both basil raft scenarios, with UVI-style solids handling assumed. Scenario estimate, not validated. New values are candidates pending Batch 002.

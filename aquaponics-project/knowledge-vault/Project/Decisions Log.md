@@ -2,6 +2,11 @@
 
 Newest first. Each entry gives the decision, why, and who made it.
 
+## 2026-11-26
+
+- **Shelve the farm go/no-go; build the strongest simulation for the Netherlands and India in parallel.** Why: if the simulation is strong, moving to a real farm is straightforward, and the engine should work across many markets. Decided by Ajit.
+- **Run the P1 equipment research and hold the results for Batch 002.** Only values that fit an existing catalog slot are wired in (India polyhouse and shade-net life, India water price, NL basil seed). Everything else waits in `data/catalog/candidates_batch_002_v0.jsonl`. Asked by Ajit.
+
 ## 2026-11-25
 
 - **Model nitrate removal as water exchange plus a calibrated residual loss.** Water exchange uses UVI's 1.5 percent a day. Denitrification and solids N have no published rate, so one lumped loss fraction is calibrated to UVI's basil nitrate level and cross-checked against a peer-reviewed N budget. Candidate, pending Batch 002. Proposed by Claude; asked for by Ajit.

@@ -202,6 +202,36 @@
       "url": "https://www.hornbach.nl/c/tuin/vijvers/vijverfolies/S13832/",
       "read_date": "2026-11-25",
       "source_tier": "tier_3"
+    },
+    "iihr_polyhouse_2009": {
+      "citation": "IIHR Bengaluru polyhouse economics, J. Hortl. Sci. 2009 (Table 6 lives: GI frame 10 yr, LDPE film 2-3 yr, shade net 5 yr)",
+      "url": "https://core.ac.uk/download/357743494.pdf",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_1"
+    },
+    "meena_2022_polyhouse": {
+      "citation": "Meena et al. 2022, ICAR-CSSRI Karnal, J. Applied Horticulture (project life 10 yr, 200-micron film 4-5 yr)",
+      "url": "https://krishi.icar.gov.in/jspui/bitstream/123456789/80940/1/RL%20Meena%20et%20a",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_1"
+    },
+    "prakash_polyhouse_mh": {
+      "citation": "Prakash et al., Maharashtra 2018-19 polyhouse economics (project life 12 yr; film, shade net, fertigation 5 yr)",
+      "url": "https://ageconsearch.umn.edu/record/314961/files/0-0_Paper_18071_handout_13_0.pd",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_1"
+    },
+    "cmwssb_tariff_2025": {
+      "citation": "Chennai Metro Water (CMWSSB) tariff w.e.f. 1 Apr 2025",
+      "url": "https://www.cmwssb.tn.gov.in/tariff",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_1"
+    },
+    "reinsaat_basil_seed": {
+      "citation": "Reinsaat (AT) organic basil Genovese seed packs, 1000-seed weight 1.57 g",
+      "url": "https://www.reinsaat.at/shop/EN/culinary_and_aromatic_herbs/basil_genovese/",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_3"
     }
   },
   "design_rules": {
@@ -2129,7 +2159,30 @@
           "midh_hmneh_cost_norms_2018_19"
         ]
       },
-      "lifetime_years": null,
+      "lifetime_years": {
+        "low": 10,
+        "high": 12,
+        "unit": "years",
+        "source_ids": [
+          "iihr_polyhouse_2009",
+          "meena_2022_polyhouse",
+          "prakash_polyhouse_mh"
+        ],
+        "source_tier": "tier_1",
+        "source_gate": "conditional",
+        "source_gate_reason": "Peer-reviewed Indian polyhouse economics; depreciation/project lives, not durability tests.",
+        "confidence": "medium",
+        "confidence_reason": "GI frame 10 yr in two studies; whole-house project life 10 vs 12 yr. The 200-micron film needs replacing every 4-5 yr (older LDPE 2-3 yr), not modelled as a separate part yet.",
+        "corroboration": {
+          "status": "conflicting",
+          "source_ids": [
+            "iihr_polyhouse_2009",
+            "meena_2022_polyhouse",
+            "prakash_polyhouse_mh"
+          ]
+        },
+        "approval_status": "pending_batch_002"
+      },
       "energy": null,
       "labour_effect": "Film and vents need upkeep.",
       "trade_offs": [
@@ -2181,7 +2234,28 @@
           "midh_hmneh_cost_norms_2018_19"
         ]
       },
-      "lifetime_years": null,
+      "lifetime_years": {
+        "low": 5,
+        "high": 5,
+        "unit": "years",
+        "source_ids": [
+          "iihr_polyhouse_2009",
+          "prakash_polyhouse_mh"
+        ],
+        "source_tier": "tier_1",
+        "source_gate": "conditional",
+        "source_gate_reason": "Peer-reviewed Indian studies; life of the net, frame may last longer.",
+        "confidence": "medium",
+        "confidence_reason": "Two studies agree on 5 yr for shade net.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "iihr_polyhouse_2009",
+            "prakash_polyhouse_mh"
+          ]
+        },
+        "approval_status": "pending_batch_002"
+      },
       "energy": null,
       "labour_effect": "Net repairs.",
       "trade_offs": [
@@ -2411,6 +2485,56 @@
           "wecr_2017_070_greenhouse_quickscan"
         ]
       }
+    },
+    {
+      "input_id": "water_price_per_m3",
+      "region": "india",
+      "unit": "INR/m3",
+      "value": {
+        "low": 99.0,
+        "high": 163.0
+      },
+      "price_basis": "Chennai CMWSSB commercial, from 1 Apr 2025: Rs 99/kL up to 500 kL, Rs 163/kL above (water-intensive); sewerage +25% where connected; minimum monthly charges not included",
+      "source_ids": [
+        "cmwssb_tariff_2025"
+      ],
+      "approval_status": "pending_batch_002",
+      "source_tier": "tier_1",
+      "source_gate": "trusted",
+      "source_gate_reason": "Utility's own tariff page.",
+      "confidence": "medium",
+      "confidence_reason": "Official, but Chennai only; Bengaluru and Hyderabad current tariffs not found; borewell farms pay no tariff.",
+      "corroboration": {
+        "status": "single_source",
+        "source_ids": [
+          "cmwssb_tariff_2025"
+        ]
+      }
+    },
+    {
+      "input_id": "basil_seed_price_each",
+      "region": "netherlands",
+      "unit": "EUR/seed",
+      "value": {
+        "low": 0.00052,
+        "high": 0.00192
+      },
+      "price_basis": "excl. VAT, Reinsaat organic Genovese: 500 g EUR 165.90 (low) to 5 g EUR 6.10 (high), per seed from stated 1000-seed weight 1.57 g",
+      "source_ids": [
+        "reinsaat_basil_seed"
+      ],
+      "approval_status": "pending_batch_002",
+      "source_tier": "tier_3",
+      "source_gate": "conditional",
+      "source_gate_reason": "Retail listing (Tier 3): one seller (Austria), one date.",
+      "confidence": "low",
+      "confidence_reason": "Single seller; organic, not pelleted; per-seed relies on the stated seed weight; germination losses not included.",
+      "corroboration": {
+        "status": "single_source",
+        "source_ids": [
+          "reinsaat_basil_seed"
+        ]
+      }
     }
   ],
   "labour_regimes": [
@@ -2516,10 +2640,11 @@
   ],
   "known_gaps": [
     "Labour by task (feeding, harvest, packing, cleaning): no sourced split; labour is a whole-system rate.",
-    "Netherlands: fingerling price, basil and lettuce seed price per seed, trough wall price, biofilter media in EUR, second air-pump option, greenhouse heating installation CAPEX.",
-    "India: raft trough walls, seed price in INR, water price (borewell or municipal), structure lifetime.",
+    "Netherlands: fingerling price, lettuce seed price per seed (candidates in candidates_batch_002_v0.jsonl), trough wall price, biofilter media in EUR, second air-pump option, greenhouse heating installation CAPEX.",
+    "India: raft trough walls, seed price in INR.",
     "Seedling propagation (trays, media, germination losses), grow lights, back-up power, sensors and test kits, packaging and cold chain.",
     "Water held in NFT and media-bed grow units; NFT channel layout per m2; NFT and media-bed yields.",
-    "Fish sale value and logistics/market costs (layered on later by design)."
+    "Fish sale value and logistics/market costs (layered on later by design).",
+    "Batch 002 candidates not yet wired into the configurator (see data/catalog/candidates_batch_002_v0.jsonl): NL trough-wall materials priced per m2 wall face, not per m2 grow area; NL heating installation and heat-demand references; backup power (NL, India); India state subsidy rates, tanks, pumps."
   ]
 }
