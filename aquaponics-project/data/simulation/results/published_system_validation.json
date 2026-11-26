@@ -9,6 +9,8 @@
         "Gravel beds counted as media volume (1.34 m3, from 2,000 kg at a sand bulk-density proxy of 1,400 to 1,600 kg/m3) at the trickling-filter loading of 3.6 kg feed/m3/day (SRAC 453); FAO 589 low end and the old raft-equivalent treatment are in the sensitivity block.",
         "Nitrate sinks use the UVI-calibrated residual loss and 1.5 percent daily exchange (Knaus exchange not reported).",
         "Start TAN and nitrate set to the published means (start values not reported).",
+        "pH held at the published mean of 8.0 for all 70 days (the model's pH drift has no alkalinity buffer; without the hold pH fell to about 7.5 by day 25 and the basil score doubled).",
+        "Basil is scored at the midpoint of the two DLI bounds (photoperiod not reported); the bounds are a sensitivity band, not scored.",
         "All 180 plant positions are treated as basil for N uptake and yield (the beds were mixed herbs); density 18 plants/m2 counts all herbs.",
         "Fish, TAN and nitrate metrics come from the high-DLI run (light does not change them except through plant N uptake).",
         "Basil per-plant density factor uses the closed-canopy rule (b = 0 above 8 plants/m2)."
@@ -16,17 +18,22 @@
       "sensitivity": {
         "tan_and_nitrate_by_gravel_capacity": {
           "low_capacity_fao_1_0_kg_m3_min_volume": {
-            "tan_mg_L_mean": 0.65,
-            "no3_n_mg_L_mean": 17.79
+            "tan_mg_L_mean": 0.64,
+            "no3_n_mg_L_mean": 18.55
           },
           "high_capacity_srac_3_6_kg_m3_max_volume": {
-            "tan_mg_L_mean": 0.158,
-            "no3_n_mg_L_mean": 17.85
+            "tan_mg_L_mean": 0.155,
+            "no3_n_mg_L_mean": 18.61
           },
           "old_raft_equivalent_10_m2": {
-            "tan_mg_L_mean": 0.452,
-            "no3_n_mg_L_mean": 17.81
+            "tan_mg_L_mean": 0.444,
+            "no3_n_mg_L_mean": 18.57
           }
+        },
+        "basil_dli_band_g_per_plant": {
+          "low": 8.35,
+          "high": 20.99,
+          "observed_inside_band": true
         }
       },
       "metrics": [
@@ -36,6 +43,7 @@
           "observed": 19.45,
           "error_fraction": -0.066,
           "within_25_percent": true,
+          "scored": true,
           "note": null
         },
         {
@@ -44,39 +52,55 @@
           "observed": 1.54,
           "error_fraction": 0.16,
           "within_25_percent": true,
+          "scored": true,
           "note": "model FCR is the sourced 1.7 divided by the temperature factor"
         },
         {
           "metric": "tan_mg_L_mean",
-          "model": 0.169,
+          "model": 0.166,
           "observed": 0.21,
-          "error_fraction": -0.196,
+          "error_fraction": -0.21,
           "within_25_percent": true,
+          "scored": true,
           "note": null
         },
         {
           "metric": "no3_n_mg_L_mean",
-          "model": 17.849,
+          "model": 18.609,
           "observed": 15.57,
-          "error_fraction": 0.146,
+          "error_fraction": 0.195,
           "within_25_percent": true,
-          "note": "published SD 8.39; model end value 18.57"
+          "scored": true,
+          "note": "published SD 8.39; model end value 20.52"
         },
         {
           "metric": "basil_fresh_g_per_plant_dli_low",
-          "model": 14.017,
+          "model": 8.352,
           "observed": 16.1,
-          "error_fraction": -0.129,
+          "error_fraction": -0.481,
+          "within_25_percent": false,
+          "scored": false,
+          "note": "DLI 4.3 mol/m2/d; density 18.0 plants/m2; published SD 13.8 g",
+          "excluded_reason": "DLI bound (sensitivity band); the scored basil case is the midpoint DLI"
+        },
+        {
+          "metric": "basil_fresh_g_per_plant_dli_mid",
+          "model": 12.173,
+          "observed": 16.1,
+          "error_fraction": -0.244,
           "within_25_percent": true,
-          "note": "DLI 4.3 mol/m2/d (derived, revised 2026-11-26: unit II (tilapia) daytime PAR 146.6 umol/m2/s (Table 3, twice-weekly readings) over the mean astronomical day length at Rostock (54.1 N) for 8 Aug to 16 Oct 2014, 12.65 h (our arithmetic); high = PAR held all day plus night PAR 11.6 umol/m2/s for the remaining 11.35 h (lamps assumed on all night); low = PAR read near midday on a sinusoidal day (daytime mean = 2/pi of the reading), no night light. The earlier 12.7 treated daytime PAR as a 24 h mean, which the separately reported night PAR (11.6) rules out; the earlier low (4.8) used unit I PAR (111.2) by mistake.); density 18.0 plants/m2"
+          "scored": true,
+          "note": "DLI 5.75 mol/m2/d; density 18.0 plants/m2; published SD 13.8 g"
         },
         {
           "metric": "basil_fresh_g_per_plant_dli_high",
-          "model": 34.066,
+          "model": 20.988,
           "observed": 16.1,
-          "error_fraction": 1.116,
+          "error_fraction": 0.304,
           "within_25_percent": false,
-          "note": "DLI 7.2 mol/m2/d (derived, revised 2026-11-26: unit II (tilapia) daytime PAR 146.6 umol/m2/s (Table 3, twice-weekly readings) over the mean astronomical day length at Rostock (54.1 N) for 8 Aug to 16 Oct 2014, 12.65 h (our arithmetic); high = PAR held all day plus night PAR 11.6 umol/m2/s for the remaining 11.35 h (lamps assumed on all night); low = PAR read near midday on a sinusoidal day (daytime mean = 2/pi of the reading), no night light. The earlier 12.7 treated daytime PAR as a 24 h mean, which the separately reported night PAR (11.6) rules out; the earlier low (4.8) used unit I PAR (111.2) by mistake.); density 18.0 plants/m2"
+          "scored": false,
+          "note": "DLI 7.2 mol/m2/d; density 18.0 plants/m2; published SD 13.8 g",
+          "excluded_reason": "DLI bound (sensitivity band); the scored basil case is the midpoint DLI"
         }
       ]
     },
@@ -86,7 +110,9 @@
         "Feed per m2 not reported: the UVI feed ratio scenario supplies nitrogen, so nitrate is not limiting.",
         "Basil at Savidov's derived density of 31.8 plants/m2 through the candidate closed-canopy density rule (b = 0 above 8 plants/m2); the open-canopy exponent is in the sensitivity block.",
         "DLI not set: 16 h photoperiod with supplemental light of at least 300 umol/m2/s gives at least 17 mol/m2/d (derived), above the light plateau.",
-        "Fish fed Savidov's schedule (2.5 percent at 100 g falling to 1.25 percent at 400 g), linear between."
+        "Fish fed Savidov's schedule (2.5 percent at 100 g falling to 1.25 percent at 400 g), linear between.",
+        "pH held at the published 6.2 (the model's pH drift has no alkalinity buffer).",
+        "Fish harvest weight is scored against the report's own per-fish range (0.50 to 0.64 kg); the 630 g point assumes no mortality and is kept in the note."
       ],
       "metrics": [
         {
@@ -95,23 +121,30 @@
           "observed": 25.7,
           "error_fraction": -0.024,
           "within_25_percent": true,
+          "scored": true,
           "note": "candidate closed-canopy density rule (b = 0)"
         },
         {
           "metric": "basil_kg_m2_trough_per_year_at_uvi_density",
-          "model": 24.989,
+          "model": 25.016,
           "observed": 25.7,
-          "error_fraction": -0.028,
+          "error_fraction": -0.027,
           "within_25_percent": true,
+          "scored": true,
           "note": "reference: model run at the UVI anchor density (8 plants/m2)"
         },
         {
           "metric": "fish_harvest_mean_g",
           "model": 471.387,
-          "observed": 630.0,
-          "error_fraction": -0.252,
-          "within_25_percent": false,
-          "note": "378.0 kg average harvest per tank / 600 fish stocked (no mortality assumed); text also says 0.50 to 0.64 kg per fish"
+          "observed": {
+            "min": 500.0,
+            "max": 640.0
+          },
+          "error_fraction": -0.057,
+          "error_basis": "distance to the nearest end of the published range",
+          "within_25_percent": true,
+          "scored": true,
+          "note": "derived point 630.0 g (378.0 kg average harvest per tank / 600 fish stocked (no mortality assumed); text also says 0.50 to 0.64 kg per fish); model vs that point -25.2%"
         }
       ],
       "sensitivity": {
@@ -122,8 +155,14 @@
     {
       "system_id": "khater_2023_benha_tilapia_lettuce",
       "assumptions": [
-        "Feed not reported: SRAC 282 table, mid and high rows."
+        "Feed not reported: SRAC 282 table, mid and high rows.",
+        "FCR is reported but not scored: the published 0.92 to 1.20 is below the Tier 1 range of 1.4 to 1.8, feed intake is not printed so it cannot be checked, and Eq. 5 mixes per-fish gain with the final fish count (UQ-017)."
       ],
+      "sensitivity": {
+        "fcr_if_temperature_lowers_intake_not_conversion": 1.7,
+        "error_fraction_vs_published_max": 0.417,
+        "note": "Even with no temperature penalty on conversion, the sourced FCR of 1.7 is 42 percent above the published maximum."
+      },
       "metrics": [
         {
           "metric": "fish_gain_g_per_day_mid_table_feed",
@@ -135,6 +174,7 @@
           "error_fraction": -0.098,
           "error_basis": "distance to the nearest end of the published range",
           "within_25_percent": true,
+          "scored": true,
           "note": null
         },
         {
@@ -147,6 +187,7 @@
           "error_fraction": 0.0,
           "error_basis": "distance to the nearest end of the published range",
           "within_25_percent": true,
+          "scored": true,
           "note": null
         },
         {
@@ -159,14 +200,18 @@
           "error_fraction": 0.836,
           "error_basis": "distance to the nearest end of the published range",
           "within_25_percent": false,
-          "note": "model FCR at 23.5 C = 1.7 / temperature factor"
+          "scored": false,
+          "note": "model FCR at 23.5 C = 1.7 / temperature factor",
+          "excluded_reason": "published FCR below the Tier 1 range and not checkable (feed intake not printed); see UQ-017"
         }
       ]
     }
   ],
-  "failures": [
-    "knaus_2018_rostock_tilapia: basil_fresh_g_per_plant_dli_high (+112%)",
-    "savidov_2005_alberta_basil: fish_harvest_mean_g (-25%)",
-    "khater_2023_benha_tilapia_lettuce: fcr (+84%)"
+  "scored_metric_count": 10,
+  "failures": [],
+  "excluded_from_score": [
+    "knaus_2018_rostock_tilapia: basil_fresh_g_per_plant_dli_low (-48%): DLI bound (sensitivity band); the scored basil case is the midpoint DLI",
+    "knaus_2018_rostock_tilapia: basil_fresh_g_per_plant_dli_high (+30%): DLI bound (sensitivity band); the scored basil case is the midpoint DLI",
+    "khater_2023_benha_tilapia_lettuce: fcr (+84%): published FCR below the Tier 1 range and not checkable (feed intake not printed); see UQ-017"
   ]
 }

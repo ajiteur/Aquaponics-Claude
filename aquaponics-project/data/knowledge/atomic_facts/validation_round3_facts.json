@@ -1,0 +1,292 @@
+{
+  "description": "Atomic facts from validation round 3 (2026-11-26): basil first cut vs regrowth cut, and tilapia FCR evidence. Candidates until Ajit approves them. Reliability recorded per AGENTS.md 6A.",
+  "facts": [
+    {
+      "fact_id": "VR3_0001",
+      "statement": "In UVI staggered raft production, basil yielded 1.2 kg/m2 (167.1 g per plant) at the first harvest 28 days after transplant and 2.4 kg/m2 (327.1 g per plant) at the regrowth harvest; the authors note slow growth after transplanting while plants became established.",
+      "domain": "biology",
+      "type": "parameter",
+      "confidence": "medium",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "species": "basil (Genovese)",
+        "system": "UVI commercial-scale coupled DWC raft, staggered weekly planting, 8 plants/m2, cut at 15 cm",
+        "location": "St. Croix, tropical, outdoor"
+      },
+      "source_metadata": {
+        "source_id": "rakocy_2004_tilapia_basil",
+        "section_id": "Table 4 and text",
+        "source_type": "institutional_report",
+        "source_tier": "tier_1"
+      },
+      "review_metadata": {
+        "reviewed_from": "archive.uvi.edu/files/documents/Research_and_Public_Service/AES/Aquaculture/Tilapia_and_Basil.pdf",
+        "read_date_local": "2026-11-26",
+        "source_gate": "trusted",
+        "source_gate_reason": "UVI research report (published as Acta Horticulturae 648).",
+        "confidence_reason": "Measured at the anchor site and density, but the same paper's batch system shows no first-cut penalty, and two raft trials elsewhere show none either.",
+        "corroboration": {
+          "status": "conflicting",
+          "source_ids": [
+            "rakocy_2004_tilapia_basil",
+            "modarelli_2023_plants",
+            "corrado_2020_agronomy"
+          ]
+        }
+      },
+      "added_date_local": "2026-11-26"
+    },
+    {
+      "fact_id": "VR3_0002",
+      "statement": "In UVI batch raft production, basil yields per harvest were 2.1, 2.0, 1.7 and 2.0 kg/m2 (first harvest after transplant, then three regrowth harvests; production period about 28.3 days), so the first harvest was not lower than later ones.",
+      "domain": "biology",
+      "type": "parameter",
+      "confidence": "medium",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "species": "basil (Genovese)",
+        "system": "UVI coupled DWC raft, batch planting of the whole 214 m2, 8 plants/m2",
+        "location": "St. Croix, tropical, outdoor"
+      },
+      "source_metadata": {
+        "source_id": "rakocy_2004_tilapia_basil",
+        "section_id": "Table 3",
+        "source_type": "institutional_report",
+        "source_tier": "tier_1"
+      },
+      "review_metadata": {
+        "reviewed_from": "archive.uvi.edu/files/documents/Research_and_Public_Service/AES/Aquaculture/Tilapia_and_Basil.pdf",
+        "read_date_local": "2026-11-26",
+        "source_gate": "trusted",
+        "source_gate_reason": "UVI research report.",
+        "confidence_reason": "Direct table values; conflicts with the same paper's staggered result (VR3_0001), so the context (batch vs staggered planting) matters and the cause is not stated.",
+        "corroboration": {
+          "status": "conflicting",
+          "source_ids": [
+            "rakocy_2004_tilapia_basil"
+          ]
+        }
+      },
+      "added_date_local": "2026-11-26"
+    },
+    {
+      "fact_id": "VR3_0003",
+      "statement": "In an aquaponic floating raft at 20 plants/m2, two-week-old basil seedlings gave 32.4 g fresh weight per plant at the first cut (35 days after planting) and 44.4 g at the second cut (79 days); the cut had no significant effect on fresh yield.",
+      "domain": "biology",
+      "type": "parameter",
+      "confidence": "medium",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "species": "basil cv. Sanremo",
+        "system": "coupled aquaponic floating raft, cold greenhouse under 75 percent shade net",
+        "location": "Portici (Naples), Italy, June to September 2021"
+      },
+      "source_metadata": {
+        "source_id": "modarelli_2023_plants",
+        "section_id": "Table 1",
+        "source_type": "peer_reviewed_journal",
+        "source_tier": "tier_2"
+      },
+      "review_metadata": {
+        "reviewed_from": "pmc.ncbi.nlm.nih.gov/articles/PMC10053589/",
+        "read_date_local": "2026-11-26",
+        "source_gate": "trusted",
+        "source_gate_reason": "Peer-reviewed (MDPI Plants).",
+        "confidence_reason": "Direct table values, n = 3; per day the first cut is close to the second (0.92 vs 1.01 g/d, our arithmetic), but light fell between the cuts.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "modarelli_2023_plants",
+            "corrado_2020_agronomy",
+            "rakocy_2004_tilapia_basil"
+          ]
+        }
+      },
+      "added_date_local": "2026-11-26"
+    },
+    {
+      "fact_id": "VR3_0004",
+      "statement": "In a hydroponic basil trial at 23 plants/m2, fresh yield was higher at the first cut (47 days after transplant) than at the second (75 days); the abstract gives a yield reduction of about 20 percent.",
+      "domain": "biology",
+      "type": "parameter",
+      "confidence": "medium",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "species": "basil, Genovese type",
+        "system": "hydroponic, pots on benches in a glasshouse, mean air 26 C",
+        "location": "Bellizzi (Salerno), Italy, from April"
+      },
+      "source_metadata": {
+        "source_id": "corrado_2020_agronomy",
+        "section_id": "Results 3.1 and abstract",
+        "source_type": "peer_reviewed_journal",
+        "source_tier": "tier_2"
+      },
+      "review_metadata": {
+        "reviewed_from": "mdpi.com/2073-4395/10/6/830",
+        "read_date_local": "2026-11-26",
+        "source_gate": "trusted",
+        "source_gate_reason": "Peer-reviewed (MDPI Agronomy).",
+        "confidence_reason": "Per-cut values are only in a figure; the -20 percent is the abstract's figure. Direction agrees with VR3_0002 and VR3_0003.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "corrado_2020_agronomy",
+            "modarelli_2023_plants",
+            "rakocy_2004_tilapia_basil"
+          ]
+        }
+      },
+      "added_date_local": "2026-11-26"
+    },
+    {
+      "fact_id": "VR3_0005",
+      "statement": "In a backyard tilapia unit with gravel ebb-and-flow beds in a northern German glasshouse in autumn, basil grown from three-week-old rockwool seedlings averaged 16.1 +/- 13.8 g fresh biomass after 70 days at pH 8.0; the authors attribute below-expectation plant growth mainly to the high alkaline pH.",
+      "domain": "biology",
+      "type": "parameter",
+      "confidence": "low",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "species": "basil (Kiepenkerl seed, cultivar not named), mixed with mint and parsley at 18 plants/m2",
+        "system": "coupled, gravel ebb-and-flow beds",
+        "location": "Rostock, Germany, 8 Aug to 16 Oct 2014"
+      },
+      "source_metadata": {
+        "source_id": "knaus_appelbaum_palm_2018_aacl",
+        "section_id": "Table 2 and Discussion",
+        "source_type": "peer_reviewed_journal",
+        "source_tier": "tier_2"
+      },
+      "review_metadata": {
+        "reviewed_from": "bioflux.com.ro/docs/2018.1760-1775.pdf",
+        "read_date_local": "2026-11-26",
+        "source_gate": "conditional",
+        "source_gate_reason": "Open-access peer-reviewed, low-impact journal.",
+        "confidence_reason": "Large spread (SD 86 percent of the mean); the pH attribution is the authors' view, not a controlled test.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "knaus_appelbaum_palm_2018_aacl"
+          ]
+        }
+      },
+      "added_date_local": "2026-11-26"
+    },
+    {
+      "fact_id": "VR3_0006",
+      "statement": "At UVI, tilapia fed ad libitum three times daily on a 32 percent protein diet over six harvests had feed conversion ratios of 1.71 to 1.92 (mean 1.79), with water about 24 C in winter and spring and 29 C in summer.",
+      "domain": "biology",
+      "type": "parameter",
+      "confidence": "high",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "species": "Nile and red tilapia, fingerlings about 70 g, 24-week cycles",
+        "system": "UVI commercial-scale coupled DWC raft",
+        "location": "St. Croix, tropical"
+      },
+      "source_metadata": {
+        "source_id": "rakocy_2004_tilapia_basil",
+        "section_id": "Table 1",
+        "source_type": "institutional_report",
+        "source_tier": "tier_1"
+      },
+      "review_metadata": {
+        "reviewed_from": "archive.uvi.edu/files/documents/Research_and_Public_Service/AES/Aquaculture/Tilapia_and_Basil.pdf",
+        "read_date_local": "2026-11-26",
+        "source_gate": "trusted",
+        "source_gate_reason": "UVI research report.",
+        "confidence_reason": "Measured over six harvests; matches SRAC 454's 'usual' 1.7 and the SRAC 282 and FAO 589 range of 1.4 to 1.8.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "rakocy_2004_tilapia_basil",
+            "srac_454",
+            "srac_282",
+            "fao_tp_589"
+          ]
+        }
+      },
+      "added_date_local": "2026-11-26"
+    },
+    {
+      "fact_id": "VR3_0007",
+      "statement": "Khater et al. 2023 report tilapia FCR of 0.92 to 1.20 (40 g fingerlings, 60 days, 23.4 to 23.6 C) but do not print feed intake, and their FCR equation divides feed intake by per-fish gain times the final fish count, so the values cannot be recomputed.",
+      "domain": "biology",
+      "type": "parameter",
+      "confidence": "low",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "species": "Nile tilapia",
+        "system": "coupled troughs with foam rafts, hydraulic loading 1.2 to 3.0 m/day",
+        "location": "Benha, Egypt, January to March 2023"
+      },
+      "source_metadata": {
+        "source_id": "khater_2023_sci_rep",
+        "section_id": "Methods Eq. 5 and fish results table",
+        "source_type": "peer_reviewed_journal",
+        "source_tier": "tier_2"
+      },
+      "review_metadata": {
+        "reviewed_from": "nature.com/articles/s41598-023-44707-1",
+        "read_date_local": "2026-11-26",
+        "source_gate": "conditional",
+        "source_gate_reason": "Peer-reviewed, but the fish results table was read through a fetch summary and feed intake is missing.",
+        "confidence_reason": "Below the Tier 1 range (1.4 to 1.8) and UVI's 1.71 to 1.92 with no stated reason.",
+        "corroboration": {
+          "status": "conflicting",
+          "source_ids": [
+            "khater_2023_sci_rep",
+            "srac_282",
+            "fao_tp_589",
+            "rakocy_2004_tilapia_basil"
+          ]
+        }
+      },
+      "added_date_local": "2026-11-26"
+    },
+    {
+      "fact_id": "VR3_0008",
+      "statement": "Studies disagree on how tilapia FCR changes below the growth optimum: Azaza et al. 2008 found FCR best at 26 and 30 C (vs 22 and 34 C), Mirea 2013 found FCR rising with temperature from 20 to 30 C, and Workagegn 2014 found feed use worst at 24 C (of 24 to 34 C).",
+      "domain": "biology",
+      "type": "parameter",
+      "confidence": "low",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "species": "Nile tilapia juveniles",
+        "system": "aquaria and tanks",
+        "location": "various"
+      },
+      "source_metadata": {
+        "source_id": "abd_el_hack_2022_ijb",
+        "section_id": "review text; Workagegn via The Fish Site",
+        "source_type": "peer_reviewed_journal",
+        "source_tier": "tier_2"
+      },
+      "review_metadata": {
+        "reviewed_from": "pmc.ncbi.nlm.nih.gov/articles/PMC9640449/; thefishsite.com (Workagegn 2014 summary)",
+        "read_date_local": "2026-11-26",
+        "source_gate": "conditional",
+        "source_gate_reason": "Read through a peer-reviewed review and a Tier 3 trade summary; primary tables not read.",
+        "confidence_reason": "No numbers read from the primary papers; the directions conflict.",
+        "corroboration": {
+          "status": "conflicting",
+          "source_ids": [
+            "abd_el_hack_2022_ijb",
+            "azaza_2008",
+            "mirea_2013",
+            "workagegn_2014"
+          ]
+        }
+      },
+      "added_date_local": "2026-11-26"
+    }
+  ]
+}

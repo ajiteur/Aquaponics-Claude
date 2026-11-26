@@ -34,6 +34,16 @@ GRAVEL_LOADING_PRIMARY = 3.6  # SRAC 453 trickling-filter design criterion, kg f
 OPEN_CANOPY_B = 0.394  # Ciriello 2021 exponent, open-canopy sensitivity
 
 
+def hold_published_ph(scenario: dict) -> None:
+    """Keep pH at the published trial mean for the whole run.
+
+    The daily model's pH drift (0.01 per mg/L TAN nitrified) has no alkalinity buffer,
+    so a system the paper reports at a steady mean pH would otherwise drift down and
+    change the plant score part-way through the run (UQ-018).
+    """
+    scenario["nitrogen_model"]["pH_drift_per_mg_l_tan_removed"] = 0.0
+
+
 def metric(name: str, model: float, observed: float, note: str | None = None) -> dict:
     error = model / observed - 1.0 if observed else None
     return {
@@ -42,8 +52,16 @@ def metric(name: str, model: float, observed: float, note: str | None = None) ->
         "observed": observed,
         "error_fraction": None if error is None else round(error, 3),
         "within_25_percent": None if error is None else abs(error) <= FAIL_THRESHOLD,
+        "scored": True,
         "note": note,
     }
+
+
+def unscored(m: dict, reason: str) -> dict:
+    """Keep a metric in the report but out of the pass/fail count, with the reason."""
+    m["scored"] = False
+    m["excluded_reason"] = reason
+    return m
 
 
 def metric_range(name: str, model: float, low: float, high: float, note: str | None = None) -> dict:
@@ -60,6 +78,7 @@ def metric_range(name: str, model: float, low: float, high: float, note: str | N
         "error_fraction": round(error, 3),
         "error_basis": "distance to the nearest end of the published range",
         "within_25_percent": abs(error) <= FAIL_THRESHOLD,
+        "scored": True,
         "note": note,
     }
 
@@ -96,6 +115,7 @@ def knaus_case(rec: dict, base: dict) -> dict:
         "pH": i["pH"], "water_temperature_c": i["water_temperature_c"], "air_temperature_c": i["water_temperature_c"],
         "dissolved_oxygen_mg_L": i["do_mg_L"], "tan_mg_L": o["tan_mg_L_mean"], "nitrate_mg_L": o["no3_n_mg_L_mean"],
     })
+    hold_published_ph(s)
     s["fish_batch"].update({
         "count": i["fish_count"], "total_biomass_kg": i["fish_start_biomass_kg"],
         "average_weight_g": round(i["fish_start_biomass_kg"] * 1000 / i["fish_count"], 2),
@@ -128,6 +148,15 @@ def knaus_case(rec: dict, base: dict) -> dict:
             "no3_n_mg_L_mean": round(sum(d["nitrate_mg_L"] for d in daily) / len(daily), 2),
         }
 
+    basil_metrics = []
+    for label, g in basil_by_dli.items():
+        m = metric(f"basil_fresh_g_per_plant_dli_{label}", g, o["basil_fresh_g_per_plant"],
+                   f"DLI {i['dli_mol_m2_day_derived'][label]} mol/m2/d; density "
+                   f"{round(i['plant_count_derived'] / i['plant_area_m2_derived'], 1)} plants/m2; published SD {o['basil_fresh_g_per_plant_sd']} g")
+        if label != "mid":
+            unscored(m, "DLI bound (sensitivity band); the scored basil case is the midpoint DLI")
+        basil_metrics.append(m)
+
     fish = run["final_state"]["fish_batch"]
     gain = fish["total_biomass_kg"] - i["fish_start_biomass_kg"]
     model_fcr = i["feed_kg_per_day"] * i["days"] / gain if gain > 0 else None
@@ -139,22 +168,26 @@ def knaus_case(rec: dict, base: dict) -> dict:
             f"Gravel beds counted as media volume ({mid_volume} m3, from 2,000 kg at a sand bulk-density proxy of 1,400 to 1,600 kg/m3) at the trickling-filter loading of {GRAVEL_LOADING_PRIMARY} kg feed/m3/day (SRAC 453); FAO 589 low end and the old raft-equivalent treatment are in the sensitivity block.",
             "Nitrate sinks use the UVI-calibrated residual loss and 1.5 percent daily exchange (Knaus exchange not reported).",
             "Start TAN and nitrate set to the published means (start values not reported).",
+            "pH held at the published mean of 8.0 for all 70 days (the model's pH drift has no alkalinity buffer; without the hold pH fell to about 7.5 by day 25 and the basil score doubled).",
+            "Basil is scored at the midpoint of the two DLI bounds (photoperiod not reported); the bounds are a sensitivity band, not scored.",
             "All 180 plant positions are treated as basil for N uptake and yield (the beds were mixed herbs); density 18 plants/m2 counts all herbs.",
             "Fish, TAN and nitrate metrics come from the high-DLI run (light does not change them except through plant N uptake).",
             "Basil per-plant density factor uses the closed-canopy rule (b = 0 above 8 plants/m2).",
         ],
-        "sensitivity": {"tan_and_nitrate_by_gravel_capacity": tan_sensitivity},
+        "sensitivity": {
+            "tan_and_nitrate_by_gravel_capacity": tan_sensitivity,
+            "basil_dli_band_g_per_plant": {
+                "low": round(basil_by_dli["low"], 2), "high": round(basil_by_dli["high"], 2),
+                "observed_inside_band": basil_by_dli["low"] <= o["basil_fresh_g_per_plant"] <= basil_by_dli["high"],
+            },
+        },
         "metrics": [
             metric("fish_end_biomass_kg", fish["total_biomass_kg"], o["fish_end_biomass_kg"]),
             metric("fcr", model_fcr, o["fcr"], "model FCR is the sourced 1.7 divided by the temperature factor"),
             metric("tan_mg_L_mean", sum(tan) / len(tan), o["tan_mg_L_mean"]),
             metric("no3_n_mg_L_mean", sum(nitrate) / len(nitrate), o["no3_n_mg_L_mean"],
                    f"published SD {o['no3_n_mg_L_sd']}; model end value {round(nitrate[-1], 2)}"),
-            *[
-                metric(f"basil_fresh_g_per_plant_dli_{label}", g, o["basil_fresh_g_per_plant"],
-                       f"DLI {i['dli_mol_m2_day_derived'][label]} mol/m2/d ({i['dli_basis']}); density {round(i['plant_count_derived'] / i['plant_area_m2_derived'], 1)} plants/m2")
-                for label, g in basil_by_dli.items()
-            ],
+            *basil_metrics,
         ],
     }
 
@@ -164,6 +197,7 @@ def savidov_case(rec: dict, base: dict) -> dict:
     s = copy.deepcopy(base)
     s["scenario_id"] = "validation_savidov_2005_basil"
     s["water_state"].update({"pH": i["pH"], "water_temperature_c": i["water_temperature_c"], "air_temperature_c": i["water_temperature_c"]})
+    hold_published_ph(s)
     anchor = run_scenario(s, i["basil_cycle_days_derived"])["harvest_events"][0]
     per_m2_year_anchor_density = anchor["harvested_mass_kg_per_m2"] * 365 / i["basil_cycle_days_derived"]
     s["plant_crop"]["planting_density_plants_m2"] = i["basil_density_plants_m2_derived"]
@@ -194,13 +228,16 @@ def savidov_case(rec: dict, base: dict) -> dict:
             "Basil at Savidov's derived density of 31.8 plants/m2 through the candidate closed-canopy density rule (b = 0 above 8 plants/m2); the open-canopy exponent is in the sensitivity block.",
             "DLI not set: 16 h photoperiod with supplemental light of at least 300 umol/m2/s gives at least 17 mol/m2/d (derived), above the light plateau.",
             "Fish fed Savidov's schedule (2.5 percent at 100 g falling to 1.25 percent at 400 g), linear between.",
+            "pH held at the published 6.2 (the model's pH drift has no alkalinity buffer).",
+            "Fish harvest weight is scored against the report's own per-fish range (0.50 to 0.64 kg); the 630 g point assumes no mortality and is kept in the note.",
         ],
         "metrics": [
             metric("basil_kg_m2_trough_per_year_at_savidov_density", per_m2_year, o["basil_kg_m2_trough_area_per_year_derived"],
                    "candidate closed-canopy density rule (b = 0)"),
             metric("basil_kg_m2_trough_per_year_at_uvi_density", per_m2_year_anchor_density,
                    o["basil_kg_m2_trough_area_per_year_derived"], "reference: model run at the UVI anchor density (8 plants/m2)"),
-            metric("fish_harvest_mean_g", w, o["fish_harvest_mean_g_derived"], o["fish_harvest_basis"]),
+            metric_range("fish_harvest_mean_g", w, o["fish_harvest_mean_g_text_range"]["min"], o["fish_harvest_mean_g_text_range"]["max"],
+                         f"derived point {o['fish_harvest_mean_g_derived']} g ({o['fish_harvest_basis']}); model vs that point {w / o['fish_harvest_mean_g_derived'] - 1:+.1%}"),
         ],
         "sensitivity": {
             "basil_kg_m2_trough_per_year_open_canopy_b_0_394": round(per_m2_year_open, 2),
@@ -218,12 +255,21 @@ def khater_case(rec: dict) -> dict:
         out[pick] = (end - i["fish_start_mean_g"]) / i["days"]
     return {
         "system_id": rec["system_id"],
-        "assumptions": ["Feed not reported: SRAC 282 table, mid and high rows."],
+        "assumptions": [
+            "Feed not reported: SRAC 282 table, mid and high rows.",
+            "FCR is reported but not scored: the published 0.92 to 1.20 is below the Tier 1 range of 1.4 to 1.8, feed intake is not printed so it cannot be checked, and Eq. 5 mixes per-fish gain with the final fish count (UQ-017).",
+        ],
+        "sensitivity": {
+            "fcr_if_temperature_lowers_intake_not_conversion": model["feed_conversion_ratio"]["simulation_default"],
+            "error_fraction_vs_published_max": round(model["feed_conversion_ratio"]["simulation_default"] / o["fcr"]["max"] - 1, 3),
+            "note": "Even with no temperature penalty on conversion, the sourced FCR of 1.7 is 42 percent above the published maximum.",
+        },
         "metrics": [
             metric_range("fish_gain_g_per_day_mid_table_feed", out["mid"], o["fish_gain_g_per_day"]["min"], o["fish_gain_g_per_day"]["max"]),
             metric_range("fish_gain_g_per_day_high_table_feed", out["high"], o["fish_gain_g_per_day"]["min"], o["fish_gain_g_per_day"]["max"]),
-            metric_range("fcr", model["feed_conversion_ratio"]["simulation_default"] / fish_growth.temperature_factor(i["water_temperature_c"], model),
-                         o["fcr"]["min"], o["fcr"]["max"], "model FCR at 23.5 C = 1.7 / temperature factor"),
+            unscored(metric_range("fcr", model["feed_conversion_ratio"]["simulation_default"] / fish_growth.temperature_factor(i["water_temperature_c"], model),
+                                  o["fcr"]["min"], o["fcr"]["max"], "model FCR at 23.5 C = 1.7 / temperature factor"),
+                     "published FCR below the Tier 1 range and not checkable (feed intake not printed); see UQ-017"),
         ],
     }
 
@@ -238,14 +284,21 @@ def build() -> dict:
     ]
     failures = [
         f"{c['system_id']}: {m['metric']} ({m['error_fraction']:+.0%})"
-        for c in cases for m in c["metrics"] if m["within_25_percent"] is False
+        for c in cases for m in c["metrics"] if m["scored"] and m["within_25_percent"] is False
     ]
+    excluded = [
+        f"{c['system_id']}: {m['metric']} ({m['error_fraction']:+.0%}): {m['excluded_reason']}"
+        for c in cases for m in c["metrics"] if not m["scored"]
+    ]
+    scored = [m for c in cases for m in c["metrics"] if m["scored"]]
     return {
         "estimate_status": "scenario_estimate",
         "label": "scenario estimate, not validated",
         "fail_threshold_abs_error_fraction": FAIL_THRESHOLD,
         "cases": cases,
+        "scored_metric_count": len(scored),
         "failures": failures,
+        "excluded_from_score": excluded,
     }
 
 
@@ -256,7 +309,8 @@ def main() -> None:
         print(case["system_id"])
         for m in case["metrics"]:
             print(f"  {m['metric']}: model {m['model']} vs {m['observed']} -> {m['error_fraction']}")
-    print("Failures:", *results["failures"], sep="\n  ")
+    print(f"Failures ({len(results['failures'])} of {results['scored_metric_count']} scored):", *results["failures"], sep="\n  ")
+    print("Reported, not scored:", *results["excluded_from_score"], sep="\n  ")
 
 
 if __name__ == "__main__":

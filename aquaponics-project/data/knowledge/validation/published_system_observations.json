@@ -18,7 +18,7 @@
         "source_gate": "conditional",
         "source_gate_reason": "Open-access peer-reviewed, low-impact journal.",
         "confidence": "medium",
-        "confidence_reason": "Full measured fish and water record with N basis stated; small backyard unit; read through a fetch summary. Methods re-read from the PDF 2026-11-26 (bed construction, light method, Table 3).",
+        "confidence_reason": "Full measured fish and water record with N basis stated; small backyard unit; read through a fetch summary. Methods re-read from the PDF 2026-11-26 (bed construction, light method, Table 3). Basil planting, SD and the authors' pH statement re-read 2026-11-26 (validation round 3).",
         "corroboration": {
           "status": "single_source",
           "source_ids": [
@@ -49,9 +49,10 @@
         "note": "Start biomass 10.33 kg does not equal 309 x 26.5 g (8.19 kg) as printed; the model uses the printed biomass.",
         "dli_mol_m2_day_derived": {
           "low": 4.3,
+          "mid": 5.75,
           "high": 7.2
         },
-        "dli_basis": "derived, revised 2026-11-26: unit II (tilapia) daytime PAR 146.6 umol/m2/s (Table 3, twice-weekly readings) over the mean astronomical day length at Rostock (54.1 N) for 8 Aug to 16 Oct 2014, 12.65 h (our arithmetic); high = PAR held all day plus night PAR 11.6 umol/m2/s for the remaining 11.35 h (lamps assumed on all night); low = PAR read near midday on a sinusoidal day (daytime mean = 2/pi of the reading), no night light. The earlier 12.7 treated daytime PAR as a 24 h mean, which the separately reported night PAR (11.6) rules out; the earlier low (4.8) used unit I PAR (111.2) by mistake.",
+        "dli_basis": "derived, revised 2026-11-26: unit II (tilapia) daytime PAR 146.6 umol/m2/s (Table 3, twice-weekly readings) over the mean astronomical day length at Rostock (54.1 N) for 8 Aug to 16 Oct 2014, 12.65 h (our arithmetic); high = PAR held all day plus night PAR 11.6 umol/m2/s for the remaining 11.35 h (lamps assumed on all night); low = PAR read near midday on a sinusoidal day (daytime mean = 2/pi of the reading), no night light. The earlier 12.7 treated daytime PAR as a 24 h mean, which the separately reported night PAR (11.6) rules out; the earlier low (4.8) used unit I PAR (111.2) by mistake. Added 2026-11-26 (validation round 3): mid = midpoint of the two bounds (our arithmetic), used as the scored case because the photoperiod is not reported; the bounds become a sensitivity band.",
         "basil_density_note": "12 basil per 2 m2 box (about 6 basil/m2), 36 herbs per box (18 plants/m2)",
         "grow_bed": {
           "boxes": 5,
@@ -78,7 +79,10 @@
             "basis": "2,000 kg / 1,600 to 1,400 kg/m3 (our arithmetic); the paper gives mass, not volume or depth"
           },
           "note": "The paper prints 120 L water per box at maximum flood, not 2 m2 x 0.20 m = 400 L; the gravel displaces part of the box volume. No separate biofilter; a 1 m3 IBC clarifier only."
-        }
+        },
+        "planting_material": "seeded in rockwool cubes three weeks before the trial and planted into the boxes at the start (Methods); no cuts or harvest dates reported, so the 16.1 g is read as one mean per plant over the 70 days",
+        "basil_seed_source": "Kiepenkerl (BALDUR Garten GmbH); cultivar not named",
+        "pH_note": "pH 8.0 is the reported trial mean; the authors write that plant growth was 'generally below expectations (strongly influenced by a high alkaline pH)'. Validation runs hold pH at this mean."
       },
       "observed": {
         "fish_end_biomass_kg": 19.45,
@@ -89,7 +93,9 @@
         "no3_n_mg_L_mean": 15.57,
         "no3_n_mg_L_sd": 8.39,
         "basil_fresh_g_per_plant": 16.1,
-        "tan_basis_note": "Printed as NH3-N 0.21 +/- 0.16 mg/L (global mean of fish tank, clarifier and sump); read as total ammonia N (photometric method), since 0.21 mg/L un-ionised NH3 at pH 8.0 would imply about 3.6 mg/L TAN (our arithmetic, Emerson pKa at 26.3 C). Hydroponic boxes 0.16 +/- 0.08."
+        "tan_basis_note": "Printed as NH3-N 0.21 +/- 0.16 mg/L (global mean of fish tank, clarifier and sump); read as total ammonia N (photometric method), since 0.21 mg/L un-ionised NH3 at pH 8.0 would imply about 3.6 mg/L TAN (our arithmetic, Emerson pKa at 26.3 C). Hydroponic boxes 0.16 +/- 0.08.",
+        "basil_fresh_g_per_plant_sd": 13.8,
+        "basil_note": "Table 2, 'Basil fresh biomass [g]', unit II 16.1 +/- 13.8 (unit I, carp, 22.1 +/- 17.5; not significantly different). The SD is 86 percent of the mean."
       }
     },
     {
@@ -136,7 +142,12 @@
         "basil_period": "18 Jul 2003 to 23 May 2004 (310 days)",
         "basil_kg_m2_trough_area_per_year_derived": 25.7,
         "fish_harvest_mean_g_derived": 630.0,
-        "fish_harvest_basis": "378.0 kg average harvest per tank / 600 fish stocked (no mortality assumed); text also says 0.50 to 0.64 kg per fish"
+        "fish_harvest_basis": "378.0 kg average harvest per tank / 600 fish stocked (no mortality assumed); text also says 0.50 to 0.64 kg per fish",
+        "fish_harvest_mean_g_text_range": {
+          "min": 500.0,
+          "max": 640.0,
+          "basis": "report text: '0.50 to 0.64 kg per fish' (already recorded in fish_harvest_basis); used as the scored range from 2026-11-26 because the 630 g point assumes no mortality"
+        }
       }
     },
     {
@@ -168,7 +179,8 @@
         "fish_start_mean_g": 40.0,
         "days": 60,
         "water_temperature_c": 23.5,
-        "feed": "not reported (feeding table cited)"
+        "feed": "not reported: 'daily feed rates at different fish sizes were applied according to' Rakocy 1989; fish weighed every ten days",
+        "stocking": "75 fingerlings of 40 g per 0.60 m3 tank (5 kg/m3)"
       },
       "observed": {
         "fish_gain_g_per_day": {
@@ -182,7 +194,8 @@
         "sgr_pct_day": {
           "min": 1.58,
           "max": 1.85
-        }
+        },
+        "fcr_quality_note": "Eq. 5 prints FCR = FI / (WG x nt), with WG defined as per-fish mass gained and nt the final fish count; feed intake (FI) is not printed, so the FCR cannot be recomputed. FER = 1/FCR in every row (consistent). The values (0.92 to 1.20) are below the Tier 1 range of 1.4 to 1.8 (SRAC 282, FAO 589) and below UVI's measured 1.71 to 1.92. Not scored in validation (UQ-017)."
       }
     }
   ]
