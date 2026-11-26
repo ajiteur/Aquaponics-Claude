@@ -6,6 +6,7 @@ Newest first. Each entry gives the decision, why, and who made it.
 
 - **Shelve the farm go/no-go; build the strongest simulation for the Netherlands and India in parallel.** Why: if the simulation is strong, moving to a real farm is straightforward, and the engine should work across many markets. Decided by Ajit.
 - **Run the P1 equipment research and hold the results for Batch 002.** Only values that fit an existing catalog slot are wired in (India polyhouse and shade-net life, India water price, NL basil seed). Everything else waits in `data/catalog/candidates_batch_002_v0.jsonl`. Asked by Ajit.
+- **Use the MIDH 2025 Annexure V norms as the India national reference for protected structures, held for Batch 002.** NVPH tubular Rs 1000-1200/m2 and bamboo shade net Rs 450/m2 (plains) supersede the older 650-935 and 200-414 ranges, but the catalog values are not changed until Ajit approves. These are subsidy cost ceilings, not market prices. Telangana's 2025-26 state table could not be downloaded and stays a gap. Ajit supplied the PDF; Claude extracted it.
 
 ## 2026-11-25
 

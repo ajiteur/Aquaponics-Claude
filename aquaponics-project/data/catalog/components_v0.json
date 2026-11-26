@@ -232,6 +232,12 @@
       "url": "https://www.reinsaat.at/shop/EN/culinary_and_aromatic_herbs/basil_genovese/",
       "read_date": "2026-11-25",
       "source_tier": "tier_3"
+    },
+    "midh_operational_guidelines_2025": {
+      "citation": "MIDH Operational Guidelines 2025 (Guidelines dated 31.12.2024), Ministry of Agriculture and Farmers Welfare, Annexure V B.5 Protected cultivation, pp. 54-58",
+      "url": "data/sources/research_reports/raw/MIDH Operational Guidelines 2025.pdf",
+      "read_date": "2026-11-26",
+      "source_tier": "tier_1"
     }
   },
   "design_rules": {
@@ -2208,6 +2214,15 @@
       "role": "structure",
       "notes": [
         "Lifetime left null: no sourced life, so build cost per year shows as a gap."
+      ],
+      "review_flags": [
+        {
+          "date": "2026-11-26",
+          "source_ids": [
+            "midh_operational_guidelines_2025"
+          ],
+          "flag": "MIDH 2025 national norm for naturally ventilated tubular polyhouse is Rs 1200/m2 (up to 500 m2), 1050 (500-1008 m2), 1000 (1008-2500 m2), plains; +15% NE/Himalayan. This supersedes the 650-935 range. Norms are subsidy cost ceilings, not market prices. Value not changed; candidate pending Batch 002."
+        }
       ]
     },
     {
@@ -2285,6 +2300,13 @@
             "equipment_inventory_2026_11_25"
           ],
           "flag": "High end Rs 414/m2 appears to be the hilly or north-east (HMNEH) rate. NHB/MIDH norms give bamboo shade net Rs 360/m2 for plains and Rs 414 for hilly areas; the four southern states are plains. Value not changed; Ajit to confirm using 360."
+        },
+        {
+          "date": "2026-11-26",
+          "source_ids": [
+            "midh_operational_guidelines_2025"
+          ],
+          "flag": "MIDH 2025 national norm for bamboo/cable-purlin shade net house is Rs 450/m2 (tubular Rs 710), plains; +15% NE/Himalayan. Supersedes the 200-414 range and the 360/414 question. Cost ceiling, not market price. Value not changed; candidate pending Batch 002."
         }
       ]
     },
@@ -2645,6 +2667,7 @@
     "Seedling propagation (trays, media, germination losses), grow lights, back-up power, sensors and test kits, packaging and cold chain.",
     "Water held in NFT and media-bed grow units; NFT channel layout per m2; NFT and media-bed yields.",
     "Fish sale value and logistics/market costs (layered on later by design).",
-    "Batch 002 candidates not yet wired into the configurator (see data/catalog/candidates_batch_002_v0.jsonl): NL trough-wall materials priced per m2 wall face, not per m2 grow area; NL heating installation and heat-demand references; backup power (NL, India); India state subsidy rates, tanks, pumps."
+    "Batch 002 candidates not yet wired into the configurator (see data/catalog/candidates_batch_002_v0.jsonl): NL trough-wall materials priced per m2 wall face, not per m2 grow area; NL heating installation and heat-demand references; backup power (NL, India); India state subsidy rates, tanks, pumps.",
+    "India state protected-cultivation tables 2025-26: Telangana, Andhra Pradesh and Karnataka state rate tables not read (Telangana guideline could not be downloaded). National MIDH 2025 norms are in Batch 002; state top-ups beyond the 50% central share stay a gap."
   ]
 }
