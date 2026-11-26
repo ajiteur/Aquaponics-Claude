@@ -12,7 +12,7 @@ Each PR is stacked on the one before it, so merge them in this order.
 |---|---|---|
 | A1 | #28: record Approval Batch 002, save-point-002 entry | **Merge first.** Tag `save-point-002` on the merge commit. |
 | A2 | #29: swaps checkpoint (`compare_swaps.py`, heat-pump heating source, NFT and media-bed alternatives) | **Merge second.** Re-reviewed at `c5e1042`: tests (204), integrity and syncs pass. |
-| A3 | #30: heating and climate checkpoint, plus the fish growth and feed checkpoint (`heat_demand.py`, `fish_growth.py`) | **Merge third.** Stacked on #29, re-reviewed at `d40e6f4`. It now also carries the validation checkpoint. The fish model is opt-in, and only the two basil raft crop cycles use it; their yields move by under 0.1% (1.440 to 1.441 kg/m²). With #28, #29 and #30 combined, tests, integrity and syncs pass. |
+| A3 | #30: heating and climate checkpoint, plus the fish growth and feed checkpoint (`heat_demand.py`, `fish_growth.py`) | **Merge third.** Stacked on #29, re-reviewed at `a3a4892`. It now also carries the validation checkpoint and its first fixes. The fish model is opt-in, and only the two basil raft crop cycles use it; their yields move by under 0.1% (1.440 to 1.441 kg/m²). With #28, #29 and #30 combined, tests, integrity and syncs pass. |
 
 ## B. Values from PR #29 (swaps)
 
@@ -45,7 +45,7 @@ Each PR is stacked on the one before it, so merge them in this order.
 | D1 | FISH_0001 (FCR 1.4 to 1.8, UVI 1.7), FISH_0002 (SRAC 282 feeding table), FISH_0003 (no feeding below 17 °C), FISH_0004 (growth at the optimum), FISH_0006 (UVI growth benchmark), FISH_0007 (UVI 32% protein pellet) | **Approve.** Tier 1 or 2, medium or high, corroborated. |
 | D2 | FISH_0005 (optimum 27 to 29 °C; sources conflict) | Keep as candidate. |
 | D3 | FISH_0008 (no thermal growth coefficient found; Tier 3) | Keep as candidate. |
-| D4 | The tilapia growth and feed model (temperature points 17 / 22 / 27 to 32 / 39.7 °C) | Keep as candidate. It is a new model and its upper shoulder is low confidence. |
+| D4 | The tilapia growth and feed model, with temperature factors now taken from Santos 2013 measured growth (0.674 at 22 °C) and Baras 2001 above the optimum | Keep as candidate. It is a new model, revised after one validation run. |
 
 ## E. Values from PR #30 (validation against published systems)
 
@@ -53,6 +53,15 @@ Each PR is stacked on the one before it, so merge them in this order.
 |---|---|---|
 | E1 | Published-system observations: Knaus 2018 (Tier 2, medium), Savidov 2005 (Tier 1, low), Khater 2023 (Tier 2, medium) | Keep as candidates. Each is single source. They are used only as comparison targets, so they don't need to be approved to be useful. |
 | E2 | Tickets UQ-013 to UQ-015 | Nothing to approve. They record the gaps the validation found: 7 of 11 metrics are more than 25% off (fish growth is too slow below 27 °C, basil yield doesn't respond to density or light, and the N balance is off for gravel beds). |
+
+## F. Validation fixes (PR #30)
+
+| # | Item | Recommendation |
+|---|---|---|
+| F1 | FISH_0009 (Santos 2013 growth by temperature), BYR_0001 (density trial), BYR_0002 (light response) | **Approve.** Tier 2, medium, corroborated. |
+| F2 | BYR_0003 (low light, single source) | Keep as candidate. |
+| F3 | The basil yield response model (density exponent 0.394 from Ciriello 2021; DLI points from Dou 2018 and Walters 2023) | Keep as candidate. It is a fitted model; it is 1.0 at the UVI anchor, so the existing results don't change. |
+| F4 | Validation after the fixes: 6 of 12 metrics more than 25% off (was 7 of 11). UQ-013 and UQ-014 are fixes in review; UQ-015 (gravel-bed N balance) stays open. | Nothing to approve. |
 
 ## Related Notes
 
