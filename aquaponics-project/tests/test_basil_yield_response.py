@@ -18,12 +18,17 @@ class YieldResponseTests(unittest.TestCase):
         self.assertEqual((f["density_factor"], f["light_factor"]), (1.0, 1.0))
         self.assertEqual(simulate_day.yield_response_factors(self.basil, 8.0, 25.0)["light_factor"], 1.0)
 
-    def test_density_lowers_per_plant_but_raises_per_m2(self):
+    def test_closed_canopy_keeps_per_m2_yield_above_anchor(self):
         f = simulate_day.yield_response_factors(self.basil, 32.0, None)["density_factor"]
+        self.assertAlmostEqual(32.0 * f, 8.0, places=3)
+        self.assertEqual(simulate_day.yield_response_factors(self.basil, 4.0, None)["density_factor"], 1.0)
+
+    def test_open_canopy_override_lowers_per_plant_but_raises_per_m2(self):
+        b = self.basil["yield_response_model"]["density_response"]["open_canopy_sensitivity_exponent_b"]
+        f = simulate_day.yield_response_factors(self.basil, 32.0, None, exponent_b=b)["density_factor"]
         self.assertLess(f, 1.0)
         self.assertGreater(32.0 * f, 8.0)
         self.assertAlmostEqual(f, 4.0 ** (0.394 - 1.0), places=3)
-        self.assertEqual(simulate_day.yield_response_factors(self.basil, 4.0, None)["density_factor"], 1.0)
 
     def test_light_points(self):
         light = lambda dli: simulate_day.yield_response_factors(self.basil, 8.0, dli)["light_factor"]

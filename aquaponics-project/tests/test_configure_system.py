@@ -208,6 +208,31 @@ class RealCatalogTests(unittest.TestCase):
             for cat in ("fish_tank", "grow_unit", "water_pump", "aeration", "solids_filter", "structure"):
                 self.assertIn(cat, cats, f"{region} lacks {cat}")
 
+    def test_every_role_has_nl_and_india_parts(self):
+        """Checkpoint: Netherlands and India prices on every part role, or a listed reason."""
+        exceptions = self.components["metadata"]["role_coverage"]["not_covered"]
+        roles = {}
+        for c in self.components["components"]:
+            if c["region"] == "any":
+                continue
+            roles.setdefault(c.get("role", c["category"]), set()).add(c["region"])
+        for role, regions in roles.items():
+            for region in ("netherlands", "india"):
+                if region in regions:
+                    continue
+                self.assertIn(role, exceptions, f"{role} has no {region} part and no listed reason")
+                self.assertEqual(exceptions[role]["missing_in"], region)
+        for c in self.components["components"]:
+            if c["region"] != "any" and c.get("capex_per_unit") is not None:
+                self.assertIsNotNone(c["capex_per_unit"].get("low"), c["component_id"])
+                self.assertIn("market", c["capex_per_unit"], c["component_id"])
+
+    def test_new_categories_have_parts_in_both_regions(self):
+        for region in ("netherlands", "india"):
+            cats = {c["category"] for c in self.components["components"] if c["region"] == region}
+            for cat in ("lighting", "monitoring", "water_treatment", "backup_power", "harvest_postharvest"):
+                self.assertIn(cat, cats, f"{region} lacks {cat}")
+
     def test_species_point_at_canon(self):
         for entry in self.species["fish"] + self.species["plants"]:
             self.assertTrue((PROJECT_ROOT / entry["canon_ref"]).is_file(), entry["canon_ref"])
@@ -225,6 +250,59 @@ class RealCatalogTests(unittest.TestCase):
             mid = res["cases"]["mid"]
             self.assertIsNotNone(mid["cost_per_kg_plant"], name)
             self.assertGreater(mid["sizing"]["plant_kg_yr"], 0)
+
+
+class NewDriverTests(unittest.TestCase):
+    """Backup power, lights, trough walls and propagation use the real catalog (scenario values)."""
+
+    def base(self, name="configure_basil_dwc_nl"):
+        spec = json.loads((PROJECT_ROOT / "runs" / f"{name}.json").read_text(encoding="utf-8"))
+        return spec["configurator"]["build"]
+
+    def mid(self, build):
+        return cs.build_result(build, run_simulation=False)["cases"]["mid"]
+
+    def line(self, res, cid):
+        return next(l for l in res["components"] if l["component_id"] == cid)
+
+    def test_trough_walls_follow_liner_geometry(self):
+        res = self.mid(self.base())
+        s = res["sizing"]
+        self.assertAlmostEqual(s["trough_wall_face_m2"], s["liner_area_m2"] - s["grow_area_m2"], places=2)
+        self.assertIsNotNone(self.line(res, "dwc_trough_walls_nl")["capex_total"])
+
+    def test_backup_is_sized_on_pump_and_air_load(self):
+        build = self.base()
+        build["components"]["backup_power"] = "backup_ups_apc_900w_nl"
+        res = self.mid(build)
+        load = res["sizing"]["critical_load_w"]
+        self.assertGreater(load, 0)
+        ups = self.line(res, "backup_ups_apc_900w_nl")
+        self.assertEqual(ups["quantity"], max(1, -(-load // 900)))
+
+    def test_light_hours_are_a_gap_until_set(self):
+        build = self.base()
+        build["components"]["lighting"] = "light_led_lumatek_zeus600_nl"
+        line = self.line(self.mid(build), "light_led_lumatek_zeus600_nl")
+        self.assertIsNone(line["electricity_kwh_yr"])
+        self.assertTrue(any("duty hours" in m for m in line["missing"]))
+        build["component_overrides"] = {"light_led_lumatek_zeus600_nl": {"duty_hours_per_day": 12}}
+        line = self.line(self.mid(build), "light_led_lumatek_zeus600_nl")
+        self.assertGreater(line["electricity_kwh_yr"], 0)
+        # 60,000 h at 12 h/day is about 13.7 years
+        self.assertAlmostEqual(line["capex_total"] / line["capex_per_year"], 60000 / (12 * 365), places=1)
+
+    def test_quantity_override_and_propagation_opt_in(self):
+        build = self.base("configure_basil_dwc_karnataka")
+        build["components"]["harvest_postharvest"] = "harvest_crate_in"
+        build["component_overrides"] = {"harvest_crate_in": {"quantity": 20}}
+        res = self.mid(build)
+        self.assertEqual(self.line(res, "harvest_crate_in")["quantity"], 20)
+        self.assertFalse(any(r["line_id"] == "propagation" for r in res["running"]))
+        build["propagation"] = {"enabled": True}
+        res = self.mid(build)
+        prop = next(r for r in res["running"] if r["line_id"] == "propagation")
+        self.assertIsNotNone(prop["cost_per_year"])
 
 
 class RunFileTests(unittest.TestCase):

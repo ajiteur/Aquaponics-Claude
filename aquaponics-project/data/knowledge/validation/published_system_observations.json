@@ -18,7 +18,7 @@
         "source_gate": "conditional",
         "source_gate_reason": "Open-access peer-reviewed, low-impact journal.",
         "confidence": "medium",
-        "confidence_reason": "Full measured fish and water record with N basis stated; small backyard unit; read through a fetch summary.",
+        "confidence_reason": "Full measured fish and water record with N basis stated; small backyard unit; read through a fetch summary. Methods re-read from the PDF 2026-11-26 (bed construction, light method, Table 3).",
         "corroboration": {
           "status": "single_source",
           "source_ids": [
@@ -48,11 +48,37 @@
         "plant_count_derived": 180,
         "note": "Start biomass 10.33 kg does not equal 309 x 26.5 g (8.19 kg) as printed; the model uses the printed biomass.",
         "dli_mol_m2_day_derived": {
-          "low": 4.8,
-          "high": 12.7
+          "low": 4.3,
+          "high": 7.2
         },
-        "dli_basis": "derived from published mean PAR 111.2 to 146.6 umol/m2/s; low = unit I PAR over 12 h of light, high = unit II PAR as a 24 h mean; photoperiod not stated",
-        "basil_density_note": "12 basil per 2 m2 box (about 6 basil/m2), 36 herbs per box (18 plants/m2)"
+        "dli_basis": "derived, revised 2026-11-26: unit II (tilapia) daytime PAR 146.6 umol/m2/s (Table 3, twice-weekly readings) over the mean astronomical day length at Rostock (54.1 N) for 8 Aug to 16 Oct 2014, 12.65 h (our arithmetic); high = PAR held all day plus night PAR 11.6 umol/m2/s for the remaining 11.35 h (lamps assumed on all night); low = PAR read near midday on a sinusoidal day (daytime mean = 2/pi of the reading), no night light. The earlier 12.7 treated daytime PAR as a 24 h mean, which the separately reported night PAR (11.6) rules out; the earlier low (4.8) used unit I PAR (111.2) by mistake.",
+        "basil_density_note": "12 basil per 2 m2 box (about 6 basil/m2), 36 herbs per box (18 plants/m2)",
+        "grow_bed": {
+          "boxes": 5,
+          "box_dimensions_m": [
+            1.0,
+            2.0,
+            0.3
+          ],
+          "flood_water_depth_m": 0.2,
+          "gravel_mass_kg_per_box": 400,
+          "gravel_grain_size_mm": [
+            16,
+            32
+          ],
+          "regime": "ebb-and-flow, bell siphon, 2 L/min inflow per box",
+          "gravel_bulk_density_kg_m3_proxy": {
+            "min": 1400,
+            "max": 1600,
+            "basis": "sand bulk density from Maucieri et al. 2019 (Tier 1, via equipment research notes), used as a proxy because no gravel value was found; assumption"
+          },
+          "gravel_volume_m3_total_derived": {
+            "min": 1.25,
+            "max": 1.43,
+            "basis": "2,000 kg / 1,600 to 1,400 kg/m3 (our arithmetic); the paper gives mass, not volume or depth"
+          },
+          "note": "The paper prints 120 L water per box at maximum flood, not 2 m2 x 0.20 m = 400 L; the gravel displaces part of the box volume. No separate biofilter; a 1 m3 IBC clarifier only."
+        }
       },
       "observed": {
         "fish_end_biomass_kg": 19.45,
@@ -62,7 +88,8 @@
         "tan_mg_L_mean": 0.21,
         "no3_n_mg_L_mean": 15.57,
         "no3_n_mg_L_sd": 8.39,
-        "basil_fresh_g_per_plant": 16.1
+        "basil_fresh_g_per_plant": 16.1,
+        "tan_basis_note": "Printed as NH3-N 0.21 +/- 0.16 mg/L (global mean of fish tank, clarifier and sump); read as total ammonia N (photometric method), since 0.21 mg/L un-ionised NH3 at pH 8.0 would imply about 3.6 mg/L TAN (our arithmetic, Emerson pKa at 26.3 C). Hydroponic boxes 0.16 +/- 0.08."
       }
     },
     {

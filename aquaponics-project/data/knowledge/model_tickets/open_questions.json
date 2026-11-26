@@ -146,7 +146,7 @@
       "source_section": "Validation checkpoint, 2026-11-26",
       "priority": "high",
       "status": "candidate_fix_in_review",
-      "resolution_note": "2026-11-26: density (Ciriello 2021 exponent) and DLI (Dou 2018, Walters 2023) factors added; Savidov +286 -> +68 percent; Knaus +670 -> +30 to +441 percent depending on the DLI reading (photoperiod not reported)."
+      "resolution_note": "2026-11-26: density (Ciriello 2021 exponent) and DLI (Dou 2018, Walters 2023) factors added; Savidov +286 -> +68 percent; Knaus +670 -> +30 to +441 percent depending on the DLI reading (photoperiod not reported). 2026-11-26 (second fix): closed-canopy density rule (b = 0 above 8 plants/m2; Ciriello exponent kept as open-canopy sensitivity) and Knaus DLI re-derived from the paper as 4.3 to 7.2 (the 12.7 reading was ruled out by the paper's separate night PAR). Savidov +68 -> -2 percent; Knaus basil -13 percent at DLI 4.3, +112 percent at 7.2. The upper Knaus case still fails; see UQ-016."
     },
     {
       "ticket_id": "UQ-015",
@@ -155,6 +155,17 @@
       "why_unresolved": "Gravel media has more nitrifying surface than a raft but is counted as raft area; the residual N loss fraction is calibrated at UVI's feed ratio and solids handling only.",
       "evidence_still_needed": "Nitrification capacity per m2 of gravel media bed; denitrification or solids N loss at low feed ratios.",
       "source_section": "Validation checkpoint, 2026-11-26",
+      "priority": "medium",
+      "status": "candidate_fix_in_review",
+      "resolution_note": "2026-11-26: gravel beds now count as media volume x feed loading (new candidate variant media_bed_gravel_ebb_flow, 1.0 to 3.6 kg feed/m3/day from FAO 589 and SRAC 453, cross-checked with Greiner and Timmons 1998), not as raft area. Knaus beds: 2,000 kg of 16 to 32 mm gravel, about 1.25 to 1.43 m3 at a sand bulk-density proxy. At 3.6 kg/m3 TAN is 0.17 vs 0.21 mg/L (-20 percent) and NO3-N 17.8 vs 15.6 (+15 percent); at the FAO low end TAN is 0.65 (+210 percent). The observed TAN sits near the trickling-filter end, which the measured Greiner rates support. One validation point only."
+    },
+    {
+      "ticket_id": "UQ-016",
+      "topic": "basil_establishment_after_transplant",
+      "issue": "Basil grown from three-week-old transplants is given the regrowth rate of UVI's established, cut-and-regrow plants from day 0. Knaus 2018 (70 days, low autumn light) is overpredicted +112 percent at the upper light estimate (DLI 7.2) and -13 percent at the lower (4.3).",
+      "why_unresolved": "No establishment lag or first-cut penalty is modelled; Knaus photoperiod and glasshouse air temperature are not reported, so light and temperature also remain uncertain.",
+      "evidence_still_needed": "Basil first-cut vs later-cut yields from transplant in raft or media beds (e.g. Modarelli 2023, Corrado 2020 full figures), and a basil temperature response for air below the water temperature.",
+      "source_section": "Validation checkpoint 2, 2026-11-26",
       "priority": "medium",
       "status": "review_needed"
     }

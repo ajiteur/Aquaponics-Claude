@@ -2,6 +2,20 @@
 
 Newest first. Each entry gives the decision, why, and who made it.
 
+## 2026-11-26: Component checkpoints (P1 gaps, missing categories, NL and India on every part)
+
+- **Fill empty catalog slots with new candidates, and hold the rest in `candidates_batch_004_v0.jsonl`.** Wired in: trough walls (NL cellular block, pine plank, hollow block; India concrete block), NL fingerlings, India basil seed, NL lettuce seed, NL K1 biofilter media, India expanded clay, and parts in the new categories. Held: a second NL tilapia feed (Lets-Grow), the German catfish farm model (context), a Crompton pump with no usable flow rating, and conflicting Bengaluru and out-of-date Hyderabad water tariffs. All pending Batch 004. Asked by Ajit.
+- **Add the missing categories as opt-in add-ons, not into the base builds.** Lighting, monitoring, water treatment, backup power, harvest crates and propagation now have NL and India parts. The base builds stay as they were apart from the newly priced slots, so earlier results remain comparable. Why: most new parts have no sourced lifetime or count, so adding them by default would mix known and unknown costs. Proposed by Claude.
+- **Size backup power on the chosen pumps and aeration, trough walls on the liner geometry, and one meter or kit per system.** Lights use the maker's stated coverage; hours per day are a user setting because no source gives them. Any count or hours a user sets goes in `component_overrides` and is their own assumption. Proposed by Claude.
+- **A part role may be missing in one market only with a written reason.** Two are: heating in India (Indian polyhouses are not heated, HEAT_0009) and generators in India (the only listing looked like a placeholder). A test checks this. Proposed by Claude.
+- **Telangana's 2025-26 protected-cultivation table stays a gap.** The state site refuses connections from both the cloud and Ajit's PC. It needs a download from an Indian network or VPN. Recorded by Claude.
+
+## 2026-11-26: Basil and gravel-bed validation fixes
+
+- **Treat established cut-and-regrow basil as a closed canopy.** Above the UVI density (8 plants/m²), yield per m² stays flat instead of following a baby-leaf density curve. Why: UVI plants are already about 250 g each, and two raft trials at 20 to 23 plants/m² show no per-m² gain. The baby-leaf exponent stays as a sensitivity case. Proposed by Claude, pending Ajit's review.
+- **Model gravel grow beds as media volume, not raft area.** Range 1.0 to 3.6 kg feed per m³ of gravel per day. The simulator default is the low end, which is conservative. Why: gravel is a different nitrifying surface from a raft, and the published validation case only fits near the upper end. Proposed by Claude, pending Ajit's review.
+- **Fix the cause, not the result:** the remaining basil miss (young transplants) is a new ticket, UQ-016, not a tuned number. Proposed by Claude.
+
 ## 2026-11-26: Multi-market checkpoint
 
 - **Tie every price to a market: region, currency and price year.** Retail listings take the year they were read, sourced documents take the year they state, and anything else is marked "not recorded" and flagged, never guessed. A build refuses a price in another currency. Why: the model has to generalise to many markets without mixing currencies or vintages. Proposed by Claude.
@@ -14,6 +28,8 @@ Newest first. Each entry gives the decision, why, and who made it.
 - **Model a heat pump as the same heat demand delivered with electricity.** Heat (kWh) is gas m³ × 8.63 to 8.79 kWh per m³, and electricity is heat ÷ a seasonal COP of 3.7 to 4.6. The heat-demand values themselves stay with the heating and climate thread. New values pending Batch 003. Proposed by Claude.
 
 ## 2026-11-26
+
+- **Approve Batch 004 as recommended.** Approved: truths BYR_0005 and NITR_0015, and four corroborated Tier 3 prices for scenario use (Lumatek Zeus 600 and SanLight EVO 4-120 LEDs and the pH tester in the Netherlands, KOH pH base in India). Models and everything else stay candidates. Decided by Ajit (15:57 Europe/Amsterdam).
 
 - **Approve Batch 003 as recommended.** Approved: heat pump COP and gas heat per m³ (NL), the India fan-pad polyhouse price, and truths CD_0011, CD_0012, HEAT_0002, HEAT_0004, HEAT_0005, HEAT_0009, FISH_0001 to FISH_0004, FISH_0006, FISH_0007, FISH_0009, BYR_0001 and BYR_0002. Models and everything else stay candidates. Media-bed yield parity (B8) was not chosen, so it stays a gap. Decided by Ajit (05:54 Europe/Amsterdam).
 

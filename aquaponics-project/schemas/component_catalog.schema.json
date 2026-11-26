@@ -80,7 +80,8 @@
       "properties": {
         "component_id": {"type": "string", "pattern": "^[a-z0-9_]+$"},
         "name": {"type": "string"},
-        "category": {"enum": ["fish_tank", "grow_unit", "water_pump", "aeration", "biofilter", "solids_filter", "structure", "heating", "lighting", "backup_power", "monitoring"]},
+        "category": {"enum": ["fish_tank", "grow_unit", "water_pump", "aeration", "biofilter", "solids_filter", "structure", "heating", "lighting", "backup_power", "monitoring",
+                              "propagation", "water_treatment", "fish_handling", "harvest_postharvest"]},
         "role": {"type": "string", "description": "Sub-slot inside a category (e.g. liner, raft, trough_walls). Alternatives are only swapped within the same role."},
         "function": {"type": "string"},
         "region": {"type": "string", "description": "A region key (netherlands, india) or 'any'."},
@@ -94,7 +95,8 @@
           "properties": {
             "driver": {"enum": ["grow_area_m2", "raft_area_m2", "liner_area_m2", "media_volume_m3", "nft_channel_length_m",
                                 "fish_tank_volume_m3", "recirculation_flow_lph", "clarifier_volume_m3", "biofilter_media_m3",
-                                "air_flow_lpm", "structure_area_m2"]},
+                                "air_flow_lpm", "structure_area_m2", "trough_wall_face_m2", "system_count", "critical_load_w"],
+                       "description": "trough_wall_face_m2: both long trough walls at water depth (DWC only). system_count: 1 per build (one meter, one kit); set component_overrides.<id>.quantity for more. critical_load_w: summed power of the chosen pumps and aeration, for backup power."},
             "mode": {"enum": ["discrete", "continuous"]},
             "capacity_per_unit": {"type": "number", "description": "discrete: driver units one item covers; quantity = ceil(driver / capacity)."},
             "per_driver_unit": {"type": "number", "description": "continuous: items per driver unit (usually 1)."},
@@ -104,11 +106,12 @@
         },
         "capex_per_unit": {"$ref": "#/$defs/range"},
         "lifetime_years": {"$ref": "#/$defs/range"},
+        "lifetime_hours": {"$ref": "#/$defs/range", "description": "Rated burning hours (lights, UV lamps). Used only when lifetime_years is null and the duty hours are known."},
         "energy": {
           "type": ["object", "null"],
           "properties": {
             "power_w_per_unit": {"$ref": "#/$defs/range"},
-            "duty_hours_per_day": {"type": "number"}
+            "duty_hours_per_day": {"type": ["number", "null"], "description": "Omitted = 24 h. null = unknown (lights): the build sets component_overrides.<id>.duty_hours_per_day, or the energy line is a gap."}
           }
         },
         "occupies_floor": {"type": "boolean"},

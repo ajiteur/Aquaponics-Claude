@@ -373,9 +373,32 @@
     "approval_batch": "pending_batch_003",
     "added_utc": "2026-11-26",
     "evidence_policy": "Trusted Source Map and Source Trust Policy for Aquaponics Layer 1; reliability fields per AGENTS.md 6A",
-    "equation_text": "daily_cut_gain_per_plant = anchor_rate x plant_score x nitrate_score x density_factor x light_factor; density_factor = min(1, (density / anchor_density)^(b - 1)); light_factor from DLI points (1.0 when DLI is not given)",
+    "equation_text": "daily_cut_gain_per_plant = anchor_rate x plant_score x nitrate_score x density_factor x light_factor; density_factor = min(1, (density / anchor_density)^(b - 1)); b = 0 above the anchor (closed canopy: kg/m2 does not rise with density), open-canopy b = 0.394 kept for sensitivity; light_factor from DLI points (1.0 when DLI is not given)",
     "density_response": {
-      "yield_per_m2_exponent_b": 0.394,
+      "yield_per_m2_exponent_b": 0.0,
+      "open_canopy_sensitivity_exponent_b": 0.394,
+      "exponent_choice": {
+        "rule": "Established, cut-and-regrow basil at or above the UVI anchor density is treated as a closed canopy: yield per m2 is set by light, not plant count, so b = 0 (per-plant mass falls as 1/density). The Ciriello 2021 exponent (0.394, baby-leaf densities 159 to 317 plants/m2) is kept as the open-canopy sensitivity case.",
+        "reason": "The UVI anchor plants are already large (2.0 kg/m2 / 8 plants/m2 = 250 g per plant per 28-day cut, our arithmetic), so the canopy is closed at 8 plants/m2. Two independent raft trials at 20 to 23 plants/m2 report per-m2 cut yields below the UVI anchor, not above it: Modarelli et al. 2023 (Plants 12:1355; 20 plants/m2, about 32 to 44 g per plant per cut, about 0.65 to 0.89 kg/m2 per cut, our arithmetic; Naples, under 75 percent shade net) and Corrado et al. 2020 (Agronomy 10:830; 23 plants/m2, two cuts, per-m2 values in figures only). Light differs between these sites, so this is consistency, not a measured density response.",
+        "context_split": "Walters and Currey 2015 (DFT, 11 to 100 plants/m2, single harvest three weeks after transplant) found per-m2 yield rising with density and per-plant mass nearly unchanged: young, open canopies, b near 1. That is a different context (single harvest of small plants) and is not applied to established cut-and-regrow crops.",
+        "source_metadata": {
+          "source_tier": "tier_2",
+          "source_type": "peer_reviewed_journal"
+        },
+        "review_metadata": {
+          "source_gate": "conditional",
+          "source_gate_reason": "Peer-reviewed trials, but none is a density series for established cut basil; the rule is a modelling choice backed by consistency.",
+          "confidence": "low",
+          "confidence_reason": "No basil density trial on cut-and-regrow crops between 8 and 40 plants/m2 was found; two raft trials at 20 to 23 plants/m2 are consistent with no per-m2 gain; the Savidov 2005 validation point (31.8 plants/m2) also matches, but it is a validation case, not a source for the rule.",
+          "corroboration": {
+            "status": "single_source",
+            "source_ids": [
+              "modarelli_2023_plants",
+              "corrado_2020_agronomy"
+            ]
+          }
+        }
+      },
       "anchor_density_plants_m2": 8.0,
       "cap_per_plant_factor_at_or_below_anchor": 1.0,
       "derivation": "Ciriello et al. 2021 Table 1, floating raft: 4.81 kg/m2 at 317 plants/m2 vs 3.66 kg/m2 at 159 plants/m2; b = ln(4.81/3.66)/ln(317/159) = 0.394 (our arithmetic).",
@@ -458,13 +481,18 @@
             "walters_currey_2015_ashs"
           ]
         }
-      }
+      },
+      "notes": [
+        "2026-11-26: the Knaus 2018 validation now uses DLI 4.3 to 7.2 mol/m2/d (derived from the paper's daytime PAR, separately reported night PAR and Rostock day length); the earlier 12.7 reading treated daytime PAR as a 24 h mean, which the paper's separate night PAR rules out."
+      ]
     },
     "gaps": [
-      "No basil density trial between 8 and 100 plants/m2 with absolute yields.",
+      "No basil density trial on cut-and-regrow crops between 8 and 40 plants/m2 with absolute yields.",
       "No measured DLI at UVI.",
-      "Light and temperature interact (Walters 2023); only light is modelled here."
-    ]
+      "Light and temperature interact (Walters 2023); only light is modelled here.",
+      "First cycle after transplant is grown at the regrowth rate of established plants (no establishment lag modelled)."
+    ],
+    "revised_utc": "2026-11-26"
   },
   "runtime_sync": {
     "scope": "species",

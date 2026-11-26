@@ -28,7 +28,20 @@
       "dwc_raft_xps_30mm_nl",
       "design_rules.media_bed_depth_m",
       "design_rules.raft_air_share_of_fish_air"
-    ]
+    ],
+    "role_coverage": {
+      "rule": "Every part role has at least one Netherlands and one India part, unless it is listed here with the reason. Checked by tests/test_configure_system.py.",
+      "not_covered": {
+        "heat_source": {
+          "missing_in": "india",
+          "reason": "Indian naturally ventilated polyhouses are not heated (truth HEAT_0009, approved Batch 003)."
+        },
+        "generator": {
+          "missing_in": "india",
+          "reason": "The only listing (Kirloskar 5 kVA at Rs 2,00,000, Ahmedabad) shows the same price for 3.5 kVA, so it looks like a placeholder; no kW rating read."
+        }
+      }
+    }
   },
   "sources": {
     "uvi_aquaponic_system_design": {
@@ -279,6 +292,198 @@
       "citation": "GAMMA BE, Argex hydrokorrels big bag 4-16 mm, 1 m3 / 420 kg (retail listing)",
       "url": "https://www.gamma.be/nl/assortiment/argex-hydrokorrels-big-bag-4-16-mm-1-m3-420-kg/p/B406740",
       "read_date": "2026-11-26",
+      "source_tier": "tier_3"
+    },
+    "retail_at_blueplanet_fingerlings": {
+      "citation": "Blue Planet Ecosystems (Vienna, Austria) shop: Nile tilapia fingerlings, batches of 50: 0.5-2 g EUR 25, 2-5 g EUR 50, 5-10 g EUR 75; VAT not stated; ships live fish within the EU",
+      "url": "https://sales.blueplanetecosystems.com/shop",
+      "read_date": "2026-11-26",
+      "source_tier": "tier_3"
+    },
+    "forum_aquaponik_de_tilapia": {
+      "citation": "Aquaponik-Forum.de Marktplatz threads: 'Oreochromis niloticus Wildform 15cm+' (2020, EUR 2 per fish, pickup); 'Tilapia zu verkaufen in Tirol' (2021, 1-30 cm, price by phone only)",
+      "url": "https://aquaponik-forum.de/Forum-Marktplatz",
+      "read_date": "2026-11-26",
+      "source_tier": "tier_3"
+    },
+    "retail_de_letsgrow_feed": {
+      "citation": "Lets-Grow (Germany) Sinkfutter 3 mm tilapia/carp feed, 42.75% crude protein: EUR 3.00/kg, EUR 2.50/kg at 50+ kg, incl. 7% MwSt, plus shipping",
+      "url": "https://www.lets-grow.de/blog/shop/sinkfutter-3mm-tilapia-karpfen-futter/",
+      "read_date": "2026-11-26",
+      "source_tier": "tier_3"
+    },
+    "pasch_palm_2021_catfish_germany": {
+      "citation": "Pasch and Palm 2021, Economic analysis of African catfish (Clarias gariepinus) aquaculture in northern Germany, Sustainability 13(24):13569 (2021 prices: fingerlings EUR 0.07-0.33 per fish, 12 g; feed EUR 0.90-1.16/kg)",
+      "url": "https://www.mdpi.com/2071-1050/13/24/13569",
+      "read_date": "2026-11-26",
+      "source_tier": "tier_1"
+    },
+    "retail_nl_gamma_cellular_block": {
+      "citation": "gamma.nl H+H cellenbetonblok 60x20x10 cm, EUR 2.49 per block; seller states 4.167 blocks per m2 wall",
+      "url": "https://www.gamma.nl/assortiment/h-h-cellenbetonblok-60x20x10-cm/p/B335102",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_3"
+    },
+    "retail_be_gamma_hollow_block": {
+      "citation": "gamma.be betonblok hol 39x19x19 cm, 60 pcs EUR 143.40 (EUR 2.39 each); seller states 13 blocks per m2 wall; VAT not stated",
+      "url": "https://www.gamma.be/nl/assortiment/betonblok-hol-39x19x19-cm/p/B336610",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_3"
+    },
+    "retail_nl_nubuiten_plank": {
+      "citation": "nubuiten.nl pine plank 28x195 mm x 4.0 m, green pressure-impregnated, EUR 17.09 sale / 18.99 regular incl. 21% VAT; seller claims 10-15 yr",
+      "url": "https://nubuiten.nl/p/grenen-vlonderplank-groen-geimpregneerd-28x195-400cm",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_3"
+    },
+    "retail_in_indiamart_blocks_blr": {
+      "citation": "IndiaMART Bengaluru solid concrete blocks: S J Solid Blocks 400x200x100 mm M20 Rs 35/piece; Mathrushree Build Tech 400x200x200 mm M10 Rs 36/piece excl. taxes",
+      "url": "https://m.indiamart.com/proddetail/6-inch-solid-block-2858404072397.html",
+      "read_date": "2026-11-26",
+      "source_tier": "tier_3"
+    },
+    "retail_de_wiltec_k1": {
+      "citation": "wiltec.de Unique Koi K1 moving-bed media 50 L, EUR 59.99 incl. VAT (listed as no longer available); 950-1025 m2/m3 stated",
+      "url": "https://wiltec.de/en/unique-koi-k1-media-50l-4-paths-moving-bed-filtermedium-media-beads/7050058",
+      "read_date": "2026-11-26",
+      "source_tier": "tier_3"
+    },
+    "retail_in_indiamart_leca": {
+      "citation": "IndiaMART expanded clay (LECA) listings: Eca Green 50 L Rs 938 (Rajkot); Perl Tech 50 L Rs 575 (Ahmedabad); Rachana Guild 50 L Rs 750 (Ahmedabad); We Hydroponics 100 L (about 26 kg) Rs 950 (Indore); GST not stated",
+      "url": "https://m.indiamart.com/impcat/expanded-clay-aggregate.html",
+      "read_date": "2026-11-26",
+      "source_tier": "tier_3"
+    },
+    "retail_eu_lumatek_zeus600": {
+      "citation": "Lumatek Zeus Pro 2.9 600 W LED (PPF 1770 umol/s, 600-620 W, coverage 1.4x1.4 m flowering, 60,000 h maker claim): growtent.eu (Poland) EUR 546.05 (VAT not stated); growindustry.es (Spain) EUR 725.95 regular",
+      "url": "https://growtent.eu/product-eng-5430-Lumatek-Zeus-PRO-600W-2-9-LED-FULL-SPECTRUM-LAMP.html",
+      "read_date": "2026-11-26",
+      "source_tier": "tier_3"
+    },
+    "retail_eu_sanlight_evo4120": {
+      "citation": "SANlight EVO 4-120 1.5 LED (265 W, PPF 725 umol/s, two fixtures per 1.2x1.2 m): sanlight.com (Austria) EUR 479.52; led-grower.eu EUR 400 (330.58 excl. VAT); higarden.eu EUR 504.62",
+      "url": "https://www.sanlight.com/en/product/evo-4-120-1-5/",
+      "read_date": "2026-11-26",
+      "source_tier": "tier_3"
+    },
+    "retail_in_indiamart_led": {
+      "citation": "IndiaMART LED grow light listings, 100 W: Shat Solar Rs 2,530 (Noida); Mobitex Rs 2,850 (2.5-2.8 umol/J stated, Nathdwara); Shat Light 2 ft panel Rs 2,100 (Ballia); tax not stated; coverage and PPF mostly not stated",
+      "url": "https://m.indiamart.com/impcat/led-grow-light.html",
+      "read_date": "2026-11-26",
+      "source_tier": "tier_3"
+    },
+    "retail_nl_conrad_do": {
+      "citation": "conrad.nl dissolved-oxygen meters: Senseca ECO 531 (galvanic, 0-20 mg/l) EUR 304.96 excl. btw; Extech SDL150 (polarographic, datalogger) EUR 676.86 excl. btw",
+      "url": "https://www.conrad.nl/nl/p/senseca-eco-531-zuurstofmeter-0-20-mg-l-3046629.html",
+      "read_date": "2026-11-26",
+      "source_tier": "tier_3"
+    },
+    "retail_in_indiamart_do": {
+      "citation": "IndiaMART DO meter listings: MT-121 Rs 6,890 (Panchkula); Eutech CyberScan DO 600 Rs 8,500 (Thane); Lutron DO-5509 Rs 9,600 (Mumbai); Lutron DO-5510 Rs 18,000 excl. taxes (Kolkata); aquaculture-branded AQUADAX Rs 35,000 not used",
+      "url": "https://m.indiamart.com/impcat/dissolved-oxygen-meter.html",
+      "read_date": "2026-11-26",
+      "source_tier": "tier_3"
+    },
+    "retail_nl_rs_hanna_ph": {
+      "citation": "RS Components NL, Hanna HI98107 pHep pocket pH tester EUR 62.85 excl. / 76.05 incl. BTW (equipment inventory S121); Hanna Service Slovenia HI98115 EUR 73 excl. VAT (S122)",
+      "url": "https://nl.rs-online.com/web/p/ph-meters/0218970",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_3"
+    },
+    "retail_in_indiamart_ph_blr": {
+      "citation": "IndiaMART Bengaluru digital pH meter listings: Rs 1,000 (Culture Instruments), Rs 2,500 (Biobee), Rs 7,125 (Labmatrix), Rs 10,000 (Spectraa); GST not stated (equipment inventory S123)",
+      "url": "https://m.indiamart.com/city/bengaluru/digital-ph-meter.html?biz=10",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_3"
+    },
+    "retail_nl_ubuy_api_kit": {
+      "citation": "ubuy.co.nl API Freshwater Master Test Kit (800 tests), EUR 91 excl. shipping and customs, imported from the USA",
+      "url": "https://www.ubuy.co.nl/nl/product/QCSO2H1OO-api-freshwater-master-test-kit-800-test-freshwater-aquarium-water-master-test-ki",
+      "read_date": "2026-11-26",
+      "source_tier": "tier_3"
+    },
+    "retail_in_api_kit": {
+      "citation": "API Freshwater Master Test Kit (800+ tests): indohobby.com Rs 5,499 incl. GST; IndiaMART Chennai Best Biofloc Rs 2,550 excl. taxes",
+      "url": "https://www.indohobby.com/api-freshwater-master-test-kits.html",
+      "read_date": "2026-11-26",
+      "source_tier": "tier_3"
+    },
+    "retail_nl_toppy_uvc": {
+      "citation": "toppy.nl AquaForte RVS Power Plus UV-C T5 75 W, EUR 264.95 incl. BTW; ballast about 5 yr and lamp about 9,000 h (retailer statements, equipment inventory S115/S116)",
+      "url": "https://www.toppy.nl/product/5328/aquaforte-rvs-power-uv-c-t5-75-watt.html",
+      "read_date": "2026-11-26",
+      "source_tier": "tier_3"
+    },
+    "retail_in_indiamart_uv": {
+      "citation": "IndiaMART UV sterilizer listings: Vallalar Energy Solutions 21 W quartz SS UV for RO systems Rs 3,800 (Chennai); Water Pro Systems 1000 LPH Rs 26,500 (Chennai); no aquarium, pond or aquaculture unit listed",
+      "url": "https://m.indiamart.com/impcat/uv-sterilizers.html",
+      "read_date": "2026-11-26",
+      "source_tier": "tier_3"
+    },
+    "retail_eu_grodan_cubes": {
+      "citation": "Grodan 25x25x40 mm stone wool cubes in 150-cube trays: higarden.eu EUR 16.79 (13.88 excl. VAT) per tray, from EUR 0.13 per cube; Growmart (Germany) SBS 25/150 EUR 14.90 incl. 19% VAT (equipment inventory S125)",
+      "url": "https://higarden.eu/grodan/grodan-rooting-cube-25x25x40mm-with-propagation-tray",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_3"
+    },
+    "retail_in_seedling_trays": {
+      "citation": "IndiaMART seedling tray listings (HIPS): 104 cavity Rs 5.25 (Indore), 70 cavity Rs 9.50 (Nashik), 126 cavity Rs 13 (Baraut), 50 cavity Rs 17 (Villupuram); agribegri 98 cavity Rs 538 for an unexplained 'Units (6)' pack (not used)",
+      "url": "https://m.indiamart.com/impcat/seedling-trays.html",
+      "read_date": "2026-11-26",
+      "source_tier": "tier_3"
+    },
+    "retail_be_logistiekdirect_crate": {
+      "citation": "logistiekdirect.be perforated plastic crate 600x400x180 mm (34 L), EUR 6.25 excl. VAT per piece, EUR 5.45 at 130 pieces",
+      "url": "https://www.logistiekdirect.be/kunststof-krat-zwart-geperforeerd-600-x-400-x-180-160-mm",
+      "read_date": "2026-11-26",
+      "source_tier": "tier_3"
+    },
+    "retail_in_indiamart_crates_blr": {
+      "citation": "IndiaMART Bengaluru Supreme crate listings: 600x400x120 mm 23 L Rs 305 (Industrial Associates); 600x400x280 mm Rs 890 (Wexpertz); GST not stated",
+      "url": "https://m.indiamart.com/city/bengaluru/supreme-plastic-crates.html",
+      "read_date": "2026-11-26",
+      "source_tier": "tier_3"
+    },
+    "retail_in_indiamart_koh": {
+      "citation": "IndiaMART caustic potash (KOH) flakes listings: Rs 70-99/kg across six sellers (Vapi, Mumbai, Vadodara, Ahmedabad), 87-99.9% purity, GST not stated",
+      "url": "https://m.indiamart.com/impcat/caustic-potash-flakes.html",
+      "read_date": "2026-11-26",
+      "source_tier": "tier_3"
+    },
+    "retail_nl_hornbach_generators": {
+      "citation": "hornbach.nl: ZIPPER ZI-STE3000IV inverter generator 2,800 W EUR 649; EUROM Independ 3100 2,600 W EUR 706; incl. VAT, excl. shipping (Batch 002 E1)",
+      "url": "https://www.hornbach.nl/p/zipper-generator-inverter-zi-ste3000iv/6684341/",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_3"
+    },
+    "retail_nl_proshop_ups": {
+      "citation": "proshop.nl APC Easy UPS On-Line SRV1KI-E 1000 VA / 900 W, EUR 493.51 incl. 21% VAT (407.86 excl.); about 3 min runtime at 900 W",
+      "url": "https://www.proshop.nl/UPS/APC-SRV1KI-E-Easy-UPS-On-Line-1000VA900W-On-Line-UPS/3323438",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_3"
+    },
+    "retail_in_moglix_luminous": {
+      "citation": "Moglix: Luminous Zelio+ 1100 (900 VA, 756 W) inverter with RC 18000 150 Ah tall tubular battery, Rs 23,569 incl. GST (19,973 + 3,596)",
+      "url": "https://www.moglix.com/luminous-zelio-1100-900va-pure-sine-wave-digital-inverter-rc-18000-150ah-tall-tubular-battery-with-trolley-combo/mp/msn4k6z2zv13kq",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_3"
+    },
+    "retail_in_utkarsh_basil_seed": {
+      "citation": "Utkarsh Agro (Surat) Italian basil seed, about 1,000 seeds per pack, Rs 99 sale price (MRP Rs 230), tax included (equipment inventory S127)",
+      "url": "https://utkarshagro.com/products/utkarsh-italian-basil-herb-seeds-for-home-kitchen-garden-green-approx-1000-seeds-per-pack",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_3"
+    },
+    "bingenheimer_lettuce_2025": {
+      "citation": "Bingenheimer Saatgut Preisliste 2025 (Germany): organic pelleted lettuce, 10,000 pellets EUR 289.00, 1,000 pellets EUR 37.60, excl. VAT",
+      "url": "https://info.bingenheimersaatgut.de/dateien/downloads/2025_Preisliste_DE_Web.pdf",
+      "read_date": "2026-11-25",
+      "source_tier": "tier_3"
+    },
+    "retail_nl_tuinzaden_lettuce": {
+      "citation": "tuinzaden.eu Milan Pilstar pelleted lettuce, 100 seeds EUR 4.99 incl. 21% BTW",
+      "url": "https://tuinzaden.eu/en/pelleted-seeds-other/920397-milan-pilstar.html",
+      "read_date": "2026-11-25",
       "source_tier": "tier_3"
     }
   },
@@ -1257,20 +1462,37 @@
     },
     {
       "component_id": "dwc_trough_walls_nl",
-      "name": "Raft trough walls and frame",
+      "name": "Raft trough walls: cellular concrete blocks (H+H 60x20x10 cm)",
       "category": "grow_unit",
       "function": "Holds the liner and water.",
       "region": "netherlands",
       "currency_code": "EUR",
       "status": "candidate",
-      "approval_status": "approved_for_scenario_use",
+      "approval_status": "pending_batch_004",
       "sizing": {
-        "driver": "grow_area_m2",
+        "driver": "trough_wall_face_m2",
         "mode": "continuous",
         "per_driver_unit": 1.0,
-        "unit_label": "m2 grow area"
+        "unit_label": "m2 wall face"
       },
-      "capex_per_unit": null,
+      "capex_per_unit": {
+        "low": 10.38,
+        "high": 10.38,
+        "price_basis": "per m2 wall face, blocks only: EUR 2.49 per block x 4.167 blocks/m2 (seller); VAT not stated (likely incl.); mortar, liner and labour excluded",
+        "source_ids": [
+          "retail_nl_gamma_cellular_block"
+        ],
+        "market": {
+          "region": "netherlands",
+          "currency_code": "EUR",
+          "price_year": {
+            "low": 2026,
+            "high": 2026
+          },
+          "price_year_basis": "retail_listing_read_date",
+          "note": "listing price on 2026-11-25"
+        }
+      },
       "lifetime_years": {
         "low": 10,
         "high": 10,
@@ -1293,20 +1515,22 @@
       "energy": null,
       "labour_effect": "None.",
       "trade_offs": [
-        "UVI spent USD 6,889 (2014) on six trough walls for 214 m2; no Dutch price read yet."
+        "Cheapest wall option found; light blocks laid dry or glued.",
+        "Blocks only: mortar or glue, a liner fold-over cap and labour are not priced.",
+        "UVI spent USD 6,889 (2014) on six trough walls for 214 m2, for scale."
       ],
       "occupies_floor": false,
       "footprint_m2_per_unit": null,
       "price_reliability": {
-        "source_tier": "tier_1",
+        "source_tier": "tier_3",
         "source_gate": "conditional",
-        "source_gate_reason": "No NL price; UVI cost is USD 2014 and not converted.",
+        "source_gate_reason": "Retail listing (Tier 3): asking prices, read once.",
         "confidence": "low",
-        "confidence_reason": "Price missing.",
+        "confidence_reason": "One current NL listing with a stated blocks-per-m2 figure; excludes mortar and labour.",
         "corroboration": {
           "status": "single_source",
           "source_ids": [
-            "heidemann_bailey_2015_uvi_economics"
+            "retail_nl_gamma_cellular_block"
           ]
         }
       },
@@ -1315,7 +1539,7 @@
         "dwc_raft"
       ],
       "notes": [
-        "Price left null on purpose: it shows up as a gap until a Dutch quote is added."
+        "Wall area = both long walls at water depth (trough_wall_face_m2); ends and freeboard are not counted, so it undercounts."
       ]
     },
     {
@@ -1488,20 +1712,38 @@
     },
     {
       "component_id": "dwc_trough_walls_in",
-      "name": "Raft trough walls and frame",
+      "name": "Raft trough walls: solid concrete blocks (400x200 mm face, Bengaluru)",
       "category": "grow_unit",
       "function": "Holds the liner and water.",
       "region": "india",
       "currency_code": "INR",
       "status": "candidate",
-      "approval_status": "approved_for_scenario_use",
+      "approval_status": "pending_batch_004",
       "sizing": {
-        "driver": "grow_area_m2",
+        "driver": "trough_wall_face_m2",
         "mode": "continuous",
         "per_driver_unit": 1.0,
-        "unit_label": "m2 grow area"
+        "unit_label": "m2 wall face"
       },
-      "capex_per_unit": null,
+      "capex_per_unit": {
+        "low": 437.5,
+        "high": 450.0,
+        "price_basis": "per m2 wall face, blocks only: Rs 35-36 per 400x200 mm block x 12.5 blocks/m2 (derived from the block face); excl. taxes; mortar, plaster, liner and labour excluded",
+        "source_ids": [
+          "retail_in_indiamart_blocks_blr"
+        ],
+        "market": {
+          "region": "india",
+          "currency_code": "INR",
+          "price_year": {
+            "low": 2026,
+            "high": 2026
+          },
+          "price_year_basis": "retail_listing_read_date",
+          "place": "Bengaluru (Karnataka)",
+          "note": "listing prices on 2026-11-26"
+        }
+      },
       "lifetime_years": {
         "low": 10,
         "high": 10,
@@ -1524,24 +1766,30 @@
       "energy": null,
       "labour_effect": "None.",
       "trade_offs": [
-        "No Indian price read yet (brick, block or GI frame are the usual options)."
+        "Two Bengaluru sellers agree (Rs 35 for 100 mm, Rs 36 for 200 mm thick blocks).",
+        "Blocks only: mortar, plaster, liner cap and mason labour are not priced."
       ],
       "occupies_floor": false,
       "footprint_m2_per_unit": null,
       "price_reliability": {
         "source_tier": "tier_3",
         "source_gate": "conditional",
-        "source_gate_reason": "No price.",
+        "source_gate_reason": "Retail listing (Tier 3): asking prices, read once.",
         "confidence": "low",
-        "confidence_reason": "Price missing.",
+        "confidence_reason": "Two Bengaluru listings agree within 3%; blocks-per-m2 derived from the 400x200 mm face; excludes mortar and labour.",
         "corroboration": {
-          "status": "single_source",
-          "source_ids": []
+          "status": "corroborated",
+          "source_ids": [
+            "retail_in_indiamart_blocks_blr"
+          ]
         }
       },
       "role": "trough_walls",
       "architectures": [
         "dwc_raft"
+      ],
+      "notes": [
+        "Wall area = both long walls at water depth (trough_wall_face_m2); ends and freeboard are not counted, so it undercounts."
       ]
     },
     {
@@ -2948,6 +3196,1374 @@
           ]
         }
       }
+    },
+    {
+      "component_id": "dwc_trough_walls_pine_plank_nl",
+      "name": "Raft trough walls: impregnated pine planks 28x195 mm",
+      "category": "grow_unit",
+      "function": "Holds the liner and water.",
+      "region": "netherlands",
+      "currency_code": "EUR",
+      "status": "candidate",
+      "approval_status": "pending_batch_004",
+      "sizing": {
+        "driver": "trough_wall_face_m2",
+        "mode": "continuous",
+        "per_driver_unit": 1.0,
+        "unit_label": "m2 wall face"
+      },
+      "capex_per_unit": {
+        "low": 21.9,
+        "high": 24.36,
+        "price_basis": "per m2 wall face: EUR 17.09-18.99 per 4.0 m plank incl. 21% VAT / 4.0 m / 0.195 m board height; posts, screws and labour excluded",
+        "source_ids": [
+          "retail_nl_nubuiten_plank"
+        ],
+        "market": {
+          "region": "netherlands",
+          "currency_code": "EUR",
+          "price_year": {
+            "low": 2026,
+            "high": 2026
+          },
+          "price_year_basis": "retail_listing_read_date",
+          "note": "listing price on 2026-11-25"
+        }
+      },
+      "lifetime_years": {
+        "low": 10,
+        "high": 15,
+        "unit": "years",
+        "source_ids": [
+          "retail_nl_nubuiten_plank"
+        ],
+        "source_tier": "tier_3",
+        "source_gate": "conditional",
+        "source_gate_reason": "Seller's marketing claim for impregnated softwood.",
+        "confidence": "low",
+        "confidence_reason": "No treatment class stated; wet use inside a liner.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "retail_nl_nubuiten_plank"
+          ]
+        }
+      },
+      "energy": null,
+      "labour_effect": "Check for rot where the liner folds over.",
+      "trade_offs": [
+        "Easy to build without masonry; about twice the block price per m2.",
+        "Timber in permanent contact with damp may rot sooner than the seller's claim."
+      ],
+      "occupies_floor": false,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_3",
+        "source_gate": "conditional",
+        "source_gate_reason": "Retail listing (Tier 3): asking prices, read once.",
+        "confidence": "low",
+        "confidence_reason": "Single listing; per-plank price assumed (pack not explicit).",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "retail_nl_nubuiten_plank"
+          ]
+        }
+      },
+      "role": "trough_walls",
+      "architectures": [
+        "dwc_raft"
+      ]
+    },
+    {
+      "component_id": "dwc_trough_walls_hollow_block_nl",
+      "name": "Raft trough walls: hollow concrete blocks 39x19x19 cm",
+      "category": "grow_unit",
+      "function": "Holds the liner and water.",
+      "region": "netherlands",
+      "currency_code": "EUR",
+      "status": "candidate",
+      "approval_status": "pending_batch_004",
+      "sizing": {
+        "driver": "trough_wall_face_m2",
+        "mode": "continuous",
+        "per_driver_unit": 1.0,
+        "unit_label": "m2 wall face"
+      },
+      "capex_per_unit": {
+        "low": 31.07,
+        "high": 31.07,
+        "price_basis": "per m2 wall face, blocks only: EUR 2.39 per block x 13 blocks/m2 (seller); Belgian store, VAT not stated",
+        "source_ids": [
+          "retail_be_gamma_hollow_block"
+        ],
+        "market": {
+          "region": "netherlands",
+          "currency_code": "EUR",
+          "price_year": {
+            "low": 2026,
+            "high": 2026
+          },
+          "price_year_basis": "retail_listing_read_date",
+          "place": "Belgium (gamma.be) used for NL",
+          "note": "listing price on 2026-11-25"
+        }
+      },
+      "lifetime_years": {
+        "low": 10,
+        "high": 10,
+        "unit": "years",
+        "source_ids": [
+          "heidemann_bailey_2015_uvi_economics"
+        ],
+        "source_tier": "tier_1",
+        "source_gate": "conditional",
+        "source_gate_reason": "UVI Table 7 life for liner, rafts and hydroponic tank walls.",
+        "confidence": "low",
+        "confidence_reason": "Depreciation life of one system, not a durability test.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "heidemann_bailey_2015_uvi_economics"
+          ]
+        }
+      },
+      "energy": null,
+      "labour_effect": "Little once built.",
+      "trade_offs": [
+        "Sturdiest of the three; three times the cellular-block price.",
+        "Blocks only: mortar and labour not priced."
+      ],
+      "occupies_floor": false,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_3",
+        "source_gate": "conditional",
+        "source_gate_reason": "Retail listing (Tier 3): asking prices, read once.",
+        "confidence": "low",
+        "confidence_reason": "Belgian listing used for the Netherlands; VAT unstated.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "retail_be_gamma_hollow_block"
+          ]
+        }
+      },
+      "role": "trough_walls",
+      "architectures": [
+        "dwc_raft"
+      ]
+    },
+    {
+      "component_id": "biofilter_k1_media_nl",
+      "name": "K1 moving-bed media (per m3)",
+      "category": "biofilter",
+      "function": "Nitrifying surface for NFT and media-bed builds that need a separate biofilter.",
+      "region": "netherlands",
+      "currency_code": "EUR",
+      "status": "candidate",
+      "approval_status": "pending_batch_004",
+      "sizing": {
+        "driver": "biofilter_media_m3",
+        "mode": "continuous",
+        "per_driver_unit": 1.0,
+        "unit_label": "m3 media"
+      },
+      "capex_per_unit": {
+        "low": 1199.8,
+        "high": 1199.8,
+        "price_basis": "EUR 59.99 per 50 L bag incl. VAT x 20; listing marked no longer available",
+        "source_ids": [
+          "retail_de_wiltec_k1"
+        ],
+        "market": {
+          "region": "netherlands",
+          "currency_code": "EUR",
+          "price_year": {
+            "low": 2026,
+            "high": 2026
+          },
+          "price_year_basis": "retail_listing_read_date",
+          "place": "Germany (wiltec.de) used for NL",
+          "note": "listing price on 2026-11-26"
+        }
+      },
+      "lifetime_years": {
+        "low": 10,
+        "high": 10,
+        "unit": "years",
+        "source_ids": [
+          "heidemann_bailey_2015_uvi_economics"
+        ],
+        "source_tier": "tier_1",
+        "source_gate": "conditional",
+        "source_gate_reason": "UVI Table 7 life for liner, rafts and hydroponic tank walls.",
+        "confidence": "low",
+        "confidence_reason": "Depreciation life of one system, not a durability test.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "heidemann_bailey_2015_uvi_economics"
+          ]
+        }
+      },
+      "energy": null,
+      "labour_effect": "Little; check media movement.",
+      "trade_offs": [
+        "Retail bags cost about ten times the Indian bulk price per m3.",
+        "Needs a tank and aeration to move the media (vessel not priced)."
+      ],
+      "occupies_floor": false,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_3",
+        "source_gate": "conditional",
+        "source_gate_reason": "Retail listing (Tier 3): asking prices, read once.",
+        "confidence": "low",
+        "confidence_reason": "One EUR listing (a Czech listing for the same Evolution Aqua K1 is in CZK, so not used).",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "retail_de_wiltec_k1"
+          ]
+        }
+      },
+      "role": "biofilter"
+    },
+    {
+      "component_id": "media_expanded_clay_in",
+      "name": "Expanded clay (LECA), bulk bags",
+      "category": "grow_unit",
+      "function": "Fills the media bed; also the biofilter in a media-bed build.",
+      "region": "india",
+      "currency_code": "INR",
+      "status": "candidate",
+      "approval_status": "pending_batch_004",
+      "sizing": {
+        "driver": "media_volume_m3",
+        "mode": "continuous",
+        "per_driver_unit": 1.0,
+        "unit_label": "m3 media"
+      },
+      "capex_per_unit": {
+        "low": 9500.0,
+        "high": 18760.0,
+        "price_basis": "per m3: Rs 950 per 100 L bag (low) to Rs 938 per 50 L bag (high); GST not stated",
+        "source_ids": [
+          "retail_in_indiamart_leca"
+        ],
+        "market": {
+          "region": "india",
+          "currency_code": "INR",
+          "price_year": {
+            "low": 2026,
+            "high": 2026
+          },
+          "price_year_basis": "retail_listing_read_date",
+          "note": "listing prices on 2026-11-26"
+        }
+      },
+      "lifetime_years": null,
+      "energy": null,
+      "labour_effect": "Rinse before use; heavy to move when wet.",
+      "trade_offs": [
+        "Light and pH-neutral; dearer per m3 than gravel (no Indian gravel price read).",
+        "Lifetime not sourced."
+      ],
+      "occupies_floor": false,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_3",
+        "source_gate": "conditional",
+        "source_gate_reason": "Retail listing (Tier 3): asking prices, read once.",
+        "confidence": "low",
+        "confidence_reason": "Four IndiaMART sellers within 2x; asking prices, GST unstated.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "retail_in_indiamart_leca"
+          ]
+        }
+      },
+      "role": "media",
+      "architectures": [
+        "media_bed"
+      ]
+    },
+    {
+      "component_id": "light_led_lumatek_zeus600_nl",
+      "name": "LED grow light, Lumatek Zeus Pro 2.9 600 W (1,770 umol/s)",
+      "category": "lighting",
+      "function": "Supplementary or sole-source light for the grow area.",
+      "region": "netherlands",
+      "currency_code": "EUR",
+      "status": "candidate",
+      "approval_status": "approved_for_scenario_use",
+      "sizing": {
+        "driver": "grow_area_m2",
+        "mode": "discrete",
+        "capacity_per_unit": 1.96,
+        "unit_label": "fixtures"
+      },
+      "capex_per_unit": {
+        "low": 546.05,
+        "high": 725.95,
+        "price_basis": "per fixture; Poland EUR 546.05 (VAT not stated) to Spain EUR 725.95 regular",
+        "source_ids": [
+          "retail_eu_lumatek_zeus600"
+        ],
+        "market": {
+          "region": "netherlands",
+          "currency_code": "EUR",
+          "price_year": {
+            "low": 2026,
+            "high": 2026
+          },
+          "price_year_basis": "retail_listing_read_date",
+          "place": "Poland and Spain online shops used for NL",
+          "note": "listing prices on 2026-11-26"
+        }
+      },
+      "lifetime_years": null,
+      "energy": {
+        "power_w_per_unit": {
+          "low": 600.0,
+          "high": 620.0,
+          "source_ids": [
+            "retail_eu_lumatek_zeus600"
+          ]
+        },
+        "duty_hours_per_day": null
+      },
+      "labour_effect": "Little; clean the bars.",
+      "trade_offs": [
+        "Coverage is the maker's indoor flowering footprint (1.4 x 1.4 m, about 900 umol/m2/s), far above greenhouse supplementary light; a greenhouse would need fewer fixtures.",
+        "Hours per day are not sourced: set component_overrides.<id>.duty_hours_per_day to cost the electricity."
+      ],
+      "occupies_floor": false,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_3",
+        "source_gate": "conditional",
+        "source_gate_reason": "Retail listing (Tier 3): asking prices, read once.",
+        "confidence": "medium",
+        "confidence_reason": "Two EU sellers for the same model (within 1.3x); specs from the maker.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "retail_eu_lumatek_zeus600"
+          ]
+        }
+      },
+      "role": "grow_light",
+      "lifetime_hours": {
+        "low": 60000,
+        "high": 60000,
+        "source_ids": [
+          "retail_eu_lumatek_zeus600"
+        ]
+      },
+      "notes": [
+        "Lifetime is the maker's 60,000 h claim; it becomes years only once duty hours are set."
+      ],
+      "approval": {
+        "approved_by": "Ajit",
+        "approved_date_local": "2026-11-26",
+        "scope": "C1: light_led_lumatek_zeus600_nl, Tier 3 corroborated price, scenario use only",
+        "record": "Approval Batch 004, approved as recommended (thread message 2026-11-26 15:57 Europe/Amsterdam)"
+      }
+    },
+    {
+      "component_id": "light_led_sanlight_evo4120_nl",
+      "name": "LED grow light, SANlight EVO 4-120 265 W (725 umol/s)",
+      "category": "lighting",
+      "function": "Supplementary or sole-source light for the grow area.",
+      "region": "netherlands",
+      "currency_code": "EUR",
+      "status": "candidate",
+      "approval_status": "approved_for_scenario_use",
+      "sizing": {
+        "driver": "grow_area_m2",
+        "mode": "discrete",
+        "capacity_per_unit": 0.72,
+        "unit_label": "fixtures"
+      },
+      "capex_per_unit": {
+        "low": 400.0,
+        "high": 504.62,
+        "price_basis": "per fixture; EUR 400 (led-grower.eu) to EUR 504.62 (higarden.eu), maker EUR 479.52; VAT basis differs",
+        "source_ids": [
+          "retail_eu_sanlight_evo4120"
+        ],
+        "market": {
+          "region": "netherlands",
+          "currency_code": "EUR",
+          "price_year": {
+            "low": 2026,
+            "high": 2026
+          },
+          "price_year_basis": "retail_listing_read_date",
+          "place": "Austria and Czech online shops used for NL",
+          "note": "listing prices on 2026-11-26"
+        }
+      },
+      "lifetime_years": null,
+      "energy": {
+        "power_w_per_unit": {
+          "low": 265.0,
+          "high": 265.0,
+          "source_ids": [
+            "retail_eu_sanlight_evo4120"
+          ]
+        },
+        "duty_hours_per_day": null
+      },
+      "labour_effect": "Little.",
+      "trade_offs": [
+        "Maker says two fixtures cover 1.2 x 1.2 m (about 1,000 umol/m2/s).",
+        "Hours per day not sourced."
+      ],
+      "occupies_floor": false,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_3",
+        "source_gate": "conditional",
+        "source_gate_reason": "Retail listing (Tier 3): asking prices, read once.",
+        "confidence": "medium",
+        "confidence_reason": "Maker price plus two shops within 1.3x.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "retail_eu_sanlight_evo4120"
+          ]
+        }
+      },
+      "role": "grow_light",
+      "approval": {
+        "approved_by": "Ajit",
+        "approved_date_local": "2026-11-26",
+        "scope": "C1: light_led_sanlight_evo4120_nl, Tier 3 corroborated price, scenario use only",
+        "record": "Approval Batch 004, approved as recommended (thread message 2026-11-26 15:57 Europe/Amsterdam)"
+      }
+    },
+    {
+      "component_id": "light_led_100w_in",
+      "name": "LED grow light panel, 100 W (IndiaMART)",
+      "category": "lighting",
+      "function": "Supplementary or sole-source light for the grow area.",
+      "region": "india",
+      "currency_code": "INR",
+      "status": "candidate",
+      "approval_status": "pending_batch_004",
+      "sizing": {
+        "driver": "grow_area_m2",
+        "mode": "discrete",
+        "capacity_per_unit": 0.277,
+        "unit_label": "fixtures"
+      },
+      "capex_per_unit": {
+        "low": 2100.0,
+        "high": 2850.0,
+        "price_basis": "per fixture, three 100 W listings; tax not stated",
+        "source_ids": [
+          "retail_in_indiamart_led"
+        ],
+        "market": {
+          "region": "india",
+          "currency_code": "INR",
+          "price_year": {
+            "low": 2026,
+            "high": 2026
+          },
+          "price_year_basis": "retail_listing_read_date",
+          "note": "listing prices on 2026-11-26"
+        }
+      },
+      "lifetime_years": null,
+      "energy": {
+        "power_w_per_unit": {
+          "low": 100.0,
+          "high": 100.0,
+          "source_ids": [
+            "retail_in_indiamart_led"
+          ]
+        },
+        "duty_hours_per_day": null
+      },
+      "labour_effect": "Little.",
+      "trade_offs": [
+        "Coverage derived, not stated: 100 W x 2.5 umol/J = 250 umol/s, spread at the Lumatek footprint intensity (1,770 umol/s per 1.96 m2) = 0.277 m2.",
+        "Seller-entered specs; efficacy stated by one seller only."
+      ],
+      "occupies_floor": false,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_3",
+        "source_gate": "conditional",
+        "source_gate_reason": "Retail listing (Tier 3): asking prices, read once.",
+        "confidence": "low",
+        "confidence_reason": "Three listings agree within 1.4x on price, but PPF and coverage are mostly unstated.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "retail_in_indiamart_led"
+          ]
+        }
+      },
+      "role": "grow_light"
+    },
+    {
+      "component_id": "monitor_do_meter_nl",
+      "name": "Handheld dissolved-oxygen meter (Senseca ECO 531 to Extech SDL150)",
+      "category": "monitoring",
+      "function": "Spot-checks DO in fish tanks and troughs.",
+      "region": "netherlands",
+      "currency_code": "EUR",
+      "status": "candidate",
+      "approval_status": "pending_batch_004",
+      "sizing": {
+        "driver": "system_count",
+        "mode": "discrete",
+        "capacity_per_unit": 1.0,
+        "unit_label": "meters"
+      },
+      "capex_per_unit": {
+        "low": 304.96,
+        "high": 676.86,
+        "price_basis": "per meter, excl. btw, conrad.nl: galvanic ECO 531 (low) to polarographic SDL150 datalogger (high)",
+        "source_ids": [
+          "retail_nl_conrad_do"
+        ],
+        "market": {
+          "region": "netherlands",
+          "currency_code": "EUR",
+          "price_year": {
+            "low": 2026,
+            "high": 2026
+          },
+          "price_year_basis": "retail_listing_read_date",
+          "note": "listing prices on 2026-11-26"
+        }
+      },
+      "lifetime_years": null,
+      "energy": null,
+      "labour_effect": "Daily checks; membrane and electrolyte upkeep.",
+      "trade_offs": [
+        "One meter per system; a bigger farm or several sites need more (component_overrides quantity).",
+        "Lifetime and probe life not sourced."
+      ],
+      "occupies_floor": false,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_3",
+        "source_gate": "conditional",
+        "source_gate_reason": "Retail listing (Tier 3): asking prices, read once.",
+        "confidence": "medium",
+        "confidence_reason": "One NL retailer, two models; prices clear.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "retail_nl_conrad_do"
+          ]
+        }
+      },
+      "role": "do_meter"
+    },
+    {
+      "component_id": "monitor_do_meter_in",
+      "name": "Handheld dissolved-oxygen meter (IndiaMART)",
+      "category": "monitoring",
+      "function": "Spot-checks DO in fish tanks and troughs.",
+      "region": "india",
+      "currency_code": "INR",
+      "status": "candidate",
+      "approval_status": "pending_batch_004",
+      "sizing": {
+        "driver": "system_count",
+        "mode": "discrete",
+        "capacity_per_unit": 1.0,
+        "unit_label": "meters"
+      },
+      "capex_per_unit": {
+        "low": 6890.0,
+        "high": 18000.0,
+        "price_basis": "per meter, four listings (MT-121 to Lutron DO-5510); Rs 18,000 is excl. taxes, others not stated",
+        "source_ids": [
+          "retail_in_indiamart_do"
+        ],
+        "market": {
+          "region": "india",
+          "currency_code": "INR",
+          "price_year": {
+            "low": 2026,
+            "high": 2026
+          },
+          "price_year_basis": "retail_listing_read_date",
+          "note": "listing prices on 2026-11-26"
+        }
+      },
+      "lifetime_years": null,
+      "energy": null,
+      "labour_effect": "Daily checks; membrane upkeep.",
+      "trade_offs": [
+        "Same job as the NL meter at about a third of the price.",
+        "Lifetime not sourced."
+      ],
+      "occupies_floor": false,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_3",
+        "source_gate": "conditional",
+        "source_gate_reason": "Retail listing (Tier 3): asking prices, read once.",
+        "confidence": "low",
+        "confidence_reason": "Four sellers, range 2.6x; asking prices.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "retail_in_indiamart_do"
+          ]
+        }
+      },
+      "role": "do_meter"
+    },
+    {
+      "component_id": "monitor_ph_tester_nl",
+      "name": "Pocket pH tester (Hanna HI98107)",
+      "category": "monitoring",
+      "function": "Checks pH for base dosing.",
+      "region": "netherlands",
+      "currency_code": "EUR",
+      "status": "candidate",
+      "approval_status": "approved_for_scenario_use",
+      "sizing": {
+        "driver": "system_count",
+        "mode": "discrete",
+        "capacity_per_unit": 1.0,
+        "unit_label": "testers"
+      },
+      "capex_per_unit": {
+        "low": 76.05,
+        "high": 76.05,
+        "price_basis": "per tester, incl. BTW (62.85 excl.), RS Components NL",
+        "source_ids": [
+          "retail_nl_rs_hanna_ph"
+        ],
+        "market": {
+          "region": "netherlands",
+          "currency_code": "EUR",
+          "price_year": {
+            "low": 2026,
+            "high": 2026
+          },
+          "price_year_basis": "retail_listing_read_date",
+          "note": "listing price on 2026-11-25"
+        }
+      },
+      "lifetime_years": null,
+      "energy": null,
+      "labour_effect": "Calibrate weekly; replace when drift persists.",
+      "trade_offs": [
+        "Cheap; a pen-type meter with a replaceable probe costs more but lasts longer (not priced)."
+      ],
+      "occupies_floor": false,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_3",
+        "source_gate": "conditional",
+        "source_gate_reason": "Retail listing (Tier 3): asking prices, read once.",
+        "confidence": "medium",
+        "confidence_reason": "NL listing plus a Hanna Slovenia listing for a sister model (EUR 73 excl. VAT).",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "retail_nl_rs_hanna_ph"
+          ]
+        }
+      },
+      "role": "ph_meter",
+      "approval": {
+        "approved_by": "Ajit",
+        "approved_date_local": "2026-11-26",
+        "scope": "C1: monitor_ph_tester_nl, Tier 3 corroborated price, scenario use only",
+        "record": "Approval Batch 004, approved as recommended (thread message 2026-11-26 15:57 Europe/Amsterdam)"
+      }
+    },
+    {
+      "component_id": "monitor_ph_meter_in",
+      "name": "Handheld pH meter (Bengaluru IndiaMART)",
+      "category": "monitoring",
+      "function": "Checks pH for base dosing.",
+      "region": "india",
+      "currency_code": "INR",
+      "status": "candidate",
+      "approval_status": "pending_batch_004",
+      "sizing": {
+        "driver": "system_count",
+        "mode": "discrete",
+        "capacity_per_unit": 1.0,
+        "unit_label": "meters"
+      },
+      "capex_per_unit": {
+        "low": 1000.0,
+        "high": 10000.0,
+        "price_basis": "per meter, four Bengaluru listings; lowest and highest values; GST not stated",
+        "source_ids": [
+          "retail_in_indiamart_ph_blr"
+        ],
+        "market": {
+          "region": "india",
+          "currency_code": "INR",
+          "price_year": {
+            "low": 2026,
+            "high": 2026
+          },
+          "price_year_basis": "retail_listing_read_date",
+          "place": "Bengaluru (Karnataka)",
+          "note": "listing prices on 2026-11-25"
+        }
+      },
+      "lifetime_years": null,
+      "energy": null,
+      "labour_effect": "Calibrate weekly.",
+      "trade_offs": [
+        "Wide spread (10x) between basic and lab-grade meters."
+      ],
+      "occupies_floor": false,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_3",
+        "source_gate": "conditional",
+        "source_gate_reason": "Retail listing (Tier 3): asking prices, read once.",
+        "confidence": "low",
+        "confidence_reason": "Range spans different meter grades.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "retail_in_indiamart_ph_blr"
+          ]
+        }
+      },
+      "role": "ph_meter"
+    },
+    {
+      "component_id": "monitor_test_kit_nl",
+      "name": "Freshwater master test kit (API, 800 tests)",
+      "category": "monitoring",
+      "function": "Ammonia, nitrite, nitrate and pH checks.",
+      "region": "netherlands",
+      "currency_code": "EUR",
+      "status": "candidate",
+      "approval_status": "pending_batch_004",
+      "sizing": {
+        "driver": "system_count",
+        "mode": "discrete",
+        "capacity_per_unit": 1.0,
+        "unit_label": "kits"
+      },
+      "capex_per_unit": {
+        "low": 91.0,
+        "high": 91.0,
+        "price_basis": "per kit, excl. shipping and customs, imported from the USA via ubuy.co.nl",
+        "source_ids": [
+          "retail_nl_ubuy_api_kit"
+        ],
+        "market": {
+          "region": "netherlands",
+          "currency_code": "EUR",
+          "price_year": {
+            "low": 2026,
+            "high": 2026
+          },
+          "price_year_basis": "retail_listing_read_date",
+          "note": "listing price on 2026-11-26"
+        }
+      },
+      "lifetime_years": null,
+      "energy": null,
+      "labour_effect": "Weekly tests take about 15 minutes (not sourced).",
+      "trade_offs": [
+        "A consumable: 800 tests, so a weekly routine uses one kit in a few years (life depends on the test routine)."
+      ],
+      "occupies_floor": false,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_3",
+        "source_gate": "conditional",
+        "source_gate_reason": "Retail listing (Tier 3): asking prices, read once.",
+        "confidence": "low",
+        "confidence_reason": "Single import listing; Dutch shops not read.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "retail_nl_ubuy_api_kit"
+          ]
+        }
+      },
+      "role": "test_kit"
+    },
+    {
+      "component_id": "monitor_test_kit_in",
+      "name": "Freshwater master test kit (API, 800 tests)",
+      "category": "monitoring",
+      "function": "Ammonia, nitrite, nitrate and pH checks.",
+      "region": "india",
+      "currency_code": "INR",
+      "status": "candidate",
+      "approval_status": "pending_batch_004",
+      "sizing": {
+        "driver": "system_count",
+        "mode": "discrete",
+        "capacity_per_unit": 1.0,
+        "unit_label": "kits"
+      },
+      "capex_per_unit": {
+        "low": 2550.0,
+        "high": 5499.0,
+        "price_basis": "per kit: Rs 2,550 excl. taxes (Chennai) to Rs 5,499 incl. GST (indohobby)",
+        "source_ids": [
+          "retail_in_api_kit"
+        ],
+        "market": {
+          "region": "india",
+          "currency_code": "INR",
+          "price_year": {
+            "low": 2026,
+            "high": 2026
+          },
+          "price_year_basis": "retail_listing_read_date",
+          "note": "listing prices on 2026-11-26"
+        }
+      },
+      "lifetime_years": null,
+      "energy": null,
+      "labour_effect": "Weekly tests.",
+      "trade_offs": [
+        "Same kit as NL at about half the price."
+      ],
+      "occupies_floor": false,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_3",
+        "source_gate": "conditional",
+        "source_gate_reason": "Retail listing (Tier 3): asking prices, read once.",
+        "confidence": "low",
+        "confidence_reason": "Two sellers, different tax bases.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "retail_in_api_kit"
+          ]
+        }
+      },
+      "role": "test_kit"
+    },
+    {
+      "component_id": "uv_steriliser_75w_nl",
+      "name": "UV-C steriliser, AquaForte RVS Power Plus 75 W",
+      "category": "water_treatment",
+      "function": "Clears green water and lowers free-floating pathogens.",
+      "region": "netherlands",
+      "currency_code": "EUR",
+      "status": "candidate",
+      "approval_status": "pending_batch_004",
+      "sizing": {
+        "driver": "system_count",
+        "mode": "discrete",
+        "capacity_per_unit": 1.0,
+        "unit_label": "units"
+      },
+      "capex_per_unit": {
+        "low": 264.95,
+        "high": 264.95,
+        "price_basis": "per unit, incl. BTW, toppy.nl",
+        "source_ids": [
+          "retail_nl_toppy_uvc"
+        ],
+        "market": {
+          "region": "netherlands",
+          "currency_code": "EUR",
+          "price_year": {
+            "low": 2026,
+            "high": 2026
+          },
+          "price_year_basis": "retail_listing_read_date",
+          "note": "listing price on 2026-11-25"
+        }
+      },
+      "lifetime_years": {
+        "low": 5,
+        "high": 5,
+        "unit": "years",
+        "source_ids": [
+          "retail_nl_toppy_uvc"
+        ],
+        "source_tier": "tier_3",
+        "source_gate": "conditional",
+        "source_gate_reason": "Retailer statement on ballast life.",
+        "confidence": "low",
+        "confidence_reason": "Ballast life only; the lamp (EUR 49.95, about 9,000 h) is a yearly running cost not counted here.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "retail_nl_toppy_uvc"
+          ]
+        }
+      },
+      "energy": {
+        "power_w_per_unit": {
+          "low": 75.0,
+          "high": 75.0,
+          "source_ids": [
+            "retail_nl_toppy_uvc"
+          ]
+        },
+        "duty_hours_per_day": 24
+      },
+      "labour_effect": "Change the lamp yearly; clean the quartz sleeve.",
+      "trade_offs": [
+        "Optional in aquaponics; UVI ran without UV.",
+        "One unit per system; flow rating not read, so it may be undersized for big flows."
+      ],
+      "occupies_floor": false,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_3",
+        "source_gate": "conditional",
+        "source_gate_reason": "Retail listing (Tier 3): asking prices, read once.",
+        "confidence": "medium",
+        "confidence_reason": "Clear NL listing; single seller.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "retail_nl_toppy_uvc"
+          ]
+        }
+      },
+      "role": "uv_steriliser"
+    },
+    {
+      "component_id": "uv_steriliser_21w_in",
+      "name": "UV steriliser, 21 W stainless (RO type, Chennai)",
+      "category": "water_treatment",
+      "function": "Clears green water and lowers free-floating pathogens.",
+      "region": "india",
+      "currency_code": "INR",
+      "status": "candidate",
+      "approval_status": "pending_batch_004",
+      "sizing": {
+        "driver": "system_count",
+        "mode": "discrete",
+        "capacity_per_unit": 1.0,
+        "unit_label": "units"
+      },
+      "capex_per_unit": {
+        "low": 3800.0,
+        "high": 3800.0,
+        "price_basis": "per unit; tax not stated; sold for RO systems, not as a pond unit",
+        "source_ids": [
+          "retail_in_indiamart_uv"
+        ],
+        "market": {
+          "region": "india",
+          "currency_code": "INR",
+          "price_year": {
+            "low": 2026,
+            "high": 2026
+          },
+          "price_year_basis": "retail_listing_read_date",
+          "place": "Chennai (Tamil Nadu)",
+          "note": "listing price on 2026-11-26"
+        }
+      },
+      "lifetime_years": null,
+      "energy": {
+        "power_w_per_unit": {
+          "low": 21.0,
+          "high": 21.0,
+          "source_ids": [
+            "retail_in_indiamart_uv"
+          ]
+        },
+        "duty_hours_per_day": 24
+      },
+      "labour_effect": "Change the lamp yearly.",
+      "trade_offs": [
+        "No aquarium, pond or aquaculture UV was listed; this RO unit is a stand-in with a far lower lamp power than the NL 75 W unit."
+      ],
+      "occupies_floor": false,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_3",
+        "source_gate": "conditional",
+        "source_gate_reason": "Retail listing (Tier 3): asking prices, read once.",
+        "confidence": "low",
+        "confidence_reason": "Single listing for a different application.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "retail_in_indiamart_uv"
+          ]
+        }
+      },
+      "role": "uv_steriliser"
+    },
+    {
+      "component_id": "backup_generator_zipper_2800w_nl",
+      "name": "Inverter generator ZIPPER ZI-STE3000IV (petrol, 2,800 W)",
+      "category": "backup_power",
+      "function": "Keeps pumps and aeration running in a power cut.",
+      "region": "netherlands",
+      "currency_code": "EUR",
+      "status": "candidate",
+      "approval_status": "approved_for_scenario_use",
+      "sizing": {
+        "driver": "critical_load_w",
+        "mode": "discrete",
+        "capacity_per_unit": 2800.0,
+        "unit_label": "units",
+        "min_units": 1
+      },
+      "capex_per_unit": {
+        "low": 649.0,
+        "high": 649.0,
+        "price_basis": "per unit, incl. VAT, excl. shipping, hornbach.nl",
+        "source_ids": [
+          "retail_nl_hornbach_generators"
+        ],
+        "market": {
+          "region": "netherlands",
+          "currency_code": "EUR",
+          "price_year": {
+            "low": 2026,
+            "high": 2026
+          },
+          "price_year_basis": "retail_listing_read_date",
+          "note": "listing price on 2026-11-25"
+        }
+      },
+      "lifetime_years": null,
+      "energy": null,
+      "labour_effect": "Monthly test run; fuel kept in stock.",
+      "trade_offs": [
+        "Sized on the summed power of the chosen pumps and aeration; start-up surge not counted.",
+        "Fuel and running hours are not costed (outage hours not sourced). Lifetime not sourced (5 yr store warranty only)."
+      ],
+      "occupies_floor": false,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_3",
+        "source_gate": "conditional",
+        "source_gate_reason": "Retail listing (Tier 3): asking prices, read once.",
+        "confidence": "medium",
+        "confidence_reason": "Current NL listings for two comparable generators (Batch 002 E1).",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "retail_nl_hornbach_generators"
+          ]
+        }
+      },
+      "role": "generator",
+      "approval": {
+        "approved_by": "Ajit",
+        "approved_date_local": "2026-11-26",
+        "scope": "E1: medium/high confidence corroborated equipment value, scenario use only",
+        "record": "Approval Batch 002, approved as recommended"
+      }
+    },
+    {
+      "component_id": "backup_generator_eurom_2600w_nl",
+      "name": "Generator EUROM Independ 3100 (petrol, 2,600 W)",
+      "category": "backup_power",
+      "function": "Keeps pumps and aeration running in a power cut.",
+      "region": "netherlands",
+      "currency_code": "EUR",
+      "status": "candidate",
+      "approval_status": "approved_for_scenario_use",
+      "sizing": {
+        "driver": "critical_load_w",
+        "mode": "discrete",
+        "capacity_per_unit": 2600.0,
+        "unit_label": "units",
+        "min_units": 1
+      },
+      "capex_per_unit": {
+        "low": 706.0,
+        "high": 706.0,
+        "price_basis": "per unit, incl. VAT, excl. shipping, hornbach.nl",
+        "source_ids": [
+          "retail_nl_hornbach_generators"
+        ],
+        "market": {
+          "region": "netherlands",
+          "currency_code": "EUR",
+          "price_year": {
+            "low": 2026,
+            "high": 2026
+          },
+          "price_year_basis": "retail_listing_read_date",
+          "note": "listing price on 2026-11-25"
+        }
+      },
+      "lifetime_years": null,
+      "energy": null,
+      "labour_effect": "Monthly test run; fuel kept in stock.",
+      "trade_offs": [
+        "Sized on the summed power of the chosen pumps and aeration; start-up surge not counted.",
+        "Fuel and running hours are not costed (outage hours not sourced). Lifetime not sourced (5 yr store warranty only)."
+      ],
+      "occupies_floor": false,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_3",
+        "source_gate": "conditional",
+        "source_gate_reason": "Retail listing (Tier 3): asking prices, read once.",
+        "confidence": "medium",
+        "confidence_reason": "Current NL listings for two comparable generators (Batch 002 E1).",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "retail_nl_hornbach_generators"
+          ]
+        }
+      },
+      "role": "generator",
+      "approval": {
+        "approved_by": "Ajit",
+        "approved_date_local": "2026-11-26",
+        "scope": "E1: medium/high confidence corroborated equipment value, scenario use only",
+        "record": "Approval Batch 002, approved as recommended"
+      }
+    },
+    {
+      "component_id": "backup_ups_apc_900w_nl",
+      "name": "Online UPS APC Easy UPS SRV1KI-E (1,000 VA / 900 W)",
+      "category": "backup_power",
+      "function": "Bridges short outages for pumps and aeration without a generator start.",
+      "region": "netherlands",
+      "currency_code": "EUR",
+      "status": "candidate",
+      "approval_status": "pending_batch_004",
+      "sizing": {
+        "driver": "critical_load_w",
+        "mode": "discrete",
+        "capacity_per_unit": 900.0,
+        "unit_label": "units",
+        "min_units": 1
+      },
+      "capex_per_unit": {
+        "low": 493.51,
+        "high": 493.51,
+        "price_basis": "per unit, incl. 21% VAT (407.86 excl.), proshop.nl",
+        "source_ids": [
+          "retail_nl_proshop_ups"
+        ],
+        "market": {
+          "region": "netherlands",
+          "currency_code": "EUR",
+          "price_year": {
+            "low": 2026,
+            "high": 2026
+          },
+          "price_year_basis": "retail_listing_read_date",
+          "note": "listing price on 2026-11-25"
+        }
+      },
+      "lifetime_years": null,
+      "energy": null,
+      "labour_effect": "Battery check yearly.",
+      "trade_offs": [
+        "Only about 3 minutes at full 900 W load: a bridge, not a long backup.",
+        "Battery life not sourced."
+      ],
+      "occupies_floor": false,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_3",
+        "source_gate": "conditional",
+        "source_gate_reason": "Retail listing (Tier 3): asking prices, read once.",
+        "confidence": "medium",
+        "confidence_reason": "Clear current listing; single seller.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "retail_nl_proshop_ups"
+          ]
+        }
+      },
+      "role": "battery_backup"
+    },
+    {
+      "component_id": "backup_inverter_luminous_756w_in",
+      "name": "Inverter + battery, Luminous Zelio+ 1100 with 150 Ah tubular battery (756 W)",
+      "category": "backup_power",
+      "function": "Keeps pumps and aeration running through routine power cuts.",
+      "region": "india",
+      "currency_code": "INR",
+      "status": "candidate",
+      "approval_status": "pending_batch_004",
+      "sizing": {
+        "driver": "critical_load_w",
+        "mode": "discrete",
+        "capacity_per_unit": 756.0,
+        "unit_label": "units",
+        "min_units": 1
+      },
+      "capex_per_unit": {
+        "low": 23569.0,
+        "high": 23569.0,
+        "price_basis": "per combo, incl. GST (19,973 + 3,596), Moglix",
+        "source_ids": [
+          "retail_in_moglix_luminous"
+        ],
+        "market": {
+          "region": "india",
+          "currency_code": "INR",
+          "price_year": {
+            "low": 2026,
+            "high": 2026
+          },
+          "price_year_basis": "retail_listing_read_date",
+          "note": "listing price on 2026-11-25"
+        }
+      },
+      "lifetime_years": null,
+      "energy": null,
+      "labour_effect": "Top up battery water; check terminals.",
+      "trade_offs": [
+        "The usual Indian home backup; runtime at full load not stated.",
+        "Lifetime not sourced (warranty: battery 36 months)."
+      ],
+      "occupies_floor": false,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_3",
+        "source_gate": "conditional",
+        "source_gate_reason": "Retail listing (Tier 3): asking prices, read once.",
+        "confidence": "medium",
+        "confidence_reason": "Clear GST breakdown; one retailer (maker's own store lists a similar combo at Rs 31,898).",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "retail_in_moglix_luminous"
+          ]
+        }
+      },
+      "role": "battery_backup"
+    },
+    {
+      "component_id": "harvest_crate_34l_nl",
+      "name": "Perforated plastic harvest crate 600x400x180 mm (34 L)",
+      "category": "harvest_postharvest",
+      "function": "Carries cut produce from the beds to packing.",
+      "region": "netherlands",
+      "currency_code": "EUR",
+      "status": "candidate",
+      "approval_status": "pending_batch_004",
+      "sizing": {
+        "driver": "system_count",
+        "mode": "discrete",
+        "capacity_per_unit": 1.0,
+        "unit_label": "crates"
+      },
+      "capex_per_unit": {
+        "low": 5.45,
+        "high": 6.25,
+        "price_basis": "per crate, excl. VAT: EUR 6.25 each, EUR 5.45 at 130 pieces (Belgian shop)",
+        "source_ids": [
+          "retail_be_logistiekdirect_crate"
+        ],
+        "market": {
+          "region": "netherlands",
+          "currency_code": "EUR",
+          "price_year": {
+            "low": 2026,
+            "high": 2026
+          },
+          "price_year_basis": "retail_listing_read_date",
+          "place": "Belgium (logistiekdirect.be) used for NL",
+          "note": "listing price on 2026-11-26"
+        }
+      },
+      "lifetime_years": null,
+      "energy": null,
+      "labour_effect": "Wash after each harvest.",
+      "trade_offs": [
+        "Count needed is not sourced: set component_overrides.<id>.quantity."
+      ],
+      "occupies_floor": false,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_3",
+        "source_gate": "conditional",
+        "source_gate_reason": "Retail listing (Tier 3): asking prices, read once.",
+        "confidence": "low",
+        "confidence_reason": "Single shop; the second EU listing could not be read.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "retail_be_logistiekdirect_crate"
+          ]
+        }
+      },
+      "role": "harvest_crate"
+    },
+    {
+      "component_id": "harvest_crate_in",
+      "name": "Plastic vegetable crate 600x400 mm (Supreme, Bengaluru)",
+      "category": "harvest_postharvest",
+      "function": "Carries cut produce from the beds to packing.",
+      "region": "india",
+      "currency_code": "INR",
+      "status": "candidate",
+      "approval_status": "pending_batch_004",
+      "sizing": {
+        "driver": "system_count",
+        "mode": "discrete",
+        "capacity_per_unit": 1.0,
+        "unit_label": "crates"
+      },
+      "capex_per_unit": {
+        "low": 305.0,
+        "high": 890.0,
+        "price_basis": "per crate: 600x400x120 mm Rs 305 to 600x400x280 mm Rs 890; GST not stated",
+        "source_ids": [
+          "retail_in_indiamart_crates_blr"
+        ],
+        "market": {
+          "region": "india",
+          "currency_code": "INR",
+          "price_year": {
+            "low": 2026,
+            "high": 2026
+          },
+          "price_year_basis": "retail_listing_read_date",
+          "place": "Bengaluru (Karnataka)",
+          "note": "listing prices on 2026-11-26"
+        }
+      },
+      "lifetime_years": null,
+      "energy": null,
+      "labour_effect": "Wash after each harvest.",
+      "trade_offs": [
+        "Count needed is not sourced: set component_overrides.<id>.quantity."
+      ],
+      "occupies_floor": false,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_3",
+        "source_gate": "conditional",
+        "source_gate_reason": "Retail listing (Tier 3): asking prices, read once.",
+        "confidence": "low",
+        "confidence_reason": "Two Bengaluru sellers, different crate depths.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "retail_in_indiamart_crates_blr"
+          ]
+        }
+      },
+      "role": "harvest_crate"
     }
   ],
   "running_inputs": [
@@ -3051,10 +4667,11 @@
         "region": "india",
         "currency_code": "INR",
         "price_year": {
-          "low": null,
-          "high": null
+          "low": 2020,
+          "high": 2020
         },
-        "price_year_basis": "not_recorded"
+        "price_year_basis": "stated_in_source",
+        "note": "KVAFSU Hebbal rate list 2020; the NFDB model is undated."
       }
     },
     {
@@ -3323,6 +4940,237 @@
         "scope": "B1: gas_heat_kwh_per_m3 NL, scenario use only",
         "record": "Approval Batch 003, approved as recommended (thread message 2026-11-26 05:54 Europe/Amsterdam)"
       }
+    },
+    {
+      "input_id": "fingerling_price_each",
+      "region": "netherlands",
+      "unit": "EUR/fish",
+      "value": {
+        "low": 0.5,
+        "high": 1.5
+      },
+      "price_basis": "Blue Planet Ecosystems (Vienna) Nile tilapia fingerlings, EUR 25-75 per batch of 50: 0.5-2 g (low) to 5-10 g (high); VAT not stated; live-fish shipping within the EU not included",
+      "source_ids": [
+        "retail_at_blueplanet_fingerlings",
+        "forum_aquaponik_de_tilapia"
+      ],
+      "approval_status": "pending_batch_004",
+      "source_tier": "tier_3",
+      "source_gate": "conditional",
+      "source_gate_reason": "Retail listing (Tier 3): asking prices, read once.",
+      "confidence": "low",
+      "confidence_reason": "One commercial EU seller; a 2020 forum offer (EUR 2 for 15 cm+ fish) is larger and older, so it agrees only loosely. Shipping not priced.",
+      "corroboration": {
+        "status": "single_source",
+        "source_ids": [
+          "retail_at_blueplanet_fingerlings",
+          "forum_aquaponik_de_tilapia"
+        ]
+      },
+      "currency_code": "EUR",
+      "market": {
+        "region": "netherlands",
+        "currency_code": "EUR",
+        "price_year": {
+          "low": 2026,
+          "high": 2026
+        },
+        "price_year_basis": "retail_listing_read_date",
+        "place": "Vienna (Austria) seller used for NL",
+        "note": "shop prices on 2026-11-26"
+      },
+      "note": "Catfish fingerlings in northern Germany cost EUR 0.07-0.33 per 12 g fish in 2021 (Pasch and Palm 2021, tier_1): a different species, kept for context only."
+    },
+    {
+      "input_id": "basil_seed_price_each",
+      "region": "india",
+      "unit": "INR/seed",
+      "value": {
+        "low": 0.099,
+        "high": 0.099
+      },
+      "price_basis": "Utkarsh Agro (Surat) Italian basil, Rs 99 per pack of about 1,000 seeds, tax included",
+      "source_ids": [
+        "retail_in_utkarsh_basil_seed"
+      ],
+      "approval_status": "pending_batch_004",
+      "source_tier": "tier_3",
+      "source_gate": "conditional",
+      "source_gate_reason": "Retail listing (Tier 3): asking prices, read once.",
+      "confidence": "low",
+      "confidence_reason": "Single online pack; seed count is approximate; hobby pack, not a grower price.",
+      "corroboration": {
+        "status": "single_source",
+        "source_ids": [
+          "retail_in_utkarsh_basil_seed"
+        ]
+      },
+      "currency_code": "INR",
+      "market": {
+        "region": "india",
+        "currency_code": "INR",
+        "price_year": {
+          "low": 2026,
+          "high": 2026
+        },
+        "price_year_basis": "retail_listing_read_date",
+        "place": "Surat (Gujarat) online seller used for India",
+        "note": "listing price on 2026-11-25"
+      }
+    },
+    {
+      "input_id": "lettuce_seed_price_each",
+      "region": "netherlands",
+      "unit": "EUR/pelleted seed",
+      "value": {
+        "low": 0.0289,
+        "high": 0.0499
+      },
+      "price_basis": "Bingenheimer 2025 organic pelleted lettuce, 10,000 pellets EUR 289.00 excl. VAT (low); tuinzaden.eu Milan Pilstar 100 seeds EUR 4.99 incl. BTW (high)",
+      "source_ids": [
+        "bingenheimer_lettuce_2025",
+        "retail_nl_tuinzaden_lettuce"
+      ],
+      "approval_status": "pending_batch_004",
+      "source_tier": "tier_3",
+      "source_gate": "conditional",
+      "source_gate_reason": "Retail listing (Tier 3): asking prices, read once.",
+      "confidence": "medium",
+      "confidence_reason": "Official 2025 seller price list plus one NL retail pack; the gap is pack size and grade.",
+      "corroboration": {
+        "status": "conflicting",
+        "source_ids": [
+          "bingenheimer_lettuce_2025",
+          "retail_nl_tuinzaden_lettuce"
+        ]
+      },
+      "currency_code": "EUR",
+      "market": {
+        "region": "netherlands",
+        "currency_code": "EUR",
+        "price_year": {
+          "low": 2025,
+          "high": 2026
+        },
+        "price_year_basis": "stated_in_source",
+        "note": "Bingenheimer 2025 price list (low); NL listing read 2026-11-25 (high)"
+      }
+    },
+    {
+      "input_id": "propagation_cell_price_each",
+      "region": "netherlands",
+      "unit": "EUR per plug",
+      "value": {
+        "low": 0.0925,
+        "high": 0.13
+      },
+      "price_basis": "Grodan 25x25x40 mm stone wool cubes: EUR 13.88 excl. VAT per 150-cube tray (low) to EUR 0.13 per single cube incl. VAT (high); Growmart DE EUR 14.90 per 150 incl. 19% VAT falls inside",
+      "source_ids": [
+        "retail_eu_grodan_cubes"
+      ],
+      "approval_status": "pending_batch_004",
+      "source_tier": "tier_3",
+      "source_gate": "conditional",
+      "source_gate_reason": "Retail listing (Tier 3): asking prices, read once.",
+      "confidence": "medium",
+      "confidence_reason": "Two sellers agree within 1.4x on the same product.",
+      "corroboration": {
+        "status": "corroborated",
+        "source_ids": [
+          "retail_eu_grodan_cubes"
+        ]
+      },
+      "currency_code": "EUR",
+      "market": {
+        "region": "netherlands",
+        "currency_code": "EUR",
+        "price_year": {
+          "low": 2026,
+          "high": 2026
+        },
+        "price_year_basis": "retail_listing_read_date",
+        "place": "Czech and German online shops used for NL",
+        "note": "listing prices on 2026-11-26"
+      }
+    },
+    {
+      "input_id": "propagation_cell_price_each",
+      "region": "india",
+      "unit": "INR per tray cell",
+      "value": {
+        "low": 0.05,
+        "high": 0.34
+      },
+      "price_basis": "HIPS seedling trays, Rs 5.25 per 104 cells (low) to Rs 17 per 50 cells (high), counted as single use; cocopeat fill not included",
+      "source_ids": [
+        "retail_in_seedling_trays"
+      ],
+      "approval_status": "pending_batch_004",
+      "source_tier": "tier_3",
+      "source_gate": "conditional",
+      "source_gate_reason": "Retail listing (Tier 3): asking prices, read once.",
+      "confidence": "low",
+      "confidence_reason": "Four listings; trays are reusable, so single use overstates cost, and the cocopeat fill is missing, so it also understates. Net direction unknown.",
+      "corroboration": {
+        "status": "corroborated",
+        "source_ids": [
+          "retail_in_seedling_trays"
+        ]
+      },
+      "currency_code": "INR",
+      "market": {
+        "region": "india",
+        "currency_code": "INR",
+        "price_year": {
+          "low": 2026,
+          "high": 2026
+        },
+        "price_year_basis": "retail_listing_read_date",
+        "note": "listing prices on 2026-11-26"
+      }
+    },
+    {
+      "input_id": "ph_base_koh_price_per_kg",
+      "region": "india",
+      "unit": "INR/kg KOH flakes",
+      "value": {
+        "low": 70.0,
+        "high": 99.0
+      },
+      "price_basis": "Caustic potash flakes, six IndiaMART sellers, 87-99.9% purity, GST not stated",
+      "source_ids": [
+        "retail_in_indiamart_koh"
+      ],
+      "approval_status": "approved_for_scenario_use",
+      "source_tier": "tier_3",
+      "source_gate": "conditional",
+      "source_gate_reason": "Retail listing (Tier 3): asking prices, read once.",
+      "confidence": "medium",
+      "confidence_reason": "Six sellers within 1.4x.",
+      "corroboration": {
+        "status": "corroborated",
+        "source_ids": [
+          "retail_in_indiamart_koh"
+        ]
+      },
+      "currency_code": "INR",
+      "market": {
+        "region": "india",
+        "currency_code": "INR",
+        "price_year": {
+          "low": 2026,
+          "high": 2026
+        },
+        "price_year_basis": "retail_listing_read_date",
+        "note": "listing prices on 2026-11-26"
+      },
+      "note": "Not used in builds yet: no sourced KOH dose per kg feed. The Netherlands has only laboratory-grade prices (not used).",
+      "approval": {
+        "approved_by": "Ajit",
+        "approved_date_local": "2026-11-26",
+        "scope": "C1: ph_base_koh_price_per_kg, Tier 3 corroborated price, scenario use only",
+        "record": "Approval Batch 004, approved as recommended (thread message 2026-11-26 15:57 Europe/Amsterdam)"
+      }
     }
   ],
   "labour_regimes": [
@@ -3428,13 +5276,15 @@
   ],
   "known_gaps": [
     "Labour by task (feeding, harvest, packing, cleaning): no sourced split; labour is a whole-system rate.",
-    "Netherlands: fingerling price, lettuce seed price per seed (candidates in candidates_batch_002_v0.jsonl), trough wall price, biofilter media in EUR, second air-pump option, greenhouse heating installation CAPEX.",
-    "India: raft trough walls, seed price in INR.",
     "Seedling propagation (trays, media, germination losses), grow lights, back-up power, sensors and test kits, packaging and cold chain.",
     "Water held in NFT and media-bed grow units; NFT channel layout per m2; NFT and media-bed yields.",
     "Fish sale value and logistics/market costs (layered on later by design).",
     "Batch 002 candidates not yet wired into the configurator (see data/catalog/candidates_batch_002_v0.jsonl): NL trough-wall materials priced per m2 wall face, not per m2 grow area; NL heating installation and heat-demand references; backup power (NL, India); India state subsidy rates, tanks, pumps.",
     "India state protected-cultivation tables 2025-26: Telangana, Andhra Pradesh and Karnataka state rate tables not read (Telangana guideline could not be downloaded). National MIDH 2025 norms are in Batch 002; state top-ups beyond the 50% central share stay a gap.",
-    "Swaps (2026-11-26): no NFT channel metres per m2 (layout); no media-bed container price, NL gravel price or India media price; no gas boiler price, no HDPE fish tank price for NL; no heat pump, fan-and-pad or expanded clay lifetime; fan-and-pad electricity; basil media-bed yield (Knaus 2020 Table 2 not read); water held in NFT and media-bed grow units."
+    "Swaps (2026-11-26): no NFT channel metres per m2 (layout); no media-bed container price, NL gravel price or India media price; no gas boiler price, no HDPE fish tank price for NL; no heat pump, fan-and-pad or expanded clay lifetime; fan-and-pad electricity; basil media-bed yield (Knaus 2020 Table 2 not read); water held in NFT and media-bed grow units.",
+    "Netherlands (2026-11-26): trough-wall prices are blocks or planks only (mortar, posts, labour not priced); biofilter media is one listing; test kit is a US import price; no tilapia-labelled bulk feed price (Lets-Grow EUR 2.50-3.00/kg retail is a candidate in candidates_batch_004_v0.jsonl); KOH and Fe-DTPA prices not found outside lab suppliers.",
+    "India (2026-11-26): trough-wall prices are blocks only; no aquaculture UV unit listed; no diesel generator with a usable price and rating; no low-head pump with a published flow at 1-3 m head (Crompton and Kirloskar pages list 12-38 m heads).",
+    "New categories (2026-11-26): lighting, monitoring, water treatment, backup power and harvest crates now have NL and India parts, but most lifetimes are missing (no sourced life for meters, lights in years, generators, inverters, crates), so their yearly cost shows as a gap. Lights also need hours per day. Fish handling (nets, graders, feeders) has no priced part yet.",
+    "Water tariffs (2026-11-26): Bengaluru BWSSB 2025 commercial slabs conflict between sources by 100x (Rs vs paise per litre); Hyderabad HMWSSB has only 2011 and 2014 slab tables (a 2026 bill plans +5% a year). Neither is wired in."
   ]
 }

@@ -112,6 +112,82 @@
         "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/species/*/ model blocks)"
       },
       "added_date_local": "2026-11-26"
+    },
+    {
+      "fact_id": "BYR_0004",
+      "statement": "In a floating-raft trial at 20 plants/m2, basil cut twice (35 and 79 days after planting) gave about 32 to 44 g fresh mass per plant per cut in aquaponics and about 38 g in hydroponics, i.e. roughly 0.65 to 0.89 kg/m2 per cut (our arithmetic).",
+      "domain": "biology",
+      "type": "parameter",
+      "confidence": "low",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "approval_batch": "pending_batch_004",
+      "context": {
+        "species": "basil (Genovese)",
+        "system": "floating raft, aquaponic and hydroponic, under 75 percent shade net",
+        "location": "Portici (Naples), Italy, 24 Jun to 10 Sep 2021"
+      },
+      "source_metadata": {
+        "source_id": "modarelli_2023_plants",
+        "section_id": "Table 1",
+        "source_type": "peer_reviewed_journal",
+        "source_tier": "tier_2",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10053589/"
+      },
+      "review_metadata": {
+        "source_gate": "trusted",
+        "source_gate_reason": "Peer-reviewed (Plants 12:1355).",
+        "confidence_reason": "Per-plant values read from Table 1; the 20 plants/m2 density came from a page summary, not verbatim; table means and abstract disagree slightly (41.7 vs 38.4 g); heavy shade, so light-limited.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "modarelli_2023_plants"
+          ]
+        },
+        "reviewed_from_file": "web reads 2026-11-26 (gravel-bed N and basil density fixes)"
+      },
+      "added_date_local": "2026-11-26"
+    },
+    {
+      "fact_id": "BYR_0005",
+      "statement": "In deep-flow hydroponics, basil 'Nufar' harvested once three weeks after transplant gained fresh mass per m2 as spacing went from 30 to 10 cm (+747 g/m2 at DLI 14 to 15, +489 g/m2 at DLI 5 to 6), while per-plant mass fell only slightly.",
+      "domain": "biology",
+      "type": "parameter",
+      "confidence": "medium",
+      "status": "accepted",
+      "approval_batch": "batch_004",
+      "context": {
+        "species": "basil 'Nufar'",
+        "system": "deep-flow technique, single harvest of young plants",
+        "densities": "about 11 to 100 plants/m2 (square spacing, our arithmetic)"
+      },
+      "source_metadata": {
+        "source_id": "walters_currey_2015_ashs",
+        "section_id": "ASHS 2015 abstract; Greenhouse Grower article 26 Dec 2015",
+        "source_type": "conference_abstract_and_trade_article",
+        "source_tier": "tier_2",
+        "url": "https://ashs.confex.com/ashs/2015/webprogram/Paper21160.html"
+      },
+      "review_metadata": {
+        "source_gate": "conditional",
+        "source_gate_reason": "Conference abstract plus the author's trade-press summary; not a full paper.",
+        "confidence_reason": "Two write-ups of one trial agree; applies to young, open canopies only (context split with established cut-and-regrow crops).",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "walters_currey_2015_ashs",
+            "ciriello_2021"
+          ]
+        },
+        "reviewed_from_file": "web reads 2026-11-26 (gravel-bed N and basil density fixes)",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-26",
+          "scope": "truth BYR_0005 (B1: Tier 2, medium, corroborated)",
+          "record": "Approval Batch 004, approved as recommended (thread message 2026-11-26 15:57 Europe/Amsterdam)"
+        }
+      },
+      "added_date_local": "2026-11-26"
     }
   ]
 }
