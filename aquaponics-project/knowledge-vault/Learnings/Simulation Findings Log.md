@@ -2,6 +2,24 @@
 
 What the simulation shows, newest first. These are **scenario estimates, not validated**: they describe the model, not the real world, and they are never truths.
 
+## 2026-11-26: Heating and climate, NL glasshouse and Karnataka polyhouse (scenario estimate, not validated)
+
+Run: `python src/heat_demand.py` (results in `data/simulation/results/greenhouse_heat_demand.json`). An hourly heat balance on a mean day per month from KNMI De Bilt and IMD Bengaluru 1991-2020 normals. The loss coefficient is calibrated to KEMA 2012's Venlo radish figure. All values are candidates pending Batch 003.
+
+| Netherlands glasshouse setpoint | Heat demand (m³ gas eq. per m² per year) | Gas (m³/m²/yr) | Gas cost (€/m²/yr) |
+|---|---|---|---|
+| 10 °C, basil chilling floor only | 13 to 17 | 15 to 21 | 20 to 30 |
+| 24 °C day and night, with night screen | 61 to 64 | 67 to 76 | 89 to 111 |
+| 26 °C day and night, with night screen | 71 to 74 | 77 to 88 | 103 to 128 |
+| 26 °C day and night, no screen | 89 to 102 | 97 to 122 | 130 to 177 |
+
+- **Heating basil to its preferred 26 °C in a Dutch glasshouse would cost about €100 to €130 per m² per year in gas with a night screen, and more without one.** The basil gross revenue scenario was €154 to €222 per m² per year (UVI feed-ratio case), so heat alone would take roughly half or more. These are scenario estimates; total operating cost is not claimed.
+- **The model checks out against a second KEMA figure (cold pot plant, 15/13 °C, screened) to within 3 to 6 percent.** It overshoots a chrysanthemum figure by 25 to 40 percent, but that one is probably lit and may be gas use, not heat demand.
+- **The basil cases are an extrapolation.** The model is calibrated between 8 and 15 °C, and no published Dutch basil heat demand exists. Lit tomato uses about 32 m³/m² and warm Phalaenopsis 50 to 90, so basil at 24 to 26 °C landing at 61 to 88 sits where a warm crop would.
+- **The biggest open uncertainty is KEMA's own radish number.** KEMA 2009 gives about 5.4 m³/m² for the same setpoints, against 12.0 in 2012. If 2009 is right, every Dutch figure here roughly halves (ticket UQ-012).
+- **Karnataka needs no heating at 10 to 15 °C setpoints on mean nights.** Holding 24 to 26 °C at night would take about 74 to 252 kWh of heat per m² per year. Record lows went below basil's 10 °C chilling line in November to February, so cold-night protection may matter (low confidence: tertiary source).
+- **Karnataka cooling is the larger question.** Outdoor air is above basil's preferred 27.5 °C for about 2,300 hours a year and above its tolerated 31 °C for about 600. Fan-pad cooling would use about 46 to 55 kWh per m² per year if run every day (low confidence: one North-West India source). No Karnataka electricity tariff is in the catalog, so there is no cost yet.
+
 ## 2026-11-26: Equipment P1 research, Batch 002 candidates (scenario estimate, not validated)
 
 - Karnataka basil DWC configurator, mid case: INR 110.25 to 130.78 per kg of plant output (low to high case moves from 91.65-130.41 to 106.95-156.78). Why: polyhouse life (10-12 yr) and an India water price are now counted instead of left out as gaps. The water price is Chennai's commercial tariff (Rs 99-163/m3) used as a proxy, because no current Bengaluru tariff was found.
