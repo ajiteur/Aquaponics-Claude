@@ -1,6 +1,6 @@
 # Approval Batch 006
 
-Open. When it's ready, reply "approve batch 006 as recommended", or list the item numbers you want changed. Approvals are then recorded next to each value (who, date, scope).
+**Status: approved as recommended by Ajit on 2026-11-26 (23:13 Europe/Amsterdam).** Each approval is recorded next to its value. Two points for later, not part of this approval: the carbonate constants (Plummer and Busenberg 1982) should be checked against phreeqc.dat before the buffer model is accepted, and UQ-019 (which alkalinity returns to credit by default) is Ajit's call.
 
 Opened: 2026-11-26, against `main` at `ee43d55`. Rule used (AGENTS.md 6A): approve medium or high confidence items that are corroborated; single-source, low-confidence and conflicting items stay candidates.
 

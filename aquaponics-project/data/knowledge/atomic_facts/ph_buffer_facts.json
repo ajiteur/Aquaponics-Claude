@@ -7,8 +7,7 @@
       "domain": "water_chemistry",
       "type": "parameter",
       "confidence": "high",
-      "status": "provisional",
-      "provisional_reason": "candidate_pending_user_review",
+      "status": "accepted",
       "context": {
         "system": "freshwater RAS and biofilters",
         "scope": "autotrophic nitrification stoichiometry (Eq. 14)"
@@ -32,9 +31,16 @@
             "us_epa_625_4_73_004a_via_cwea"
           ]
         },
-        "research_report": "data/sources/research_reports/markdown/Aquaponics pH buffer and alkalinity.md"
+        "research_report": "data/sources/research_reports/markdown/Aquaponics pH buffer and alkalinity.md",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-26",
+          "scope": "truth PHB_0001 (C1: Tier 1, medium or high, corroborated)",
+          "record": "Approval Batch 006, approved as recommended (thread message 2026-11-26 23:13 Europe/Amsterdam)"
+        }
       },
-      "added_date_local": "2026-11-26"
+      "added_date_local": "2026-11-26",
+      "approval_batch": "batch_006"
     },
     {
       "fact_id": "PHB_0002",
@@ -42,8 +48,7 @@
       "domain": "operations",
       "type": "parameter",
       "confidence": "medium",
-      "status": "provisional",
-      "provisional_reason": "candidate_pending_user_review",
+      "status": "accepted",
       "context": {
         "system": "UVI commercial-scale coupled DWC raft, tilapia with basil",
         "location": "St. Croix, US Virgin Islands, tropical"
@@ -67,9 +72,16 @@
             "srac_454"
           ]
         },
-        "research_report": "data/sources/research_reports/markdown/Aquaponics pH buffer and alkalinity.md"
+        "research_report": "data/sources/research_reports/markdown/Aquaponics pH buffer and alkalinity.md",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-26",
+          "scope": "truth PHB_0002 (C1: Tier 1, medium or high, corroborated)",
+          "record": "Approval Batch 006, approved as recommended (thread message 2026-11-26 23:13 Europe/Amsterdam)"
+        }
       },
-      "added_date_local": "2026-11-26"
+      "added_date_local": "2026-11-26",
+      "approval_batch": "batch_006"
     },
     {
       "fact_id": "PHB_0003",
@@ -145,8 +157,7 @@
       "domain": "operations",
       "type": "parameter",
       "confidence": "medium",
-      "status": "provisional",
-      "provisional_reason": "candidate_pending_user_review",
+      "status": "accepted",
       "context": {
         "system": "coupled aquaponics, general extension guidance"
       },
@@ -171,9 +182,16 @@
             "fao_tp_589"
           ]
         },
-        "research_report": "data/sources/research_reports/markdown/Aquaponics pH buffer and alkalinity.md"
+        "research_report": "data/sources/research_reports/markdown/Aquaponics pH buffer and alkalinity.md",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-26",
+          "scope": "truth PHB_0005 (C1: Tier 1, medium or high, corroborated)",
+          "record": "Approval Batch 006, approved as recommended (thread message 2026-11-26 23:13 Europe/Amsterdam)"
+        }
       },
-      "added_date_local": "2026-11-26"
+      "added_date_local": "2026-11-26",
+      "approval_batch": "batch_006"
     },
     {
       "fact_id": "PHB_0006",
@@ -283,8 +301,7 @@
       "domain": "environment",
       "type": "parameter",
       "confidence": "high",
-      "status": "provisional",
-      "provisional_reason": "candidate_pending_user_review",
+      "status": "accepted",
       "context": {
         "location": "Netherlands",
         "water": "municipal tap water"
@@ -310,9 +327,16 @@
             "ilt_drinkwater_2017"
           ]
         },
-        "research_report": "data/sources/research_reports/markdown/Aquaponics pH buffer and alkalinity.md"
+        "research_report": "data/sources/research_reports/markdown/Aquaponics pH buffer and alkalinity.md",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-26",
+          "scope": "truth PHB_0009 (C1: Tier 1, medium or high, corroborated)",
+          "record": "Approval Batch 006, approved as recommended (thread message 2026-11-26 23:13 Europe/Amsterdam)"
+        }
       },
-      "added_date_local": "2026-11-26"
+      "added_date_local": "2026-11-26",
+      "approval_batch": "batch_006"
     },
     {
       "fact_id": "PHB_0010",

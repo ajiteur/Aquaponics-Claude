@@ -43,6 +43,8 @@ Newest first. Each entry gives the decision, why, and who made it.
 
 ## 2026-11-26
 
+- **Approve Batch 006 as recommended.** Approved: truths PHB_0001, PHB_0002, PHB_0005 and PHB_0009. The carbonate alkalinity buffer model and the other PHB truths stay candidates. Decided by Ajit (23:13 Europe/Amsterdam).
+
 - **Approve Batch 005 as recommended.** Approved: the validation-run choices (pH held at the published mean, Knaus basil scored at mid light, Savidov fish against the report's range, Khater FCR reported but not scored), with the condition that summaries say "0 of 10 scored, 3 reported unscored" and never "validated"; and truths VR3_0003, VR3_0004 and VR3_0006. UQ-017 and UQ-018 stay open. Decided by Ajit (16:21 Europe/Amsterdam).
 
 - **Approve Batch 004 as recommended.** Approved: truths BYR_0005 and NITR_0015, and four corroborated Tier 3 prices for scenario use (Lumatek Zeus 600 and SanLight EVO 4-120 LEDs and the pH tester in the Netherlands, KOH pH base in India). Models and everything else stay candidates. Decided by Ajit (15:57 Europe/Amsterdam).

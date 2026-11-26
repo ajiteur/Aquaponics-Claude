@@ -3,7 +3,7 @@ fact_id: "PHB_0005"
 domain: "operations"
 type: "parameter"
 confidence: "medium"
-status: "provisional"
+status: "accepted"
 source_id: "srac_454"
 source_tier: "tier_1"
 source_gate: "trusted"
@@ -11,14 +11,12 @@ source_file: "data/knowledge/atomic_facts/ph_buffer_facts.json"
 tags:
   - truth
   - operations
-  - candidate
+  - accepted
 ---
 
 # PHB_0005
 
 > Aquaponics guidance keeps alkalinity at or above about 100 mg/L as CaCO3 (SRAC 454, NMSU; Texas A&M gives 50 to 150, preferably above 100) and never uses sodium bicarbonate, to keep sodium below about 50 mg/L.
-
-**Candidate truth.** Not yet approved (`candidate_pending_user_review`).
 
 ## Context
 
