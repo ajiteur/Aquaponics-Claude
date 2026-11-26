@@ -48,15 +48,17 @@
       {
         "swap_id": "arch_media_bed",
         "kind": "architecture",
-        "label": "Media bed instead of DWC raft (no India media price in the catalog yet)",
+        "label": "Media bed with expanded clay (LECA) instead of DWC raft",
         "patch": {
           "grow_architecture": "media_bed",
           "components": {
-            "grow_unit": [],
+            "grow_unit": [
+              "media_expanded_clay_in"
+            ],
             "biofilter": "biofilter_mbbr_media_in"
           }
         },
-        "note": "Configurator still adds an MBBR biofilter for media beds (media nitrification not credited). No sourced media-bed yield.",
+        "note": "LECA priced from four IndiaMART sellers (Rs 9,500-18,760/m3, candidate). Configurator still adds an MBBR biofilter for media beds (media nitrification not credited). No sourced media-bed yield, and clay lifetime and bed container are not sourced.",
         "confidence": "low",
         "confidence_reason": "Feed and fish fall to 25% of the raft rate on one SRAC sentence (low confidence); no sourced media-bed basil yield; clay lifetime and bed container not sourced.",
         "risk": "Beds clog with solids and need labour-intensive washing (FAO 589); the media doubles as solids filter and biofilter in small systems.",
@@ -95,6 +97,70 @@
         "confidence_reason": "MIDH 2025 norm price (Tier 1, a subsidy ceiling), but lifetime and fan/pad electricity are not sourced, so the cost change has the wrong sign until they are.",
         "risk": "Cooler in summer; a power cut stops the cooling.",
         "labour": "Pads need cleaning and replacing; fans need servicing."
+      },
+      {
+        "swap_id": "addon_propagation",
+        "kind": "add_on",
+        "label": "Add propagation plugs or tray cells for every plant start",
+        "patch": {
+          "propagation": {
+            "enabled": true
+          }
+        },
+        "note": "NL: Grodan stone wool cubes; India: seedling-tray cells counted as single use, cocopeat fill not priced.",
+        "confidence": "low",
+        "confidence_reason": "Tray reuse and cocopeat fill are not sourced, so the direction of the error is unknown.",
+        "risk": "Even germination and fewer losses (not quantified).",
+        "labour": "Sowing and transplanting time not sourced."
+      },
+      {
+        "swap_id": "addon_backup_power",
+        "kind": "add_on",
+        "label": "Add battery backup for pumps and aeration",
+        "patch": {
+          "components": {
+            "backup_power": "backup_inverter_luminous_756w_in"
+          }
+        },
+        "note": "Sized on the summed power of the chosen pumps and air pumps. Lifetime not sourced, so the yearly cost is a gap (*).",
+        "confidence": "low",
+        "confidence_reason": "Clear current price (Tier 3), but no sourced lifetime or runtime need.",
+        "risk": "Keeps fish alive through routine power cuts.",
+        "labour": "Battery checks."
+      },
+      {
+        "swap_id": "addon_monitoring",
+        "kind": "add_on",
+        "label": "Add a DO meter, pH meter and test kit",
+        "patch": {
+          "components": {
+            "monitoring": [
+              "monitor_do_meter_in",
+              "monitor_ph_meter_in",
+              "monitor_test_kit_in"
+            ]
+          }
+        },
+        "note": "One of each per system. Lifetimes not sourced, so the yearly cost is a gap (*).",
+        "confidence": "low",
+        "confidence_reason": "Tier 3 prices; no sourced lifetimes.",
+        "risk": "Catches low oxygen and pH drift early.",
+        "labour": "Daily and weekly checks (minutes not sourced)."
+      },
+      {
+        "swap_id": "addon_uv_steriliser",
+        "kind": "add_on",
+        "label": "Add a UV steriliser",
+        "patch": {
+          "components": {
+            "water_treatment": "uv_steriliser_21w_in"
+          }
+        },
+        "note": "One unit per system; flow rating not read. India unit is an RO-type stand-in with no sourced lifetime (*).",
+        "confidence": "low",
+        "confidence_reason": "Single Tier 3 listing.",
+        "risk": "Clearer water; UVI ran without UV, so it is optional.",
+        "labour": "Yearly lamp change."
       }
     ]
   }
