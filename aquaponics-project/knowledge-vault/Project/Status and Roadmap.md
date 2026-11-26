@@ -20,7 +20,7 @@ Last updated: 2026-11-26
 - The raft nitrification capacity is about 10 times higher per m² than published biofilm rates; this needs a closer look.
 - ~~Heating cost uses a transferred pepper figure (21-30 m³ gas/m²).~~ A climate-driven heat demand model for the Netherlands and Karnataka now exists (candidate, Batch 003). Basil at 24 to 26 °C comes out at about 67 to 88 m³ gas/m²/yr with a night screen. The calibration point conflicts with an older KEMA figure (UQ-012), and Karnataka fan-pad cooling (about ₹157 to ₹389 per m² a year) rests on one low-confidence energy figure.
 - ~~Fish growth is feed / FCR x fish score x 0.8 (placeholder).~~ A sourced feed, FCR and temperature model is in (candidate, Batch 003), opt-in for the basil raft scenarios. Its 22 to 27 °C slope may be too steep; no thermal growth coefficient was found.
-- Validation against three published systems (in review, PR #30): 6 of 12 metrics still fail after candidate fixes for fish growth below 27 °C (UQ-013) and basil density and light (UQ-014). The N balance for small gravel-bed systems (UQ-015) is still open.
+- Validation against three published systems: 3 of 12 metrics fail after the second round of candidate fixes (closed-canopy basil density, corrected Knaus light, gravel beds as media volume; UQ-014 and UQ-015 in review). Still open: basil grown from young transplants (UQ-016), Savidov fish weight (−25%) and Khater FCR (+84%, which may lie in the paper).
 - Standing plant biomass still grows at a fixed 4 g per plant per day. Only harvestable mass is calibrated.
 - Two cost inputs in the unit-economics example (variable cost per kg, a €500 batch fixed cost) are constructed placeholders, not evidence.
 

@@ -17,6 +17,27 @@ Rerun of the two configurator builds (`run.bat configure_basil_dwc_nl`, `run.bat
 - **Add-ons in the swap report** (propagation plugs, battery backup, a DO meter with pH meter and test kit, a UV steriliser) mostly show as gaps (*): their prices are known, but no lifetime is sourced, so the yearly cost can't be spread. The NL UV steriliser has a retailer life (5 years) and adds about €0.09 per kg.
 - Lights are in the catalog for both markets, but no sourced hours per day exist for basil in a Dutch greenhouse, so their running cost needs your own assumption (`component_overrides`).
 
+## 2026-11-26: Basil overprediction and gravel-bed nitrogen fixed (scenario estimate, not validated)
+
+Rerun of `python scripts/validate_published_systems.py` after three candidate changes (pending review). The entry below is the previous run, left as it was.
+
+- **Basil density: closed canopy.** UVI's plants are already big at 8 plants/m² (about 250 g per plant per cut), so the canopy is closed and more plants per m² should not add yield per m². Above the UVI density, yield per m² now stays flat. The old baby-leaf exponent (0.394) is kept as a sensitivity case. Two raft trials at 20 to 23 plants/m² (Modarelli 2023, Corrado 2020) are consistent with this, but no one has run a density trial on cut-and-regrow basil.
+- **Knaus light re-read from the paper.** The paper gives daytime PAR (146.6 µmol/m²/s) and night PAR (11.6) separately, so the old 12.7 mol/m²/d reading (daytime PAR held for 24 h) was not possible. With Rostock day length the DLI is 4.3 to 7.2. The old low case also used the carp unit's PAR by mistake.
+- **Gravel beds count as gravel, not raft.** A gravel bed is now media volume × feed loading: 1.0 (FAO 589 minimum) to 3.6 kg feed/m³/day (SRAC 453 trickling filter, which Greiner and Timmons 1998 measured rates support). Knaus's 2,000 kg of gravel is about 1.25 to 1.43 m³.
+
+| Metric | Before | After |
+|---|---|---|
+| Knaus TAN | +115% | −20% ✓ (+210% at the FAO low end) |
+| Knaus NO3-N | −11% | +15% ✓ |
+| Knaus basil per plant, low / high light | +30% / +441% | −13% ✓ / +112% ✗ |
+| Savidov basil per m² per year at its density | +68% | −2% ✓ (+68% with the old exponent) |
+| Savidov fish harvest weight | −25% | −25% (unchanged) |
+| Khater FCR | +84% | +84% ✗ (unchanged) |
+
+- **3 of 12 metrics fail, down from 6.** Basil fails only at the top of the Knaus light range. The likely cause is that young transplants grow at the regrowth rate of established plants from day 0 (new ticket UQ-016).
+- **The TAN fix rests on one validation point.** Knaus sits near the trickling-filter end of the gravel range, and the conservative default (1.0 kg/m³) would put TAN 3 times too high.
+- **No change at UVI:** the crop-cycle scenarios run at 8 plants/m², raft surfaces and no DLI set, so their results are unchanged.
+
 ## 2026-11-26: Validation fixes, basil density and light, tilapia temperature curve (scenario estimate, not validated)
 
 Rerun of `python scripts/validate_published_systems.py` after two candidate fixes (pending Batch 003). The previous run is the entry below and is left as it was, so you can compare the two.

@@ -10,6 +10,12 @@ Newest first. Each entry gives the decision, why, and who made it.
 - **A part role may be missing in one market only with a written reason.** Two are: heating in India (Indian polyhouses are not heated, HEAT_0009) and generators in India (the only listing looked like a placeholder). A test checks this. Proposed by Claude.
 - **Telangana's 2025-26 protected-cultivation table stays a gap.** The state site refuses connections from both the cloud and Ajit's PC. It needs a download from an Indian network or VPN. Recorded by Claude.
 
+## 2026-11-26: Basil and gravel-bed validation fixes
+
+- **Treat established cut-and-regrow basil as a closed canopy.** Above the UVI density (8 plants/m²), yield per m² stays flat instead of following a baby-leaf density curve. Why: UVI plants are already about 250 g each, and two raft trials at 20 to 23 plants/m² show no per-m² gain. The baby-leaf exponent stays as a sensitivity case. Proposed by Claude, pending Ajit's review.
+- **Model gravel grow beds as media volume, not raft area.** Range 1.0 to 3.6 kg feed per m³ of gravel per day. The simulator default is the low end, which is conservative. Why: gravel is a different nitrifying surface from a raft, and the published validation case only fits near the upper end. Proposed by Claude, pending Ajit's review.
+- **Fix the cause, not the result:** the remaining basil miss (young transplants) is a new ticket, UQ-016, not a tuned number. Proposed by Claude.
+
 ## 2026-11-26: Multi-market checkpoint
 
 - **Tie every price to a market: region, currency and price year.** Retail listings take the year they were read, sourced documents take the year they state, and anything else is marked "not recorded" and flagged, never guessed. A build refuses a price in another currency. Why: the model has to generalise to many markets without mixing currencies or vintages. Proposed by Claude.
