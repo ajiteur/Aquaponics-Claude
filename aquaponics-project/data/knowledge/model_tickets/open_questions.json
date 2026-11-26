@@ -188,6 +188,17 @@
       "evidence_still_needed": "Sourced nitrification alkalinity consumption, source-water alkalinity for NL and India sites, and a buffering model; until then validation runs hold pH at the published mean.",
       "source_section": "Validation checkpoint 3, 2026-11-26",
       "priority": "high",
+      "status": "model_added_candidate",
+      "resolution_note": "2026-11-26 (pH buffer pass): a carbonate alkalinity buffer is in as a candidate (src/ph_buffer.py, model carbonate_alkalinity_buffer in data/knowledge/models/water_chemistry_models.json, opt-in per scenario). Alkalinity is a daily balance (nitrification -7.05 g CaCO3 per g N, Ebeling 2006; optional returns from NH3 excretion, denitrification and plant nitrate uptake; water exchange; base dosing) and pH is solved from alkalinity and a held dissolved CO2. pH-free validation (reported, not scored): with nitrification only, Knaus pH falls from 8.0 to about 5.2-5.5 within 70 days whatever the source water, because alkalinity runs out; with all returns at their upper bounds and tap or hard water it stays at 7.8-7.9, close to the published 8.0. UVI base check: nitrification only needs about 168 g base per kg feed (13 to 15 times UVI's 11-12.5); all returns at upper bounds need 24-27 g/kg (about twice UVI). Scored runs still hold pH (Batch 005, B1) because start alkalinity, source water and exchange are not reported. Remaining question moved to UQ-019 (which alkalinity returns to credit by default)."
+    },
+    {
+      "ticket_id": "UQ-019",
+      "topic": "alkalinity_return_terms_default",
+      "issue": "The buffer model only reproduces real systems when alkalinity returns are credited: nitrification alone drains alkalinity in weeks and needs about 15 times UVI's recorded base; all returns at upper bounds still need about twice UVI's base.",
+      "why_unresolved": "No source measures the alkalinity released by plant nitrate uptake in aquaponics, the denitrified share of the UVI residual N loss, or states how fish NH3 excretion should be counted. UVI make-up water alkalinity and how much make-up replaces evapotranspiration are also unknown.",
+      "evidence_still_needed": "A dosed or undosed aquaponics pH and alkalinity time series with feed, exchange and source-water alkalinity (to calibrate the three return terms); Rakocy 2004 Acta Hort 648 full text; EPA nitrogen-control manual for the excretion convention; measured dissolved CO2 in raft aquaponics.",
+      "source_section": "pH buffer pass, 2026-11-26",
+      "priority": "high",
       "status": "open"
     }
   ]
