@@ -16,6 +16,20 @@ Last updated: 2026-11-26, after Approval Batch 002 (PRs #21 to #28). No checkpoi
 | 4. Multi-market | `██████░░░░░░░░░░░░░░` 33% | 1 of 3 |
 | **All** | `███████░░░░░░░░░░░░░` **38%** | **6 of 16** |
 
+## Waiting to merge
+
+These checkpoints are finished in open PRs. Tick them when the PR merges. With all of them ticked, the total is 13 of 16 (81%).
+
+| Checkpoint | PR |
+|---|---|
+| 1. Heating and climate | #30 |
+| 1. Fish growth and feed | #30 |
+| 1. Validation against real farm data (done as a check: 6 of 12 metrics still more than 25% off, so the model isn't validated yet) | #30 |
+| 3. Side-by-side alternatives | #29 |
+| 3. Trade-off report per swap | #29 |
+| 4. Every price tagged with its market | #29 |
+| 4. Adding a country needs data only | #29 |
+
 ## 1. Accurate biology
 
 - [x] Nitrification model: biofilm capacity with TAN, pH, temperature and DO limits (candidate)

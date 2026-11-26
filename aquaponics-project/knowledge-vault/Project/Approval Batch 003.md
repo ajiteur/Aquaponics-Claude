@@ -11,7 +11,7 @@ Each PR is stacked on the one before it, so merge them in this order.
 | # | PR | Recommendation |
 |---|---|---|
 | A1 | #28: record Approval Batch 002, save-point-002 entry | **Merge first.** Tag `save-point-002` on the merge commit. |
-| A2 | #29: swaps checkpoint (`compare_swaps.py`, heat-pump heating source, NFT and media-bed alternatives, multi-market tags) | **Merge second.** Re-reviewed at `ff10cf7`, which now also has the multi-market checkpoint (market tags on every price, `audit_market_tags.py` with 14 flags, and a stub-market test). It adds no new values. With #28 and #30 merged in, tests, integrity and syncs pass. |
+| A2 | #29: swaps checkpoint (`compare_swaps.py`, heat-pump heating source, NFT and media-bed alternatives, multi-market tags) | **Merge second.** Re-reviewed at `3ece68a` (final), which now also has the trade-off report per swap and the multi-market checkpoint (market tags on every price, `audit_market_tags.py` with 14 flags, and a stub-market test). It adds no new values. With #28 and #30 merged in, 236 tests, integrity and syncs pass. |
 | A3 | #30: heating and climate checkpoint, plus the fish growth and feed checkpoint (`heat_demand.py`, `fish_growth.py`) | **Merge third.** Stacked on #29, re-reviewed at `a3a4892`. It now also carries the validation checkpoint and its first fixes. The fish model is opt-in, and only the two basil raft crop cycles use it; their yields move by under 0.1% (1.440 to 1.441 kg/m²). With #28, #29 and #30 combined, tests, integrity and syncs pass. |
 
 ## B. Values from PR #29 (swaps)
