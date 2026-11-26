@@ -278,7 +278,11 @@ def main():
     # Feeding and fish growth
     total_biomass_kg = fish_batch["total_biomass_kg"]
     growth_model = fish_profile.get("growth_feed_model") if feeding.get("growth_model") == fish_growth.MODEL_ID else None
-    if growth_model and feeding.get("feed_rate_source") == "profile_size_table":
+    if feeding.get("fixed_feed_kg_per_day") is not None:
+        # Fixed daily ration (published trials that feed a set amount, not % body weight).
+        feed_rate_pct = 100.0 * feeding["fixed_feed_kg_per_day"] / max(total_biomass_kg, 1e-9)
+        feed_rate_basis = "scenario_fixed_daily_ration"
+    elif growth_model and feeding.get("feed_rate_source") == "profile_size_table":
         feed_rate_pct = fish_growth.feeding_rate_pct(fish_batch["average_weight_g"], growth_model)
         feed_rate_basis = "srac_282_size_table_midpoint_candidate"
     else:

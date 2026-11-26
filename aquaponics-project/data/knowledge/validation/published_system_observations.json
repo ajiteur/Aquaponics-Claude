@@ -1,0 +1,156 @@
+{
+  "version": "0.1",
+  "status": "candidate_pending_user_review",
+  "approval_batch": "pending_batch_003",
+  "added_utc": "2026-11-26",
+  "description": "Published aquaponics observations (beyond UVI) used to validate the daily simulation. Observed values are evidence; 'derived' values are arithmetic on printed numbers. Read through fetch summaries, so check quotes against the PDFs before promotion.",
+  "records": [
+    {
+      "system_id": "knaus_2018_rostock_tilapia",
+      "name": "Knaus, Appelbaum and Palm 2018, Rostock, tilapia unit (II), autumn herbs",
+      "source": "Significant factors affecting the economic sustainability of closed backyard aquaponics systems. Part IV: autumn herbs and polyponics. AACL Bioflux 11(6):1760-1775",
+      "url": "https://bioflux.com.ro/docs/2018.1760-1775.pdf",
+      "source_metadata": {
+        "source_tier": "tier_2",
+        "source_type": "peer_reviewed_journal"
+      },
+      "review_metadata": {
+        "source_gate": "conditional",
+        "source_gate_reason": "Open-access peer-reviewed, low-impact journal.",
+        "confidence": "medium",
+        "confidence_reason": "Full measured fish and water record with N basis stated; small backyard unit; read through a fetch summary.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "knaus_appelbaum_palm_2018_aacl"
+          ]
+        }
+      },
+      "context": {
+        "system": "coupled, gravel ebb-and-flow beds (not DWC)",
+        "location": "northern Germany glasshouse, autumn (8 Aug to 16 Oct 2014)",
+        "light": "low, PAR about 111 to 147 umol/m2/s plus night tubes",
+        "crops": "basil, mint, parsley mixed"
+      },
+      "inputs": {
+        "days": 70,
+        "fish_count": 309,
+        "fish_start_mean_g": 26.5,
+        "fish_start_biomass_kg": 10.33,
+        "feed_kg_per_day": 0.2,
+        "feed_protein_fraction": 0.37,
+        "water_volume_l": 3810,
+        "fish_tank_volume_l": 1800,
+        "water_temperature_c": 26.3,
+        "pH": 8.0,
+        "do_mg_L": 6.2,
+        "plant_area_m2_derived": 10.0,
+        "plant_count_derived": 180,
+        "note": "Start biomass 10.33 kg does not equal 309 x 26.5 g (8.19 kg) as printed; the model uses the printed biomass."
+      },
+      "observed": {
+        "fish_end_biomass_kg": 19.45,
+        "fish_end_mean_g": 66.5,
+        "fcr": 1.54,
+        "sgr_pct_day": 0.91,
+        "tan_mg_L_mean": 0.21,
+        "no3_n_mg_L_mean": 15.57,
+        "no3_n_mg_L_sd": 8.39,
+        "basil_fresh_g_per_plant": 16.1
+      }
+    },
+    {
+      "system_id": "savidov_2005_alberta_basil",
+      "name": "Savidov 2005, Crop Diversification Centre South, Brooks, Alberta, tilapia + basil raft",
+      "source": "Evaluation and development of aquaponics production and product market capabilities in Alberta, Phase II, final report 20 Dec 2005",
+      "url": "https://issuu.com/ponics/docs/110504140652-36fd13b4bc2849e4895c5eeeb258c678",
+      "source_metadata": {
+        "source_tier": "tier_1",
+        "source_type": "government_research_report"
+      },
+      "review_metadata": {
+        "source_gate": "conditional",
+        "source_gate_reason": "Provincial research centre report, not peer reviewed, read via an Issuu re-host.",
+        "confidence": "low",
+        "confidence_reason": "Yield bases conflict between abstract and body; harvest weight per fish is derived; supplemental light.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "savidov_2005_cdc_south"
+          ]
+        }
+      },
+      "context": {
+        "system": "coupled DWC raft (UVI-based design)",
+        "location": "Alberta greenhouse",
+        "light": "16:8 photoperiod, natural plus artificial"
+      },
+      "inputs": {
+        "fish_start_mean_g": 100.0,
+        "fish_days": 168,
+        "feed_pct_bw": {
+          "at_100_g": 2.5,
+          "at_400_g": 1.25
+        },
+        "water_temperature_c": 24.8,
+        "pH": 6.2,
+        "basil_density_plants_m2_derived": 31.8,
+        "basil_cycle_days_derived": 28,
+        "raft_area_m2_per_trough": 25.8
+      },
+      "observed": {
+        "basil_kg_m2_trough_area": 21.8,
+        "basil_period": "18 Jul 2003 to 23 May 2004 (310 days)",
+        "basil_kg_m2_trough_area_per_year_derived": 25.7,
+        "fish_harvest_mean_g_derived": 630.0,
+        "fish_harvest_basis": "378.0 kg average harvest per tank / 600 fish stocked (no mortality assumed); text also says 0.50 to 0.64 kg per fish"
+      }
+    },
+    {
+      "system_id": "khater_2023_benha_tilapia_lettuce",
+      "name": "Khater et al. 2023, Benha, Egypt, Nile tilapia + lettuce, hydraulic loading trial",
+      "source": "Study on the plant and fish production in the aquaponic system as affected by different hydraulic loading rates. Scientific Reports 13:17505",
+      "url": "https://www.nature.com/articles/s41598-023-44707-1",
+      "source_metadata": {
+        "source_tier": "tier_2",
+        "source_type": "peer_reviewed_journal"
+      },
+      "review_metadata": {
+        "source_gate": "trusted",
+        "source_gate_reason": "Open-access peer-reviewed journal (Nature portfolio).",
+        "confidence": "medium",
+        "confidence_reason": "Direct table values; feed input not reported; winter greenhouse.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "khater_2023_sci_rep"
+          ]
+        }
+      },
+      "context": {
+        "system": "coupled troughs with foam rafts",
+        "location": "Egypt greenhouse, Jan to Mar 2023"
+      },
+      "inputs": {
+        "fish_start_mean_g": 40.0,
+        "days": 60,
+        "water_temperature_c": 23.5,
+        "feed": "not reported (feeding table cited)"
+      },
+      "observed": {
+        "fish_gain_g_per_day": {
+          "min": 1.05,
+          "max": 1.36
+        },
+        "fcr": {
+          "min": 0.92,
+          "max": 1.2
+        },
+        "sgr_pct_day": {
+          "min": 1.58,
+          "max": 1.85
+        }
+      }
+    }
+  ]
+}
