@@ -2157,13 +2157,18 @@
         "unit_label": "m2 covered"
       },
       "capex_per_unit": {
-        "low": 650.0,
-        "high": 935.0,
-        "price_basis": "government cost norms: NHB 2008 high-cost polyhouse Rs 650/m2 (excl. drip) to MIDH HMNEH 2018-19 Rs 935/m2",
+        "low": 1000.0,
+        "high": 1200.0,
+        "price_basis": "MIDH Operational Guidelines 2025 Annexure V B.5 naturally ventilated tubular polyhouse, plains: Rs 1200/m2 up to 500 m2, 1050 for 500-1008 m2, 1000 for 1008-2500 m2. Subsidy cost ceiling, not a market price. Replaces the NHB 2008 / MIDH HMNEH 2018-19 range of 650-935.",
         "source_ids": [
-          "nhb_cost_norms_2008",
-          "midh_hmneh_cost_norms_2018_19"
-        ]
+          "midh_operational_guidelines_2025"
+        ],
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-26",
+          "scope": "F1: India NVPH tubular capex per m2, scenario use only",
+          "record": "Approval Batch 002, approved as recommended (thread message 2026-11-26 01:33 Europe/Amsterdam)"
+        }
       },
       "lifetime_years": {
         "low": 10,
@@ -2241,13 +2246,18 @@
         "unit_label": "m2 covered"
       },
       "capex_per_unit": {
-        "low": 200.0,
-        "high": 414.0,
-        "price_basis": "NHB 2008 shade house Rs 200/m2 (excl. irrigation) to MIDH HMNEH 2018-19 bamboo shade net Rs 414/m2",
+        "low": 450.0,
+        "high": 450.0,
+        "price_basis": "MIDH Operational Guidelines 2025 Annexure V B.5 bamboo or cable-purlin shade net house, plains: Rs 450/m2 (+15% NE/Himalayan). Subsidy cost ceiling, not a market price. Replaces the NHB 2008 / MIDH HMNEH 2018-19 range of 200-414.",
         "source_ids": [
-          "nhb_cost_norms_2008",
-          "midh_hmneh_cost_norms_2018_19"
-        ]
+          "midh_operational_guidelines_2025"
+        ],
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-26",
+          "scope": "F1: India bamboo shade net capex per m2, scenario use only",
+          "record": "Approval Batch 002, approved as recommended (thread message 2026-11-26 01:33 Europe/Amsterdam)"
+        }
       },
       "lifetime_years": {
         "low": 5,
@@ -2269,7 +2279,13 @@
             "prakash_polyhouse_mh"
           ]
         },
-        "approval_status": "pending_batch_002"
+        "approval_status": "approved_for_scenario_use",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-26",
+          "scope": "E1: India shade net life 5 yr (Tier 1, corroborated), scenario use only",
+          "record": "Approval Batch 002, approved as recommended (thread message 2026-11-26 01:33 Europe/Amsterdam)"
+        }
       },
       "energy": null,
       "labour_effect": "Net repairs.",

@@ -381,7 +381,7 @@
       "name": "Nitrate Sinks: Water Exchange and Calibrated Residual N Loss",
       "kind": "mass_balance_sinks",
       "status": "candidate_pending_user_review",
-      "approval_batch": "pending_batch_002",
+      "approval_batch": "batch_002: water_exchange approved (C1), residual_loss still candidate (C2)",
       "added_utc": "2026-11-25",
       "evidence_policy": "Trusted Source Map and Source Trust Policy for Aquaponics Layer 1; reliability fields per AGENTS.md 6A",
       "equation_text": "nitrate_next = nitrate + nitrified - plant_uptake - residual_loss_fraction * nitrified - water_exchange_fraction * nitrate",
@@ -406,6 +406,12 @@
             ],
             "note": "SRAC 454: closed systems run 'very little daily water exchange (less than 2 percent)'."
           }
+        },
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-26",
+          "scope": "nitrate_sinks.water_exchange 1.5% of system volume per day (C1); residual_loss stays candidate (C2)",
+          "record": "Approval Batch 002, approved as recommended (thread message 2026-11-26 01:33 Europe/Amsterdam)"
         }
       },
       "residual_loss": {
@@ -433,7 +439,7 @@
         },
         "cross_check": {
           "source": "Yang and Kim 2020, 'Comparisons of nitrogen and phosphorus mass balance for tomato-, basil-, and lettuce-based aquaponic and hydroponic systems', Journal of Cleaner Production 274:122619, doi 10.1016/j.jclepro.2020.122619 (abstract via FAO AGRIS)",
-          "quote": "In aquaponics, 59\u201370% of total N input was estimated to be lost via denitrification (45\u201350%), wastewater (14\u201320%), and solid waste (0.7\u20132%)",
+          "quote": "In aquaponics, 59–70% of total N input was estimated to be lost via denitrification (45–50%), wastewater (14–20%), and solid waste (0.7–2%)",
           "comparison": "The calibrated loss is about 73 percent of nitrified N. If TAN is about 57 percent of feed N (0.092 / 0.16), that is about 42 percent of feed N, close to the 45 to 50 percent denitrification Yang and Kim report. Feed protein at UVI is not in canon, so this is approximate."
         },
         "source_metadata": {
