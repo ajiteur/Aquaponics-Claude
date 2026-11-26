@@ -4,17 +4,17 @@ Goal: make the simulation as strong as possible, for the Netherlands and India i
 
 Progress is counted as checkpoints done out of the total, with each checkpoint weighted equally. A checkpoint counts as done only when its work is merged on `main`. The Gatekeeper updates this note at every save point and PR review.
 
-Last updated: 2026-11-26, after Approval Batch 003. PR #28 now carries PRs #29 and #30, so these ticks hold once #28 merges.
+Last updated: 2026-11-26, after Approval Batch 004. PR #33 carries PRs #31 and #32, so these ticks hold once #33 merges.
 
 ## Overview
 
 | Sub-goal | Progress | Done |
 |---|---|---|
 | 1. Accurate biology | `████████████████████` 100% | 5 of 5 |
-| 2. Complete components | `████████░░░░░░░░░░░░` 40% | 2 of 5 |
+| 2. Complete components | `████████████████████` 100% | 5 of 5 |
 | 3. Swaps and trade-offs | `████████████████████` 100% | 3 of 3 |
 | 4. Multi-market | `████████████████████` 100% | 3 of 3 |
-| **All** | `████████████████░░░░` **81%** | **13 of 16** |
+| **All** | `████████████████████` **100%** | **16 of 16** |
 
 Done does not mean validated: sub-goal 1's validation check still shows 6 of 12 metrics more than 25% off.
 
@@ -30,9 +30,9 @@ Done does not mean validated: sub-goal 1's validation check still shows 6 of 12 
 
 - [x] Component catalog v1 and cost-per-kg configurator (PR #15)
 - [x] Equipment inventory research (project files `equipment-inventory/`)
-- [ ] Close the 8 P1 gaps from the inventory research (in review: 7 of 8 filled or recorded; Telangana state rates can't be downloaded)
-- [ ] Add the missing component categories (in review: lighting, monitoring, water treatment, backup power, harvest, propagation; fish handling has no priced part)
-- [ ] Netherlands and India prices on every part (in review: every role, two with a written reason; a test checks it)
+- [x] Close the 8 P1 gaps from the inventory research (PR #32: 7 of 8 filled or recorded; Telangana state rates can't be downloaded)
+- [x] Add the missing component categories (PR #32: lighting, monitoring, water treatment, backup power, harvest, propagation; fish handling has no priced part)
+- [x] Netherlands and India prices on every part (PR #32: every role, two with a written reason; a test checks it)
 
 ## 3. Swaps and trade-offs
 

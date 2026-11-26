@@ -1,6 +1,6 @@
 # Approval Batch 004
 
-Open. When it's ready, reply "approve batch 004 as recommended", or list the item numbers you want changed. Approvals are then recorded next to each value (who, date, scope).
+**Status: approved as recommended by Ajit on 2026-11-26 (15:57 Europe/Amsterdam).** Each approval is recorded next to its value. Items recommended "keep as candidate" stay candidates.
 
 Opened: 2026-11-26, against `main` at `dc07134` (save-point-003). Rule used (AGENTS.md 6A, as in Batches 002 and 003): approve medium or high confidence items that are corroborated. For catalog prices, corroborated Tier 3 listings are approved for scenario use only, as in Batch 002 E1. Single-source, low-confidence, conflicting and fitted items stay candidates.
 

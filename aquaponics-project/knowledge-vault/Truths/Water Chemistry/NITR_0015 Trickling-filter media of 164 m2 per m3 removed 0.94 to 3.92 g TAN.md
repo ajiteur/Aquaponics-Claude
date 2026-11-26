@@ -3,7 +3,7 @@ fact_id: "NITR_0015"
 domain: "water_chemistry"
 type: "parameter"
 confidence: "medium"
-status: "provisional"
+status: "accepted"
 source_id: "greiner_timmons_1998"
 source_tier: "tier_2"
 source_gate: "trusted"
@@ -11,14 +11,12 @@ source_file: "data/knowledge/atomic_facts/nitrogen_cycle_facts.json"
 tags:
   - truth
   - water_chemistry
-  - candidate
+  - accepted
 ---
 
 # NITR_0015
 
 > Trickling-filter media of 164 m2/m3 removed 0.94 to 3.92 g [[Reference/Explainers/TAN|TAN]] per m2 per day at 0.81 to 4.63 mg TAN/L, with removal linear in TAN up to about 2.5 mg/L.
-
-**Candidate truth.** Not yet approved (`candidate_pending_user_review`).
 
 ## Context
 

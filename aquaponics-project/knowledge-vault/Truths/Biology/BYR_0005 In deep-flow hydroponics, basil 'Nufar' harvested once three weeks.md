@@ -3,7 +3,7 @@ fact_id: "BYR_0005"
 domain: "biology"
 type: "parameter"
 confidence: "medium"
-status: "provisional"
+status: "accepted"
 source_id: "walters_currey_2015_ashs"
 source_tier: "tier_2"
 source_gate: "conditional"
@@ -11,14 +11,12 @@ source_file: "data/knowledge/atomic_facts/basil_yield_response_facts.json"
 tags:
   - truth
   - biology
-  - candidate
+  - accepted
 ---
 
 # BYR_0005
 
 > In deep-flow hydroponics, basil 'Nufar' harvested once three weeks after transplant gained fresh mass per m2 as spacing went from 30 to 10 cm (+747 g/m2 at DLI 14 to 15, +489 g/m2 at DLI 5 to 6), while per-plant mass fell only slightly.
-
-**Candidate truth.** Not yet approved (`candidate_pending_user_review`).
 
 ## Context
 

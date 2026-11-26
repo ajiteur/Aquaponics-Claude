@@ -32,6 +32,13 @@ The Gatekeeper checks every PR for these before giving a merge verdict:
 
 ## Log
 
+### save-point-004 (2026-11-26)
+
+- **Commit:** the merge commit of PR #33 on `main`. PR #33 carries PRs #31 and #32 and records Approval Batch 004.
+- **What it holds:** the basil density and light fixes, gravel beds counted as media volume, and the three component checkpoints (P1 gaps, the missing categories, NL and India prices on every part). The tracker is at 16 of 16.
+- **Checks:** on the PR head: 244 tests, `check_mvp_integrity.py --quick`, the runtime sync dry run and the vault export dry run.
+- **Open at this point:** every model is still a candidate. The published-farm validation is not passed. Telangana state rates are a gap, and fish handling has no priced part.
+
 ### save-point-003 (2026-11-26)
 
 - **Commit:** the merge commit of PR #28 on `main`. PR #28 carries PRs #29 and #30 and records Approval Batches 002 and 003.
