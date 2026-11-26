@@ -2,6 +2,15 @@
 
 What the simulation shows, newest first. These are **scenario estimates, not validated**: they describe the model, not the real world, and they are never truths.
 
+## 2026-11-26: Fish growth and feed, tilapia (scenario estimate, not validated)
+
+Run: `python src/fish_growth.py` (UVI check) and `src/simulate_crop_cycle.py`, 28 days, on both basil raft scenarios. Fish gain is now feed x temperature factor / FCR 1.7, replacing the placeholder feed / FCR x fish score x 0.8. All new values are candidates pending Batch 003.
+
+- **Feeding at the SRAC 282 table brackets UVI's measured growth.** Starting from UVI's 79 g fish at UVI's 24 to 29 °C, the mid table rate gives 537 g after 24 weeks, the low rate 283 g and the high rate 1,021 g. UVI measured 814 g. At a steady 28 °C, the mid rate gives 721 g (11 percent low). UVI fed to satiation, which seems to sit in the upper half of the table.
+- **The temperature curve may be too harsh at 24 °C.** It gives 60 percent of full growth at 24 °C, but UVI reported only a "slight growth depression" in its 24 °C winter. The straight line from 22 to 27 °C is an assumption between sourced points, and a measured thermal growth coefficient would settle it.
+- **In the crop-cycle scenarios fish grow from 80 g to 94.3 g in 28 days (was 92.8 g).** Feed is still the scenario's 1 percent of body weight a day (Mode A input). Basil yield and revenue barely move.
+- **Feeding the UVI feed-ratio fish at the table rate (about 2.25 percent) would overload the raft.** TAN climbs to about 94 mg/L in 28 days. So at table feeding the same raft carries only about 45 percent of that stock. This is a sensitivity run only; the committed scenarios keep 1 percent.
+
 ## 2026-11-26: Heating and climate, NL glasshouse and Karnataka polyhouse (scenario estimate, not validated)
 
 Run: `python src/heat_demand.py` (results in `data/simulation/results/greenhouse_heat_demand.json`). An hourly heat balance on a mean day per month from KNMI De Bilt and IMD Bengaluru 1991-2020 normals. The loss coefficient is calibrated to KEMA 2012's Venlo radish figure. All values are candidates pending Batch 003.

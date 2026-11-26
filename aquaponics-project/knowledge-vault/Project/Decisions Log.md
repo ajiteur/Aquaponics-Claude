@@ -10,6 +10,7 @@ Newest first. Each entry gives the decision, why, and who made it.
 
 ## 2026-11-26
 
+- **Make the new tilapia growth model opt-in per scenario and keep feed as a direct input.** Why: the MVP baseline is Mode A direct feed input, and the starter fixtures feed the P2a checks, so only the two basil raft crop-cycle scenarios switch to the new model. The SRAC size table is available as an option. Decided by Claude for the Fish growth and feed checkpoint; waiting on Ajit's review.
 - **Model greenhouse heat demand with one calibrated loss coefficient, and hold every value for Batch 003.** Why: no source gives the cover-to-floor ratio or a basil heat demand. Calibrating to a published Dutch figure and checking against a second figure keeps the model tied to evidence. Solar utilisation can't be pinned down, so results are given as a range across its physical bounds (0 to 1). Decided by Claude for the Heating and climate checkpoint; waiting on Ajit's review.
 - **Shelve the farm go/no-go; build the strongest simulation for the Netherlands and India in parallel.** Why: if the simulation is strong, moving to a real farm is straightforward, and the engine should work across many markets. Decided by Ajit.
 - **Run the P1 equipment research and hold the results for Batch 002.** Only values that fit an existing catalog slot are wired in (India polyhouse and shade-net life, India water price, NL basil seed). Everything else waits in `data/catalog/candidates_batch_002_v0.jsonl`. Asked by Ajit.
