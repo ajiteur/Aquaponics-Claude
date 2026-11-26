@@ -17,6 +17,8 @@
       "species_id": "plant_basil",
       "plant_count": 90,
       "grow_area_m2_at_anchor_density": 11.25,
+      "grow_area_m2": 11.25,
+      "planting_density_plants_m2": 8.0,
       "days_in_cycle": 28,
       "harvested_mass_kg": 22.427,
       "harvested_mass_kg_per_m2": 1.993,
@@ -369,6 +371,8 @@
         "species_id": "plant_basil",
         "plant_count": 90,
         "grow_area_m2_at_anchor_density": 11.25,
+        "grow_area_m2": 11.25,
+        "planting_density_plants_m2": 8.0,
         "days_in_cycle": 28,
         "harvested_mass_kg": 22.427,
         "harvested_mass_kg_per_m2": 1.993,
@@ -441,6 +445,13 @@
         "growing_period_days": null,
         "cull_fraction": null,
         "note": "growing_period_days null means use the species profile value. cull_fraction null keeps saleable_harvest_mass_kg null."
+      },
+      "yield_response_factors": {
+        "density_factor": 1.0,
+        "light_factor": 1.0,
+        "density_plants_m2": 8.0,
+        "dli_mol_m2_day": null,
+        "basis": "basil_density_light_response_candidate; light: dli_not_given_assume_anchor_light"
       },
       "last_daily_cut_gain_g_per_plant": 8.9286,
       "harvest_calibration": {
@@ -557,6 +568,8 @@
         "species_id": "plant_basil",
         "plant_count": 90,
         "grow_area_m2_at_anchor_density": 11.25,
+        "grow_area_m2": 11.25,
+        "planting_density_plants_m2": 8.0,
         "days_in_cycle": 28,
         "harvested_mass_kg": 22.427,
         "harvested_mass_kg_per_m2": 1.993,
@@ -569,7 +582,7 @@
       },
       "daily_operating_cost": 2.68
     },
-    "updated_at_utc": "2026-11-26T03:53:27Z",
+    "updated_at_utc": "2026-11-26T04:20:37Z",
     "harvest_events": [
       {
         "day": 28,
@@ -577,6 +590,8 @@
         "species_id": "plant_basil",
         "plant_count": 90,
         "grow_area_m2_at_anchor_density": 11.25,
+        "grow_area_m2": 11.25,
+        "planting_density_plants_m2": 8.0,
         "days_in_cycle": 28,
         "harvested_mass_kg": 22.427,
         "harvested_mass_kg_per_m2": 1.993,

@@ -1,0 +1,107 @@
+{
+  "description": "Atomic facts on basil yield response to planting density and daily light integral, added 2026-11-26 for the validation fixes. Candidates until Ajit approves them (Batch 003). Reliability recorded per AGENTS.md 6A.",
+  "facts": [
+    {
+      "fact_id": "BYR_0001",
+      "statement": "In a floating-raft greenhouse trial, basil at 317 plants/m2 yielded 4.81 kg/m2 against 3.66 kg/m2 at 159 plants/m2 (about 15 vs 23 g per plant).",
+      "domain": "biology",
+      "type": "parameter",
+      "confidence": "medium",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "approval_batch": "pending_batch_003",
+      "context": {
+        "species": "basil (Genovese types)",
+        "system": "floating raft, glasshouse, Naples, spring"
+      },
+      "source_metadata": {
+        "source_id": "ciriello_2021",
+        "section_id": "Table 1",
+        "source_type": "peer_reviewed_journal",
+        "source_tier": "tier_2"
+      },
+      "review_metadata": {
+        "source_gate": "trusted",
+        "source_gate_reason": "Peer-reviewed.",
+        "confidence_reason": "Direction corroborated by Walters and Currey 2015 (DFT spacing trial); magnitude single source at baby-leaf densities.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "ciriello_2021",
+            "walters_currey_2015_ashs"
+          ]
+        },
+        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/species/*/ model blocks)"
+      },
+      "added_date_local": "2026-11-26"
+    },
+    {
+      "fact_id": "BYR_0002",
+      "statement": "Basil shoot fresh weight rose 54, 79 and 78 percent at daily light integrals of 12.9, 16.5 and 17.8 mol/m2/d compared with 9.3, levelling off near 16.5; the authors suggest 12.9 for commercial production.",
+      "domain": "biology",
+      "type": "parameter",
+      "confidence": "medium",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "approval_batch": "pending_batch_003",
+      "context": {
+        "species": "basil 'Improved Genovese Compact'",
+        "system": "indoor, fluorescent, 21 days"
+      },
+      "source_metadata": {
+        "source_id": "dou_2018",
+        "section_id": "abstract",
+        "source_type": "peer_reviewed_journal",
+        "source_tier": "tier_2"
+      },
+      "review_metadata": {
+        "source_gate": "trusted",
+        "source_gate_reason": "Peer-reviewed (HortScience).",
+        "confidence_reason": "Read from the abstract only; direction corroborated by Walters 2023, Litvin and Currey 2017, Walters and Currey 2015.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "dou_2018",
+            "walters_tarr_lopez_2023",
+            "litvin_currey_2017_ashs"
+          ]
+        },
+        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/species/*/ model blocks)"
+      },
+      "added_date_local": "2026-11-26"
+    },
+    {
+      "fact_id": "BYR_0003",
+      "statement": "Basil fresh mass is far lower at a DLI of about 5.5 than at about 13 mol/m2/d (fitted model about 6 g vs 31 g per plant at 23 C), and higher temperature helps more at higher light.",
+      "domain": "biology",
+      "type": "parameter",
+      "confidence": "low",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "approval_batch": "pending_batch_003",
+      "context": {
+        "species": "basil 'Nufar'",
+        "system": "greenhouse flood tables, shade cloth"
+      },
+      "source_metadata": {
+        "source_id": "walters_tarr_lopez_2023",
+        "section_id": "Table 2 model",
+        "source_type": "peer_reviewed_journal",
+        "source_tier": "tier_2"
+      },
+      "review_metadata": {
+        "source_gate": "trusted",
+        "source_gate_reason": "Peer-reviewed (PLoS ONE).",
+        "confidence_reason": "Values are our evaluation of a fitted regression (R2 0.63), not measured means.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "walters_tarr_lopez_2023"
+          ]
+        },
+        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/species/*/ model blocks)"
+      },
+      "added_date_local": "2026-11-26"
+    }
+  ]
+}

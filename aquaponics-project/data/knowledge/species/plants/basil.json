@@ -330,5 +330,104 @@
       "type": "corroboration_report_pdf",
       "notes": "Structured basil Layer 1 corroboration report synthesized from Tier 1 and Tier 2 sources."
     }
-  ]
+  ],
+  "yield_response_model": {
+    "model_id": "basil_density_light_response",
+    "status": "candidate_pending_user_review",
+    "approval_batch": "pending_batch_003",
+    "added_utc": "2026-11-26",
+    "evidence_policy": "Trusted Source Map and Source Trust Policy for Aquaponics Layer 1; reliability fields per AGENTS.md 6A",
+    "equation_text": "daily_cut_gain_per_plant = anchor_rate x plant_score x nitrate_score x density_factor x light_factor; density_factor = min(1, (density / anchor_density)^(b - 1)); light_factor from DLI points (1.0 when DLI is not given)",
+    "density_response": {
+      "yield_per_m2_exponent_b": 0.394,
+      "anchor_density_plants_m2": 8.0,
+      "cap_per_plant_factor_at_or_below_anchor": 1.0,
+      "derivation": "Ciriello et al. 2021 Table 1, floating raft: 4.81 kg/m2 at 317 plants/m2 vs 3.66 kg/m2 at 159 plants/m2; b = ln(4.81/3.66)/ln(317/159) = 0.394 (our arithmetic).",
+      "source": "Ciriello, Formisano, El-Nakhel, Corrado, Pannico, De Pascale and Rouphael 2021, Frontiers in Plant Science 12:671026",
+      "url": "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2021.671026/full",
+      "assumptions": [
+        "The power law fitted at 159 to 317 plants/m2 is extrapolated down to 8 to 32 plants/m2.",
+        "Below the UVI anchor density no per-plant gain is credited (cap 1.0); no evidence either way."
+      ],
+      "source_metadata": {
+        "source_tier": "tier_2",
+        "source_type": "peer_reviewed_journal"
+      },
+      "review_metadata": {
+        "source_gate": "trusted",
+        "source_gate_reason": "Peer-reviewed floating-raft trial, three cultivars.",
+        "confidence": "low",
+        "confidence_reason": "Direction corroborated by Walters and Currey 2015 (DFT, 11 to 100 plants/m2: more plants raise kg/m2, per-plant mass falls slightly); magnitude single source; baby-leaf densities far from UVI's 8 plants/m2.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "ciriello_2021",
+            "walters_currey_2015_ashs"
+          ]
+        }
+      }
+    },
+    "light_response": {
+      "points_dli_factor": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          5.5,
+          0.166
+        ],
+        [
+          9.3,
+          0.56
+        ],
+        [
+          12.9,
+          0.863
+        ],
+        [
+          16.5,
+          1.0
+        ]
+      ],
+      "above_last_point": 1.0,
+      "factor_when_dli_missing": 1.0,
+      "derivation": "Dou et al. 2018: shoot fresh weight +54.2, +78.6 and +77.9 percent at DLI 12.9, 16.5 and 17.8 vs 9.3 mol/m2/d; normalised to the 16.5 plateau (1.786): 9.3 -> 0.560, 12.9 -> 0.863. DLI 5.5 point: Walters, Tarr and Lopez 2023 fresh-mass model at 23 C gives about 6 g at DLI 5.5 vs 31 g at 13.2, ratio 0.19 applied to the 13.2 factor (0.874) -> 0.166. 0 at DLI 0 and straight lines between points are assumed.",
+      "sources": [
+        {
+          "ref": "Dou, Niu, Gu and Masabni 2018, HortScience 53(4):496-503 (abstract)",
+          "url": "https://doi.org/10.21273/HORTSCI12785-17"
+        },
+        {
+          "ref": "Walters, Tarr and Lopez 2023, PLoS ONE 18(11):e0294905, Table 2 model",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10688745/"
+        }
+      ],
+      "anchor_note": "UVI (St Croix, outdoor, tropics) is assumed at or above the plateau (tropical monthly DLI about 20 to 40, Tier 3), so the UVI anchor is unchanged by construction. No measured UVI DLI was found.",
+      "source_metadata": {
+        "source_tier": "tier_2",
+        "source_type": "peer_reviewed_journal"
+      },
+      "review_metadata": {
+        "source_gate": "trusted",
+        "source_gate_reason": "Peer-reviewed university trials (Texas A&M, Michigan State).",
+        "confidence": "medium",
+        "confidence_reason": "Direction corroborated by four sources (Dou 2018, Walters 2023, Litvin and Currey 2017, Walters and Currey 2015); Dou read from the abstract only; cultivars and setups differ; low-DLI point mixes two studies.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "dou_2018",
+            "walters_tarr_lopez_2023",
+            "litvin_currey_2017_ashs",
+            "walters_currey_2015_ashs"
+          ]
+        }
+      }
+    },
+    "gaps": [
+      "No basil density trial between 8 and 100 plants/m2 with absolute yields.",
+      "No measured DLI at UVI.",
+      "Light and temperature interact (Walters 2023); only light is modelled here."
+    ]
+  }
 }

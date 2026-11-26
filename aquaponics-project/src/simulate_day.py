@@ -162,6 +162,39 @@ def plant_score_relative_to_anchor(
     return clamp(plant_score / reference_score)
 
 
+def _interp(points: list, x: float, above: float) -> float:
+    if x >= points[-1][0]:
+        return above
+    if x <= points[0][0]:
+        return points[0][1]
+    for (x0, y0), (x1, y1) in zip(points, points[1:]):
+        if x0 <= x <= x1:
+            return y0 + (y1 - y0) * (x - x0) / (x1 - x0)
+    return above
+
+
+def yield_response_factors(plant_profile: dict, density: float, dli: float | None) -> dict:
+    """Candidate (Batch 003) basil density and light factors; both 1.0 at the UVI anchor."""
+    model = plant_profile.get("yield_response_model")
+    if not model:
+        return {"density_factor": 1.0, "light_factor": 1.0, "basis": "no_yield_response_model"}
+    dens = model["density_response"]
+    ratio = density / dens["anchor_density_plants_m2"]
+    density_factor = min(dens["cap_per_plant_factor_at_or_below_anchor"], ratio ** (dens["yield_per_m2_exponent_b"] - 1.0))
+    light = model["light_response"]
+    if dli is None:
+        light_factor, light_basis = light["factor_when_dli_missing"], "dli_not_given_assume_anchor_light"
+    else:
+        light_factor, light_basis = _interp(light["points_dli_factor"], float(dli), light["above_last_point"]), "scenario_dli"
+    return {
+        "density_factor": round(density_factor, 4),
+        "light_factor": round(light_factor, 4),
+        "density_plants_m2": density,
+        "dli_mol_m2_day": dli,
+        "basis": f"{model['model_id']}_candidate; light: {light_basis}",
+    }
+
+
 def update_harvestable_mass(
     scenario: dict,
     plant_crop: dict,
@@ -180,7 +213,13 @@ def update_harvestable_mass(
 
     policy = plant_crop.setdefault("harvest_policy", {})
     period_days = int(policy.get("growing_period_days") or calibration["growing_period_days"])
-    daily_gain = calibration["ideal_rate_g_per_plant_day"] * plant_score * nitrate_availability_score
+    density = plant_crop.get("planting_density_plants_m2") or calibration["planting_density_plants_m2"]
+    response = yield_response_factors(plant_profile, density, scenario.get("light", {}).get("dli_mol_m2_day"))
+    daily_gain = (
+        calibration["ideal_rate_g_per_plant_day"] * plant_score * nitrate_availability_score
+        * response["density_factor"] * response["light_factor"]
+    )
+    plant_crop["yield_response_factors"] = response
     plant_crop["last_daily_cut_gain_g_per_plant"] = round(daily_gain, 4)
     plant_crop["harvestable_cut_mass_g_per_plant"] = round(
         plant_crop.get("harvestable_cut_mass_g_per_plant", 0.0) + daily_gain, 3
@@ -192,7 +231,7 @@ def update_harvestable_mass(
 
     plant_count = plant_crop["plant_count"]
     harvested_mass_kg = plant_count * plant_crop["harvestable_cut_mass_g_per_plant"] / 1000.0
-    grow_area_m2 = plant_count / calibration["planting_density_plants_m2"]
+    grow_area_m2 = plant_count / density
     cull_fraction = policy.get("cull_fraction")
     if isinstance(cull_fraction, (int, float)) and 0.0 <= cull_fraction < 1.0:
         saleable_harvest_mass_kg = round(harvested_mass_kg * (1.0 - cull_fraction), 3)
@@ -207,7 +246,9 @@ def update_harvestable_mass(
         "crop_cycle_number": len(events) + 1,
         "species_id": plant_crop["species_id"],
         "plant_count": plant_count,
-        "grow_area_m2_at_anchor_density": round(grow_area_m2, 3),
+        "grow_area_m2_at_anchor_density": round(plant_count / calibration["planting_density_plants_m2"], 3),
+        "grow_area_m2": round(grow_area_m2, 3),
+        "planting_density_plants_m2": density,
         "days_in_cycle": plant_crop["days_since_transplant"],
         "harvested_mass_kg": round(harvested_mass_kg, 3),
         "harvested_mass_kg_per_m2": round(harvested_mass_kg / grow_area_m2, 3),

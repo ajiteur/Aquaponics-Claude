@@ -134,7 +134,8 @@
       "evidence_still_needed": "A measured growth-vs-temperature curve for Nile tilapia (e.g. Azaza et al. 2008, juveniles in RAS at 22 to 34 C) to replace the straight line; then rerun scripts/validate_published_systems.py.",
       "source_section": "Validation checkpoint, 2026-11-26",
       "priority": "high",
-      "status": "review_needed"
+      "status": "candidate_fix_in_review",
+      "resolution_note": "2026-11-26: temperature points replaced with Santos et al. 2013 measured rates (22 C 0.674) and Baras 2001 upper shoulder; Savidov fish -38 -> -25 percent, Khater gain -36 -> -10 percent. Khater FCR still +84 percent (published 0.92 to 1.20 is below the Tier 1 1.4 to 1.8 range)."
     },
     {
       "ticket_id": "UQ-014",
@@ -144,7 +145,8 @@
       "evidence_still_needed": "A basil yield response to planting density and to daily light integral from Tier 1 or 2 sources.",
       "source_section": "Validation checkpoint, 2026-11-26",
       "priority": "high",
-      "status": "review_needed"
+      "status": "candidate_fix_in_review",
+      "resolution_note": "2026-11-26: density (Ciriello 2021 exponent) and DLI (Dou 2018, Walters 2023) factors added; Savidov +286 -> +68 percent; Knaus +670 -> +30 to +441 percent depending on the DLI reading (photoperiod not reported)."
     },
     {
       "ticket_id": "UQ-015",

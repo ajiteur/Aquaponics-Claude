@@ -30,7 +30,8 @@ class FactorTests(unittest.TestCase):
     def test_temperature_points(self):
         self.assertEqual(fg.temperature_factor(16.0, self.model), 0.0)
         self.assertEqual(fg.temperature_factor(17.0, self.model), 0.0)
-        self.assertAlmostEqual(fg.temperature_factor(22.0, self.model), 0.333)
+        self.assertAlmostEqual(fg.temperature_factor(22.0, self.model), 0.674)
+        self.assertAlmostEqual(fg.temperature_factor(37.0, self.model), 0.745)
         self.assertEqual(fg.temperature_factor(28.0, self.model), 1.0)
         self.assertEqual(fg.temperature_factor(32.0, self.model), 1.0)
         self.assertEqual(fg.temperature_factor(40.0, self.model), 0.0)
@@ -42,7 +43,7 @@ class FactorTests(unittest.TestCase):
 
     def test_gain_uses_fcr_and_temperature(self):
         self.assertAlmostEqual(fg.daily_gain_kg(1.7, 28.0, self.model), 1.0)
-        self.assertAlmostEqual(fg.daily_gain_kg(1.7, 22.0, self.model), 0.333)
+        self.assertAlmostEqual(fg.daily_gain_kg(1.7, 22.0, self.model), 0.674)
         self.assertEqual(fg.daily_gain_kg(1.7, 15.0, self.model), 0.0)
 
 

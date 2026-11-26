@@ -271,6 +271,41 @@
         "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/species/fish/tilapia.json, growth_feed_model)"
       },
       "added_date_local": "2026-11-26"
+    },
+    {
+      "fact_id": "FISH_0009",
+      "statement": "Nile tilapia (three strains, 1.4 to 1.9 g start, 120 days) grew with an exponential rate constant of 0.0259 to 0.0285 per day at 22 C, against 0.0390 to 0.0419 at 28 C and 0.0374 to 0.0431 at 30 C.",
+      "domain": "biology",
+      "type": "parameter",
+      "confidence": "medium",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "approval_batch": "pending_batch_003",
+      "context": {
+        "species": "Nile tilapia, Red, GIFT and Supreme strains",
+        "system": "constant-temperature tanks"
+      },
+      "source_metadata": {
+        "source_id": "santos_mareco_silva_2013",
+        "section_id": "Tables 2-3",
+        "source_type": "peer_reviewed_journal",
+        "source_tier": "tier_2"
+      },
+      "review_metadata": {
+        "source_gate": "trusted",
+        "source_gate_reason": "Peer-reviewed measured trial.",
+        "confidence_reason": "Direct table values; consistent in direction with Likongwe 1996 and Workagegn 2014; Azaza 2008 numbers not obtained.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "santos_mareco_silva_2013",
+            "likongwe_1996",
+            "workagegn_2014"
+          ]
+        },
+        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/species/*/ model blocks)"
+      },
+      "added_date_local": "2026-11-26"
     }
   ]
 }

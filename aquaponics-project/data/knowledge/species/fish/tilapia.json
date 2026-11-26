@@ -253,6 +253,63 @@
         ],
         [
           22.0,
+          0.674
+        ],
+        [
+          27.0,
+          1.0
+        ],
+        [
+          33.0,
+          1.0
+        ],
+        [
+          37.0,
+          0.745
+        ],
+        [
+          39.7,
+          0.0
+        ]
+      ],
+      "interpolation": "piecewise linear; 0 outside 17 to 39.7 C",
+      "basis": [
+        "17 C feeding stops: SRAC 283 'Tilapia generally stop feeding when water temperature falls below 63o F' (17.2 C); FAO 589 'they do not feed or grow below 17 C' (corroborated).",
+        "27 C full: optimum 27 to 29 C (SRAC 282), 27 to 30 C (FAO 589); canon tilapia preferred_temp_c 27 to 30.",
+        "32 C still full: SRAC 282 'acceptable growth rates are reported at 77 to 90 F (25 to 32 C)'. Treating 'acceptable' as full rate is an assumption.",
+        "39.7 C zero: FAO W5268E Annex 3 bioenergetic model Tmax for Nile tilapia (pond-calibrated). No source gives an upper temperature where growth stops (gap).",
+        "22 C 0.674: Santos et al. 2013 measured exponential growth rate at 22 C relative to 28 to 30 C (replaces the earlier 1/3 from SRAC 283).",
+        "33 C full and 37 C 0.745: Baras et al. 2001 (fry)."
+      ],
+      "context_split": "Optimum stated as 27 to 29 (SRAC 282), 27 to 30 (FAO 589), 29 to 31 (SRAC 283) and 32.4 C (FAO W5268E model); 'preferred' 31 to 36 C (FAO CASIP) is a behavioural preference, not growth optimum.",
+      "source_metadata": {
+        "source_tier": "tier_2",
+        "source_type": "peer_reviewed_journal"
+      },
+      "review_metadata": {
+        "source_gate": "trusted",
+        "source_gate_reason": "Peer-reviewed measured growth at constant temperatures; endpoints from SRAC and FAO.",
+        "confidence": "medium",
+        "confidence_reason": "Santos 2013 measured three strains; corroborated in direction and rough size by Likongwe 1996 (24 vs 28 C, abstract) and Workagegn 2014 (24 C, Tier 3 summary). Azaza 2008 numbers not obtained. Lines between points are assumed.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "santos_mareco_silva_2013",
+            "likongwe_1996",
+            "azaza_2008",
+            "baras_2001",
+            "srac_283",
+            "fao_tp_589"
+          ]
+        }
+      },
+      "previous_points_c_factor": [
+        [
+          17.0,
+          0.0
+        ],
+        [
+          22.0,
           0.333
         ],
         [
@@ -268,32 +325,32 @@
           0.0
         ]
       ],
-      "interpolation": "piecewise linear; 0 outside 17 to 39.7 C",
-      "basis": [
-        "17 C feeding stops: SRAC 283 'Tilapia generally stop feeding when water temperature falls below 63o F' (17.2 C); FAO 589 'they do not feed or grow below 17 C' (corroborated).",
-        "22 C one third: SRAC 283 'Growth at this optimal temperature is typically three times greater than at 72o F' (22.2 C); Abd El-Hack et al. 2022 review: growth about 30 percent of its limit at 20 to 22 C (corroborated, secondary).",
-        "27 C full: optimum 27 to 29 C (SRAC 282), 27 to 30 C (FAO 589); canon tilapia preferred_temp_c 27 to 30.",
-        "32 C still full: SRAC 282 'acceptable growth rates are reported at 77 to 90 F (25 to 32 C)'. Treating 'acceptable' as full rate is an assumption.",
-        "39.7 C zero: FAO W5268E Annex 3 bioenergetic model Tmax for Nile tilapia (pond-calibrated). No source gives an upper temperature where growth stops (gap)."
-      ],
-      "context_split": "Optimum stated as 27 to 29 (SRAC 282), 27 to 30 (FAO 589), 29 to 31 (SRAC 283) and 32.4 C (FAO W5268E model); 'preferred' 31 to 36 C (FAO CASIP) is a behavioural preference, not growth optimum.",
-      "source_metadata": {
-        "source_tier": "tier_1",
-        "source_type": "extension_fact_sheet"
-      },
-      "review_metadata": {
-        "source_gate": "trusted",
-        "source_gate_reason": "Endpoints and the 22 C point from SRAC and FAO.",
-        "confidence": "medium",
-        "confidence_reason": "Lower endpoint and 22 C point corroborated; straight lines between points are assumed; upper shoulder and endpoint low confidence.",
-        "corroboration": {
-          "status": "corroborated",
-          "source_ids": [
-            "srac_283",
-            "fao_tp_589",
-            "srac_282",
-            "abd_el_hack_2022"
-          ]
+      "factor_meaning": "Relative specific growth rate (per-day growth fraction), which is what multiplies feed-driven gain in this model.",
+      "revision": {
+        "date": "2026-11-26",
+        "reason": "Validation (UQ-013): growth underpredicted at 23.5 to 25 C. The 22 C point of 1/3 read SRAC 283's 'three times greater growth' as a rate ratio; over a grow-out period that ratio is in final weight, not in daily specific growth rate.",
+        "measured_curve": {
+          "source": "Santos, Mareco and Silva 2013, Acta Scientiarum Animal Sciences 35(3):235-242, Tables 2-3 (Red, GIFT and Supreme strains, 1.4 to 1.9 g start, 120 days)",
+          "url": "https://periodicos.uem.br/ojs/index.php/ActaSciAnimSci/article/download/19443/pdf_1",
+          "exponential_growth_k_per_day": {
+            "22": {
+              "min": 0.0259,
+              "max": 0.0285
+            },
+            "28": {
+              "min": 0.039,
+              "max": 0.0419
+            },
+            "30": {
+              "min": 0.0374,
+              "max": 0.0431
+            }
+          },
+          "derivation": "22 C factor = mid K at 22 (0.0272) / mean of mid K at 28 and 30 (0.04035) = 0.674 (our arithmetic on strain ranges)."
+        },
+        "upper_shoulder": {
+          "source": "Baras, Jacobs and Melard 2001, Aquaculture (AGRIS record): at about 37 C growth was 74.5 percent of the value at 27 to 33 C (fry, 28 days)",
+          "note": "Fry, abstract only; 33 to 37 C straight line assumed."
         }
       }
     },
