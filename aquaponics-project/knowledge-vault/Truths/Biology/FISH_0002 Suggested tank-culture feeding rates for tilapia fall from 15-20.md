@@ -3,7 +3,7 @@ fact_id: "FISH_0002"
 domain: "biology"
 type: "parameter"
 confidence: "high"
-status: "provisional"
+status: "accepted"
 source_id: "srac_282"
 source_tier: "tier_1"
 source_gate: "trusted"
@@ -11,14 +11,12 @@ source_file: "data/knowledge/atomic_facts/fish_growth_facts.json"
 tags:
   - truth
   - biology
-  - candidate
+  - accepted
 ---
 
 # FISH_0002
 
 > Suggested tank-culture feeding rates for tilapia fall from 15-20 percent of body weight a day for fry under 0.5 g to 3-5 percent at 18-75 g and 1.5-3 percent from 75 g to market size.
-
-**Candidate truth.** Not yet approved (`candidate_pending_user_review`).
 
 ## Context
 

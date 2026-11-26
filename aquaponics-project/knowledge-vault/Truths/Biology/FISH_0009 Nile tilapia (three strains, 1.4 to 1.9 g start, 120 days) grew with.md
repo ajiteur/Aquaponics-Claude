@@ -3,7 +3,7 @@ fact_id: "FISH_0009"
 domain: "biology"
 type: "parameter"
 confidence: "medium"
-status: "provisional"
+status: "accepted"
 source_id: "santos_mareco_silva_2013"
 source_tier: "tier_2"
 source_gate: "trusted"
@@ -11,14 +11,12 @@ source_file: "data/knowledge/atomic_facts/fish_growth_facts.json"
 tags:
   - truth
   - biology
-  - candidate
+  - accepted
 ---
 
 # FISH_0009
 
 > Nile tilapia (three strains, 1.4 to 1.9 g start, 120 days) grew with an exponential rate constant of 0.0259 to 0.0285 per day at 22 C, against 0.0390 to 0.0419 at 28 C and 0.0374 to 0.0431 at 30 C.
-
-**Candidate truth.** Not yet approved (`candidate_pending_user_review`).
 
 ## Context
 

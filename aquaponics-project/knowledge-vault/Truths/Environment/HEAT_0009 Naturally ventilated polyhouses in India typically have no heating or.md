@@ -3,7 +3,7 @@ fact_id: "HEAT_0009"
 domain: "environment"
 type: "guidance"
 confidence: "medium"
-status: "provisional"
+status: "accepted"
 source_id: "icar_indian_horticulture_singh_2022"
 source_tier: "tier_1"
 source_gate: "conditional"
@@ -11,14 +11,12 @@ source_file: "data/knowledge/atomic_facts/heating_climate_facts.json"
 tags:
   - truth
   - environment
-  - candidate
+  - accepted
 ---
 
 # HEAT_0009
 
 > Naturally ventilated polyhouses in India typically have no heating or cooling devices; cooling is by opening side film, sprinkling and shade nets (ICAR, Bundelkhand). Fan-pad cooling is an optional item in NABARD's model project.
-
-**Candidate truth.** Not yet approved (`candidate_pending_user_review`).
 
 ## Context
 

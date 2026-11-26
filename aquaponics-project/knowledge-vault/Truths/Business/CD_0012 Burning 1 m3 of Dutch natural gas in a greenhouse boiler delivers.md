@@ -3,7 +3,7 @@ fact_id: "CD_0012"
 domain: "business"
 type: "parameter"
 confidence: "medium"
-status: "provisional"
+status: "accepted"
 source_id: "kema_2012_kas_energiebron_heat_pumps"
 source_tier: "tier_2"
 source_gate: "conditional"
@@ -11,14 +11,12 @@ source_file: "data/knowledge/atomic_facts/component_design_facts.json"
 tags:
   - truth
   - business
-  - candidate
+  - accepted
 ---
 
 # CD_0012
 
 > Burning 1 m3 of Dutch natural gas in a greenhouse boiler delivers about 8.6 to 8.8 kWh of heat: 31.7 MJ/Nm3 at 98% boiler efficiency (KEMA 2012) gives 8.63 kWh, and a sector presentation states about 8.79 kWh.
-
-**Candidate truth.** Not yet approved (`candidate_pending_user_review`).
 
 ## Context
 

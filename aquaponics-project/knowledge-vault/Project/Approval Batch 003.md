@@ -1,6 +1,6 @@
 # Approval Batch 003
 
-Open. When it's ready, reply "approve batch 003 as recommended", or list the item numbers you want changed. Approvals are then recorded next to each value (who, date, scope).
+**Status: approved as recommended by Ajit on 2026-11-26 (05:54 Europe/Amsterdam).** Each approval is recorded next to its value. B8 (media-bed yield parity) was left as your call, so it stays a gap.
 
 Opened: 2026-11-26, while Ajit is away. Rule used (AGENTS.md 6A): approve medium or high confidence items that Tier 1 or Tier 2 sources corroborate. Single-source, Tier 3, low-confidence, conflicting and calibrated items stay candidates.
 

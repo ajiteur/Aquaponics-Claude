@@ -3,7 +3,7 @@ fact_id: "BYR_0001"
 domain: "biology"
 type: "parameter"
 confidence: "medium"
-status: "provisional"
+status: "accepted"
 source_id: "ciriello_2021"
 source_tier: "tier_2"
 source_gate: "trusted"
@@ -11,14 +11,12 @@ source_file: "data/knowledge/atomic_facts/basil_yield_response_facts.json"
 tags:
   - truth
   - biology
-  - candidate
+  - accepted
 ---
 
 # BYR_0001
 
 > In a floating-raft greenhouse trial, basil at 317 plants/m2 yielded 4.81 kg/m2 against 3.66 kg/m2 at 159 plants/m2 (about 15 vs 23 g per plant).
-
-**Candidate truth.** Not yet approved (`candidate_pending_user_review`).
 
 ## Context
 

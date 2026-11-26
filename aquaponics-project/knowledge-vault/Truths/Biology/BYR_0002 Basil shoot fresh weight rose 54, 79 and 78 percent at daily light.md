@@ -3,7 +3,7 @@ fact_id: "BYR_0002"
 domain: "biology"
 type: "parameter"
 confidence: "medium"
-status: "provisional"
+status: "accepted"
 source_id: "dou_2018"
 source_tier: "tier_2"
 source_gate: "trusted"
@@ -11,14 +11,12 @@ source_file: "data/knowledge/atomic_facts/basil_yield_response_facts.json"
 tags:
   - truth
   - biology
-  - candidate
+  - accepted
 ---
 
 # BYR_0002
 
 > Basil shoot fresh weight rose 54, 79 and 78 percent at daily light integrals of 12.9, 16.5 and 17.8 mol/m2/d compared with 9.3, levelling off near 16.5; the authors suggest 12.9 for commercial production.
-
-**Candidate truth.** Not yet approved (`candidate_pending_user_review`).
 
 ## Context
 

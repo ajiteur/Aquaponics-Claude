@@ -3,7 +3,7 @@ fact_id: "HEAT_0004"
 domain: "environment"
 type: "parameter"
 confidence: "medium"
-status: "provisional"
+status: "accepted"
 source_id: "asabe_ep406_4"
 source_tier: "tier_1"
 source_gate: "trusted"
@@ -11,14 +11,12 @@ source_file: "data/knowledge/atomic_facts/heating_climate_facts.json"
 tags:
   - truth
   - environment
-  - candidate
+  - accepted
 ---
 
 # HEAT_0004
 
 > Greenhouse cover heat-loss coefficients (W/m2 K): single glass about 6.2 (ASABE) to 7-8 (NSW DPI); single plastic film 6.2 to 8.5; double polyethylene about 4.0 (4.0 to 5.0); single glass with a closed, well-sealed thermal blanket 4.0.
-
-**Candidate truth.** Not yet approved (`candidate_pending_user_review`).
 
 ## Context
 

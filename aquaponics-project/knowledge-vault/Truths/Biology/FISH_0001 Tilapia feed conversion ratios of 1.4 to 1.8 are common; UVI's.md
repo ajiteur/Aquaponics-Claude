@@ -3,7 +3,7 @@ fact_id: "FISH_0001"
 domain: "biology"
 type: "parameter"
 confidence: "high"
-status: "provisional"
+status: "accepted"
 source_id: "srac_454"
 source_tier: "tier_1"
 source_gate: "trusted"
@@ -11,14 +11,12 @@ source_file: "data/knowledge/atomic_facts/fish_growth_facts.json"
 tags:
   - truth
   - biology
-  - candidate
+  - accepted
 ---
 
 # FISH_0001
 
 > Tilapia feed conversion ratios of 1.4 to 1.8 are common; UVI's aquaponic Nile tilapia averaged 1.7.
-
-**Candidate truth.** Not yet approved (`candidate_pending_user_review`).
 
 ## Context
 

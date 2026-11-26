@@ -3,7 +3,7 @@ fact_id: "FISH_0006"
 domain: "biology"
 type: "parameter"
 confidence: "high"
-status: "provisional"
+status: "accepted"
 source_id: "uvi_ista6_rakocy_2004"
 source_tier: "tier_2"
 source_gate: "trusted"
@@ -11,14 +11,12 @@ source_file: "data/knowledge/atomic_facts/fish_growth_facts.json"
 tags:
   - truth
   - biology
-  - candidate
+  - accepted
 ---
 
 # FISH_0006
 
 > In the UVI aquaponic system, all-male Nile tilapia grew from 79 g to 814 g in 24 weeks (4.4 g/day, FCR 1.7, 98 percent survival) at 77 fish per m3, harvesting 61.5 kg/m3 per tank, about 4.16 t a year from four 7.8 m3 tanks.
-
-**Candidate truth.** Not yet approved (`candidate_pending_user_review`).
 
 ## Context
 

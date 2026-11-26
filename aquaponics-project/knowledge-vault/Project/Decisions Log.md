@@ -15,6 +15,8 @@ Newest first. Each entry gives the decision, why, and who made it.
 
 ## 2026-11-26
 
+- **Approve Batch 003 as recommended.** Approved: heat pump COP and gas heat per m³ (NL), the India fan-pad polyhouse price, and truths CD_0011, CD_0012, HEAT_0002, HEAT_0004, HEAT_0005, HEAT_0009, FISH_0001 to FISH_0004, FISH_0006, FISH_0007, FISH_0009, BYR_0001 and BYR_0002. Models and everything else stay candidates. Media-bed yield parity (B8) was not chosen, so it stays a gap. Decided by Ajit (05:54 Europe/Amsterdam).
+
 - **Fix the tilapia temperature curve and add basil density and light responses as candidates, and leave the gravel-bed nitrogen issue open.** Why: these were the two largest validation failures, and both now rest on measured, peer-reviewed curves. Both fixes leave the UVI anchor unchanged. Asked by the coordinator while Ajit was away; waiting on Ajit's review in Batch 003.
 - **Validate against Knaus 2018, Savidov 2005 and Khater 2023, logging failures instead of retuning.** Why: no open source outside UVI gives a full coupled basil raft record, so each system checks different metrics. Recalibrating now would hide the failures before Ajit has seen them. Decided by Claude for the validation checkpoint; waiting on Ajit's review.
 - **Make the new tilapia growth model opt-in per scenario and keep feed as a direct input.** Why: the MVP baseline is Mode A direct feed input, and the starter fixtures feed the P2a checks, so only the two basil raft crop-cycle scenarios switch to the new model. The SRAC size table is available as an option. Decided by Claude for the Fish growth and feed checkpoint; waiting on Ajit's review.

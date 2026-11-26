@@ -3,7 +3,7 @@ fact_id: "FISH_0007"
 domain: "biology"
 type: "parameter"
 confidence: "high"
-status: "provisional"
+status: "accepted"
 source_id: "uvi_ista6_rakocy_2004"
 source_tier: "tier_2"
 source_gate: "trusted"
@@ -11,14 +11,12 @@ source_file: "data/knowledge/atomic_facts/fish_growth_facts.json"
 tags:
   - truth
   - biology
-  - candidate
+  - accepted
 ---
 
 # FISH_0007
 
 > UVI fed its tilapia a complete floating pellet with 32 percent protein, ad libitum over 30 minutes, three times a day.
-
-**Candidate truth.** Not yet approved (`candidate_pending_user_review`).
 
 ## Context
 
