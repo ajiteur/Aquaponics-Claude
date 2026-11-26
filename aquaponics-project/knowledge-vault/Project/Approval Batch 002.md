@@ -10,7 +10,10 @@ Rule used for the recommendations (AGENTS.md 6A): approve items with medium or h
 
 | # | Item | Recommendation |
 |---|---|---|
-| A1 | PR #21: nitrate removal by water exchange and a calibrated residual loss | **Merge.** Tests, the full integrity check, and the canon and vault syncs pass, and it merges cleanly with main. At the UVI feed ratio, nitrate now holds near 43 mg/L instead of climbing to about 161. That match is by construction, since the loss is calibrated to UVI's 42 mg/L, so it is not a validation. The starter fixture becomes nitrate-limited again (about 21 mg/L by day 28) and harvests 1.44 kg/m² instead of 1.91. Small follow-up: the unit-design inputs' bias note still cites 1.91. |
+| A0 | PRs #21, #23, #24 and #25 | Merged. |
+| A1 | PR #21 (merged): nitrate removal by water exchange and a calibrated residual loss | **Merge.** Tests, the full integrity check, and the canon and vault syncs pass, and it merges cleanly with main. At the UVI feed ratio, nitrate now holds near 43 mg/L instead of climbing to about 161. That match is by construction, since the loss is calibrated to UVI's 42 mg/L, so it is not a validation. The starter fixture becomes nitrate-limited again (about 21 mg/L by day 28) and harvests 1.44 kg/m² instead of 1.91. Small follow-up: the unit-design inputs' bias note still cites 1.91. |
+
+| A2 | PR #26: MIDH 2025 protected-cultivation norms as candidates | **Merge.** Tests, the integrity check and the canon sync pass, and it merges cleanly. Catalog values aren't changed until F1 is approved. |
 
 ## B. Scenario inputs (scenario estimates only, never canon)
 
@@ -34,6 +37,20 @@ Rule used for the recommendations (AGENTS.md 6A): approve items with medium or h
 |---|---|---|
 | D1 | NITR_0009, NITR_0010 (medium, Tier 1, corroborated) | **Approve.** |
 | D2 | NITR_0011 (low, single source), NITR_0012 (medium, single Tier 2 source) | Keep as candidates. |
+
+## E. P1 equipment research (PR #25, 51 candidates)
+
+| # | Item | Recommendation |
+|---|---|---|
+| E1 | The 12 candidates with medium or high confidence that are corroborated: India Tier 1 structure lives, the NHB tubular shade net norm (₹710 to ₹816/m²) and rooftop solar support (₹18,000 to ₹30,000/kWp); the Bangalore water price rise; NL backup power (generators €649 to €706, LiFePO4 batteries €510 to €882) | **Approve for scenario use.** |
+| E2 | The other 39 (single-source, low-confidence or conflicting, including the NL trough walls and heating) | Keep as candidates. |
+
+## F. MIDH 2025 norms (PR #26)
+
+| # | Item | Recommendation |
+|---|---|---|
+| F1 | Use the MIDH 2025 norms (Tier 1, official) as the India reference for protected structures, replacing the older catalog ranges: naturally ventilated polyhouse ₹650 to ₹935/m² becomes ₹1,000 to ₹1,200, bamboo shade net ₹200 to ₹414/m² becomes ₹450 | **Approve for scenario use**, labelled as subsidy cost ceilings, not market prices. |
+| F2 | The 50% central subsidy | Keep as a sensitivity case (with and without the subsidy), not a base input. Eligibility isn't known yet, and state top-ups aren't read. |
 
 ## Related Notes
 
