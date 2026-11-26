@@ -135,7 +135,7 @@
       "source_section": "Validation checkpoint, 2026-11-26",
       "priority": "high",
       "status": "candidate_fix_in_review",
-      "resolution_note": "2026-11-26: temperature points replaced with Santos et al. 2013 measured rates (22 C 0.674) and Baras 2001 upper shoulder; Savidov fish -38 -> -25 percent, Khater gain -36 -> -10 percent. Khater FCR still +84 percent (published 0.92 to 1.20 is below the Tier 1 1.4 to 1.8 range)."
+      "resolution_note": "2026-11-26: temperature points replaced with Santos et al. 2013 measured rates (22 C 0.674) and Baras 2001 upper shoulder; Savidov fish -38 -> -25 percent, Khater gain -36 -> -10 percent. Khater FCR still +84 percent (published 0.92 to 1.20 is below the Tier 1 1.4 to 1.8 range). 2026-11-26 (round 3): Savidov fish is now scored against the report's own per-fish range 0.50 to 0.64 kg (model 471 g, -6 percent from the low end; -25 percent against the 630 g point, which assumes no mortality). The model still sits below the range, so slow growth at 24.8 C is not fully explained."
     },
     {
       "ticket_id": "UQ-014",
@@ -167,7 +167,28 @@
       "evidence_still_needed": "Basil first-cut vs later-cut yields from transplant in raft or media beds (e.g. Modarelli 2023, Corrado 2020 full figures), and a basil temperature response for air below the water temperature.",
       "source_section": "Validation checkpoint 2, 2026-11-26",
       "priority": "medium",
-      "status": "review_needed"
+      "status": "hypothesis_not_supported",
+      "resolution_note": "2026-11-26 (round 3): the establishment-lag idea is not supported as a general rule. First cut vs regrowth cut, per day: UVI batch raft 2.1 vs 2.0, 1.7, 2.0 kg/m2 (no lag); Modarelli 2023 aquaponic raft 32.4 g in 35 d vs 44.4 g in 44 d (0.92 vs 1.01 g/d); Corrado 2020 first cut higher, second about 20 percent lower; only UVI staggered raft shows a lag (1.2 vs 2.4 kg/m2, authors: 'slow growth after transplanting while it became established'). No lag was added; UVI staggered is kept as evidence (truth BEV_0001). The real cause of the Knaus +112 percent was pH: the model let pH drift from the published 8.0 to about 7.5 by day 25, which doubled the basil score (see UQ-018). With pH held at 8.0, basil at the midpoint DLI is -24 percent (band -48 to +30 percent across the DLI bounds)."
+    },
+    {
+      "ticket_id": "UQ-017",
+      "topic": "tilapia_fcr_below_optimum_temperature",
+      "issue": "The model raises FCR as temperature falls (FCR = 1.7 / f_T, so 2.2 at 23.5 C). Khater 2023 prints FCR 0.92 to 1.20 at 23.5 C, below the Tier 1 range 1.4 to 1.8 and below UVI's 1.71 to 1.92.",
+      "why_unresolved": "The literature conflicts on direction: Workagegn 2014 (24 to 34 C) finds feed use worst at 24 C; Azaza 2008 (22 to 34 C) finds FCR best at 26 and 30 C; Mirea 2013 (20 to 30 C) finds FCR rising with temperature. Khater's FCR cannot be recomputed because feed intake is not printed, and its Eq. 5 mixes per-fish gain with the final fish count.",
+      "evidence_still_needed": "Measured FCR and feed intake by temperature for Nile tilapia above 30 g (Azaza 2008 and Mirea 2013 tables), to decide whether cool water lowers intake, conversion, or both. Until then the Khater FCR is reported but not scored.",
+      "source_section": "Validation checkpoint 3, 2026-11-26",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "ticket_id": "UQ-018",
+      "topic": "ph_drift_without_alkalinity_buffer",
+      "issue": "simulate_day lowers pH by 0.01 per mg/L TAN nitrified with no alkalinity or water-hardness buffer, so an uncontrolled system drifts down steadily. In the Knaus run pH fell from the published mean of 8.0 to about 7.5 within 25 days and the basil score doubled (0.5 to 1.0).",
+      "why_unresolved": "The drift rate is a placeholder; there is no carbonate alkalinity balance, no source-water alkalinity and no buffer dosing outside the pH_control flag.",
+      "evidence_still_needed": "Sourced nitrification alkalinity consumption, source-water alkalinity for NL and India sites, and a buffering model; until then validation runs hold pH at the published mean.",
+      "source_section": "Validation checkpoint 3, 2026-11-26",
+      "priority": "high",
+      "status": "open"
     }
   ]
 }

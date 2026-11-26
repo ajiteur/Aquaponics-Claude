@@ -2,6 +2,13 @@
 
 Newest first. Each entry gives the decision, why, and who made it.
 
+## 2026-11-26: Validation round 3
+
+- **Hold pH at the published mean in validation runs.** Why: the daily pH drift has no alkalinity buffer, so an uncontrolled run drifts away from the pH the paper measured and changes the plant score. A real buffer model is ticket UQ-018. Proposed by Claude, pending Ajit's review.
+- **Do not add a basil establishment lag.** Why: three raft studies show the first cut grows about as fast as later cuts; only UVI staggered planting shows a lag. UQ-016 closed as not supported. Proposed by Claude.
+- **Score Knaus basil at the midpoint of its light band and report the two ends as sensitivity.** Why: the paper does not give the photoperiod, so both ends are bounds, not estimates. Proposed by Claude, pending Ajit's review.
+- **Score Savidov fish against the report's stated 0.50 to 0.64 kg per fish, and keep Khater FCR reported but unscored.** Why: the 630 g point assumes no mortality; Khater's FCR is below every Tier 1 range and cannot be recomputed. Proposed by Claude, pending Ajit's review.
+
 ## 2026-11-26: Component checkpoints (P1 gaps, missing categories, NL and India on every part)
 
 - **Fill empty catalog slots with new candidates, and hold the rest in `candidates_batch_004_v0.jsonl`.** Wired in: trough walls (NL cellular block, pine plank, hollow block; India concrete block), NL fingerlings, India basil seed, NL lettuce seed, NL K1 biofilter media, India expanded clay, and parts in the new categories. Held: a second NL tilapia feed (Lets-Grow), the German catfish farm model (context), a Crompton pump with no usable flow rating, and conflicting Bengaluru and out-of-date Hyderabad water tariffs. All pending Batch 004. Asked by Ajit.

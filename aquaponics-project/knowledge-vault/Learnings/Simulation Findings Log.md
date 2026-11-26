@@ -2,6 +2,26 @@
 
 What the simulation shows, newest first. These are **scenario estimates, not validated**: they describe the model, not the real world, and they are never truths.
 
+## 2026-11-26: Validation round 3, pH drift found, scoring tightened (scenario estimate, not validated)
+
+Rerun of `python scripts/validate_published_systems.py`. The previous run is the entry further down ("Basil overprediction and gravel-bed nitrogen fixed"), left as it was.
+
+- **The Knaus basil miss was a pH bug, not young plants.** The paper reports pH 8.0 as a trial mean, and the authors say growth suffered from the alkaline water. The model let pH drift down to about 7.5 by day 25 (nitrification acid with no buffer), which doubled the basil score halfway through. Validation runs now hold pH at the published mean. Ticket UQ-018. The shipped NL and India scenarios all run with pH control on, so their results do not change.
+- **Young transplants do not need a growth lag.** In three raft studies the first cut after transplant grows about as fast as regrowth cuts (UVI batch 2.1 vs 2.0 kg/m²; Modarelli 2023 0.92 vs 1.01 g per day; Corrado 2020 first cut higher). Only UVI's staggered planting shows a lag (1.2 vs 2.4 kg/m²). UQ-016 is closed as not supported, and no lag was added.
+- **Knaus basil is scored at the middle of the light range.** The photoperiod is not reported, so the DLI is a band (4.3 to 7.2 mol/m²/d). The model gives −48% at the low end, −24% at the midpoint (scored) and +30% at the high end, so the published 16.1 g sits inside the band. The published spread is large (SD 13.8 g).
+- **Savidov fish is scored against the report's own range** (0.50 to 0.64 kg per fish): −6% from the low end. Against the 630 g point, which assumes no fish died, it is still −25%, so the model still grows fish a little slowly at 24.8 °C.
+- **Khater FCR is reported but no longer scored.** Its 0.92 to 1.20 is below every Tier 1 range (1.4 to 1.8) and below UVI's measured 1.71 to 1.92, and the paper gives no feed intake to check it. Even with no temperature penalty the model's 1.7 would be +42%. Studies also disagree on whether cool water worsens FCR (UQ-017).
+
+| Metric | Before | After |
+|---|---|---|
+| Knaus basil per plant | −13% (low DLI) / +112% (high DLI), both scored | −24% at mid DLI ✓ (band −48% to +30%, not scored) |
+| Knaus NO3-N | +15% | +20% ✓ (pH hold) |
+| Knaus TAN | −20% | −21% ✓ |
+| Savidov fish harvest weight | −25% vs 630 g ✗ | −6% vs 0.50 to 0.64 kg ✓ |
+| Khater FCR | +84% ✗ | +84%, reported, not scored |
+
+- **0 of 10 scored metrics fail; 3 more are reported but not scored**, each with its reason in the results file. Two of the three fixes change how a metric is scored, not the model, so the Gatekeeper should check that those choices are fair. Weakest passes: Knaus basil (−24%, just inside the bar) and Knaus NO3-N (+20%).
+
 ## 2026-11-26: Component checkpoints, new prices in the base builds (scenario estimate, not validated)
 
 Rerun of the two configurator builds (`run.bat configure_basil_dwc_nl`, `run.bat configure_basil_dwc_karnataka`, 100 m² tilapia + basil raft, owner labour) after the component-price pass. All new values are candidates pending Batch 004.
