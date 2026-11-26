@@ -198,5 +198,11 @@
         "fcr_quality_note": "Eq. 5 prints FCR = FI / (WG x nt), with WG defined as per-fish mass gained and nt the final fish count; feed intake (FI) is not printed, so the FCR cannot be recomputed. FER = 1/FCR in every row (consistent). The values (0.92 to 1.20) are below the Tier 1 range of 1.4 to 1.8 (SRAC 282, FAO 589) and below UVI's measured 1.71 to 1.92. Not scored in validation (UQ-017)."
       }
     }
-  ]
+  ],
+  "scoring_choices_approval": {
+    "approved_by": "Ajit",
+    "approved_date_local": "2026-11-26",
+    "scope": "B1-B4: validation-run setup and scoring choices (pH held at the published mean; Knaus basil scored at mid DLI; Savidov fish scored against the report's 0.50-0.64 kg range; Khater FCR reported but not scored). Condition: summaries say '0 of 10 scored, 3 reported unscored', never 'passes' or 'validated'; UQ-017 and UQ-018 stay open. The observations themselves stay candidates.",
+    "record": "Approval Batch 005, approved as recommended (thread message 2026-11-26 16:21 Europe/Amsterdam)"
+  }
 }

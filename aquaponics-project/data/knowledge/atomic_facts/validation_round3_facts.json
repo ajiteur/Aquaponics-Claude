@@ -77,8 +77,7 @@
       "domain": "biology",
       "type": "parameter",
       "confidence": "medium",
-      "status": "provisional",
-      "provisional_reason": "candidate_pending_user_review",
+      "status": "accepted",
       "context": {
         "species": "basil cv. Sanremo",
         "system": "coupled aquaponic floating raft, cold greenhouse under 75 percent shade net",
@@ -103,9 +102,16 @@
             "corrado_2020_agronomy",
             "rakocy_2004_tilapia_basil"
           ]
+        },
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-26",
+          "scope": "truth VR3_0003 (C1: Tier 1-2, medium or high, corroborated)",
+          "record": "Approval Batch 005, approved as recommended (thread message 2026-11-26 16:21 Europe/Amsterdam)"
         }
       },
-      "added_date_local": "2026-11-26"
+      "added_date_local": "2026-11-26",
+      "approval_batch": "batch_005"
     },
     {
       "fact_id": "VR3_0004",
@@ -113,8 +119,7 @@
       "domain": "biology",
       "type": "parameter",
       "confidence": "medium",
-      "status": "provisional",
-      "provisional_reason": "candidate_pending_user_review",
+      "status": "accepted",
       "context": {
         "species": "basil, Genovese type",
         "system": "hydroponic, pots on benches in a glasshouse, mean air 26 C",
@@ -139,9 +144,16 @@
             "modarelli_2023_plants",
             "rakocy_2004_tilapia_basil"
           ]
+        },
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-26",
+          "scope": "truth VR3_0004 (C1: Tier 1-2, medium or high, corroborated)",
+          "record": "Approval Batch 005, approved as recommended (thread message 2026-11-26 16:21 Europe/Amsterdam)"
         }
       },
-      "added_date_local": "2026-11-26"
+      "added_date_local": "2026-11-26",
+      "approval_batch": "batch_005"
     },
     {
       "fact_id": "VR3_0005",
@@ -183,8 +195,7 @@
       "domain": "biology",
       "type": "parameter",
       "confidence": "high",
-      "status": "provisional",
-      "provisional_reason": "candidate_pending_user_review",
+      "status": "accepted",
       "context": {
         "species": "Nile and red tilapia, fingerlings about 70 g, 24-week cycles",
         "system": "UVI commercial-scale coupled DWC raft",
@@ -210,9 +221,16 @@
             "srac_282",
             "fao_tp_589"
           ]
+        },
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-26",
+          "scope": "truth VR3_0006 (C1: Tier 1-2, medium or high, corroborated)",
+          "record": "Approval Batch 005, approved as recommended (thread message 2026-11-26 16:21 Europe/Amsterdam)"
         }
       },
-      "added_date_local": "2026-11-26"
+      "added_date_local": "2026-11-26",
+      "approval_batch": "batch_005"
     },
     {
       "fact_id": "VR3_0007",
