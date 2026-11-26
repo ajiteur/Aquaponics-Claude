@@ -6,12 +6,29 @@
     {
       "system_id": "knaus_2018_rostock_tilapia",
       "assumptions": [
-        "Gravel bed area counted as raft-equivalent nitrifying surface.",
+        "Gravel beds counted as media volume (1.34 m3, from 2,000 kg at a sand bulk-density proxy of 1,400 to 1,600 kg/m3) at the trickling-filter loading of 3.6 kg feed/m3/day (SRAC 453); FAO 589 low end and the old raft-equivalent treatment are in the sensitivity block.",
         "Nitrate sinks use the UVI-calibrated residual loss and 1.5 percent daily exchange (Knaus exchange not reported).",
         "Start TAN and nitrate set to the published means (start values not reported).",
         "All 180 plant positions are treated as basil for N uptake and yield (the beds were mixed herbs); density 18 plants/m2 counts all herbs.",
-        "Fish, TAN and nitrate metrics come from the low-DLI run (light does not change them except through plant N uptake)."
+        "Fish, TAN and nitrate metrics come from the high-DLI run (light does not change them except through plant N uptake).",
+        "Basil per-plant density factor uses the closed-canopy rule (b = 0 above 8 plants/m2)."
       ],
+      "sensitivity": {
+        "tan_and_nitrate_by_gravel_capacity": {
+          "low_capacity_fao_1_0_kg_m3_min_volume": {
+            "tan_mg_L_mean": 0.65,
+            "no3_n_mg_L_mean": 17.79
+          },
+          "high_capacity_srac_3_6_kg_m3_max_volume": {
+            "tan_mg_L_mean": 0.158,
+            "no3_n_mg_L_mean": 17.85
+          },
+          "old_raft_equivalent_10_m2": {
+            "tan_mg_L_mean": 0.452,
+            "no3_n_mg_L_mean": 17.81
+          }
+        }
+      },
       "metrics": [
         {
           "metric": "fish_end_biomass_kg",
@@ -31,35 +48,35 @@
         },
         {
           "metric": "tan_mg_L_mean",
-          "model": 0.452,
+          "model": 0.169,
           "observed": 0.21,
-          "error_fraction": 1.151,
-          "within_25_percent": false,
+          "error_fraction": -0.196,
+          "within_25_percent": true,
           "note": null
         },
         {
           "metric": "no3_n_mg_L_mean",
-          "model": 13.791,
+          "model": 17.849,
           "observed": 15.57,
-          "error_fraction": -0.114,
+          "error_fraction": 0.146,
           "within_25_percent": true,
-          "note": "published SD 8.39; model end value 11.59"
+          "note": "published SD 8.39; model end value 18.57"
         },
         {
           "metric": "basil_fresh_g_per_plant_dli_low",
-          "model": 20.927,
+          "model": 14.017,
           "observed": 16.1,
-          "error_fraction": 0.3,
-          "within_25_percent": false,
-          "note": "DLI 4.8 mol/m2/d (derived from published mean PAR 111.2 to 146.6 umol/m2/s; low = unit I PAR over 12 h of light, high = unit II PAR as a 24 h mean; photoperiod not stated); density 18.0 plants/m2"
+          "error_fraction": -0.129,
+          "within_25_percent": true,
+          "note": "DLI 4.3 mol/m2/d (derived, revised 2026-11-26: unit II (tilapia) daytime PAR 146.6 umol/m2/s (Table 3, twice-weekly readings) over the mean astronomical day length at Rostock (54.1 N) for 8 Aug to 16 Oct 2014, 12.65 h (our arithmetic); high = PAR held all day plus night PAR 11.6 umol/m2/s for the remaining 11.35 h (lamps assumed on all night); low = PAR read near midday on a sinusoidal day (daytime mean = 2/pi of the reading), no night light. The earlier 12.7 treated daytime PAR as a 24 h mean, which the separately reported night PAR (11.6) rules out; the earlier low (4.8) used unit I PAR (111.2) by mistake.); density 18.0 plants/m2"
         },
         {
           "metric": "basil_fresh_g_per_plant_dli_high",
-          "model": 87.051,
+          "model": 34.066,
           "observed": 16.1,
-          "error_fraction": 4.407,
+          "error_fraction": 1.116,
           "within_25_percent": false,
-          "note": "DLI 12.7 mol/m2/d (derived from published mean PAR 111.2 to 146.6 umol/m2/s; low = unit I PAR over 12 h of light, high = unit II PAR as a 24 h mean; photoperiod not stated); density 18.0 plants/m2"
+          "note": "DLI 7.2 mol/m2/d (derived, revised 2026-11-26: unit II (tilapia) daytime PAR 146.6 umol/m2/s (Table 3, twice-weekly readings) over the mean astronomical day length at Rostock (54.1 N) for 8 Aug to 16 Oct 2014, 12.65 h (our arithmetic); high = PAR held all day plus night PAR 11.6 umol/m2/s for the remaining 11.35 h (lamps assumed on all night); low = PAR read near midday on a sinusoidal day (daytime mean = 2/pi of the reading), no night light. The earlier 12.7 treated daytime PAR as a 24 h mean, which the separately reported night PAR (11.6) rules out; the earlier low (4.8) used unit I PAR (111.2) by mistake.); density 18.0 plants/m2"
         }
       ]
     },
@@ -67,18 +84,18 @@
       "system_id": "savidov_2005_alberta_basil",
       "assumptions": [
         "Feed per m2 not reported: the UVI feed ratio scenario supplies nitrogen, so nitrate is not limiting.",
-        "Basil at Savidov's derived density of 31.8 plants/m2 through the candidate density response.",
+        "Basil at Savidov's derived density of 31.8 plants/m2 through the candidate closed-canopy density rule (b = 0 above 8 plants/m2); the open-canopy exponent is in the sensitivity block.",
         "DLI not set: 16 h photoperiod with supplemental light of at least 300 umol/m2/s gives at least 17 mol/m2/d (derived), above the light plateau.",
         "Fish fed Savidov's schedule (2.5 percent at 100 g falling to 1.25 percent at 400 g), linear between."
       ],
       "metrics": [
         {
           "metric": "basil_kg_m2_trough_per_year_at_savidov_density",
-          "model": 43.2,
+          "model": 25.094,
           "observed": 25.7,
-          "error_fraction": 0.681,
-          "within_25_percent": false,
-          "note": "candidate density response (Ciriello 2021 exponent)"
+          "error_fraction": -0.024,
+          "within_25_percent": true,
+          "note": "candidate closed-canopy density rule (b = 0)"
         },
         {
           "metric": "basil_kg_m2_trough_per_year_at_uvi_density",
@@ -96,7 +113,11 @@
           "within_25_percent": false,
           "note": "378.0 kg average harvest per tank / 600 fish stocked (no mortality assumed); text also says 0.50 to 0.64 kg per fish"
         }
-      ]
+      ],
+      "sensitivity": {
+        "basil_kg_m2_trough_per_year_open_canopy_b_0_394": 43.2,
+        "error_fraction": 0.681
+      }
     },
     {
       "system_id": "khater_2023_benha_tilapia_lettuce",
@@ -144,10 +165,7 @@
     }
   ],
   "failures": [
-    "knaus_2018_rostock_tilapia: tan_mg_L_mean (+115%)",
-    "knaus_2018_rostock_tilapia: basil_fresh_g_per_plant_dli_low (+30%)",
-    "knaus_2018_rostock_tilapia: basil_fresh_g_per_plant_dli_high (+441%)",
-    "savidov_2005_alberta_basil: basil_kg_m2_trough_per_year_at_savidov_density (+68%)",
+    "knaus_2018_rostock_tilapia: basil_fresh_g_per_plant_dli_high (+112%)",
     "savidov_2005_alberta_basil: fish_harvest_mean_g (-25%)",
     "khater_2023_benha_tilapia_lettuce: fcr (+84%)"
   ]

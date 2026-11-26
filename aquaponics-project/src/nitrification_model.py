@@ -92,14 +92,18 @@ def capacity_g_tan_day(surfaces: dict, model: dict, tan_per_g_feed_mg: float, me
     )
     feed_capacity_g_day = (surfaces.get("raft_grow_area_m2") or 0.0) * raft_anchor["value"]
 
-    biofilter = surfaces.get("dedicated_biofilter")
-    if isinstance(biofilter, dict) and biofilter.get("media_volume_m3"):
-        loading = biofilter.get("feed_loading_kg_per_m3_day")
+    # A dedicated biofilter and media grow beds (e.g. gravel ebb-and-flow) are both
+    # media volume x feed loading per m3; media beds replace raft area, not add to it.
+    media_units = [surfaces.get("dedicated_biofilter"), *(surfaces.get("media_beds") or [])]
+    for unit in media_units:
+        if not (isinstance(unit, dict) and unit.get("media_volume_m3")):
+            continue
+        loading = unit.get("feed_loading_kg_per_m3_day")
         if loading is None:
-            loading = media_loading.get(biofilter.get("variant_id"))
+            loading = media_loading.get(unit.get("variant_id"))
         if loading is None:
-            raise ValueError(f"No feed loading known for biofilter variant {biofilter.get('variant_id')!r}")
-        feed_capacity_g_day += biofilter["media_volume_m3"] * loading * 1000.0
+            raise ValueError(f"No feed loading known for media variant {unit.get('variant_id')!r}")
+        feed_capacity_g_day += unit["media_volume_m3"] * loading * 1000.0
 
     return feed_capacity_g_day * tan_per_g_feed_mg / 1000.0
 

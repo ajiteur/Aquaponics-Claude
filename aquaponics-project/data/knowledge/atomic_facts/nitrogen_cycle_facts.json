@@ -395,6 +395,143 @@
         "reviewed_from_file": "web reads 2026-11-25 (URLs in data/knowledge/models/nitrification_models.json, record nitrate_sinks)"
       },
       "added_date_local": "2026-11-25"
+    },
+    {
+      "fact_id": "NITR_0013",
+      "statement": "FAO small-scale aquaponics guidance sizes a media-bed biofilter at 1 L of volcanic gravel (about 300 m2/m3) per g of daily feed, or 0.5 L of bioballs (about 600 m2/m3), as a minimum; limestone gravel has about 150 to 200 m2/m3, and larger gravel gives less surface.",
+      "domain": "system_design",
+      "type": "parameter",
+      "confidence": "medium",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "approval_batch": "pending_batch_004",
+      "context": {
+        "system": "small-scale media-bed and DWC/NFT units",
+        "scale": "1 to 12 m2 grow area"
+      },
+      "source_metadata": {
+        "source_id": "fao_589_somerville_2014",
+        "section_id": "s.4.3 and s.8 component ratios",
+        "source_type": "fao_technical_paper",
+        "source_tier": "tier_1",
+        "url": "https://learn.farmhub.ag/resources/small-scale-aquaponic-food-production/8-management-and-troubleshooting/component-calculations-and-ratios/"
+      },
+      "review_metadata": {
+        "source_gate": "conditional",
+        "source_gate_reason": "FAO Fisheries and Aquaculture Technical Paper 589, read via a third-party reproduction (FarmHub).",
+        "confidence_reason": "Stated design minimum, not a measured capacity; read through a reproduction.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "fao_589_somerville_2014"
+          ]
+        },
+        "reviewed_from_file": "web reads 2026-11-26 (gravel-bed N and basil density fixes)"
+      },
+      "added_date_local": "2026-11-26"
+    },
+    {
+      "fact_id": "NITR_0014",
+      "statement": "SRAC 453 (1999) gives trickling filters a design loading of 3.6 kg feed per m3 of media per day for media generally below 330 m2/m3, with nitrification of about 90 g TAN/m3/day.",
+      "domain": "system_design",
+      "type": "parameter",
+      "confidence": "medium",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "approval_batch": "pending_batch_004",
+      "context": {
+        "system": "RAS trickling filter",
+        "note": "used as the analogue for intermittently wetted gravel beds"
+      },
+      "source_metadata": {
+        "source_id": "srac_453_1999",
+        "section_id": "Biofiltration table",
+        "source_type": "extension_fact_sheet",
+        "source_tier": "tier_1",
+        "url": "https://aquaculture.o2.boa.ca.uky.edu/sites/aquaculture.ca.uky.edu/files/srac_453_recirculating_aquaculture_tank_production_systems_a_review_of_component_options.pdf"
+      },
+      "review_metadata": {
+        "source_gate": "conditional",
+        "source_gate_reason": "University extension fact sheet; the TAN rate rests on unpublished data (Losordo).",
+        "confidence_reason": "Design criterion, not a measurement; one edition; the 2013 edition does not restate it.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "srac_453_1999"
+          ]
+        },
+        "reviewed_from_file": "web reads 2026-11-26 (gravel-bed N and basil density fixes)"
+      },
+      "added_date_local": "2026-11-26"
+    },
+    {
+      "fact_id": "NITR_0015",
+      "statement": "Trickling-filter media of 164 m2/m3 removed 0.94 to 3.92 g TAN per m2 per day at 0.81 to 4.63 mg TAN/L, with removal linear in TAN up to about 2.5 mg/L.",
+      "domain": "water_chemistry",
+      "type": "parameter",
+      "confidence": "medium",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "approval_batch": "pending_batch_004",
+      "context": {
+        "system": "RAS trickling filter (Norpak media) vs microbead filter",
+        "species": "tilapia RAS"
+      },
+      "source_metadata": {
+        "source_id": "greiner_timmons_1998",
+        "section_id": "Results",
+        "source_type": "peer_reviewed_journal",
+        "source_tier": "tier_2",
+        "url": "https://ag.arizona.edu/azaqua/ista/ISTA7/RecircWorkshop/Workshop%20PP%20Presentations%20&%20Misc%20Papers%202006/Evaluation%20of%20the%20nitrification%20rates%20of%20microbead%20and%20trick.pdf"
+      },
+      "review_metadata": {
+        "source_gate": "trusted",
+        "source_gate_reason": "Peer-reviewed (Aquacultural Engineering 18:189-200).",
+        "confidence_reason": "Measured rates; the paper's table and text swap the two filter volumes; heavily loaded RAS, not aquaponics.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "greiner_timmons_1998",
+            "srac_453_1999"
+          ]
+        },
+        "reviewed_from_file": "web reads 2026-11-26 (gravel-bed N and basil density fixes)"
+      },
+      "added_date_local": "2026-11-26"
+    },
+    {
+      "fact_id": "NITR_0016",
+      "statement": "In a lettuce raft study, surface nitrification was 0.83 g TAN/m2/day on inert surfaces and about 0.20 g/m2/day on root surfaces; direct plant uptake was under 2 percent of the TAN removed.",
+      "domain": "water_chemistry",
+      "type": "parameter",
+      "confidence": "medium",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "approval_batch": "pending_batch_004",
+      "context": {
+        "system": "lettuce raft, aquaponic application",
+        "species": "lettuce"
+      },
+      "source_metadata": {
+        "source_id": "anderson_goldstein_timmons_2019",
+        "section_id": "abstract",
+        "source_type": "peer_reviewed_journal",
+        "source_tier": "tier_2",
+        "url": "https://agris.fao.org/search/en/records/65df0cec4c5aef494fdf48f8"
+      },
+      "review_metadata": {
+        "source_gate": "trusted",
+        "source_gate_reason": "Peer-reviewed (Aquacultural Engineering 86:101997).",
+        "confidence_reason": "Abstract only; the root value is printed without the 'g' unit; TAN level of the measurement not read.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "anderson_goldstein_timmons_2019"
+          ]
+        },
+        "reviewed_from_file": "web reads 2026-11-26 (gravel-bed N and basil density fixes)"
+      },
+      "added_date_local": "2026-11-26"
     }
   ]
 }

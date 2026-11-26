@@ -173,14 +173,21 @@ def _interp(points: list, x: float, above: float) -> float:
     return above
 
 
-def yield_response_factors(plant_profile: dict, density: float, dli: float | None) -> dict:
-    """Candidate (Batch 003) basil density and light factors; both 1.0 at the UVI anchor."""
+def yield_response_factors(
+    plant_profile: dict, density: float, dli: float | None, exponent_b: float | None = None
+) -> dict:
+    """Candidate basil density and light factors; both 1.0 at the UVI anchor.
+
+    exponent_b overrides the profile's density exponent (sensitivity runs, e.g. the
+    open-canopy exponent); None uses the profile value.
+    """
     model = plant_profile.get("yield_response_model")
     if not model:
         return {"density_factor": 1.0, "light_factor": 1.0, "basis": "no_yield_response_model"}
     dens = model["density_response"]
+    b = dens["yield_per_m2_exponent_b"] if exponent_b is None else float(exponent_b)
     ratio = density / dens["anchor_density_plants_m2"]
-    density_factor = min(dens["cap_per_plant_factor_at_or_below_anchor"], ratio ** (dens["yield_per_m2_exponent_b"] - 1.0))
+    density_factor = min(dens["cap_per_plant_factor_at_or_below_anchor"], ratio ** (b - 1.0))
     light = model["light_response"]
     if dli is None:
         light_factor, light_basis = light["factor_when_dli_missing"], "dli_not_given_assume_anchor_light"
@@ -190,6 +197,7 @@ def yield_response_factors(plant_profile: dict, density: float, dli: float | Non
         "density_factor": round(density_factor, 4),
         "light_factor": round(light_factor, 4),
         "density_plants_m2": density,
+        "density_exponent_b": b,
         "dli_mol_m2_day": dli,
         "basis": f"{model['model_id']}_candidate; light: {light_basis}",
     }
@@ -214,7 +222,10 @@ def update_harvestable_mass(
     policy = plant_crop.setdefault("harvest_policy", {})
     period_days = int(policy.get("growing_period_days") or calibration["growing_period_days"])
     density = plant_crop.get("planting_density_plants_m2") or calibration["planting_density_plants_m2"]
-    response = yield_response_factors(plant_profile, density, scenario.get("light", {}).get("dli_mol_m2_day"))
+    overrides = plant_crop.get("yield_response_overrides") or {}
+    response = yield_response_factors(
+        plant_profile, density, scenario.get("light", {}).get("dli_mol_m2_day"), overrides.get("density_exponent_b")
+    )
     daily_gain = (
         calibration["ideal_rate_g_per_plant_day"] * plant_score * nitrate_availability_score
         * response["density_factor"] * response["light_factor"]
