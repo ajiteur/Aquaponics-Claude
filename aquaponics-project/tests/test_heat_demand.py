@@ -67,7 +67,9 @@ class PhysicsTests(unittest.TestCase):
 class ResultTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.results = hd.build_results(gas_price_eur_m3={"low": 1.339, "high": 1.454})
+        cls.results = hd.build_results(
+            gas_price_eur_m3={"low": 1.339, "high": 1.454}, electricity_inr_kwh={"low": 3.45, "high": 7.1}
+        )
 
     def test_labelled_scenario_estimate(self):
         self.assertEqual(self.results["estimate_status"], "scenario_estimate")
@@ -98,12 +100,22 @@ class ResultTests(unittest.TestCase):
         floor = next(c for c in heating["cases"] if c["case_id"] == "chilling_protection_10c")
         self.assertEqual(floor["heat_demand_kwh_th_m2_yr"]["high"], 0)
         self.assertFalse(any(c["case_id"].endswith("_night_screen") for c in heating["cases"]))
-        self.assertIsNone(self.results["karnataka_polyhouse"]["cooling"]["electricity_cost"])
+        cooling = self.results["karnataka_polyhouse"]["cooling"]
+        kwh = cooling["fan_pad_electricity_kwh_m2_yr_if_run_every_day"]
+        cost = cooling["electricity_cost_inr_m2_yr_if_run_every_day"]
+        self.assertAlmostEqual(cost["low"], kwh["low"] * 3.45, delta=3)
+        self.assertAlmostEqual(cost["high"], kwh["high"] * 7.1, delta=4)
 
     def test_missing_price_stays_missing(self):
         results = hd.build_results(gas_price_eur_m3=None)
         self.assertIsNone(results["netherlands_glasshouse"]["cases"][0]["gas_cost_eur_m2_yr"])
         self.assertEqual(results["netherlands_glasshouse"]["gas_price_basis"], "missing")
+        self.assertIsNone(results["karnataka_polyhouse"]["cooling"]["electricity_cost_inr_m2_yr_if_run_every_day"])
+
+    def test_karnataka_tariff_is_the_approved_one(self):
+        rate = hd.karnataka_tariff()
+        self.assertIsNotNone(rate)
+        self.assertEqual(rate["approval_status"], "approved")
 
 
 if __name__ == "__main__":

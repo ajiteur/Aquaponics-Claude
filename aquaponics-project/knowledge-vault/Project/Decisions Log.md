@@ -2,12 +2,18 @@
 
 Newest first. Each entry gives the decision, why, and who made it.
 
+## 2026-11-26: Swaps checkpoint
+
+- **Compare swaps as patches on a base build, and show gaps next to each change.** A swap can change the architecture, the heating source or one part. A swap that opens a cost gap is flagged as not like-for-like rather than given a filled-in number. Why: Ajit wants game-like part choices, and an unpriced part must not look free. Proposed by Claude.
+- **Model a heat pump as the same heat demand delivered with electricity.** Heat (kWh) is gas m³ × 8.63 to 8.79 kWh per m³, and electricity is heat ÷ a seasonal COP of 3.7 to 4.6. The heat-demand values themselves stay with the heating and climate thread. New values pending Batch 003. Proposed by Claude.
+
 ## 2026-11-26
 
 - **Model greenhouse heat demand with one calibrated loss coefficient, and hold every value for Batch 003.** Why: no source gives the cover-to-floor ratio or a basil heat demand. Calibrating to a published Dutch figure and checking against a second figure keeps the model tied to evidence. Solar utilisation can't be pinned down, so results are given as a range across its physical bounds (0 to 1). Decided by Claude for the Heating and climate checkpoint; waiting on Ajit's review.
 - **Shelve the farm go/no-go; build the strongest simulation for the Netherlands and India in parallel.** Why: if the simulation is strong, moving to a real farm is straightforward, and the engine should work across many markets. Decided by Ajit.
 - **Run the P1 equipment research and hold the results for Batch 002.** Only values that fit an existing catalog slot are wired in (India polyhouse and shade-net life, India water price, NL basil seed). Everything else waits in `data/catalog/candidates_batch_002_v0.jsonl`. Asked by Ajit.
 - **Use the MIDH 2025 Annexure V norms as the India national reference for protected structures, held for Batch 002.** NVPH tubular Rs 1000-1200/m2 and bamboo shade net Rs 450/m2 (plains) supersede the older 650-935 and 200-414 ranges, but the catalog values are not changed until Ajit approves. These are subsidy cost ceilings, not market prices. Telangana's 2025-26 state table could not be downloaded and stays a gap. Ajit supplied the PDF; Claude extracted it.
+- **Approve Batch 002 as recommended.** Approved: nitrate water exchange of 1.5% per day (C1), NITR_0009 and NITR_0010 (D1), 12 corroborated equipment values (E1), and the MIDH 2025 norms as India structure prices: NVPH ₹1,000 to ₹1,200/m², bamboo shade net ₹450/m², labelled as subsidy ceilings (F1). Everything else stays a candidate or a sensitivity case. Approvals are recorded next to each value. Decided by Ajit (2026-11-26 01:33 Europe/Amsterdam).
 
 ## 2026-11-25
 

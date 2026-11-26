@@ -3,7 +3,7 @@ fact_id: "NITR_0009"
 domain: "operations"
 type: "parameter"
 confidence: "medium"
-status: "provisional"
+status: "accepted"
 source_id: "uvi_commercial_scale_aquaponic_system_rakocy_bailey_shultz_danaher"
 source_tier: "tier_1"
 source_gate: "conditional"
@@ -11,14 +11,12 @@ source_file: "data/knowledge/atomic_facts/nitrogen_cycle_facts.json"
 tags:
   - truth
   - operations
-  - candidate
+  - accepted
 ---
 
 # NITR_0009
 
 > The UVI commercial aquaponic system replaced about 1.5 percent of its water volume per day on average.
-
-**Candidate truth.** Not yet approved (`candidate_pending_user_review`).
 
 ## Context
 

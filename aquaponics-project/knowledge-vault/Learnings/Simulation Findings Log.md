@@ -18,7 +18,29 @@ Run: `python src/heat_demand.py` (results in `data/simulation/results/greenhouse
 - **The basil cases are an extrapolation.** The model is calibrated between 8 and 15 °C, and no published Dutch basil heat demand exists. Lit tomato uses about 32 m³/m² and warm Phalaenopsis 50 to 90, so basil at 24 to 26 °C landing at 61 to 88 sits where a warm crop would.
 - **The biggest open uncertainty is KEMA's own radish number.** KEMA 2009 gives about 5.4 m³/m² for the same setpoints, against 12.0 in 2012. If 2009 is right, every Dutch figure here roughly halves (ticket UQ-012).
 - **Karnataka needs no heating at 10 to 15 °C setpoints on mean nights.** Holding 24 to 26 °C at night would take about 74 to 252 kWh of heat per m² per year. Record lows went below basil's 10 °C chilling line in November to February, so cold-night protection may matter (low confidence: tertiary source).
-- **Karnataka cooling is the larger question.** Outdoor air is above basil's preferred 27.5 °C for about 2,300 hours a year and above its tolerated 31 °C for about 600. Fan-pad cooling would use about 46 to 55 kWh per m² per year if run every day (low confidence: one North-West India source). No Karnataka electricity tariff is in the catalog, so there is no cost yet.
+- **Karnataka cooling is the larger question.** Outdoor air is above basil's preferred 27.5 °C for about 2,300 hours a year and above its tolerated 31 °C for about 600. Fan-pad cooling would use about 46 to 55 kWh per m² per year if run every day (low confidence: one North-West India source). At Karnataka's Batch 001 power rate (₹3.45 to ₹7.10 per kWh, low confidence, fixed charges excluded) that is about ₹157 to ₹389 per m² per year.
+
+## 2026-11-26: Swaps checkpoint, side-by-side part swaps (scenario estimate, not validated)
+
+Run: `run.bat swaps_basil_nl` and `run.bat swaps_basil_karnataka` (`scripts/compare_swaps.py`). Base: 100 m² tilapia + basil DWC raft, owner labour, mid case. Each row is the change against the base. A (*) means the swap opens cost gaps, so some of its costs are left out and the change is not like-for-like. New values are candidates pending Batch 003.
+
+| Swap | NL change per kg basil (base €10.04) | Karnataka change per kg basil (base ₹133.49) |
+|---|---|---|
+| Media bed instead of raft (*) | n/a (no sourced yield); −€116 per m² per yr, −42 m³ water, −13,800 kWh | n/a; −₹1,676 per m² per yr, −42 m³ water |
+| NFT instead of raft (*) | n/a (no sourced yield or channel layout) | n/a (same) |
+| Air-water heat pump instead of gas boiler (*) | −€2.04 (+12,500 kWh, gas to zero); heat pump life not sourced | not applicable (no heating) |
+| Heating off | −€3.44 (yield kept at the heated value, so this is an upper bound on heating cost) | not applicable |
+| New IBC instead of used IBC | +€0.06 | — |
+| EPS instead of XPS rafts | −€0.03 | — |
+| Fan-and-pad polyhouse (*) | — | −₹9.67, but only because its life and power are not sourced |
+| Shade net instead of polyhouse | — | −₹0.97 |
+| FRP 750 L tanks instead of PVC 5,000 L | — | +₹11.35 |
+| 90 m³ cement RAS tank instead of PVC | — | +₹5.89 |
+
+- **In the Netherlands, heating is the biggest swap lever.** A heat pump at a seasonal COP of 3.7 to 4.6 roughly halves the heating line at current CBS gas and power prices, before its build cost (life not sourced).
+- **Media bed and NFT can't be priced per kg yet.** With no sourced yield for basil in those systems, only cost per m² is shown. Fish feed falls to 25% of the raft rate (SRAC 454 factor, low confidence), which drives the drop in electricity and water.
+- **In Karnataka, tank choice matters more than structure choice** among the parts priced so far. PVC biofloc tanks remain the cheapest per kg.
+- **The Karnataka base is now ₹109.68 / 133.49 / 159.43 per kg** (low / mid / high), up from earlier runs because the MIDH 2025 polyhouse norm (Batch 002, F1) replaced the older range.
 
 ## 2026-11-26: Equipment P1 research, Batch 002 candidates (scenario estimate, not validated)
 

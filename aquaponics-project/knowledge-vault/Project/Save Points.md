@@ -32,6 +32,16 @@ The Gatekeeper checks every PR for these before giving a merge verdict:
 
 ## Log
 
+### save-point-002 (2026-11-26)
+
+- **Commit:** the merge commit of PR #28 on `main`, after PRs #20 to #28 and Approval Batch 002.
+- **What it holds:**
+  - Nitrate sinks: water exchange (approved) and a calibrated residual loss (candidate). Nitrate holds near 43 mg/L at the UVI feed ratio.
+  - The P1 equipment research (51 candidates, 12 approved for scenario use) and the MIDH 2025 India structure norms.
+  - The Simulation Progress Tracker (6 of 16 checkpoints).
+- **Checks:** to be confirmed on the merge commit: tests, `check_mvp_integrity.py --quick`, runtime sync dry run and vault export dry run.
+- **Open at this point:** the residual nitrate loss and 39 equipment values stay candidates; heating, fish growth and validation are not modelled; state subsidy top-ups are not read.
+
 ### save-point-001 (2026-11-25)
 
 - **Commit:** `07ce825` on `main`, after PRs #1 to #19 and Approval Batch 001.

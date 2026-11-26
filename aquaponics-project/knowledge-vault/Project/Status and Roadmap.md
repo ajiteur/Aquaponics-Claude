@@ -18,7 +18,7 @@ Last updated: 2026-11-26
 - ~~Nitrate uptake is a placeholder that scales with the plant score.~~ Replaced with growth-based uptake in PR #11 (candidate).
 - ~~Nitrogen has no sink besides plant shoots, so nitrate builds up well above UVI's level.~~ Water exchange and a calibrated residual loss added (candidate, Batch 002). The residual loss is calibrated to one site, so it is low confidence.
 - The raft nitrification capacity is about 10 times higher per m² than published biofilm rates; this needs a closer look.
-- ~~Heating cost uses a transferred pepper figure (21-30 m³ gas/m²).~~ A climate-driven heat demand model for the Netherlands and Karnataka now exists (candidate, Batch 003). Basil at 24 to 26 °C comes out at about 67 to 88 m³ gas/m²/yr with a night screen. The calibration point conflicts with an older KEMA figure (UQ-012), and Karnataka cooling has no electricity price yet.
+- ~~Heating cost uses a transferred pepper figure (21-30 m³ gas/m²).~~ A climate-driven heat demand model for the Netherlands and Karnataka now exists (candidate, Batch 003). Basil at 24 to 26 °C comes out at about 67 to 88 m³ gas/m²/yr with a night screen. The calibration point conflicts with an older KEMA figure (UQ-012), and Karnataka fan-pad cooling (about ₹157 to ₹389 per m² a year) rests on one low-confidence energy figure.
 - Standing plant biomass still grows at a fixed 4 g per plant per day. Only harvestable mass is calibrated.
 - Two cost inputs in the unit-economics example (variable cost per kg, a €500 batch fixed cost) are constructed placeholders, not evidence.
 

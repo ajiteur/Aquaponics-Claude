@@ -432,8 +432,15 @@
         "high": 55
       },
       "fan_pad_confidence": "low",
-      "electricity_cost": null,
-      "electricity_cost_gap": "No Karnataka electricity tariff in the catalog."
+      "electricity_cost_inr_m2_yr_if_run_every_day": {
+        "low": 157,
+        "high": 389
+      },
+      "electricity_tariff_inr_kwh": {
+        "low": 3.45,
+        "high": 7.1,
+        "basis": "Karnataka electricity_per_kwh in data/scenarios/unit_configuration_candidates_v0.json (Batch 001 approved for scenario use only, low confidence; fixed charges excluded)"
+      }
     }
   },
   "gaps": [

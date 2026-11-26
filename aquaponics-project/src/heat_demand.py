@@ -178,7 +178,20 @@ def heating_gas_and_cost(heat: dict, gas: dict, price: dict | None) -> dict:
     return out
 
 
-def build_results(models: dict | None = None, gas_price_eur_m3: dict | None = None) -> dict:
+def karnataka_tariff() -> dict | None:
+    """Karnataka electricity tariff (INR/kWh), approved in Batch 001 for scenario use only."""
+    path = PROJECT_ROOT / "data" / "scenarios" / "unit_configuration_candidates_v0.json"
+    if not path.exists():
+        return None
+    rate = json.loads(path.read_text(encoding="utf-8")).get("locations", {}).get("karnataka", {}).get("electricity_per_kwh")
+    if not rate or rate.get("approval_status") != "approved":
+        return None
+    return rate
+
+
+def build_results(
+    models: dict | None = None, gas_price_eur_m3: dict | None = None, electricity_inr_kwh: dict | None = None
+) -> dict:
     models = models or load_models()
     hm = models["greenhouse_heat_demand_degree_hour"]
     nl = models["climate_normals_de_bilt_1991_2020"]
@@ -236,6 +249,10 @@ def build_results(models: dict | None = None, gas_price_eur_m3: dict | None = No
     tol_max = basil["tolerated_temp_c"]["max"]
     record_lows = ka["monthly"].get("record_low_c")
     fan = pe["fan_pad_electricity"]
+    fan_kwh = {
+        "low": fan["kwh_per_day"]["min"] / fan["house_floor_m2"] * 365,
+        "high": fan["kwh_per_day"]["max"] / fan["house_floor_m2"] * 365,
+    }
 
     return {
         "estimate_status": "scenario_estimate",
@@ -278,13 +295,21 @@ def build_results(models: dict | None = None, gas_price_eur_m3: dict | None = No
                 "tolerated_max_c": tol_max,
                 "hours_above_tolerated_max_yr": round(hours_above(ka, tol_max)),
                 "note": "Outdoor air only. A polyhouse runs warmer than outside in daytime; inside temperature is not modelled.",
-                "fan_pad_electricity_kwh_m2_yr_if_run_every_day": {
-                    "low": round(fan["kwh_per_day"]["min"] / fan["house_floor_m2"] * 365),
-                    "high": round(fan["kwh_per_day"]["max"] / fan["house_floor_m2"] * 365),
-                },
+                "fan_pad_electricity_kwh_m2_yr_if_run_every_day": {k: round(v) for k, v in fan_kwh.items()},
                 "fan_pad_confidence": fan["review_metadata"]["confidence"],
-                "electricity_cost": None,
-                "electricity_cost_gap": "No Karnataka electricity tariff in the catalog.",
+                "electricity_cost_inr_m2_yr_if_run_every_day": (
+                    {
+                        "low": round(fan_kwh["low"] * electricity_inr_kwh["low"]),
+                        "high": round(fan_kwh["high"] * electricity_inr_kwh["high"]),
+                    }
+                    if electricity_inr_kwh else None
+                ),
+                "electricity_tariff_inr_kwh": (
+                    {"low": electricity_inr_kwh["low"], "high": electricity_inr_kwh["high"],
+                     "basis": "Karnataka electricity_per_kwh in data/scenarios/unit_configuration_candidates_v0.json "
+                              "(Batch 001 approved for scenario use only, low confidence; fixed charges excluded)"}
+                    if electricity_inr_kwh else "missing"
+                ),
             },
         },
         "gaps": hm["gaps"],
@@ -312,7 +337,7 @@ def gas_price_from_catalog() -> dict | None:
 
 
 def main() -> None:
-    results = build_results(gas_price_eur_m3=gas_price_from_catalog())
+    results = build_results(gas_price_eur_m3=gas_price_from_catalog(), electricity_inr_kwh=karnataka_tariff())
     RESULTS_PATH.write_text(json.dumps(results, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(results["calibration"], indent=1))
     for c in results["netherlands_glasshouse"]["cases"]:
