@@ -1,0 +1,319 @@
+{
+  "metadata": {
+    "scenario_id": "farm_viability_inputs_v0",
+    "estimate_status": "scenario_estimate",
+    "label": "scenario estimate, not validated",
+    "purpose": "Input record for Ajit's real-farm go/no-go (plan step 3). Inputs only; the go/no-go itself is not run here.",
+    "canon_status": "non_canonical; never copy into data/knowledge/**",
+    "created": "2026-11-25",
+    "slice_id": "basil_bulk_kg_wholesale",
+    "origin_vocabulary": {
+      "user_supplied": "a value Ajit gave for his own farm",
+      "repo_research_pack": "data/sources/research_reports/markdown/First-slice basil wholesale economics input pack.md (non-canonical research benchmark)",
+      "sourced_candidate": "read from an external source in this pass; candidate until Ajit approves it",
+      "derived_candidate": "arithmetic on the cited values only; no new assumption added",
+      "missing": "no source yet; left null and reported as a gap"
+    },
+    "review_doc": "docs/farm_viability_cost_basis_review.md",
+    "locations_compared": [
+      "netherlands",
+      "india"
+    ],
+    "location_note": "Ajit asked (2026-11-25) to compare India and the Netherlands side by side. Location-specific values live under locations.<name>; farm_inputs holds Ajit's own answers.",
+    "reliability_fields": "source_tier (government_statistics / peer_reviewed / extension_case_study / grey_literature / research_pack_operator_assumption / derived), confidence (high/medium/low), confidence_reason"
+  },
+  "farm_inputs": {
+    "location": {
+      "value": [
+        "netherlands",
+        "india"
+      ],
+      "origin": "user_supplied",
+      "status": "set_by_ajit_2026-11-25",
+      "note": "Region within India not given yet; India values below mix all-India wage orders and a Tamil Nadu tariff."
+    },
+    "grow_area_m2": {
+      "value": null,
+      "proposed_default": 214,
+      "default_origin": "sourced_candidate (UVI commercial system, Rakocy et al. 2002 and Heidemann and Bailey 2015)",
+      "status": "awaiting_ajit"
+    },
+    "building_type": {
+      "value": null,
+      "proposed_default": null,
+      "default_origin": "missing",
+      "status": "awaiting_ajit",
+      "note": "greenhouse / indoor with lights / existing space / seasonal. Drives heating and electricity most."
+    },
+    "setup_budget_eur": {
+      "value": null,
+      "proposed_default": null,
+      "default_origin": "missing",
+      "status": "awaiting_ajit"
+    },
+    "electricity_eur_per_kwh": {
+      "value": null,
+      "proposed_default": [
+        0.24,
+        0.26
+      ],
+      "default_origin": "repo_research_pack (CBS delivered non-household 500-2,000 MWh/yr, 2024 H1 to 2025 H2)",
+      "status": "awaiting_ajit"
+    },
+    "heating": {
+      "value": null,
+      "proposed_default": null,
+      "default_origin": "missing",
+      "status": "awaiting_ajit",
+      "note": "Fuel type and annual heat demand are both unknown. Gas price reference below."
+    },
+    "basil_sales_channel_and_price_eur_per_kg": {
+      "value": null,
+      "proposed_default": [
+        7.0,
+        9.0
+      ],
+      "default_origin": "repo_research_pack (Dutch importing wholesaler examples, March 2020; refresh needed)",
+      "status": "awaiting_ajit"
+    },
+    "owner_hours_per_week": {
+      "value": null,
+      "proposed_default": null,
+      "default_origin": "missing",
+      "status": "awaiting_ajit"
+    },
+    "owner_hours_costed": {
+      "value": null,
+      "proposed_default": null,
+      "default_origin": "missing",
+      "status": "awaiting_ajit",
+      "note": "Whether Ajit's own time is charged as a cost. Decisive for the result, see review doc."
+    },
+    "hired_labour_eur_per_hour": {
+      "value": null,
+      "proposed_default": [
+        16.0,
+        19.0
+      ],
+      "default_origin": "repo_research_pack (Dutch greenhouse CAO 1 July 2025 plus 2026 employer burden)",
+      "status": "awaiting_ajit"
+    }
+  },
+  "reference_values": {
+    "nl_non_household_gas_eur_per_m3": {
+      "origin": "sourced_candidate",
+      "source": "CBS StatLine 85666ENG, Prices of natural gas and electricity, band 28,433 to 284,333 m3/yr (1,000 to <10,000 GJ), incl. VAT and tax, read 2026-11-25",
+      "values": {
+        "2024_H1": 1.431,
+        "2024_H2": 1.454,
+        "2025_H1": 1.386,
+        "2025_H2_provisional": 1.339,
+        "2026_H1_provisional": 1.355
+      },
+      "caveat": "Smallest non-household band on the page; a small farm may use less gas and pay a different price.",
+      "source_tier": "government_statistics",
+      "confidence": "high",
+      "confidence_reason": "Official CBS table read directly; band may be larger than a small farm"
+    },
+    "uvi_system_physical_inputs": {
+      "origin": "sourced_candidate",
+      "source": "Heidemann and Bailey 2015, Commercial Aquaponics Case Study #3: Economic Analysis of the UVI Commercial Aquaponics System (draft, AEC 2015-18), Tables 7, 8 and 11",
+      "grow_area_m2_approx": 214,
+      "labour_hours_per_year": 3120,
+      "labour_basis": "2 people x 30 h/week x 52 weeks, whole system (fish, lettuce, basil)",
+      "electricity_kwh_per_year": 23360,
+      "electricity_basis": "14,235 kWh fish + 9,125 kWh plants; tropical site, no heating or grow lights",
+      "basil_kg_per_year": 3000,
+      "depreciation_usd_per_year_sum_of_table_7": 3420.33,
+      "rent_usd_per_year": 300,
+      "currency_and_year": "USD, prices as of 2014, St. Croix",
+      "caveat": "Whole-system figures. The source does not split labour or electricity between fish, lettuce and basil. Materials-only build cost, owner-built, $2,000 tropical greenhouse.",
+      "source_tier": "extension_case_study",
+      "confidence": "medium",
+      "confidence_reason": "Itemised university case study, but a draft not departmentally reviewed; tank volumes in Fig. 2 and Table 1 disagree; basil and lettuce share the same raceways so crop shares are unknown"
+    },
+    "uvi_basil_trial_yield": {
+      "origin": "sourced_candidate",
+      "source": "Rakocy, Shultz, Bailey, Thoman, Aquaponic Production of Tilapia and Basil: Comparing a Batch and Staggered Cropping System (UVI, 2002 trials), Table 6",
+      "staggered_kg_per_year_214m2": 5008,
+      "batch_kg_per_year_214m2": 5341,
+      "caveat": "Annual projection from trial data. Authors say batch is not sustainable with the fish output.",
+      "source_tier": "extension_case_study",
+      "confidence": "medium",
+      "confidence_reason": "UVI research station trial report; annual figures are projections; the later economic study uses 3,000 kg/yr instead, so the two UVI sources differ by about 40%"
+    }
+  },
+  "cost_basis_candidates": {
+    "note": "Upper-bound charging: all UVI whole-system labour and electricity charged to basil kg. This overstates basil's share and leaves out heating, lights, feed, seed, fingerlings, chemicals and packaging, so it is neither a full cost nor an allocation.",
+    "origin": "derived_candidate",
+    "labour_cost_eur_per_harvested_kg": {
+      "hired_rate_16_at_5008kg": 9.97,
+      "hired_rate_17_5_at_5008kg": 10.9,
+      "hired_rate_19_at_5008kg": 11.84,
+      "hired_rate_16_at_3000kg": 16.64,
+      "hired_rate_17_5_at_3000kg": 18.2,
+      "hired_rate_19_at_3000kg": 19.76,
+      "owner_labour_uncosted": 0.0
+    },
+    "electricity_cost_eur_per_harvested_kg": {
+      "rate_0_24_at_5008kg": 1.12,
+      "rate_0_25_at_5008kg": 1.17,
+      "rate_0_26_at_5008kg": 1.21,
+      "rate_0_24_at_3000kg": 1.87,
+      "rate_0_25_at_3000kg": 1.95,
+      "rate_0_26_at_3000kg": 2.02
+    },
+    "other_variable_cost_eur_per_harvested_kg": null,
+    "heating_cost_eur_per_harvested_kg": null,
+    "fixed_cost_per_period_eur": null,
+    "fixed_cost_note": "UVI depreciation and rent are USD 2014 for an owner-built tropical system. No EUR conversion or Dutch build cost is sourced yet, so the EUR 500 batch fixed cost has no sourced replacement.",
+    "netherlands_note": "The EUR figures below are the Netherlands case.",
+    "source_tier": "derived",
+    "confidence": "low",
+    "confidence_reason": "Whole-system UVI hours and kWh with no crop split, charged entirely to basil; tropical site with no heating",
+    "india": {
+      "origin": "derived_candidate",
+      "source_tier": "derived",
+      "confidence": "low",
+      "labour_inr_per_harvested_kg_andhra_basis": {
+        "note": "Andhra study's own 288 labour days and 238 kg, re-priced at burdened minimum wage",
+        "rate_536": 648.6,
+        "rate_602": 728.5,
+        "rate_703": 850.7,
+        "study_rate_250": 302.5,
+        "confidence_reason": "Basil-specific, but one small study with an unusually low yield; low yield inflates per-kg labour"
+      },
+      "labour_inr_per_harvested_kg_uvi_basis": null,
+      "labour_uvi_basis_note": "Needs hours per paid day to convert UVI's 3,120 h; not sourced, so left null.",
+      "electricity_inr_per_harvested_kg_uvi_basis": {
+        "rate_7_5_at_5008kg": 34.98,
+        "rate_8_5_at_5008kg": 39.65,
+        "rate_9_5_at_5008kg": 44.31,
+        "rate_7_5_at_3000kg": 58.4,
+        "rate_8_5_at_3000kg": 66.19,
+        "rate_9_5_at_3000kg": 73.97,
+        "confidence_reason": "UVI tropical kWh is a reasonable climate match for much of India, but excludes demand charges"
+      }
+    }
+  },
+  "saleable_harvest_mass_kg": null,
+  "saleable_harvest_mass_kg_note": "Not inferred. Needs observed runtime output or a reviewed manual value approved by Ajit (AGENTS.md 1C).",
+  "locations": {
+    "netherlands": {
+      "currency": "EUR",
+      "basil_price_per_kg": {
+        "conservative": 7.0,
+        "base": 8.0,
+        "optimistic": 9.0,
+        "origin": "repo_research_pack",
+        "source_tier": "grey_literature",
+        "confidence": "medium",
+        "confidence_reason": "CBI 2024 report citing March 2020 Dutch importer/wholesaler examples; stage matches bulk wholesale but prices are old and tax treatment not normalized"
+      },
+      "hired_labour_per_hour": {
+        "conservative": 19.0,
+        "base": 17.5,
+        "optimistic": 16.0,
+        "origin": "repo_research_pack",
+        "source_tier": "government_statistics",
+        "confidence": "medium",
+        "confidence_reason": "CAO wage scales and Tax Administration 2026 contribution rates are official, but the burden loading on top is a research-pack allowance"
+      },
+      "electricity_per_kwh": {
+        "conservative": 0.26,
+        "base": 0.25,
+        "optimistic": 0.24,
+        "origin": "repo_research_pack",
+        "source_tier": "government_statistics",
+        "confidence": "high",
+        "confidence_reason": "CBS delivered non-household price 500-2,000 MWh/yr band, 2024 H1 to 2025 H2; a small farm may sit in a smaller band"
+      },
+      "gas_per_m3": {
+        "range": [
+          1.339,
+          1.454
+        ],
+        "origin": "sourced_candidate",
+        "source_tier": "government_statistics",
+        "confidence": "high",
+        "confidence_reason": "CBS 85666ENG, read directly; caveat that the smallest band shown (28,433+ m3/yr) may be larger than a small farm"
+      },
+      "saleability_rate": {
+        "conservative": 0.85,
+        "base": 0.9,
+        "optimistic": 0.95,
+        "origin": "repo_research_pack",
+        "source_tier": "research_pack_operator_assumption",
+        "confidence": "low",
+        "confidence_reason": "operator assumption informed by postharvest science, not a measured rate"
+      }
+    },
+    "india": {
+      "currency": "INR",
+      "eur_comparison_note": "Research pack gives EUR equivalents at an ECB comparison rate for comparison only; not used in calculations here.",
+      "basil_price_per_kg": {
+        "conservative": 600,
+        "base": 800,
+        "optimistic": 1000,
+        "origin": "repo_research_pack",
+        "source_tier": "peer_reviewed (optimistic only) + research_pack_operator_assumption",
+        "confidence": "low",
+        "confidence_reason": "Only anchor is a 2025 Andhra Pradesh hydroponic study's Rs 1,000/kg sale price, not a first-wholesale trade price; 600 and 800 are operator haircuts"
+      },
+      "hired_labour_per_day": {
+        "conservative": 703,
+        "base": 602,
+        "optimistic": 536,
+        "origin": "repo_research_pack",
+        "source_tier": "government_statistics",
+        "confidence": "medium",
+        "confidence_reason": "Chief Labour Commissioner April 2025 agriculture minimum wages (Rs 465-610/day) x 1.1525 statutory-burden proxy; the burden factor is a proxy and hours per day are not stated"
+      },
+      "observed_study_labour_per_day": {
+        "value": 250,
+        "origin": "repo_research_pack",
+        "source_tier": "peer_reviewed",
+        "confidence": "low",
+        "confidence_reason": "Direct cash labour as costed in the Andhra study; well below the legal minimum wage, so not a compliant commercial rate"
+      },
+      "electricity_per_kwh": {
+        "conservative": 9.5,
+        "base": 8.5,
+        "optimistic": 7.5,
+        "origin": "repo_research_pack",
+        "source_tier": "government_statistics (7.5 only) + research_pack_operator_assumption",
+        "confidence": "low",
+        "confidence_reason": "7.5 is the Tamil Nadu HT Tariff I energy charge (2025); 8.5 and 9.5 are allowances for state/category spread; demand charge Rs 608/kVA/month excluded"
+      },
+      "heating": {
+        "value": null,
+        "origin": "missing",
+        "confidence": "low",
+        "confidence_reason": "Likely small in most Indian regions but cooling/shading may matter instead; no source yet"
+      },
+      "saleability_rate": {
+        "conservative": 0.8,
+        "base": 0.88,
+        "optimistic": 0.92,
+        "origin": "repo_research_pack",
+        "source_tier": "research_pack_operator_assumption",
+        "confidence": "low",
+        "confidence_reason": "operator assumption, not measured"
+      },
+      "andhra_study_reference": {
+        "origin": "repo_research_pack",
+        "source_tier": "peer_reviewed",
+        "confidence": "medium",
+        "confidence_reason": "Single open-access 2025 study; values read via the research pack, not re-read from the paper in this pass",
+        "grow_area_m2": 250,
+        "system": "naturally ventilated polyhouse NFT (hydroponic, not aquaponic)",
+        "basil_output_kg": 238,
+        "labour_days": 288,
+        "labour_rate_per_day": 250,
+        "labour_cost_inr": 72000,
+        "yield_kg_per_m2": 0.95,
+        "cross_check": "About 25x below UVI's 23.4 kg/m2/yr. The period behind the 238 kg is not stated in the pack; re-read the paper before using this yield."
+      }
+    }
+  }
+}
