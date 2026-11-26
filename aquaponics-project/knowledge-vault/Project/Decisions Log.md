@@ -4,6 +4,7 @@ Newest first. Each entry gives the decision, why, and who made it.
 
 ## 2026-11-26: Swaps checkpoint
 
+- **Price other architectures from a sourced yield ratio against the raft, and only where a study gives a number.** NFT uses 0.83 to 0.95 of the raft yield. The media bed stays without a yield, because "not significantly different" is not a measured ratio. Batch 003 can accept parity as Ajit's own assumption. Proposed by Claude.
 - **Compare swaps as patches on a base build, and show gaps next to each change.** A swap can change the architecture, the heating source or one part. A swap that opens a cost gap is flagged as not like-for-like rather than given a filled-in number. Why: Ajit wants game-like part choices, and an unpriced part must not look free. Proposed by Claude.
 - **Model a heat pump as the same heat demand delivered with electricity.** Heat (kWh) is gas m³ × 8.63 to 8.79 kWh per m³, and electricity is heat ÷ a seasonal COP of 3.7 to 4.6. The heat-demand values themselves stay with the heating and climate thread. New values pending Batch 003. Proposed by Claude.
 
