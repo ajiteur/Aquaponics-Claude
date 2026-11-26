@@ -58,6 +58,9 @@ def run_cycle(scenario_path: Path, num_days: int) -> dict:
                     "unionized_nh3_mg_L": state["water_state"]["unionized_nh3_mg_L"],
                     "nitrate_mg_L": state["water_state"]["nitrate_mg_L"],
                     "pH": state["water_state"]["pH"],
+                    "alkalinity_mg_L_as_CaCO3": state["water_state"].get("alkalinity_mg_L_as_CaCO3"),
+                    "base_dose_g_total": (derived.get("ph_buffer") or {}).get("base_dose_g_total"),
+                    "daily_feed_kg": derived.get("daily_feed_kg"),
                     "harvest_event": derived.get("harvest_event_today"),
                 }
             )

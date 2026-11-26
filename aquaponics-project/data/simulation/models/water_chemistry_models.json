@@ -1,0 +1,238 @@
+{
+  "version": "0.1",
+  "status": "candidate_pending_user_review",
+  "description": "Water chemistry models for the daily simulation. Candidate; scenario estimates, not validated.",
+  "records": [
+    {
+      "model_id": "carbonate_alkalinity_buffer",
+      "name": "Carbonate alkalinity buffer and pH (UQ-018)",
+      "kind": "daily_mass_balance",
+      "status": "candidate_pending_user_review",
+      "estimate_status": "scenario_estimate",
+      "added_date_local": "2026-11-26",
+      "research_report": "data/sources/research_reports/markdown/Aquaponics pH buffer and alkalinity.md",
+      "summary": "pH is solved each day from carbonate alkalinity and dissolved CO2 instead of a fixed drift per mg/L TAN. Alkalinity is a daily mass balance; dissolved CO2 is held at the level implied by the starting pH and alkalinity (aeration-controlled), because no CO2 transfer coefficient for raft or media beds was found.",
+      "equations": {
+        "alkalinity_balance_mg_L_as_CaCO3_per_day": "dAlk = - nitrification x TAN-N nitrified + denitrification_return x N denitrified + plant_nitrate_uptake_return x NO3-N taken up + water_exchange_fraction x (Alk_source - Alk) + base dose (as CaCO3)",
+        "ph_solve": "charge balance Alk = [HCO3-] + 2[CO3--] + [OH-] - [H+], with [HCO3-] = K1 CO2*/[H+] and [CO3--] = K2 [HCO3-]/[H+]; solved for [H+] by bisection; concentrations, no activity correction",
+        "base_dose": "if pH control and base dosing are on and pH is below target: alkalinity needed to reach the target at the held CO2, capped at max_dose_mg_L_as_CaCO3_per_day, split between bases by the scenario's base mix"
+      },
+      "coefficients": {
+        "nitrification_alkalinity_g_CaCO3_per_g_N": {
+          "value": 7.05,
+          "unit": "g CaCO3 / g TAN-N nitrified",
+          "source": "Ebeling, Timmons & Bisogni 2006, Aquaculture 257:346-358, doi:10.1016/j.aquaculture.2006.03.019, Eq. 14 (includes nitrifier growth)",
+          "source_metadata": {
+            "source_id": "ebeling_timmons_bisogni_2006_aquaculture_257_346",
+            "source_tier": "tier_1"
+          },
+          "review_metadata": {
+            "source_gate": "trusted",
+            "source_gate_reason": "peer-reviewed RAS stoichiometry paper",
+            "confidence": "high",
+            "confidence_reason": "standard stoichiometry; the theoretical 7.14 (no biomass) from US EPA 625/4-73-004a differs by 1 percent",
+            "corroboration": {
+              "status": "corroborated",
+              "source_ids": [
+                "us_epa_625_4_73_004a_via_cwea",
+                "existing_canon_alkalinity_demand_per_tan_n_7_14"
+              ]
+            }
+          }
+        },
+        "denitrification_alkalinity_return_g_CaCO3_per_g_N": {
+          "value": 3.57,
+          "unit": "g CaCO3 / g NO3-N denitrified",
+          "source": "University of Hawaii CTAHR wastewater/aquaculture page (about 3.5 mg/L per mg/L NO3-N); standard US EPA nitrogen-control value 3.57 not read in full",
+          "source_metadata": {
+            "source_id": "univ_hawaii_denitrification_alkalinity_page",
+            "source_tier": "tier_2"
+          },
+          "review_metadata": {
+            "source_gate": "conditional",
+            "source_gate_reason": "extension page; the primary EPA manual was not fetched",
+            "confidence": "medium",
+            "confidence_reason": "textbook stoichiometry, but only a secondary source was read",
+            "corroboration": {
+              "status": "single_source",
+              "source_ids": [
+                "univ_hawaii_denitrification_alkalinity_page"
+              ]
+            }
+          }
+        },
+        "denitrified_share_of_residual_n_loss": {
+          "value": null,
+          "simulation_default": 0.0,
+          "sensitivity_values": [
+            0.0,
+            1.0
+          ],
+          "unit": "fraction of the calibrated residual N loss that is denitrification",
+          "schema_choice_todo": "Unknown. The residual N loss (nitrate_sinks) lumps denitrification and N leaving with solids. Default 0 is the conservative end (no alkalinity returned); 1.0 is the upper bound.",
+          "review_metadata": {
+            "confidence": "low",
+            "confidence_reason": "gap: no source splits UVI residual loss into denitrification and solids N",
+            "corroboration": {
+              "status": "single_source",
+              "source_ids": []
+            }
+          }
+        },
+        "plant_nitrate_uptake_alkalinity_return_eq_per_mol_N": {
+          "value": null,
+          "simulation_default": 0.0,
+          "sensitivity_values": [
+            0.0,
+            0.5,
+            1.0
+          ],
+          "unit": "eq alkalinity released to water per mol NO3-N taken up (1 eq/mol = 3.57 g CaCO3 / g N)",
+          "source": "Raven & Smith 1976, New Phytologist 76:415-431 ('almost one OH- per NO3-' assimilated, only part excreted by roots); Dickson & Fisher 2019, HortScience 54:1093-1100 (direction confirmed for basil and lettuce in hydroponics, per g dry weight)",
+          "source_metadata": {
+            "source_id": "raven_smith_1976_new_phytologist",
+            "source_tier": "tier_1"
+          },
+          "review_metadata": {
+            "source_gate": "conditional",
+            "source_gate_reason": "direction is peer-reviewed; the released share in aquaponics is not measured",
+            "confidence": "low",
+            "confidence_reason": "the 0 to 1 band is a physical bound, not a measured aquaponics value",
+            "corroboration": {
+              "status": "single_source",
+              "source_ids": [
+                "raven_smith_1976_new_phytologist",
+                "dickson_fisher_2019_hortscience"
+              ]
+            }
+          }
+        },
+        "base_alkalinity_g_CaCO3_per_g": {
+          "values": {
+            "KOH": 0.892,
+            "Ca(OH)2": 1.351,
+            "CaCO3": 1.0,
+            "K2CO3": 0.724,
+            "KHCO3": 0.5,
+            "NaHCO3": 0.596
+          },
+          "basis": "computed from molar masses (50.04 g CaCO3 per eq / g base per eq); exact stoichiometry, not a measured value",
+          "review_metadata": {
+            "confidence": "high",
+            "confidence_reason": "arithmetic from molar masses",
+            "corroboration": {
+              "status": "corroborated",
+              "source_ids": [
+                "molar_mass_arithmetic"
+              ]
+            }
+          }
+        },
+        "carbonic_acid_constants": {
+          "log_k1_vs_T_K": [
+            -356.3094,
+            -0.06091964,
+            21834.37,
+            126.8339,
+            -1684915.0
+          ],
+          "log_k2_vs_T_K": [
+            -107.8871,
+            -0.03252849,
+            5151.79,
+            38.92561,
+            -563713.9
+          ],
+          "form": "log K = A + B T + C / T + D log10 T + E / T^2 (T in kelvin)",
+          "source": "Plummer & Busenberg 1982, Geochimica et Cosmochimica Acta 46:1011-1040, doi:10.1016/0016-7037(82)90056-4, as used in WATEQ4F/PHREEQC",
+          "check": "gives pK1 6.352 and pK2 10.329 at 25 C, matching Stumm & Morgan (6.35, 10.33) and WATEQ4F via the aqion compilation",
+          "source_metadata": {
+            "source_id": "plummer_busenberg_1982_gca",
+            "source_tier": "tier_1"
+          },
+          "review_metadata": {
+            "source_gate": "conditional",
+            "source_gate_reason": "coefficients were recalled, not read from a fetched page; the 25 C values were checked against a fetched compilation",
+            "confidence": "medium",
+            "confidence_reason": "25 C values corroborated; verify the coefficients against phreeqc.dat before accepting",
+            "corroboration": {
+              "status": "corroborated",
+              "source_ids": [
+                "aqion_carbonate_log_k_compilation",
+                "stumm_morgan_aquatic_chemistry"
+              ]
+            }
+          }
+        },
+        "water_ion_product_pKw_25C": {
+          "value": 14.0,
+          "note": "used only in the charge balance; its effect at pH 6 to 8.5 is negligible"
+        },
+        "max_base_dose_mg_L_as_CaCO3_per_day": {
+          "value": null,
+          "simulation_default": 30.0,
+          "schema_choice_todo": "No sourced cap. Practice guidance says add base slowly (UVI uses a separate base tank; SRAC 454). 30 mg/L/day is a model safeguard, not a sourced rate; it only binds in a large step correction.",
+          "review_metadata": {
+            "confidence": "low",
+            "confidence_reason": "model safeguard, not evidence",
+            "corroboration": {
+              "status": "single_source",
+              "source_ids": []
+            }
+          }
+        },
+        "fish_nh3_excretion_alkalinity_credit_g_CaCO3_per_g_N": {
+          "value": null,
+          "simulation_default": 0.0,
+          "sensitivity_values": [
+            0.0,
+            3.57
+          ],
+          "unit": "g CaCO3 / g TAN-N excreted",
+          "basis": "Charge balance: fish excrete most ammonia as NH3, which takes up an H+ when it becomes NH4+ (1 eq per mol N = 3.57 g CaCO3 per g N). If credited, net alkalinity use from excreted N that is nitrified is 7.05 - 3.57 = 3.48 g/g N.",
+          "schema_choice_todo": "Modelling convention needs a decision. Default 0 applies Ebeling Eq. 14 to TAN as written (conservative, more base). 3.57 is the charge-balance credit; SRAC 452's RAS dosing rule (0.17-0.20 kg NaHCO3 per kg feed = 0.10-0.12 kg CaCO3-eq) matches the credited case (our arithmetic).",
+          "review_metadata": {
+            "confidence": "low",
+            "confidence_reason": "inference from charge balance; no fetched source states the excretion credit",
+            "corroboration": {
+              "status": "single_source",
+              "source_ids": [
+                "srac_452_ras_dosing_rule_arithmetic"
+              ]
+            }
+          }
+        }
+      },
+      "co2_treatment": {
+        "mode": "held_from_initial_state",
+        "basis": "Dissolved CO2 is set from the starting pH and alkalinity and held. Aeration and fish respiration set CO2 within hours; no sourced CO2 transfer coefficient for raft or media beds was found, so a CO2 mass balance is not modelled. A scenario can give co2_mg_L directly instead.",
+        "reference_values": {
+          "air_equilibrium_co2_mg_L_at_25C_420ppm": 0.63,
+          "tilapia_co2_guideline_mg_L": "below 20 (SRAC 452; Texas A&M); NRAES course operating limit about 60",
+          "fish_co2_g_per_g_o2": 1.38
+        }
+      },
+      "calibration_check": {
+        "uvi_observed_base_use": "40.65 kg Ca(OH)2 + 38.85 kg KOH per year (projected), 111.2 m3, pH 7.0-7.5, rainwater make-up 2.4 percent/day; Rakocy et al. ISTA6 (c. 2004), corroborated in order of magnitude by SRAC 454 (500-1,000 g doses several times a week)",
+        "uvi_derived_base_per_kg_feed_g": {
+          "min": 11.2,
+          "max": 12.5,
+          "basis": "our arithmetic from the ISTA6 doses and feed rate"
+        },
+        "note": "Stoichiometric nitrification alone needs about 15 times more alkalinity than UVI adds. See the validation result for how the model compares."
+      },
+      "context_tags": [
+        "freshwater",
+        "coupled_aquaponics",
+        "RAS_stoichiometry",
+        "pH_6_to_8_5"
+      ],
+      "limitations": [
+        "No activity correction: pH may read about 0.05 to 0.1 low against course worked examples.",
+        "CO2 is held, so stripping, feeding peaks and night-time CO2 rise are not modelled.",
+        "Fish ammonia excretion is not credited separately; the 7.05 figure is applied to TAN nitrified.",
+        "Heterotrophic and algal assimilation are not modelled."
+      ]
+    }
+  ]
+}

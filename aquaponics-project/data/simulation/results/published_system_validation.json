@@ -15,19 +15,97 @@
         "Fish, TAN and nitrate metrics come from the high-DLI run (light does not change them except through plant N uptake).",
         "Basil per-plant density factor uses the closed-canopy rule (b = 0 above 8 plants/m2)."
       ],
+      "ph_free": {
+        "status": "reported, not scored",
+        "reason": "start and source-water alkalinity and the return terms are not reported, so each run is an assumption band (UQ-018)",
+        "assumptions": [
+          "Start alkalinity equals source-water alkalinity; dissolved CO2 held at the level implied by the published pH and that alkalinity.",
+          "No base dosing (none reported).",
+          "Exchange as in the scored run (nitrate_sinks: 1.5 percent a day).",
+          "nitrification_only: 7.05 g CaCO3 per g N nitrified, no returns. all_returns_upper: plus NH3 excretion credit 3.57, all residual N loss denitrified, 1 eq per mol NO3-N taken up (upper bounds)."
+        ],
+        "runs": {
+          "soft_50__nitrification_only": {
+            "pH": {
+              "start": 7.871,
+              "day_25": 6.198,
+              "end": 5.502,
+              "mean": 5.932
+            },
+            "alkalinity_end_mg_L_as_CaCO3": 0.0,
+            "basil_fresh_g_per_plant_dli_mid": 17.638,
+            "error_vs_observed": 0.096
+          },
+          "soft_50__all_returns_upper": {
+            "pH": {
+              "start": 7.989,
+              "day_25": 7.694,
+              "end": 6.596,
+              "mean": 7.477
+            },
+            "alkalinity_end_mg_L_as_CaCO3": 1.94,
+            "basil_fresh_g_per_plant_dli_mid": 18.863,
+            "error_vs_observed": 0.172
+          },
+          "tap_140__nitrification_only": {
+            "pH": {
+              "start": 7.958,
+              "day_25": 6.187,
+              "end": 5.279,
+              "mean": 6.026
+            },
+            "alkalinity_end_mg_L_as_CaCO3": 0.0,
+            "basil_fresh_g_per_plant_dli_mid": 17.58,
+            "error_vs_observed": 0.092
+          },
+          "tap_140__all_returns_upper": {
+            "pH": {
+              "start": 7.996,
+              "day_25": 7.914,
+              "end": 7.8,
+              "mean": 7.888
+            },
+            "alkalinity_end_mg_L_as_CaCO3": 87.993,
+            "basil_fresh_g_per_plant_dli_mid": 12.173,
+            "error_vs_observed": -0.244
+          },
+          "hard_250__nitrification_only": {
+            "pH": {
+              "start": 7.977,
+              "day_25": 6.184,
+              "end": 5.153,
+              "mean": 6.268
+            },
+            "alkalinity_end_mg_L_as_CaCO3": 0.0,
+            "basil_fresh_g_per_plant_dli_mid": 17.446,
+            "error_vs_observed": 0.084
+          },
+          "hard_250__all_returns_upper": {
+            "pH": {
+              "start": 7.998,
+              "day_25": 7.954,
+              "end": 7.9,
+              "mean": 7.942
+            },
+            "alkalinity_end_mg_L_as_CaCO3": 197.993,
+            "basil_fresh_g_per_plant_dli_mid": 12.173,
+            "error_vs_observed": -0.244
+          }
+        }
+      },
       "sensitivity": {
         "tan_and_nitrate_by_gravel_capacity": {
           "low_capacity_fao_1_0_kg_m3_min_volume": {
             "tan_mg_L_mean": 0.64,
-            "no3_n_mg_L_mean": 18.55
+            "no3_n_mg_L_mean": 19.2
           },
           "high_capacity_srac_3_6_kg_m3_max_volume": {
             "tan_mg_L_mean": 0.155,
-            "no3_n_mg_L_mean": 18.61
+            "no3_n_mg_L_mean": 19.27
           },
           "old_raft_equivalent_10_m2": {
             "tan_mg_L_mean": 0.444,
-            "no3_n_mg_L_mean": 18.57
+            "no3_n_mg_L_mean": 19.23
           }
         },
         "basil_dli_band_g_per_plant": {
@@ -147,6 +225,85 @@
           "note": "derived point 630.0 g (378.0 kg average harvest per tank / 600 fish stocked (no mortality assumed); text also says 0.50 to 0.64 kg per fish); model vs that point -25.2%"
         }
       ],
+      "ph_free": {
+        "status": "reported, not scored",
+        "reason": "start and source-water alkalinity and the return terms are not reported, so each run is an assumption band (UQ-018)",
+        "assumptions": [
+          "Start alkalinity equals source-water alkalinity; dissolved CO2 held at the level implied by the published pH and that alkalinity.",
+          "No base dosing (none reported).",
+          "Exchange as in the scored run (nitrate_sinks: 1.5 percent a day).",
+          "nitrification_only: 7.05 g CaCO3 per g N nitrified, no returns. all_returns_upper: plus NH3 excretion credit 3.57, all residual N loss denitrified, 1 eq per mol NO3-N taken up (upper bounds).",
+          "Savidov held pH 6.1 to 6.3 with base and acid dosing, so a free run shows the drift that dosing removed, not the published system."
+        ],
+        "runs": {
+          "soft_50__nitrification_only": {
+            "pH": {
+              "start": 6.116,
+              "day_25": 6.004,
+              "end": 6.004,
+              "mean": 6.009
+            },
+            "alkalinity_end_mg_L_as_CaCO3": 31.817,
+            "basil_kg_m2_trough_per_year": 20.127,
+            "error_vs_observed": -0.217
+          },
+          "soft_50__all_returns_upper": {
+            "pH": {
+              "start": 6.195,
+              "day_25": 6.082,
+              "end": 6.078,
+              "mean": 6.117
+            },
+            "alkalinity_end_mg_L_as_CaCO3": 37.749,
+            "basil_kg_m2_trough_per_year": 22.213,
+            "error_vs_observed": -0.136
+          },
+          "tap_140__nitrification_only": {
+            "pH": {
+              "start": 6.172,
+              "day_25": 6.01,
+              "end": 6.011,
+              "mean": 6.03
+            },
+            "alkalinity_end_mg_L_as_CaCO3": 90.488,
+            "basil_kg_m2_trough_per_year": 20.688,
+            "error_vs_observed": -0.195
+          },
+          "tap_140__all_returns_upper": {
+            "pH": {
+              "start": 6.198,
+              "day_25": 6.136,
+              "end": 6.132,
+              "mean": 6.16
+            },
+            "alkalinity_end_mg_L_as_CaCO3": 119.565,
+            "basil_kg_m2_trough_per_year": 22.812,
+            "error_vs_observed": -0.112
+          },
+          "hard_250__nitrification_only": {
+            "pH": {
+              "start": 6.185,
+              "day_25": 6.019,
+              "end": 6.019,
+              "mean": 6.054
+            },
+            "alkalinity_end_mg_L_as_CaCO3": 164.631,
+            "basil_kg_m2_trough_per_year": 21.209,
+            "error_vs_observed": -0.175
+          },
+          "hard_250__all_returns_upper": {
+            "pH": {
+              "start": 6.199,
+              "day_25": 6.161,
+              "end": 6.157,
+              "mean": 6.176
+            },
+            "alkalinity_end_mg_L_as_CaCO3": 226.514,
+            "basil_kg_m2_trough_per_year": 23.008,
+            "error_vs_observed": -0.105
+          }
+        }
+      },
       "sensitivity": {
         "basil_kg_m2_trough_per_year_open_canopy_b_0_394": 43.2,
         "error_fraction": 0.681
@@ -213,5 +370,44 @@
     "knaus_2018_rostock_tilapia: basil_fresh_g_per_plant_dli_low (-48%): DLI bound (sensitivity band); the scored basil case is the midpoint DLI",
     "knaus_2018_rostock_tilapia: basil_fresh_g_per_plant_dli_high (+30%): DLI bound (sensitivity band); the scored basil case is the midpoint DLI",
     "khater_2023_benha_tilapia_lettuce: fcr (+84%): published FCR below the Tier 1 range and not checkable (feed intake not printed); see UQ-017"
-  ]
+  ],
+  "ph_buffer_checks": {
+    "uvi_base_use": {
+      "check": "base needed to hold pH 7.25 (UVI range 7.0 to 7.5) with 2.4 percent a day rainwater exchange",
+      "status": "reported, not scored",
+      "observed_base_g_per_kg_feed": {
+        "min": 11.2,
+        "max": 12.5
+      },
+      "observed_basis": "40.65 kg Ca(OH)2 + 38.85 kg KOH a year (projected), Rakocy et al. ISTA6; per kg feed is our arithmetic",
+      "assumptions": [
+        "Rainwater make-up alkalinity 0 mg/L (no cited value).",
+        "Base mix 50/50 KOH and Ca(OH)2 by alkalinity; 28-day run of the UVI feed-ratio basil scenario.",
+        "The whole 2.4 percent a day counts as exchange; part of UVI's make-up only replaces evapotranspiration, so this overstates the dilution loss."
+      ],
+      "runs": {
+        "nitrification_only__start_alk_88.6": {
+          "base_g_per_kg_feed": 168.1,
+          "pH_end": 6.78,
+          "alkalinity_end_mg_L_as_CaCO3": 30.0
+        },
+        "nitrification_only__start_alk_113.2": {
+          "base_g_per_kg_feed": 168.2,
+          "pH_end": 6.674,
+          "alkalinity_end_mg_L_as_CaCO3": 30.0
+        },
+        "all_returns_upper__start_alk_88.6": {
+          "base_g_per_kg_feed": 23.6,
+          "pH_end": 7.25,
+          "alkalinity_end_mg_L_as_CaCO3": 88.596
+        },
+        "all_returns_upper__start_alk_113.2": {
+          "base_g_per_kg_feed": 26.9,
+          "pH_end": 7.25,
+          "alkalinity_end_mg_L_as_CaCO3": 113.203
+        }
+      }
+    }
+  },
+  "ph_note": "Scored runs hold pH at the published mean (approved Batch 005, B1). pH-free runs with the candidate carbonate alkalinity buffer are in each case's ph_free block and in ph_buffer_checks; they are reported, not scored."
 }
