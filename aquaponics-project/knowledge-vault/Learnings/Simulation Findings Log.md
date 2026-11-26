@@ -2,6 +2,21 @@
 
 What the simulation shows, newest first. These are **scenario estimates, not validated**: they describe the model, not the real world, and they are never truths.
 
+## 2026-11-26: Component checkpoints, new prices in the base builds (scenario estimate, not validated)
+
+Rerun of the two configurator builds (`run.bat configure_basil_dwc_nl`, `run.bat configure_basil_dwc_karnataka`, 100 m² tilapia + basil raft, owner labour) after the component-price pass. All new values are candidates pending Batch 004.
+
+| Build | Before (low / mid / high per kg basil) | After |
+|---|---|---|
+| Netherlands heated glasshouse | €8.27 / 10.04 / 12.21 | €9.15 / 11.68 / 14.55 |
+| Karnataka polyhouse | ₹109.7 / 133.5 / 159.4 | ₹110.4 / 134.5 / 160.9 |
+
+- **Dutch fingerlings are the fourth-largest cost line.** At €0.50 to €1.50 per fish (one Vienna hatchery), the build needs about 3,900 fingerlings a year, so fingerlings add about €1.60 per kg of basil, 14% of the mid cost. Feed (34%), heating gas (29%) and aeration electricity (15%) stay the top three. Fish sales are still not credited.
+- **Trough walls are small.** Blocks cost about €36 a year in the Netherlands and ₹1,537 a year in Karnataka, plus their share of the plumbing allowance. Mortar and labour are not priced.
+- **India seed** (₹0.10 per basil seed, one hobby pack) adds ₹258 a year. It was a gap before.
+- **Add-ons in the swap report** (propagation plugs, battery backup, a DO meter with pH meter and test kit, a UV steriliser) mostly show as gaps (*): their prices are known, but no lifetime is sourced, so the yearly cost can't be spread. The NL UV steriliser has a retailer life (5 years) and adds about €0.09 per kg.
+- Lights are in the catalog for both markets, but no sourced hours per day exist for basil in a Dutch greenhouse, so their running cost needs your own assumption (`component_overrides`).
+
 ## 2026-11-26: Validation fixes, basil density and light, tilapia temperature curve (scenario estimate, not validated)
 
 Rerun of `python scripts/validate_published_systems.py` after two candidate fixes (pending Batch 003). The previous run is the entry below and is left as it was, so you can compare the two.

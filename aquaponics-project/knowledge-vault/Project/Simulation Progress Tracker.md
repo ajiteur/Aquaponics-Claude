@@ -30,9 +30,9 @@ Done does not mean validated: sub-goal 1's validation check still shows 6 of 12 
 
 - [x] Component catalog v1 and cost-per-kg configurator (PR #15)
 - [x] Equipment inventory research (project files `equipment-inventory/`)
-- [ ] Close the 8 P1 gaps from the inventory research
-- [ ] Add the missing component categories
-- [ ] Netherlands and India prices on every part
+- [ ] Close the 8 P1 gaps from the inventory research (in review: 7 of 8 filled or recorded; Telangana state rates can't be downloaded)
+- [ ] Add the missing component categories (in review: lighting, monitoring, water treatment, backup power, harvest, propagation; fish handling has no priced part)
+- [ ] Netherlands and India prices on every part (in review: every role, two with a written reason; a test checks it)
 
 ## 3. Swaps and trade-offs
 

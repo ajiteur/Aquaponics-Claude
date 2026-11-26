@@ -8,7 +8,7 @@ Everything in the catalog is a **candidate** until you approve it. Results are *
 
 | What | File |
 |---|---|
-| Parts (tanks, grow units, pumps, air, filters, structures) | `data/catalog/components_v0.json` → `components` |
+| Parts (tanks, grow units, pumps, air, filters, structures, lights, meters, UV, backup power, crates) | `data/catalog/components_v0.json` → `components` |
 | Running costs (feed, fingerlings, seeds, water, gas) | same file → `running_inputs` |
 | Labour options | same file → `labour_regimes` |
 | Sizing rules (retention time, air per kg feed, make-up water...) | same file → `design_rules` |
@@ -27,6 +27,16 @@ Everything in the catalog is a **candidate** until you approve it. Results are *
 6. Write the `trade_offs` in plain words: what you gain and what you give up.
 7. Fill `price_reliability`: tier, source gate and reason, confidence and reason, corroboration.
 8. Leave a number `null` if you don't have it. The configurator shows it as a gap. It never guesses.
+
+Sizing drivers added on 2026-11-26:
+
+- `trough_wall_face_m2`: both long trough walls at water depth (DWC only), the same geometry as the liner sides.
+- `critical_load_w`: the summed power of the chosen pumps and aeration, for backup power.
+- `system_count`: one per build, for a meter, a kit or a UV unit.
+
+Parts whose count or running hours are not sourced (crates, lights) take your own value in the build: `"component_overrides": {"light_led_100w_in": {"duty_hours_per_day": 12}, "harvest_crate_in": {"quantity": 20}}`. A light with a rated life in hours (`lifetime_hours`) gets a life in years only once its hours per day are set. Plugs or tray cells for each plant start are opt-in: `"propagation": {"enabled": true}`.
+
+New categories (lighting, monitoring, water_treatment, backup_power, harvest_postharvest) are add-ons: add them under `components` in a build, or see the add-on swaps in [[Learnings/Swap Trade-offs|Swap Trade-offs]]. Every part role needs a Netherlands and an India part; a role that is missing in one market needs a reason in `metadata.role_coverage` of the catalog, and a test checks it.
 
 Then run `python -m unittest tests.test_configure_system`. The catalog test checks the reliability fields and source ids.
 

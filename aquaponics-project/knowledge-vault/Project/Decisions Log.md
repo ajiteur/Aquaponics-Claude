@@ -2,6 +2,14 @@
 
 Newest first. Each entry gives the decision, why, and who made it.
 
+## 2026-11-26: Component checkpoints (P1 gaps, missing categories, NL and India on every part)
+
+- **Fill empty catalog slots with new candidates, and hold the rest in `candidates_batch_004_v0.jsonl`.** Wired in: trough walls (NL cellular block, pine plank, hollow block; India concrete block), NL fingerlings, India basil seed, NL lettuce seed, NL K1 biofilter media, India expanded clay, and parts in the new categories. Held: a second NL tilapia feed (Lets-Grow), the German catfish farm model (context), a Crompton pump with no usable flow rating, and conflicting Bengaluru and out-of-date Hyderabad water tariffs. All pending Batch 004. Asked by Ajit.
+- **Add the missing categories as opt-in add-ons, not into the base builds.** Lighting, monitoring, water treatment, backup power, harvest crates and propagation now have NL and India parts. The base builds stay as they were apart from the newly priced slots, so earlier results remain comparable. Why: most new parts have no sourced lifetime or count, so adding them by default would mix known and unknown costs. Proposed by Claude.
+- **Size backup power on the chosen pumps and aeration, trough walls on the liner geometry, and one meter or kit per system.** Lights use the maker's stated coverage; hours per day are a user setting because no source gives them. Any count or hours a user sets goes in `component_overrides` and is their own assumption. Proposed by Claude.
+- **A part role may be missing in one market only with a written reason.** Two are: heating in India (Indian polyhouses are not heated, HEAT_0009) and generators in India (the only listing looked like a placeholder). A test checks this. Proposed by Claude.
+- **Telangana's 2025-26 protected-cultivation table stays a gap.** The state site refuses connections from both the cloud and Ajit's PC. It needs a download from an Indian network or VPN. Recorded by Claude.
+
 ## 2026-11-26: Multi-market checkpoint
 
 - **Tie every price to a market: region, currency and price year.** Retail listings take the year they were read, sourced documents take the year they state, and anything else is marked "not recorded" and flagged, never guessed. A build refuses a price in another currency. Why: the model has to generalise to many markets without mixing currencies or vintages. Proposed by Claude.
