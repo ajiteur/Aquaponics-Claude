@@ -83,6 +83,15 @@
           "conditions": [
             "frequent_washing_required"
           ]
+        },
+        {
+          "variant_id": "media_bed_gravel_ebb_flow",
+          "feed_loading_kg_feed_per_m3_media_day": {
+            "min": 1.0,
+            "max": 3.6
+          },
+          "status": "candidate_pending_user_review",
+          "source_ref": "data/knowledge/models/nitrification_models.json#biofilter_feed_loading_capacities/media_bed_gravel_ebb_flow"
         }
       ],
       "context_tags": [

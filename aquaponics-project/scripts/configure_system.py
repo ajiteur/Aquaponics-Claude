@@ -235,12 +235,15 @@ def size_system(catalog: Catalog, build: dict, case: str, gaps: set) -> dict:
     raft_share = rule_value(catalog, build, "raft_air_share_of_fish_air", case) if arch == "dwc_raft" else 0.0
     air_lpm = fish_air * (1 + raft_share) if fish_air is not None and raft_share is not None else fish_air
 
-    hydro_m3 = liner_m2 = media_m3 = channel_m = None
+    hydro_m3 = liner_m2 = media_m3 = channel_m = wall_face_m2 = None
     if arch == "dwc_raft":
         depth = rule_value(catalog, build, "raft_water_depth_m", case)
         width = rule_value(catalog, build, "raft_trough_width_m", case)
         hydro_m3 = area * depth if depth else None
         liner_m2 = area * (1 + 2 * depth / width) if depth and width else None
+        # Wall face of the troughs (both long sides, water depth high), the same geometry as the
+        # liner's side area. Ends and freeboard are not counted, so this undercounts slightly.
+        wall_face_m2 = area * 2 * depth / width if depth and width else None
     elif arch == "media_bed":
         bed_depth = rule_value(catalog, build, "media_bed_depth_m", case)
         media_m3 = area * bed_depth if bed_depth else None
@@ -276,6 +279,8 @@ def size_system(catalog: Catalog, build: dict, case: str, gaps: set) -> dict:
         "grow_area_m2": area,
         "raft_area_m2": area if arch == "dwc_raft" else 0.0,
         "liner_area_m2": liner_m2,
+        "trough_wall_face_m2": wall_face_m2,
+        "system_count": 1.0,
         "media_volume_m3": media_m3,
         "nft_channel_length_m": channel_m,
         "hydro_volume_m3": hydro_m3,
@@ -298,7 +303,15 @@ def size_system(catalog: Catalog, build: dict, case: str, gaps: set) -> dict:
 
 # --- costing ----------------------------------------------------------------
 
-def quantity(comp: dict, drivers: dict) -> float | None:
+def component_override(build: dict | None, comp: dict, key: str):
+    """A per-part value the user set in the build (component_overrides.<id>.<key>), or None."""
+    return ((build or {}).get("component_overrides", {}).get(comp["component_id"], {}) or {}).get(key)
+
+
+def quantity(comp: dict, drivers: dict, build: dict | None = None) -> float | None:
+    fixed = component_override(build, comp, "quantity")
+    if fixed is not None:
+        return float(fixed)
     s = comp["sizing"]
     d = drivers.get(s["driver"])
     if d is None:
@@ -310,10 +323,28 @@ def quantity(comp: dict, drivers: dict) -> float | None:
     return max(n, int(s.get("min_units", 0)))
 
 
-def cost_component(comp: dict, drivers: dict, case: str, power_price: float | None, gaps: set) -> dict:
-    qty = quantity(comp, drivers)
+def duty_hours(comp: dict, build: dict | None) -> float | None:
+    """Hours per day a part runs. A part with no energy block runs 24 h by default; a part whose
+    catalog entry sets duty_hours_per_day to null (lights) needs the user to set it in the build."""
+    override = component_override(build, comp, "duty_hours_per_day")
+    if override is not None:
+        return float(override)
+    energy = comp.get("energy") or {}
+    if "duty_hours_per_day" in energy:
+        return None if energy["duty_hours_per_day"] is None else float(energy["duty_hours_per_day"])
+    return 24.0
+
+
+def cost_component(comp: dict, drivers: dict, case: str, power_price: float | None, gaps: set,
+                   build: dict | None = None) -> dict:
+    qty = quantity(comp, drivers, build)
     capex_unit = pick(as_range(comp.get("capex_per_unit")), case, "low")
     life = pick(as_range(comp.get("lifetime_years")), case, "high")
+    hours = duty_hours(comp, build)
+    if life is None and comp.get("lifetime_hours") and hours:
+        # Rated burning hours (lights, UV lamps) turn into years only once the hours per day are known.
+        rated = pick(as_range(comp["lifetime_hours"]), case, "high")
+        life = rated / (hours * 365) if rated else None
     line = {
         "component_id": comp["component_id"],
         "category": comp["category"],
@@ -339,8 +370,9 @@ def cost_component(comp: dict, drivers: dict, case: str, power_price: float | No
     energy = comp.get("energy")
     if energy:
         w = pick(as_range(energy.get("power_w_per_unit")), case, "low")
-        hours = float(energy.get("duty_hours_per_day", 24))
-        if w is not None and qty is not None:
+        if hours is None:
+            line["missing"].append("duty hours per day (set component_overrides.<id>.duty_hours_per_day)")
+        elif w is not None and qty is not None:
             kwh = qty * w * hours * 365 / 1000
             line["electricity_kwh_yr"] = r(kwh, 1)
             if power_price is not None:
@@ -385,7 +417,7 @@ def evaluate_case(catalog: Catalog, build: dict, case: str, components: list[dic
     for comp in components:
         if not comp.get("occupies_floor"):
             continue
-        q = quantity(comp, drivers)
+        q = quantity(comp, drivers, build)
         fp = comp.get("footprint_m2_per_unit")
         if q and fp:
             equip_footprint += q * float(fp)
@@ -399,7 +431,18 @@ def evaluate_case(catalog: Catalog, build: dict, case: str, components: list[dic
     structure_basis = build.get("structure_area_basis", "planning_area_m2_uvi_ratio")
     drivers["structure_area_m2"] = drivers.get(structure_basis) or min_area
 
-    lines = [cost_component(c, drivers, case, power_price, gaps) for c in components]
+    # Backup power is sized on the load that must keep running in an outage: pumps and aeration.
+    critical_w = 0.0
+    for comp in components:
+        if comp["category"] not in ("water_pump", "aeration"):
+            continue
+        q = quantity(comp, drivers, build)
+        w = pick(as_range((comp.get("energy") or {}).get("power_w_per_unit")), case, "low")
+        if q and w:
+            critical_w += q * w
+    drivers["critical_load_w"] = critical_w
+
+    lines = [cost_component(c, drivers, case, power_price, gaps, build) for c in components]
     if (drivers.get("biofilter_media_m3") or 0) > 0 and not any(c["category"] == "biofilter" for c in components):
         gaps.add(f"biofilter: {build['grow_architecture']} needs a separate biofilter, but none is chosen, so its cost is left out")
     if not any(c["category"] == "grow_unit" for c in components):
@@ -423,6 +466,10 @@ def evaluate_case(catalog: Catalog, build: dict, case: str, components: list[dic
     add_running("fingerlings", "Fingerlings", drivers["fingerlings_per_yr"], "fish/yr", "fingerling_price_each")
     add_running("seeds", "Seeds / plant starts", drivers["plants_started_per_yr"], "plants/yr", f"{build['plant']}_seed_price_each")
     add_running("water", "Make-up water", drivers["makeup_water_m3_yr"], "m3/yr", "water_price_per_m3")
+    if build.get("propagation", {}).get("enabled"):
+        # Plugs or tray cells used once per plant start (opt-in, so older builds are unchanged).
+        add_running("propagation", "Propagation plugs or tray cells", drivers["plants_started_per_yr"],
+                    "plants/yr", "propagation_cell_price_each")
 
     heating = build.get("heating", {})
     heat_pump_kwh = 0.0

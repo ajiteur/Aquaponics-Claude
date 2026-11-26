@@ -85,6 +85,14 @@ class MassBalanceTests(unittest.TestCase):
         cap2 = nm.capacity_g_tan_day(surfaces, self.model, 30.0, nm.media_feed_loading_low_end())
         self.assertAlmostEqual(cap2 - cap, 0.1 * 8.0 * 1000.0 * 30.0 / 1000.0)
 
+    def test_gravel_media_bed_capacity(self):
+        loading = nm.media_feed_loading_low_end()
+        self.assertEqual(loading["media_bed_gravel_ebb_flow"], 1.0)
+        surfaces = {"raft_grow_area_m2": 0.0, "media_beds": [{"variant_id": "media_bed_gravel_ebb_flow", "media_volume_m3": 1.5}]}
+        self.assertAlmostEqual(nm.capacity_g_tan_day(surfaces, self.model, 30.0, loading), 1.5 * 1.0 * 1000.0 * 30.0 / 1000.0)
+        surfaces["media_beds"][0]["feed_loading_kg_per_m3_day"] = 3.6
+        self.assertAlmostEqual(nm.capacity_g_tan_day(surfaces, self.model, 30.0, loading), 1.5 * 3.6 * 1000.0 * 30.0 / 1000.0)
+
     def test_surfaces_derived_for_raft_without_explicit_block(self):
         profile = json.loads((PROJECT_ROOT / "data/simulation/species/plants/basil.json").read_text(encoding="utf-8"))
         scenario = {"crop_system_type": "architecture_dwc_raft", "system": {}, "plant_crop": {"plant_count": 80}}

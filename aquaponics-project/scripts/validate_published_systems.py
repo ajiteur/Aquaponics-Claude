@@ -29,6 +29,9 @@ OBS_PATH = PROJECT_ROOT / "data" / "knowledge" / "validation" / "published_syste
 BASE_SCENARIO = PROJECT_ROOT / "data" / "simulation" / "scenarios" / "basil_raft_crop_cycle_uvi_feed_ratio.json"
 RESULTS_PATH = PROJECT_ROOT / "data" / "simulation" / "results" / "published_system_validation.json"
 FAIL_THRESHOLD = 0.25
+GRAVEL_VARIANT = "media_bed_gravel_ebb_flow"
+GRAVEL_LOADING_PRIMARY = 3.6  # SRAC 453 trickling-filter design criterion, kg feed/m3/day
+OPEN_CANOPY_B = 0.394  # Ciriello 2021 exponent, open-canopy sensitivity
 
 
 def metric(name: str, model: float, observed: float, note: str | None = None) -> dict:
@@ -72,14 +75,22 @@ def knaus_case(rec: dict, base: dict) -> dict:
     i, o = rec["inputs"], rec["observed"]
     s = copy.deepcopy(base)
     s["scenario_id"] = "validation_knaus_2018_tilapia"
+    bed = i["grow_bed"]
+    vol = bed["gravel_volume_m3_total_derived"]
+    mid_volume = round((vol["min"] + vol["max"]) / 2, 3)
+
+    def gravel_surfaces(volume_m3: float, loading: float | None) -> dict:
+        return {
+            "raft_grow_area_m2": 0.0,
+            "dedicated_biofilter": None,
+            "media_beds": [{"variant_id": GRAVEL_VARIANT, "media_volume_m3": volume_m3, "feed_loading_kg_per_m3_day": loading}],
+            "basis": "gravel ebb-and-flow beds as media volume x feed loading (candidate variant media_bed_gravel_ebb_flow)",
+        }
+
     s["system"].update({
         "water_volume_l": float(i["water_volume_l"]),
         "fish_tank_volume_l": float(i["fish_tank_volume_l"]),
-        "nitrification_surfaces": {
-            "raft_grow_area_m2": i["plant_area_m2_derived"],
-            "dedicated_biofilter": None,
-            "basis": "assumption: gravel bed area treated as raft-equivalent nitrifying surface",
-        },
+        "nitrification_surfaces": gravel_surfaces(mid_volume, GRAVEL_LOADING_PRIMARY),
     })
     s["water_state"].update({
         "pH": i["pH"], "water_temperature_c": i["water_temperature_c"], "air_temperature_c": i["water_temperature_c"],
@@ -100,6 +111,23 @@ def knaus_case(rec: dict, base: dict) -> dict:
         basil_by_dli[label] = g + r["final_state"]["plant_crop"].get("harvestable_cut_mass_g_per_plant", 0.0)
         run = r
 
+    # Nitrogen sensitivity: gravel volume and loading at the ends of their ranges, plus
+    # the old raft-equivalent treatment, for comparison only.
+    tan_sensitivity = {}
+    for label, surfaces in {
+        "low_capacity_fao_1_0_kg_m3_min_volume": gravel_surfaces(vol["min"], 1.0),
+        "high_capacity_srac_3_6_kg_m3_max_volume": gravel_surfaces(vol["max"], 3.6),
+        "old_raft_equivalent_10_m2": {"raft_grow_area_m2": i["plant_area_m2_derived"], "dedicated_biofilter": None,
+                                      "basis": "previous assumption: gravel bed area as raft-equivalent surface"},
+    }.items():
+        t = copy.deepcopy(s)
+        t["system"]["nitrification_surfaces"] = surfaces
+        daily = run_scenario(t, i["days"])["daily"]
+        tan_sensitivity[label] = {
+            "tan_mg_L_mean": round(sum(d["tan_mg_L"] for d in daily) / len(daily), 3),
+            "no3_n_mg_L_mean": round(sum(d["nitrate_mg_L"] for d in daily) / len(daily), 2),
+        }
+
     fish = run["final_state"]["fish_batch"]
     gain = fish["total_biomass_kg"] - i["fish_start_biomass_kg"]
     model_fcr = i["feed_kg_per_day"] * i["days"] / gain if gain > 0 else None
@@ -108,12 +136,14 @@ def knaus_case(rec: dict, base: dict) -> dict:
     return {
         "system_id": rec["system_id"],
         "assumptions": [
-            "Gravel bed area counted as raft-equivalent nitrifying surface.",
+            f"Gravel beds counted as media volume ({mid_volume} m3, from 2,000 kg at a sand bulk-density proxy of 1,400 to 1,600 kg/m3) at the trickling-filter loading of {GRAVEL_LOADING_PRIMARY} kg feed/m3/day (SRAC 453); FAO 589 low end and the old raft-equivalent treatment are in the sensitivity block.",
             "Nitrate sinks use the UVI-calibrated residual loss and 1.5 percent daily exchange (Knaus exchange not reported).",
             "Start TAN and nitrate set to the published means (start values not reported).",
             "All 180 plant positions are treated as basil for N uptake and yield (the beds were mixed herbs); density 18 plants/m2 counts all herbs.",
-            "Fish, TAN and nitrate metrics come from the low-DLI run (light does not change them except through plant N uptake).",
+            "Fish, TAN and nitrate metrics come from the high-DLI run (light does not change them except through plant N uptake).",
+            "Basil per-plant density factor uses the closed-canopy rule (b = 0 above 8 plants/m2).",
         ],
+        "sensitivity": {"tan_and_nitrate_by_gravel_capacity": tan_sensitivity},
         "metrics": [
             metric("fish_end_biomass_kg", fish["total_biomass_kg"], o["fish_end_biomass_kg"]),
             metric("fcr", model_fcr, o["fcr"], "model FCR is the sourced 1.7 divided by the temperature factor"),
@@ -139,6 +169,10 @@ def savidov_case(rec: dict, base: dict) -> dict:
     s["plant_crop"]["planting_density_plants_m2"] = i["basil_density_plants_m2_derived"]
     event = run_scenario(s, i["basil_cycle_days_derived"])["harvest_events"][0]
     per_m2_year = event["harvested_mass_kg_per_m2"] * 365 / i["basil_cycle_days_derived"]
+    s["plant_crop"]["yield_response_overrides"] = {"density_exponent_b": OPEN_CANOPY_B}
+    event_open = run_scenario(s, i["basil_cycle_days_derived"])["harvest_events"][0]
+    per_m2_year_open = event_open["harvested_mass_kg_per_m2"] * 365 / i["basil_cycle_days_derived"]
+    s["plant_crop"].pop("yield_response_overrides")
 
     feed = i["feed_pct_bw"]
 
@@ -157,17 +191,21 @@ def savidov_case(rec: dict, base: dict) -> dict:
         "system_id": rec["system_id"],
         "assumptions": [
             "Feed per m2 not reported: the UVI feed ratio scenario supplies nitrogen, so nitrate is not limiting.",
-            "Basil at Savidov's derived density of 31.8 plants/m2 through the candidate density response.",
+            "Basil at Savidov's derived density of 31.8 plants/m2 through the candidate closed-canopy density rule (b = 0 above 8 plants/m2); the open-canopy exponent is in the sensitivity block.",
             "DLI not set: 16 h photoperiod with supplemental light of at least 300 umol/m2/s gives at least 17 mol/m2/d (derived), above the light plateau.",
             "Fish fed Savidov's schedule (2.5 percent at 100 g falling to 1.25 percent at 400 g), linear between.",
         ],
         "metrics": [
             metric("basil_kg_m2_trough_per_year_at_savidov_density", per_m2_year, o["basil_kg_m2_trough_area_per_year_derived"],
-                   "candidate density response (Ciriello 2021 exponent)"),
+                   "candidate closed-canopy density rule (b = 0)"),
             metric("basil_kg_m2_trough_per_year_at_uvi_density", per_m2_year_anchor_density,
                    o["basil_kg_m2_trough_area_per_year_derived"], "reference: model run at the UVI anchor density (8 plants/m2)"),
             metric("fish_harvest_mean_g", w, o["fish_harvest_mean_g_derived"], o["fish_harvest_basis"]),
         ],
+        "sensitivity": {
+            "basil_kg_m2_trough_per_year_open_canopy_b_0_394": round(per_m2_year_open, 2),
+            "error_fraction": round(per_m2_year_open / o["basil_kg_m2_trough_area_per_year_derived"] - 1, 3),
+        },
     }
 
 

@@ -105,6 +105,47 @@
           "conditions": [
             "frequent_washing_required"
           ]
+        },
+        {
+          "variant_id": "media_bed_gravel_ebb_flow",
+          "feed_loading": {
+            "range": {
+              "min": 1.0,
+              "max": 3.6
+            },
+            "unit": "kg feed / m3 media / day"
+          },
+          "status": "candidate_pending_user_review",
+          "added_utc": "2026-11-26",
+          "description": "Gravel (or similar mineral media) grow bed used as the nitrifying surface of a coupled unit, flood-and-drain or continuously wetted. Counted per m3 of media, in place of raft-equivalent area.",
+          "range_basis": {
+            "min": "FAO 589 (Somerville et al. 2014) biofilter sizing: 1 L of volcanic gravel (about 300 m2/m3) per g of daily feed = 1.0 kg feed/m3/day. A stated minimum design rule, used as the conservative low end.",
+            "max": "SRAC 453 (Timmons, Losordo 1999 edition) trickling-filter design criterion 3.6 kg feed/day/m3 (0.225 lb/day/ft3) for media generally below 330 m2/m3. Used as the analogue for intermittently wetted, low-specific-surface mineral media."
+          },
+          "cross_check": "Greiner and Timmons 1998 (Aquacultural Engineering 18:189-200) measured 0.94 to 3.92 g TAN/m2/day on trickling media of 164 m2/m3 at 0.81 to 4.63 mg TAN/L, i.e. about 150 to 640 g TAN/m3/day (our arithmetic), above the SRAC 453 design rate of about 90 g TAN/m3/day; so the 3.6 upper end is not optimistic for media of similar specific surface. Anderson, Goldstein and Timmons 2019 (Aquacultural Engineering 86:101997) measured 0.83 g/m2/day on inert surfaces in an aquaponic setting.",
+          "specific_surface_context": "FAO 589 media table: volcanic gravel 300 to 400 m2/m3, limestone gravel 150 to 200, LECA 250 to 300; larger gravel gives less surface. Coarse river gravel (16 to 32 mm) sits at the low end (sphere geometry at 35 to 45 percent porosity gives about 140 to 160 m2/m3, our arithmetic).",
+          "assumptions": [
+            "Feed-loading design rules are treated as the saturated capacity, as for the other variants in this table.",
+            "Solids trapped in the bed (which can clog it and add organic load) are not modelled; Losordo et al. 2015 report organic carbon can cut nitrification sharply."
+          ],
+          "source_metadata": {
+            "source_tier": "tier_1",
+            "source_type": "extension_and_fao_technical_guidance"
+          },
+          "review_metadata": {
+            "source_gate": "conditional",
+            "source_gate_reason": "FAO 589 read via a third-party reproduction (FarmHub); SRAC 453 1999 edition, its trickling-filter TAN rate rests on unpublished data.",
+            "confidence": "low",
+            "confidence_reason": "Two design rules, 3.6x apart, neither measured on aquaponic gravel beds; the measured trickling-filter rates (Greiner and Timmons 1998) support the upper end; one validation point (Knaus 2018) sits near the upper end.",
+            "corroboration": {
+              "status": "corroborated",
+              "source_ids": [
+                "fao_589_somerville_2014",
+                "srac_453_1999",
+                "greiner_timmons_1998"
+              ]
+            }
+          }
         }
       ],
       "context_tags": [

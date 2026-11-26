@@ -54,10 +54,11 @@
           "components": {
             "grow_unit": [
               "media_expanded_clay_nl"
-            ]
+            ],
+            "biofilter": "biofilter_k1_media_nl"
           }
         },
-        "note": "Fish and feed drop to 25% of the raft rate (SRAC 454 factor, low confidence). No sourced media-bed basil yield, so cost per kg is n/a; bed container not priced.",
+        "note": "Fish and feed drop to 25% of the raft rate (SRAC 454 factor, low confidence). No sourced media-bed basil yield, so cost per kg is n/a; bed container not priced. Separate K1 biofilter media added (one German listing, candidate), as the configurator rules ask for media beds.",
         "confidence": "low",
         "confidence_reason": "Feed and fish fall to 25% of the raft rate on one SRAC sentence (low confidence); no sourced media-bed basil yield; clay lifetime and bed container not sourced.",
         "risk": "Beds clog with solids and need labour-intensive washing (FAO 589); the media doubles as solids filter and biofilter in small systems.",
@@ -73,10 +74,10 @@
             "grow_unit": [
               "nft_channel_upvc_100x80_nl"
             ],
-            "biofilter": null
+            "biofilter": "biofilter_k1_media_nl"
           }
         },
-        "note": "Yield = DWC yield x 0.83-0.95 (Blunk 2023, Pasch 2021; candidate). Channel metres per m2 not sourced, so channel cost is a gap. No NL biofilter media price, so the separate biofilter NFT needs is a gap too.",
+        "note": "Yield = DWC yield x 0.83-0.95 (Blunk 2023, Pasch 2021; candidate). Channel metres per m2 not sourced, so channel cost is a gap. The separate biofilter NFT needs uses K1 media from one German listing (candidate); the vessel is not priced.",
         "confidence": "low",
         "confidence_reason": "NFT yield is 0.83-0.95 of raft from two studies that disagree on size (pending Batch 003); fish feed at 25% of the raft rate is a low-confidence rule; channels and biofilter not fully priced.",
         "risk": "Most sensitive to pump stops: a thin film dries out within hours, while a raft holds water. Needs fine solids removal and a separate biofilter.",
@@ -127,10 +128,74 @@
             "enabled": false
           }
         },
-        "note": "Heating off too: heat demand is per m2 of greenhouse. A building would need lights, which are not in the catalog.",
+        "note": "Heating off too: heat demand is per m2 of greenhouse. A building would need lights: LED fixtures are now in the catalog, but hours per day are not sourced, so their running cost needs your own assumption.",
         "confidence": "low",
         "confidence_reason": "Rent, lighting and building climate are not in the catalog, so the saving is overstated.",
         "risk": "A closed building needs grow lights (not priced)."
+      },
+      {
+        "swap_id": "addon_propagation",
+        "kind": "add_on",
+        "label": "Add propagation plugs or tray cells for every plant start",
+        "patch": {
+          "propagation": {
+            "enabled": true
+          }
+        },
+        "note": "NL: Grodan stone wool cubes; India: seedling-tray cells counted as single use, cocopeat fill not priced.",
+        "confidence": "medium",
+        "confidence_reason": "Two sellers agree on the NL plug price (Tier 3).",
+        "risk": "Even germination and fewer losses (not quantified).",
+        "labour": "Sowing and transplanting time not sourced."
+      },
+      {
+        "swap_id": "addon_backup_power",
+        "kind": "add_on",
+        "label": "Add battery backup for pumps and aeration",
+        "patch": {
+          "components": {
+            "backup_power": "backup_ups_apc_900w_nl"
+          }
+        },
+        "note": "Sized on the summed power of the chosen pumps and air pumps. Lifetime not sourced, so the yearly cost is a gap (*).",
+        "confidence": "low",
+        "confidence_reason": "Clear current price (Tier 3), but no sourced lifetime or runtime need.",
+        "risk": "Keeps fish alive through short power cuts; the UPS bridges only minutes at full load.",
+        "labour": "Battery checks."
+      },
+      {
+        "swap_id": "addon_monitoring",
+        "kind": "add_on",
+        "label": "Add a DO meter, pH meter and test kit",
+        "patch": {
+          "components": {
+            "monitoring": [
+              "monitor_do_meter_nl",
+              "monitor_ph_tester_nl",
+              "monitor_test_kit_nl"
+            ]
+          }
+        },
+        "note": "One of each per system. Lifetimes not sourced, so the yearly cost is a gap (*).",
+        "confidence": "low",
+        "confidence_reason": "Tier 3 prices; no sourced lifetimes.",
+        "risk": "Catches low oxygen and pH drift early.",
+        "labour": "Daily and weekly checks (minutes not sourced)."
+      },
+      {
+        "swap_id": "addon_uv_steriliser",
+        "kind": "add_on",
+        "label": "Add a UV steriliser",
+        "patch": {
+          "components": {
+            "water_treatment": "uv_steriliser_75w_nl"
+          }
+        },
+        "note": "One unit per system; flow rating not read.",
+        "confidence": "low",
+        "confidence_reason": "Single Tier 3 listing.",
+        "risk": "Clearer water; UVI ran without UV, so it is optional.",
+        "labour": "Yearly lamp change."
       }
     ]
   }
