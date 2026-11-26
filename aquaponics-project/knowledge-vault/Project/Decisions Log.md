@@ -4,10 +4,10 @@ Newest first. Each entry gives the decision, why, and who made it.
 
 ## 2026-11-26: Validation round 3
 
-- **Hold pH at the published mean in validation runs.** Why: the daily pH drift has no alkalinity buffer, so an uncontrolled run drifts away from the pH the paper measured and changes the plant score. A real buffer model is ticket UQ-018. Proposed by Claude, pending Ajit's review.
+- **Hold pH at the published mean in validation runs.** Why: the daily pH drift has no alkalinity buffer, so an uncontrolled run drifts away from the pH the paper measured and changes the plant score. A real buffer model is ticket UQ-018. Proposed by Claude; approved by Ajit in Batch 005.
 - **Do not add a basil establishment lag.** Why: three raft studies show the first cut grows about as fast as later cuts; only UVI staggered planting shows a lag. UQ-016 closed as not supported. Proposed by Claude.
-- **Score Knaus basil at the midpoint of its light band and report the two ends as sensitivity.** Why: the paper does not give the photoperiod, so both ends are bounds, not estimates. Proposed by Claude, pending Ajit's review.
-- **Score Savidov fish against the report's stated 0.50 to 0.64 kg per fish, and keep Khater FCR reported but unscored.** Why: the 630 g point assumes no mortality; Khater's FCR is below every Tier 1 range and cannot be recomputed. Proposed by Claude, pending Ajit's review.
+- **Score Knaus basil at the midpoint of its light band and report the two ends as sensitivity.** Why: the paper does not give the photoperiod, so both ends are bounds, not estimates. Proposed by Claude; approved by Ajit in Batch 005.
+- **Score Savidov fish against the report's stated 0.50 to 0.64 kg per fish, and keep Khater FCR reported but unscored.** Why: the 630 g point assumes no mortality; Khater's FCR is below every Tier 1 range and cannot be recomputed. Proposed by Claude; approved by Ajit in Batch 005.
 
 ## 2026-11-26: Component checkpoints (P1 gaps, missing categories, NL and India on every part)
 
@@ -19,8 +19,8 @@ Newest first. Each entry gives the decision, why, and who made it.
 
 ## 2026-11-26: Basil and gravel-bed validation fixes
 
-- **Treat established cut-and-regrow basil as a closed canopy.** Above the UVI density (8 plants/m²), yield per m² stays flat instead of following a baby-leaf density curve. Why: UVI plants are already about 250 g each, and two raft trials at 20 to 23 plants/m² show no per-m² gain. The baby-leaf exponent stays as a sensitivity case. Proposed by Claude, pending Ajit's review.
-- **Model gravel grow beds as media volume, not raft area.** Range 1.0 to 3.6 kg feed per m³ of gravel per day. The simulator default is the low end, which is conservative. Why: gravel is a different nitrifying surface from a raft, and the published validation case only fits near the upper end. Proposed by Claude, pending Ajit's review.
+- **Treat established cut-and-regrow basil as a closed canopy.** Above the UVI density (8 plants/m²), yield per m² stays flat instead of following a baby-leaf density curve. Why: UVI plants are already about 250 g each, and two raft trials at 20 to 23 plants/m² show no per-m² gain. The baby-leaf exponent stays as a sensitivity case. Proposed by Claude; approved by Ajit in Batch 005.
+- **Model gravel grow beds as media volume, not raft area.** Range 1.0 to 3.6 kg feed per m³ of gravel per day. The simulator default is the low end, which is conservative. Why: gravel is a different nitrifying surface from a raft, and the published validation case only fits near the upper end. Proposed by Claude; approved by Ajit in Batch 005.
 - **Fix the cause, not the result:** the remaining basil miss (young transplants) is a new ticket, UQ-016, not a tuned number. Proposed by Claude.
 
 ## 2026-11-26: Multi-market checkpoint
@@ -35,6 +35,8 @@ Newest first. Each entry gives the decision, why, and who made it.
 - **Model a heat pump as the same heat demand delivered with electricity.** Heat (kWh) is gas m³ × 8.63 to 8.79 kWh per m³, and electricity is heat ÷ a seasonal COP of 3.7 to 4.6. The heat-demand values themselves stay with the heating and climate thread. New values pending Batch 003. Proposed by Claude.
 
 ## 2026-11-26
+
+- **Approve Batch 005 as recommended.** Approved: the validation-run choices (pH held at the published mean, Knaus basil scored at mid light, Savidov fish against the report's range, Khater FCR reported but not scored), with the condition that summaries say "0 of 10 scored, 3 reported unscored" and never "validated"; and truths VR3_0003, VR3_0004 and VR3_0006. UQ-017 and UQ-018 stay open. Decided by Ajit (16:21 Europe/Amsterdam).
 
 - **Approve Batch 004 as recommended.** Approved: truths BYR_0005 and NITR_0015, and four corroborated Tier 3 prices for scenario use (Lumatek Zeus 600 and SanLight EVO 4-120 LEDs and the pH tester in the Netherlands, KOH pH base in India). Models and everything else stay candidates. Decided by Ajit (15:57 Europe/Amsterdam).
 
@@ -56,7 +58,7 @@ Newest first. Each entry gives the decision, why, and who made it.
 - **Apply the equipment inventory cross-check to the catalog.** Upgrade India fingerlings (Rs 4) and Dutch water to corroborated, flag nine shaky catalog values without changing them, and fill the India pump price with a candidate (Crompton 0.5 HP, Rs 13,400). Why: the 2026-11-25 equipment inventory agreed on most design rules but found failure data and rate mismatches. Asked by Ajit.
 - **Research the remaining equipment in small batches.** The backlog is in `docs/equipment_research_backlog.md`. Run two or three researchers at a time to stay under the shared page-read limit. Proposed by Claude.
 - **Start from cost of production, not market price.** Build a component library and a configurator that report cost per kg by component, with alternatives, before layering on logistics and market costs. Long-term goal: a worldwide database of components, fish and plants to find the configuration with the best output. Decided by Ajit.
-- **Keep the component catalog outside canon for now.** It lives in `data/catalog/` as candidate inputs. Approved values move to `data/knowledge/business/` in a separate canon pass. Why: most prices are shop listings (tier 3) and need your approval first. Proposed by Claude, pending Ajit's review.
+- **Keep the component catalog outside canon for now.** It lives in `data/catalog/` as candidate inputs. Approved values move to `data/knowledge/business/` in a separate canon pass. Why: most prices are shop listings (tier 3) and need your approval first. Proposed by Claude; approved by Ajit in Batch 005.
 - **Use ₹65-180/kg as the India basil base price in the comparison.** Why: Ajit confirmed basil costs that much in Bangalore, matching ten Bengaluru B2B listings. The ₹600-1,000/kg study band is demoted to a sensitivity case. Formal approval of the value is pending in the approval batch.
 - **Find the unit design with workable unit economics before the go/no-go.** Compare system type, scale, crop, labour model and location, then decide on the farm. Decided by Ajit.
 - **Compare two locations side by side: the Netherlands and India.** For India, cover Karnataka, Tamil Nadu, Andhra Pradesh and Telangana. Decided by Ajit.
