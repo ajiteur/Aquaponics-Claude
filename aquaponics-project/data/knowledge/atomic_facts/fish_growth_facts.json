@@ -7,9 +7,8 @@
       "domain": "biology",
       "type": "parameter",
       "confidence": "high",
-      "status": "provisional",
-      "provisional_reason": "candidate_pending_user_review",
-      "approval_batch": "pending_batch_003",
+      "status": "accepted",
+      "approval_batch": "batch_003",
       "context": {
         "species": "Nile tilapia",
         "system": "tanks, RAS and UVI aquaponics"
@@ -32,7 +31,13 @@
             "fao_tp_589"
           ]
         },
-        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/species/fish/tilapia.json, growth_feed_model)"
+        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/species/fish/tilapia.json, growth_feed_model)",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-26",
+          "scope": "truth FISH_0001 (D1: Tier 1-2, medium or high, corroborated)",
+          "record": "Approval Batch 003, approved as recommended (thread message 2026-11-26 05:54 Europe/Amsterdam)"
+        }
       },
       "added_date_local": "2026-11-26"
     },
@@ -42,9 +47,8 @@
       "domain": "biology",
       "type": "parameter",
       "confidence": "high",
-      "status": "provisional",
-      "provisional_reason": "candidate_pending_user_review",
-      "approval_batch": "pending_batch_003",
+      "status": "accepted",
+      "approval_batch": "batch_003",
       "context": {
         "species": "tilapia",
         "system": "tank culture"
@@ -67,7 +71,13 @@
             "fao_affris_table_26"
           ]
         },
-        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/species/fish/tilapia.json, growth_feed_model)"
+        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/species/fish/tilapia.json, growth_feed_model)",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-26",
+          "scope": "truth FISH_0002 (D1: Tier 1-2, medium or high, corroborated)",
+          "record": "Approval Batch 003, approved as recommended (thread message 2026-11-26 05:54 Europe/Amsterdam)"
+        }
       },
       "added_date_local": "2026-11-26"
     },
@@ -77,9 +87,8 @@
       "domain": "biology",
       "type": "threshold",
       "confidence": "high",
-      "status": "provisional",
-      "provisional_reason": "candidate_pending_user_review",
-      "approval_batch": "pending_batch_003",
+      "status": "accepted",
+      "approval_batch": "batch_003",
       "context": {
         "species": "tilapia"
       },
@@ -101,7 +110,13 @@
             "fao_w5268e"
           ]
         },
-        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/species/fish/tilapia.json, growth_feed_model)"
+        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/species/fish/tilapia.json, growth_feed_model)",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-26",
+          "scope": "truth FISH_0003 (D1: Tier 1-2, medium or high, corroborated)",
+          "record": "Approval Batch 003, approved as recommended (thread message 2026-11-26 05:54 Europe/Amsterdam)"
+        }
       },
       "added_date_local": "2026-11-26"
     },
@@ -111,9 +126,8 @@
       "domain": "biology",
       "type": "parameter",
       "confidence": "medium",
-      "status": "provisional",
-      "provisional_reason": "candidate_pending_user_review",
-      "approval_batch": "pending_batch_003",
+      "status": "accepted",
+      "approval_batch": "batch_003",
       "context": {
         "species": "tilapia, all-male"
       },
@@ -134,7 +148,13 @@
             "abd_el_hack_2022"
           ]
         },
-        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/species/fish/tilapia.json, growth_feed_model)"
+        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/species/fish/tilapia.json, growth_feed_model)",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-26",
+          "scope": "truth FISH_0004 (D1: Tier 1-2, medium or high, corroborated)",
+          "record": "Approval Batch 003, approved as recommended (thread message 2026-11-26 05:54 Europe/Amsterdam)"
+        }
       },
       "added_date_local": "2026-11-26"
     },
@@ -179,9 +199,8 @@
       "domain": "biology",
       "type": "parameter",
       "confidence": "high",
-      "status": "provisional",
-      "provisional_reason": "candidate_pending_user_review",
-      "approval_batch": "pending_batch_003",
+      "status": "accepted",
+      "approval_batch": "batch_003",
       "context": {
         "species": "Nile tilapia, all-male",
         "system": "UVI aquaponics, 24 to 29 C"
@@ -203,7 +222,13 @@
             "srac_454"
           ]
         },
-        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/species/fish/tilapia.json, growth_feed_model)"
+        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/species/fish/tilapia.json, growth_feed_model)",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-26",
+          "scope": "truth FISH_0006 (D1: Tier 1-2, medium or high, corroborated)",
+          "record": "Approval Batch 003, approved as recommended (thread message 2026-11-26 05:54 Europe/Amsterdam)"
+        }
       },
       "added_date_local": "2026-11-26"
     },
@@ -213,9 +238,8 @@
       "domain": "biology",
       "type": "parameter",
       "confidence": "high",
-      "status": "provisional",
-      "provisional_reason": "candidate_pending_user_review",
-      "approval_batch": "pending_batch_003",
+      "status": "accepted",
+      "approval_batch": "batch_003",
       "context": {
         "system": "UVI aquaponics"
       },
@@ -238,7 +262,13 @@
             "ncrac_114"
           ]
         },
-        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/species/fish/tilapia.json, growth_feed_model)"
+        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/species/fish/tilapia.json, growth_feed_model)",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-26",
+          "scope": "truth FISH_0007 (D1: Tier 1-2, medium or high, corroborated)",
+          "record": "Approval Batch 003, approved as recommended (thread message 2026-11-26 05:54 Europe/Amsterdam)"
+        }
       },
       "added_date_local": "2026-11-26"
     },
@@ -278,9 +308,8 @@
       "domain": "biology",
       "type": "parameter",
       "confidence": "medium",
-      "status": "provisional",
-      "provisional_reason": "candidate_pending_user_review",
-      "approval_batch": "pending_batch_003",
+      "status": "accepted",
+      "approval_batch": "batch_003",
       "context": {
         "species": "Nile tilapia, Red, GIFT and Supreme strains",
         "system": "constant-temperature tanks"
@@ -303,7 +332,13 @@
             "workagegn_2014"
           ]
         },
-        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/species/*/ model blocks)"
+        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/species/*/ model blocks)",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-26",
+          "scope": "truth FISH_0009 (F1: Tier 1-2, medium or high, corroborated)",
+          "record": "Approval Batch 003, approved as recommended (thread message 2026-11-26 05:54 Europe/Amsterdam)"
+        }
       },
       "added_date_local": "2026-11-26"
     }

@@ -40,9 +40,8 @@
       "domain": "environment",
       "type": "parameter",
       "confidence": "high",
-      "status": "provisional",
-      "provisional_reason": "candidate_pending_user_review",
-      "approval_batch": "pending_batch_003",
+      "status": "accepted",
+      "approval_batch": "batch_003",
       "context": {
         "location": "Bengaluru, Karnataka, India",
         "period": "1991-2020"
@@ -64,7 +63,13 @@
             "wikipedia_bengaluru_weather_box_mirror"
           ]
         },
-        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/models/greenhouse_heat_models.json)"
+        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/models/greenhouse_heat_models.json)",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-26",
+          "scope": "truth HEAT_0002 (C1: Tier 1-2, medium or high, corroborated)",
+          "record": "Approval Batch 003, approved as recommended (thread message 2026-11-26 05:54 Europe/Amsterdam)"
+        }
       },
       "added_date_local": "2026-11-26"
     },
@@ -107,9 +112,8 @@
       "domain": "environment",
       "type": "parameter",
       "confidence": "medium",
-      "status": "provisional",
-      "provisional_reason": "candidate_pending_user_review",
-      "approval_batch": "pending_batch_003",
+      "status": "accepted",
+      "approval_batch": "batch_003",
       "context": {
         "structure": "greenhouse covers, generic"
       },
@@ -131,7 +135,13 @@
             "vt_spes_821"
           ]
         },
-        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/models/greenhouse_heat_models.json)"
+        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/models/greenhouse_heat_models.json)",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-26",
+          "scope": "truth HEAT_0004 (C1: Tier 1-2, medium or high, corroborated)",
+          "record": "Approval Batch 003, approved as recommended (thread message 2026-11-26 05:54 Europe/Amsterdam)"
+        }
       },
       "added_date_local": "2026-11-26"
     },
@@ -141,9 +151,8 @@
       "domain": "environment",
       "type": "definition",
       "confidence": "high",
-      "status": "provisional",
-      "provisional_reason": "candidate_pending_user_review",
-      "approval_batch": "pending_batch_003",
+      "status": "accepted",
+      "approval_batch": "batch_003",
       "context": {
         "region": "Netherlands"
       },
@@ -164,7 +173,13 @@
             "kema_2012_edepot_289335"
           ]
         },
-        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/models/greenhouse_heat_models.json)"
+        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/models/greenhouse_heat_models.json)",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-26",
+          "scope": "truth HEAT_0005 (C1: Tier 1-2, medium or high, corroborated)",
+          "record": "Approval Batch 003, approved as recommended (thread message 2026-11-26 05:54 Europe/Amsterdam)"
+        }
       },
       "added_date_local": "2026-11-26"
     },
@@ -276,9 +291,8 @@
       "domain": "environment",
       "type": "guidance",
       "confidence": "medium",
-      "status": "provisional",
-      "provisional_reason": "candidate_pending_user_review",
-      "approval_batch": "pending_batch_003",
+      "status": "accepted",
+      "approval_batch": "batch_003",
       "context": {
         "region": "India (Uttar Pradesh; Kerala)",
         "structure": "naturally ventilated polyhouse"
@@ -300,7 +314,13 @@
             "nabard_kerala_hitech_2015"
           ]
         },
-        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/models/greenhouse_heat_models.json)"
+        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/models/greenhouse_heat_models.json)",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-26",
+          "scope": "truth HEAT_0009 (C1: Tier 1-2, medium or high, corroborated)",
+          "record": "Approval Batch 003, approved as recommended (thread message 2026-11-26 05:54 Europe/Amsterdam)"
+        }
       },
       "added_date_local": "2026-11-26"
     },

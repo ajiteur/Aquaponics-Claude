@@ -2721,7 +2721,7 @@
       "region": "india",
       "currency_code": "INR",
       "status": "candidate",
-      "approval_status": "pending_batch_003",
+      "approval_status": "approved_for_scenario_use_price_only",
       "sizing": {
         "driver": "structure_area_m2",
         "mode": "continuous",
@@ -2738,8 +2738,8 @@
         "approval": {
           "approved_by": "Ajit",
           "approved_date_local": "2026-11-26",
-          "scope": "F1: MIDH 2025 norm as India reference for protected structures, scenario use only, labelled subsidy cost ceiling not market price",
-          "record": "Approval Batch 002 (price only; this catalog entry is new and pending Batch 003)"
+          "scope": "B4: India fan-pad polyhouse capex (MIDH 2025 norm, Rs 1500-1800/m2), scenario use only; lifetime and power stay missing",
+          "record": "Approval Batch 003, approved as recommended (thread message 2026-11-26 05:54 Europe/Amsterdam)"
         },
         "market": {
           "region": "india",
@@ -2750,6 +2750,12 @@
           },
           "price_year_basis": "stated_in_source",
           "note": "MIDH 2025 norm (dated 31.12.2024)"
+        },
+        "prior_approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-26",
+          "scope": "F1: MIDH 2025 norm as India reference for protected structures, scenario use only, labelled subsidy cost ceiling not market price",
+          "record": "Approval Batch 002 (price only; this catalog entry is new and pending Batch 003)"
         }
       },
       "lifetime_years": {
@@ -3244,7 +3250,7 @@
         "Needs a low-temperature heating system (35-45 C supply); a classic 70-90 C pipe-rail system gives a lower COP (not sourced)."
       ],
       "status": "candidate",
-      "approval_status": "pending_batch_003",
+      "approval_status": "approved_for_scenario_use",
       "source_tier": "tier_2",
       "source_gate": "conditional",
       "source_gate_reason": "Sector presentations and a 2012 institute report; commercial hectare-scale greenhouses, modelled SCOP.",
@@ -3265,6 +3271,12 @@
         "price_year": null,
         "price_year_basis": "not_a_price",
         "note": "physical or technical rate, not a price"
+      },
+      "approval": {
+        "approved_by": "Ajit",
+        "approved_date_local": "2026-11-26",
+        "scope": "B1: heat_pump_seasonal_cop NL, scenario use only",
+        "record": "Approval Batch 003, approved as recommended (thread message 2026-11-26 05:54 Europe/Amsterdam)"
       }
     },
     {
@@ -3284,7 +3296,7 @@
         "Converts the heat demand (recorded as m3 of gas a boiler burns) into kWh of heat, so a heat pump can deliver the same heat. KEMA values were read from a model summary of p.33, not verbatim text."
       ],
       "status": "candidate",
-      "approval_status": "pending_batch_003",
+      "approval_status": "approved_for_scenario_use",
       "source_tier": "tier_2",
       "source_gate": "conditional",
       "source_gate_reason": "Institute report and sector presentation; KEMA figure read through a summary.",
@@ -3304,6 +3316,12 @@
         "price_year": null,
         "price_year_basis": "not_a_price",
         "note": "physical or technical rate, not a price"
+      },
+      "approval": {
+        "approved_by": "Ajit",
+        "approved_date_local": "2026-11-26",
+        "scope": "B1: gas_heat_kwh_per_m3 NL, scenario use only",
+        "record": "Approval Batch 003, approved as recommended (thread message 2026-11-26 05:54 Europe/Amsterdam)"
       }
     }
   ],

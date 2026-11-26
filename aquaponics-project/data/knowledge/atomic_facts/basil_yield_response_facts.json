@@ -7,9 +7,8 @@
       "domain": "biology",
       "type": "parameter",
       "confidence": "medium",
-      "status": "provisional",
-      "provisional_reason": "candidate_pending_user_review",
-      "approval_batch": "pending_batch_003",
+      "status": "accepted",
+      "approval_batch": "batch_003",
       "context": {
         "species": "basil (Genovese types)",
         "system": "floating raft, glasshouse, Naples, spring"
@@ -31,7 +30,13 @@
             "walters_currey_2015_ashs"
           ]
         },
-        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/species/*/ model blocks)"
+        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/species/*/ model blocks)",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-26",
+          "scope": "truth BYR_0001 (F1: Tier 1-2, medium or high, corroborated)",
+          "record": "Approval Batch 003, approved as recommended (thread message 2026-11-26 05:54 Europe/Amsterdam)"
+        }
       },
       "added_date_local": "2026-11-26"
     },
@@ -41,9 +46,8 @@
       "domain": "biology",
       "type": "parameter",
       "confidence": "medium",
-      "status": "provisional",
-      "provisional_reason": "candidate_pending_user_review",
-      "approval_batch": "pending_batch_003",
+      "status": "accepted",
+      "approval_batch": "batch_003",
       "context": {
         "species": "basil 'Improved Genovese Compact'",
         "system": "indoor, fluorescent, 21 days"
@@ -66,7 +70,13 @@
             "litvin_currey_2017_ashs"
           ]
         },
-        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/species/*/ model blocks)"
+        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/species/*/ model blocks)",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-26",
+          "scope": "truth BYR_0002 (F1: Tier 1-2, medium or high, corroborated)",
+          "record": "Approval Batch 003, approved as recommended (thread message 2026-11-26 05:54 Europe/Amsterdam)"
+        }
       },
       "added_date_local": "2026-11-26"
     },

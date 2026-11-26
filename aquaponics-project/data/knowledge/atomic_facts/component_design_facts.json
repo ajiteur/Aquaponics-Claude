@@ -349,8 +349,7 @@
     {
       "domain": "business",
       "type": "parameter",
-      "status": "provisional",
-      "provisional_reason": "candidate_pending_user_review",
+      "status": "accepted",
       "added_date_local": "2026-11-26",
       "fact_id": "CD_0011",
       "statement": "Air-water heat pumps in Dutch greenhouse case studies reach a modelled seasonal COP of 3.7 (2 ha boiler holding, 45 C supply) to 4.4-4.6 (5 ha CHP holdings, 45/40 C supply). A 2012 KEMA study gives an air-source average of 3.94 and a sector presentation uses COP 4.",
@@ -379,14 +378,20 @@
             "glastuinbouw_nl_bax_heat_pump",
             "kema_2012_kas_energiebron_heat_pumps"
           ]
+        },
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-26",
+          "scope": "truth CD_0011 (B2: Tier 1-2, medium or high, corroborated)",
+          "record": "Approval Batch 003, approved as recommended (thread message 2026-11-26 05:54 Europe/Amsterdam)"
         }
-      }
+      },
+      "approval_batch": "batch_003"
     },
     {
       "domain": "business",
       "type": "parameter",
-      "status": "provisional",
-      "provisional_reason": "candidate_pending_user_review",
+      "status": "accepted",
       "added_date_local": "2026-11-26",
       "fact_id": "CD_0012",
       "statement": "Burning 1 m3 of Dutch natural gas in a greenhouse boiler delivers about 8.6 to 8.8 kWh of heat: 31.7 MJ/Nm3 at 98% boiler efficiency (KEMA 2012) gives 8.63 kWh, and a sector presentation states about 8.79 kWh.",
@@ -413,8 +418,15 @@
           "source_ids": [
             "glastuinbouw_nl_bax_heat_pump"
           ]
+        },
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-26",
+          "scope": "truth CD_0012 (B2: Tier 1-2, medium or high, corroborated)",
+          "record": "Approval Batch 003, approved as recommended (thread message 2026-11-26 05:54 Europe/Amsterdam)"
         }
-      }
+      },
+      "approval_batch": "batch_003"
     }
   ]
 }
