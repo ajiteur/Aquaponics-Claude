@@ -182,8 +182,17 @@ def size_system(catalog: Catalog, build: dict, case: str, gaps: set) -> dict:
 
     yld = species_value(plant, "yield_kg_per_m2_yr", case, build, "plant")
     applies = plant["sizing"].get("yield_kg_per_m2_yr", {}).get("applies_to_architectures")
+    yield_basis = "sourced for this architecture"
     if applies and arch not in applies and "yield_kg_per_m2_yr" not in build.get("species_overrides", {}).get("plant", {}):
-        yld = None
+        # No direct yield for this architecture: use a sourced yield ratio against the reference
+        # architecture, if the catalog has one. Missing ratio means missing yield.
+        rel_spec = plant["sizing"].get("yield_relative_to_reference_architecture", {})
+        ratio = rel_spec.get("values", {}).get(arch)
+        if yld is not None and ratio is not None and ratio.get("low") is not None:
+            yld = yld * pick(as_range(ratio), case, ratio.get("favourable", "high"))
+            yield_basis = f"{rel_spec.get('reference_architecture', applies[0])} yield x sourced ratio for {arch}"
+        else:
+            yld = None
     if yld is None:
         gaps.add(f"plant yield for {build['plant']} in {arch} (no sourced value; set species_overrides.plant.yield_kg_per_m2_yr)")
 
@@ -282,6 +291,7 @@ def size_system(catalog: Catalog, build: dict, case: str, gaps: set) -> dict:
         "system_water_m3": system_water_m3,
         "makeup_water_m3_yr": makeup_m3_yr,
         "plant_kg_yr": area * yld if yld else None,
+        "plant_yield_basis": yield_basis if yld else None,
         "plants_started_per_yr": plants_yr,
     }
 
@@ -390,6 +400,8 @@ def evaluate_case(catalog: Catalog, build: dict, case: str, components: list[dic
     drivers["structure_area_m2"] = drivers.get(structure_basis) or min_area
 
     lines = [cost_component(c, drivers, case, power_price, gaps) for c in components]
+    if (drivers.get("biofilter_media_m3") or 0) > 0 and not any(c["category"] == "biofilter" for c in components):
+        gaps.add(f"biofilter: {build['grow_architecture']} needs a separate biofilter, but none is chosen, so its cost is left out")
     if not any(c["category"] == "grow_unit" for c in components):
         gaps.add(f"grow unit: no part chosen (none priced for {build['grow_architecture']} in {region}), so its build cost is left out")
 
@@ -508,7 +520,7 @@ def evaluate_case(catalog: Catalog, build: dict, case: str, components: list[dic
     ]
     return {
         "case": case,
-        "sizing": {k: r(v, 3) for k, v in drivers.items()},
+        "sizing": {k: (r(v, 3) if not isinstance(v, str) else v) for k, v in drivers.items()},
         "components": lines,
         "running": running,
         "labour": labour,

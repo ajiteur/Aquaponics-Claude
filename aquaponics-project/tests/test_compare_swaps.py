@@ -134,5 +134,24 @@ class SwapTests(unittest.TestCase):
         self.assertTrue(any(l.startswith("SWAPS") for l in lines))
 
 
+class RelativeYieldTests(unittest.TestCase):
+    def test_nft_yield_from_sourced_ratio(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            c, s, l = tc.fixture_files(Path(tmp))
+            doc = json.loads(s.read_text(encoding="utf-8"))
+            doc["plants"][0]["sizing"]["yield_relative_to_reference_architecture"] = {
+                "reference_architecture": "dwc_raft", "values": {"nft": {"low": 0.5, "high": 0.5}, "media_bed": None}}
+            s.write_text(json.dumps(doc), encoding="utf-8")
+            nft = cs.build_result(dict(tc.BUILD, grow_architecture="nft", components={"fish_tank": "tank_a", "water_pump": "pump_a"}),
+                                  c, s, l, run_simulation=False)["cases"]["mid"]
+            media = cs.build_result(dict(tc.BUILD, grow_architecture="media_bed", components={"fish_tank": "tank_a", "water_pump": "pump_a"}),
+                                    c, s, l, run_simulation=False)["cases"]["mid"]
+        # DWC mid yield 15 kg/m2/yr x 0.5 x 10 m2
+        self.assertEqual(nft["sizing"]["plant_kg_yr"], 75.0)
+        self.assertIn("ratio", nft["sizing"]["plant_yield_basis"])
+        self.assertIsNone(media["sizing"]["plant_kg_yr"])
+        self.assertTrue(any("plant yield" in g for g in media["gaps"]))
+
+
 if __name__ == "__main__":
     unittest.main()
