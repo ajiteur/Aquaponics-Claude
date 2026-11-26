@@ -138,5 +138,205 @@
       "type": "official_reference_page",
       "notes": "Species anchor and hard-bound temperature context."
     }
-  ]
+  ],
+  "growth_feed_model": {
+    "model_id": "tilapia_feed_fcr_temperature",
+    "status": "candidate_pending_user_review",
+    "approval_batch": "pending_batch_003",
+    "added_utc": "2026-11-26",
+    "evidence_policy": "Trusted Source Map and Source Trust Policy for Aquaponics Layer 1; reliability fields per AGENTS.md 6A",
+    "equation_text": "daily_gain_kg = feed_offered_kg * f_T(water_temp) / FCR; optional feed_offered = biomass * feeding_rate_pct(size) / 100",
+    "replaces": "simulate_day placeholder gain = feed / FCR * overall_fish_score * 0.8 (opt-in per scenario via feeding.growth_model)",
+    "feed_conversion_ratio": {
+      "simulation_default": 1.7,
+      "range": {
+        "min": 1.4,
+        "max": 1.8
+      },
+      "quotes": [
+        "SRAC 454: 'The usual feed conversion ratio is 1.7.' (UVI, all-male Nile tilapia, 79 to 814 g)",
+        "SRAC 282: 'FCRs in the range of 1.4:1 to 1.8:1 are common with tilapia'",
+        "FAO 589: 'tilapias have an FCR of 1.4-1.8'"
+      ],
+      "sources": [
+        "https://pods.okstate.edu/fact-sheets/SRAC-454pod.pdf",
+        "https://www.srac.msstate.edu/pdfs/Fact%20Sheets/282%20Tank%20Culture%20of%20Tilapia.pdf",
+        "https://learn.farmhub.ag/resources/small-scale-aquaponic-food-production/7-fish-in-aquaponics/"
+      ],
+      "source_metadata": {
+        "source_tier": "tier_1",
+        "source_type": "extension_fact_sheet"
+      },
+      "review_metadata": {
+        "source_gate": "trusted",
+        "source_gate_reason": "SRAC extension sheets by the UVI and NCSU authors; FAO technical paper (read via a permitted mirror).",
+        "confidence": "high",
+        "confidence_reason": "Three Tier 1 sources agree on 1.4 to 1.8; the 1.7 default is UVI's measured aquaponic value. FCR by fish size not found.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "srac_454",
+            "srac_282",
+            "fao_tp_589"
+          ]
+        }
+      }
+    },
+    "feeding_rate_pct_body_weight_by_size": {
+      "bands": [
+        {
+          "min_g": 0.0,
+          "max_g": 0.5,
+          "min_pct": 15.0,
+          "max_pct": 20.0
+        },
+        {
+          "min_g": 0.5,
+          "max_g": 5.0,
+          "min_pct": 10.0,
+          "max_pct": 15.0
+        },
+        {
+          "min_g": 5.0,
+          "max_g": 18.0,
+          "min_pct": 5.0,
+          "max_pct": 10.0
+        },
+        {
+          "min_g": 18.0,
+          "max_g": 75.0,
+          "min_pct": 3.0,
+          "max_pct": 5.0
+        },
+        {
+          "min_g": 75.0,
+          "max_g": 150.0,
+          "min_pct": 1.5,
+          "max_pct": 3.0
+        },
+        {
+          "min_g": 150.0,
+          "max_g": null,
+          "min_pct": 1.5,
+          "max_pct": 3.0
+        }
+      ],
+      "simulation_default": "band midpoint (derived)",
+      "source": "SRAC 282 (DeLong, Losordo and Rakocy, rev. 2009), Table 1 'Suggested feed size and feeding of tank-cultured tilapia'",
+      "url": "https://www.srac.msstate.edu/pdfs/Fact%20Sheets/282%20Tank%20Culture%20of%20Tilapia.pdf",
+      "context": "tank culture; SRAC 282 text adds market-size fish (680 g) are 'usually 1.0 to 1.5 percent of the biomass'",
+      "source_metadata": {
+        "source_tier": "tier_1",
+        "source_type": "extension_fact_sheet"
+      },
+      "review_metadata": {
+        "source_gate": "trusted",
+        "source_gate_reason": "SRAC extension sheet.",
+        "confidence": "high",
+        "confidence_reason": "Corroborated above 100 g by NCRAC 114 Table 2 (NRC 1993, 28 C: >100 g 1.5 to 3) and FAO AFFRIS Table 26b (Orachunwong 2001: 100 g 2.6, 175 g 2.2, 300 g 1.8, 400 g 1.5). Midpoint is our derivation.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "srac_282",
+            "ncrac_114",
+            "fao_affris_table_26"
+          ]
+        }
+      },
+      "use": "Optional (scenario feeding.feed_rate_source = 'profile_size_table'); Mode A direct feed input stays the default."
+    },
+    "temperature_response": {
+      "points_c_factor": [
+        [
+          17.0,
+          0.0
+        ],
+        [
+          22.0,
+          0.333
+        ],
+        [
+          27.0,
+          1.0
+        ],
+        [
+          32.0,
+          1.0
+        ],
+        [
+          39.7,
+          0.0
+        ]
+      ],
+      "interpolation": "piecewise linear; 0 outside 17 to 39.7 C",
+      "basis": [
+        "17 C feeding stops: SRAC 283 'Tilapia generally stop feeding when water temperature falls below 63o F' (17.2 C); FAO 589 'they do not feed or grow below 17 C' (corroborated).",
+        "22 C one third: SRAC 283 'Growth at this optimal temperature is typically three times greater than at 72o F' (22.2 C); Abd El-Hack et al. 2022 review: growth about 30 percent of its limit at 20 to 22 C (corroborated, secondary).",
+        "27 C full: optimum 27 to 29 C (SRAC 282), 27 to 30 C (FAO 589); canon tilapia preferred_temp_c 27 to 30.",
+        "32 C still full: SRAC 282 'acceptable growth rates are reported at 77 to 90 F (25 to 32 C)'. Treating 'acceptable' as full rate is an assumption.",
+        "39.7 C zero: FAO W5268E Annex 3 bioenergetic model Tmax for Nile tilapia (pond-calibrated). No source gives an upper temperature where growth stops (gap)."
+      ],
+      "context_split": "Optimum stated as 27 to 29 (SRAC 282), 27 to 30 (FAO 589), 29 to 31 (SRAC 283) and 32.4 C (FAO W5268E model); 'preferred' 31 to 36 C (FAO CASIP) is a behavioural preference, not growth optimum.",
+      "source_metadata": {
+        "source_tier": "tier_1",
+        "source_type": "extension_fact_sheet"
+      },
+      "review_metadata": {
+        "source_gate": "trusted",
+        "source_gate_reason": "Endpoints and the 22 C point from SRAC and FAO.",
+        "confidence": "medium",
+        "confidence_reason": "Lower endpoint and 22 C point corroborated; straight lines between points are assumed; upper shoulder and endpoint low confidence.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "srac_283",
+            "fao_tp_589",
+            "srac_282",
+            "abd_el_hack_2022"
+          ]
+        }
+      }
+    },
+    "validation": {
+      "uvi_growout": {
+        "start_g": 79.2,
+        "end_g": 813.8,
+        "days": 168,
+        "water_temp_c": {
+          "winter": 24.0,
+          "summer": 29.0
+        },
+        "fcr": 1.7,
+        "daily_gain_g": 4.4,
+        "survival": 0.983,
+        "feeding": "ad libitum to satiation, 3 times daily, 32 percent protein floating pellet",
+        "source": "Rakocy, Bailey, Shultz and Thoman, ISTA 6 proceedings (about 2004), Table 1; also SRAC 454 Table 1",
+        "url": "https://cales.arizona.edu/azaqua/ista/ista6/ista6web/pdf/676.pdf",
+        "source_metadata": {
+          "source_tier": "tier_2",
+          "source_type": "conference_proceedings"
+        },
+        "review_metadata": {
+          "source_gate": "trusted",
+          "source_gate_reason": "UVI developers' own measured data, corroborated by SRAC 454 Table 1.",
+          "confidence": "high",
+          "confidence_reason": "Mean of 20 harvests, direct numbers; stocking 77 fish/m3, all-male.",
+          "corroboration": {
+            "status": "corroborated",
+            "source_ids": [
+              "uvi_ista6_rakocy_2004",
+              "srac_454"
+            ]
+          }
+        }
+      }
+    },
+    "gaps": [
+      "No thermal growth coefficient or SGR for Nile tilapia found.",
+      "FCR by fish size not found.",
+      "No upper temperature where growth stops.",
+      "Water-quality stress (DO, NH3) on growth not modelled in this candidate; the old fish score is reported but not applied.",
+      "No sex, strain or density effect."
+    ]
+  }
 }

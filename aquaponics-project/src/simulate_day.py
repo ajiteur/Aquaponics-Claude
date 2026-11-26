@@ -4,6 +4,7 @@ import subprocess
 import sys
 from datetime import datetime, UTC
 
+import fish_growth
 import nitrate_sinks
 import nitrification_model
 
@@ -276,12 +277,27 @@ def main():
 
     # Feeding and fish growth
     total_biomass_kg = fish_batch["total_biomass_kg"]
-    feed_rate_pct = feeding["feed_rate_percent_body_weight_per_day"]
+    growth_model = fish_profile.get("growth_feed_model") if feeding.get("growth_model") == fish_growth.MODEL_ID else None
+    if growth_model and feeding.get("feed_rate_source") == "profile_size_table":
+        feed_rate_pct = fish_growth.feeding_rate_pct(fish_batch["average_weight_g"], growth_model)
+        feed_rate_basis = "srac_282_size_table_midpoint_candidate"
+    else:
+        feed_rate_pct = feeding["feed_rate_percent_body_weight_per_day"]
+        feed_rate_basis = "scenario_direct_input"
     daily_feed_kg = total_biomass_kg * (feed_rate_pct / 100.0)
 
-    fcr = feeding.get("feed_conversion_ratio") or 1.5
-    fish_growth_efficiency = 0.8
-    fish_biomass_gain_kg = (daily_feed_kg / fcr) * fish_score * fish_growth_efficiency
+    if growth_model:
+        # Candidate (Batch 003): gain = feed x f_T / FCR. Water-quality stress is not applied (gap).
+        fcr = growth_model["feed_conversion_ratio"]["simulation_default"]
+        fish_temperature_factor = fish_growth.temperature_factor(water_temp_c, growth_model)
+        fish_biomass_gain_kg = fish_growth.daily_gain_kg(daily_feed_kg, water_temp_c, growth_model, fcr)
+        fish_growth_basis = "tilapia_feed_fcr_temperature_candidate"
+    else:
+        fcr = feeding.get("feed_conversion_ratio") or 1.5
+        fish_growth_efficiency = 0.8
+        fish_temperature_factor = None
+        fish_biomass_gain_kg = (daily_feed_kg / fcr) * fish_score * fish_growth_efficiency
+        fish_growth_basis = "placeholder_fcr_x_fish_score_x_0.8"
 
     fish_batch["total_biomass_kg"] = round(fish_batch["total_biomass_kg"] + fish_biomass_gain_kg, 3)
     fish_batch["average_weight_g"] = round(
@@ -481,6 +497,11 @@ def main():
         "plant_growth_score": plant_score,
         "system_stability_score": system_score,
         "daily_fish_biomass_gain_kg": round(fish_biomass_gain_kg, 3),
+        "fish_growth_basis": fish_growth_basis,
+        "fish_feed_rate_basis": feed_rate_basis,
+        "fish_feed_rate_percent_body_weight": round(feed_rate_pct, 3),
+        "fish_temperature_factor": None if fish_temperature_factor is None else round(fish_temperature_factor, 3),
+        "fish_fcr_used": fcr,
         "daily_plant_biomass_gain_g_per_plant": round(plant_growth_g, 3),
         "plant_score_relative_to_anchor": round(relative_plant_score, 3),
         "harvestable_cut_mass_g_per_plant": plant_crop.get("harvestable_cut_mass_g_per_plant"),

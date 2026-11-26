@@ -64,7 +64,8 @@
     "feedings_per_day": 3,
     "feed_protein_fraction": null,
     "feed_conversion_ratio": 1.5,
-    "uneaten_feed_fraction": 0.03
+    "uneaten_feed_fraction": 0.03,
+    "growth_model": "tilapia_feed_fcr_temperature"
   },
   "nitrogen_model": {
     "tan_generation_mode": "placeholder",
