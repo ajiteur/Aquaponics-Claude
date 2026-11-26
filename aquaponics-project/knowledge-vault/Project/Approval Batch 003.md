@@ -12,7 +12,7 @@ Each PR is stacked on the one before it, so merge them in this order.
 |---|---|---|
 | A1 | #28: record Approval Batch 002, save-point-002 entry | **Merge first.** Tag `save-point-002` on the merge commit. |
 | A2 | #29: swaps checkpoint (`compare_swaps.py`, heat-pump heating source, NFT and media-bed alternatives) | **Merge second.** Re-reviewed at `c5e1042`: tests (204), integrity and syncs pass. |
-| A3 | #30: heating and climate checkpoint (`heat_demand.py`, greenhouse heat models) | **Merge third**, once its thread has stacked it on #29. Tests (205), integrity and syncs pass on its own branch. |
+| A3 | #30: heating and climate checkpoint (`heat_demand.py`, greenhouse heat models) | **Merge third.** Stacked on #29 at `45509ab`. With #28, #29 and #30 combined, tests, integrity and syncs pass. |
 
 ## B. Values from PR #29 (swaps)
 
