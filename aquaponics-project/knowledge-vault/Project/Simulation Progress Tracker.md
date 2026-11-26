@@ -4,7 +4,7 @@ Goal: make the simulation as strong as possible, for the Netherlands and India i
 
 Progress is counted as checkpoints done out of the total, with each checkpoint weighted equally. A checkpoint counts as done only when its work is merged on `main`. The Gatekeeper updates this note at every save point and PR review.
 
-Last updated: 2026-11-25, against `main` at `082b715` (after PRs #21 and #22).
+Last updated: 2026-11-26, after Approval Batch 002 (PRs #21 to #28). No checkpoint changed: Batch 002 moved part of sub-goals 2 and 4 forward (MIDH norms, 12 approved equipment values), but no checkpoint is complete yet.
 
 ## Overview
 
