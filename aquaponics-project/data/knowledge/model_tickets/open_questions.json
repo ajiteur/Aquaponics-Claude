@@ -115,6 +115,16 @@
       "source_section": "Compatibility follow-up 1",
       "priority": "medium",
       "status": "open"
+    },
+    {
+      "ticket_id": "UQ-012",
+      "topic": "greenhouse_heat_demand_radish_conflict",
+      "issue": "KEMA radish heat demand at the same 12/8 C setpoints: about 5.4 m3 a.e./m2/yr (KEMA 2009, edepot 289333) vs 12.0 m3 a.e./m2/yr (KEMA 2012, edepot 289335)",
+      "why_unresolved": "Both are KEMA reports for Kas als Energiebron with the same crop and setpoints; the reason for the 2x difference (house, screen, reference year, or heat vs gas basis) was not found in what was read.",
+      "evidence_still_needed": "Read both reports' method sections and compare house type, screen, reference year and whether the figure is heat demand or gas use. The heat demand model is calibrated on the 2012 figure; if 2009 is right, NL heat demand estimates roughly halve.",
+      "source_section": "Heating and climate checkpoint, 2026-11-26",
+      "priority": "high",
+      "status": "review_needed"
     }
   ]
 }
