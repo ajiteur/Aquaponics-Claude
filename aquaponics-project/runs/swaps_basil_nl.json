@@ -57,7 +57,11 @@
             ]
           }
         },
-        "note": "Fish and feed drop to 25% of the raft rate (SRAC 454 factor, low confidence). No sourced media-bed basil yield, so cost per kg is n/a; bed container not priced."
+        "note": "Fish and feed drop to 25% of the raft rate (SRAC 454 factor, low confidence). No sourced media-bed basil yield, so cost per kg is n/a; bed container not priced.",
+        "confidence": "low",
+        "confidence_reason": "Feed and fish fall to 25% of the raft rate on one SRAC sentence (low confidence); no sourced media-bed basil yield; clay lifetime and bed container not sourced.",
+        "risk": "Beds clog with solids and need labour-intensive washing (FAO 589); the media doubles as solids filter and biofilter in small systems.",
+        "labour": "Washing clogged media; no raft handling."
       },
       {
         "swap_id": "arch_nft",
@@ -72,7 +76,11 @@
             "biofilter": null
           }
         },
-        "note": "Yield = DWC yield x 0.83-0.95 (Blunk 2023, Pasch 2021; candidate). Channel metres per m2 not sourced, so channel cost is a gap. No NL biofilter media price, so the separate biofilter NFT needs is a gap too."
+        "note": "Yield = DWC yield x 0.83-0.95 (Blunk 2023, Pasch 2021; candidate). Channel metres per m2 not sourced, so channel cost is a gap. No NL biofilter media price, so the separate biofilter NFT needs is a gap too.",
+        "confidence": "low",
+        "confidence_reason": "NFT yield is 0.83-0.95 of raft from two studies that disagree on size (pending Batch 003); fish feed at 25% of the raft rate is a low-confidence rule; channels and biofilter not fully priced.",
+        "risk": "Most sensitive to pump stops: a thin film dries out within hours, while a raft holds water. Needs fine solids removal and a separate biofilter.",
+        "labour": "Channels need flushing and root clearing after each crop."
       },
       {
         "swap_id": "heat_pump",
@@ -87,7 +95,11 @@
             "heating": "heating_heat_pump_air_water_nl"
           }
         },
-        "note": "Heat pump lifetime is not sourced, so its build cost per year is left out. Gas boiler price is also missing in the base."
+        "note": "Heat pump lifetime is not sourced, so its build cost per year is left out. Gas boiler price is also missing in the base.",
+        "confidence": "medium",
+        "confidence_reason": "COP 3.7-4.6 and gas-to-heat conversion are corroborated Tier 2 values (pending Batch 003), but heat demand is transferred from sweet pepper and the heat pump lifetime is not sourced.",
+        "risk": "Needs a low-temperature (35-45 C) heating system; cost depends on the gas-to-power price ratio.",
+        "labour": "Service contract and refrigerant checks (frequency not sourced)."
       },
       {
         "swap_id": "no_heating",
@@ -98,7 +110,10 @@
             "enabled": false
           }
         },
-        "note": "Upper bound on what heating costs. Yield stays at the heated value, which an unheated NL house would not reach in winter (not modelled)."
+        "note": "Upper bound on what heating costs. Yield stays at the heated value, which an unheated NL house would not reach in winter (not modelled).",
+        "confidence": "low",
+        "confidence_reason": "The model keeps the heated yield, but an unheated Dutch glasshouse would not grow basil through winter (not modelled), so this is an upper bound on the heating cost, not a real option.",
+        "risk": "Basil stops growing or dies in cold months."
       },
       {
         "swap_id": "structure_existing_space",
@@ -112,7 +127,10 @@
             "enabled": false
           }
         },
-        "note": "Heating off too: heat demand is per m2 of greenhouse. A building would need lights, which are not in the catalog."
+        "note": "Heating off too: heat demand is per m2 of greenhouse. A building would need lights, which are not in the catalog.",
+        "confidence": "low",
+        "confidence_reason": "Rent, lighting and building climate are not in the catalog, so the saving is overstated.",
+        "risk": "A closed building needs grow lights (not priced)."
       }
     ]
   }

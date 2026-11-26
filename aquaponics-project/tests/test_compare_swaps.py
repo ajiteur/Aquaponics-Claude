@@ -153,5 +153,29 @@ class RelativeYieldTests(unittest.TestCase):
         self.assertTrue(any("plant yield" in g for g in media["gaps"]))
 
 
+class TradeoffReportTests(unittest.TestCase):
+    def test_report_has_gain_give_up_and_confidence_per_swap(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            paths = fixture_with_heating(Path(tmp))
+            spec = {"base": BASE, "options": [
+                {"swap_id": "nft", "label": "NFT", "confidence": "low", "confidence_reason": "test",
+                 "risk": "pump stops", "patch": {"grow_architecture": "nft", "components": {"grow_unit": []}}}]}
+            res = sw.compare_swaps(spec, *paths)
+        md = sw.tradeoff_markdown([("Here", res)])
+        self.assertIn("Scenario estimate, not validated", md)
+        for row in res["swaps"]:
+            self.assertIn(f"### {row['label']}", md)
+        self.assertEqual(md.count("**You gain:**"), len(res["swaps"]))
+        self.assertEqual(md.count("**Confidence:**"), len(res["swaps"]))
+        self.assertIn("no sourced basil yield", md)
+        self.assertIn("pump stops", md)
+
+    def test_vault_note_is_current(self):
+        note = sw.VAULT_NOTE.read_text(encoding="utf-8")
+        results = [(t, sw.compare_swaps(cs.load_json(PROJECT_ROOT / r)["swaps"])) for t, r in sw.VAULT_RUNS]
+        self.assertEqual(note, sw.tradeoff_markdown(results),
+                         "Regenerate with: python scripts/compare_swaps.py --vault")
+
+
 if __name__ == "__main__":
     unittest.main()
