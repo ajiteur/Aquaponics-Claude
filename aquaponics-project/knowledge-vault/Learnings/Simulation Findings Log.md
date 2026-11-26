@@ -2,6 +2,32 @@
 
 What the simulation shows, newest first. These are **scenario estimates, not validated**: they describe the model, not the real world, and they are never truths.
 
+## 2026-11-26: Validation fixes, basil density and light, tilapia temperature curve (scenario estimate, not validated)
+
+Rerun of `python scripts/validate_published_systems.py` after two candidate fixes (pending Batch 003). The previous run is the entry below and is left as it was, so you can compare the two.
+
+- **Tilapia temperature factor** now follows measured growth rates (Santos et al. 2013, three strains). At 22 °C it is 0.674 of the 28 to 30 °C rate (was 1/3). The old point read SRAC 283's "three times greater growth" as a daily rate, but that ratio applies to final weight over a grow-out, not to daily growth. Full rate runs to 33 °C, falling to 0.745 at 37 °C (Baras 2001).
+- **Basil** per-plant growth now falls with planting density: yield per m² scales with density to the power 0.394, fitted to Ciriello 2021's raft trial. It also falls with daily light integral (DLI) below about 16.5 mol/m²/d (Dou 2018, Walters 2023). At the UVI anchor (8 plants/m², tropical light) nothing changes, by construction.
+
+| Metric | Before | After |
+|---|---|---|
+| Knaus fish end biomass | −8% | −7% ✓ |
+| Knaus FCR | +21% | +16% ✓ |
+| Knaus TAN | +115% | +115% ✗ (gravel-bed N issue, left open) |
+| Knaus NO3-N | −32% | −11% ✓ |
+| Knaus basil per plant | +670% | +30% (DLI 4.8) to +441% (DLI 12.7) ✗ |
+| Savidov basil per m² per year at its density | +286% | +68% ✗ |
+| Savidov basil at UVI density (reference) | −3% | −3% ✓ |
+| Savidov fish harvest weight | −38% | −25% (just over the bar) |
+| Khater fish gain, mid / high table feed | −36% / −20% | −10% / 0% ✓ |
+| Khater FCR | +166% | +84% ✗ |
+| UVI grow-out, mid table at UVI temperatures | −34% | −24% |
+
+- **6 of 12 metrics now fail, down from 7 of 11.** The Knaus basil metric is now two metrics, one for each DLI reading.
+- **Basil is still too high.** Knaus's photoperiod isn't reported, so its DLI could be anywhere from 4.8 to 12.7, which is why the result spans +30 to +441 percent. Savidov's +68 percent may come from extrapolating a baby-leaf density trial down to 32 plants/m².
+- **Khater's published FCR (0.92 to 1.20) sits below the Tier 1 range of 1.4 to 1.8**, so part of that gap may lie in the paper rather than the model.
+- **No change in the crop-cycle scenarios:** they run at 28 °C, 8 plants/m² and no DLI set.
+
 ## 2026-11-26: Validation against three published systems beyond UVI (scenario estimate, not validated)
 
 Run: `python scripts/validate_published_systems.py` (results in `data/simulation/results/published_system_validation.json`; observations in `data/knowledge/validation/published_system_observations.json`). A metric fails when the model is more than 25 percent off.

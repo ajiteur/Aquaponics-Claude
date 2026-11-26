@@ -22,7 +22,7 @@ Last updated: 2026-11-26, after Approval Batch 002 (PRs #21 to #28). No checkpoi
 - [x] Nitrate removal: water exchange plus a calibrated residual loss (PR #21; the residual loss is a candidate)
 - [ ] Heating and climate: water and air temperature, and the heating load per site (in review, PR #30)
 - [ ] Fish growth and feed: tilapia growth to harvest, driving feed input (in review, PR #30)
-- [ ] Validation against real farm data, not only calibration to UVI (in review, PR #30: 3 systems, 7 of 11 metrics fail; tickets UQ-013 to UQ-015)
+- [ ] Validation against real farm data, not only calibration to UVI (in review, PR #30: 3 systems, 6 of 12 metrics fail after candidate fixes; UQ-015 open)
 
 ## 2. Complete components
 
