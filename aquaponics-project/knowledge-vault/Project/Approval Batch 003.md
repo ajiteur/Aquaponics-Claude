@@ -12,7 +12,7 @@ Each PR is stacked on the one before it, so merge them in this order.
 |---|---|---|
 | A1 | #28: record Approval Batch 002, save-point-002 entry | **Merge first.** Tag `save-point-002` on the merge commit. |
 | A2 | #29: swaps checkpoint (`compare_swaps.py`, heat-pump heating source, NFT and media-bed alternatives) | **Merge second.** Re-reviewed at `c5e1042`: tests (204), integrity and syncs pass. |
-| A3 | #30: heating and climate checkpoint (`heat_demand.py`, greenhouse heat models) | **Merge third.** Stacked on #29 at `45509ab`. With #28, #29 and #30 combined, tests, integrity and syncs pass. |
+| A3 | #30: heating and climate checkpoint, plus the fish growth and feed checkpoint (`heat_demand.py`, `fish_growth.py`) | **Merge third.** Stacked on #29, re-reviewed at `4f7182f`. The fish model is opt-in, and only the two basil raft crop cycles use it; their yields move by under 0.1% (1.440 to 1.441 kg/m²). With #28, #29 and #30 combined, tests, integrity and syncs pass. |
 
 ## B. Values from PR #29 (swaps)
 
@@ -37,6 +37,15 @@ Each PR is stacked on the one before it, so merge them in this order.
 | C4 | HEAT_0007 (KEMA calibration point) and ticket UQ-012 (KEMA 2009 vs 2012, about 2x apart) | Keep as candidate until UQ-012 is resolved. |
 | C5 | HEAT_0008 (no published Dutch basil heat demand) | Keep as candidate. Single source. |
 | C6 | The greenhouse heat demand model | Keep as candidate. It is calibrated to the conflicting KEMA point. |
+
+## D. Values from PR #30 (fish growth and feed)
+
+| # | Item | Recommendation |
+|---|---|---|
+| D1 | FISH_0001 (FCR 1.4 to 1.8, UVI 1.7), FISH_0002 (SRAC 282 feeding table), FISH_0003 (no feeding below 17 °C), FISH_0004 (growth at the optimum), FISH_0006 (UVI growth benchmark), FISH_0007 (UVI 32% protein pellet) | **Approve.** Tier 1 or 2, medium or high, corroborated. |
+| D2 | FISH_0005 (optimum 27 to 29 °C; sources conflict) | Keep as candidate. |
+| D3 | FISH_0008 (no thermal growth coefficient found; Tier 3) | Keep as candidate. |
+| D4 | The tilapia growth and feed model (temperature points 17 / 22 / 27 to 32 / 39.7 °C) | Keep as candidate. It is a new model and its upper shoulder is low confidence. |
 
 ## Related Notes
 
