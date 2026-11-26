@@ -37,6 +37,7 @@ OUT_ROOT = PROJECT_ROOT / "data" / "simulation" / "results" / "local_runs"
 COMPARE_SCRIPT = PROJECT_ROOT / "scripts" / "compare_unit_configurations.py"
 CROP_CYCLE_SCRIPT = PROJECT_ROOT / "src" / "simulate_crop_cycle.py"
 CONFIGURATOR_SCRIPT = PROJECT_ROOT / "scripts" / "configure_system.py"
+SWAPS_SCRIPT = PROJECT_ROOT / "scripts" / "compare_swaps.py"
 LABEL = "Scenario estimate, not validated."
 
 
@@ -294,6 +295,31 @@ def run_configurator(spec: dict, out_dir: Path) -> tuple[dict, list[str]]:
     return result, configurator.summary_lines(result)
 
 
+def run_swaps(spec: dict, out_dir: Path) -> tuple[dict, list[str]]:
+    """Compare swaps (architecture, heating, parts) against a base build (scripts/compare_swaps.py)."""
+    swaps = load_module(SWAPS_SCRIPT, "compare_swaps")
+    try:
+        result = swaps.compare_swaps(spec)
+    except swaps.ConfigError as exc:
+        raise RunError(str(exc))
+    (out_dir / "swaps_result.json").write_text(json.dumps(result, indent=2), encoding="utf-8")
+    rows = []
+    for row in result["swaps"]:
+        if row["status"] != "ran":
+            continue
+        flat = {"estimate_status": "scenario_estimate", "currency": result["currency_code"], "swap_id": row["swap_id"],
+                "kind": row["kind"], "like_for_like": row["like_for_like"], "new_gaps": len(row["new_gaps"])}
+        for key, m in row["mid"].items():
+            flat[f"{key}_base"], flat[f"{key}_swap"], flat[f"{key}_change"] = m["base"], m["swap"], m["change"]
+        rows.append(flat)
+    if rows:
+        with open(out_dir / "swaps_comparison.csv", "w", newline="", encoding="utf-8") as f:
+            writer = csv.DictWriter(f, fieldnames=list(rows[0]))
+            writer.writeheader()
+            writer.writerows(rows)
+    return result, swaps.summary_lines(result)
+
+
 # --- main ------------------------------------------------------------------
 
 def run(run_file: Path) -> int:
@@ -317,8 +343,11 @@ def run(run_file: Path) -> int:
     if spec.get("configurator") is not None:
         _, cf_lines = run_configurator(spec["configurator"], out_dir)
         lines += cf_lines + [""]
-    if all(spec.get(k) is None for k in ("simulation", "unit_economics", "configurator")):
-        raise RunError("The run file needs a 'simulation', 'unit_economics' or 'configurator' block.")
+    if spec.get("swaps") is not None:
+        _, sw_lines = run_swaps(spec["swaps"], out_dir)
+        lines += sw_lines + [""]
+    if all(spec.get(k) is None for k in ("simulation", "unit_economics", "configurator", "swaps")):
+        raise RunError("The run file needs a 'simulation', 'unit_economics', 'configurator' or 'swaps' block.")
 
     lines.append(f"Files written to {rel(out_dir)}/")
     text = "\n".join(lines)

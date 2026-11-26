@@ -212,8 +212,11 @@ class RealCatalogTests(unittest.TestCase):
         for entry in self.species["fish"] + self.species["plants"]:
             self.assertTrue((PROJECT_ROOT / entry["canon_ref"]).is_file(), entry["canon_ref"])
             for key, spec in entry["sizing"].items():
-                self.assertIn("confidence", spec, f"{entry['species_key']}.{key}")
-                self.assertIn("corroboration", spec, f"{entry['species_key']}.{key}")
+                # Per-architecture ratios carry their reliability block on each value.
+                specs = [v for v in spec["values"].values() if v] if "values" in spec else [spec]
+                for one in specs:
+                    self.assertIn("confidence", one, f"{entry['species_key']}.{key}")
+                    self.assertIn("corroboration", one, f"{entry['species_key']}.{key}")
 
     def test_example_runs_build(self):
         for name in ("configure_basil_dwc_nl", "configure_basil_dwc_karnataka"):

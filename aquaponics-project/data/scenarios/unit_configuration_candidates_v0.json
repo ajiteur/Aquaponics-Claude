@@ -472,7 +472,13 @@
           "approved_date_local": "2026-11-25",
           "scope": "B5 Karnataka wage_per_hour, scenario use only, low confidence",
           "record": "Approval Batch 001, approved as recommended (thread message 2026-11-25 23:56 Europe/Amsterdam)"
-        }
+        },
+        "price_year": {
+          "low": 2025,
+          "high": 2026
+        },
+        "price_year_basis": "stated_in_source",
+        "price_year_note": "wage order valid 1 Apr 2025 to 31 Mar 2026"
       },
       "electricity_per_kwh": {
         "low": 3.45,
@@ -489,7 +495,13 @@
           "approved_date_local": "2026-11-25",
           "scope": "B5 Karnataka electricity_per_kwh, scenario use only, low confidence",
           "record": "Approval Batch 001, approved as recommended (thread message 2026-11-25 23:56 Europe/Amsterdam)"
-        }
+        },
+        "price_year": {
+          "low": null,
+          "high": 2026
+        },
+        "price_year_basis": "stated_in_source",
+        "price_year_note": "low end from an undated aggregator; high end KERC review order reported 4 Mar 2026"
       },
       "currency_code": "INR",
       "eur_per_currency_unit_for_comparison": {
@@ -551,7 +563,13 @@
           486,
           637
         ],
-        "paid_hours_per_day": 8
+        "paid_hours_per_day": 8,
+        "price_year": {
+          "low": 2026,
+          "high": 2026
+        },
+        "price_year_basis": "stated_in_source",
+        "price_year_note": "central-sphere proxy w.e.f. 1 Oct 2026"
       },
       "electricity_per_kwh": {
         "low": 4.95,
@@ -561,7 +579,13 @@
         "source_tier": "grey_literature",
         "confidence": "medium",
         "confidence_reason": "Secondary site, but matches the pattern of the official 2024 order; agriculture LT-IV FY2025-26 not found; category for aquaponics unknown",
-        "excluded": "fixed charges Rs 77-110 per kW per month"
+        "excluded": "fixed charges Rs 77-110 per kW per month",
+        "price_year": {
+          "low": 2025,
+          "high": 2025
+        },
+        "price_year_basis": "stated_in_source",
+        "price_year_note": "TNERC T.O. No.6 of 2025, from 1 Jul 2025"
       },
       "currency_code": "INR",
       "eur_per_currency_unit_for_comparison": {
@@ -620,7 +644,13 @@
           486,
           637
         ],
-        "paid_hours_per_day": 8
+        "paid_hours_per_day": 8,
+        "price_year": {
+          "low": 2026,
+          "high": 2026
+        },
+        "price_year_basis": "stated_in_source",
+        "price_year_note": "central-sphere proxy w.e.f. 1 Oct 2026"
       },
       "electricity_per_kwh": {
         "low": 3.85,
@@ -630,7 +660,13 @@
         "source_tier": "government_statistics (partly unverified)",
         "confidence": "low",
         "confidence_reason": "Tariff table not read verbatim; commercial fallback not found so the high end may be too low; eligibility of an aquaponic unit for agri or aquaculture categories unknown",
-        "excluded": "fixed charges Rs 30-75 per month (unit unconfirmed); concessions not applied"
+        "excluded": "fixed charges Rs 30-75 per month (unit unconfirmed); concessions not applied",
+        "price_year": {
+          "low": 2025,
+          "high": 2026
+        },
+        "price_year_basis": "stated_in_source",
+        "price_year_note": "APERC RSTO FY2025-26"
       },
       "currency_code": "INR",
       "eur_per_currency_unit_for_comparison": {
@@ -689,7 +725,13 @@
           538.46,
           711.54
         ],
-        "paid_hours_per_day": 8
+        "paid_hours_per_day": 8,
+        "price_year": {
+          "low": 2026,
+          "high": 2026
+        },
+        "price_year_basis": "stated_in_source",
+        "price_year_note": "G.O.Ms.No.6, from 1 Jun 2026"
       },
       "electricity_per_kwh": {
         "low": 4.0,
@@ -699,7 +741,13 @@
         "source_tier": "government_statistics",
         "confidence": "medium",
         "confidence_reason": "Official discom schedule read directly, but its period has expired and no newer one was found; aquaponics category unknown",
-        "excluded": "fixed charges Rs 20-70 per kW or HP per month"
+        "excluded": "fixed charges Rs 20-70 per kW or HP per month",
+        "price_year": {
+          "low": 2025,
+          "high": 2026
+        },
+        "price_year_basis": "stated_in_source",
+        "price_year_note": "TGSPDCL tariff FY2025-26"
       },
       "currency_code": "INR",
       "eur_per_currency_unit_for_comparison": {
@@ -794,7 +842,13 @@
         "confidence_reason": "Secondary compiler, period has expired, newer revision not confirmed; 8 h/day unverified",
         "derivation": "Minimum wage x 1.1525 statutory-burden proxy (research pack, EPF/ESI), divided by paid hours per day",
         "raw_minimum_wage_per_day": 533.21,
-        "paid_hours_per_day": 8
+        "paid_hours_per_day": 8,
+        "price_year": {
+          "low": 2025,
+          "high": 2026
+        },
+        "price_year_basis": "stated_in_source",
+        "price_year_note": "wage order valid 1 Apr 2025 to 31 Mar 2026"
       },
       "electricity_per_kwh": {
         "low": 3.45,
@@ -804,7 +858,13 @@
         "source_tier": "grey_literature",
         "confidence": "low",
         "confidence_reason": "No primary KERC order read; aggregator and news values conflict for LT-3a and LT-5; aquaponics tariff category unknown",
-        "excluded": "fixed charges (about Rs 165-235 per kW or HP per month)"
+        "excluded": "fixed charges (about Rs 165-235 per kW or HP per month)",
+        "price_year": {
+          "low": null,
+          "high": 2026
+        },
+        "price_year_basis": "stated_in_source",
+        "price_year_note": "low end from an undated aggregator; high end KERC review order reported 4 Mar 2026"
       },
       "currency_code": "INR",
       "eur_per_currency_unit_for_comparison": {

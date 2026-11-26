@@ -2,6 +2,17 @@
 
 Newest first. Each entry gives the decision, why, and who made it.
 
+## 2026-11-26: Multi-market checkpoint
+
+- **Tie every price to a market: region, currency and price year.** Retail listings take the year they were read, sourced documents take the year they state, and anything else is marked "not recorded" and flagged, never guessed. A build refuses a price in another currency. Why: the model has to generalise to many markets without mixing currencies or vintages. Proposed by Claude.
+- **A new country is data only.** A test adds a stub third market from data and runs the configurator and the swaps on it with no code change. Proposed by Claude.
+
+## 2026-11-26: Swaps checkpoint
+
+- **Price other architectures from a sourced yield ratio against the raft, and only where a study gives a number.** NFT uses 0.83 to 0.95 of the raft yield. The media bed stays without a yield, because "not significantly different" is not a measured ratio. Batch 003 can accept parity as Ajit's own assumption. Proposed by Claude.
+- **Compare swaps as patches on a base build, and show gaps next to each change.** A swap can change the architecture, the heating source or one part. A swap that opens a cost gap is flagged as not like-for-like rather than given a filled-in number. Why: Ajit wants game-like part choices, and an unpriced part must not look free. Proposed by Claude.
+- **Model a heat pump as the same heat demand delivered with electricity.** Heat (kWh) is gas m³ × 8.63 to 8.79 kWh per m³, and electricity is heat ÷ a seasonal COP of 3.7 to 4.6. The heat-demand values themselves stay with the heating and climate thread. New values pending Batch 003. Proposed by Claude.
+
 ## 2026-11-26
 
 - **Shelve the farm go/no-go; build the strongest simulation for the Netherlands and India in parallel.** Why: if the simulation is strong, moving to a real farm is straightforward, and the engine should work across many markets. Decided by Ajit.

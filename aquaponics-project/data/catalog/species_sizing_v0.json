@@ -11,6 +11,9 @@
     "how_to_add_a_species": "knowledge-vault/Project/How to Add Components.md"
   },
   "sources": {
+    "pasch_2021_basil_drf_raft_pipes": {"citation": "Pasch J, Ratajczak B, Appelbaum S, Palm HW, Knaus U (2021). Growth of basil (Ocimum basilicum) in DRF, raft, and grow pipes with effluents of African catfish (Clarias gariepinus) in decoupled aquaponics. AgriEngineering 3(1):92-109. doi:10.3390/agriengineering3010006", "url": "https://www.mdpi.com/2624-7402/3/1/6", "read_date": "2026-11-26", "source_tier": "tier_1"},
+    "blunk_2023_basil_soilless_systems": {"citation": "Blunk A, Lee M, Johnson T, Balaguer R, Di Gioia F (2023). Yield, quality and resource use efficiency of basil grown in alternative soilless growing systems. Acta Horticulturae 1377:695-702. doi:10.17660/ActaHortic.2023.1377.85 (abstract read)", "url": "https://ishs.org/ishs-article/1377_85/", "read_date": "2026-11-26", "source_tier": "tier_2"},
+    "knaus_2020_basil_pipes_raft_gravel": {"citation": "Knaus U, Pribbernow M, Xu L, Appelbaum S, Palm HW (2020). Basil (Ocimum basilicum) cultivation in decoupled aquaponics with three hydro-components (grow pipes, raft, gravel) and African catfish (Clarias gariepinus) production in northern Germany. Sustainability 12(20):8745. doi:10.3390/su12208745 (HTML text read; Table 2 image not read)", "url": "https://www.mdpi.com/2071-1050/12/20/8745/htm", "read_date": "2026-11-26", "source_tier": "tier_1"},
     "srac_454_rakocy_masser_losordo": {
       "citation": "Rakocy, Masser, Losordo, SRAC Publication 454, Recirculating Aquaculture Tank Production Systems: Aquaponics - Integrating Fish and Plant Culture (revised 2016)",
       "url": "https://pods.okstate.edu/fact-sheets/SRAC-454pod.pdf",
@@ -121,7 +124,39 @@
           "corroboration": {"status": "corroborated", "source_ids": ["rakocy_2004_uvi_tilapia_basil_acta_hort_648", "uvi_aquaponic_system_design"]},
           "cross_check": "UVI design summary: basil 5 t/yr on 214 m2 = 23.4 kg/m2/yr.",
           "applies_to_architectures": ["dwc_raft"],
-          "note": "Harvested cut mass, not saleable_harvest_mass_kg. NFT and media-bed yields are not sourced; the configurator reports them as missing."
+          "note": "Harvested cut mass, not saleable_harvest_mass_kg. NFT yield comes from yield_relative_to_reference_architecture (candidate); media-bed yield is not sourced and the configurator reports it as missing."
+        },
+        "yield_relative_to_reference_architecture": {
+          "reference_architecture": "dwc_raft",
+          "unit": "yield in this architecture / yield in a DWC raft, same nutrient source",
+          "values": {
+            "nft": {
+              "low": 0.826,
+              "high": 0.949,
+              "favourable": "high",
+              "source_ids": [
+                "blunk_2023_basil_soilless_systems",
+                "pasch_2021_basil_drf_raft_pipes"
+              ],
+              "derivation": "Low: Blunk 2023 (hydroponic) 'DWC ... recording 21% higher yields than ... NFT', so NFT/DWC = 1/1.21 = 0.826. High: Pasch 2021 (decoupled aquaponics, catfish) total basil weight per plant, grow pipes 77.86 g vs raft 82.02 g = 0.949 (not significantly different). Both kept as the range ends, not averaged.",
+              "source_tier": "tier_1",
+              "source_gate": "conditional",
+              "source_gate_reason": "One peer-reviewed aquaponic study (decoupled, catfish, 36-day cycle, Rostock) and one hydroponic proceedings abstract; neither is coupled tilapia aquaponics.",
+              "confidence": "low",
+              "confidence_reason": "Two sources agree NFT yields at or below DWC, but differ in size of the gap; grow pipes are NFT-like, not labelled NFT; transferred to a coupled tilapia system.",
+              "corroboration": {
+                "status": "conflicting",
+                "source_ids": [
+                  "blunk_2023_basil_soilless_systems",
+                  "pasch_2021_basil_drf_raft_pipes"
+                ]
+              },
+              "status": "candidate",
+              "approval_status": "pending_batch_003"
+            },
+            "media_bed": null
+          },
+          "media_bed_note": "Not found as a number. Knaus 2020 (decoupled aquaponics, gravel vs raft vs grow pipes) reports basil 'wet and dry weights ... not significantly different between the subsystems' at day 41, but the values sit in a table image that could not be read. A non-significant difference is not turned into a ratio here; Batch 003 can decide whether to accept parity (1.0) as Ajit's assumption, or the Table 2 values can be read from the PDF."
         },
         "feeding_rate_ratio_g_per_m2_day": {
           "low": 60.0, "high": 100.0, "unit": "g fish feed / m2 plant area / day",

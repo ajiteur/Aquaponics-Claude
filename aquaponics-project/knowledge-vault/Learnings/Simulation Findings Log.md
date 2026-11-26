@@ -2,6 +2,35 @@
 
 What the simulation shows, newest first. These are **scenario estimates, not validated**: they describe the model, not the real world, and they are never truths.
 
+## 2026-11-26: Swaps checkpoint, NFT yield and Dutch NFT and media prices (scenario estimate, not validated)
+
+Run: `run.bat swaps_basil_nl` and `run.bat swaps_basil_karnataka` again, after adding a sourced NFT-to-raft basil yield ratio of 0.83 to 0.95 (Blunk 2023, Pasch 2021) and Dutch prices for NFT channels (€16.75 to €18.61 per m) and expanded clay (€188 to €440 per m³). All are candidates pending Batch 003.
+
+- **NFT now has a cost per kg: NL €4.42 / 5.89 / 7.73, Karnataka ₹50.81 / 72.37 / 99.00** (low / mid / high), against €10.04 and ₹133.49 mid for the raft. That is still not like-for-like (*). Channel metres per m² aren't sourced, so the channels are unpriced, and in NL the separate biofilter NFT needs has no price. Most of the drop comes from fish feed at 25% of the raft rate (SRAC 454, low confidence) and no raft aeration, so this is the least reliable swap in the table.
+- **Media bed still has no cost per kg.** Knaus 2020 found no significant weight difference between gravel, raft and grow pipes, but its numbers sit in a table image that couldn't be read. A non-significant difference isn't turned into a ratio. With clay media the NL media bed costs €130 per m² per year mid, against €243 for the raft, before the clay's lifetime and the bed container, which are both gaps.
+
+## 2026-11-26: Swaps checkpoint, side-by-side part swaps (scenario estimate, not validated)
+
+Run: `run.bat swaps_basil_nl` and `run.bat swaps_basil_karnataka` (`scripts/compare_swaps.py`). Base: 100 m² tilapia + basil DWC raft, owner labour, mid case. Each row is the change against the base. A (*) means the swap opens cost gaps, so some of its costs are left out and the change is not like-for-like. New values are candidates pending Batch 003.
+
+| Swap | NL change per kg basil (base €10.04) | Karnataka change per kg basil (base ₹133.49) |
+|---|---|---|
+| Media bed instead of raft (*) | n/a (no sourced yield); −€116 per m² per yr, −42 m³ water, −13,800 kWh | n/a; −₹1,676 per m² per yr, −42 m³ water |
+| NFT instead of raft (*) | n/a (no sourced yield or channel layout) | n/a (same) |
+| Air-water heat pump instead of gas boiler (*) | −€2.04 (+12,500 kWh, gas to zero); heat pump life not sourced | not applicable (no heating) |
+| Heating off | −€3.44 (yield kept at the heated value, so this is an upper bound on heating cost) | not applicable |
+| New IBC instead of used IBC | +€0.06 | — |
+| EPS instead of XPS rafts | −€0.03 | — |
+| Fan-and-pad polyhouse (*) | — | −₹9.67, but only because its life and power are not sourced |
+| Shade net instead of polyhouse | — | −₹0.97 |
+| FRP 750 L tanks instead of PVC 5,000 L | — | +₹11.35 |
+| 90 m³ cement RAS tank instead of PVC | — | +₹5.89 |
+
+- **In the Netherlands, heating is the biggest swap lever.** A heat pump at a seasonal COP of 3.7 to 4.6 roughly halves the heating line at current CBS gas and power prices, before its build cost (life not sourced).
+- **Media bed and NFT can't be priced per kg yet.** With no sourced yield for basil in those systems, only cost per m² is shown. Fish feed falls to 25% of the raft rate (SRAC 454 factor, low confidence), which drives the drop in electricity and water.
+- **In Karnataka, tank choice matters more than structure choice** among the parts priced so far. PVC biofloc tanks remain the cheapest per kg.
+- **The Karnataka base is now ₹109.68 / 133.49 / 159.43 per kg** (low / mid / high), up from earlier runs because the MIDH 2025 polyhouse norm (Batch 002, F1) replaced the older range.
+
 ## 2026-11-26: Equipment P1 research, Batch 002 candidates (scenario estimate, not validated)
 
 - Karnataka basil DWC configurator, mid case: INR 110.25 to 130.78 per kg of plant output (low to high case moves from 91.65-130.41 to 106.95-156.78). Why: polyhouse life (10-12 yr) and an India water price are now counted instead of left out as gaps. The water price is Chennai's commercial tariff (Rs 99-163/m3) used as a proxy, because no current Bengaluru tariff was found.

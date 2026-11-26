@@ -182,8 +182,17 @@ def size_system(catalog: Catalog, build: dict, case: str, gaps: set) -> dict:
 
     yld = species_value(plant, "yield_kg_per_m2_yr", case, build, "plant")
     applies = plant["sizing"].get("yield_kg_per_m2_yr", {}).get("applies_to_architectures")
+    yield_basis = "sourced for this architecture"
     if applies and arch not in applies and "yield_kg_per_m2_yr" not in build.get("species_overrides", {}).get("plant", {}):
-        yld = None
+        # No direct yield for this architecture: use a sourced yield ratio against the reference
+        # architecture, if the catalog has one. Missing ratio means missing yield.
+        rel_spec = plant["sizing"].get("yield_relative_to_reference_architecture", {})
+        ratio = rel_spec.get("values", {}).get(arch)
+        if yld is not None and ratio is not None and ratio.get("low") is not None:
+            yld = yld * pick(as_range(ratio), case, ratio.get("favourable", "high"))
+            yield_basis = f"{rel_spec.get('reference_architecture', applies[0])} yield x sourced ratio for {arch}"
+        else:
+            yld = None
     if yld is None:
         gaps.add(f"plant yield for {build['plant']} in {arch} (no sourced value; set species_overrides.plant.yield_kg_per_m2_yr)")
 
@@ -282,6 +291,7 @@ def size_system(catalog: Catalog, build: dict, case: str, gaps: set) -> dict:
         "system_water_m3": system_water_m3,
         "makeup_water_m3_yr": makeup_m3_yr,
         "plant_kg_yr": area * yld if yld else None,
+        "plant_yield_basis": yield_basis if yld else None,
         "plants_started_per_yr": plants_yr,
     }
 
@@ -390,6 +400,10 @@ def evaluate_case(catalog: Catalog, build: dict, case: str, components: list[dic
     drivers["structure_area_m2"] = drivers.get(structure_basis) or min_area
 
     lines = [cost_component(c, drivers, case, power_price, gaps) for c in components]
+    if (drivers.get("biofilter_media_m3") or 0) > 0 and not any(c["category"] == "biofilter" for c in components):
+        gaps.add(f"biofilter: {build['grow_architecture']} needs a separate biofilter, but none is chosen, so its cost is left out")
+    if not any(c["category"] == "grow_unit" for c in components):
+        gaps.add(f"grow unit: no part chosen (none priced for {build['grow_architecture']} in {region}), so its build cost is left out")
 
     running = []
 
@@ -411,10 +425,41 @@ def evaluate_case(catalog: Catalog, build: dict, case: str, components: list[dic
     add_running("water", "Make-up water", drivers["makeup_water_m3_yr"], "m3/yr", "water_price_per_m3")
 
     heating = build.get("heating", {})
+    heat_pump_kwh = 0.0
+    heating_source = heating.get("source", "gas_boiler")
     if heating.get("enabled"):
+        # Heat demand is recorded as m3 of gas a boiler-heated greenhouse burns per m2 per year.
         demand, _ = running_value(catalog, "greenhouse_heat_demand_m3_gas_per_m2_yr", region, case, build)
         gas_qty = drivers["structure_area_m2"] * demand if demand is not None else None
-        add_running("heating", "Heating gas", gas_qty, "m3 gas/yr", "natural_gas_price_per_m3")
+        if heating_source == "gas_boiler":
+            add_running("heating", "Heating gas", gas_qty, "m3 gas/yr", "natural_gas_price_per_m3")
+            if not any(c["category"] == "heating" for c in components):
+                gaps.add("gas boiler and heating installation: no catalog price (the glasshouse price excludes heating)")
+        elif heating_source == "heat_pump":
+            # Same heat, delivered by an electric heat pump: heat (kWh) = gas m3 x heat per m3 of gas;
+            # electricity = heat / seasonal COP.
+            heat_per_m3, _ = running_value(catalog, "gas_heat_kwh_per_m3", region, case, build)
+            cop, _ = running_value(catalog, "heat_pump_seasonal_cop", region, case, build)
+            heat_kwh = gas_qty * heat_per_m3 if gas_qty is not None and heat_per_m3 is not None else None
+            drivers["heat_demand_kwh_yr"] = heat_kwh
+            if heat_kwh is None:
+                gaps.add("heat pump: heat demand in kWh (needs greenhouse_heat_demand and gas_heat_kwh_per_m3)")
+            elif cop is None:
+                gaps.add(f"heat pump: seasonal COP (heat_pump_seasonal_cop for {region})")
+            else:
+                heat_pump_kwh = heat_kwh / cop
+                if power_price is None:
+                    gaps.add("heat pump: electricity price")
+                running.append({
+                    "line_id": "heating", "label": "Heat pump electricity", "quantity": r(heat_pump_kwh, 0),
+                    "quantity_unit": "kWh/yr", "unit_price": r(power_price, 4),
+                    "cost_per_year": r(heat_pump_kwh * power_price) if power_price is not None else None,
+                    "input_id": "heat_pump_seasonal_cop",
+                })
+            if not any(c["category"] == "heating" for c in components):
+                gaps.add("heat pump: no heating component chosen, so its build cost is left out")
+        else:
+            raise ConfigError(f"Unknown heating.source '{heating_source}'. Known: gas_boiler, heat_pump")
 
     regime_id = build.get("labour_regime")
     labour = {"regime_id": regime_id, "hours_per_year": None, "cost_per_year": None, "costed": False}
@@ -452,7 +497,7 @@ def evaluate_case(catalog: Catalog, build: dict, case: str, components: list[dic
             "electricity_kwh_yr": None, "electricity_cost_per_year": None, "missing": [],
         })
 
-    elec_kwh = sum(l["electricity_kwh_yr"] or 0 for l in lines)
+    elec_kwh = sum(l["electricity_kwh_yr"] or 0 for l in lines) + heat_pump_kwh
     capex_total = sum(l["capex_total"] or 0 for l in lines)
     cost_rows = []
     for l in lines:
@@ -475,7 +520,7 @@ def evaluate_case(catalog: Catalog, build: dict, case: str, components: list[dic
     ]
     return {
         "case": case,
-        "sizing": {k: r(v, 3) for k, v in drivers.items()},
+        "sizing": {k: (r(v, 3) if not isinstance(v, str) else v) for k, v in drivers.items()},
         "components": lines,
         "running": running,
         "labour": labour,
@@ -486,6 +531,8 @@ def evaluate_case(catalog: Catalog, build: dict, case: str, components: list[dic
         "annual_cost_counted": r(total),
         "cost_per_kg_plant": r(total / plant_kg, 3) if plant_kg else None,
         "cost_per_kg_all_output": r(total / (plant_kg + fish_kg), 3) if plant_kg else None,
+        "cost_per_m2_grow_yr": r(total / drivers["grow_area_m2"], 3) if drivers["grow_area_m2"] else None,
+        "heating_source": heating_source if heating.get("enabled") else None,
         "breakdown": breakdown,
         "gaps": sorted(gaps),
     }
@@ -606,12 +653,57 @@ def simulation_check(catalog: Catalog, build: dict, mid: dict, days: int) -> dic
 
 # --- entry points -----------------------------------------------------------
 
+def market_check(catalog: Catalog, build: dict, components: list[dict]) -> dict:
+    """Tie every price the build uses to its market (region, currency, price year).
+
+    A currency that differs from the location's currency is an error, since no exchange rate is
+    applied inside a build. A price with no recorded year, or one taken from another place in the
+    same region, is reported as a flag rather than hidden.
+    """
+    loc = catalog.locations.get(build["location"], {})
+    currency = loc.get("currency_code")
+    tags, flags = [], []
+
+    def check(kind: str, item_id: str, market: dict | None, cur: str | None):
+        if cur is not None and currency is not None and cur != currency:
+            raise ConfigError(f"{kind} '{item_id}' is priced in {cur}, but location '{build['location']}' uses {currency}.")
+        if market is None:
+            flags.append(f"{item_id}: no market tag (region, currency, price year)")
+            return
+        if market.get("price_year_basis") == "not_a_price":
+            return
+        tags.append({"kind": kind, "id": item_id, **market})
+        if market.get("price_year_basis") == "not_recorded" or not market.get("price_year"):
+            flags.append(f"{item_id}: price year not recorded")
+        if market.get("place"):
+            flags.append(f"{item_id}: priced for {market['place']}, used for location '{build['location']}'")
+
+    for comp in components:
+        cp = comp.get("capex_per_unit")
+        if cp is not None:
+            check("component", comp["component_id"], cp.get("market"), comp.get("currency_code"))
+    overrides = build.get("running_overrides", {})
+    for (input_id, region), item in sorted(catalog.running.items()):
+        if region == build["region"] and input_id not in overrides:
+            check("running_input", input_id, item.get("market"), item.get("currency_code"))
+    for key in ("wage_per_hour", "electricity_per_kwh"):
+        rate = loc.get(key)
+        if isinstance(rate, dict) and key not in overrides:
+            year = rate.get("price_year")
+            if not year:
+                flags.append(f"location {build['location']}.{key}: price year not recorded")
+            elif None in (year.get("low"), year.get("high")):
+                flags.append(f"location {build['location']}.{key}: price year recorded for one end of the range only")
+    return {"currency_code": currency, "tags": tags, "flags": sorted(set(flags))}
+
+
 def build_result(build: dict, components_path: Path = DEFAULT_COMPONENTS,
                  species_path: Path = DEFAULT_SPECIES, locations_path: Path = DEFAULT_LOCATIONS,
                  run_simulation: bool | None = None) -> dict:
     catalog = Catalog(load_json(components_path), load_json(species_path), load_json(locations_path))
     validate_build(catalog, build)
     components = resolve_components(catalog, build)
+    market = market_check(catalog, build, components)
     cases = {case: evaluate_case(catalog, build, case, components) for case in CASES}
     currency = catalog.locations.get(build["location"], {}).get("currency_code")
     result = {
@@ -630,6 +722,7 @@ def build_result(build: dict, components_path: Path = DEFAULT_COMPONENTS,
         "cases": cases,
         "alternatives_mid": compare_alternatives(catalog, build, components, cases["mid"]),
         "gaps": sorted(set().union(*(set(c["gaps"]) for c in cases.values()))),
+        "market": market,
         "not_included": SCOPE_NOTE,
     }
     sim = build.get("simulation_check") if run_simulation is None else ({"days": 28} if run_simulation else None)
@@ -701,6 +794,10 @@ def summary_lines(result: dict) -> list[str]:
             )
         else:
             lines.append(f"    not run: {sim['reason']}")
+    flags = result.get("market", {}).get("flags", [])
+    if flags:
+        lines += ["", "  MARKET FLAGS (prices used but not fully tied to this market and year)"]
+        lines += [f"    - {f}" for f in flags]
     if result["gaps"]:
         lines += ["", "  GAPS (left out of the totals, never filled in)"]
         lines += [f"    - {g}" for g in result["gaps"]]
