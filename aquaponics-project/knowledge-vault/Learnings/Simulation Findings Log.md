@@ -2,6 +2,83 @@
 
 What the simulation shows, newest first. These are **scenario estimates, not validated**: they describe the model, not the real world, and they are never truths.
 
+## 2026-11-26: Validation fixes, basil density and light, tilapia temperature curve (scenario estimate, not validated)
+
+Rerun of `python scripts/validate_published_systems.py` after two candidate fixes (pending Batch 003). The previous run is the entry below and is left as it was, so you can compare the two.
+
+- **Tilapia temperature factor** now follows measured growth rates (Santos et al. 2013, three strains). At 22 °C it is 0.674 of the 28 to 30 °C rate (was 1/3). The old point read SRAC 283's "three times greater growth" as a daily rate, but that ratio applies to final weight over a grow-out, not to daily growth. Full rate runs to 33 °C, falling to 0.745 at 37 °C (Baras 2001).
+- **Basil** per-plant growth now falls with planting density: yield per m² scales with density to the power 0.394, fitted to Ciriello 2021's raft trial. It also falls with daily light integral (DLI) below about 16.5 mol/m²/d (Dou 2018, Walters 2023). At the UVI anchor (8 plants/m², tropical light) nothing changes, by construction.
+
+| Metric | Before | After |
+|---|---|---|
+| Knaus fish end biomass | −8% | −7% ✓ |
+| Knaus FCR | +21% | +16% ✓ |
+| Knaus TAN | +115% | +115% ✗ (gravel-bed N issue, left open) |
+| Knaus NO3-N | −32% | −11% ✓ |
+| Knaus basil per plant | +670% | +30% (DLI 4.8) to +441% (DLI 12.7) ✗ |
+| Savidov basil per m² per year at its density | +286% | +68% ✗ |
+| Savidov basil at UVI density (reference) | −3% | −3% ✓ |
+| Savidov fish harvest weight | −38% | −25% (just over the bar) |
+| Khater fish gain, mid / high table feed | −36% / −20% | −10% / 0% ✓ |
+| Khater FCR | +166% | +84% ✗ |
+| UVI grow-out, mid table at UVI temperatures | −34% | −24% |
+
+- **6 of 12 metrics now fail, down from 7 of 11.** The Knaus basil metric is now two metrics, one for each DLI reading.
+- **Basil is still too high.** Knaus's photoperiod isn't reported, so its DLI could be anywhere from 4.8 to 12.7, which is why the result spans +30 to +441 percent. Savidov's +68 percent may come from extrapolating a baby-leaf density trial down to 32 plants/m².
+- **Khater's published FCR (0.92 to 1.20) sits below the Tier 1 range of 1.4 to 1.8**, so part of that gap may lie in the paper rather than the model.
+- **No change in the crop-cycle scenarios:** they run at 28 °C, 8 plants/m² and no DLI set.
+
+## 2026-11-26: Validation against three published systems beyond UVI (scenario estimate, not validated)
+
+Run: `python scripts/validate_published_systems.py` (results in `data/simulation/results/published_system_validation.json`; observations in `data/knowledge/validation/published_system_observations.json`). A metric fails when the model is more than 25 percent off.
+
+| System | Metric | Model | Published | Error |
+|---|---|---|---|---|
+| Knaus 2018, Rostock (tilapia, gravel beds, 70 days) | Fish end biomass | 17.8 kg | 19.45 kg | −8% ✓ |
+| | FCR | 1.87 | 1.54 | +21% ✓ |
+| | TAN mean | 0.45 mg/L | 0.21 | +115% ✗ |
+| | NO3-N mean | 10.5 mg/L | 15.6 (SD 8.4) | −32% ✗ |
+| | Basil fresh per plant | 124 g | 16.1 g | +670% ✗ |
+| Savidov 2005, Alberta (tilapia + basil raft) | Basil per m² per year at 31.8 plants/m² | 99 kg | 25.7 kg | +286% ✗ |
+| | Basil per m² per year at UVI density | 25.0 kg | 25.7 kg | −3% ✓ |
+| | Fish harvest weight (24 weeks, 24.8 °C) | 392 g | about 630 g | −38% ✗ |
+| Khater 2023, Egypt (tilapia + lettuce, 23.5 °C) | Fish gain per day (table feed, mid/high) | 0.68 / 0.84 g | 1.05 to 1.36 g | −36% / −20% |
+| | FCR | 3.2 | 0.92 to 1.20 | +166% ✗ |
+
+Where it fails:
+- **Fish grow too slowly below 27 °C.** This shows up in three systems (Savidov at 24.8 °C, Khater at 23.5 °C, and UVI's winters) but not at 26.3 °C (Knaus, −8 percent). The straight-line temperature factor between 22 and 27 °C is the likely cause. Ticket UQ-013.
+- **Basil yield does not respond to plant density or light.** It matches Savidov per m² only if the UVI density is assumed. At Savidov's real density, or under Knaus's dim autumn light, it is far too high. Ticket UQ-014.
+- **The nitrogen balance is off for a small gravel-bed system.** TAN is too high (gravel is counted as raft area) and nitrate too low (the UVI-calibrated loss is probably too strong at low feed). Ticket UQ-015.
+- **What held up:** fish growth at a near-optimal 26 °C, and basil yield per m² at the UVI density in a second raft system.
+- Caveats: Savidov's yield period and fish harvest weight are derived, the report is low confidence, and Knaus mixed basil with mint and parsley.
+
+## 2026-11-26: Fish growth and feed, tilapia (scenario estimate, not validated)
+
+Run: `python src/fish_growth.py` (UVI check) and `src/simulate_crop_cycle.py`, 28 days, on both basil raft scenarios. Fish gain is now feed x temperature factor / FCR 1.7, replacing the placeholder feed / FCR x fish score x 0.8. All new values are candidates pending Batch 003.
+
+- **Feeding at the SRAC 282 table brackets UVI's measured growth.** Starting from UVI's 79 g fish at UVI's 24 to 29 °C, the mid table rate gives 537 g after 24 weeks, the low rate 283 g and the high rate 1,021 g. UVI measured 814 g. At a steady 28 °C, the mid rate gives 721 g (11 percent low). UVI fed to satiation, which seems to sit in the upper half of the table.
+- **The temperature curve may be too harsh at 24 °C.** It gives 60 percent of full growth at 24 °C, but UVI reported only a "slight growth depression" in its 24 °C winter. The straight line from 22 to 27 °C is an assumption between sourced points, and a measured thermal growth coefficient would settle it.
+- **In the crop-cycle scenarios fish grow from 80 g to 94.3 g in 28 days (was 92.8 g).** Feed is still the scenario's 1 percent of body weight a day (Mode A input). Basil yield and revenue barely move.
+- **Feeding the UVI feed-ratio fish at the table rate (about 2.25 percent) would overload the raft.** TAN climbs to about 94 mg/L in 28 days. So at table feeding the same raft carries only about 45 percent of that stock. This is a sensitivity run only; the committed scenarios keep 1 percent.
+
+## 2026-11-26: Heating and climate, NL glasshouse and Karnataka polyhouse (scenario estimate, not validated)
+
+Run: `python src/heat_demand.py` (results in `data/simulation/results/greenhouse_heat_demand.json`). An hourly heat balance on a mean day per month from KNMI De Bilt and IMD Bengaluru 1991-2020 normals. The loss coefficient is calibrated to KEMA 2012's Venlo radish figure. All values are candidates pending Batch 003.
+
+| Netherlands glasshouse setpoint | Heat demand (m³ gas eq. per m² per year) | Gas (m³/m²/yr) | Gas cost (€/m²/yr) |
+|---|---|---|---|
+| 10 °C, basil chilling floor only | 13 to 17 | 15 to 21 | 20 to 30 |
+| 24 °C day and night, with night screen | 61 to 64 | 67 to 76 | 89 to 111 |
+| 26 °C day and night, with night screen | 71 to 74 | 77 to 88 | 103 to 128 |
+| 26 °C day and night, no screen | 89 to 102 | 97 to 122 | 130 to 177 |
+
+- **Heating basil to its preferred 26 °C in a Dutch glasshouse would cost about €100 to €130 per m² per year in gas with a night screen, and more without one.** The basil gross revenue scenario was €154 to €222 per m² per year (UVI feed-ratio case), so heat alone would take roughly half or more. These are scenario estimates; total operating cost is not claimed.
+- **The model checks out against a second KEMA figure (cold pot plant, 15/13 °C, screened) to within 3 to 6 percent.** It overshoots a chrysanthemum figure by 25 to 40 percent, but that one is probably lit and may be gas use, not heat demand.
+- **The basil cases are an extrapolation.** The model is calibrated between 8 and 15 °C, and no published Dutch basil heat demand exists. Lit tomato uses about 32 m³/m² and warm Phalaenopsis 50 to 90, so basil at 24 to 26 °C landing at 61 to 88 sits where a warm crop would.
+- **The biggest open uncertainty is KEMA's own radish number.** KEMA 2009 gives about 5.4 m³/m² for the same setpoints, against 12.0 in 2012. If 2009 is right, every Dutch figure here roughly halves (ticket UQ-012).
+- **Karnataka needs no heating at 10 to 15 °C setpoints on mean nights.** Holding 24 to 26 °C at night would take about 74 to 252 kWh of heat per m² per year. Record lows went below basil's 10 °C chilling line in November to February, so cold-night protection may matter (low confidence: tertiary source).
+- **Karnataka cooling is the larger question.** Outdoor air is above basil's preferred 27.5 °C for about 2,300 hours a year and above its tolerated 31 °C for about 600. Fan-pad cooling would use about 46 to 55 kWh per m² per year if run every day (low confidence: one North-West India source). At Karnataka's Batch 001 power rate (₹3.45 to ₹7.10 per kWh, low confidence, fixed charges excluded) that is about ₹157 to ₹389 per m² per year.
+
 ## 2026-11-26: Swaps checkpoint, NFT yield and Dutch NFT and media prices (scenario estimate, not validated)
 
 Run: `run.bat swaps_basil_nl` and `run.bat swaps_basil_karnataka` again, after adding a sourced NFT-to-raft basil yield ratio of 0.83 to 0.95 (Blunk 2023, Pasch 2021) and Dutch prices for NFT channels (€16.75 to €18.61 per m) and expanded clay (€188 to €440 per m³). All are candidates pending Batch 003.

@@ -1,0 +1,456 @@
+{
+  "estimate_status": "scenario_estimate",
+  "label": "scenario estimate, not validated",
+  "model_id": "greenhouse_heat_demand_degree_hour",
+  "approval_batch": "pending_batch_003",
+  "calibration": {
+    "calibration_point": "kema2012_radish",
+    "solar_utilisation_grid": [
+      0.0,
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ],
+    "k_w_m2_floor_k": {
+      "low": 5.77,
+      "high": 9.39
+    },
+    "night_screen_k_factor": 0.645,
+    "implied_k_over_glass_u": {
+      "low": 0.72,
+      "high": 1.51,
+      "note": "K includes infiltration and geometry; no source gives the cover-to-floor ratio, so this cannot be checked (gap)."
+    },
+    "validation": [
+      {
+        "point_id": "kema2012_cold_pot_plant",
+        "published_mj_m2_yr": 682.4,
+        "model_mj_m2_yr": {
+          "low": 644.3,
+          "high": 662.8
+        },
+        "error_fraction": {
+          "low": -0.056,
+          "high": -0.029
+        },
+        "caveat": "Same report as the calibration point; tests the screen factor and the setpoint scaling, not independent of KEMA's own model."
+      },
+      {
+        "point_id": "de_gelder_kempkes_2007_chrysanthemum",
+        "published_mj_m2_yr": 974.8,
+        "model_mj_m2_yr": {
+          "low": 1218.2,
+          "high": 1360.0
+        },
+        "error_fraction": {
+          "low": 0.25,
+          "high": 0.395
+        },
+        "caveat": "30.8 m3/m2/yr x 31.65 MJ/m3. The source figure may be gas use rather than heat demand, and chrysanthemum is usually lit (lamp heat lowers heat demand); both confound the check. Screen use is assumed."
+      }
+    ]
+  },
+  "netherlands_glasshouse": {
+    "climate": "climate_normals_de_bilt_1991_2020",
+    "gas_price_eur_m3": {
+      "low": 1.339,
+      "high": 1.454
+    },
+    "gas_price_basis": "catalog natural_gas_price_per_m3, Netherlands (CBS, tier 1)",
+    "cases": [
+      {
+        "case_id": "chilling_protection_10c",
+        "day_setpoint_c": 10.0,
+        "night_setpoint_c": 10.0,
+        "night_screen": false,
+        "setpoint_basis": "basil tolerated minimum (canon basil.json, chilling injury below about 10 C); keeps the crop alive, not growing well",
+        "heat_demand_mj_m2_yr": {
+          "low": 424.1,
+          "high": 544.4
+        },
+        "heat_demand_m3_aeq_m2_yr": {
+          "low": 13.4,
+          "high": 17.2
+        },
+        "heat_demand_kwh_th_m2_yr": {
+          "low": 118,
+          "high": 151
+        },
+        "gas_m3_m2_yr": {
+          "low": 14.6,
+          "high": 20.5
+        },
+        "gas_cost_eur_m2_yr": {
+          "low": 19.5,
+          "high": 29.78
+        },
+        "monthly_heat_demand_mj_m2_high": [
+          127.5,
+          102.7,
+          71.4,
+          33.8,
+          6.8,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          19.4,
+          64.6,
+          118.3
+        ],
+        "extrapolated_beyond_calibration": false
+      },
+      {
+        "case_id": "kema_radish_12_8",
+        "day_setpoint_c": 12.0,
+        "night_setpoint_c": 8.0,
+        "night_screen": false,
+        "setpoint_basis": "calibration point (KEMA 2012); below basil chilling threshold at night, reference only",
+        "heat_demand_mj_m2_yr": {
+          "low": 381.5,
+          "high": 381.5
+        },
+        "heat_demand_m3_aeq_m2_yr": {
+          "low": 12.1,
+          "high": 12.1
+        },
+        "heat_demand_kwh_th_m2_yr": {
+          "low": 106,
+          "high": 106
+        },
+        "gas_m3_m2_yr": {
+          "low": 13.1,
+          "high": 14.3
+        },
+        "gas_cost_eur_m2_yr": {
+          "low": 17.54,
+          "high": 20.86
+        },
+        "monthly_heat_demand_mj_m2_high": [
+          99.7,
+          78.7,
+          48.2,
+          20.5,
+          2.2,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          3.0,
+          36.1,
+          93.1
+        ],
+        "extrapolated_beyond_calibration": false
+      },
+      {
+        "case_id": "kema_cold_pot_plant_15_13",
+        "day_setpoint_c": 15.0,
+        "night_setpoint_c": 13.0,
+        "night_screen": true,
+        "setpoint_basis": "calibration point (KEMA 2012); reference only",
+        "heat_demand_mj_m2_yr": {
+          "low": 644.3,
+          "high": 662.8
+        },
+        "heat_demand_m3_aeq_m2_yr": {
+          "low": 20.4,
+          "high": 20.9
+        },
+        "heat_demand_kwh_th_m2_yr": {
+          "low": 179,
+          "high": 184
+        },
+        "gas_m3_m2_yr": {
+          "low": 22.1,
+          "high": 24.9
+        },
+        "gas_cost_eur_m2_yr": {
+          "low": 29.63,
+          "high": 36.25
+        },
+        "monthly_heat_demand_mj_m2_high": [
+          141.7,
+          114.2,
+          78.0,
+          43.9,
+          20.0,
+          5.4,
+          0.0,
+          0.6,
+          9.7,
+          31.7,
+          81.3,
+          136.3
+        ],
+        "extrapolated_beyond_calibration": false
+      },
+      {
+        "case_id": "basil_trial_24",
+        "day_setpoint_c": 24.0,
+        "night_setpoint_c": 24.0,
+        "night_screen": false,
+        "setpoint_basis": "Delphy/WUR Vergelijkingsproef Basilicum 2020, climate cells at 24 C (edepot 565382); trial condition, not a commercial setpoint (low)",
+        "heat_demand_mj_m2_yr": {
+          "low": 2465.7,
+          "high": 2834.5
+        },
+        "heat_demand_m3_aeq_m2_yr": {
+          "low": 77.9,
+          "high": 89.6
+        },
+        "heat_demand_kwh_th_m2_yr": {
+          "low": 685,
+          "high": 787
+        },
+        "gas_m3_m2_yr": {
+          "low": 84.7,
+          "high": 106.6
+        },
+        "gas_cost_eur_m2_yr": {
+          "low": 113.38,
+          "high": 155.02
+        },
+        "monthly_heat_demand_mj_m2_high": [
+          444.9,
+          346.9,
+          285.0,
+          197.6,
+          138.8,
+          95.1,
+          79.1,
+          96.3,
+          141.4,
+          225.3,
+          340.5,
+          443.6
+        ],
+        "extrapolated_beyond_calibration": true
+      },
+      {
+        "case_id": "basil_preferred_26",
+        "day_setpoint_c": 26.0,
+        "night_setpoint_c": 26.0,
+        "night_screen": false,
+        "setpoint_basis": "canon basil preferred air temperature minimum (26.0 to 27.5 C)",
+        "heat_demand_mj_m2_yr": {
+          "low": 2829.6,
+          "high": 3234.0
+        },
+        "heat_demand_m3_aeq_m2_yr": {
+          "low": 89.4,
+          "high": 102.2
+        },
+        "heat_demand_kwh_th_m2_yr": {
+          "low": 786,
+          "high": 898
+        },
+        "gas_m3_m2_yr": {
+          "low": 97.2,
+          "high": 121.6
+        },
+        "gas_cost_eur_m2_yr": {
+          "low": 130.12,
+          "high": 176.87
+        },
+        "monthly_heat_demand_mj_m2_high": [
+          493.7,
+          391.0,
+          319.6,
+          224.3,
+          161.2,
+          115.8,
+          99.5,
+          118.6,
+          169.4,
+          260.9,
+          387.7,
+          492.4
+        ],
+        "extrapolated_beyond_calibration": true
+      },
+      {
+        "case_id": "basil_trial_24_night_screen",
+        "day_setpoint_c": 24.0,
+        "night_setpoint_c": 24.0,
+        "night_screen": true,
+        "setpoint_basis": "Delphy/WUR Vergelijkingsproef Basilicum 2020, climate cells at 24 C (edepot 565382); trial condition, not a commercial setpoint (low)",
+        "heat_demand_mj_m2_yr": {
+          "low": 1938.0,
+          "high": 2032.1
+        },
+        "heat_demand_m3_aeq_m2_yr": {
+          "low": 61.2,
+          "high": 64.2
+        },
+        "heat_demand_kwh_th_m2_yr": {
+          "low": 538,
+          "high": 564
+        },
+        "gas_m3_m2_yr": {
+          "low": 66.6,
+          "high": 76.4
+        },
+        "gas_cost_eur_m2_yr": {
+          "low": 89.12,
+          "high": 111.14
+        },
+        "monthly_heat_demand_mj_m2_high": [
+          321.8,
+          264.8,
+          206.8,
+          141.0,
+          100.0,
+          66.8,
+          54.6,
+          62.3,
+          94.0,
+          153.8,
+          246.1,
+          320.1
+        ],
+        "extrapolated_beyond_calibration": true
+      },
+      {
+        "case_id": "basil_preferred_26_night_screen",
+        "day_setpoint_c": 26.0,
+        "night_setpoint_c": 26.0,
+        "night_screen": true,
+        "setpoint_basis": "canon basil preferred air temperature minimum (26.0 to 27.5 C)",
+        "heat_demand_mj_m2_yr": {
+          "low": 2237.5,
+          "high": 2337.5
+        },
+        "heat_demand_m3_aeq_m2_yr": {
+          "low": 70.7,
+          "high": 73.9
+        },
+        "heat_demand_kwh_th_m2_yr": {
+          "low": 622,
+          "high": 649
+        },
+        "gas_m3_m2_yr": {
+          "low": 76.8,
+          "high": 87.9
+        },
+        "gas_cost_eur_m2_yr": {
+          "low": 102.89,
+          "high": 127.84
+        },
+        "monthly_heat_demand_mj_m2_high": [
+          357.2,
+          298.0,
+          236.8,
+          162.4,
+          119.6,
+          82.1,
+          70.4,
+          79.4,
+          114.1,
+          181.6,
+          280.3,
+          355.5
+        ],
+        "extrapolated_beyond_calibration": true
+      }
+    ]
+  },
+  "karnataka_polyhouse": {
+    "climate": "climate_normals_bengaluru_1991_2020",
+    "heating": {
+      "cases": [
+        {
+          "case_id": "chilling_protection_10c",
+          "day_setpoint_c": 10.0,
+          "night_setpoint_c": 10.0,
+          "heat_demand_kwh_th_m2_yr": {
+            "low": 0,
+            "high": 0
+          },
+          "hours_below_night_setpoint_yr": 0
+        },
+        {
+          "case_id": "kema_radish_12_8",
+          "day_setpoint_c": 12.0,
+          "night_setpoint_c": 8.0,
+          "heat_demand_kwh_th_m2_yr": {
+            "low": 0,
+            "high": 0
+          },
+          "hours_below_night_setpoint_yr": 0
+        },
+        {
+          "case_id": "kema_cold_pot_plant_15_13",
+          "day_setpoint_c": 15.0,
+          "night_setpoint_c": 13.0,
+          "heat_demand_kwh_th_m2_yr": {
+            "low": 0,
+            "high": 0
+          },
+          "hours_below_night_setpoint_yr": 0
+        },
+        {
+          "case_id": "basil_trial_24",
+          "day_setpoint_c": 24.0,
+          "night_setpoint_c": 24.0,
+          "heat_demand_kwh_th_m2_yr": {
+            "low": 74,
+            "high": 146
+          },
+          "hours_below_night_setpoint_yr": 4076
+        },
+        {
+          "case_id": "basil_preferred_26",
+          "day_setpoint_c": 26.0,
+          "night_setpoint_c": 26.0,
+          "heat_demand_kwh_th_m2_yr": {
+            "low": 128,
+            "high": 252
+          },
+          "hours_below_night_setpoint_yr": 5480
+        }
+      ],
+      "basis": "NL-calibrated K scaled for single film, no screen, no solar credit, mean-day normals.",
+      "note": "Cold nights below the monthly mean minimum are not represented, so true needs are higher.",
+      "chilling_threshold_c": 10.0,
+      "months_record_low_below_chilling": [
+        1,
+        2,
+        11,
+        12
+      ],
+      "record_low_confidence": "low (tier 3 mirror citing IMD)"
+    },
+    "cooling": {
+      "preferred_air_max_c": 27.5,
+      "hours_above_preferred_max_yr": 2306,
+      "tolerated_max_c": 31.0,
+      "hours_above_tolerated_max_yr": 612,
+      "note": "Outdoor air only. A polyhouse runs warmer than outside in daytime; inside temperature is not modelled.",
+      "fan_pad_electricity_kwh_m2_yr_if_run_every_day": {
+        "low": 46,
+        "high": 55
+      },
+      "fan_pad_confidence": "low",
+      "electricity_cost_inr_m2_yr_if_run_every_day": {
+        "low": 157,
+        "high": 389
+      },
+      "electricity_tariff_inr_kwh": {
+        "low": 3.45,
+        "high": 7.1,
+        "basis": "Karnataka electricity_per_kwh in data/scenarios/unit_configuration_candidates_v0.json (Batch 001 approved for scenario use only, low confidence; fixed charges excluded)"
+      }
+    }
+  },
+  "gaps": [
+    "No cover-to-floor area ratio for any house type (K is calibrated instead).",
+    "No heat demand for basil or herbs in the Netherlands; basil cases extrapolate K above the 8 to 15 C calibration range.",
+    "No U-value for Venlo glass with an energy screen from a Dutch source.",
+    "KEMA 2009 vs 2012 radish heat demand disagree by about 2x.",
+    "No Bengaluru global radiation; Karnataka heating ignores solar gain (conservative, irrelevant at night).",
+    "No Karnataka fan-pad electricity figure and no Karnataka electricity tariff in the catalog.",
+    "Water (aquaponics tank) heating, humidity control and ventilation heat loss beyond K are not modelled separately.",
+    "Current boiler efficiency figure missing (1999 source)."
+  ]
+}
