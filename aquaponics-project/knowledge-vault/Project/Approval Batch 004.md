@@ -9,7 +9,7 @@ Opened: 2026-11-26, against `main` at `dc07134` (save-point-003). Rule used (AGE
 | # | PR | Recommendation |
 |---|---|---|
 | A1 | #31: basil density and light fixes, gravel beds counted as media volume (validation fixes) | **Merge first.** Tests, integrity and syncs pass, and it merges cleanly with main. |
-| A2 | #32: the three component checkpoints (P1 gaps, missing categories, NL and India prices on every part) | **Merge second**, once its thread has stacked it on #31 (both edit the Findings and Decisions logs). With #31 combined, 244 tests pass. When it lands, the tracker reaches 16 of 16. |
+| A2 | #32: the three component checkpoints (P1 gaps, missing categories, NL and India prices on every part) | **Merge second.** Stacked on #31 at `7315c7e`: 244 tests, integrity and syncs pass. When it lands, the tracker reaches 16 of 16. |
 
 ## B. PR #31 (biology)
 
