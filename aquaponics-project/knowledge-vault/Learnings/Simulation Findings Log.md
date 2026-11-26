@@ -2,6 +2,30 @@
 
 What the simulation shows, newest first. These are **scenario estimates, not validated**: they describe the model, not the real world, and they are never truths.
 
+## 2026-11-26: Validation against three published systems beyond UVI (scenario estimate, not validated)
+
+Run: `python scripts/validate_published_systems.py` (results in `data/simulation/results/published_system_validation.json`; observations in `data/knowledge/validation/published_system_observations.json`). A metric fails when the model is more than 25 percent off.
+
+| System | Metric | Model | Published | Error |
+|---|---|---|---|---|
+| Knaus 2018, Rostock (tilapia, gravel beds, 70 days) | Fish end biomass | 17.8 kg | 19.45 kg | −8% ✓ |
+| | FCR | 1.87 | 1.54 | +21% ✓ |
+| | TAN mean | 0.45 mg/L | 0.21 | +115% ✗ |
+| | NO3-N mean | 10.5 mg/L | 15.6 (SD 8.4) | −32% ✗ |
+| | Basil fresh per plant | 124 g | 16.1 g | +670% ✗ |
+| Savidov 2005, Alberta (tilapia + basil raft) | Basil per m² per year at 31.8 plants/m² | 99 kg | 25.7 kg | +286% ✗ |
+| | Basil per m² per year at UVI density | 25.0 kg | 25.7 kg | −3% ✓ |
+| | Fish harvest weight (24 weeks, 24.8 °C) | 392 g | about 630 g | −38% ✗ |
+| Khater 2023, Egypt (tilapia + lettuce, 23.5 °C) | Fish gain per day (table feed, mid/high) | 0.68 / 0.84 g | 1.05 to 1.36 g | −36% / −20% |
+| | FCR | 3.2 | 0.92 to 1.20 | +166% ✗ |
+
+Where it fails:
+- **Fish grow too slowly below 27 °C.** This shows up in three systems (Savidov at 24.8 °C, Khater at 23.5 °C, and UVI's winters) but not at 26.3 °C (Knaus, −8 percent). The straight-line temperature factor between 22 and 27 °C is the likely cause. Ticket UQ-013.
+- **Basil yield does not respond to plant density or light.** It matches Savidov per m² only if the UVI density is assumed. At Savidov's real density, or under Knaus's dim autumn light, it is far too high. Ticket UQ-014.
+- **The nitrogen balance is off for a small gravel-bed system.** TAN is too high (gravel is counted as raft area) and nitrate too low (the UVI-calibrated loss is probably too strong at low feed). Ticket UQ-015.
+- **What held up:** fish growth at a near-optimal 26 °C, and basil yield per m² at the UVI density in a second raft system.
+- Caveats: Savidov's yield period and fish harvest weight are derived, the report is low confidence, and Knaus mixed basil with mint and parsley.
+
 ## 2026-11-26: Fish growth and feed, tilapia (scenario estimate, not validated)
 
 Run: `python src/fish_growth.py` (UVI check) and `src/simulate_crop_cycle.py`, 28 days, on both basil raft scenarios. Fish gain is now feed x temperature factor / FCR 1.7, replacing the placeholder feed / FCR x fish score x 0.8. All new values are candidates pending Batch 003.
