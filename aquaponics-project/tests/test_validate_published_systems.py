@@ -40,6 +40,13 @@ class MetricTests(unittest.TestCase):
         vps.hold_published_ph(s)
         self.assertEqual(s["nitrogen_model"]["pH_drift_per_mg_l_tan_removed"], 0.0)
 
+    def test_free_ph_turns_on_buffer_without_hold(self):
+        s = {"water_state": {"pH": 8.0}, "operations_policy": {"pH_control_enabled": True, "base_dosing_enabled": True}}
+        vps.free_ph(s, 140.0, 140.0)
+        self.assertEqual(s["water_chemistry"]["model"], "carbonate_alkalinity_buffer")
+        self.assertEqual(s["water_state"]["alkalinity_mg_L_as_CaCO3"], 140.0)
+        self.assertFalse(s["operations_policy"]["pH_control_enabled"])
+
     def test_metric_range(self):
         self.assertEqual(vps.metric_range("x", 1.1, 1.0, 1.2)["error_fraction"], 0.0)
         self.assertAlmostEqual(vps.metric_range("x", 0.5, 1.0, 1.2)["error_fraction"], -0.5)
@@ -55,6 +62,13 @@ class CommittedResultTests(unittest.TestCase):
             for c in results["cases"] for m in c["metrics"] if m["scored"] and m["within_25_percent"] is False
         ]
         self.assertEqual(len(flagged), len(results["failures"]))
+
+    def test_ph_free_runs_are_reported_not_scored(self):
+        results = json.loads(vps.RESULTS_PATH.read_text(encoding="utf-8"))
+        for case in results["cases"][:2]:
+            self.assertEqual(case["ph_free"]["status"], "reported, not scored")
+            self.assertEqual(len(case["ph_free"]["runs"]), 6)
+        self.assertEqual(results["ph_buffer_checks"]["uvi_base_use"]["status"], "reported, not scored")
 
     def test_unscored_metrics_carry_a_reason(self):
         results = json.loads(vps.RESULTS_PATH.read_text(encoding="utf-8"))

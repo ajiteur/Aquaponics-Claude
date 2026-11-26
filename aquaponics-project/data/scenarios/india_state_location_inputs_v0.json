@@ -1,0 +1,273 @@
+{
+  "metadata": {
+    "estimate_status": "scenario_estimate",
+    "label": "scenario estimate, not validated",
+    "created": "2026-11-25",
+    "purpose": "State-level India location inputs (Karnataka, Tamil Nadu, Andhra Pradesh, Telangana) for the unit-economics comparison, in that thread's location shape",
+    "canon_status": "non_canonical",
+    "requested_by": "Ajit, 2026-11-25",
+    "common_caveats": [
+      "Wages are legal minimum plus a burden proxy, not market wages",
+      "Paid hours per day are 8 in every state; sourced only for Telangana (overtime beyond 8 h)",
+      "Electricity is energy charge only; fixed/demand charges, duty and fuel surcharges are excluded",
+      "Which tariff category an aquaponic unit falls into is unknown in every state, so low = agri/horticulture-type category, high = commercial-type category",
+      "No state-specific basil price exists; all four share the all-India band",
+      "Karnataka has a second price reference from B2B listings (Rs 65-180/kg) that conflicts sharply with the all-India band; see basil_price_b2b_listings_per_kg"
+    ]
+  },
+  "locations": {
+    "karnataka": {
+      "wage_per_hour": {
+        "low": 76.82,
+        "high": 76.82,
+        "origin": "sourced_candidate",
+        "source": "WageIndicator compilation of Karnataka agriculture and related works minimum wage, Rs 533.21/day (basic 401.26 + VDA 131.95), valid 1 Apr 2025 to 31 Mar 2026; 8 h/day per a 2024-25 compilation (echoforum PDF, unverified)",
+        "source_tier": "grey_literature",
+        "confidence": "low",
+        "confidence_reason": "Secondary compiler, period has expired, newer revision not confirmed; 8 h/day unverified",
+        "derivation": "Minimum wage x 1.1525 statutory-burden proxy (research pack, EPF/ESI), divided by paid hours per day",
+        "raw_minimum_wage_per_day": 533.21,
+        "paid_hours_per_day": 8
+      },
+      "electricity_per_kwh": {
+        "low": 3.45,
+        "high": 7.1,
+        "origin": "sourced_candidate",
+        "source": "Low: LT-4c private horticultural nurseries Rs 3.45/kWh (electricbill.in aggregator). High: LT-3a commercial Rs 7.10/kWh (KERC review order, PTI via ThePrint, 4 Mar 2026)",
+        "source_tier": "grey_literature",
+        "confidence": "low",
+        "confidence_reason": "No primary KERC order read; aggregator and news values conflict for LT-3a and LT-5; aquaponics tariff category unknown",
+        "excluded": "fixed charges (about Rs 165-235 per kW or HP per month)"
+      },
+      "currency_code": "INR",
+      "eur_per_currency_unit_for_comparison": {
+        "value": 0.009136,
+        "origin": "repo_research_pack",
+        "source": "ECB reference rate 20 April 2026, EUR 1 = INR 109.4525, comparison only",
+        "source_tier": "government_statistics",
+        "confidence": "high",
+        "confidence_reason": "official reference rate; comparison only, not for canon"
+      },
+      "basil_wholesale_price_per_kg": {
+        "low": 600,
+        "high": 1000,
+        "origin": "repo_research_pack",
+        "source": "2025 Andhra Pradesh hydroponic basil study (Rs 1,000/kg sale price) with operator haircuts to 600",
+        "source_tier": "peer_reviewed (high end) + research_pack_operator_assumption",
+        "confidence": "low",
+        "confidence_reason": "No state-specific basil wholesale price found; same all-India band used for every state; the study price is not first-wholesale",
+        "note": "Same band in all four states"
+      },
+      "basil_saleability_rate": {
+        "low": 0.8,
+        "high": 0.92,
+        "origin": "repo_research_pack",
+        "source": "research pack India saleability band",
+        "source_tier": "research_pack_operator_assumption",
+        "confidence": "low",
+        "confidence_reason": "operator assumption, not measured"
+      },
+      "basil_price_b2b_listings_per_kg": {
+        "low": 65,
+        "high": 180,
+        "median": 110,
+        "n_listings": 10,
+        "values": [
+          65,
+          65,
+          70,
+          80,
+          100,
+          120,
+          130,
+          140,
+          160,
+          180
+        ],
+        "origin": "sourced_candidate",
+        "source": "IndiaMART Bengaluru fresh Italian/sweet basil listings (m.indiamart.com/city/bengaluru/ocimum-basilicum.html and impcat/ocimum-basilicum.html), page dated 25 Nov 2026, read 2026-11-25; seeds, dried, tulsi, oil and plants excluded",
+        "source_tier": "grey_literature",
+        "confidence": "low",
+        "confidence_reason": "Seller asking prices on a B2B directory, marked approximate; not transaction prices; market level (farm-gate vs wholesale vs distributor) not stated; but 10 independent Bengaluru sellers, including 3 hydroponic growers at Rs 65-130, agree on order of magnitude",
+        "conflict": "5x to 15x below the all-India band (Rs 600-1,000) whose only anchor is one 2025 Andhra hydroponic study. Treat as a context split to resolve, not an overwrite. Other cities on the same pages: Ahmedabad 200, Neemuch 150, Indore 90.",
+        "status": "candidate, awaiting Ajit's review; not used as the default band"
+      },
+      "basil_price_ajit_local_knowledge_per_kg": {
+        "low": 100,
+        "high": 250,
+        "origin": "user_supplied",
+        "source": "Ajit, thread message 2026-11-25: Bangalore basil runs Rs 100 to 250/kg depending on processed, fresh or organic",
+        "source_tier": "user_supplied_local_knowledge",
+        "confidence": "medium",
+        "confidence_reason": "First-hand local knowledge that agrees with 10 IndiaMART Bengaluru listings (Rs 65-180); grade standards and market level (farm-gate vs wholesale vs retail) not defined",
+        "grade_note": "Ajit says the top of the range depends on processing, fresh vs not, and organic; no formal grade standard identified",
+        "status": "user_supplied; treat as the Karnataka price band in place of the Rs 600-1,000 study band"
+      }
+    },
+    "tamil_nadu": {
+      "wage_per_hour": {
+        "low": 70.01,
+        "high": 91.77,
+        "origin": "sourced_candidate",
+        "source": "No Tamil Nadu state agriculture minimum wage found. Proxy: central-sphere agriculture minimum wage incl. VDA w.e.f. 1 Oct 2026 (Labour Bureau order 6/1/2026-VDA, via govtstaff.com), unskilled Area C Rs 486 to skilled Area A Rs 637/day",
+        "source_tier": "government_statistics (via secondary copy)",
+        "confidence": "low",
+        "confidence_reason": "Central-sphere rates bind only central-government establishments, used as proxy; paid hours/day (8) not sourced",
+        "derivation": "Minimum wage x 1.1525 statutory-burden proxy (research pack, EPF/ESI), divided by paid hours per day",
+        "raw_minimum_wage_per_day": [
+          486,
+          637
+        ],
+        "paid_hours_per_day": 8
+      },
+      "electricity_per_kwh": {
+        "low": 4.95,
+        "high": 10.45,
+        "origin": "sourced_candidate",
+        "source": "TNERC T.O. No.6 of 2025 (from 1 Jul 2025) per thediscombill.com: low LT-IIIA(1) cottage/micro incl. poultry and dairy up to 12 kW, 0-250 units Rs 4.95 (above 250: 7.15); high LT-V commercial above 50 units Rs 10.45. Consistent with official T.O. No.6 of 2024 (4.80 / 10.15)",
+        "source_tier": "grey_literature",
+        "confidence": "medium",
+        "confidence_reason": "Secondary site, but matches the pattern of the official 2024 order; agriculture LT-IV FY2025-26 not found; category for aquaponics unknown",
+        "excluded": "fixed charges Rs 77-110 per kW per month"
+      },
+      "currency_code": "INR",
+      "eur_per_currency_unit_for_comparison": {
+        "value": 0.009136,
+        "origin": "repo_research_pack",
+        "source": "ECB reference rate 20 April 2026, EUR 1 = INR 109.4525, comparison only",
+        "source_tier": "government_statistics",
+        "confidence": "high",
+        "confidence_reason": "official reference rate; comparison only, not for canon"
+      },
+      "basil_wholesale_price_per_kg": {
+        "low": 600,
+        "high": 1000,
+        "origin": "repo_research_pack",
+        "source": "2025 Andhra Pradesh hydroponic basil study (Rs 1,000/kg sale price) with operator haircuts to 600",
+        "source_tier": "peer_reviewed (high end) + research_pack_operator_assumption",
+        "confidence": "low",
+        "confidence_reason": "No state-specific basil wholesale price found; same all-India band used for every state; the study price is not first-wholesale",
+        "note": "Same band in all four states"
+      },
+      "basil_saleability_rate": {
+        "low": 0.8,
+        "high": 0.92,
+        "origin": "repo_research_pack",
+        "source": "research pack India saleability band",
+        "source_tier": "research_pack_operator_assumption",
+        "confidence": "low",
+        "confidence_reason": "operator assumption, not measured"
+      }
+    },
+    "andhra_pradesh": {
+      "wage_per_hour": {
+        "low": 70.01,
+        "high": 91.77,
+        "origin": "sourced_candidate",
+        "source": "No Andhra Pradesh state agriculture minimum wage found (AP labour PDF failed to load). Proxy: central-sphere agriculture minimum wage w.e.f. 1 Oct 2026, unskilled Area C Rs 486 to skilled Area A Rs 637/day",
+        "source_tier": "government_statistics (via secondary copy)",
+        "confidence": "low",
+        "confidence_reason": "Central-sphere proxy, not the state rate; paid hours/day (8) not sourced",
+        "derivation": "Minimum wage x 1.1525 statutory-burden proxy (research pack, EPF/ESI), divided by paid hours per day",
+        "raw_minimum_wage_per_day": [
+          486,
+          637
+        ],
+        "paid_hours_per_day": 8
+      },
+      "electricity_per_kwh": {
+        "low": 3.85,
+        "high": 4.5,
+        "origin": "sourced_candidate",
+        "source": "APERC RSTO FY2025-26 (tariffs kept unchanged): V-B aquaculture and animal husbandry Rs 3.85; V-A(vi) floriculture in greenhouse Rs 4.50 (from an unverified extract of a RESCO copy). APERC highlights confirm horticultural nurseries get free power (GO 39) and aquaculture a Rs 1.50/unit concession (GO 70)",
+        "source_tier": "government_statistics (partly unverified)",
+        "confidence": "low",
+        "confidence_reason": "Tariff table not read verbatim; commercial fallback not found so the high end may be too low; eligibility of an aquaponic unit for agri or aquaculture categories unknown",
+        "excluded": "fixed charges Rs 30-75 per month (unit unconfirmed); concessions not applied"
+      },
+      "currency_code": "INR",
+      "eur_per_currency_unit_for_comparison": {
+        "value": 0.009136,
+        "origin": "repo_research_pack",
+        "source": "ECB reference rate 20 April 2026, EUR 1 = INR 109.4525, comparison only",
+        "source_tier": "government_statistics",
+        "confidence": "high",
+        "confidence_reason": "official reference rate; comparison only, not for canon"
+      },
+      "basil_wholesale_price_per_kg": {
+        "low": 600,
+        "high": 1000,
+        "origin": "repo_research_pack",
+        "source": "2025 Andhra Pradesh hydroponic basil study (Rs 1,000/kg sale price) with operator haircuts to 600",
+        "source_tier": "peer_reviewed (high end) + research_pack_operator_assumption",
+        "confidence": "low",
+        "confidence_reason": "No state-specific basil wholesale price found; same all-India band used for every state; the study price is not first-wholesale",
+        "note": "Same band in all four states"
+      },
+      "basil_saleability_rate": {
+        "low": 0.8,
+        "high": 0.92,
+        "origin": "repo_research_pack",
+        "source": "research pack India saleability band",
+        "source_tier": "research_pack_operator_assumption",
+        "confidence": "low",
+        "confidence_reason": "operator assumption, not measured"
+      }
+    },
+    "telangana": {
+      "wage_per_hour": {
+        "low": 77.57,
+        "high": 102.51,
+        "origin": "sourced_candidate",
+        "source": "Telangana G.O.Ms.No.6, 30 May 2026, from 1 Jun 2026 (Code on Wages; agriculture listed in Schedule II): unskilled Zone III Rs 14,000/month to skilled Zone I Rs 18,500/month, divided by 26 days per the GO = Rs 538.46 to 711.54/day; overtime beyond 8 h",
+        "source_tier": "government_statistics (via consultancy copy)",
+        "confidence": "medium",
+        "confidence_reason": "Current state GO covering agriculture, read in full; hosted by a consultancy not the gazette; burden factor is a proxy",
+        "derivation": "Minimum wage x 1.1525 statutory-burden proxy (research pack, EPF/ESI), divided by paid hours per day",
+        "raw_minimum_wage_per_day": [
+          538.46,
+          711.54
+        ],
+        "paid_hours_per_day": 8
+      },
+      "electricity_per_kwh": {
+        "low": 4.0,
+        "high": 8.5,
+        "origin": "sourced_candidate",
+        "source": "TGSPDCL Retail Supply Tariff Schedule FY2025-26 (1 May 2025 to 31 Mar 2026): low LT-V(B) horticulture nurseries / LT-IV(B) agro-based activities Rs 4.00; high LT-II(B) non-domestic above 50 units Rs 8.50. Pisciculture LT-III Rs 6.20",
+        "source_tier": "government_statistics",
+        "confidence": "medium",
+        "confidence_reason": "Official discom schedule read directly, but its period has expired and no newer one was found; aquaponics category unknown",
+        "excluded": "fixed charges Rs 20-70 per kW or HP per month"
+      },
+      "currency_code": "INR",
+      "eur_per_currency_unit_for_comparison": {
+        "value": 0.009136,
+        "origin": "repo_research_pack",
+        "source": "ECB reference rate 20 April 2026, EUR 1 = INR 109.4525, comparison only",
+        "source_tier": "government_statistics",
+        "confidence": "high",
+        "confidence_reason": "official reference rate; comparison only, not for canon"
+      },
+      "basil_wholesale_price_per_kg": {
+        "low": 600,
+        "high": 1000,
+        "origin": "repo_research_pack",
+        "source": "2025 Andhra Pradesh hydroponic basil study (Rs 1,000/kg sale price) with operator haircuts to 600",
+        "source_tier": "peer_reviewed (high end) + research_pack_operator_assumption",
+        "confidence": "low",
+        "confidence_reason": "No state-specific basil wholesale price found; same all-India band used for every state; the study price is not first-wholesale",
+        "note": "Same band in all four states"
+      },
+      "basil_saleability_rate": {
+        "low": 0.8,
+        "high": 0.92,
+        "origin": "repo_research_pack",
+        "source": "research pack India saleability band",
+        "source_tier": "research_pack_operator_assumption",
+        "confidence": "low",
+        "confidence_reason": "operator assumption, not measured"
+      }
+    }
+  }
+}

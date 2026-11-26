@@ -7,6 +7,7 @@ from datetime import datetime, UTC
 import fish_growth
 import nitrate_sinks
 import nitrification_model
+import ph_buffer
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
@@ -88,6 +89,15 @@ def shoot_n_uptake_g_day(plant_profile: dict, fresh_gain_g_per_plant: float | No
     dry_matter = model["shoot_dry_matter_fraction"]["simulation_default"]
     tissue_n = model["tissue_n_fraction_of_dry_mass"]["simulation_default"]
     return fresh_gain_g_per_plant * plant_count * dry_matter * tissue_n
+
+
+def target_ph_for_mode(mode: str) -> float:
+    """pH set-point used by the pH-control policy for each operating mode."""
+    if mode == "plant_yield_optimization_mode":
+        return 6.25
+    if mode == "robust_compromise_mode":
+        return 6.9
+    return 6.5
 
 
 def plant_ph_context(scenario: dict) -> str:
@@ -492,34 +502,64 @@ def main():
             "residual_loss_mg_L": round(sink_step["residual_loss_mg_L"], 3),
             "water_exchange_loss_mg_L": round(sink_step["water_exchange_loss_mg_L"], 3),
         }
+        residual_n_loss_mg_l = sink_step["residual_loss_mg_L"]
     else:
         new_nitrate = max(0.0, water["nitrate_mg_L"] + nitrate_generated_mg_l - daily_nitrate_uptake_mg_l)
+        exchange_fraction, residual_n_loss_mg_l = 0.0, 0.0
         nitrate_sink_summary = {"model_basis": "none", "note": "No nitrate_sinks in scenario; only plant uptake removes nitrate."}
 
     water["tan_mg_L"] = round(new_tan, 3)
     water["nitrate_mg_L"] = round(new_nitrate, 3)
 
-    # Simple pH drift from nitrification acidification
-    pH_drift_per_mg_l_tan_removed = nitrogen_model.get("pH_drift_per_mg_l_tan_removed", 0.01)
-    pH_drop = tan_removed_mg_l * pH_drift_per_mg_l_tan_removed
-
-    if scenario["operations_policy"].get("pH_control_enabled", False):
-        target_mode = scenario["operations_policy"].get("target_pH_mode", system["mode"])
-        if target_mode == "plant_yield_optimization_mode":
-            target_pH = 6.25
-        elif target_mode == "robust_compromise_mode":
-            target_pH = 6.9
-        else:
-            target_pH = 6.5
-
-        corrected_pH = water["pH"] - pH_drop
-        if corrected_pH < target_pH and scenario["operations_policy"].get("base_dosing_enabled", False):
-            dosing_gain = min(0.15, target_pH - corrected_pH)
-            corrected_pH += dosing_gain
-
-        water["pH"] = round(corrected_pH, 3)
+    chemistry_cfg = scenario.get("water_chemistry") or {}
+    policy = scenario["operations_policy"]
+    ph_summary = None
+    if chemistry_cfg.get("model") == ph_buffer.MODEL_ID:
+        # Carbonate alkalinity buffer (candidate, UQ-018): pH from an alkalinity balance.
+        target_pH = None
+        if policy.get("pH_control_enabled", False) and policy.get("base_dosing_enabled", False):
+            target_pH = chemistry_cfg.get("target_pH", target_ph_for_mode(policy.get("target_pH_mode", system["mode"])))
+        exchange = chemistry_cfg.get("water_exchange_fraction_per_day")
+        if exchange is None:
+            exchange = exchange_fraction
+        ph_step = ph_buffer.step_day(
+            water=water,
+            cfg=chemistry_cfg,
+            temp_c=water_temp_c,
+            tan_nitrified_mg_l=tan_removed_mg_l,
+            residual_n_loss_mg_l=residual_n_loss_mg_l,
+            plant_no3_uptake_mg_l=daily_nitrate_uptake_mg_l,
+            exchange_fraction=exchange,
+            target_ph=target_pH,
+            model=ph_buffer.load_model(),
+        )
+        water["alkalinity_mg_L_as_CaCO3"] = round(ph_step["alkalinity_mg_L_as_CaCO3"], 3)
+        water["dissolved_co2_mg_L"] = round(ph_step["dissolved_co2_mg_L"], 3)
+        water["pH"] = round(ph_step["pH"], 3)
+        ph_summary = {
+            **{k: v for k, v in ph_step.items() if k not in ("alkalinity_mg_L_as_CaCO3", "dissolved_co2_mg_L", "pH")},
+            "target_pH": target_pH,
+            "water_exchange_fraction_per_day": exchange,
+            "base_dose_g_total": {b: round(g * water_volume_l / 1000.0, 2) for b, g in ph_step["base_dose_g_per_m3"].items()},
+        }
     else:
-        water["pH"] = round(max(5.0, water["pH"] - pH_drop), 3)
+        # Legacy placeholder: simple pH drift from nitrification acidification
+        pH_drift_per_mg_l_tan_removed = nitrogen_model.get("pH_drift_per_mg_l_tan_removed", 0.01)
+        pH_drop = tan_removed_mg_l * pH_drift_per_mg_l_tan_removed
+
+        if scenario["operations_policy"].get("pH_control_enabled", False):
+            target_mode = scenario["operations_policy"].get("target_pH_mode", system["mode"])
+            target_pH = target_ph_for_mode(target_mode)
+
+            corrected_pH = water["pH"] - pH_drop
+            if corrected_pH < target_pH and scenario["operations_policy"].get("base_dosing_enabled", False):
+                dosing_gain = min(0.15, target_pH - corrected_pH)
+                corrected_pH += dosing_gain
+
+            water["pH"] = round(corrected_pH, 3)
+        else:
+            water["pH"] = round(max(5.0, water["pH"] - pH_drop), 3)
+        ph_summary = {"model_basis": "legacy_placeholder_drift"}
 
     # Unionized ammonia from TAN-N, pH and temperature (Emerson-type pKa formula).
     nh3 = nitrification_model.unionized_nh3(water["tan_mg_L"], water["pH"], water_temp_c)
@@ -548,6 +588,7 @@ def main():
         "daily_nitrate_uptake_mg_L_equivalent": round(daily_nitrate_uptake_mg_l, 3),
         "nitrate_uptake_basis": nitrate_uptake_basis,
         "nitrate_sinks": nitrate_sink_summary,
+        "ph_buffer": ph_summary,
         "nitrate_availability_score": round(nitrate_availability_score, 3),
         "fish_growth_score": fish_score,
         "plant_growth_score": plant_score,

@@ -2,6 +2,13 @@
 
 Newest first. Each entry gives the decision, why, and who made it.
 
+## 2026-11-26: pH buffer (UQ-018)
+
+- **Model pH from an alkalinity balance and a held dissolved CO2, opt-in per scenario.** Why: the old fixed drift had no buffer. CO2 is held, not modelled, because no CO2 transfer rate for rafts or media beds was found. Proposed by Claude, pending Ajit's review.
+- **Credit no alkalinity returns by default (NH3 excretion, denitrification, plant nitrate uptake all 0), and report them as an upper-bound band.** Why: none is measured in aquaponics, and 0 is the conservative end (more base). The pH-free runs show the defaults drain alkalinity far faster than any real system, so the default needs your decision once UQ-019 has evidence. Proposed by Claude, pending Ajit's review.
+- **Keep scoring validation with pH held at the published mean.** Why: the papers give no alkalinity, source water or base use, so a pH-free run is an assumption band, not a test. The pH-free runs are reported, not scored. Proposed by Claude.
+- **File research that lived only in project files into the repo.** The equipment inventory report and notes, the P1 research notes, the research prompts and the farm viability inputs now sit in `data/sources/research_reports/`, `data/sources/research_prompts/`, `data/scenarios/`, `docs/` and `Learnings/`. Why: Ajit asked that every file and learning be in its proper folder. Asked by Ajit.
+
 ## 2026-11-26: Validation round 3
 
 - **Hold pH at the published mean in validation runs.** Why: the daily pH drift has no alkalinity buffer, so an uncontrolled run drifts away from the pH the paper measured and changes the plant score. A real buffer model is ticket UQ-018. Proposed by Claude; approved by Ajit in Batch 005.

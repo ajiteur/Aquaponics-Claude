@@ -2,6 +2,28 @@
 
 What the simulation shows, newest first. These are **scenario estimates, not validated**: they describe the model, not the real world, and they are never truths.
 
+## 2026-11-26: pH buffer added, validation re-run with pH free (scenario estimate, not validated)
+
+New candidate model: pH now comes from an alkalinity balance and a carbonate solve (ticket UQ-018). Rerun of `python scripts/validate_published_systems.py`; the scored runs still hold pH at the published mean (approved in Batch 005), and the pH-free runs are **reported, not scored**, because none of the papers gives start alkalinity, source-water alkalinity or base use. Research: `data/sources/research_reports/markdown/Aquaponics pH buffer and alkalinity.md`.
+
+- **Nitrification alone drains the buffer in weeks.** At 7.05 g CaCO3 used per g N nitrified, the Knaus system runs out of alkalinity and pH falls from 8.0 to about 5.2 to 5.5 by day 70, with soft, tap or hard source water alike.
+- **The published pH 8.0 is only reproduced when alkalinity returns are credited.** With the NH3-excretion credit, full denitrification of the residual N loss and plant nitrate uptake at their upper bounds, Knaus stays at pH 7.8 to 7.9 on tap or hard water (published 8.0), and basil is −24 percent, the same as the held run. On soft water (50 mg/L) it still sinks to 6.6.
+- **UVI base use is the best check.** To hold pH 7.25 with UVI's 2.4 percent a day rainwater make-up, the model needs about 168 g of base per kg of feed with nitrification only (13 to 15 times UVI's recorded 11 to 12.5 g/kg), and 24 to 27 g/kg with every return at its upper bound (about twice UVI). Even the most generous bookkeeping overstates base use, so the return terms are the main uncertainty (new ticket UQ-019).
+- **Savidov's low pH holds without dosing in the model** (6.0 to 6.2 over the cycle) because CO2 is held at the high level that pH 6.2 implies; basil is −11 to −22 percent with pH free against −2 percent held.
+- **Source water flips the problem between markets.** Dutch tap water brings about 95 to 155 mg/L alkalinity, so a Dutch farm needs base. South Indian borewells often carry 150 to 400+ mg/L, so an Indian farm on borewell water may need acid instead (truths PHB_0009 to PHB_0011).
+
+| Run (pH free, not scored) | pH day 70 | Knaus basil vs observed |
+|---|---|---|
+| Nitrification only, tap water 140 | 5.3 | +9% |
+| All returns upper, tap water 140 | 7.8 | −24% |
+| All returns upper, soft water 50 | 6.6 | +17% |
+
+| UVI base check (not scored) | Base g per kg feed |
+|---|---|
+| UVI recorded (our arithmetic) | 11 to 12.5 |
+| Model, nitrification only | 168 |
+| Model, all returns upper | 24 to 27 |
+
 ## 2026-11-26: Validation round 3, pH drift found, scoring tightened (scenario estimate, not validated)
 
 Rerun of `python scripts/validate_published_systems.py`. The previous run is the entry further down ("Basil overprediction and gravel-bed nitrogen fixed"), left as it was.

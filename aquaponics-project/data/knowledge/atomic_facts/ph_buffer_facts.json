@@ -1,0 +1,425 @@
+{
+  "description": "Atomic facts from the pH buffer and alkalinity research (2026-11-26, UQ-018). Candidates until Ajit approves them. Reliability recorded per AGENTS.md 6A. Report: data/sources/research_reports/markdown/Aquaponics pH buffer and alkalinity.md",
+  "facts": [
+    {
+      "fact_id": "PHB_0001",
+      "statement": "Nitrifying 1 g of TAN-N consumes about 7.05 g of alkalinity as CaCO3 when bacterial growth is included (7.14 g without it); the same reaction uses 4.18 g O2 and gives off 5.85 g CO2 per g N.",
+      "domain": "water_chemistry",
+      "type": "parameter",
+      "confidence": "high",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "system": "freshwater RAS and biofilters",
+        "scope": "autotrophic nitrification stoichiometry (Eq. 14)"
+      },
+      "source_metadata": {
+        "source_id": "ebeling_timmons_bisogni_2006_aquaculture_257_346",
+        "section_id": "Eq. 14",
+        "source_type": "peer_reviewed_journal",
+        "source_tier": "tier_1"
+      },
+      "review_metadata": {
+        "reviewed_from": "ag.arizona.edu (author PDF of Aquaculture 257:346-358, doi:10.1016/j.aquaculture.2006.03.019)",
+        "read_date_local": "2026-11-26",
+        "source_gate": "trusted",
+        "source_gate_reason": "Peer-reviewed RAS engineering paper, widely used.",
+        "confidence_reason": "Standard stoichiometry; the no-growth value from the US EPA manual agrees within 1 percent.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "ebeling_timmons_bisogni_2006_aquaculture_257_346",
+            "us_epa_625_4_73_004a_via_cwea"
+          ]
+        },
+        "research_report": "data/sources/research_reports/markdown/Aquaponics pH buffer and alkalinity.md"
+      },
+      "added_date_local": "2026-11-26"
+    },
+    {
+      "fact_id": "PHB_0002",
+      "statement": "At the UVI aquaponic system (111.2 m3, 214 m2 of rafts, rainwater make-up about 2.61 m3/day), pH was held at 7.0 to 7.5 by adding 22.5 kg Ca(OH)2 in 23 doses and 21.5 kg KOH in 22 doses during the basil trials, projected to 40.65 and 38.85 kg a year.",
+      "domain": "operations",
+      "type": "parameter",
+      "confidence": "medium",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "system": "UVI commercial-scale coupled DWC raft, tilapia with basil",
+        "location": "St. Croix, US Virgin Islands, tropical"
+      },
+      "source_metadata": {
+        "source_id": "rakocy_ista6_uvi_update",
+        "section_id": "base addition, water quality section",
+        "source_type": "conference_proceedings_system_operator",
+        "source_tier": "tier_1"
+      },
+      "review_metadata": {
+        "reviewed_from": "ag.arizona.edu/azaqua/ista/ista6/ista6web/pdf/676.pdf",
+        "read_date_local": "2026-11-26",
+        "source_gate": "trusted",
+        "source_gate_reason": "Operator's own measured records in symposium proceedings.",
+        "confidence_reason": "Measured dose totals, but the annual figure is a projection and the trial length is not restated.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "rakocy_ista6_uvi_update",
+            "srac_454"
+          ]
+        },
+        "research_report": "data/sources/research_reports/markdown/Aquaponics pH buffer and alkalinity.md"
+      },
+      "added_date_local": "2026-11-26"
+    },
+    {
+      "fact_id": "PHB_0003",
+      "statement": "UVI's recorded base use works out to about 11 to 13 g of base per kg of feed (our arithmetic), roughly one-fifteenth of what nitrification stoichiometry alone (about 0.2 kg CaCO3 per kg of 32 percent protein feed) would need; denitrification in the filter tanks, plant nitrate uptake and how fish ammonia excretion is counted are the likely reasons.",
+      "domain": "water_chemistry",
+      "type": "parameter",
+      "confidence": "low",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "system": "UVI commercial-scale coupled DWC raft",
+        "basis": "derived from PHB_0002 doses and the ISTA6 feed rate"
+      },
+      "source_metadata": {
+        "source_id": "rakocy_ista6_uvi_update",
+        "section_id": "derived",
+        "source_type": "derived_from_conference_proceedings",
+        "source_tier": "tier_1"
+      },
+      "review_metadata": {
+        "reviewed_from": "ag.arizona.edu/azaqua/ista/ista6/ista6web/pdf/676.pdf",
+        "read_date_local": "2026-11-26",
+        "source_gate": "conditional",
+        "source_gate_reason": "Derived arithmetic, not a printed value; the explanation is an inference.",
+        "confidence_reason": "Our arithmetic; the cause of the gap is not measured.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "rakocy_ista6_uvi_update"
+          ]
+        },
+        "research_report": "data/sources/research_reports/markdown/Aquaponics pH buffer and alkalinity.md"
+      },
+      "added_date_local": "2026-11-26"
+    },
+    {
+      "fact_id": "PHB_0004",
+      "statement": "Under routine base dosing, UVI water alkalinity averaged 113.2 mg/L as CaCO3 (range 65.6 to 206.7) in batch basil and 88.6 (65.6 to 115.6) in staggered basil, with pH 7.4 and 7.1.",
+      "domain": "water_chemistry",
+      "type": "parameter",
+      "confidence": "medium",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "system": "UVI commercial-scale coupled DWC raft",
+        "location": "St. Croix"
+      },
+      "source_metadata": {
+        "source_id": "rakocy_ista6_uvi_update",
+        "section_id": "water quality table",
+        "source_type": "conference_proceedings_system_operator",
+        "source_tier": "tier_1"
+      },
+      "review_metadata": {
+        "reviewed_from": "ag.arizona.edu/azaqua/ista/ista6/ista6web/pdf/676.pdf",
+        "read_date_local": "2026-11-26",
+        "source_gate": "trusted",
+        "source_gate_reason": "Measured means and ranges from the operator.",
+        "confidence_reason": "Measured, but from one system.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "rakocy_ista6_uvi_update"
+          ]
+        },
+        "research_report": "data/sources/research_reports/markdown/Aquaponics pH buffer and alkalinity.md"
+      },
+      "added_date_local": "2026-11-26"
+    },
+    {
+      "fact_id": "PHB_0005",
+      "statement": "Aquaponics guidance keeps alkalinity at or above about 100 mg/L as CaCO3 (SRAC 454, NMSU; Texas A&M gives 50 to 150, preferably above 100) and never uses sodium bicarbonate, to keep sodium below about 50 mg/L.",
+      "domain": "operations",
+      "type": "parameter",
+      "confidence": "medium",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "system": "coupled aquaponics, general extension guidance"
+      },
+      "source_metadata": {
+        "source_id": "srac_454",
+        "section_id": "water quality, pH",
+        "source_type": "extension_fact_sheet",
+        "source_tier": "tier_1"
+      },
+      "review_metadata": {
+        "reviewed_from": "pods.okstate.edu/fact-sheets/SRAC-454pod.pdf",
+        "read_date_local": "2026-11-26",
+        "source_gate": "trusted",
+        "source_gate_reason": "USDA-SRAC extension, corroborated by university extension and FAO 589.",
+        "confidence_reason": "Stated targets, not tested in trials.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "srac_454",
+            "nmsu_cr_680",
+            "texas_am_masabni_sink",
+            "fao_tp_589"
+          ]
+        },
+        "research_report": "data/sources/research_reports/markdown/Aquaponics pH buffer and alkalinity.md"
+      },
+      "added_date_local": "2026-11-26"
+    },
+    {
+      "fact_id": "PHB_0006",
+      "statement": "In perlite biofilters with cucumber, TAN removal was 19, 31 and 80 g/m3/day at pH 6, 7 and 8, so nitrification ran about four times faster at pH 8 than at pH 6.",
+      "domain": "water_chemistry",
+      "type": "parameter",
+      "confidence": "medium",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "system": "perlite biofilter, cucumber aquaponics",
+        "note": "context_split with PHB_0007: different outcome measured"
+      },
+      "source_metadata": {
+        "source_id": "tyson_2008_hortscience_43_719",
+        "section_id": "abstract",
+        "source_type": "peer_reviewed_journal",
+        "source_tier": "tier_1"
+      },
+      "review_metadata": {
+        "reviewed_from": "agris.fao.org record of HortScience 43:719",
+        "read_date_local": "2026-11-26",
+        "source_gate": "conditional",
+        "source_gate_reason": "Peer-reviewed, read via abstract record.",
+        "confidence_reason": "Abstract-level read; one system.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "tyson_2008_hortscience_43_719"
+          ]
+        },
+        "research_report": "data/sources/research_reports/markdown/Aquaponics pH buffer and alkalinity.md"
+      },
+      "added_date_local": "2026-11-26"
+    },
+    {
+      "fact_id": "PHB_0007",
+      "statement": "In media-based aquaponics, nitrogen use efficiency was 50.9, 47.3 and 44.7 percent at pH 6.0, 7.5 and 9.0, and the share of N lost as N2O fell from 2.0 to 0.6 percent as pH rose; the authors recommend pH 6.0.",
+      "domain": "water_chemistry",
+      "type": "parameter",
+      "confidence": "medium",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "system": "media-based aquaponics, lab scale",
+        "note": "context_split with PHB_0006: NUE vs nitrification rate"
+      },
+      "source_metadata": {
+        "source_id": "zou_2016_bioresource_technology_210_81",
+        "section_id": "abstract",
+        "source_type": "peer_reviewed_journal",
+        "source_tier": "tier_1"
+      },
+      "review_metadata": {
+        "reviewed_from": "Europe PMC record, doi:10.1016/j.biortech.2015.12.079",
+        "read_date_local": "2026-11-26",
+        "source_gate": "conditional",
+        "source_gate_reason": "Peer-reviewed; full text not read.",
+        "confidence_reason": "Abstract-level read; one system.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "zou_2016_bioresource_technology_210_81"
+          ]
+        },
+        "research_report": "data/sources/research_reports/markdown/Aquaponics pH buffer and alkalinity.md"
+      },
+      "added_date_local": "2026-11-26"
+    },
+    {
+      "fact_id": "PHB_0008",
+      "statement": "Butterhead lettuce grown in aquaponic water at pH 7.0 reached about 95 percent of the shoot fresh weight of a pH 5.8 hydroponic control, while hydroponic lettuce at pH 7.0 reached about 77 percent; aquaponic lettuce had lower tissue Mn and Ca.",
+      "domain": "biology",
+      "type": "parameter",
+      "confidence": "medium",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "species": "butterhead lettuce",
+        "system": "raft, koi-fed aquaponic water vs hydroponic solution, Cornell"
+      },
+      "source_metadata": {
+        "source_id": "anderson_2017_horticulturae_3_43",
+        "section_id": "results",
+        "source_type": "peer_reviewed_journal",
+        "source_tier": "tier_1"
+      },
+      "review_metadata": {
+        "reviewed_from": "Cornell-hosted PDF of Horticulturae 3:43",
+        "read_date_local": "2026-11-26",
+        "source_gate": "trusted",
+        "source_gate_reason": "Open-access peer-reviewed.",
+        "confidence_reason": "Controlled comparison, but koi not tilapia and one trial.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "anderson_2017_horticulturae_3_43"
+          ]
+        },
+        "research_report": "data/sources/research_reports/markdown/Aquaponics pH buffer and alkalinity.md"
+      },
+      "added_date_local": "2026-11-26"
+    },
+    {
+      "fact_id": "PHB_0009",
+      "statement": "Dutch tap water typically carries 116 to 190 mg/L bicarbonate (about 95 to 155 mg/L alkalinity as CaCO3; Waternet Leiduin 2022, Dunea Scheveningen 2025, Vitens 2025) at pH 7.8 to 8.7; the Drinking Water Decree requires at least 60 mg/L bicarbonate.",
+      "domain": "environment",
+      "type": "parameter",
+      "confidence": "high",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "location": "Netherlands",
+        "water": "municipal tap water"
+      },
+      "source_metadata": {
+        "source_id": "waternet_leiduin_2022",
+        "section_id": "annual quality tables",
+        "source_type": "official_utility_report",
+        "source_tier": "tier_1"
+      },
+      "review_metadata": {
+        "reviewed_from": "waternet.nl drinkwater-leiduin-2022.pdf; dunea.nl Scheveningen 2025; vitens.nl Hoenderloo",
+        "read_date_local": "2026-11-26",
+        "source_gate": "trusted",
+        "source_gate_reason": "Official water company quality reports.",
+        "confidence_reason": "Three utilities agree; soft supplies near the legal minimum exist (ILT 2017).",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "waternet_leiduin_2022",
+            "dunea_scheveningen_2025",
+            "vitens_hoenderloo_2025",
+            "ilt_drinkwater_2017"
+          ]
+        },
+        "research_report": "data/sources/research_reports/markdown/Aquaponics pH buffer and alkalinity.md"
+      },
+      "added_date_local": "2026-11-26"
+    },
+    {
+      "fact_id": "PHB_0010",
+      "statement": "India's drinking-water standard IS 10500:2012 sets total alkalinity at 200 mg/L as CaCO3 acceptable and 600 permissible, total hardness 200 and 600, and pH 6.5 to 8.5.",
+      "domain": "environment",
+      "type": "parameter",
+      "confidence": "high",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "location": "India",
+        "water": "drinking water standard"
+      },
+      "source_metadata": {
+        "source_id": "bis_is_10500_2012",
+        "section_id": "Tables 1 and 2",
+        "source_type": "official_standard",
+        "source_tier": "tier_1"
+      },
+      "review_metadata": {
+        "reviewed_from": "consumerhelpline.gov.in IS10500-2012.pdf",
+        "read_date_local": "2026-11-26",
+        "source_gate": "trusted",
+        "source_gate_reason": "National standard.",
+        "confidence_reason": "Official text, Tables 1 and 2.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "bis_is_10500_2012"
+          ]
+        },
+        "research_report": "data/sources/research_reports/markdown/Aquaponics pH buffer and alkalinity.md"
+      },
+      "added_date_local": "2026-11-26"
+    },
+    {
+      "fact_id": "PHB_0011",
+      "statement": "South Indian borewell water is often highly alkaline and hard: Bengaluru wells 88 to 530 mg/L alkalinity (2014, 67 wells), Chennai Anna Nagar 18 to 360 mg/L bicarbonate, and Prakasam district (Andhra Pradesh) 480 to 1,025 mg/L bicarbonate, so an Indian farm on borewell water may need acid rather than base.",
+      "domain": "environment",
+      "type": "parameter",
+      "confidence": "low",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "location": "Karnataka, Tamil Nadu, Andhra Pradesh",
+        "water": "groundwater, borewells",
+        "note": "city piped supply (Cauvery, Krishna) is likely softer; no utility values found"
+      },
+      "source_metadata": {
+        "source_id": "gulgundi_shetty_2018_applied_water_science",
+        "section_id": "results tables",
+        "source_type": "peer_reviewed_journal",
+        "source_tier": "tier_1"
+      },
+      "review_metadata": {
+        "reviewed_from": "link.springer.com Applied Water Science papers",
+        "read_date_local": "2026-11-26",
+        "source_gate": "conditional",
+        "source_gate_reason": "Peer-reviewed, but each city is one study and well water varies widely.",
+        "confidence_reason": "Wide ranges, one study per place, and Bengaluru's basis (HCO3 or CaCO3) is unclear; test on site.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "gulgundi_shetty_2018_applied_water_science",
+            "krishnakumar_2015_applied_water_science",
+            "subba_rao_2018_applied_water_science"
+          ]
+        },
+        "research_report": "data/sources/research_reports/markdown/Aquaponics pH buffer and alkalinity.md"
+      },
+      "added_date_local": "2026-11-26"
+    },
+    {
+      "fact_id": "PHB_0012",
+      "statement": "Short CO2 exposure depresses Nile tilapia resting metabolism (about 11, 22 and 29 percent at 10, 30 and 60 mg/L CO2 after one hour at 26 C), while extension guidance keeps dissolved CO2 below 20 mg/L.",
+      "domain": "biology",
+      "type": "parameter",
+      "confidence": "medium",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "context": {
+        "species": "Nile tilapia",
+        "system": "lab respirometry, 26 C",
+        "note": "no growth endpoint; context_split with the SRAC 452 guideline"
+      },
+      "source_metadata": {
+        "source_id": "hamad_2024_aquaculture_590_741038",
+        "section_id": "results",
+        "source_type": "peer_reviewed_journal",
+        "source_tier": "tier_1"
+      },
+      "review_metadata": {
+        "reviewed_from": "pure.au.dk author PDF",
+        "read_date_local": "2026-11-26",
+        "source_gate": "trusted",
+        "source_gate_reason": "Peer-reviewed physiology study.",
+        "confidence_reason": "Lab respirometry only; growth effects not measured.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "hamad_2024_aquaculture_590_741038",
+            "srac_452"
+          ]
+        },
+        "research_report": "data/sources/research_reports/markdown/Aquaponics pH buffer and alkalinity.md"
+      },
+      "added_date_local": "2026-11-26"
+    }
+  ]
+}

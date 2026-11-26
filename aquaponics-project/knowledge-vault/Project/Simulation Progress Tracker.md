@@ -16,7 +16,7 @@ Last updated: 2026-11-26, after Approval Batch 004. PR #33 carries PRs #31 and #
 | 4. Multi-market | `████████████████████` 100% | 3 of 3 |
 | **All** | `████████████████████` **100%** | **16 of 16** |
 
-Done does not mean validated: sub-goal 1's validation check still shows 6 of 12 metrics more than 25% off.
+Done does not mean validated: after validation round 3, 0 of 10 scored metrics are more than 25% off and 3 more are reported but not scored.
 
 ## 1. Accurate biology
 
@@ -25,11 +25,12 @@ Done does not mean validated: sub-goal 1's validation check still shows 6 of 12 
 - [x] Heating and climate: water and air temperature, and the heating load per site (PR #30; model is a candidate)
 - [x] Fish growth and feed: tilapia growth to harvest, driving feed input (PR #30; model is a candidate)
 - [x] Validation against real farm data, not only calibration to UVI (PR #30, done as a check: 3 systems, 6 of 12 metrics fail after candidate fixes; UQ-015 open)
+- [x] pH and alkalinity buffer (candidate, UQ-018 closed to UQ-019; pH-free validation reported, not scored)
 
 ## 2. Complete components
 
 - [x] Component catalog v1 and cost-per-kg configurator (PR #15)
-- [x] Equipment inventory research (project files `equipment-inventory/`)
+- [x] Equipment inventory research (`data/sources/research_reports/markdown/Aquaponics equipment inventory.md`, notes in `data/sources/research_reports/notes/Equipment inventory/`)
 - [x] Close the 8 P1 gaps from the inventory research (PR #32: 7 of 8 filled or recorded; Telangana state rates can't be downloaded)
 - [x] Add the missing component categories (PR #32: lighting, monitoring, water treatment, backup power, harvest, propagation; fish handling has no priced part)
 - [x] Netherlands and India prices on every part (PR #32: every role, two with a written reason; a test checks it)
