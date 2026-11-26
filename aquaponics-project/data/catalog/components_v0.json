@@ -603,7 +603,17 @@
         "price_basis": "incl. 21% VAT, listing price",
         "source_ids": [
           "retail_nl_binqer_ibc"
-        ]
+        ],
+        "market": {
+          "region": "netherlands",
+          "currency_code": "EUR",
+          "price_year": {
+            "low": 2026,
+            "high": 2026
+          },
+          "price_year_basis": "retail_listing_read_date",
+          "note": "listing price on 2026-11-25"
+        }
       },
       "lifetime_years": {
         "low": 10,
@@ -681,7 +691,17 @@
         "price_basis": "excl. VAT, listing price",
         "source_ids": [
           "retail_nl_binqer_ibc"
-        ]
+        ],
+        "market": {
+          "region": "netherlands",
+          "currency_code": "EUR",
+          "price_year": {
+            "low": 2026,
+            "high": 2026
+          },
+          "price_year_basis": "retail_listing_read_date",
+          "note": "listing price on 2026-11-25"
+        }
       },
       "lifetime_years": {
         "low": 10,
@@ -756,7 +776,17 @@
         "price_basis": "listing price, GST basis not stated",
         "source_ids": [
           "retail_in_indiamart"
-        ]
+        ],
+        "market": {
+          "region": "india",
+          "currency_code": "INR",
+          "price_year": {
+            "low": 2026,
+            "high": 2026
+          },
+          "price_year_basis": "retail_listing_read_date",
+          "note": "listing price on 2026-11-25"
+        }
       },
       "lifetime_years": {
         "low": 10,
@@ -821,7 +851,17 @@
         "price_basis": "listing price, GST basis not stated",
         "source_ids": [
           "retail_in_indiamart"
-        ]
+        ],
+        "market": {
+          "region": "india",
+          "currency_code": "INR",
+          "price_year": {
+            "low": 2026,
+            "high": 2026
+          },
+          "price_year_basis": "retail_listing_read_date",
+          "note": "listing price on 2026-11-25"
+        }
       },
       "lifetime_years": {
         "low": 10,
@@ -886,7 +926,17 @@
         "price_basis": "NFDB/PMMSY unit cost, construction of one tank",
         "source_ids": [
           "nfdb_ras_recent_trends"
-        ]
+        ],
+        "market": {
+          "region": "india",
+          "currency_code": "INR",
+          "price_year": {
+            "low": null,
+            "high": null
+          },
+          "price_year_basis": "not_recorded",
+          "note": "NFDB RAS model unit cost; the document's price year was not recorded"
+        }
       },
       "lifetime_years": {
         "low": 10,
@@ -955,7 +1005,17 @@
         "price_basis": "incl. BTW; EUR 607.20 for 8 x 6 m (sale price, item discontinued)",
         "source_ids": [
           "retail_nl_toppy"
-        ]
+        ],
+        "market": {
+          "region": "netherlands",
+          "currency_code": "EUR",
+          "price_year": {
+            "low": 2026,
+            "high": 2026
+          },
+          "price_year_basis": "retail_listing_read_date",
+          "note": "listing price on 2026-11-25"
+        }
       },
       "lifetime_years": {
         "low": 10,
@@ -1033,7 +1093,17 @@
         "price_basis": "Gamma BE listing, VAT basis not stated",
         "source_ids": [
           "retail_nl_gamma_eps_xps"
-        ]
+        ],
+        "market": {
+          "region": "netherlands",
+          "currency_code": "EUR",
+          "price_year": {
+            "low": 2026,
+            "high": 2026
+          },
+          "price_year_basis": "retail_listing_read_date",
+          "note": "listing price on 2026-11-25"
+        }
       },
       "lifetime_years": {
         "low": 10,
@@ -1115,7 +1185,17 @@
         "price_basis": "Gamma NL listing, VAT basis not stated",
         "source_ids": [
           "retail_nl_gamma_eps_xps"
-        ]
+        ],
+        "market": {
+          "region": "netherlands",
+          "currency_code": "EUR",
+          "price_year": {
+            "low": 2026,
+            "high": 2026
+          },
+          "price_year_basis": "retail_listing_read_date",
+          "note": "listing price on 2026-11-25"
+        }
       },
       "lifetime_years": {
         "low": 10,
@@ -1259,7 +1339,17 @@
         "price_basis": "listing price, thickness not shown",
         "source_ids": [
           "retail_in_indiamart"
-        ]
+        ],
+        "market": {
+          "region": "india",
+          "currency_code": "INR",
+          "price_year": {
+            "low": 2026,
+            "high": 2026
+          },
+          "price_year_basis": "retail_listing_read_date",
+          "note": "listing price on 2026-11-25"
+        }
       },
       "lifetime_years": {
         "low": 10,
@@ -1326,7 +1416,17 @@
         "price_basis": "derived: Rs 260/kg x 10 kg/m3 x 0.04 m (two listings combined)",
         "source_ids": [
           "retail_in_indiamart"
-        ]
+        ],
+        "market": {
+          "region": "india",
+          "currency_code": "INR",
+          "price_year": {
+            "low": 2026,
+            "high": 2026
+          },
+          "price_year_basis": "retail_listing_read_date",
+          "note": "listing price on 2026-11-25"
+        }
       },
       "lifetime_years": {
         "low": 10,
@@ -1465,7 +1565,17 @@
         "price_basis": "derived: Rs 145 per 20 ft (6.1 m) piece",
         "source_ids": [
           "retail_in_indiamart"
-        ]
+        ],
+        "market": {
+          "region": "india",
+          "currency_code": "INR",
+          "price_year": {
+            "low": 2026,
+            "high": 2026
+          },
+          "price_year_basis": "retail_listing_read_date",
+          "note": "listing price on 2026-11-25"
+        }
       },
       "lifetime_years": {
         "low": 10,
@@ -1543,7 +1653,17 @@
         "price_basis": "incl. BTW",
         "source_ids": [
           "retail_nl_toppy"
-        ]
+        ],
+        "market": {
+          "region": "netherlands",
+          "currency_code": "EUR",
+          "price_year": {
+            "low": 2026,
+            "high": 2026
+          },
+          "price_year_basis": "retail_listing_read_date",
+          "note": "listing price on 2026-11-25"
+        }
       },
       "lifetime_years": {
         "low": 5,
@@ -1617,7 +1737,17 @@
         "price_basis": "incl. BTW (item no longer available)",
         "source_ids": [
           "retail_nl_toppy"
-        ]
+        ],
+        "market": {
+          "region": "netherlands",
+          "currency_code": "EUR",
+          "price_year": {
+            "low": 2026,
+            "high": 2026
+          },
+          "price_year_basis": "retail_listing_read_date",
+          "note": "listing price on 2026-11-25"
+        }
       },
       "lifetime_years": {
         "low": 5,
@@ -1691,7 +1821,17 @@
         "price_basis": "MRP incl. all taxes (GST included), national list price, one model",
         "source_ids": [
           "crompton_owe052"
-        ]
+        ],
+        "market": {
+          "region": "india",
+          "currency_code": "INR",
+          "price_year": {
+            "low": 2026,
+            "high": 2026
+          },
+          "price_year_basis": "retail_listing_read_date",
+          "note": "listing price on 2026-11-25"
+        }
       },
       "lifetime_years": {
         "low": 5,
@@ -1775,7 +1915,17 @@
         "price_basis": "Irish retailer, VAT basis not stated",
         "source_ids": [
           "retail_ie_hailea_aco500"
-        ]
+        ],
+        "market": {
+          "region": "netherlands",
+          "currency_code": "EUR",
+          "price_year": {
+            "low": 2026,
+            "high": 2026
+          },
+          "price_year_basis": "retail_listing_read_date",
+          "note": "listing price on 2026-11-25"
+        }
       },
       "lifetime_years": {
         "low": 10,
@@ -1858,7 +2008,17 @@
         "price_basis": "listing price",
         "source_ids": [
           "retail_in_indiamart"
-        ]
+        ],
+        "market": {
+          "region": "india",
+          "currency_code": "INR",
+          "price_year": {
+            "low": 2026,
+            "high": 2026
+          },
+          "price_year_basis": "retail_listing_read_date",
+          "note": "listing price on 2026-11-25"
+        }
       },
       "lifetime_years": {
         "low": 10,
@@ -1934,7 +2094,17 @@
         "price_basis": "two listings, per m3",
         "source_ids": [
           "retail_in_indiamart"
-        ]
+        ],
+        "market": {
+          "region": "india",
+          "currency_code": "INR",
+          "price_year": {
+            "low": 2026,
+            "high": 2026
+          },
+          "price_year_basis": "retail_listing_read_date",
+          "note": "listing price on 2026-11-25"
+        }
       },
       "lifetime_years": {
         "low": 10,
@@ -2000,7 +2170,17 @@
         "price_basis": "incl. 21% VAT",
         "source_ids": [
           "retail_nl_binqer_ibc"
-        ]
+        ],
+        "market": {
+          "region": "netherlands",
+          "currency_code": "EUR",
+          "price_year": {
+            "low": 2026,
+            "high": 2026
+          },
+          "price_year_basis": "retail_listing_read_date",
+          "note": "listing price on 2026-11-25"
+        }
       },
       "lifetime_years": {
         "low": 10,
@@ -2075,7 +2255,17 @@
         "price_basis": "listing price",
         "source_ids": [
           "retail_in_indiamart"
-        ]
+        ],
+        "market": {
+          "region": "india",
+          "currency_code": "INR",
+          "price_year": {
+            "low": 2026,
+            "high": 2026
+          },
+          "price_year_basis": "retail_listing_read_date",
+          "note": "listing price on 2026-11-25"
+        }
       },
       "lifetime_years": {
         "low": 10,
@@ -2139,7 +2329,16 @@
         "price_basis": "2017 builder quotes (AAB Nederland), excl. heating installation",
         "source_ids": [
           "wecr_2017_070_greenhouse_quickscan"
-        ]
+        ],
+        "market": {
+          "region": "netherlands",
+          "currency_code": "EUR",
+          "price_year": {
+            "low": 2017,
+            "high": 2017
+          },
+          "price_year_basis": "stated_in_source"
+        }
       },
       "lifetime_years": {
         "low": 16,
@@ -2210,6 +2409,16 @@
           "approved_date_local": "2026-11-26",
           "scope": "F1: India NVPH tubular capex per m2, scenario use only",
           "record": "Approval Batch 002, approved as recommended (thread message 2026-11-26 01:33 Europe/Amsterdam)"
+        },
+        "market": {
+          "region": "india",
+          "currency_code": "INR",
+          "price_year": {
+            "low": 2025,
+            "high": 2025
+          },
+          "price_year_basis": "stated_in_source",
+          "note": "MIDH 2025 norm (dated 31.12.2024)"
         }
       },
       "lifetime_years": {
@@ -2299,6 +2508,16 @@
           "approved_date_local": "2026-11-26",
           "scope": "F1: India bamboo shade net capex per m2, scenario use only",
           "record": "Approval Batch 002, approved as recommended (thread message 2026-11-26 01:33 Europe/Amsterdam)"
+        },
+        "market": {
+          "region": "india",
+          "currency_code": "INR",
+          "price_year": {
+            "low": 2025,
+            "high": 2025
+          },
+          "price_year_basis": "stated_in_source",
+          "note": "MIDH 2025 norm (dated 31.12.2024)"
         }
       },
       "lifetime_years": {
@@ -2386,7 +2605,17 @@
       "capex_per_unit": {
         "low": 0.0,
         "high": 0.0,
-        "price_basis": "definition: no structure is bought"
+        "price_basis": "definition: no structure is bought",
+        "market": {
+          "region": "any",
+          "currency_code": null,
+          "price_year": {
+            "low": null,
+            "high": null
+          },
+          "price_year_basis": "not_a_price",
+          "note": "zero-cost placeholder"
+        }
       },
       "lifetime_years": {
         "low": 1,
@@ -2436,7 +2665,17 @@
         "price_basis": "VAT not stated; derived from case totals EUR 531,000 / 2 ha, 1,521,000 / 5 ha and 1,694,000 / 5 ha (Fennis 2024). Hectare-scale; a 100-250 m2 unit costs more per m2 (not sourced).",
         "source_ids": [
           "fennis_2024_heat_pumps"
-        ]
+        ],
+        "market": {
+          "region": "netherlands",
+          "currency_code": "EUR",
+          "price_year": {
+            "low": 2024,
+            "high": 2024
+          },
+          "price_year_basis": "stated_in_source",
+          "note": "case totals presented Sep 2024"
+        }
       },
       "lifetime_years": {
         "low": null,
@@ -2501,6 +2740,16 @@
           "approved_date_local": "2026-11-26",
           "scope": "F1: MIDH 2025 norm as India reference for protected structures, scenario use only, labelled subsidy cost ceiling not market price",
           "record": "Approval Batch 002 (price only; this catalog entry is new and pending Batch 003)"
+        },
+        "market": {
+          "region": "india",
+          "currency_code": "INR",
+          "price_year": {
+            "low": 2025,
+            "high": 2025
+          },
+          "price_year_basis": "stated_in_source",
+          "note": "MIDH 2025 norm (dated 31.12.2024)"
         }
       },
       "lifetime_years": {
@@ -2568,7 +2817,17 @@
         "price_basis": "incl. VAT, excl. shipping (EUR 7-15 EU delivery under 30 kg); derived: sale EUR 41.88 and regular EUR 46.53 per 2.5 m piece; seller ships EU-wide, NL not named; read 2026-11-26",
         "source_ids": [
           "retail_eu_gotogarden_nft"
-        ]
+        ],
+        "market": {
+          "region": "netherlands",
+          "currency_code": "EUR",
+          "price_year": {
+            "low": 2026,
+            "high": 2026
+          },
+          "price_year_basis": "retail_listing_read_date",
+          "note": "listing price on 2026-11-26"
+        }
       },
       "lifetime_years": {
         "low": 10,
@@ -2638,7 +2897,17 @@
           "retail_be_gamma_argex_bigbag",
           "retail_nl_hornbach_hydrokorrels",
           "retail_nl_gamma_hydrokorrels"
-        ]
+        ],
+        "market": {
+          "region": "netherlands",
+          "currency_code": "EUR",
+          "price_year": {
+            "low": 2026,
+            "high": 2026
+          },
+          "price_year_basis": "retail_listing_read_date",
+          "note": "listing price on 2026-11-26"
+        }
       },
       "lifetime_years": {
         "low": null,
@@ -2698,6 +2967,16 @@
         "source_ids": [
           "retail_nl_coppens_feed"
         ]
+      },
+      "currency_code": "EUR",
+      "market": {
+        "region": "netherlands",
+        "currency_code": "EUR",
+        "price_year": {
+          "low": 2026,
+          "high": 2026
+        },
+        "price_year_basis": "retail_listing_read_date"
       }
     },
     {
@@ -2724,6 +3003,16 @@
           "retail_in_indiamart",
           "nfdb_ras_recent_trends"
         ]
+      },
+      "currency_code": "INR",
+      "market": {
+        "region": "india",
+        "currency_code": "INR",
+        "price_year": {
+          "low": 2026,
+          "high": 2026
+        },
+        "price_year_basis": "retail_listing_read_date"
       }
     },
     {
@@ -2750,6 +3039,16 @@
           "nfdb_ras_recent_trends",
           "kvafsu_fric_hebbal_2020"
         ]
+      },
+      "currency_code": "INR",
+      "market": {
+        "region": "india",
+        "currency_code": "INR",
+        "price_year": {
+          "low": null,
+          "high": null
+        },
+        "price_year_basis": "not_recorded"
       }
     },
     {
@@ -2776,6 +3075,17 @@
           "vitens_tarieven_2026",
           "dunea_tarieven_2026"
         ]
+      },
+      "currency_code": "EUR",
+      "market": {
+        "region": "netherlands",
+        "currency_code": "EUR",
+        "price_year": {
+          "low": 2026,
+          "high": 2026
+        },
+        "price_year_basis": "stated_in_source",
+        "place": "Vitens supply area"
       }
     },
     {
@@ -2800,6 +3110,16 @@
         "source_ids": [
           "cbs_85666eng_gas"
         ]
+      },
+      "currency_code": "EUR",
+      "market": {
+        "region": "netherlands",
+        "currency_code": "EUR",
+        "price_year": {
+          "low": 2024,
+          "high": 2026
+        },
+        "price_year_basis": "stated_in_source"
       }
     },
     {
@@ -2824,6 +3144,14 @@
         "source_ids": [
           "wecr_2017_070_greenhouse_quickscan"
         ]
+      },
+      "currency_code": null,
+      "market": {
+        "region": "netherlands",
+        "currency_code": null,
+        "price_year": null,
+        "price_year_basis": "not_a_price",
+        "note": "physical or technical rate, not a price"
       }
     },
     {
@@ -2849,6 +3177,18 @@
         "source_ids": [
           "cmwssb_tariff_2025"
         ]
+      },
+      "currency_code": "INR",
+      "market": {
+        "region": "india",
+        "currency_code": "INR",
+        "price_year": {
+          "low": 2025,
+          "high": 2025
+        },
+        "price_year_basis": "stated_in_source",
+        "place": "Chennai (CMWSSB), Tamil Nadu",
+        "note": "used for every Indian location until a city tariff for each state is added"
       }
     },
     {
@@ -2874,6 +3214,16 @@
         "source_ids": [
           "reinsaat_basil_seed"
         ]
+      },
+      "currency_code": "EUR",
+      "market": {
+        "region": "netherlands",
+        "currency_code": "EUR",
+        "price_year": {
+          "low": 2026,
+          "high": 2026
+        },
+        "price_year_basis": "retail_listing_read_date"
       }
     },
     {
@@ -2907,6 +3257,14 @@
           "glastuinbouw_nl_bax_heat_pump",
           "kema_2012_kas_energiebron_heat_pumps"
         ]
+      },
+      "currency_code": null,
+      "market": {
+        "region": "netherlands",
+        "currency_code": null,
+        "price_year": null,
+        "price_year_basis": "not_a_price",
+        "note": "physical or technical rate, not a price"
       }
     },
     {
@@ -2938,6 +3296,14 @@
           "kema_2012_kas_energiebron_heat_pumps",
           "glastuinbouw_nl_bax_heat_pump"
         ]
+      },
+      "currency_code": null,
+      "market": {
+        "region": "netherlands",
+        "currency_code": null,
+        "price_year": null,
+        "price_year_basis": "not_a_price",
+        "note": "physical or technical rate, not a price"
       }
     }
   ],

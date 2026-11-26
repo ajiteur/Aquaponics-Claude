@@ -653,12 +653,57 @@ def simulation_check(catalog: Catalog, build: dict, mid: dict, days: int) -> dic
 
 # --- entry points -----------------------------------------------------------
 
+def market_check(catalog: Catalog, build: dict, components: list[dict]) -> dict:
+    """Tie every price the build uses to its market (region, currency, price year).
+
+    A currency that differs from the location's currency is an error, since no exchange rate is
+    applied inside a build. A price with no recorded year, or one taken from another place in the
+    same region, is reported as a flag rather than hidden.
+    """
+    loc = catalog.locations.get(build["location"], {})
+    currency = loc.get("currency_code")
+    tags, flags = [], []
+
+    def check(kind: str, item_id: str, market: dict | None, cur: str | None):
+        if cur is not None and currency is not None and cur != currency:
+            raise ConfigError(f"{kind} '{item_id}' is priced in {cur}, but location '{build['location']}' uses {currency}.")
+        if market is None:
+            flags.append(f"{item_id}: no market tag (region, currency, price year)")
+            return
+        if market.get("price_year_basis") == "not_a_price":
+            return
+        tags.append({"kind": kind, "id": item_id, **market})
+        if market.get("price_year_basis") == "not_recorded" or not market.get("price_year"):
+            flags.append(f"{item_id}: price year not recorded")
+        if market.get("place"):
+            flags.append(f"{item_id}: priced for {market['place']}, used for location '{build['location']}'")
+
+    for comp in components:
+        cp = comp.get("capex_per_unit")
+        if cp is not None:
+            check("component", comp["component_id"], cp.get("market"), comp.get("currency_code"))
+    overrides = build.get("running_overrides", {})
+    for (input_id, region), item in sorted(catalog.running.items()):
+        if region == build["region"] and input_id not in overrides:
+            check("running_input", input_id, item.get("market"), item.get("currency_code"))
+    for key in ("wage_per_hour", "electricity_per_kwh"):
+        rate = loc.get(key)
+        if isinstance(rate, dict) and key not in overrides:
+            year = rate.get("price_year")
+            if not year:
+                flags.append(f"location {build['location']}.{key}: price year not recorded")
+            elif None in (year.get("low"), year.get("high")):
+                flags.append(f"location {build['location']}.{key}: price year recorded for one end of the range only")
+    return {"currency_code": currency, "tags": tags, "flags": sorted(set(flags))}
+
+
 def build_result(build: dict, components_path: Path = DEFAULT_COMPONENTS,
                  species_path: Path = DEFAULT_SPECIES, locations_path: Path = DEFAULT_LOCATIONS,
                  run_simulation: bool | None = None) -> dict:
     catalog = Catalog(load_json(components_path), load_json(species_path), load_json(locations_path))
     validate_build(catalog, build)
     components = resolve_components(catalog, build)
+    market = market_check(catalog, build, components)
     cases = {case: evaluate_case(catalog, build, case, components) for case in CASES}
     currency = catalog.locations.get(build["location"], {}).get("currency_code")
     result = {
@@ -677,6 +722,7 @@ def build_result(build: dict, components_path: Path = DEFAULT_COMPONENTS,
         "cases": cases,
         "alternatives_mid": compare_alternatives(catalog, build, components, cases["mid"]),
         "gaps": sorted(set().union(*(set(c["gaps"]) for c in cases.values()))),
+        "market": market,
         "not_included": SCOPE_NOTE,
     }
     sim = build.get("simulation_check") if run_simulation is None else ({"days": 28} if run_simulation else None)
@@ -748,6 +794,10 @@ def summary_lines(result: dict) -> list[str]:
             )
         else:
             lines.append(f"    not run: {sim['reason']}")
+    flags = result.get("market", {}).get("flags", [])
+    if flags:
+        lines += ["", "  MARKET FLAGS (prices used but not fully tied to this market and year)"]
+        lines += [f"    - {f}" for f in flags]
     if result["gaps"]:
         lines += ["", "  GAPS (left out of the totals, never filled in)"]
         lines += [f"    - {g}" for g in result["gaps"]]
