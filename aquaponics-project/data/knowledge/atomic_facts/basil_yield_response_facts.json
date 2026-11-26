@@ -154,9 +154,8 @@
       "domain": "biology",
       "type": "parameter",
       "confidence": "medium",
-      "status": "provisional",
-      "provisional_reason": "candidate_pending_user_review",
-      "approval_batch": "pending_batch_004",
+      "status": "accepted",
+      "approval_batch": "batch_004",
       "context": {
         "species": "basil 'Nufar'",
         "system": "deep-flow technique, single harvest of young plants",
@@ -180,7 +179,13 @@
             "ciriello_2021"
           ]
         },
-        "reviewed_from_file": "web reads 2026-11-26 (gravel-bed N and basil density fixes)"
+        "reviewed_from_file": "web reads 2026-11-26 (gravel-bed N and basil density fixes)",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-26",
+          "scope": "truth BYR_0005 (B1: Tier 2, medium, corroborated)",
+          "record": "Approval Batch 004, approved as recommended (thread message 2026-11-26 15:57 Europe/Amsterdam)"
+        }
       },
       "added_date_local": "2026-11-26"
     }
