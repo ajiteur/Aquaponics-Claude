@@ -36,7 +36,11 @@ Add an entry under `fish` or `plants` in `species_sizing_v0.json` with `canon_re
 
 ## Add a region
 
-Add a `locations.<name>` block (currency, wage, electricity) in `unit_configuration_candidates_v0.json`, then parts and running inputs with that `region`.
+A new country is data only. No code changes are needed, and `tests/test_multi_market.py` proves it with a stub third market.
+
+1. Add a `locations.<name>` block in `unit_configuration_candidates_v0.json` with `currency_code`, `wage_per_hour` and `electricity_per_kwh`. Give each rate a `price_year` ({low, high}) and a `price_year_basis`.
+2. Add parts and running inputs with that `region`, its `currency_code`, and a `market` block next to each price: `{"region", "currency_code", "price_year": {"low", "high"}, "price_year_basis": "stated_in_source" | "retail_listing_read_date" | "not_recorded" | "not_a_price"}`. Add `place` when the price comes from one city or utility but stands in for the whole region.
+3. Run `python scripts/audit_market_tags.py`. It lists every price with its market and year, and flags anything untagged. A build refuses parts or prices in another currency, because no exchange rate is applied inside a build. Its report lists market flags (missing years, single-city prices) above the gaps.
 
 ## Compare swaps
 

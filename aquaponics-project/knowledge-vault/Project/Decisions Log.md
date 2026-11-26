@@ -2,6 +2,11 @@
 
 Newest first. Each entry gives the decision, why, and who made it.
 
+## 2026-11-26: Multi-market checkpoint
+
+- **Tie every price to a market: region, currency and price year.** Retail listings take the year they were read, sourced documents take the year they state, and anything else is marked "not recorded" and flagged, never guessed. A build refuses a price in another currency. Why: the model has to generalise to many markets without mixing currencies or vintages. Proposed by Claude.
+- **A new country is data only.** A test adds a stub third market from data and runs the configurator and the swaps on it with no code change. Proposed by Claude.
+
 ## 2026-11-26: Swaps checkpoint
 
 - **Price other architectures from a sourced yield ratio against the raft, and only where a study gives a number.** NFT uses 0.83 to 0.95 of the raft yield. The media bed stays without a yield, because "not significantly different" is not a measured ratio. Batch 003 can accept parity as Ajit's own assumption. Proposed by Claude.
