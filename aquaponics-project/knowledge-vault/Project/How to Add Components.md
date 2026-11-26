@@ -46,6 +46,8 @@ A new country is data only. No code changes are needed, and `tests/test_multi_ma
 
 `runs/swaps_basil_nl.json` and `runs/swaps_basil_karnataka.json` hold a base build and a list of `options`. Each option is a patch on the base: dicts merge, and lists and values replace. For example, `{"grow_architecture": "nft", "components": {"grow_unit": ["nft_channel_upvc_100x50_in"]}}` swaps the raft for NFT, and `{"heating": {"enabled": true, "source": "heat_pump"}, "components": {"heating": "heating_heat_pump_air_water_nl"}}` swaps gas for a heat pump. Every catalog alternative of each chosen part is added automatically. A new part with a price and life shows up as a swap with no other changes. The report marks a swap with (*) when it opens a cost gap.
 
+The plain-language summary of each swap (what you gain, what you give up, and the confidence) is in [[Learnings/Swap Trade-offs|Swap Trade-offs]]. Regenerate it with `python scripts/compare_swaps.py --vault` after changing the catalog or the swap runs.
+
 ## Reliability check (every new value)
 
 Check the source and look for a second one. Tier 1 is peer-reviewed or official, tier 2 is research notes and extension packs, tier 3 is shop listings and anecdote. Tier 3 or single-source values stay candidate.
