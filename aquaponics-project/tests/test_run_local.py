@@ -141,7 +141,7 @@ class RunTests(unittest.TestCase):
     def test_example_run_files_are_valid_json(self):
         for f in run_local.RUNS_DIR.glob("*.json"):
             spec = json.loads(f.read_text(encoding="utf-8"))
-            self.assertTrue(spec.get("simulation") or spec.get("unit_economics") or spec.get("configurator"), f.name)
+            self.assertTrue(spec.get("simulation") or spec.get("unit_economics") or spec.get("configurator") or spec.get("swaps"), f.name)
 
 
 if __name__ == "__main__":

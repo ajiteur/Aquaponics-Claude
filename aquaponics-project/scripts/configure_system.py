@@ -390,6 +390,8 @@ def evaluate_case(catalog: Catalog, build: dict, case: str, components: list[dic
     drivers["structure_area_m2"] = drivers.get(structure_basis) or min_area
 
     lines = [cost_component(c, drivers, case, power_price, gaps) for c in components]
+    if not any(c["category"] == "grow_unit" for c in components):
+        gaps.add(f"grow unit: no part chosen (none priced for {build['grow_architecture']} in {region}), so its build cost is left out")
 
     running = []
 
@@ -411,10 +413,41 @@ def evaluate_case(catalog: Catalog, build: dict, case: str, components: list[dic
     add_running("water", "Make-up water", drivers["makeup_water_m3_yr"], "m3/yr", "water_price_per_m3")
 
     heating = build.get("heating", {})
+    heat_pump_kwh = 0.0
+    heating_source = heating.get("source", "gas_boiler")
     if heating.get("enabled"):
+        # Heat demand is recorded as m3 of gas a boiler-heated greenhouse burns per m2 per year.
         demand, _ = running_value(catalog, "greenhouse_heat_demand_m3_gas_per_m2_yr", region, case, build)
         gas_qty = drivers["structure_area_m2"] * demand if demand is not None else None
-        add_running("heating", "Heating gas", gas_qty, "m3 gas/yr", "natural_gas_price_per_m3")
+        if heating_source == "gas_boiler":
+            add_running("heating", "Heating gas", gas_qty, "m3 gas/yr", "natural_gas_price_per_m3")
+            if not any(c["category"] == "heating" for c in components):
+                gaps.add("gas boiler and heating installation: no catalog price (the glasshouse price excludes heating)")
+        elif heating_source == "heat_pump":
+            # Same heat, delivered by an electric heat pump: heat (kWh) = gas m3 x heat per m3 of gas;
+            # electricity = heat / seasonal COP.
+            heat_per_m3, _ = running_value(catalog, "gas_heat_kwh_per_m3", region, case, build)
+            cop, _ = running_value(catalog, "heat_pump_seasonal_cop", region, case, build)
+            heat_kwh = gas_qty * heat_per_m3 if gas_qty is not None and heat_per_m3 is not None else None
+            drivers["heat_demand_kwh_yr"] = heat_kwh
+            if heat_kwh is None:
+                gaps.add("heat pump: heat demand in kWh (needs greenhouse_heat_demand and gas_heat_kwh_per_m3)")
+            elif cop is None:
+                gaps.add(f"heat pump: seasonal COP (heat_pump_seasonal_cop for {region})")
+            else:
+                heat_pump_kwh = heat_kwh / cop
+                if power_price is None:
+                    gaps.add("heat pump: electricity price")
+                running.append({
+                    "line_id": "heating", "label": "Heat pump electricity", "quantity": r(heat_pump_kwh, 0),
+                    "quantity_unit": "kWh/yr", "unit_price": r(power_price, 4),
+                    "cost_per_year": r(heat_pump_kwh * power_price) if power_price is not None else None,
+                    "input_id": "heat_pump_seasonal_cop",
+                })
+            if not any(c["category"] == "heating" for c in components):
+                gaps.add("heat pump: no heating component chosen, so its build cost is left out")
+        else:
+            raise ConfigError(f"Unknown heating.source '{heating_source}'. Known: gas_boiler, heat_pump")
 
     regime_id = build.get("labour_regime")
     labour = {"regime_id": regime_id, "hours_per_year": None, "cost_per_year": None, "costed": False}
@@ -452,7 +485,7 @@ def evaluate_case(catalog: Catalog, build: dict, case: str, components: list[dic
             "electricity_kwh_yr": None, "electricity_cost_per_year": None, "missing": [],
         })
 
-    elec_kwh = sum(l["electricity_kwh_yr"] or 0 for l in lines)
+    elec_kwh = sum(l["electricity_kwh_yr"] or 0 for l in lines) + heat_pump_kwh
     capex_total = sum(l["capex_total"] or 0 for l in lines)
     cost_rows = []
     for l in lines:
@@ -486,6 +519,8 @@ def evaluate_case(catalog: Catalog, build: dict, case: str, components: list[dic
         "annual_cost_counted": r(total),
         "cost_per_kg_plant": r(total / plant_kg, 3) if plant_kg else None,
         "cost_per_kg_all_output": r(total / (plant_kg + fish_kg), 3) if plant_kg else None,
+        "cost_per_m2_grow_yr": r(total / drivers["grow_area_m2"], 3) if drivers["grow_area_m2"] else None,
+        "heating_source": heating_source if heating.get("enabled") else None,
         "breakdown": breakdown,
         "gaps": sorted(gaps),
     }

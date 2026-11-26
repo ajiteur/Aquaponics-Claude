@@ -238,6 +238,24 @@
       "url": "data/sources/research_reports/raw/MIDH Operational Guidelines 2025.pdf",
       "read_date": "2026-11-26",
       "source_tier": "tier_1"
+    },
+    "fennis_2024_heat_pumps": {
+      "citation": "Fennis, B. (2024). De kracht van warmtepompen voor duurzame glastuinbouw. Kas als Energiebron, Energiek Event 24 Sep 2024 (Blueterra/WUR data).",
+      "url": "https://www.kasalsenergiebron.nl/content/kasalsenergiebron/Events/EnergiekEvent/2024_ZON/De_kracht_van_warmtepompen.pdf",
+      "read_date": "2026-11-26",
+      "source_tier": "tier_2"
+    },
+    "glastuinbouw_nl_bax_heat_pump": {
+      "citation": "Bax, E. Warmtepomp (presentation). Glastuinbouw Nederland. Undated (file name suggests 2023-01-09, unverified).",
+      "url": "https://www.glastuinbouwnederland.nl/content/user_upload/166800-230109-EB-Pres_warmtepomp.pdf",
+      "read_date": "2026-11-26",
+      "source_tier": "tier_2"
+    },
+    "kema_2012_kas_energiebron_heat_pumps": {
+      "citation": "KEMA Nederland (2012). Warmtepompen met niet-aquifer bronnen voor energiezuinige teelten. Report 76363973-CES/PTM 12-4575, Productschap Tuinbouw project 13496 (Kas als Energiebron).",
+      "url": "https://edepot.wur.nl/289335",
+      "read_date": "2026-11-26",
+      "source_tier": "tier_2"
     }
   },
   "design_rules": {
@@ -2371,6 +2389,135 @@
         }
       },
       "role": "structure"
+    },
+    {
+      "component_id": "heating_heat_pump_air_water_nl",
+      "name": "Air-water heat pump retrofit for a greenhouse (Fennis 2024 cases)",
+      "category": "heating",
+      "role": "heat_source",
+      "function": "Supplies greenhouse and water heat from outdoor air with electricity instead of burning gas.",
+      "region": "netherlands",
+      "currency_code": "EUR",
+      "status": "candidate",
+      "approval_status": "pending_batch_003",
+      "sizing": {
+        "driver": "structure_area_m2",
+        "mode": "continuous",
+        "per_driver_unit": 1.0,
+        "unit_label": "m2 greenhouse heated"
+      },
+      "capex_per_unit": {
+        "low": 26.55,
+        "high": 33.88,
+        "price_basis": "VAT not stated; derived from case totals EUR 531,000 / 2 ha, 1,521,000 / 5 ha and 1,694,000 / 5 ha (Fennis 2024). Hectare-scale; a 100-250 m2 unit costs more per m2 (not sourced).",
+        "source_ids": [
+          "fennis_2024_heat_pumps"
+        ]
+      },
+      "lifetime_years": {
+        "low": null,
+        "high": null,
+        "unit": "years",
+        "source_ids": [],
+        "derivation": "Not stated in any of the three heat pump sources read; build cost per year stays a gap."
+      },
+      "energy": null,
+      "labour_effect": "Service contract and refrigerant checks (frequency not sourced).",
+      "trade_offs": [
+        "Cuts gas to zero but adds electricity at about 1/COP of the heat; cost depends on the gas-to-power price ratio.",
+        "Needs a low-temperature (35-45 C) heating system; prices are for hectare-scale holdings.",
+        "Lifetime not sourced, so its annual build cost is a gap and the swap looks cheaper than it is."
+      ],
+      "occupies_floor": false,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_2",
+        "source_gate": "conditional",
+        "source_gate_reason": "Sector event presentation with Blueterra/WUR case data.",
+        "confidence": "medium",
+        "confidence_reason": "Recent (2024) and derived from three cases, but hectare-scale only; batch-002 per-kW figures (EUR 250-323/kW) conflict in basis.",
+        "corroboration": {
+          "status": "conflicting",
+          "source_ids": [
+            "fennis_2024_heat_pumps",
+            "glastuinbouw_nl_bax_heat_pump",
+            "kema_2012_kas_energiebron_heat_pumps"
+          ]
+        }
+      },
+      "notes": [
+        "From candidates_batch_002_v0.jsonl line nl_greenhouse_air_water_heat_pump_retrofit_2024 (kept as candidate in Batch 002, E2)."
+      ]
+    },
+    {
+      "component_id": "structure_polyhouse_fan_pad_in",
+      "name": "Fan-and-pad polyhouse (MIDH 2025 norm)",
+      "category": "structure",
+      "role": "structure",
+      "function": "Covers the planning area with evaporative cooling, for hot months.",
+      "region": "india",
+      "currency_code": "INR",
+      "status": "candidate",
+      "approval_status": "pending_batch_003",
+      "sizing": {
+        "driver": "structure_area_m2",
+        "mode": "continuous",
+        "per_driver_unit": 1.0,
+        "unit_label": "m2 covered"
+      },
+      "capex_per_unit": {
+        "low": 1500.0,
+        "high": 1800.0,
+        "price_basis": "MIDH Operational Guidelines 2025 Annexure V B.5, plains: Rs 1800/m2 up to 500 m2, 1600 for 500-1008 m2, 1500 for 1008-2500 m2. Subsidy cost ceiling, not a market price.",
+        "source_ids": [
+          "midh_operational_guidelines_2025"
+        ],
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-26",
+          "scope": "F1: MIDH 2025 norm as India reference for protected structures, scenario use only, labelled subsidy cost ceiling not market price",
+          "record": "Approval Batch 002 (price only; this catalog entry is new and pending Batch 003)"
+        }
+      },
+      "lifetime_years": {
+        "low": null,
+        "high": null,
+        "unit": "years",
+        "source_ids": [],
+        "derivation": "No fan-and-pad house life read; the NVPH lives (10-12 yr) are not transferred. Gap."
+      },
+      "energy": {
+        "power_w_per_unit": {
+          "low": null,
+          "high": null,
+          "unit": "W per m2",
+          "derivation": "Fan and pad pump power not sourced; electricity is a gap."
+        },
+        "duty_hours_per_day": 0
+      },
+      "labour_effect": "Pads need cleaning and replacing; fans need servicing (not sourced).",
+      "trade_offs": [
+        "Cooler in summer than a naturally ventilated house; costs about 1.5 times as much per m2 and uses electricity (not sourced).",
+        "Norm is a subsidy ceiling, not a quote; lifetime and power are gaps, so annual cost is understated."
+      ],
+      "occupies_floor": false,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_1",
+        "source_gate": "conditional",
+        "source_gate_reason": "Official 2025 national norm; a cost ceiling, not a market price.",
+        "confidence": "medium",
+        "confidence_reason": "Read from the official PDF; single source for this structure type.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "midh_operational_guidelines_2025"
+          ]
+        }
+      },
+      "notes": [
+        "From candidates_batch_002_v0.jsonl structure_polyhouse_fan_pad_midh_2025 (price approved in Batch 002 F1)."
+      ]
     }
   ],
   "running_inputs": [
@@ -2573,6 +2720,70 @@
           "reinsaat_basil_seed"
         ]
       }
+    },
+    {
+      "input_id": "heat_pump_seasonal_cop",
+      "region": "netherlands",
+      "unit": "kWh heat per kWh electricity (seasonal)",
+      "value": {
+        "low": 3.7,
+        "high": 4.6,
+        "source_ids": [
+          "fennis_2024_heat_pumps"
+        ],
+        "derivation": "Fennis 2024 air-water heat pump SCOP 3.7 (2 ha boiler holding, supply 45/45 C), 4.4 and 4.6 (5 ha CHP holdings, supply 45/40 C). Model values based on outdoor temperatures, not measured."
+      },
+      "favourable": "high",
+      "notes": [
+        "Corroborating values: Glastuinbouw Nederland (Bax) uses COP 4 (type not stated); KEMA 2012 gives an air-source electric heat pump average of 3.94 (range about 3.2-4.5) and surface water 4.22 at 45 C supply. Those are not averaged in.",
+        "Needs a low-temperature heating system (35-45 C supply); a classic 70-90 C pipe-rail system gives a lower COP (not sourced)."
+      ],
+      "status": "candidate",
+      "approval_status": "pending_batch_003",
+      "source_tier": "tier_2",
+      "source_gate": "conditional",
+      "source_gate_reason": "Sector presentations and a 2012 institute report; commercial hectare-scale greenhouses, modelled SCOP.",
+      "confidence": "medium",
+      "confidence_reason": "Three Tier 2 sources agree on roughly 3.7-4.6 for air or water sources at 45 C supply; none is a measured small-greenhouse value.",
+      "corroboration": {
+        "status": "corroborated",
+        "source_ids": [
+          "fennis_2024_heat_pumps",
+          "glastuinbouw_nl_bax_heat_pump",
+          "kema_2012_kas_energiebron_heat_pumps"
+        ]
+      }
+    },
+    {
+      "input_id": "gas_heat_kwh_per_m3",
+      "region": "netherlands",
+      "unit": "kWh heat delivered per m3 natural gas burned in a boiler",
+      "value": {
+        "low": 8.63,
+        "high": 8.79,
+        "source_ids": [
+          "kema_2012_kas_energiebron_heat_pumps",
+          "glastuinbouw_nl_bax_heat_pump"
+        ],
+        "derivation": "Low: KEMA 2012 calorific value 31.7 MJ/Nm3 x boiler efficiency 0.98 (LHV, with flue gas condenser) / 3.6 = 8.63 kWh. High: Bax states '1 m3 gas gives about 8.79 kWh of heat'. Both kept, not averaged."
+      },
+      "notes": [
+        "Converts the heat demand (recorded as m3 of gas a boiler burns) into kWh of heat, so a heat pump can deliver the same heat. KEMA values were read from a model summary of p.33, not verbatim text."
+      ],
+      "status": "candidate",
+      "approval_status": "pending_batch_003",
+      "source_tier": "tier_2",
+      "source_gate": "conditional",
+      "source_gate_reason": "Institute report and sector presentation; KEMA figure read through a summary.",
+      "confidence": "medium",
+      "confidence_reason": "Two Tier 2 sources within 2% of each other; matches the standard Dutch gas lower heating value.",
+      "corroboration": {
+        "status": "corroborated",
+        "source_ids": [
+          "kema_2012_kas_energiebron_heat_pumps",
+          "glastuinbouw_nl_bax_heat_pump"
+        ]
+      }
     }
   ],
   "labour_regimes": [
@@ -2684,6 +2895,7 @@
     "Water held in NFT and media-bed grow units; NFT channel layout per m2; NFT and media-bed yields.",
     "Fish sale value and logistics/market costs (layered on later by design).",
     "Batch 002 candidates not yet wired into the configurator (see data/catalog/candidates_batch_002_v0.jsonl): NL trough-wall materials priced per m2 wall face, not per m2 grow area; NL heating installation and heat-demand references; backup power (NL, India); India state subsidy rates, tanks, pumps.",
-    "India state protected-cultivation tables 2025-26: Telangana, Andhra Pradesh and Karnataka state rate tables not read (Telangana guideline could not be downloaded). National MIDH 2025 norms are in Batch 002; state top-ups beyond the 50% central share stay a gap."
+    "India state protected-cultivation tables 2025-26: Telangana, Andhra Pradesh and Karnataka state rate tables not read (Telangana guideline could not be downloaded). National MIDH 2025 norms are in Batch 002; state top-ups beyond the 50% central share stay a gap.",
+    "Swaps (2026-11-26): no NL NFT channel, media-bed media or HDPE fish tank prices; no gas boiler price; no heat pump or fan-and-pad lifetime; fan-and-pad electricity; NFT and media-bed yields and water held in those grow units."
   ]
 }
