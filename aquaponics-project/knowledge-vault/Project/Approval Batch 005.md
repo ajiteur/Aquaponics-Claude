@@ -1,6 +1,6 @@
 # Approval Batch 005
 
-Open. When it's ready, reply "approve batch 005 as recommended", or list the item numbers you want changed. Approvals are then recorded next to each value (who, date, scope).
+**Status: approved as recommended by Ajit on 2026-11-26 (16:21 Europe/Amsterdam).** Each approval is recorded next to its value. The B4 condition applies: summaries say "0 of 10 scored, 3 reported unscored", never "passes" or "validated".
 
 Opened: 2026-11-26, against `main` at `8b62b9c` (save-point-004). Rule used (AGENTS.md 6A): approve medium or high confidence items that are corroborated; single-source, low-confidence and conflicting items stay candidates.
 

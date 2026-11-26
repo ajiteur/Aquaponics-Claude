@@ -3,7 +3,7 @@ fact_id: "VR3_0003"
 domain: "biology"
 type: "parameter"
 confidence: "medium"
-status: "provisional"
+status: "accepted"
 source_id: "modarelli_2023_plants"
 source_tier: "tier_2"
 source_gate: "trusted"
@@ -11,14 +11,12 @@ source_file: "data/knowledge/atomic_facts/validation_round3_facts.json"
 tags:
   - truth
   - biology
-  - candidate
+  - accepted
 ---
 
 # VR3_0003
 
 > In an aquaponic floating raft at 20 plants/m2, two-week-old basil seedlings gave 32.4 g fresh weight per plant at the first cut (35 days after planting) and 44.4 g at the second cut (79 days); the cut had no significant effect on fresh yield.
-
-**Candidate truth.** Not yet approved (`candidate_pending_user_review`).
 
 ## Context
 

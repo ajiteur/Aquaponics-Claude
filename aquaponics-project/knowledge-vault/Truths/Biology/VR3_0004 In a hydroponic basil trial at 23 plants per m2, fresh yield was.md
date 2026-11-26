@@ -3,7 +3,7 @@ fact_id: "VR3_0004"
 domain: "biology"
 type: "parameter"
 confidence: "medium"
-status: "provisional"
+status: "accepted"
 source_id: "corrado_2020_agronomy"
 source_tier: "tier_2"
 source_gate: "trusted"
@@ -11,14 +11,12 @@ source_file: "data/knowledge/atomic_facts/validation_round3_facts.json"
 tags:
   - truth
   - biology
-  - candidate
+  - accepted
 ---
 
 # VR3_0004
 
 > In a hydroponic basil trial at 23 plants/m2, fresh yield was higher at the first cut (47 days after transplant) than at the second (75 days); the abstract gives a yield reduction of about 20 percent.
-
-**Candidate truth.** Not yet approved (`candidate_pending_user_review`).
 
 ## Context
 

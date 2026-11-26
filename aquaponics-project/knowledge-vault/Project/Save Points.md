@@ -32,6 +32,13 @@ The Gatekeeper checks every PR for these before giving a merge verdict:
 
 ## Log
 
+### save-point-005 (2026-11-26)
+
+- **Commit:** the merge commit of PR #35 on `main`. PR #35 carries PR #34 and records Approval Batch 005.
+- **What it holds:** validation round 3: pH held at the published value in validation runs and the approved scoring choices. 0 of 10 scored metrics fail, and 3 more are reported but not scored. This is not validation.
+- **Checks:** on the PR head: tests, `check_mvp_integrity.py --quick`, the runtime sync dry run and the vault export dry run.
+- **Open at this point:** UQ-017 (Khater FCR), UQ-018 (no pH buffer in the model), Knaus basil passes narrowly (−24%), every model is still a candidate, and the Telangana rates are a gap.
+
 ### save-point-004 (2026-11-26)
 
 - **Commit:** the merge commit of PR #33 on `main`. PR #33 carries PRs #31 and #32 and records Approval Batch 004.
