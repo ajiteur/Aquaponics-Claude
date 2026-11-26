@@ -296,7 +296,7 @@ def tradeoff_markdown(results: list[tuple[str, dict]]) -> str:
         "",
         "**Scenario estimate, not validated.** Each swap changes one choice in a 100 m2 tilapia + basil raft build "
         "(owner labour, mid case) and is compared with that base. Gains and losses come from the configurator's numbers; "
-        "risk and labour notes come from the catalog. Missing values stay missing. Values marked pending are Batch 003 candidates.",
+        "risk and labour notes come from the catalog. Missing values stay missing. Values marked pending are candidates awaiting approval.",
         "",
     ]
     for title, res in results:

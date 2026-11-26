@@ -98,7 +98,7 @@ class MarketTagTests(unittest.TestCase):
     def test_untagged_years_are_flagged_in_results(self):
         spec = json.loads((PROJECT_ROOT / "runs" / "configure_basil_dwc_karnataka.json").read_text(encoding="utf-8"))
         res = cs.build_result(spec["configurator"]["build"], run_simulation=False)
-        self.assertTrue(any("fingerling_price_each" in f for f in res["market"]["flags"]))
+        self.assertTrue(any("electricity_per_kwh" in f and "one end" in f for f in res["market"]["flags"]))
         self.assertEqual(res["market"]["currency_code"], "INR")
 
     def test_currency_mismatch_is_an_error(self):
