@@ -1,0 +1,154 @@
+{
+  "estimate_status": "scenario_estimate",
+  "label": "scenario estimate, not validated",
+  "fail_threshold_abs_error_fraction": 0.25,
+  "cases": [
+    {
+      "system_id": "knaus_2018_rostock_tilapia",
+      "assumptions": [
+        "Gravel bed area counted as raft-equivalent nitrifying surface.",
+        "Nitrate sinks use the UVI-calibrated residual loss and 1.5 percent daily exchange (Knaus exchange not reported).",
+        "Start TAN and nitrate set to the published means (start values not reported).",
+        "All 180 plant positions are treated as basil for N uptake and yield (the beds were mixed herbs); density 18 plants/m2 counts all herbs.",
+        "Fish, TAN and nitrate metrics come from the low-DLI run (light does not change them except through plant N uptake)."
+      ],
+      "metrics": [
+        {
+          "metric": "fish_end_biomass_kg",
+          "model": 18.17,
+          "observed": 19.45,
+          "error_fraction": -0.066,
+          "within_25_percent": true,
+          "note": null
+        },
+        {
+          "metric": "fcr",
+          "model": 1.786,
+          "observed": 1.54,
+          "error_fraction": 0.16,
+          "within_25_percent": true,
+          "note": "model FCR is the sourced 1.7 divided by the temperature factor"
+        },
+        {
+          "metric": "tan_mg_L_mean",
+          "model": 0.452,
+          "observed": 0.21,
+          "error_fraction": 1.151,
+          "within_25_percent": false,
+          "note": null
+        },
+        {
+          "metric": "no3_n_mg_L_mean",
+          "model": 13.791,
+          "observed": 15.57,
+          "error_fraction": -0.114,
+          "within_25_percent": true,
+          "note": "published SD 8.39; model end value 11.59"
+        },
+        {
+          "metric": "basil_fresh_g_per_plant_dli_low",
+          "model": 20.927,
+          "observed": 16.1,
+          "error_fraction": 0.3,
+          "within_25_percent": false,
+          "note": "DLI 4.8 mol/m2/d (derived from published mean PAR 111.2 to 146.6 umol/m2/s; low = unit I PAR over 12 h of light, high = unit II PAR as a 24 h mean; photoperiod not stated); density 18.0 plants/m2"
+        },
+        {
+          "metric": "basil_fresh_g_per_plant_dli_high",
+          "model": 87.051,
+          "observed": 16.1,
+          "error_fraction": 4.407,
+          "within_25_percent": false,
+          "note": "DLI 12.7 mol/m2/d (derived from published mean PAR 111.2 to 146.6 umol/m2/s; low = unit I PAR over 12 h of light, high = unit II PAR as a 24 h mean; photoperiod not stated); density 18.0 plants/m2"
+        }
+      ]
+    },
+    {
+      "system_id": "savidov_2005_alberta_basil",
+      "assumptions": [
+        "Feed per m2 not reported: the UVI feed ratio scenario supplies nitrogen, so nitrate is not limiting.",
+        "Basil at Savidov's derived density of 31.8 plants/m2 through the candidate density response.",
+        "DLI not set: 16 h photoperiod with supplemental light of at least 300 umol/m2/s gives at least 17 mol/m2/d (derived), above the light plateau.",
+        "Fish fed Savidov's schedule (2.5 percent at 100 g falling to 1.25 percent at 400 g), linear between."
+      ],
+      "metrics": [
+        {
+          "metric": "basil_kg_m2_trough_per_year_at_savidov_density",
+          "model": 43.2,
+          "observed": 25.7,
+          "error_fraction": 0.681,
+          "within_25_percent": false,
+          "note": "candidate density response (Ciriello 2021 exponent)"
+        },
+        {
+          "metric": "basil_kg_m2_trough_per_year_at_uvi_density",
+          "model": 24.989,
+          "observed": 25.7,
+          "error_fraction": -0.028,
+          "within_25_percent": true,
+          "note": "reference: model run at the UVI anchor density (8 plants/m2)"
+        },
+        {
+          "metric": "fish_harvest_mean_g",
+          "model": 471.387,
+          "observed": 630.0,
+          "error_fraction": -0.252,
+          "within_25_percent": false,
+          "note": "378.0 kg average harvest per tank / 600 fish stocked (no mortality assumed); text also says 0.50 to 0.64 kg per fish"
+        }
+      ]
+    },
+    {
+      "system_id": "khater_2023_benha_tilapia_lettuce",
+      "assumptions": [
+        "Feed not reported: SRAC 282 table, mid and high rows."
+      ],
+      "metrics": [
+        {
+          "metric": "fish_gain_g_per_day_mid_table_feed",
+          "model": 0.947,
+          "observed": {
+            "min": 1.05,
+            "max": 1.36
+          },
+          "error_fraction": -0.098,
+          "error_basis": "distance to the nearest end of the published range",
+          "within_25_percent": true,
+          "note": null
+        },
+        {
+          "metric": "fish_gain_g_per_day_high_table_feed",
+          "model": 1.278,
+          "observed": {
+            "min": 1.05,
+            "max": 1.36
+          },
+          "error_fraction": 0.0,
+          "error_basis": "distance to the nearest end of the published range",
+          "within_25_percent": true,
+          "note": null
+        },
+        {
+          "metric": "fcr",
+          "model": 2.203,
+          "observed": {
+            "min": 0.92,
+            "max": 1.2
+          },
+          "error_fraction": 0.836,
+          "error_basis": "distance to the nearest end of the published range",
+          "within_25_percent": false,
+          "note": "model FCR at 23.5 C = 1.7 / temperature factor"
+        }
+      ]
+    }
+  ],
+  "failures": [
+    "knaus_2018_rostock_tilapia: tan_mg_L_mean (+115%)",
+    "knaus_2018_rostock_tilapia: basil_fresh_g_per_plant_dli_low (+30%)",
+    "knaus_2018_rostock_tilapia: basil_fresh_g_per_plant_dli_high (+441%)",
+    "savidov_2005_alberta_basil: basil_kg_m2_trough_per_year_at_savidov_density (+68%)",
+    "savidov_2005_alberta_basil: fish_harvest_mean_g (-25%)",
+    "khater_2023_benha_tilapia_lettuce: fcr (+84%)"
+  ]
+}

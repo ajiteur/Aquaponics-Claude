@@ -2,11 +2,29 @@
 
 Newest first. Each entry gives the decision, why, and who made it.
 
+## 2026-11-26: Multi-market checkpoint
+
+- **Tie every price to a market: region, currency and price year.** Retail listings take the year they were read, sourced documents take the year they state, and anything else is marked "not recorded" and flagged, never guessed. A build refuses a price in another currency. Why: the model has to generalise to many markets without mixing currencies or vintages. Proposed by Claude.
+- **A new country is data only.** A test adds a stub third market from data and runs the configurator and the swaps on it with no code change. Proposed by Claude.
+
+## 2026-11-26: Swaps checkpoint
+
+- **Price other architectures from a sourced yield ratio against the raft, and only where a study gives a number.** NFT uses 0.83 to 0.95 of the raft yield. The media bed stays without a yield, because "not significantly different" is not a measured ratio. Batch 003 can accept parity as Ajit's own assumption. Proposed by Claude.
+- **Compare swaps as patches on a base build, and show gaps next to each change.** A swap can change the architecture, the heating source or one part. A swap that opens a cost gap is flagged as not like-for-like rather than given a filled-in number. Why: Ajit wants game-like part choices, and an unpriced part must not look free. Proposed by Claude.
+- **Model a heat pump as the same heat demand delivered with electricity.** Heat (kWh) is gas m³ × 8.63 to 8.79 kWh per m³, and electricity is heat ÷ a seasonal COP of 3.7 to 4.6. The heat-demand values themselves stay with the heating and climate thread. New values pending Batch 003. Proposed by Claude.
+
 ## 2026-11-26
 
+- **Approve Batch 003 as recommended.** Approved: heat pump COP and gas heat per m³ (NL), the India fan-pad polyhouse price, and truths CD_0011, CD_0012, HEAT_0002, HEAT_0004, HEAT_0005, HEAT_0009, FISH_0001 to FISH_0004, FISH_0006, FISH_0007, FISH_0009, BYR_0001 and BYR_0002. Models and everything else stay candidates. Media-bed yield parity (B8) was not chosen, so it stays a gap. Decided by Ajit (05:54 Europe/Amsterdam).
+
+- **Fix the tilapia temperature curve and add basil density and light responses as candidates, and leave the gravel-bed nitrogen issue open.** Why: these were the two largest validation failures, and both now rest on measured, peer-reviewed curves. Both fixes leave the UVI anchor unchanged. Asked by the coordinator while Ajit was away; waiting on Ajit's review in Batch 003.
+- **Validate against Knaus 2018, Savidov 2005 and Khater 2023, logging failures instead of retuning.** Why: no open source outside UVI gives a full coupled basil raft record, so each system checks different metrics. Recalibrating now would hide the failures before Ajit has seen them. Decided by Claude for the validation checkpoint; waiting on Ajit's review.
+- **Make the new tilapia growth model opt-in per scenario and keep feed as a direct input.** Why: the MVP baseline is Mode A direct feed input, and the starter fixtures feed the P2a checks, so only the two basil raft crop-cycle scenarios switch to the new model. The SRAC size table is available as an option. Decided by Claude for the Fish growth and feed checkpoint; waiting on Ajit's review.
+- **Model greenhouse heat demand with one calibrated loss coefficient, and hold every value for Batch 003.** Why: no source gives the cover-to-floor ratio or a basil heat demand. Calibrating to a published Dutch figure and checking against a second figure keeps the model tied to evidence. Solar utilisation can't be pinned down, so results are given as a range across its physical bounds (0 to 1). Decided by Claude for the Heating and climate checkpoint; waiting on Ajit's review.
 - **Shelve the farm go/no-go; build the strongest simulation for the Netherlands and India in parallel.** Why: if the simulation is strong, moving to a real farm is straightforward, and the engine should work across many markets. Decided by Ajit.
 - **Run the P1 equipment research and hold the results for Batch 002.** Only values that fit an existing catalog slot are wired in (India polyhouse and shade-net life, India water price, NL basil seed). Everything else waits in `data/catalog/candidates_batch_002_v0.jsonl`. Asked by Ajit.
 - **Use the MIDH 2025 Annexure V norms as the India national reference for protected structures, held for Batch 002.** NVPH tubular Rs 1000-1200/m2 and bamboo shade net Rs 450/m2 (plains) supersede the older 650-935 and 200-414 ranges, but the catalog values are not changed until Ajit approves. These are subsidy cost ceilings, not market prices. Telangana's 2025-26 state table could not be downloaded and stays a gap. Ajit supplied the PDF; Claude extracted it.
+- **Approve Batch 002 as recommended.** Approved: nitrate water exchange of 1.5% per day (C1), NITR_0009 and NITR_0010 (D1), 12 corroborated equipment values (E1), and the MIDH 2025 norms as India structure prices: NVPH ₹1,000 to ₹1,200/m², bamboo shade net ₹450/m², labelled as subsidy ceilings (F1). Everything else stays a candidate or a sensitivity case. Approvals are recorded next to each value. Decided by Ajit (2026-11-26 01:33 Europe/Amsterdam).
 
 ## 2026-11-25
 

@@ -1,0 +1,496 @@
+{
+  "version": "0.1",
+  "status": "draft",
+  "source_basis": {
+    "canonical_owner": "data/knowledge/models/greenhouse_heat_models.json",
+    "ownership_note": "Primary knowledge file for greenhouse heating and cooling. Candidate records pending Batch 003 review."
+  },
+  "records": [
+    {
+      "model_id": "climate_normals_de_bilt_1991_2020",
+      "name": "Climate normals, De Bilt (KNMI station 260), 1991-2020",
+      "kind": "climate_normals",
+      "status": "candidate_pending_user_review",
+      "approval_batch": "pending_batch_003",
+      "added_utc": "2026-11-26",
+      "evidence_policy": "Trusted Source Map and Source Trust Policy for Aquaponics Layer 1; reliability fields per AGENTS.md 6A",
+      "location": "De Bilt, Netherlands",
+      "latitude_deg": 52.1,
+      "period": "1991-2020",
+      "monthly": {
+        "t_mean_c": [
+          3.6,
+          3.9,
+          6.5,
+          9.8,
+          13.4,
+          16.2,
+          18.3,
+          17.9,
+          14.7,
+          10.9,
+          7.0,
+          4.2
+        ],
+        "t_min_c": [
+          0.9,
+          0.7,
+          2.4,
+          4.5,
+          8.0,
+          10.8,
+          13.0,
+          12.5,
+          10.0,
+          7.1,
+          3.9,
+          1.6
+        ],
+        "t_max_c": [
+          6.1,
+          7.0,
+          10.5,
+          14.8,
+          18.3,
+          20.9,
+          23.1,
+          22.9,
+          19.5,
+          14.8,
+          9.9,
+          6.7
+        ],
+        "global_radiation_mj_m2_month": [
+          73,
+          129,
+          267,
+          424,
+          542,
+          551,
+          553,
+          469,
+          314,
+          188,
+          84,
+          54
+        ]
+      },
+      "annual": {
+        "t_mean_c": 10.5,
+        "global_radiation_mj_m2": 3648
+      },
+      "units_note": "KNMI prints radiation as kJ/cm2 per month (year 364.8); converted x10 to MJ/m2 here. Latitude 52.1 N is the station position (rounded).",
+      "source": "KNMI, 'De Bilt, langjarige gemiddelden, tijdvak 1991-2020' (klimtab_9120_260.pdf)",
+      "url": "https://cdn.knmi.nl/knmi/map/page/klimatologie/klimaatatlas/tabel/stationsdata/klimtab_9120_260.pdf",
+      "source_metadata": {
+        "source_tier": "tier_1",
+        "source_type": "national_meteorological_service_normals"
+      },
+      "review_metadata": {
+        "source_gate": "trusted",
+        "source_gate_reason": "E5-equivalent official climate normals from the national meteorological institute.",
+        "confidence": "high",
+        "confidence_reason": "Read directly from KNMI's table. Radiation columns were matched by position because PDF headers extracted garbled; annual totals (precipitation 854.7 mm, sunshine 1714.6 h, radiation 364.8 kJ/cm2) fit known De Bilt values.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "knmi_klimtab_9120_260"
+          ]
+        }
+      }
+    },
+    {
+      "model_id": "climate_normals_bengaluru_1991_2020",
+      "name": "Climate normals, Bengaluru city (IMD 43295), 1991-2020",
+      "kind": "climate_normals",
+      "status": "candidate_pending_user_review",
+      "approval_batch": "pending_batch_003",
+      "added_utc": "2026-11-26",
+      "evidence_policy": "Trusted Source Map and Source Trust Policy for Aquaponics Layer 1; reliability fields per AGENTS.md 6A",
+      "location": "Bengaluru, Karnataka, India",
+      "latitude_deg": 12.97,
+      "period": "1991-2020",
+      "monthly": {
+        "t_min_c": [
+          16.1,
+          17.6,
+          20.2,
+          22.1,
+          21.8,
+          20.6,
+          20.1,
+          20.0,
+          20.0,
+          19.8,
+          18.3,
+          16.4
+        ],
+        "t_max_c": [
+          28.4,
+          30.9,
+          33.4,
+          34.1,
+          33.1,
+          29.7,
+          28.3,
+          28.1,
+          28.6,
+          28.5,
+          27.4,
+          26.9
+        ],
+        "global_radiation_mj_m2_month": null,
+        "record_low_c": [
+          7.8,
+          9.4,
+          11.1,
+          14.4,
+          16.7,
+          16.7,
+          16.1,
+          14.4,
+          15.0,
+          13.2,
+          9.6,
+          8.9
+        ]
+      },
+      "annual": {
+        "t_max_c": 29.8,
+        "t_min_c": 19.4
+      },
+      "units_note": "IMD prints mean daily max and min only; no mean temperature and no radiation. Latitude 12.97 N is the city position (rounded).",
+      "source": "IMD, 'Climatological table for Bengaluru, period 1991-2020' (mausam.imd.gov.in/bengaluru/mcdata/Extremes.pdf)",
+      "url": "https://mausam.imd.gov.in/bengaluru/mcdata/Extremes.pdf",
+      "source_metadata": {
+        "source_tier": "tier_1",
+        "source_type": "national_meteorological_service_normals"
+      },
+      "review_metadata": {
+        "source_gate": "trusted",
+        "source_gate_reason": "Official IMD climatological table.",
+        "confidence": "high",
+        "confidence_reason": "Mean daily max and min read directly from IMD; the Wikipedia template citing IMD reproduces them exactly.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "imd_bengaluru_climatological_table_1991_2020",
+            "wikipedia_bengaluru_weather_box_mirror"
+          ]
+        }
+      },
+      "record_low_reliability": {
+        "source": "Mirror of Wikipedia 'Template:Bengaluru Weather box' citing IMD, extremes 1901-present",
+        "url": "https://wiki.riteme.site/wiki/Template:Bengaluru_Weather_box",
+        "source_metadata": {
+          "source_tier": "tier_3",
+          "source_type": "encyclopedia_mirror"
+        },
+        "review_metadata": {
+          "source_gate": "conditional",
+          "source_gate_reason": "Tertiary mirror; not checked against an IMD extremes document.",
+          "confidence": "low",
+          "confidence_reason": "Single tertiary source; the IMD PDF read holds no extremes.",
+          "corroboration": {
+            "status": "single_source",
+            "source_ids": [
+              "wikipedia_bengaluru_weather_box_mirror"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "model_id": "greenhouse_heat_demand_degree_hour",
+      "name": "Greenhouse Heat Demand: Hourly Degree-Hour Balance Calibrated to KEMA 2012",
+      "kind": "energy_balance",
+      "status": "candidate_pending_user_review",
+      "approval_batch": "pending_batch_003",
+      "added_utc": "2026-11-26",
+      "evidence_policy": "Trusted Source Map and Source Trust Policy for Aquaponics Layer 1; reliability fields per AGENTS.md 6A",
+      "equation_text": "heat_W_per_m2_floor(hour) = max(0, K * f_screen * (T_set - T_out(hour)) - a * I_global(hour)); f_screen = U(glass + thermal blanket)/U(single glass) at night when a screen is used, else 1",
+      "structure_assumptions": [
+        "T_out over the day is a cosine between monthly mean min and max, peaking at 15:00 (assumption, not sourced).",
+        "Global radiation is spread over the daylight hours as a half sine; day length from latitude and mid-month solar declination (astronomy).",
+        "Day setpoint applies in daylight hours, night setpoint otherwise.",
+        "A night screen scales K by U(single glass + thermal blanket)/U(single glass) = 4.0/6.2 (ASABE EP406.4), assuming infiltration falls in proportion (assumption). Day losses are unscreened.",
+        "Mean-day normals: cold spells and weather variability are not represented, so peak demand and some annual demand are missed."
+      ],
+      "calibration": {
+        "method": "K is solved so the model reproduces the KEMA 2012 radish point under De Bilt 1991-2020 normals, once per value of the solar utilisation grid. The data cannot separate K from solar utilisation (the KEMA pot-plant point changes by under 3 percent across the grid), so results are reported as the range across the grid.",
+        "climate_assumption": "KEMA modelled a Dutch reference year; De Bilt 1991-2020 normals are assumed close to it (not stated in the source).",
+        "source": "KEMA 2012 for Kas als Energiebron, Venlo 2 ha reference greenhouse (catalog candidate greenhouse_heat_demand_m3_aeq_per_m2_year_kema2012)",
+        "url": "https://edepot.wur.nl/289335",
+        "source_metadata": {
+          "source_tier": "tier_2",
+          "source_type": "research_consultancy_report_for_sector_programme"
+        },
+        "review_metadata": {
+          "source_gate": "conditional",
+          "source_gate_reason": "Modelled figures from a consultancy report for the Dutch sector programme, hosted by WUR; not measured.",
+          "confidence": "medium",
+          "confidence_reason": "Stated setpoints and house type; 2012; not herbs; the day/night order of the pot-plant setpoints is read as 15 day / 13 night.",
+          "corroboration": {
+            "status": "conflicting",
+            "source_ids": [
+              "kema_2012_edepot_289335",
+              "kema_2009_edepot_289333"
+            ],
+            "note": "KEMA 2009 gives radish at the same 12/8 C setpoints about 5.4 m3/m2/yr, less than half of KEMA 2012's 12.0. The difference is not explained in what was read; contradiction ticket drafted in the vault findings note."
+          }
+        },
+        "point": {
+          "point_id": "kema2012_radish",
+          "crop": "radish",
+          "day_setpoint_c": 12.0,
+          "night_setpoint_c": 8.0,
+          "heat_demand_mj_m2_yr": 381.5,
+          "heat_demand_m3_aeq_m2_yr": 12.0,
+          "screen": "not stated; treated as no screen",
+          "night_screen": false
+        },
+        "solar_utilisation_grid": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ],
+        "solar_utilisation_grid_basis": "Physical bounds only: 0 (no solar credit) to 1 (all global radiation offsets heat loss). No source gives the value.",
+        "calibrated_setpoint_max_c": 15.0
+      },
+      "validation": {
+        "source": "de Gelder and Kempkes 2007, WUR (edepot 17778)",
+        "url": "https://edepot.wur.nl/17778",
+        "source_metadata": {
+          "source_tier": "tier_2",
+          "source_type": "university_research_report"
+        },
+        "review_metadata": {
+          "source_gate": "conditional",
+          "source_gate_reason": "WUR report; read through a fetch summary only.",
+          "confidence": "low",
+          "confidence_reason": "Different crop, possible gas-vs-heat basis mismatch, lighting not accounted for.",
+          "corroboration": {
+            "status": "single_source",
+            "source_ids": [
+              "de_gelder_kempkes_2007_edepot_17778"
+            ]
+          }
+        },
+        "points": [
+          {
+            "point_id": "kema2012_cold_pot_plant",
+            "crop": "cold pot plant",
+            "day_setpoint_c": 15.0,
+            "night_setpoint_c": 13.0,
+            "heat_demand_mj_m2_yr": 682.4,
+            "heat_demand_m3_aeq_m2_yr": 21.5,
+            "screen": "yes",
+            "night_screen": true,
+            "caveat": "Same report as the calibration point; tests the screen factor and the setpoint scaling, not independent of KEMA's own model.",
+            "source": "KEMA 2012 for Kas als Energiebron, Venlo 2 ha reference greenhouse (catalog candidate greenhouse_heat_demand_m3_aeq_per_m2_year_kema2012)"
+          },
+          {
+            "point_id": "de_gelder_kempkes_2007_chrysanthemum",
+            "crop": "chrysanthemum",
+            "day_setpoint_c": 18.0,
+            "night_setpoint_c": 20.0,
+            "heat_demand_mj_m2_yr": 974.8,
+            "heat_demand_m3_aeq_m2_yr": 30.8,
+            "night_screen": true,
+            "caveat": "30.8 m3/m2/yr x 31.65 MJ/m3. The source figure may be gas use rather than heat demand, and chrysanthemum is usually lit (lamp heat lowers heat demand); both confound the check. Screen use is assumed."
+          }
+        ]
+      },
+      "cover_u_values_w_m2_k": {
+        "single_glass": {
+          "min": 6.2,
+          "max": 8.0
+        },
+        "single_plastic_film": {
+          "min": 6.2,
+          "max": 8.5
+        },
+        "double_polyethylene": {
+          "min": 4.0,
+          "max": 5.0
+        },
+        "single_glass_with_thermal_screen": {
+          "value": 4.0
+        },
+        "source": "ANSI/ASAE EP406.4 JAN03 Table 1 (copy hosted by University of Arizona CEAC); NSW DPI 'Heating greenhouses'; Virginia Tech SPES-821NP Table 1",
+        "urls": [
+          "https://ceac.arizona.edu/sites/default/files/ASAE%20-.pdf",
+          "https://www.dpi.nsw.gov.au/agriculture/horticulture/greenhouse/structures-and-technology/heating",
+          "https://www.pubs.ext.vt.edu/content/dam/pubs_ext_vt_edu/spes/spes-821/SPES-821.pdf"
+        ],
+        "use": "Night screen factor (ASABE 4.0/6.2), the K-over-U cross-check and the Karnataka K scaling. Not used to set K directly, because the cover-to-floor ratio is unsourced.",
+        "source_metadata": {
+          "source_tier": "tier_1",
+          "source_type": "engineering_standard_and_extension"
+        },
+        "review_metadata": {
+          "source_gate": "trusted",
+          "source_gate_reason": "ASABE engineering practice standard, corroborated by two government/extension sources.",
+          "confidence": "medium",
+          "confidence_reason": "Double PE agrees across all three (about 4). Single glass and film differ: ASABE 6.2 vs NSW 7 to 8.5, so kept as ranges. Read through fetch summaries.",
+          "corroboration": {
+            "status": "corroborated",
+            "source_ids": [
+              "asabe_ep406_4",
+              "nsw_dpi_heating_greenhouses",
+              "vt_spes_821"
+            ]
+          }
+        },
+        "single_glass_asabe": {
+          "value": 6.2
+        }
+      },
+      "gas": {
+        "lower_heating_value_mj_per_m3_aeq": 31.65,
+        "lhv_source": "IPLO (Dutch government), 'Tabel aardgasequivalenten'",
+        "lhv_url": "https://iplo.nl/thema/energiebesparing/verduurzaming-energiegebruik/achterliggende-pagina-energiebesparing/tabel-aardgasequivalenten",
+        "lhv_reliability": {
+          "source_metadata": {
+            "source_tier": "tier_1",
+            "source_type": "government_reference_table"
+          },
+          "review_metadata": {
+            "source_gate": "trusted",
+            "source_gate_reason": "Dutch government definition of the gas equivalent.",
+            "confidence": "high",
+            "confidence_reason": "Definition, direct; KEMA's 381.5 MJ = 12.0 m3 a.e. matches (31.8 MJ/m3).",
+            "corroboration": {
+              "status": "corroborated",
+              "source_ids": [
+                "iplo_aardgasequivalenten",
+                "kema_2012_edepot_289335"
+              ]
+            }
+          }
+        },
+        "boiler_heat_use_fraction": {
+          "min": 0.84,
+          "max": 0.92
+        },
+        "boiler_source": "Ploeger, van Rijssel, van der Sluis, LEI Rapport 2.99.02 (1999): about 84% without flue-gas condenser, 89 to 92% with one",
+        "boiler_url": "https://edepot.wur.nl/28344",
+        "boiler_reliability": {
+          "source_metadata": {
+            "source_tier": "tier_2",
+            "source_type": "university_economics_institute_report"
+          },
+          "review_metadata": {
+            "source_gate": "conditional",
+            "source_gate_reason": "LEI/WUR report, 1999.",
+            "confidence": "low",
+            "confidence_reason": "Single source, 25+ years old; no current WUR default found.",
+            "corroboration": {
+              "status": "single_source",
+              "source_ids": [
+                "lei_1999_2_99_02"
+              ]
+            }
+          }
+        }
+      },
+      "setpoint_cases": [
+        {
+          "case_id": "chilling_protection_10c",
+          "day_setpoint_c": 10.0,
+          "night_setpoint_c": 10.0,
+          "setpoint_basis": "basil tolerated minimum (canon basil.json, chilling injury below about 10 C); keeps the crop alive, not growing well",
+          "night_screen": false
+        },
+        {
+          "case_id": "kema_radish_12_8",
+          "day_setpoint_c": 12.0,
+          "night_setpoint_c": 8.0,
+          "setpoint_basis": "calibration point (KEMA 2012); below basil chilling threshold at night, reference only",
+          "night_screen": false
+        },
+        {
+          "case_id": "kema_cold_pot_plant_15_13",
+          "day_setpoint_c": 15.0,
+          "night_setpoint_c": 13.0,
+          "setpoint_basis": "calibration point (KEMA 2012); reference only",
+          "night_screen": true
+        },
+        {
+          "case_id": "basil_trial_24",
+          "day_setpoint_c": 24.0,
+          "night_setpoint_c": 24.0,
+          "setpoint_basis": "Delphy/WUR Vergelijkingsproef Basilicum 2020, climate cells at 24 C (edepot 565382); trial condition, not a commercial setpoint (low)",
+          "night_screen": false
+        },
+        {
+          "case_id": "basil_preferred_26",
+          "day_setpoint_c": 26.0,
+          "night_setpoint_c": 26.0,
+          "setpoint_basis": "canon basil preferred air temperature minimum (26.0 to 27.5 C)",
+          "night_screen": false
+        },
+        {
+          "case_id": "basil_trial_24_night_screen",
+          "day_setpoint_c": 24.0,
+          "night_setpoint_c": 24.0,
+          "setpoint_basis": "Delphy/WUR Vergelijkingsproef Basilicum 2020, climate cells at 24 C (edepot 565382); trial condition, not a commercial setpoint (low)",
+          "night_screen": true
+        },
+        {
+          "case_id": "basil_preferred_26_night_screen",
+          "day_setpoint_c": 26.0,
+          "night_setpoint_c": 26.0,
+          "setpoint_basis": "canon basil preferred air temperature minimum (26.0 to 27.5 C)",
+          "night_screen": true
+        }
+      ],
+      "karnataka_polyhouse": {
+        "k_scale": {
+          "min": 1.0,
+          "max": 1.21
+        },
+        "k_scale_basis": "Single plastic film vs single glass U: ASABE gives both 6.2 (ratio 1.0); NSW DPI single polythene 7.5 to 8.5 vs glass 3 mm 7.0 to 8.0, high end 8.5/7.0 = 1.21. Geometry and infiltration of a naturally ventilated polyhouse differ from Venlo; not accounted for (gap).",
+        "heating_practice_note": "ICAR Indian Horticulture (Singh et al. 2022, Bundelkhand, not Karnataka): naturally ventilated polyhouses have 'no heating or cooling devices'. NABARD Kerala model project (2015): fan-pad cooling is an optional item.",
+        "fan_pad_electricity": {
+          "kwh_per_day": {
+            "min": 15.0,
+            "max": 18.0
+          },
+          "house_floor_m2": 120.0,
+          "basis": "Sharan and Madhavan, IIM Ahmedabad working paper 2009-11-04: 120 m2 house, fan-pad 15 to 18 kWh per day, semi-arid North-West India (not Karnataka); surrounding sentence appears to contain a typo",
+          "url": "https://iima.ac.in/sites/default/files/rnpfiles/2009-11-04Sharan.pdf",
+          "source_metadata": {
+            "source_tier": "tier_3",
+            "source_type": "business_school_working_paper"
+          },
+          "review_metadata": {
+            "source_gate": "conditional",
+            "source_gate_reason": "Working paper, not peer-reviewed; wrong climate region.",
+            "confidence": "low",
+            "confidence_reason": "Single source, different region, text possibly garbled; days of operation per year unknown (results assume every day as an upper bound).",
+            "corroboration": {
+              "status": "single_source",
+              "source_ids": [
+                "iima_2009_11_04_sharan"
+              ]
+            }
+          }
+        }
+      },
+      "gaps": [
+        "No cover-to-floor area ratio for any house type (K is calibrated instead).",
+        "No heat demand for basil or herbs in the Netherlands; basil cases extrapolate K above the 8 to 15 C calibration range.",
+        "No U-value for Venlo glass with an energy screen from a Dutch source.",
+        "KEMA 2009 vs 2012 radish heat demand disagree by about 2x.",
+        "No Bengaluru global radiation; Karnataka heating ignores solar gain (conservative, irrelevant at night).",
+        "No Karnataka fan-pad electricity figure and no Karnataka electricity tariff in the catalog.",
+        "Water (aquaponics tank) heating, humidity control and ventilation heat loss beyond K are not modelled separately.",
+        "Current boiler efficiency figure missing (1999 source)."
+      ],
+      "consumers": "src/heat_demand.py writes data/simulation/results/greenhouse_heat_demand.json; the configurator (swaps thread) may read heat_demand_m3_aeq_m2_yr and gas_m3_m2_yr from it later."
+    }
+  ]
+}

@@ -40,7 +40,8 @@ Status key: **Buildable now** = canon and tests support it. **Buildable with lab
 | Farm go/no-go for Ajit's site | Needs Ajit's inputs: location, scale, budget, energy and heating costs, local basil prices, labour. Farm inputs thread is gathering them. |
 | CAPEX, labour, channel terms | All canonical records are `todo` with null values. |
 | Batch basil at UVI scale without deficiencies | CROP_0006: UVI found batch production unsustainable with its fish output. |
-| Lettuce and tilapia growth to harvest | No crop-cycle or growth calibration yet beyond the starter profiles. |
+| Lettuce and tilapia growth to harvest | Tilapia growth model is in review (PR #30). After the measured temperature curve it is within 10 to 25 percent at 23.5 to 25 °C (UQ-013, candidate fix). No lettuce crop-cycle calibration yet. |
+| Basil yield at densities or light levels other than UVI's | Candidate density and DLI responses are in review (PR #30), but Savidov is still +68 percent and Knaus +30 to +441 percent (UQ-014). |
 
 ## Evidence notes from review
 

@@ -1,6 +1,6 @@
 # Approval Batch 002
 
-Open. Items are added as they come in. When it's ready, reply "approve batch 002 as recommended", or list the item numbers you want changed. Approvals are then recorded next to each value (who, date, scope).
+**Status: approved as recommended by Ajit on 2026-11-26 (01:33 Europe/Amsterdam).** Each approval is recorded next to its value (who, date, scope). Items recommended "keep as candidate" stay candidates, and sensitivity cases stay sensitivity cases.
 
 Opened: 2026-11-26, against `main` at `6198b51` (save-point-001 is `07ce825`).
 
@@ -13,7 +13,7 @@ Rule used for the recommendations (AGENTS.md 6A): approve items with medium or h
 | A0 | PRs #21, #23, #24 and #25 | Merged. |
 | A1 | PR #21 (merged): nitrate removal by water exchange and a calibrated residual loss | **Merge.** Tests, the full integrity check, and the canon and vault syncs pass, and it merges cleanly with main. At the UVI feed ratio, nitrate now holds near 43 mg/L instead of climbing to about 161. That match is by construction, since the loss is calibrated to UVI's 42 mg/L, so it is not a validation. The starter fixture becomes nitrate-limited again (about 21 mg/L by day 28) and harvests 1.44 kg/m² instead of 1.91. Small follow-up: the unit-design inputs' bias note still cites 1.91. |
 
-| A2 | PR #26: MIDH 2025 protected-cultivation norms as candidates | **Merge.** Tests, the integrity check and the canon sync pass, and it merges cleanly. Catalog values aren't changed until F1 is approved. |
+| A2 | PR #26 (merged): MIDH 2025 protected-cultivation norms as candidates | **Merge.** Tests, the integrity check and the canon sync pass, and it merges cleanly. Catalog values aren't changed until F1 is approved. |
 
 ## B. Scenario inputs (scenario estimates only, never canon)
 

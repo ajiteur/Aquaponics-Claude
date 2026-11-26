@@ -1,0 +1,346 @@
+{
+  "description": "Atomic facts on tilapia feeding, FCR, growth and temperature response, added 2026-11-26 for the Fish growth and feed checkpoint. Candidates until Ajit approves them (Batch 003). Reliability recorded per AGENTS.md 6A.",
+  "facts": [
+    {
+      "fact_id": "FISH_0001",
+      "statement": "Tilapia feed conversion ratios of 1.4 to 1.8 are common; UVI's aquaponic Nile tilapia averaged 1.7.",
+      "domain": "biology",
+      "type": "parameter",
+      "confidence": "high",
+      "status": "accepted",
+      "approval_batch": "batch_003",
+      "context": {
+        "species": "Nile tilapia",
+        "system": "tanks, RAS and UVI aquaponics"
+      },
+      "source_metadata": {
+        "source_id": "srac_454",
+        "section_id": "Table 1",
+        "source_type": "extension_fact_sheet",
+        "source_tier": "tier_1"
+      },
+      "review_metadata": {
+        "source_gate": "trusted",
+        "source_gate_reason": "SRAC extension sheets; FAO TP 589.",
+        "confidence_reason": "Three Tier 1 sources agree; no size breakdown.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "srac_454",
+            "srac_282",
+            "fao_tp_589"
+          ]
+        },
+        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/species/fish/tilapia.json, growth_feed_model)",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-26",
+          "scope": "truth FISH_0001 (D1: Tier 1-2, medium or high, corroborated)",
+          "record": "Approval Batch 003, approved as recommended (thread message 2026-11-26 05:54 Europe/Amsterdam)"
+        }
+      },
+      "added_date_local": "2026-11-26"
+    },
+    {
+      "fact_id": "FISH_0002",
+      "statement": "Suggested tank-culture feeding rates for tilapia fall from 15-20 percent of body weight a day for fry under 0.5 g to 3-5 percent at 18-75 g and 1.5-3 percent from 75 g to market size.",
+      "domain": "biology",
+      "type": "parameter",
+      "confidence": "high",
+      "status": "accepted",
+      "approval_batch": "batch_003",
+      "context": {
+        "species": "tilapia",
+        "system": "tank culture"
+      },
+      "source_metadata": {
+        "source_id": "srac_282",
+        "section_id": "Table 1",
+        "source_type": "extension_fact_sheet",
+        "source_tier": "tier_1"
+      },
+      "review_metadata": {
+        "source_gate": "trusted",
+        "source_gate_reason": "SRAC 282.",
+        "confidence_reason": "NCRAC 114 (NRC 1993, 28 C) and FAO AFFRIS Table 26b agree above 100 g.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "srac_282",
+            "ncrac_114",
+            "fao_affris_table_26"
+          ]
+        },
+        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/species/fish/tilapia.json, growth_feed_model)",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-26",
+          "scope": "truth FISH_0002 (D1: Tier 1-2, medium or high, corroborated)",
+          "record": "Approval Batch 003, approved as recommended (thread message 2026-11-26 05:54 Europe/Amsterdam)"
+        }
+      },
+      "added_date_local": "2026-11-26"
+    },
+    {
+      "fact_id": "FISH_0003",
+      "statement": "Tilapia stop feeding below about 17 C (63 F).",
+      "domain": "biology",
+      "type": "threshold",
+      "confidence": "high",
+      "status": "accepted",
+      "approval_batch": "batch_003",
+      "context": {
+        "species": "tilapia"
+      },
+      "source_metadata": {
+        "source_id": "srac_283",
+        "section_id": "text",
+        "source_type": "extension_fact_sheet",
+        "source_tier": "tier_1"
+      },
+      "review_metadata": {
+        "source_gate": "trusted",
+        "source_gate_reason": "SRAC 283 and FAO TP 589.",
+        "confidence_reason": "Two Tier 1 sources agree (17.2 and 17 C); a pond bioenergetic model uses 18.7 C.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "srac_283",
+            "fao_tp_589",
+            "fao_w5268e"
+          ]
+        },
+        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/species/fish/tilapia.json, growth_feed_model)",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-26",
+          "scope": "truth FISH_0003 (D1: Tier 1-2, medium or high, corroborated)",
+          "record": "Approval Batch 003, approved as recommended (thread message 2026-11-26 05:54 Europe/Amsterdam)"
+        }
+      },
+      "added_date_local": "2026-11-26"
+    },
+    {
+      "fact_id": "FISH_0004",
+      "statement": "Tilapia growth at the optimum temperature is typically about three times that at 22 C (72 F).",
+      "domain": "biology",
+      "type": "parameter",
+      "confidence": "medium",
+      "status": "accepted",
+      "approval_batch": "batch_003",
+      "context": {
+        "species": "tilapia, all-male"
+      },
+      "source_metadata": {
+        "source_id": "srac_283",
+        "section_id": "text",
+        "source_type": "extension_fact_sheet",
+        "source_tier": "tier_1"
+      },
+      "review_metadata": {
+        "source_gate": "trusted",
+        "source_gate_reason": "SRAC 283.",
+        "confidence_reason": "A 2022 review gives about 30 percent of maximum at 20 to 22 C (secondary citation).",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "srac_283",
+            "abd_el_hack_2022"
+          ]
+        },
+        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/species/fish/tilapia.json, growth_feed_model)",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-26",
+          "scope": "truth FISH_0004 (D1: Tier 1-2, medium or high, corroborated)",
+          "record": "Approval Batch 003, approved as recommended (thread message 2026-11-26 05:54 Europe/Amsterdam)"
+        }
+      },
+      "added_date_local": "2026-11-26"
+    },
+    {
+      "fact_id": "FISH_0005",
+      "statement": "Optimum tilapia growth temperature is reported as 27 to 29 C (SRAC 282), 27 to 30 C (FAO TP 589) and 29 to 31 C (SRAC 283); acceptable growth 25 to 32 C.",
+      "domain": "biology",
+      "type": "parameter",
+      "confidence": "medium",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "approval_batch": "pending_batch_003",
+      "context": {
+        "species": "tilapia"
+      },
+      "source_metadata": {
+        "source_id": "srac_282",
+        "section_id": "text",
+        "source_type": "extension_fact_sheet",
+        "source_tier": "tier_1"
+      },
+      "review_metadata": {
+        "source_gate": "trusted",
+        "source_gate_reason": "SRAC and FAO.",
+        "confidence_reason": "Sources overlap at 27 to 30 but differ at the top; kept as a context split.",
+        "corroboration": {
+          "status": "conflicting",
+          "source_ids": [
+            "srac_282",
+            "fao_tp_589",
+            "srac_283"
+          ],
+          "note": "FAO CASIP 'preferred' 31 to 36 C is a behavioural preference, not a growth optimum."
+        },
+        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/species/fish/tilapia.json, growth_feed_model)"
+      },
+      "added_date_local": "2026-11-26"
+    },
+    {
+      "fact_id": "FISH_0006",
+      "statement": "In the UVI aquaponic system, all-male Nile tilapia grew from 79 g to 814 g in 24 weeks (4.4 g/day, FCR 1.7, 98 percent survival) at 77 fish per m3, harvesting 61.5 kg/m3 per tank, about 4.16 t a year from four 7.8 m3 tanks.",
+      "domain": "biology",
+      "type": "parameter",
+      "confidence": "high",
+      "status": "accepted",
+      "approval_batch": "batch_003",
+      "context": {
+        "species": "Nile tilapia, all-male",
+        "system": "UVI aquaponics, 24 to 29 C"
+      },
+      "source_metadata": {
+        "source_id": "uvi_ista6_rakocy_2004",
+        "section_id": "Table 1",
+        "source_type": "conference_proceedings",
+        "source_tier": "tier_2"
+      },
+      "review_metadata": {
+        "source_gate": "trusted",
+        "source_gate_reason": "UVI developers' measured data.",
+        "confidence_reason": "Mean of 20 harvests; reproduced in SRAC 454 Table 1. The 5 t/yr design target is a different figure.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "uvi_ista6_rakocy_2004",
+            "srac_454"
+          ]
+        },
+        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/species/fish/tilapia.json, growth_feed_model)",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-26",
+          "scope": "truth FISH_0006 (D1: Tier 1-2, medium or high, corroborated)",
+          "record": "Approval Batch 003, approved as recommended (thread message 2026-11-26 05:54 Europe/Amsterdam)"
+        }
+      },
+      "added_date_local": "2026-11-26"
+    },
+    {
+      "fact_id": "FISH_0007",
+      "statement": "UVI fed its tilapia a complete floating pellet with 32 percent protein, ad libitum over 30 minutes, three times a day.",
+      "domain": "biology",
+      "type": "parameter",
+      "confidence": "high",
+      "status": "accepted",
+      "approval_batch": "batch_003",
+      "context": {
+        "system": "UVI aquaponics"
+      },
+      "source_metadata": {
+        "source_id": "uvi_ista6_rakocy_2004",
+        "section_id": "methods",
+        "source_type": "conference_proceedings",
+        "source_tier": "tier_2"
+      },
+      "review_metadata": {
+        "source_gate": "trusted",
+        "source_gate_reason": "UVI developers.",
+        "confidence_reason": "SRAC 282 (32 to 40 percent finishing feed) and NCRAC 114 (28 to 32 percent above 40 g) agree.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "uvi_ista6_rakocy_2004",
+            "uvi_design_operation",
+            "srac_282",
+            "ncrac_114"
+          ]
+        },
+        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/species/fish/tilapia.json, growth_feed_model)",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-26",
+          "scope": "truth FISH_0007 (D1: Tier 1-2, medium or high, corroborated)",
+          "record": "Approval Batch 003, approved as recommended (thread message 2026-11-26 05:54 Europe/Amsterdam)"
+        }
+      },
+      "added_date_local": "2026-11-26"
+    },
+    {
+      "fact_id": "FISH_0008",
+      "statement": "No thermal growth coefficient or specific growth rate for Nile tilapia, and no FCR by fish size, was found in Tier 1 or 2 sources that could be opened.",
+      "domain": "biology",
+      "type": "gap",
+      "confidence": "medium",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "approval_batch": "pending_batch_003",
+      "context": {
+        "species": "Nile tilapia"
+      },
+      "source_metadata": {
+        "source_id": "none",
+        "section_id": "search 2026-11-26",
+        "source_type": "gap_record",
+        "source_tier": "tier_3"
+      },
+      "review_metadata": {
+        "source_gate": "conditional",
+        "source_gate_reason": "Absence from a targeted search.",
+        "confidence_reason": "Candidate papers (Azaza et al. 2008) were behind bot checks.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": []
+        },
+        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/species/fish/tilapia.json, growth_feed_model)"
+      },
+      "added_date_local": "2026-11-26"
+    },
+    {
+      "fact_id": "FISH_0009",
+      "statement": "Nile tilapia (three strains, 1.4 to 1.9 g start, 120 days) grew with an exponential rate constant of 0.0259 to 0.0285 per day at 22 C, against 0.0390 to 0.0419 at 28 C and 0.0374 to 0.0431 at 30 C.",
+      "domain": "biology",
+      "type": "parameter",
+      "confidence": "medium",
+      "status": "accepted",
+      "approval_batch": "batch_003",
+      "context": {
+        "species": "Nile tilapia, Red, GIFT and Supreme strains",
+        "system": "constant-temperature tanks"
+      },
+      "source_metadata": {
+        "source_id": "santos_mareco_silva_2013",
+        "section_id": "Tables 2-3",
+        "source_type": "peer_reviewed_journal",
+        "source_tier": "tier_2"
+      },
+      "review_metadata": {
+        "source_gate": "trusted",
+        "source_gate_reason": "Peer-reviewed measured trial.",
+        "confidence_reason": "Direct table values; consistent in direction with Likongwe 1996 and Workagegn 2014; Azaza 2008 numbers not obtained.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "santos_mareco_silva_2013",
+            "likongwe_1996",
+            "workagegn_2014"
+          ]
+        },
+        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/species/*/ model blocks)",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-26",
+          "scope": "truth FISH_0009 (F1: Tier 1-2, medium or high, corroborated)",
+          "record": "Approval Batch 003, approved as recommended (thread message 2026-11-26 05:54 Europe/Amsterdam)"
+        }
+      },
+      "added_date_local": "2026-11-26"
+    }
+  ]
+}

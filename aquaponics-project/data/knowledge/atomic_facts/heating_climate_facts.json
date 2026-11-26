@@ -1,0 +1,361 @@
+{
+  "description": "Atomic facts on greenhouse climate normals, heat loss and heating/cooling energy, added 2026-11-26 for the Heating and climate checkpoint. Candidates until Ajit approves them (Batch 003). Reliability recorded per AGENTS.md 6A.",
+  "facts": [
+    {
+      "fact_id": "HEAT_0001",
+      "statement": "De Bilt (KNMI station 260) 1991-2020 normals: mean temperature 10.5 C for the year, 3.6 C in January and 18.3 C in July; global radiation about 3,648 MJ/m2 per year (364.8 kJ/cm2), from 54 MJ/m2 in December to 553 in July.",
+      "domain": "environment",
+      "type": "parameter",
+      "confidence": "high",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "approval_batch": "pending_batch_003",
+      "context": {
+        "location": "De Bilt, Netherlands",
+        "period": "1991-2020"
+      },
+      "source_metadata": {
+        "source_id": "knmi_klimtab_9120_260",
+        "section_id": "monthly table",
+        "source_type": "national_meteorological_service_normals",
+        "source_tier": "tier_1"
+      },
+      "review_metadata": {
+        "source_gate": "trusted",
+        "source_gate_reason": "Official KNMI normals.",
+        "confidence_reason": "Direct read; radiation column matched by position because PDF headers were garbled, totals fit.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "knmi_klimtab_9120_260"
+          ]
+        },
+        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/models/greenhouse_heat_models.json)"
+      },
+      "added_date_local": "2026-11-26"
+    },
+    {
+      "fact_id": "HEAT_0002",
+      "statement": "Bengaluru city (IMD 43295) 1991-2020 normals: mean daily maximum 26.9 C (December) to 34.1 C (April); mean daily minimum 16.1 C (January) to 22.1 C (April).",
+      "domain": "environment",
+      "type": "parameter",
+      "confidence": "high",
+      "status": "accepted",
+      "approval_batch": "batch_003",
+      "context": {
+        "location": "Bengaluru, Karnataka, India",
+        "period": "1991-2020"
+      },
+      "source_metadata": {
+        "source_id": "imd_bengaluru_climatological_table_1991_2020",
+        "section_id": "climatological table",
+        "source_type": "national_meteorological_service_normals",
+        "source_tier": "tier_1"
+      },
+      "review_metadata": {
+        "source_gate": "trusted",
+        "source_gate_reason": "Official IMD table.",
+        "confidence_reason": "Direct read; reproduced exactly by a Wikipedia template citing IMD.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "imd_bengaluru_climatological_table_1991_2020",
+            "wikipedia_bengaluru_weather_box_mirror"
+          ]
+        },
+        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/models/greenhouse_heat_models.json)",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-26",
+          "scope": "truth HEAT_0002 (C1: Tier 1-2, medium or high, corroborated)",
+          "record": "Approval Batch 003, approved as recommended (thread message 2026-11-26 05:54 Europe/Amsterdam)"
+        }
+      },
+      "added_date_local": "2026-11-26"
+    },
+    {
+      "fact_id": "HEAT_0003",
+      "statement": "Bengaluru record lows since 1901 fall below 10 C in January (7.8), February (9.4), November (9.6) and December (8.9).",
+      "domain": "environment",
+      "type": "parameter",
+      "confidence": "low",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "approval_batch": "pending_batch_003",
+      "context": {
+        "location": "Bengaluru, Karnataka, India",
+        "period": "1901-present"
+      },
+      "source_metadata": {
+        "source_id": "wikipedia_bengaluru_weather_box_mirror",
+        "section_id": "weather box",
+        "source_type": "encyclopedia_mirror",
+        "source_tier": "tier_3"
+      },
+      "review_metadata": {
+        "source_gate": "conditional",
+        "source_gate_reason": "Tertiary mirror citing IMD; not checked against an IMD extremes document.",
+        "confidence_reason": "Single tertiary source.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "wikipedia_bengaluru_weather_box_mirror"
+          ]
+        },
+        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/models/greenhouse_heat_models.json)"
+      },
+      "added_date_local": "2026-11-26"
+    },
+    {
+      "fact_id": "HEAT_0004",
+      "statement": "Greenhouse cover heat-loss coefficients (W/m2 K): single glass about 6.2 (ASABE) to 7-8 (NSW DPI); single plastic film 6.2 to 8.5; double polyethylene about 4.0 (4.0 to 5.0); single glass with a closed, well-sealed thermal blanket 4.0.",
+      "domain": "environment",
+      "type": "parameter",
+      "confidence": "medium",
+      "status": "accepted",
+      "approval_batch": "batch_003",
+      "context": {
+        "structure": "greenhouse covers, generic"
+      },
+      "source_metadata": {
+        "source_id": "asabe_ep406_4",
+        "section_id": "Table 1",
+        "source_type": "engineering_standard",
+        "source_tier": "tier_1"
+      },
+      "review_metadata": {
+        "source_gate": "trusted",
+        "source_gate_reason": "ASABE engineering practice, with government and extension corroboration.",
+        "confidence_reason": "Double PE agrees across three sources; single glass and film differ (6.2 vs 7 to 8.5), kept as ranges. Read through fetch summaries.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "asabe_ep406_4",
+            "nsw_dpi_heating_greenhouses",
+            "vt_spes_821"
+          ]
+        },
+        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/models/greenhouse_heat_models.json)",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-26",
+          "scope": "truth HEAT_0004 (C1: Tier 1-2, medium or high, corroborated)",
+          "record": "Approval Batch 003, approved as recommended (thread message 2026-11-26 05:54 Europe/Amsterdam)"
+        }
+      },
+      "added_date_local": "2026-11-26"
+    },
+    {
+      "fact_id": "HEAT_0005",
+      "statement": "One Dutch natural-gas equivalent (m3 a.e.) is defined as 31.65 MJ on a lower heating value basis.",
+      "domain": "environment",
+      "type": "definition",
+      "confidence": "high",
+      "status": "accepted",
+      "approval_batch": "batch_003",
+      "context": {
+        "region": "Netherlands"
+      },
+      "source_metadata": {
+        "source_id": "iplo_aardgasequivalenten",
+        "section_id": "Tabel aardgasequivalenten",
+        "source_type": "government_reference_table",
+        "source_tier": "tier_1"
+      },
+      "review_metadata": {
+        "source_gate": "trusted",
+        "source_gate_reason": "Dutch government definition.",
+        "confidence_reason": "Definition; KEMA 2012 figures (381.5 MJ = 12.0 m3 a.e.) match.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "iplo_aardgasequivalenten",
+            "kema_2012_edepot_289335"
+          ]
+        },
+        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/models/greenhouse_heat_models.json)",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-26",
+          "scope": "truth HEAT_0005 (C1: Tier 1-2, medium or high, corroborated)",
+          "record": "Approval Batch 003, approved as recommended (thread message 2026-11-26 05:54 Europe/Amsterdam)"
+        }
+      },
+      "added_date_local": "2026-11-26"
+    },
+    {
+      "fact_id": "HEAT_0006",
+      "statement": "A greenhouse gas boiler without a flue-gas condenser uses about 84 percent of the gas heat; with a condenser 89 to 92 percent.",
+      "domain": "environment",
+      "type": "parameter",
+      "confidence": "low",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "approval_batch": "pending_batch_003",
+      "context": {
+        "region": "Netherlands",
+        "year": "1999"
+      },
+      "source_metadata": {
+        "source_id": "lei_1999_2_99_02",
+        "section_id": "summary",
+        "source_type": "university_economics_institute_report",
+        "source_tier": "tier_2"
+      },
+      "review_metadata": {
+        "source_gate": "conditional",
+        "source_gate_reason": "LEI/WUR report from 1999.",
+        "confidence_reason": "Single source, over 25 years old.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "lei_1999_2_99_02"
+          ]
+        },
+        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/models/greenhouse_heat_models.json)"
+      },
+      "added_date_local": "2026-11-26"
+    },
+    {
+      "fact_id": "HEAT_0007",
+      "statement": "KEMA (2012) modelled heat demand for a 2 ha Venlo greenhouse: radish at 12 C day / 8 C night 381.5 MJ/m2/yr (12.0 m3 a.e.); cold pot plant at 15/13 C with screen 682.4 MJ/m2/yr (21.5 m3 a.e.).",
+      "domain": "environment",
+      "type": "parameter",
+      "confidence": "medium",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "approval_batch": "pending_batch_003",
+      "context": {
+        "region": "Netherlands",
+        "structure": "Venlo glasshouse, 2 ha",
+        "crop": "radish; cold pot plant"
+      },
+      "source_metadata": {
+        "source_id": "kema_2012_edepot_289335",
+        "section_id": "results",
+        "source_type": "research_consultancy_report_for_sector_programme",
+        "source_tier": "tier_2"
+      },
+      "review_metadata": {
+        "source_gate": "conditional",
+        "source_gate_reason": "Modelled, not measured; consultancy report hosted by WUR.",
+        "confidence_reason": "Stated setpoints and house; not herbs; conflicts with KEMA 2009 (contradiction ticket UQ-012).",
+        "corroboration": {
+          "status": "conflicting",
+          "source_ids": [
+            "kema_2012_edepot_289335",
+            "kema_2009_edepot_289333"
+          ],
+          "note": "KEMA 2009 radish at the same setpoints: about 5.4 m3 a.e./m2/yr."
+        },
+        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/models/greenhouse_heat_models.json)"
+      },
+      "added_date_local": "2026-11-26"
+    },
+    {
+      "fact_id": "HEAT_0008",
+      "statement": "No published Dutch heat demand for basil or herbs was found (KWIN, Kas als Energiebron, WUR edepot searched); the only basil temperature found is a 24 C climate-cell trial (Delphy/WUR 2020).",
+      "domain": "environment",
+      "type": "gap",
+      "confidence": "medium",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "approval_batch": "pending_batch_003",
+      "context": {
+        "region": "Netherlands",
+        "crop": "basil"
+      },
+      "source_metadata": {
+        "source_id": "delphy_wur_2020_edepot_565382",
+        "section_id": "method",
+        "source_type": "applied_research_trial_report",
+        "source_tier": "tier_2"
+      },
+      "review_metadata": {
+        "source_gate": "conditional",
+        "source_gate_reason": "Trial report; a climate-cell condition, not a commercial setpoint.",
+        "confidence_reason": "Absence of evidence from a targeted search, not proof none exists.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "delphy_wur_2020_edepot_565382"
+          ]
+        },
+        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/models/greenhouse_heat_models.json)"
+      },
+      "added_date_local": "2026-11-26"
+    },
+    {
+      "fact_id": "HEAT_0009",
+      "statement": "Naturally ventilated polyhouses in India typically have no heating or cooling devices; cooling is by opening side film, sprinkling and shade nets (ICAR, Bundelkhand). Fan-pad cooling is an optional item in NABARD's model project.",
+      "domain": "environment",
+      "type": "guidance",
+      "confidence": "medium",
+      "status": "accepted",
+      "approval_batch": "batch_003",
+      "context": {
+        "region": "India (Uttar Pradesh; Kerala)",
+        "structure": "naturally ventilated polyhouse"
+      },
+      "source_metadata": {
+        "source_id": "icar_indian_horticulture_singh_2022",
+        "section_id": "article",
+        "source_type": "government_research_council_magazine",
+        "source_tier": "tier_1"
+      },
+      "review_metadata": {
+        "source_gate": "conditional",
+        "source_gate_reason": "ICAR magazine article; not Karnataka.",
+        "confidence_reason": "Two Indian institutional sources agree; neither is Karnataka.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "icar_indian_horticulture_singh_2022",
+            "nabard_kerala_hitech_2015"
+          ]
+        },
+        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/models/greenhouse_heat_models.json)",
+        "approval": {
+          "approved_by": "Ajit",
+          "approved_date_local": "2026-11-26",
+          "scope": "truth HEAT_0009 (C1: Tier 1-2, medium or high, corroborated)",
+          "record": "Approval Batch 003, approved as recommended (thread message 2026-11-26 05:54 Europe/Amsterdam)"
+        }
+      },
+      "added_date_local": "2026-11-26"
+    },
+    {
+      "fact_id": "HEAT_0010",
+      "statement": "A fan-pad cooled 120 m2 polyhouse in semi-arid North-West India would use about 15 to 18 kWh per day.",
+      "domain": "environment",
+      "type": "parameter",
+      "confidence": "low",
+      "status": "provisional",
+      "provisional_reason": "candidate_pending_user_review",
+      "approval_batch": "pending_batch_003",
+      "context": {
+        "region": "North-West India (not Karnataka)",
+        "structure": "fan-pad polyhouse, 120 m2"
+      },
+      "source_metadata": {
+        "source_id": "iima_2009_11_04_sharan",
+        "section_id": "working paper",
+        "source_type": "business_school_working_paper",
+        "source_tier": "tier_3"
+      },
+      "review_metadata": {
+        "source_gate": "conditional",
+        "source_gate_reason": "Working paper, not peer reviewed; wrong region.",
+        "confidence_reason": "Single source; text near the figure appears garbled.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "iima_2009_11_04_sharan"
+          ]
+        },
+        "reviewed_from_file": "web reads 2026-11-26 (URLs in data/knowledge/models/greenhouse_heat_models.json)"
+      },
+      "added_date_local": "2026-11-26"
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "label": "Swaps: tilapia + basil, 100 m2, Karnataka polyhouse: architecture, heating and part swaps side by side",
+  "_how_to_edit": "Each option is a patch on the base build (dicts merge, lists and values replace). Part alternatives from the catalog are added automatically (include_component_alternatives).",
+  "swaps": {
+    "base": {
+      "build_id": "basil_dwc_karnataka_100m2",
+      "region": "india",
+      "location": "karnataka",
+      "_location": "Wage and electricity come from data/scenarios/unit_configuration_candidates_v0.json (locations block).",
+      "fish": "tilapia",
+      "plant": "basil",
+      "grow_architecture": "dwc_raft",
+      "target": {
+        "grow_area_m2": 100
+      },
+      "_target": "Or {\"plant_output_kg_per_year\": 2500}.",
+      "components": {
+        "fish_tank": "fish_tank_pvc_biofloc_5000l_in",
+        "grow_unit": [
+          "dwc_liner_hdpe_in",
+          "dwc_raft_eps_40mm_in",
+          "dwc_trough_walls_in"
+        ],
+        "water_pump": "pump_submersible_0_5hp_in",
+        "aeration": "air_blower_1_5kw_in",
+        "solids_filter": "settling_tank_pvc_5000l_in",
+        "biofilter": null,
+        "structure": "structure_polyhouse_nvph_in"
+      },
+      "structure_area_basis": "planning_area_m2_uvi_ratio",
+      "_structure_area_basis": "planning_area_m2_uvi_ratio (grow area x UVI land ratio) or minimum_area_m2 (grow area + equipment footprint).",
+      "heating": {
+        "enabled": false
+      },
+      "labour_regime": "owner_operated_uncosted",
+      "_labour_regime": "uvi_whole_system_hired | hawaii_lean_hired | purdue_per_kg_hired | owner_operated_uncosted",
+      "design_overrides": {},
+      "species_overrides": {
+        "plant": {},
+        "fish": {}
+      },
+      "running_overrides": {
+        "_examples": "\"basil_seed_price_each\": 1.0, \"water_price_per_m3\": 0, \"electricity_per_kwh\": 6, \"wage_per_hour\": 80"
+      }
+    },
+    "include_component_alternatives": true,
+    "options": [
+      {
+        "swap_id": "arch_media_bed",
+        "kind": "architecture",
+        "label": "Media bed instead of DWC raft (no India media price in the catalog yet)",
+        "patch": {
+          "grow_architecture": "media_bed",
+          "components": {
+            "grow_unit": [],
+            "biofilter": "biofilter_mbbr_media_in"
+          }
+        },
+        "note": "Configurator still adds an MBBR biofilter for media beds (media nitrification not credited). No sourced media-bed yield.",
+        "confidence": "low",
+        "confidence_reason": "Feed and fish fall to 25% of the raft rate on one SRAC sentence (low confidence); no sourced media-bed basil yield; clay lifetime and bed container not sourced.",
+        "risk": "Beds clog with solids and need labour-intensive washing (FAO 589); the media doubles as solids filter and biofilter in small systems.",
+        "labour": "Washing clogged media; no raft handling."
+      },
+      {
+        "swap_id": "arch_nft",
+        "kind": "architecture",
+        "label": "NFT with uPVC channels instead of DWC raft",
+        "patch": {
+          "grow_architecture": "nft",
+          "components": {
+            "grow_unit": [
+              "nft_channel_upvc_100x50_in"
+            ],
+            "biofilter": "biofilter_mbbr_media_in"
+          }
+        },
+        "note": "Yield = DWC yield x 0.83-0.95 (Blunk 2023, Pasch 2021; candidate). Channel metres per m2 not sourced, so channel cost is a gap.",
+        "confidence": "low",
+        "confidence_reason": "NFT yield is 0.83-0.95 of raft from two studies that disagree on size (pending Batch 003); fish feed at 25% of the raft rate is a low-confidence rule; channels and biofilter not fully priced.",
+        "risk": "Most sensitive to pump stops: a thin film dries out within hours, while a raft holds water. Needs fine solids removal and a separate biofilter.",
+        "labour": "Channels need flushing and root clearing after each crop."
+      },
+      {
+        "swap_id": "structure_fan_pad",
+        "kind": "component",
+        "label": "Fan-and-pad polyhouse instead of naturally ventilated (MIDH 2025 norm)",
+        "patch": {
+          "components": {
+            "structure": "structure_polyhouse_fan_pad_in"
+          }
+        },
+        "note": "Lifetime and fan/pad electricity not sourced, so the annual cost is understated.",
+        "confidence": "low",
+        "confidence_reason": "MIDH 2025 norm price (Tier 1, a subsidy ceiling), but lifetime and fan/pad electricity are not sourced, so the cost change has the wrong sign until they are.",
+        "risk": "Cooler in summer; a power cut stops the cooling.",
+        "labour": "Pads need cleaning and replacing; fans need servicing."
+      }
+    ]
+  }
+}

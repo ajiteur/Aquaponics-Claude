@@ -32,6 +32,25 @@ The Gatekeeper checks every PR for these before giving a merge verdict:
 
 ## Log
 
+### save-point-003 (2026-11-26)
+
+- **Commit:** the merge commit of PR #28 on `main`. PR #28 carries PRs #29 and #30 and records Approval Batches 002 and 003.
+- **What it holds:** heating and climate, fish growth and feed, the published-farm validation check (6 of 12 metrics still more than 25% off), component swaps with a trade-off report, and market tags on every price. The tracker is at 13 of 16.
+- **Checks:** on the PR head: tests, `check_mvp_integrity.py --quick`, runtime sync dry run, vault export dry run (see the PR).
+- **Open at this point:** UQ-015 (gravel-bed N balance), basil yield vs light at low DLI, 14 market-tag flags, the 3 component checkpoints, and all models are still candidates.
+
+### save-point-002 (2026-11-26)
+
+- **Tag note:** `save-point-002` was pushed on `1e486a8` (main after PR #27), before PR #28 merged. That commit is green, but it doesn't have the Batch 002 approvals.
+
+- **Commit:** the merge commit of PR #28 on `main`, after PRs #20 to #28 and Approval Batch 002.
+- **What it holds:**
+  - Nitrate sinks: water exchange (approved) and a calibrated residual loss (candidate). Nitrate holds near 43 mg/L at the UVI feed ratio.
+  - The P1 equipment research (51 candidates, 12 approved for scenario use) and the MIDH 2025 India structure norms.
+  - The Simulation Progress Tracker (6 of 16 checkpoints).
+- **Checks:** to be confirmed on the merge commit: tests, `check_mvp_integrity.py --quick`, runtime sync dry run and vault export dry run.
+- **Open at this point:** the residual nitrate loss and 39 equipment values stay candidates; heating, fish growth and validation are not modelled; state subsidy top-ups are not read.
+
 ### save-point-001 (2026-11-25)
 
 - **Commit:** `07ce825` on `main`, after PRs #1 to #19 and Approval Batch 001.

@@ -37,7 +37,21 @@
         "favourable": {"enum": ["low", "high"], "description": "Which end lowers cost per kg. Omitted = neutral design value (midpoint used unless overridden)."},
         "source_ids": {"type": "array", "items": {"type": "string"}},
         "derivation": {"type": "string"},
-        "price_basis": {"type": "string"}
+        "price_basis": {"type": "string"},
+        "market": {"$ref": "#/$defs/market"}
+      }
+    },
+    "market": {
+      "type": "object",
+      "description": "Ties a price to its market. Checked by scripts/configure_system.py (market_check) and scripts/audit_market_tags.py. A new country needs only new rows with its own region and currency.",
+      "required": ["region", "currency_code", "price_year", "price_year_basis"],
+      "properties": {
+        "region": {"type": "string"},
+        "currency_code": {"type": ["string", "null"], "description": "ISO 4217 code; null only for not_a_price."},
+        "price_year": {"type": ["object", "null"], "properties": {"low": {"type": ["integer", "null"]}, "high": {"type": ["integer", "null"]}}},
+        "price_year_basis": {"enum": ["stated_in_source", "retail_listing_read_date", "not_recorded", "not_a_price"]},
+        "place": {"type": "string", "description": "Set when the price comes from one city or utility but is used for the whole region."},
+        "note": {"type": "string"}
       }
     },
     "reliability": {
@@ -112,7 +126,9 @@
         "region": {"type": "string"},
         "unit": {"type": "string"},
         "value": {"$ref": "#/$defs/range"},
-        "favourable": {"enum": ["low", "high"]}
+        "favourable": {"enum": ["low", "high"]},
+        "currency_code": {"type": ["string", "null"]},
+        "market": {"$ref": "#/$defs/market"}
       }
     },
     "labour_regime": {

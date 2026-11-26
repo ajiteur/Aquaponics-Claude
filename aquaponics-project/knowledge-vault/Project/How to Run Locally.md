@@ -22,6 +22,7 @@ From `aquaponics-project`:
 | Basil crop cycle + Netherlands vs India economics | `.\run.bat basil_nl_vs_india` |
 | Economics for all-India and the four southern states | `.\run.bat india_states` |
 | Configurator: build a system from parts, cost per kg (NL / Karnataka) | `.\run.bat configure_basil_dwc_nl` or `.\run.bat configure_basil_dwc_karnataka` |
+| Swaps: architecture, heating and part swaps side by side (NL / Karnataka) | `.\run.bat swaps_basil_nl` or `.\run.bat swaps_basil_karnataka` |
 | Health check | `python scripts/check_mvp_integrity.py --quick` then `python -m unittest discover -s tests` |
 
 `run.bat` picks `.venv` if it exists, else the real Python path above, else `python`.
