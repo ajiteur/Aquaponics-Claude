@@ -71,7 +71,7 @@
             "biofilter": "biofilter_mbbr_media_in"
           }
         },
-        "note": "No sourced NFT channel metres per m2 or NFT yield, so channel cost and cost per kg are gaps."
+        "note": "Yield = DWC yield x 0.83-0.95 (Blunk 2023, Pasch 2021; candidate). Channel metres per m2 not sourced, so channel cost is a gap."
       },
       {
         "swap_id": "structure_fan_pad",

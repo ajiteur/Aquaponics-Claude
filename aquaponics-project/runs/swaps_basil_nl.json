@@ -48,26 +48,31 @@
       {
         "swap_id": "arch_media_bed",
         "kind": "architecture",
-        "label": "Media bed instead of DWC raft (no NL media price in the catalog yet)",
+        "label": "Media bed with expanded clay instead of DWC raft",
         "patch": {
           "grow_architecture": "media_bed",
           "components": {
-            "grow_unit": []
+            "grow_unit": [
+              "media_expanded_clay_nl"
+            ]
           }
         },
-        "note": "Fish and feed drop to 25% of the raft rate (SRAC 454 factor, low confidence). No sourced media-bed yield, so cost per kg is n/a."
+        "note": "Fish and feed drop to 25% of the raft rate (SRAC 454 factor, low confidence). No sourced media-bed basil yield, so cost per kg is n/a; bed container not priced."
       },
       {
         "swap_id": "arch_nft",
         "kind": "architecture",
-        "label": "NFT instead of DWC raft (no NL NFT channel price in the catalog yet)",
+        "label": "NFT with uPVC channels instead of DWC raft",
         "patch": {
           "grow_architecture": "nft",
           "components": {
-            "grow_unit": []
+            "grow_unit": [
+              "nft_channel_upvc_100x80_nl"
+            ],
+            "biofilter": null
           }
         },
-        "note": "No sourced NFT yield or channel layout, so cost per kg is n/a."
+        "note": "Yield = DWC yield x 0.83-0.95 (Blunk 2023, Pasch 2021; candidate). Channel metres per m2 not sourced, so channel cost is a gap. No NL biofilter media price, so the separate biofilter NFT needs is a gap too."
       },
       {
         "swap_id": "heat_pump",

@@ -20,6 +20,13 @@ Run: `python src/heat_demand.py` (results in `data/simulation/results/greenhouse
 - **Karnataka needs no heating at 10 to 15 °C setpoints on mean nights.** Holding 24 to 26 °C at night would take about 74 to 252 kWh of heat per m² per year. Record lows went below basil's 10 °C chilling line in November to February, so cold-night protection may matter (low confidence: tertiary source).
 - **Karnataka cooling is the larger question.** Outdoor air is above basil's preferred 27.5 °C for about 2,300 hours a year and above its tolerated 31 °C for about 600. Fan-pad cooling would use about 46 to 55 kWh per m² per year if run every day (low confidence: one North-West India source). At Karnataka's Batch 001 power rate (₹3.45 to ₹7.10 per kWh, low confidence, fixed charges excluded) that is about ₹157 to ₹389 per m² per year.
 
+## 2026-11-26: Swaps checkpoint, NFT yield and Dutch NFT and media prices (scenario estimate, not validated)
+
+Run: `run.bat swaps_basil_nl` and `run.bat swaps_basil_karnataka` again, after adding a sourced NFT-to-raft basil yield ratio of 0.83 to 0.95 (Blunk 2023, Pasch 2021) and Dutch prices for NFT channels (€16.75 to €18.61 per m) and expanded clay (€188 to €440 per m³). All are candidates pending Batch 003.
+
+- **NFT now has a cost per kg: NL €4.42 / 5.89 / 7.73, Karnataka ₹50.81 / 72.37 / 99.00** (low / mid / high), against €10.04 and ₹133.49 mid for the raft. That is still not like-for-like (*). Channel metres per m² aren't sourced, so the channels are unpriced, and in NL the separate biofilter NFT needs has no price. Most of the drop comes from fish feed at 25% of the raft rate (SRAC 454, low confidence) and no raft aeration, so this is the least reliable swap in the table.
+- **Media bed still has no cost per kg.** Knaus 2020 found no significant weight difference between gravel, raft and grow pipes, but its numbers sit in a table image that couldn't be read. A non-significant difference isn't turned into a ratio. With clay media the NL media bed costs €130 per m² per year mid, against €243 for the raft, before the clay's lifetime and the bed container, which are both gaps.
+
 ## 2026-11-26: Swaps checkpoint, side-by-side part swaps (scenario estimate, not validated)
 
 Run: `run.bat swaps_basil_nl` and `run.bat swaps_basil_karnataka` (`scripts/compare_swaps.py`). Base: 100 m² tilapia + basil DWC raft, owner labour, mid case. Each row is the change against the base. A (*) means the swap opens cost gaps, so some of its costs are left out and the change is not like-for-like. New values are candidates pending Batch 003.

@@ -256,6 +256,30 @@
       "url": "https://edepot.wur.nl/289335",
       "read_date": "2026-11-26",
       "source_tier": "tier_2"
+    },
+    "retail_eu_gotogarden_nft": {
+      "citation": "GoToGarden, Urban Hydro NFT channel 100x80 mm, with holes, 250 cm (retail listing)",
+      "url": "https://gotogarden.com/products/urban-hydro-nft-kanal-100x80-mm-s-dirou-2-vrstvy-cerny-uvnitr-250-cm",
+      "read_date": "2026-11-26",
+      "source_tier": "tier_3"
+    },
+    "retail_nl_hornbach_hydrokorrels": {
+      "citation": "Hornbach NL, FloraSelf hydrokorrels 40 l, 4-16 mm (retail listing)",
+      "url": "https://www.hornbach.nl/p/floraself-hydrokorrels-40-l/4632798/",
+      "read_date": "2026-11-26",
+      "source_tier": "tier_3"
+    },
+    "retail_nl_gamma_hydrokorrels": {
+      "citation": "GAMMA NL, Pokon hydrokorrels 40 L (retail listing)",
+      "url": "https://www.gamma.nl/assortiment/pokon-hydrokorrels-40-l/p/B146770",
+      "read_date": "2026-11-26",
+      "source_tier": "tier_3"
+    },
+    "retail_be_gamma_argex_bigbag": {
+      "citation": "GAMMA BE, Argex hydrokorrels big bag 4-16 mm, 1 m3 / 420 kg (retail listing)",
+      "url": "https://www.gamma.be/nl/assortiment/argex-hydrokorrels-big-bag-4-16-mm-1-m3-420-kg/p/B406740",
+      "read_date": "2026-11-26",
+      "source_tier": "tier_3"
     }
   },
   "design_rules": {
@@ -2518,6 +2542,137 @@
       "notes": [
         "From candidates_batch_002_v0.jsonl structure_polyhouse_fan_pad_midh_2025 (price approved in Batch 002 F1)."
       ]
+    },
+    {
+      "component_id": "nft_channel_upvc_100x80_nl",
+      "name": "uPVC NFT channel 100 x 80 mm, with holes (2.5 m)",
+      "category": "grow_unit",
+      "role": "channel",
+      "function": "Plant channels with a thin nutrient film.",
+      "region": "netherlands",
+      "currency_code": "EUR",
+      "status": "candidate",
+      "approval_status": "pending_batch_003",
+      "architectures": [
+        "nft"
+      ],
+      "sizing": {
+        "driver": "nft_channel_length_m",
+        "mode": "continuous",
+        "per_driver_unit": 1.0,
+        "unit_label": "m channel"
+      },
+      "capex_per_unit": {
+        "low": 16.75,
+        "high": 18.61,
+        "price_basis": "incl. VAT, excl. shipping (EUR 7-15 EU delivery under 30 kg); derived: sale EUR 41.88 and regular EUR 46.53 per 2.5 m piece; seller ships EU-wide, NL not named; read 2026-11-26",
+        "source_ids": [
+          "retail_eu_gotogarden_nft"
+        ]
+      },
+      "lifetime_years": {
+        "low": 10,
+        "high": 10,
+        "unit": "years",
+        "source_ids": [
+          "heidemann_bailey_2015_uvi_economics"
+        ],
+        "source_tier": "tier_1",
+        "source_gate": "conditional",
+        "source_gate_reason": "UVI Table 7 life for liner, rafts and hydroponic tank walls, transferred as for the India channel.",
+        "confidence": "low",
+        "confidence_reason": "Depreciation life of one raft system, not a durability test of NFT channels.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "heidemann_bailey_2015_uvi_economics"
+          ]
+        }
+      },
+      "energy": null,
+      "labour_effect": "Channels need flushing; roots cleared after each crop.",
+      "trade_offs": [
+        "Light and easy to harvest; aquaponic NFT needs fine solids removal and a separate biofilter, and is the most sensitive to pump stops.",
+        "Channel metres per m2 are not sourced yet, so the configurator cannot size this part (gap)."
+      ],
+      "occupies_floor": false,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_3",
+        "source_gate": "conditional",
+        "source_gate_reason": "Single EU retail listing (Czech seller); end caps, supports and feed lines not included.",
+        "confidence": "low",
+        "confidence_reason": "One listing, sale and regular price only.",
+        "corroboration": {
+          "status": "single_source",
+          "source_ids": [
+            "retail_eu_gotogarden_nft"
+          ]
+        }
+      }
+    },
+    {
+      "component_id": "media_expanded_clay_nl",
+      "name": "Expanded clay pebbles (hydrokorrels, 4-16 mm)",
+      "category": "grow_unit",
+      "role": "media",
+      "function": "Media-bed growing medium; also gives surface for nitrifying bacteria and traps solids.",
+      "region": "netherlands",
+      "currency_code": "EUR",
+      "status": "candidate",
+      "approval_status": "pending_batch_003",
+      "architectures": [
+        "media_bed"
+      ],
+      "sizing": {
+        "driver": "media_volume_m3",
+        "mode": "continuous",
+        "per_driver_unit": 1.0,
+        "unit_label": "m3 media"
+      },
+      "capex_per_unit": {
+        "low": 188.0,
+        "high": 440.0,
+        "price_basis": "per m3. Low: Argex 1 m3 big bag EUR 188 (gamma.be, VAT not stated, plus EUR 89.95 delivery). Middle: Hornbach NL 40 l bags EUR 12.05-12.85 incl. VAT = EUR 301-321 per m3. High: GAMMA NL Pokon 40 L EUR 17.59 = EUR 440 per m3 (store pick-up only). Read 2026-11-26.",
+        "source_ids": [
+          "retail_be_gamma_argex_bigbag",
+          "retail_nl_hornbach_hydrokorrels",
+          "retail_nl_gamma_hydrokorrels"
+        ]
+      },
+      "lifetime_years": {
+        "low": null,
+        "high": null,
+        "unit": "years",
+        "source_ids": [
+          "fao_589_farmhub"
+        ],
+        "derivation": "FAO 589 Table 4.1 lists expanded clay lifespan as 'Long' with no years, so the life stays a gap."
+      },
+      "energy": null,
+      "labour_effect": "Beds clog with solids and need washing, which is labour-intensive (FAO 589).",
+      "trade_offs": [
+        "Light and pH-neutral, but dearer than gravel; gravel was not priced in NL yet.",
+        "Hornbach FloraSelf is listed as containing peat ('turfhoudend'); check it is pure clay before use with fish.",
+        "Bed container (trough, IBC half) is not priced yet (gap)."
+      ],
+      "occupies_floor": false,
+      "footprint_m2_per_unit": null,
+      "price_reliability": {
+        "source_tier": "tier_3",
+        "source_gate": "conditional",
+        "source_gate_reason": "Three retail listings from two chains, NL and BE; VAT basis differs.",
+        "confidence": "medium",
+        "confidence_reason": "Three listings within one range; the bulk end is a Belgian site with delivery extra.",
+        "corroboration": {
+          "status": "corroborated",
+          "source_ids": [
+            "retail_be_gamma_argex_bigbag",
+            "retail_nl_hornbach_hydrokorrels",
+            "retail_nl_gamma_hydrokorrels"
+          ]
+        }
+      }
     }
   ],
   "running_inputs": [
@@ -2896,6 +3051,6 @@
     "Fish sale value and logistics/market costs (layered on later by design).",
     "Batch 002 candidates not yet wired into the configurator (see data/catalog/candidates_batch_002_v0.jsonl): NL trough-wall materials priced per m2 wall face, not per m2 grow area; NL heating installation and heat-demand references; backup power (NL, India); India state subsidy rates, tanks, pumps.",
     "India state protected-cultivation tables 2025-26: Telangana, Andhra Pradesh and Karnataka state rate tables not read (Telangana guideline could not be downloaded). National MIDH 2025 norms are in Batch 002; state top-ups beyond the 50% central share stay a gap.",
-    "Swaps (2026-11-26): no NL NFT channel, media-bed media or HDPE fish tank prices; no gas boiler price; no heat pump or fan-and-pad lifetime; fan-and-pad electricity; NFT and media-bed yields and water held in those grow units."
+    "Swaps (2026-11-26): no NFT channel metres per m2 (layout); no media-bed container price, NL gravel price or India media price; no gas boiler price, no HDPE fish tank price for NL; no heat pump, fan-and-pad or expanded clay lifetime; fan-and-pad electricity; basil media-bed yield (Knaus 2020 Table 2 not read); water held in NFT and media-bed grow units."
   ]
 }
